@@ -9,6 +9,7 @@ import numpy as np
 from shapely.geometry import Point, Polygon
 from shapely.prepared import prep
 
+from fsop.sim.skidpad import SkidpadRoute
 from fsop.sim.vehicle import VehicleParams, VehicleState
 from fsop.track.rules import RULES
 from fsop.track.schema import ConeColor, Track
@@ -53,6 +54,7 @@ class Referee:
     self.n_doo = 0
     self.n_oc = 0
     self.max_speed = 0.0
+    self.skidpad_route = SkidpadRoute(track) if track.discipline == "skidpad" else None
 
   def _course_polygon(self) -> Polygon:
     poly = track_polygon(self.track)
@@ -68,12 +70,17 @@ class Referee:
 
   # ------------------------------------------------------------------------------------------
   def update(self, st: VehicleState, mission_done: bool = False) -> list[Event]:
+    if self.done:
+      return []
     ev: list[Event] = []
     xy = np.array([st.x, st.y])
-    self.max_speed = max(self.max_speed, st.vx)
+    self.max_speed = max(self.max_speed, st.speed if self.skidpad_route is not None else st.vx)
     c, s = np.cos(st.yaw), np.sin(st.yaw)
     R = np.array([[c, -s], [s, c]])
-    if self.prev_xy is not None:
+    if self.skidpad_route is not None:
+      ev.extend(Event(t, kind, data) for t, kind, data in self.skidpad_route.advance(st))
+      self.crossings = list(self.skidpad_route.crossings)
+    elif self.prev_xy is not None:
       for line, store, kind in ((self.track.timekeeping_line, self.crossings, "line_cross"),
                                 (self.track.finish_line, self.finish_crossings, "finish_cross")):
         if line is None or (kind == "finish_cross" and self.track.finish_line == self.track.timekeeping_line):
@@ -105,26 +112,44 @@ class Referee:
       self.off = False
       ev.append(Event(st.t, "back_on_course", {}))
     # standstill / finish
-    if st.vx < 0.05:
+    if st.speed < 0.05:
       if self.stopped_since is None:
         self.stopped_since = st.t
-      if mission_done and not self.finished and st.t - self.stopped_since > 0.5:
+      if self.skidpad_route is not None:
+        route = self.skidpad_route.report()
+        if route["complete"] and route["stopped_in_zone"]:
+          self.finished = True
+          ev.append(Event(st.t, "finish", {"in_stop_zone": True}))
+          self.finish("finished")
+        elif st.t - self.stopped_since > RULES.standstill_timeout.value:
+          ev.append(Event(st.t, "dnf", {"reason": "standstill"}))
+          self.finish("dnf")
+      elif mission_done and not self.finished and st.t - self.stopped_since > 0.5:
         self.finished = True
         in_zone = self.track.stop_zone is not None and Polygon(self.track.stop_zone).buffer(0.5).contains(Point(xy))
         ev.append(Event(st.t, "finish", {"in_stop_zone": bool(in_zone)}))
-        self.done = True
-        self.result = "finished" if in_zone else "unsafe_stop"
+        self.finish("finished" if in_zone else "unsafe_stop")
       elif not mission_done and st.t - self.stopped_since > RULES.standstill_timeout.value:
         ev.append(Event(st.t, "dnf", {"reason": "standstill"}))
-        self.done, self.result = True, "dnf"
+        self.finish("dnf")
     else:
       self.stopped_since = None
+    if self.skidpad_route is not None and self.skidpad_route.violation is not None:
+      self.finish("invalid_route")
     self.events.extend(ev)
     return ev
 
   # ------------------------------------------------------------------------------------------
+  def finish(self, reason: str) -> None:
+    if not self.done:
+      self.done, self.result = True, reason
+      if self.skidpad_route is not None:
+        self.skidpad_route.finish(reason)
+
   def lap_times(self) -> list[float]:
     d = self.track.discipline
+    if self.skidpad_route is not None:
+      return [lap["duration"] for lap in self.skidpad_route.laps]
     if d == "acceleration":
       if self.crossings and self.finish_crossings:
         return [self.finish_crossings[0] - self.crossings[0]]
@@ -157,6 +182,12 @@ class Referee:
     pen = self.n_doo * doo_pen + (self.n_oc * oc_pen if oc_pen else 0)
     expected = {"trackdrive": self.track.laps, "autocross": 1, "skidpad": 4, "acceleration": 1}[d]
     complete = len(laps) >= expected
+    if self.skidpad_route is not None:
+      route = self.skidpad_route.report()
+      out["route"] = route
+      complete = route["complete"]
     out.update({"raw_time": raw, "penalty": pen, "time": (raw + pen) if raw is not None else None, "dq": dq,
                 "complete": complete, "pass": complete and not dq and self.result == "finished"})
+    if self.skidpad_route is not None:
+      out["pass"] = out["pass"] and route["exited"] and route["stopped_in_zone"] and self.n_oc == 0
     return out

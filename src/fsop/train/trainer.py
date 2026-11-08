@@ -15,7 +15,7 @@ from pathlib import Path
 
 import numpy as np
 import torch
-from torch.utils.data import DataLoader
+from torch.utils.data import DataLoader, WeightedRandomSampler
 
 from fsop.config import save_config
 from fsop.data.sim_dataset import SimDataset, collate
@@ -61,6 +61,7 @@ class TrainCfg:
   seed: int = 0
   device: str = "auto"
   max_episodes: int = 0  # >0: subsample train episodes (smoke tests)
+  episode_prefix_weights: dict[str, float] = field(default_factory=dict)
   viz_samples: int = 6
   extra: dict = field(default_factory=dict)
 
@@ -82,11 +83,19 @@ class Trainer:
       self.train_ds = SimDataset(cfg.sim_root, "train", mode, cfg.cache_tag,
                                  episodes=[e.path.name for e in self.train_ds.eps[: cfg.max_episodes]])
     self.val_ds = SimDataset(cfg.sim_root, "val", mode, cfg.cache_tag)
-    self.model = SupercomboFS(image_head=cfg.stage >= 2)
-    if cfg.init_ckpt:
-      sd = torch.load(cfg.init_ckpt, map_location="cpu", weights_only=False)["model"]
+    self.train_sampler = None
+    if cfg.episode_prefix_weights:
+      self.train_sampler = WeightedRandomSampler(
+        self.train_ds.sample_weights(cfg.episode_prefix_weights), len(self.train_ds), replacement=True,
+        generator=torch.Generator().manual_seed(cfg.seed))
+    sd = torch.load(cfg.init_ckpt, map_location="cpu", weights_only=False)["model"] if cfg.init_ckpt else None
+    image_head = cfg.stage >= 2 or (sd is not None and any(k.startswith("img.") for k in sd))
+    self.model = SupercomboFS(image_head=image_head)
+    if sd is not None:
       missing, unexpected = self.model.load_state_dict(sd, strict=False)
       print(f"init from {cfg.init_ckpt}: missing {len(missing)} unexpected {len(unexpected)}")
+    if cfg.stage == 1 and self.model.img is not None:
+      self.model.img.requires_grad_(False)
     self.model.set_trunk_trainable(cfg.trunk if cfg.stage >= 2 else "frozen")
     self.model.to(self.device)
     if cfg.channels_last:
@@ -96,7 +105,7 @@ class Trainer:
       {"params": [p for p in self.model.base.policy.parameters() if p.requires_grad], "lr": cfg.lr * cfg.lr_policy},
       {"params": list(self.model.bev.parameters()), "lr": cfg.lr},
     ]
-    if self.model.img is not None:
+    if self.model.img is not None and cfg.stage >= 2:
       groups.append({"params": list(self.model.img.parameters()), "lr": cfg.lr})
     trunk = [p for p in self.model.base.vision.parameters() if p.requires_grad]
     if trunk:
@@ -121,7 +130,9 @@ class Trainer:
 
   # ------------------------------------------------------------------------------------------
   def _loader(self, ds, shuffle: bool, bs: int | None = None):
-    return DataLoader(ds, batch_size=bs or self.cfg.batch_size, shuffle=shuffle, num_workers=self.cfg.num_workers,
+    sampler = self.train_sampler if shuffle and ds is self.train_ds else None
+    return DataLoader(ds, batch_size=bs or self.cfg.batch_size, shuffle=shuffle and sampler is None,
+                      sampler=sampler, num_workers=self.cfg.num_workers,
                       collate_fn=collate, drop_last=shuffle, persistent_workers=self.cfg.num_workers > 0,
                       pin_memory=self.cfg.pin_memory and self.device.type == "cuda",
                       prefetch_factor=4 if self.cfg.num_workers > 0 else None)

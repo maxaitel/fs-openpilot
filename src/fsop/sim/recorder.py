@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import json
 import shutil
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from pathlib import Path
 
 import numpy as np
@@ -83,7 +83,7 @@ class EpisodeWriter:
     st = obs.state
     self.states.append([obs.t, st.x, st.y, st.yaw, st.vx, st.vy, st.r, st.steer, st.accel, obs.s, obs.lat, obs.noise])
     self.plans.append(plan.astype(np.float32))
-    self.desires.append(obs.desire)
+    self.desires.append(obs.desire.copy())
     self.down.append(int(self.env.referee.down.sum()))
     self.events.extend({"t": e.t, "kind": e.kind, **e.data} for e in obs.events)
     self.T += 1
@@ -107,6 +107,7 @@ class EpisodeWriter:
       "id": self.id, "track_id": env.track.id, "discipline": env.track.discipline, "seed": env.seed,
       "frames": self.T, "fps": env.cfg.fps / self.record_every, "sim_fps": env.cfg.fps,
       "record_every": self.record_every, "cameras": list(env.cfg.cameras), "state_cols": STATE_COLS,
+      "route_commands": {"schema": "next_junction_pulse_v1", **asdict(env.route_commands.settings)},
       "mount": {"x": m.x, "y": m.y, "z": m.z, "roll": m.roll, "pitch": m.pitch, "yaw": m.yaw},
       "scene": env.scene.to_dict(), "vehicle": asdict(env.vp), "expert": asdict(env.expert_params),
       "dr": asdict(env.dr_cfg), "summary": summary, "schema_version": 1,
@@ -131,8 +132,7 @@ def record_episode(env: FSEnv, out_dir: str | Path, episode_id: str, max_seconds
   while not env.done and obs.t < max_t:
     desire_acc = np.maximum(desire_acc, obs.desire)  # max-pool pulses over the skipped ticks (= modeld)
     if obs.frame % record_every == 0:
-      obs.desire = desire_acc
-      w.add(obs, env.label())
+      w.add(replace(obs, desire=desire_acc), env.label())
       desire_acc = np.zeros(8, np.float32)
     steer, accel = env.expert_action()
     render_next = (obs.frame + 1) % record_every == 0

@@ -15,12 +15,9 @@ from fsop.geometry.camera import CAMERA_MODELS, CameraModel, CameraMount, se2_to
 from fsop.sim.expert import Expert, ExpertParams, Mission, plan_from_rollout, rollout, sample_expert
 from fsop.sim.randomization import DRCfg, SceneDR, dr_preset, postprocess, sample_scene
 from fsop.sim.referee import Event, Referee
+from fsop.sim.route_commands import RouteCommands
 from fsop.sim.vehicle import VehicleParams, VehicleState, step
 from fsop.track.schema import ConeColor, Track
-
-DESIRE_LEN = 8
-# skidpad route commands re-use openpilot desire channels: 1 = turnLeft, 2 = turnRight, 7 = straight/exit
-ROUTE_DESIRE = {"left": 1, "right": 2, "exit": 7}
 
 
 @dataclass
@@ -150,7 +147,8 @@ class FSEnv:
     self.speed_scale = 1.0
     self.offset_val = 0.0
     self.offset_target = 0.0
-    self.desire_sent: set[int] = set()
+    self.route_commands = RouteCommands.for_mission(self.track, self.mission, self.cfg.fps)
+    self.frame_desire = self.route_commands.advance(frame=self.frame, s=self.s, speed=self.state.vx)
     self.pending_events: list[Event] = []
     if self.renderer is not None:
       self.renderer.load_scene(self.track, self.cones_xy, self.cone_colors, self.scene)
@@ -169,20 +167,6 @@ class FSEnv:
   def mission_done(self) -> bool:
     return self.s >= self.mission.s_end - 0.5
 
-  def route_desire(self) -> np.ndarray:
-    d = np.zeros(DESIRE_LEN, np.float32)
-    segs = self.track.generator.get("segments")
-    if not segs:
-      return d
-    # one pulse ~2 s before entering each route segment (right circle, left circle, exit)
-    v = max(self.state.vx, 3.0)
-    for i, name in enumerate(("right", "left", "exit")):
-      s_c = float(self.mission.s_arr[min(segs[name][0], self.mission.n - 1)])
-      if 0 < s_c - self.s < 2.0 * v and i not in self.desire_sent:
-        self.desire_sent.add(i)
-        d[ROUTE_DESIRE[name]] = 1.0
-    return d
-
   def observe(self, render: bool = True) -> Obs:
     imgs = {}
     if self.renderer is not None and render:
@@ -191,7 +175,7 @@ class FSEnv:
       imgs = {k: postprocess(v, self.scene, self.rng, self.state.r) for k, v in raw.items()}
     ev, self.pending_events = self.pending_events, []
     return Obs(self.frame, self.state.t, self.state.copy(), self.s, self.lat, imgs, self.T_world_ego(),
-               self.route_desire(), ev, self.noise_val)
+               self.frame_desire.copy(), ev, self.noise_val)
 
   # ------------------------------------------------------------------------------------------
   def expert_action(self) -> tuple[float, float]:
@@ -230,6 +214,9 @@ class FSEnv:
         self.renderer.knock_cone(e.data["cone"], e.data["dir"])
     self.pending_events.extend(ev)
     self.frame += 1
+    self.frame_desire = self.route_commands.advance(frame=self.frame, s=self.s, speed=self.state.vx)
+    if self.state.t >= self.max_time and not self.referee.done:
+      self.referee.finish("timeout")
     return self.observe(render)
 
   def label(self) -> np.ndarray:

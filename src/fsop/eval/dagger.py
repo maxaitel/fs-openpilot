@@ -9,6 +9,7 @@ keeps early, poor models from leaving the track immediately.
 from __future__ import annotations
 
 import json
+from dataclasses import replace
 from pathlib import Path
 
 import numpy as np
@@ -49,8 +50,7 @@ def dagger_round(ckpt: str | Path, tracks: list, out_dir: str | Path, seconds: f
       accel = mission_brake(accel, obs, env)
       desire_acc = np.maximum(desire_acc, obs.desire)
       if obs.frame % record_every == 0:
-        obs.desire = desire_acc
-        w.add(obs, env.label())
+        w.add(replace(obs, desire=desire_acc), env.label())
         desire_acc = np.zeros(8, np.float32)
       obs = env.step(steer, accel, add_noise=False)
     meta = w.close(env.referee.summary())

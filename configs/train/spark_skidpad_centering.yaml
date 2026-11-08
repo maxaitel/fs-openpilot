@@ -1,0 +1,9 @@
+defaults: [spark_skidpad_recovery.yaml]
+name: spark_skidpad_centering
+sim_root: data/sim/spark_skidpad_centering
+init_ckpt: runs/spark_skidpad_recovery/ckpt/best.pt
+steps: 3000
+lr: 0.00005
+episode_prefix_weights:
+  recovery_085: 2.0
+  recovery_086: 6.0
