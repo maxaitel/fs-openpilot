@@ -6,27 +6,7 @@ The scene uses scanned pavement, roughness and normal maps, a photographed 4K da
 
 Powered by [Poly Haven](https://polyhaven.com). Downloaded assets use its [CC0 asset license](https://polyhaven.com/license). Authors, original URLs, dimensions and hashes are in `realism_assets.lock.json`. Generated venue, cones and car geometry are original procedural assets. The asphalt uses the scanned 2 m scale and an explicitly recorded 4x linear albedo gain; this is an artistic appearance adjustment, not a measured reflectance calibration.
 
-## Reproduce
-
-Use the isolated Isaac Sim 5.1 ARM64 environment described in `README.md`, with this checkout at `/work`, the prepared original model artifacts mounted read-only at `/work/artifacts`, and the unchanged checkpoint mounted read-only at `/frozen/model.pt`.
-
-```bash
-python3 -m isaac_eval.realism_assets --out isaac_eval/assets --lock isaac_eval/realism_assets.lock.json
-/isaac-sim/python.sh isaac_eval/verify_integration.py --scene paddock --out isaac_eval/runs/integration_realistic
-# Run each command in a separate process; output directories must be new.
-/isaac-sim/python.sh isaac_eval/preview_realism.py --scene plain --discipline trackdrive --out isaac_eval/runs/preview_plain_track
-/isaac-sim/python.sh isaac_eval/preview_realism.py --scene paddock --discipline trackdrive --out isaac_eval/runs/preview_paddock_track
-/isaac-sim/python.sh isaac_eval/preview_realism.py --scene plain --discipline skidpad --out isaac_eval/runs/preview_plain_skidpad
-/isaac-sim/python.sh isaac_eval/preview_realism.py --scene paddock --discipline skidpad --out isaac_eval/runs/preview_paddock_skidpad
-# Standard Python on the host can freeze the protocol; this step does not require Isaac.
-python3 isaac_eval/freeze_realism_protocol.py
-# Execute in the Isaac container. Existing suite output is deliberately rejected.
-bash isaac_eval/run_realism_suite.sh
-# On the workstation, with ffmpeg, matplotlib and numpy available:
-python3 isaac_eval/report_realism.py --root isaac_eval/runs/realism_v1
-```
-
-The run script uses the suite's immutable protocol copy for every episode. It requires each summary to exist because this Isaac launcher can return success even after a Python exception. The reporter rejects missing cases, changed protocols, changed checkpoint/state hashes, mismatched tracks/start offsets and mismatched physics contracts. Do not rerun into existing output directories or combine episodes from different protocols.
+See [Run the realistic-scene comparison](REALISM_RUN.md) for setup and commands. The measured executable source is commit `059b831`; later documentation and comment cleanup do not change the recorded experiment.
 
 ## Verification and experimental contract
 
@@ -38,11 +18,11 @@ Four render subframes left old-pose marker ghosts under the HDR lighting. Eight 
 
 Final preview/integration receipts contain executable scene, camera-source and asset-manifest hashes. Protocol freezing rejects stale evidence. Exported scenes use relative texture paths with dependency closure verified by OpenUSD. Each episode retains its scene bundle, protocol, appearance receipt, summary, raw model plans, per-step observations/timing, telemetry, frames and uncut video.
 
-The paired suite has five initial-pose seeds for each of two fixed geometries, in alternating AB/BA order. It reports route completion, completion plus safe-stop pass, unique physical cone contacts and contact-free completions separately. A completed run with cone hits is not a clean run. Hardware values describe the simulator plus inference workload; host unified RAM, process RSS and Torch allocations are separate quantities. Video follows simulation time, not the slower wall-clock execution.
+The paired suite has five seeded trials for each of two fixed geometries, in alternating AB/BA order. Seeds vary starting pose and scene-specific details, including plain-scene lighting and paddock surface repairs. Each pair shares the same start and physical layout. It reports route completion, completion plus safe-stop pass, unique physical cone contacts and contact-free completions separately. A completed run with cone hits is not a clean run. Hardware values describe the simulator plus inference workload; host unified RAM, process RSS and Torch allocations are separate quantities. Video follows simulation time, not the slower wall-clock execution.
 
 ## Scope
 
-This is a stronger visual simulation test, not evidence of real-world safety or a calibrated sim-to-real result. It covers dry daylight, two fixed layouts and small starting-pose perturbations. Tire friction is unchanged; there is no rain, rolling shutter, measured camera ISP/noise, moving traffic or pedestrian interaction. Most venue props are deliberately outside the driving area and have no collision shapes. Cone/body visual bevels differ slightly from the retained collider envelopes. An HDR background cannot supply close-range parallax. The proper next expansion is separately named, measured lighting/sensor/physics conditions, not training on the held-out evaluation scenes.
+This is a stronger visual simulation test, not evidence of real-world safety or a calibrated sim-to-real result. It covers dry daylight, two fixed layouts and small starting-pose perturbations. Tire friction is unchanged; there is no rain, rolling shutter, measured camera ISP/noise, moving traffic or pedestrian interaction. Most venue props are deliberately outside the driving area and have no collision shapes. Cone bevels differ slightly from their retained collider envelopes. The car retains its original box chassis collider beneath the detailed bodywork. The visual nose tapers inside that box, so a physical contact can occur outside the visible body surface. An HDR background cannot supply close-range parallax. The proper next expansion is separately named, measured lighting/sensor/physics conditions, not training on the held-out evaluation scenes.
 
 ## Design and review
 

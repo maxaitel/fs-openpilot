@@ -1,5 +1,7 @@
 # Frozen-model Isaac Sim evaluation
 
+This page documents the original four-subframe baseline at commit `b2d78ab`. For the current plain/paddock comparison, use [the realistic-scene explanation](REALISM.md) and [run guide](REALISM_RUN.md). That experiment uses a newly verified 16-subframe profile in both arms and its own protocol. Check out the historical commit before running the baseline commands below.
+
 This directory is an independent evaluation adapter. It does not train a model or change the existing Panda3D training/simulation code. Run artifacts are ignored by Git.
 
 The selected checkpoint is the full 31,154,802-parameter `skidpad_clean/final.pt`, SHA-256 `cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e`. The checkpoint and prepared ONNX graphs are mounted read-only. All parameters have gradients disabled; inference runs in `torch.inference_mode()`. Every scored episode verifies both the checkpoint hash and the in-memory state-dictionary hash before/after execution.

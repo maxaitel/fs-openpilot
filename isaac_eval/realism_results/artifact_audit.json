@@ -1,0 +1,445 @@
+{
+  "pass": true,
+  "cases": [
+    {
+      "case": "plain_trackdrive_91000",
+      "pass": true,
+      "asset_count": 0,
+      "asset_sha256": {},
+      "recorded_steps": 856,
+      "unique_contacts": 0,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "458"
+      }
+    },
+    {
+      "case": "paddock_trackdrive_91000",
+      "pass": true,
+      "asset_count": 13,
+      "asset_sha256": {
+        "asphalt_02/diffuse.jpg": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c",
+        "asphalt_02/normal_gl.jpg": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21",
+        "asphalt_02/roughness.jpg": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c",
+        "asphalt_track/diffuse.jpg": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c",
+        "asphalt_track/normal_gl.jpg": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd",
+        "asphalt_track/roughness.jpg": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e",
+        "concrete_floor_01/diffuse.jpg": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017",
+        "concrete_floor_01/normal_gl.jpg": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01",
+        "concrete_floor_01/roughness.jpg": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774",
+        "derelict_airfield_01/hdri.hdr": "57eb0fd4bd5d9fe2fc7d23da31933ffccb2ab3bb371e7ac17734488bb901bfe0",
+        "gravel_floor_04/diffuse.jpg": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd",
+        "gravel_floor_04/normal_gl.jpg": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e",
+        "gravel_floor_04/roughness.jpg": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3"
+      },
+      "recorded_steps": 875,
+      "unique_contacts": 1,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "468"
+      }
+    },
+    {
+      "case": "plain_trackdrive_91001",
+      "pass": true,
+      "asset_count": 0,
+      "asset_sha256": {},
+      "recorded_steps": 849,
+      "unique_contacts": 0,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "455"
+      }
+    },
+    {
+      "case": "paddock_trackdrive_91001",
+      "pass": true,
+      "asset_count": 13,
+      "asset_sha256": {
+        "asphalt_02/diffuse.jpg": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c",
+        "asphalt_02/normal_gl.jpg": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21",
+        "asphalt_02/roughness.jpg": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c",
+        "asphalt_track/diffuse.jpg": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c",
+        "asphalt_track/normal_gl.jpg": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd",
+        "asphalt_track/roughness.jpg": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e",
+        "concrete_floor_01/diffuse.jpg": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017",
+        "concrete_floor_01/normal_gl.jpg": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01",
+        "concrete_floor_01/roughness.jpg": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774",
+        "derelict_airfield_01/hdri.hdr": "57eb0fd4bd5d9fe2fc7d23da31933ffccb2ab3bb371e7ac17734488bb901bfe0",
+        "gravel_floor_04/diffuse.jpg": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd",
+        "gravel_floor_04/normal_gl.jpg": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e",
+        "gravel_floor_04/roughness.jpg": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3"
+      },
+      "recorded_steps": 877,
+      "unique_contacts": 1,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "469"
+      }
+    },
+    {
+      "case": "plain_trackdrive_91002",
+      "pass": true,
+      "asset_count": 0,
+      "asset_sha256": {},
+      "recorded_steps": 836,
+      "unique_contacts": 1,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "448"
+      }
+    },
+    {
+      "case": "paddock_trackdrive_91002",
+      "pass": true,
+      "asset_count": 13,
+      "asset_sha256": {
+        "asphalt_02/diffuse.jpg": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c",
+        "asphalt_02/normal_gl.jpg": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21",
+        "asphalt_02/roughness.jpg": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c",
+        "asphalt_track/diffuse.jpg": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c",
+        "asphalt_track/normal_gl.jpg": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd",
+        "asphalt_track/roughness.jpg": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e",
+        "concrete_floor_01/diffuse.jpg": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017",
+        "concrete_floor_01/normal_gl.jpg": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01",
+        "concrete_floor_01/roughness.jpg": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774",
+        "derelict_airfield_01/hdri.hdr": "57eb0fd4bd5d9fe2fc7d23da31933ffccb2ab3bb371e7ac17734488bb901bfe0",
+        "gravel_floor_04/diffuse.jpg": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd",
+        "gravel_floor_04/normal_gl.jpg": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e",
+        "gravel_floor_04/roughness.jpg": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3"
+      },
+      "recorded_steps": 868,
+      "unique_contacts": 1,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "464"
+      }
+    },
+    {
+      "case": "plain_trackdrive_91003",
+      "pass": true,
+      "asset_count": 0,
+      "asset_sha256": {},
+      "recorded_steps": 851,
+      "unique_contacts": 2,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "456"
+      }
+    },
+    {
+      "case": "paddock_trackdrive_91003",
+      "pass": true,
+      "asset_count": 13,
+      "asset_sha256": {
+        "asphalt_02/diffuse.jpg": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c",
+        "asphalt_02/normal_gl.jpg": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21",
+        "asphalt_02/roughness.jpg": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c",
+        "asphalt_track/diffuse.jpg": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c",
+        "asphalt_track/normal_gl.jpg": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd",
+        "asphalt_track/roughness.jpg": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e",
+        "concrete_floor_01/diffuse.jpg": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017",
+        "concrete_floor_01/normal_gl.jpg": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01",
+        "concrete_floor_01/roughness.jpg": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774",
+        "derelict_airfield_01/hdri.hdr": "57eb0fd4bd5d9fe2fc7d23da31933ffccb2ab3bb371e7ac17734488bb901bfe0",
+        "gravel_floor_04/diffuse.jpg": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd",
+        "gravel_floor_04/normal_gl.jpg": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e",
+        "gravel_floor_04/roughness.jpg": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3"
+      },
+      "recorded_steps": 873,
+      "unique_contacts": 1,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "467"
+      }
+    },
+    {
+      "case": "plain_trackdrive_91004",
+      "pass": true,
+      "asset_count": 0,
+      "asset_sha256": {},
+      "recorded_steps": 847,
+      "unique_contacts": 2,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "454"
+      }
+    },
+    {
+      "case": "paddock_trackdrive_91004",
+      "pass": true,
+      "asset_count": 13,
+      "asset_sha256": {
+        "asphalt_02/diffuse.jpg": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c",
+        "asphalt_02/normal_gl.jpg": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21",
+        "asphalt_02/roughness.jpg": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c",
+        "asphalt_track/diffuse.jpg": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c",
+        "asphalt_track/normal_gl.jpg": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd",
+        "asphalt_track/roughness.jpg": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e",
+        "concrete_floor_01/diffuse.jpg": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017",
+        "concrete_floor_01/normal_gl.jpg": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01",
+        "concrete_floor_01/roughness.jpg": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774",
+        "derelict_airfield_01/hdri.hdr": "57eb0fd4bd5d9fe2fc7d23da31933ffccb2ab3bb371e7ac17734488bb901bfe0",
+        "gravel_floor_04/diffuse.jpg": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd",
+        "gravel_floor_04/normal_gl.jpg": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e",
+        "gravel_floor_04/roughness.jpg": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3"
+      },
+      "recorded_steps": 876,
+      "unique_contacts": 1,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "468"
+      }
+    },
+    {
+      "case": "plain_skidpad_91000",
+      "pass": true,
+      "asset_count": 0,
+      "asset_sha256": {},
+      "recorded_steps": 943,
+      "unique_contacts": 3,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "502"
+      }
+    },
+    {
+      "case": "paddock_skidpad_91000",
+      "pass": true,
+      "asset_count": 13,
+      "asset_sha256": {
+        "asphalt_02/diffuse.jpg": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c",
+        "asphalt_02/normal_gl.jpg": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21",
+        "asphalt_02/roughness.jpg": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c",
+        "asphalt_track/diffuse.jpg": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c",
+        "asphalt_track/normal_gl.jpg": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd",
+        "asphalt_track/roughness.jpg": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e",
+        "concrete_floor_01/diffuse.jpg": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017",
+        "concrete_floor_01/normal_gl.jpg": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01",
+        "concrete_floor_01/roughness.jpg": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774",
+        "derelict_airfield_01/hdri.hdr": "57eb0fd4bd5d9fe2fc7d23da31933ffccb2ab3bb371e7ac17734488bb901bfe0",
+        "gravel_floor_04/diffuse.jpg": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd",
+        "gravel_floor_04/normal_gl.jpg": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e",
+        "gravel_floor_04/roughness.jpg": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3"
+      },
+      "recorded_steps": 973,
+      "unique_contacts": 5,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "517"
+      }
+    },
+    {
+      "case": "plain_skidpad_91001",
+      "pass": true,
+      "asset_count": 0,
+      "asset_sha256": {},
+      "recorded_steps": 871,
+      "unique_contacts": 6,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "466"
+      }
+    },
+    {
+      "case": "paddock_skidpad_91001",
+      "pass": true,
+      "asset_count": 13,
+      "asset_sha256": {
+        "asphalt_02/diffuse.jpg": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c",
+        "asphalt_02/normal_gl.jpg": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21",
+        "asphalt_02/roughness.jpg": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c",
+        "asphalt_track/diffuse.jpg": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c",
+        "asphalt_track/normal_gl.jpg": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd",
+        "asphalt_track/roughness.jpg": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e",
+        "concrete_floor_01/diffuse.jpg": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017",
+        "concrete_floor_01/normal_gl.jpg": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01",
+        "concrete_floor_01/roughness.jpg": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774",
+        "derelict_airfield_01/hdri.hdr": "57eb0fd4bd5d9fe2fc7d23da31933ffccb2ab3bb371e7ac17734488bb901bfe0",
+        "gravel_floor_04/diffuse.jpg": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd",
+        "gravel_floor_04/normal_gl.jpg": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e",
+        "gravel_floor_04/roughness.jpg": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3"
+      },
+      "recorded_steps": 983,
+      "unique_contacts": 4,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "522"
+      }
+    },
+    {
+      "case": "plain_skidpad_91002",
+      "pass": true,
+      "asset_count": 0,
+      "asset_sha256": {},
+      "recorded_steps": 940,
+      "unique_contacts": 2,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "500"
+      }
+    },
+    {
+      "case": "paddock_skidpad_91002",
+      "pass": true,
+      "asset_count": 13,
+      "asset_sha256": {
+        "asphalt_02/diffuse.jpg": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c",
+        "asphalt_02/normal_gl.jpg": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21",
+        "asphalt_02/roughness.jpg": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c",
+        "asphalt_track/diffuse.jpg": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c",
+        "asphalt_track/normal_gl.jpg": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd",
+        "asphalt_track/roughness.jpg": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e",
+        "concrete_floor_01/diffuse.jpg": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017",
+        "concrete_floor_01/normal_gl.jpg": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01",
+        "concrete_floor_01/roughness.jpg": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774",
+        "derelict_airfield_01/hdri.hdr": "57eb0fd4bd5d9fe2fc7d23da31933ffccb2ab3bb371e7ac17734488bb901bfe0",
+        "gravel_floor_04/diffuse.jpg": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd",
+        "gravel_floor_04/normal_gl.jpg": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e",
+        "gravel_floor_04/roughness.jpg": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3"
+      },
+      "recorded_steps": 278,
+      "unique_contacts": 6,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "169"
+      }
+    },
+    {
+      "case": "plain_skidpad_91003",
+      "pass": true,
+      "asset_count": 0,
+      "asset_sha256": {},
+      "recorded_steps": 926,
+      "unique_contacts": 3,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "493"
+      }
+    },
+    {
+      "case": "paddock_skidpad_91003",
+      "pass": true,
+      "asset_count": 13,
+      "asset_sha256": {
+        "asphalt_02/diffuse.jpg": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c",
+        "asphalt_02/normal_gl.jpg": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21",
+        "asphalt_02/roughness.jpg": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c",
+        "asphalt_track/diffuse.jpg": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c",
+        "asphalt_track/normal_gl.jpg": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd",
+        "asphalt_track/roughness.jpg": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e",
+        "concrete_floor_01/diffuse.jpg": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017",
+        "concrete_floor_01/normal_gl.jpg": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01",
+        "concrete_floor_01/roughness.jpg": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774",
+        "derelict_airfield_01/hdri.hdr": "57eb0fd4bd5d9fe2fc7d23da31933ffccb2ab3bb371e7ac17734488bb901bfe0",
+        "gravel_floor_04/diffuse.jpg": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd",
+        "gravel_floor_04/normal_gl.jpg": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e",
+        "gravel_floor_04/roughness.jpg": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3"
+      },
+      "recorded_steps": 980,
+      "unique_contacts": 5,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "520"
+      }
+    },
+    {
+      "case": "plain_skidpad_91004",
+      "pass": true,
+      "asset_count": 0,
+      "asset_sha256": {},
+      "recorded_steps": 943,
+      "unique_contacts": 2,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "502"
+      }
+    },
+    {
+      "case": "paddock_skidpad_91004",
+      "pass": true,
+      "asset_count": 13,
+      "asset_sha256": {
+        "asphalt_02/diffuse.jpg": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c",
+        "asphalt_02/normal_gl.jpg": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21",
+        "asphalt_02/roughness.jpg": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c",
+        "asphalt_track/diffuse.jpg": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c",
+        "asphalt_track/normal_gl.jpg": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd",
+        "asphalt_track/roughness.jpg": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e",
+        "concrete_floor_01/diffuse.jpg": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017",
+        "concrete_floor_01/normal_gl.jpg": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01",
+        "concrete_floor_01/roughness.jpg": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774",
+        "derelict_airfield_01/hdri.hdr": "57eb0fd4bd5d9fe2fc7d23da31933ffccb2ab3bb371e7ac17734488bb901bfe0",
+        "gravel_floor_04/diffuse.jpg": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd",
+        "gravel_floor_04/normal_gl.jpg": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e",
+        "gravel_floor_04/roughness.jpg": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3"
+      },
+      "recorded_steps": 979,
+      "unique_contacts": 0,
+      "video": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 640,
+        "r_frame_rate": "10/1",
+        "nb_frames": "520"
+      }
+    }
+  ]
+}

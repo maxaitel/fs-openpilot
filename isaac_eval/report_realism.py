@@ -86,6 +86,17 @@ def aggregate_cases(cases, protocol):
                 "contact_total": contacts,
                 "contact_mean": contacts / len(rows),
                 "off_course_events": sum(r["oc"] for r in rows),
+                "hardware": {
+                    k: stats(
+                        [
+                            t.get(k)
+                            for c in cases
+                            if c["summary"]["scene"] == variant and c["summary"]["discipline"] == discipline
+                            for t in c["telemetry"]
+                        ]
+                    )
+                    for k in ("gpu_pct", "cpu_pct", "temp_c", "host_ram_gib", "power_w")
+                },
                 "performance": {
                     k: stats([r[k] for r in rows]) for k in ("real_time_factor", "control_hz_wall", "wall_seconds")
                 },
@@ -118,6 +129,9 @@ def aggregate_cases(cases, protocol):
             "start offsets": all(
                 summaries[0][key] == summaries[1][key] for key in ("start_lateral_offset_m", "start_yaw_offset_rad")
             ),
+            "actual initial state": all(
+                abs(pair[0]["frames"][0][k] - pair[1]["frames"][0][k]) < 1e-6 for k in ("x", "y", "yaw", "speed", "s")
+            ),
             "physics": len(set(physics)) == 1 and bool(physics[0]),
             "checkpoint": len(set(checkpoint)) == 1 and checkpoint[0] == protocol["checkpoint_sha256"],
             "state": len(set(state)) == 1 and bool(state[0]),
@@ -140,6 +154,7 @@ def aggregate_cases(cases, protocol):
                 **spec,
                 "track_equal": checks["track"],
                 "start_offsets_equal": checks["start offsets"],
+                "actual_initial_state_equal": checks["actual initial state"],
                 "physics_sha256": physics,
                 "physics_equal": len(set(physics)) == 1,
                 "checkpoint_sha256": checkpoint,
@@ -166,7 +181,7 @@ def aggregate_cases(cases, protocol):
                 },
                 "telemetry": {
                     k: stats([r.get(k) for r in c["telemetry"]])
-                    for k in ("gpu_pct", "power_w", "host_ram_gib", "process_rss_gib")
+                    for k in ("gpu_pct", "power_w", "host_ram_gib", "process_rss_gib", "cpu_pct", "temp_c")
                 },
                 "torch_peak_allocated_gib": s["torch_peak_allocated_gib"],
                 "torch_peak_reserved_gib": s["torch_peak_reserved_gib"],
@@ -194,6 +209,19 @@ def graphs(root, cases, aggregate):
             "axes.edgecolor": "#64748b",
         }
     )
+    preview_paths = [
+        root.parent / f"preview_{variant}_track" / f"start_{camera}.png"
+        for variant in ("plain", "paddock")
+        for camera in ("chase", "road", "wide")
+    ]
+    if all(path.exists() for path in preview_paths):
+        fig, axes = plt.subplots(2, 3, figsize=(15, 6), layout="constrained")
+        for index, (ax, path) in enumerate(zip(axes.flat, preview_paths, strict=True)):
+            ax.imshow(plt.imread(path))
+            ax.set_title(f"{('Plain', 'Realistic')[index // 3]} · {('Chase', 'Road input', 'Wide input')[index % 3]}")
+            ax.axis("off")
+        fig.savefig(root / "before_after.png", dpi=140)
+        plt.close(fig)
     labels = [c["name"].replace("trackdrive", "track").replace("9100", "") for c in cases]
     colors = ["#60a5fa" if c["summary"]["scene"] == "plain" else "#fbbf24" for c in cases]
     fig, axes = plt.subplots(2, 1, figsize=(15, 8), layout="constrained")
@@ -242,6 +270,19 @@ def graphs(root, cases, aggregate):
                 ax.plot([f["x"] for f in frames], [f["y"] for f in frames], lw=1, label=str(c["summary"]["seed"]))
                 if frames:
                     ax.scatter(frames[-1]["x"], frames[-1]["y"], marker="o" if c["summary"]["pass"] else "x", s=30)
+            hit_ids = {
+                int(event["cone"].rsplit("/c", 1)[1]) for c in subset for event in c["summary"]["contact_events"]
+            }
+            if hit_ids:
+                ax.scatter(
+                    [cones[k]["x"] for k in sorted(hit_ids)],
+                    [cones[k]["y"] for k in sorted(hit_ids)],
+                    marker="x",
+                    s=45,
+                    c="#fb7185",
+                    label="Contacted cones (original positions)",
+                    zorder=10,
+                )
             ax.set(title=f"{variant} · {discipline}", xlabel="World x (m)", ylabel="World y (m)")
             ax.set_aspect("equal", adjustable="datalim")
             ax.legend(fontsize=7)
@@ -327,7 +368,7 @@ def videos(root, cases):
             c["clips"].append((clip.name, start, end))
             all_clips.append(clip)
     listing = root / "overview_concat.txt"
-    listing.write_text("".join("file '" + str(path).replace("'", "'\\''") + "'\n" for path in all_clips))
+    listing.write_text("".join("file '" + str(path.relative_to(root)).replace("'", "'\\''") + "'\n" for path in all_clips))
     subprocess.run(
         [
             "ffmpeg",
@@ -369,6 +410,7 @@ def report(root, protocol, cases, aggregate, skip_video):
         flags = [
             p["track_equal"],
             p["start_offsets_equal"],
+            p["actual_initial_state_equal"],
             p["physics_equal"],
             p["checkpoint_equal_and_frozen"],
             p["state_equal"],
@@ -440,6 +482,22 @@ def report(root, protocol, cases, aggregate, skip_video):
         if profile
         else "The protocol does not specify a render profile."
     )
+    benchmark_path = root.parent / "model_only_benchmark.json"
+    benchmark_html = ""
+    if benchmark_path.exists():
+        benchmark = read(benchmark_path)
+        if benchmark["checkpoint_sha256"] != protocol["checkpoint_sha256"] or not benchmark["frozen_unchanged"]:
+            raise ValueError("Model-only benchmark used a different or changed checkpoint")
+        benchmark_html = (
+            '<div class="card"><h2>Model-only reference</h2>'
+            f'<p>{benchmark["samples"]} calls after {benchmark["warmup"]} warmup calls, with fixed lossless '
+            'calibration images and no renderer running. This measures the policy and controller call, '
+            'including preprocessing and synchronized GPU execution. '
+            f'Mean {benchmark["mean_ms"]:.2f} ms; median {benchmark["median_ms"]:.2f} ms; '
+            f'95th percentile {benchmark["p95_ms"]:.2f} ms. '
+            'This fixture is a latency reference, not an autonomous driving evaluation. '
+            '<a href="../model_only_benchmark.json">Raw benchmark</a>.</p></div>'
+        )
     page = f'''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
 <title>Paired appearance evaluation</title><style>
 body{{background:#101827;color:#e5edf7;font:15px system-ui;max-width:1500px;margin:36px auto;padding:0 24px;line-height:1.5}}
@@ -451,13 +509,15 @@ details{{border-top:1px solid #42516a;padding:8px}}summary{{cursor:pointer}}code
 <div class="card"><h2>Completion and contacts</h2><div class="scroll"><table><tr><th>Scene</th><th>Event</th><th>Route complete</th><th>Pass</th><th>Contact-free completions</th><th>Total contacts</th><th>Mean contacts/run</th></tr>{"".join(group_rows)}</table></div>
 <p>Pass uses the existing completion and safe-stop referee. Contacts count unique cones with PhysX contact. Clean completion means route complete with zero cone contacts; it does not add an off-course criterion.</p></div>
 <div class="card"><h2>Paired differences</h2><p>Paddock minus plain for each seed. Completion is 1 for route complete and 0 otherwise. Off-course duration counts sampled off-course frames at 0.05 seconds per frame.</p><div class="scroll"><table><tr><th>Case</th><th>Contact difference</th><th>Completion difference</th><th>Off-course seconds difference</th></tr>{"".join(delta_rows)}</table></div></div>
-<div class="card"><h2>Pair integrity</h2><div class="scroll"><table><tr><th>Case</th><th>Track equal</th><th>Start offsets equal</th><th>Physics equal</th><th>Checkpoint matches protocol</th><th>State equal</th><th>Weights and state unchanged</th></tr>{"".join(pair_rows)}</table></div><p>Checkpoint SHA-256: <code>{esc(protocol["checkpoint_sha256"])}</code>. Full per-pair hashes are in <a href="aggregate.json">aggregate.json</a>.</p></div>
+<div class="card"><h2>Pair integrity</h2><div class="scroll"><table><tr><th>Case</th><th>Track equal</th><th>Start offsets equal</th><th>Initial state equal</th><th>Physics equal</th><th>Checkpoint matches protocol</th><th>State equal</th><th>Weights and state unchanged</th></tr>{"".join(pair_rows)}</table></div><p>Checkpoint SHA-256: <code>{esc(protocol["checkpoint_sha256"])}</code>. Full per-pair hashes are in <a href="aggregate.json">aggregate.json</a>.</p></div>
 <div class="card"><h2>Fixed-pose previews</h2>{"".join(previews) or "<p>Preview images were not available.</p>"}</div>
 <div class="card"><h2>Every case on video</h2>{("<p>Video generation skipped.</p>" if skip_video else '<video controls preload="metadata" src="overview.mp4"></video><p><a href="overview.mp4">Open overview video</a></p>')}<p>Each passing case includes the start, every recorded contact window and the final 12 seconds. Failed cases are shown in full. Expand a case to play its clips; full recordings are linked below. Times refer to the recording.</p>{"".join(overview)}</div>
 <div class="card"><h2>Outcomes</h2><img src="{embedded(root / "outcomes.png")}" alt="Completion and contacts for every run"><img src="{embedded(root / "trajectories.png")}" alt="Trajectories for every run"></div>
 <div class="card"><h2>Performance by scene and event</h2><p>Median (minimum–maximum) across runs. Timing columns summarize each run's median frame time. Failed runs may cover different route portions, so group wall time does not isolate the causal overhead of the environment.</p><div class="scroll"><table><tr><th>Scene</th><th>Event</th><th>Real-time factor</th><th>Control Hz wall</th><th>Wall seconds</th><th>Render ms</th><th>Inference ms</th><th>Physics ms</th></tr>{"".join(performance_rows)}</table></div></div>
 <div class="card"><h2>Performance per case</h2><p>Values are median (minimum–maximum) over sampled frames or telemetry. Render, inference/controller and physics times are milliseconds. GPU utilization and power are device-wide; host RAM is whole-host usage. Startup is excluded from step timings. Torch peak allocation and process RSS are in the aggregate data.</p><div class="scroll"><table><tr><th>Case</th><th>Result</th><th>Contacts</th><th>Off-course events</th><th>Render ms</th><th>Inference ms</th><th>Physics ms</th><th>GPU %</th><th>Power W</th><th>Host RAM GiB</th><th>Recording</th></tr>{"".join(rows)}</table></div><img src="{embedded(root / "performance.png")}" alt="Per-case timing and GPU median and range"></div>
-<p>{profile_text} Powered by <a href="https://polyhaven.com/">Poly Haven</a>; assets are <a href="https://polyhaven.com/license">CC0</a>.</p><p><a href="protocol.json">Protocol</a> · <a href="aggregate.json">Aggregate data</a>. Raw input videos and measurements are preserved in each case directory.</p></html>'''
+{benchmark_html}
+<div class="card"><h2>Limits of this experiment</h2><p>Five seeded trials per fixed layout vary starting pose and scene-specific details, including plain lighting and paddock surface repairs. They test dry daylight only. Cameras have no measured ISP, noise, rolling shutter or weather effects. Distant trees and sky come from an HDR environment, so they do not provide close-range parallax. The car uses a generic Ackermann physics model with a box chassis collider beneath the tapered visual body. A physical contact can occur outside the visible body. Venue props outside the cone envelope are visual only. Successful route completion can include cone hits and does not establish real-world driving ability.</p></div>
+<p>{profile_text} Powered by <a href="https://polyhaven.com/">Poly Haven</a>; assets are <a href="https://polyhaven.com/license">CC0</a>.</p><p><a href="protocol.json">Protocol</a> · <a href="aggregate.json">Aggregate data</a> · <a href="artifact_audit.json">Scene and video audit</a> · <a href="../frozen_source_audit.json">Source audit</a> · <a href="../integration_realistic/verification.json">Integration verification</a>. Full composite recordings, model plans and measurements are preserved in each case directory. The labeled camera panels show the model views, with lossy video compression; the policy received the original unannotated RGB arrays.</p></html>'''
     (root / "report.html").write_text(page)
 
 
