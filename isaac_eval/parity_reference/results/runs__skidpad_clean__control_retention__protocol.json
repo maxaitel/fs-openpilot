@@ -1,0 +1,14 @@
+{
+  "checkpoint": "runs/spark_skidpad_control/ckpt/step500.pt",
+  "sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+  "tracks": [
+    "trackdrive_020000",
+    "trackdrive_020005",
+    "trackdrive_020015",
+    "trackdrive_020023",
+    "trackdrive_030000",
+    "trackdrive_030010",
+    "trackdrive_030020",
+    "trackdrive_030061"
+  ]
+}

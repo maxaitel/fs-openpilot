@@ -1,7 +1,7 @@
 """Render a closed-loop run to an MP4: camera views with projected predictions + top-down track maps.
 
 Layout (1280x768):
-  left   : wide camera (top) and road camera (bottom), predicted plan (magenta, +-1 sigma band),
+  left   : wide camera (top) and road camera (bottom), predicted plan (magenta, model scale),
            expert plan (green), detected cones (rings in class colour)
   right  : full track map with the driven trail (top), ego-centric 40 m map with GT cones (dots),
            detected cones (rings) and both plans (bottom); HUD with time, speed, laps, DOO / OC
@@ -33,7 +33,7 @@ def _project(pts_ego: np.ndarray, T_ego_cam: np.ndarray, cam: str):
 
 
 def _draw_path(img, plan, T_ego_cam, cam, color, scale, std=None, thick=2):
-  pts = np.c_[plan[:, 0], plan[:, 1], np.zeros(33)]
+  pts = np.c_[plan[:, 0], plan[:, 1], np.zeros(len(plan))]
   m = plan[:, 0] > 1.0
   if std is not None:
     h = np.arctan2(np.gradient(plan[:, 1]), np.gradient(plan[:, 0]) + 1e-6)
@@ -75,12 +75,15 @@ class Map:
     p = xy * self.scale + self.off
     return np.c_[p[:, 0], self.size[1] - p[:, 1]].astype(np.int32)
 
-  def draw(self, x, y, yaw, plan_world):
+  def draw(self, x, y, yaw, plan_world, trail=None):
     img = self.base.copy()
-    self.trail.append((x, y))
-    if len(self.trail) > 1:
-      cv2.polylines(img, [self.px(np.array(self.trail))], False, (60, 60, 200), 2, cv2.LINE_AA)
-    cv2.polylines(img, [self.px(plan_world)], False, _bgr(PRED), 2, cv2.LINE_AA)
+    if trail is None:
+      self.trail.append((x, y))
+      trail = self.trail
+    if len(trail) > 1:
+      cv2.polylines(img, [self.px(np.asarray(trail))], False, (60, 60, 200), 2, cv2.LINE_AA)
+    if plan_world is not None:
+      cv2.polylines(img, [self.px(plan_world)], False, _bgr(PRED), 2, cv2.LINE_AA)
     c = self.px(np.array([[x, y]]))[0]
     tip = self.px(np.array([[x + 3 * np.cos(yaw), y + 3 * np.sin(yaw)]]))[0]
     cv2.arrowedLine(img, tuple(c), tuple(tip), (0, 0, 220), 2, tipLength=0.5)
@@ -100,21 +103,64 @@ def ego_map(gt_xy, gt_cls, det_xy, det_cls, plan, gt_plan, size=(512, 384), rng=
   for p, c in zip(det_xy, det_cls, strict=True):
     if 0 <= c < 4:
       cv2.circle(img, tuple(px(p[None])[0]), 7, _bgr(CLS_RGB[c]), 2, cv2.LINE_AA)
-  cv2.polylines(img, [px(gt_plan[:, :2])], False, _bgr(GT), 2, cv2.LINE_AA)
-  cv2.polylines(img, [px(plan[:, :2])], False, _bgr(PRED), 2, cv2.LINE_AA)
+  if gt_plan is not None:
+    cv2.polylines(img, [px(gt_plan[:, :2])], False, _bgr(GT), 2, cv2.LINE_AA)
+  if plan is not None:
+    cv2.polylines(img, [px(plan[:, :2])], False, _bgr(PRED), 2, cv2.LINE_AA)
   car = px(np.array([[1.6, 0.7], [1.6, -0.7], [-1.3, -0.7], [-1.3, 0.7]]))
   cv2.fillPoly(img, [car], (40, 40, 200))
-  cv2.putText(img, "ego view 40 m: dots = true cones, rings = detected", (8, 18), cv2.FONT_HERSHEY_SIMPLEX, 0.45,
+  cv2.putText(img, "ego view 40 m: dots = simulator GT, rings = detected", (8, 18), cv2.FONT_HERSHEY_SIMPLEX, 0.45,
               (220, 220, 220), 1, cv2.LINE_AA)
   return img
 
 
+def compose_frame(track, cones_xy, cone_colors, images, state, T_ego_cam, prediction, reference, trail, hud):
+  """Compose BGR diagnostic frame from arrays; no input or history is mutated."""
+  from fsop.data.targets import visible_cones, world_to_ego
+  from fsop.track.schema import CONE_CLASS_INDEX
+
+  plan = np.asarray(prediction["plan"])
+  if plan.ndim != 2 or plan.shape[0] < 2 or plan.shape[1] < 2:
+    raise ValueError("prediction.plan must be [N, >=2]")
+  std = prediction.get("plan_std")
+  det_xy = prediction.get("cones_xy")
+  det_cls = prediction.get("cones_cls")
+  if (det_xy is None) != (det_cls is None):
+    raise ValueError("cone positions and classes must both be present or absent")
+  frame = np.zeros((768, 1280, 3), np.uint8)
+  for row, cam in enumerate(("wide", "road")):
+    im = cv2.resize(images[cam][..., ::-1], (768, 384), interpolation=cv2.INTER_LINEAR)
+    sc = 768 / 512
+    if reference is not None:
+      _draw_path(im, reference, T_ego_cam, cam, GT, sc)
+    _draw_path(im, plan, T_ego_cam, cam, PRED, sc, std, 3)
+    _draw_cones_cam(im, det_xy, det_cls, T_ego_cam, cam, sc)
+    cv2.putText(im, f"{cam} camera", (10, 24), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2, cv2.LINE_AA)
+    frame[row * 384:(row + 1) * 384, :768] = im
+  x, y, yaw = state["x"], state["y"], state["yaw"]
+  c, sn = np.cos(yaw), np.sin(yaw)
+  pw = np.c_[x + c * plan[:, 0] - sn * plan[:, 1], y + sn * plan[:, 0] + c * plan[:, 1]]
+  frame[:384, 768:] = Map(track, cones_xy, cone_colors).draw(x, y, yaw, pw, trail=trail)
+  cv2.putText(frame, "track map: simulator GT cone positions", (776, 48), cv2.FONT_HERSHEY_SIMPLEX, 0.4,
+              (50, 50, 50), 1, cv2.LINE_AA)
+  ge = world_to_ego(np.asarray(cones_xy), x, y, yaw)
+  vis = visible_cones(ge, T_ego_cam) & (np.linalg.norm(ge, axis=1) < 45)
+  cls = np.array([CONE_CLASS_INDEX.get(c, -1) for c in cone_colors])
+  frame[384:, 768:] = ego_map(ge[vis], cls[vis], np.empty((0, 2)) if det_xy is None else det_xy,
+                              np.empty(0, int) if det_cls is None else det_cls, plan, reference)
+  cv2.rectangle(frame, (768, 0), (1280, 30), (255, 255, 255), -1)
+  cv2.putText(frame, hud, (776, 21), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (20, 20, 20), 1, cv2.LINE_AA)
+  status = "unavailable" if det_xy is None else f"{len(det_xy)}"
+  scale_label = " +/- model scale" if std is not None else " (scale unavailable)"
+  cv2.putText(frame, f"magenta: model{scale_label}  green: oracle reference (custom bicycle)  detections: {status}",
+              (10, 758), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (255, 255, 255), 1, cv2.LINE_AA)
+  return frame
+
+
 def render_run(ckpt, track, out: str | Path, seconds: float = 60.0, dr: str = "light", seed: int = 0,
                fps: int = 20, every: int = 1, profile: str | None = None, venue_prob: float = 0.0) -> dict:
-  from fsop.data.targets import visible_cones, world_to_ego
   from fsop.eval.closed_loop import ModelPolicy
   from fsop.sim.env import FSEnv, SimCfg
-  from fsop.track.schema import CONE_CLASS_INDEX
 
   cfg = SimCfg(dr=dr, max_time=seconds, venue_prob=venue_prob)
   cfg.noise.enabled = False
@@ -130,40 +176,20 @@ def render_run(ckpt, track, out: str | Path, seconds: float = 60.0, dr: str = "l
     vw = cv2.VideoWriter(str(out), cv2.VideoWriter_fourcc(*fourcc), fps / every, (W, H))
     if vw.isOpened():
       break
-  m = Map(track, env.cones_xy, env.cone_colors)
-  cls_all = np.array([CONE_CLASS_INDEX.get(c, -1) for c in env.cone_colors])
+  trail = []
   T_ec = env.T_ego_cam()
   obs = env.observe()
   n = 0
   while not env.done:
     steer, accel, info = policy(obs, env)
     if obs.frame % every == 0:
-      gt_plan = env.label()
-      frame = np.zeros((H, W, 3), np.uint8)
-      for row, cam in enumerate(("wide", "road")):
-        im = cv2.resize(obs.images[cam][..., ::-1], (768, 384), interpolation=cv2.INTER_LINEAR)
-        sc = 768 / 512
-        _draw_path(im, gt_plan, T_ec, cam, GT, sc)
-        _draw_path(im, info["plan"], T_ec, cam, PRED, sc, info.get("plan_std"), 3)
-        _draw_cones_cam(im, info.get("cones_xy"), info.get("cones_cls"), T_ec, cam, sc)
-        cv2.putText(im, f"{cam} camera", (10, 24), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2, cv2.LINE_AA)
-        frame[row * 384:(row + 1) * 384, :768] = im
       st = obs.state
-      c, s = np.cos(st.yaw), np.sin(st.yaw)
-      px_, py_ = info["plan"][:, 0], info["plan"][:, 1]
-      pw = np.c_[st.x + c * px_ - s * py_, st.y + s * px_ + c * py_]
-      frame[:384, 768:] = m.draw(st.x, st.y, st.yaw, pw)
-      ge = world_to_ego(env.cones_xy, st.x, st.y, st.yaw)
-      vis = visible_cones(ge, T_ec) & (np.linalg.norm(ge, axis=1) < 45)
-      frame[384:, 768:] = ego_map(ge[vis], cls_all[vis], info.get("cones_xy", np.zeros((0, 2))),
-                                  info.get("cones_cls", np.zeros(0, int)), info["plan"], gt_plan)
+      trail.append((st.x, st.y))
       r = env.referee
       hud = (f"t {obs.t:5.1f}s  v {st.vx * 3.6:4.0f} km/h  laps {len(r.lap_times())}/{track.laps}  "
              f"DOO {r.n_doo}  OC {r.n_oc}")
-      cv2.rectangle(frame, (768, 0), (W, 30), (255, 255, 255), -1)
-      cv2.putText(frame, hud, (776, 21), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (20, 20, 20), 1, cv2.LINE_AA)
-      cv2.putText(frame, "magenta: model plan (+-1 sigma)   green: expert   rings: detected cones",
-                  (10, H - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+      frame = compose_frame(track, env.cones_xy, env.cone_colors, obs.images, vars(st), T_ec, info,
+                            env.label(), trail, hud)
       vw.write(frame)
       n += 1
     obs = env.step(steer, accel, add_noise=False)

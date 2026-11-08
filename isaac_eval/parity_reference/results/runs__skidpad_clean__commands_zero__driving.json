@@ -1,0 +1,87 @@
+{
+  "checkpoint": "runs/skidpad_clean/final.pt",
+  "runs": [
+    {
+      "discipline": "skidpad",
+      "result": "invalid_route",
+      "laps": [],
+      "n_laps": 0,
+      "doo": 2,
+      "oc": 1,
+      "max_speed": 9.635957801743643,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [],
+        "laps": [],
+        "crossings": [
+          3.386905988588289,
+          25.956037258151955
+        ],
+        "complete": false,
+        "exited": false,
+        "stopped_in_zone": false,
+        "valid": false,
+        "violation": "incomplete_or_outside_circle",
+        "reverse_crossings": 0,
+        "termination": "invalid_route"
+      },
+      "raw_time": null,
+      "penalty": 0.4,
+      "time": null,
+      "dq": true,
+      "complete": false,
+      "pass": false,
+      "seed": 72000,
+      "dr": "light",
+      "controller": "pp",
+      "command_mode": "zero",
+      "progress": 0.2853292968843609
+    },
+    {
+      "discipline": "skidpad",
+      "result": "invalid_route",
+      "laps": [],
+      "n_laps": 0,
+      "doo": 8,
+      "oc": 9,
+      "max_speed": 9.206543305519851,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [],
+        "laps": [],
+        "crossings": [
+          3.0328668403520704,
+          81.9605773950291
+        ],
+        "complete": false,
+        "exited": false,
+        "stopped_in_zone": false,
+        "valid": false,
+        "violation": "incomplete_or_outside_circle",
+        "reverse_crossings": 0,
+        "termination": "invalid_route"
+      },
+      "raw_time": null,
+      "penalty": 1.6,
+      "time": null,
+      "dq": true,
+      "complete": false,
+      "pass": false,
+      "seed": 72000,
+      "dr": "heavy",
+      "controller": "pp",
+      "command_mode": "zero",
+      "progress": 0.2852310286328229
+    }
+  ]
+}

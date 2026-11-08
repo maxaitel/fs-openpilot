@@ -1,0 +1,21 @@
+{
+  "checkpoint": "runs/skidpad_clean/final.pt",
+  "sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+  "seeds": [
+    72000,
+    72001,
+    72002,
+    72003,
+    72004,
+    72005,
+    72006,
+    72007,
+    72008,
+    72009
+  ],
+  "levels": [
+    "light",
+    "heavy"
+  ],
+  "video_seed": 72000
+}
