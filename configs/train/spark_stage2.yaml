@@ -1,0 +1,10 @@
+# Measured on DGX Spark: keep batch 64; larger batches do not necessarily improve throughput.
+defaults: [cuda_stage2.yaml]
+name: spark_stage2
+init_ckpt: runs/spark_stage1/ckpt/best.pt
+batch_size: 64
+num_workers: 12
+pin_memory: true
+channels_last: true
+fused_adamw: true
+cudnn_benchmark: true

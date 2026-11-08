@@ -99,6 +99,20 @@ def test_frames_sharded_roundtrip_and_repack(tmp_path):
   assert g["wide"].shards is not None and np.array_equal(g["wide"][:], a)
 
 
+def test_episode_frame_pairs_preserve_temporal_order(tmp_path):
+  from fsop.data.sim_dataset import Episode
+  from fsop.sim.recorder import write_frames
+
+  frames = np.random.default_rng(0).integers(0, 256, (3, 6, 128, 256), dtype=np.uint8)
+  write_frames(tmp_path / "frames.zarr", {"road": frames, "wide": frames[::-1]})
+  ep = Episode.__new__(Episode)
+  ep.path = tmp_path
+  for _ in range(2):
+    for cam, source in (("road", frames), ("wide", frames[::-1])):
+      for k in range(3):
+        np.testing.assert_array_equal(ep.frame_pair(cam, k), np.concatenate([source[max(k - 1, 0)], source[k]]))
+
+
 def test_venue_scene_sampling_and_render(tmp_path):
   import pytest
 

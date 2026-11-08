@@ -40,6 +40,10 @@ class TrainCfg:
   init_ckpt: str = ""
   batch_size: int = 64
   num_workers: int = 4
+  pin_memory: bool = True  # only enabled on CUDA
+  cudnn_benchmark: bool = False  # autotune fixed-size convolutions (extra startup cost)
+  channels_last: bool = False
+  fused_adamw: bool = False  # CUDA only
   steps: int = 4000
   lr: float = 3e-4
   lr_policy: float = 0.3  # multiplier for the pretrained policy
@@ -67,6 +71,8 @@ class Trainer:
     torch.manual_seed(cfg.seed)
     np.random.seed(cfg.seed)
     self.device = pick_device(cfg.device)
+    if self.device.type == "cuda":
+      torch.backends.cudnn.benchmark = cfg.cudnn_benchmark
     self.run_dir = Path(cfg.out_dir) / cfg.name
     (self.run_dir / "ckpt").mkdir(parents=True, exist_ok=True)
     save_config(cfg, self.run_dir / "config.yaml")
@@ -83,6 +89,8 @@ class Trainer:
       print(f"init from {cfg.init_ckpt}: missing {len(missing)} unexpected {len(unexpected)}")
     self.model.set_trunk_trainable(cfg.trunk if cfg.stage >= 2 else "frozen")
     self.model.to(self.device)
+    if cfg.channels_last:
+      self.model.to(memory_format=torch.channels_last)
     self.ref = {n: p.detach().clone() for n, p in self.model.base.vision.named_parameters() if p.requires_grad}
     groups = [
       {"params": [p for p in self.model.base.policy.parameters() if p.requires_grad], "lr": cfg.lr * cfg.lr_policy},
@@ -95,7 +103,8 @@ class Trainer:
       groups.append({"params": trunk, "lr": cfg.lr * cfg.lr_trunk, "weight_decay": 0.0})
     for g in groups:
       g["base_lr"] = g["lr"]
-    self.opt = torch.optim.AdamW(groups, weight_decay=cfg.weight_decay)
+    self.opt = torch.optim.AdamW(groups, weight_decay=cfg.weight_decay,
+                                 fused=True if cfg.fused_adamw and self.device.type == "cuda" else None)
     self.fsoco = None
     if cfg.fsoco_root and cfg.stage >= 2:
       from fsop.data.fsoco import FsocoDataset
@@ -114,10 +123,17 @@ class Trainer:
   def _loader(self, ds, shuffle: bool, bs: int | None = None):
     return DataLoader(ds, batch_size=bs or self.cfg.batch_size, shuffle=shuffle, num_workers=self.cfg.num_workers,
                       collate_fn=collate, drop_last=shuffle, persistent_workers=self.cfg.num_workers > 0,
+                      pin_memory=self.cfg.pin_memory and self.device.type == "cuda",
                       prefetch_factor=4 if self.cfg.num_workers > 0 else None)
 
   def _to(self, b: dict) -> dict:
-    return {k: (v.to(self.device, non_blocking=True) if torch.is_tensor(v) else v) for k, v in b.items()}
+    out = {}
+    for k, v in b.items():
+      if torch.is_tensor(v):
+        fmt = torch.channels_last if self.cfg.channels_last and v.ndim == 4 else torch.preserve_format
+        v = v.to(self.device, non_blocking=True, memory_format=fmt)
+      out[k] = v
+    return out
 
   def forward(self, b: dict) -> dict:
     if self.cfg.stage == 1:
@@ -216,6 +232,7 @@ class Trainer:
       n = min(c.val_batches * c.batch_size, len(self.val_ds))
       sub = torch.utils.data.Subset(self.val_ds, sorted(rng.choice(len(self.val_ds), n, replace=False).tolist()))
       self._val_loader = DataLoader(sub, batch_size=c.batch_size, shuffle=False, num_workers=c.num_workers,
+                                    pin_memory=c.pin_memory and self.device.type == "cuda",
                                     collate_fn=collate, persistent_workers=c.num_workers > 0)
     agg: dict[str, list] = {}
     scorer = BevScorer()
@@ -260,6 +277,8 @@ class Trainer:
 
   def _viz(self, viz, tag: str) -> None:
     """Per-validation Rerun recording of fixed samples: GT vs predicted plan + BEV cones."""
+    if not viz:
+      return
     try:
       import rerun as rr
 

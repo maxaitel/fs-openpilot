@@ -21,6 +21,7 @@ from onnx2torch import convert as o2t_convert
 from torch import nn
 
 import fsop.model.op_converters  # noqa: F401  (registers converters)
+from fsop.model.static_shapes import specialize_static_shapes
 
 NON_TRAINABLE = ("_mean", "_std")
 
@@ -78,6 +79,7 @@ def freeze_non_trainable(gm: nn.Module, names: dict[str, str]) -> None:
 def load_graph(path: str | Path) -> tuple[nn.Module, dict[str, str]]:
   model = onnx.load(str(path))
   gm = o2t_convert(model)
+  specialize_static_shapes(gm)
   promote_buffers(gm)
   names = onnx_name_map(gm, model)
   freeze_non_trainable(gm, names)
