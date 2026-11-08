@@ -1,0 +1,13 @@
+defaults: [cuda_stage2_v2.yaml]
+name: spark_full_v2
+sim_root: data/sim/spark_full_venue
+cache_tag: spark_full_bootstrap_best
+init_ckpt: runs/spark_full_bootstrap/ckpt/best.pt
+steps: 7000
+num_workers: 12
+pin_memory: true
+channels_last: true
+fused_adamw: true
+cudnn_benchmark: true
+viz_samples: 0
+log_every: 50

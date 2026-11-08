@@ -95,14 +95,16 @@ def plan_dataset(track_dir: str, n_random: int = 1, n_standing: float = 0.15, n_
   return specs
 
 
-def record_dataset(specs: list[EpisodeSpec], out_dir: str, workers: int = 4) -> list[dict]:
+def record_dataset(specs: list[EpisodeSpec], out_dir: str, workers: int = 4,
+                   max_tasks_per_child: int | None = None) -> list[dict]:
   out = Path(out_dir)
   out.mkdir(parents=True, exist_ok=True)
   todo = [s for s in specs if not (out / s.episode_id / "meta.json").exists()]
   ctx = mp.get_context("spawn")
   rows = []
   # one task per episode keeps the progress bar honest; each worker process keeps its renderer
-  with ctx.Pool(workers, maxtasksperchild=None) as pool:
+  # Venue renderer allocations can accumulate across scenes; recycle workers on long runs.
+  with ctx.Pool(workers, maxtasksperchild=max_tasks_per_child) as pool:
     for r in tqdm(pool.imap_unordered(_worker, [([s], out_dir) for s in todo]), total=len(todo), desc="episodes"):
       rows.extend(r)
   index = []

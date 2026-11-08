@@ -1,0 +1,9 @@
+defaults: [spark_stage1.yaml]
+name: spark_full_stage1
+sim_root: data/sim/spark_full_venue
+steps: 6000
+warmup: 200
+val_every: 1000
+val_batches: 15
+viz_samples: 0
+log_every: 50

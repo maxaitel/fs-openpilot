@@ -163,6 +163,12 @@ Every model gets a record in [`benchmarks/results/`](benchmarks/results). The ta
 `geometric_gt` is a privileged reference: a classic cone-midline planner fed the ground-truth cones,
 i.e. perfect perception. It has no open-loop numbers.
 
+For measured training throughput, hardware use and a reproducible small training run on NVIDIA DGX
+Spark, see [the Spark performance report](docs/spark-performance.md). These performance tests use a
+separate generated dataset and do not belong in the driving-quality leaderboard above.
+The larger venue-scene run is documented in [the full Spark training report](docs/spark-full-training.md),
+including its dataset, training recipe, hardware measurements and held-out evaluation protocol.
+
 ## Roadmap
 
 This is my playground. The current focus and the idea backlog are in

@@ -1,0 +1,8 @@
+# DGX Spark / GB10. For a short run, override steps, warmup and sim_root.
+defaults: [cuda_stage1.yaml]
+name: spark_stage1
+batch_size: 256
+num_workers: 12
+pin_memory: true
+fused_adamw: true
+cudnn_benchmark: true

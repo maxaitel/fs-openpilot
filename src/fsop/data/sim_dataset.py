@@ -57,8 +57,13 @@ class Episode:
   def frames(self):
     return zarr.open_group(str(self.path / "frames.zarr"), mode="r")
 
+  @cached_property
+  def frame_arrays(self):
+    # Opening an array reads its metadata. Keep handles per episode/worker, not per sample.
+    return {cam: self.frames[cam] for cam in ("road", "wide")}
+
   def frame_pair(self, cam: str, k: int) -> np.ndarray:
-    a = self.frames[cam]
+    a = self.frame_arrays[cam]
     k0 = max(k - 1, 0)
     return np.concatenate([a[k0], a[k]], axis=0)
 
@@ -126,7 +131,8 @@ class SimDataset(Dataset):
   def _feats(self, ei: int) -> dict:
     if ei not in self._cache:
       d = self.eps[ei].cache_dir(self.tag)
-      self._cache[ei] = {n: np.load(d / f"{n}.npy", mmap_mode="r") for n in ("hidden", "final", "s16")
+      names = ("hidden", "final", "s16") if self.mode == "cached" else ("hidden",)
+      self._cache[ei] = {n: np.load(d / f"{n}.npy", mmap_mode="r") for n in names
                          if (d / f"{n}.npy").exists()}
     return self._cache[ei]
 
