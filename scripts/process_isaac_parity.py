@@ -20,6 +20,7 @@ def digest(path):
 
 def process_episode(directory):
     import cv2
+    import rerun as rr
     import torch
 
     from isaac_eval.render_debug import export_rrd, render
@@ -34,6 +35,7 @@ def process_episode(directory):
         raise ValueError(f"Episode audit failed: {directory}")
     render(directory / "evidence", directory / "debug-source.mp4", directory / "research-source.mp4")
     export_rrd(directory / "evidence", directory / "debug.rrd")
+    rr.disconnect()
     count = audit["frame_count"]
     result = {
         "case_id": directory.name,
@@ -119,8 +121,11 @@ def main():
     for key in ("OMP_NUM_THREADS", "MKL_NUM_THREADS", "OPENBLAS_NUM_THREADS"):
         os.environ[key] = "1"
     if shutil.which("ffmpeg") is None and args.install_ffmpeg:
-        subprocess.run(["apt-get", "update", "-qq"], check=True)
-        subprocess.run(["apt-get", "install", "-y", "-qq", "ffmpeg"], check=True)
+        package_env = {key: value for key, value in os.environ.items()
+                       if key not in {"PYTHONHOME", "PYTHONPATH"}}
+        package_env["DEBIAN_FRONTEND"] = "noninteractive"
+        subprocess.run(["apt-get", "update", "-qq"], check=True, env=package_env)
+        subprocess.run(["apt-get", "install", "-y", "-qq", "ffmpeg"], check=True, env=package_env)
     if importlib.util.find_spec("rerun") is None and args.install_rerun:
         subprocess.run([sys.executable, "-m", "pip", "install", "rerun-sdk==0.42.0"], check=True)
     subprocess.run(["ffmpeg", "-version"], stdout=subprocess.DEVNULL, check=True)

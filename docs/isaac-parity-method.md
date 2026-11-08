@@ -14,7 +14,7 @@ Run `scripts/process_isaac_parity.py` on the Spark after the measured suite fini
 
 The script verifies the manifest content hash, protocol and ordered case list, archived reference provenance, result file hashes and indexed rows. The report records the checkpoint, protocol, manifest, source hashes and backend differences. It uses the frozen manifest's historical reference row for each case. The skidpad and retention sets are reported separately from command ablations and the previous failure.
 
-Pass is the referee's pass field. Clean requires pass, zero legacy DOO and zero OC. Physical cone hits use PhysX contact data and are shown separately from legacy DOO. Per-frame timings are pooled over all recorded frames, not averaged across cases. Their median and p95 are in milliseconds. Telemetry median and p95 pool available one-second samples from verified cases, so longer cases contribute more samples. P95 is linearly interpolated at rank 0.95 times (n - 1). GPU utilization, power, and temperature are device-wide. CPU and host RAM describe the host; process RSS describes the evaluator process. Step wall time includes the component timings. Run wall excludes startup; their sum excludes orchestration and offline video export. Real-time factor is total simulated seconds divided by total run wall seconds across verified cases. GPU traces are per-case samples overlaid relative to each case's run start, not a continuous suite timeline. Missing results are never counted as passes or silently removed from the expected count.
+Pass is the referee's pass field. Clean requires pass, zero legacy DOO and zero OC. Physical cone hits use PhysX contact data and are shown separately from legacy DOO. Physical clean requires pass, zero PhysX cone contacts and zero OC. Per-frame timings are pooled over all recorded frames, not averaged across cases. Their median and p95 are in milliseconds. Telemetry median and p95 pool available one-second samples from verified cases, so longer cases contribute more samples. P95 is linearly interpolated at rank 0.95 times (n - 1). GPU utilization, power, and temperature are device-wide. CPU and host RAM describe the host; process RSS describes the evaluator process. Step wall time includes the component timings. Run wall excludes startup; their sum excludes orchestration and offline video export. Real-time factor is total simulated seconds divided by total run wall seconds across verified cases. GPU traces are per-case samples overlaid relative to each case's run start, not a continuous suite timeline. Missing results are never counted as passes or silently removed from the expected count.
 
 The historical custom simulator and new Isaac evaluation share the frozen checkpoint, cases and matching contract, but differ in renderer, physics, scenery responses, platform and resulting trajectories. Historical initialization is reconstructed. The comparison cannot isolate a physics-only effect or establish a training curve.
 
@@ -30,7 +30,7 @@ flowchart LR
   pack --> vision[Frozen visual encoder]
   vision --> policy[Frozen temporal policy]
   physics --> progress[Original mission progress and route commands]
-  progress --> policy
+  progress -->|Route pulses| policy
   policy --> plan[Predicted path]
   plan --> pp[Original path follower]
   physics -->|Speed| pp

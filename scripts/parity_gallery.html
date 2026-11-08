@@ -188,9 +188,9 @@
     <p>
       Every video plays at 20 simulation frames per second. The final two
       seconds show the terminal result and explicitly contain no current
-      prediction. Pass means the original referee accepted the run. Clean
+      prediction. Pass means the original referee accepted the run. Geometric clean
       additionally requires zero geometric cone penalties and zero off-course
-      events. PhysX contacts are reported separately.
+      events. Physical clean requires pass, zero PhysX cone contacts and zero off-course events.
     </p>
     <p>
       The predicted path drives the controller. Cone boxes are an auxiliary vision-head output and are not fed into the path follower. The controller still receives speed, nominal calibration, mission progress
@@ -263,7 +263,7 @@
       }
       document.querySelector("#title").textContent = row.case_id;
       document.querySelector("#metrics").textContent =
-        `${row.isaac_result} · ${row.isaac_clean ? "CLEAN" : row.isaac_pass ? "PASS, NOT CLEAN" : "FAIL"} · geometric DOO ${row.isaac_doo} · off-course ${row.isaac_oc} · PhysX contacts ${row.physical_cone_hits}`;
+        `${row.isaac_result} · ${row.isaac_pass ? "PASS" : "FAIL"} · geometric clean ${row.isaac_clean ? "yes" : "no"} · physical clean ${row.isaac_physical_clean ? "yes" : "no"} · geometric DOO ${row.isaac_doo} · off-course ${row.isaac_oc} · PhysX contacts ${row.physical_cone_hits}`;
       video.hidden = false;
       video.src = row[mode + "_url"];
       document
@@ -328,7 +328,7 @@
       const g = data.groups[group],
         d = document.createElement("div");
       d.className = "chip";
-      d.textContent = `${group}: ${g.isaac_pass}/${g.observed} pass · ${g.isaac_clean} clean`;
+      d.textContent = `${group}: ${g.isaac_pass}/${g.observed} pass · ${g.isaac_clean} geometric clean · ${g.isaac_physical_clean} physical clean`;
       document.querySelector("#chips").append(d);
     }
     for (const row of data.cases) {

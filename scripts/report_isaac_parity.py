@@ -23,7 +23,8 @@ TIMINGS = ("render_s", "policy_with_capture_s", "evidence_s", "physics_s", "step
 
 
 def digest(path):
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    with path.open("rb") as stream:
+        return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
 def read(path):
@@ -146,6 +147,9 @@ def main():
                 if not a.remote_evidence_root and verified_summary(folder / "evidence") != summary:
                     raise ValueError("Evidence completion does not bind this summary")
                 video_audit = read(folder / "video_audit.json")
+                recording = folder / "debug.rrd"
+                if recording.exists() and digest(recording) != video_audit["rrd_sha256"]:
+                    raise ValueError("Local Rerun recording does not match its finalized hash")
                 if (
                     video_audit["completion_sha256"] != digest(folder / "evidence/completion.json")
                     or video_audit.get("artifact_audit_sha256") != digest(folder / "artifact_audit.json")
@@ -248,6 +252,10 @@ def main():
     sim_seconds = sum(r["seconds_simulated"] for r in valid)
     payload = {
         "remote_evidence_root": a.remote_evidence_root,
+        "export_receipts": {
+            name: {"sha256": digest(a.run / name), "data": read(a.run / name)}
+            for name in ("rrd_finalization.json", "rrd_footer_repairs.json") if (a.run / name).exists()
+        },
         "complete": complete,
         "counts": dict(Counter(r["status"] for r in rows)),
         "groups": groups,
@@ -280,21 +288,24 @@ def main():
     if valid:
         fig, ax = plt.subplots(figsize=(9, 4.5))
         xs = list(range(4))
-        width = 0.2
+        width = 0.16
         for j, (key, label) in enumerate(
             (
                 ("reference_pass", "Custom pass"),
-                ("reference_clean", "Custom clean"),
+                ("reference_clean", "Custom geometric clean"),
                 ("isaac_pass", "Isaac pass"),
-                ("isaac_clean", "Isaac clean"),
+                ("isaac_clean", "Isaac geometric clean"),
+                ("isaac_physical_clean", "Isaac physical clean"),
             )
         ):
-            ax.bar([x + (j - 1.5) * width for x in xs], [groups[g][key] for g in GROUPS], width, label=label)
+            ax.bar([x + (j - 2) * width for x in xs], [groups[g][key] for g in GROUPS], width, label=label)
         ax.set_xticks(xs, [f"{g}\nIsaac {groups[g]['observed']}/{groups[g]['expected']}" for g in GROUPS])
         ax.set_ylabel("Cases")
-        ax.legend(ncol=2)
-        ax.set_title("Pass and clean counts; incomplete groups have fewer Isaac observations")
-        fig.tight_layout()
+        ax.legend(ncol=2, fontsize=9)
+        ax.set_title("Pass and clean counts; observed case counts shown below")
+        fig.text(0.5, 0.01, "Clean requires pass and zero OC. Geometric clean requires zero DOO; "
+                 "physical clean requires zero PhysX contacts.", ha="center", fontsize=8)
+        fig.tight_layout(rect=(0, 0.045, 1, 1))
         fig.savefig(a.out / "outcomes.png", dpi=150)
         plt.close(fig)
         fig, ax = plt.subplots(figsize=(max(10, len(valid) * 0.32), 5))
@@ -408,6 +419,8 @@ def main():
         "Graphs: outcomes.png, paired_contacts.png, frame_timing.png and, when telemetry exists, "
         "gpu_telemetry.png. Technical errors and return codes are retained in cases.csv and parity.json.",
     ]
+    for name, receipt in payload["export_receipts"].items():
+        lines.append(f"\nExport receipt [{name}]({(a.run / name).resolve()}), SHA-256 `{receipt['sha256']}`.")
     (a.out / "report.md").write_text("\n".join(lines) + "\n")
     print(f"{'Complete' if complete else 'Incomplete'} report: {a.out / 'report.md'} ({len(valid)}/41 cases)")
 
