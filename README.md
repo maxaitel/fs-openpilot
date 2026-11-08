@@ -177,6 +177,8 @@ The [frozen Isaac evaluation](docs/isaac-parity-results/README.md) repeats 41 cu
 with the same checkpoint, controller, referee, and debug compositor. Its main comparison completes
 31 of 36 cases, with nine physically clean finishes. The report includes vision evidence, failures,
 hardware graphs, and a [reproduction guide](isaac_eval/PARITY_RUN.md).
+The [paired visual stress experiment](docs/isaac-stress-results/README.md) adds textured pavement,
+static people, walls and paddock clutter to four cases with the same frozen policy.
 
 ## Roadmap
 

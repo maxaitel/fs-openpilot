@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "videos": [
+    {
+      "path": "matched/skidpad-72000-light-recorded/debug.mp4",
+      "sha256": "4cf0af8044ae643dcacc068d60f6b66d8bb27fceff1498a4f995d26631f40854"
+    },
+    {
+      "path": "matched/skidpad-72000-light-recorded/research.mp4",
+      "sha256": "92cbaf892e7cd6271261d993b168d570e6d402d7bd7f894e7cde46fc4445b563"
+    },
+    {
+      "path": "visual_stress_v1/skidpad-72000-light-recorded/debug.mp4",
+      "sha256": "5398a6e5ef872216b07008fc8a60b9545813532c05ab09e24b2b0f2d3f765f2a"
+    },
+    {
+      "path": "visual_stress_v1/skidpad-72000-light-recorded/research.mp4",
+      "sha256": "baeafc00a77fb99048a5f8139640a3c169175287d09a027fd0b6f497f69999f9"
+    },
+    {
+      "path": "matched/skidpad-72000-heavy-recorded/debug.mp4",
+      "sha256": "05e94aa27a934095d2850b30bddf6f04e5528dd4d1f00db7a70918b5b8162bfc"
+    },
+    {
+      "path": "matched/skidpad-72000-heavy-recorded/research.mp4",
+      "sha256": "bab4cdc20952e5f7eb63b16b65b381fd912c1fec26dff23c4a15f17f5638d8e6"
+    },
+    {
+      "path": "visual_stress_v1/skidpad-72000-heavy-recorded/debug.mp4",
+      "sha256": "83a385429164289f211da56648c6924a88e03c4fdc9a3e3ac2cec19da922dd72"
+    },
+    {
+      "path": "visual_stress_v1/skidpad-72000-heavy-recorded/research.mp4",
+      "sha256": "3e711b63b3cccec0b35841a771e3622311c515825b74cf4376635c8a55b8b812"
+    },
+    {
+      "path": "matched/retention-trackdrive_020000-light-recorded/debug.mp4",
+      "sha256": "bf135b9f6b096403548da469459c87df9e56bddf61dded9a96bf3479ffb0980e"
+    },
+    {
+      "path": "matched/retention-trackdrive_020000-light-recorded/research.mp4",
+      "sha256": "efe4abfd88db5970eb7c5f749b752c76ebba460fa7742bf8d6dac1da8d5ace67"
+    },
+    {
+      "path": "visual_stress_v1/retention-trackdrive_020000-light-recorded/debug.mp4",
+      "sha256": "0ac4ac8fe72d4b19a5487b216fc93a7e9fc277d5920ff7500590f2f61fc1acd5"
+    },
+    {
+      "path": "visual_stress_v1/retention-trackdrive_020000-light-recorded/research.mp4",
+      "sha256": "f2919868be27c1caa342f6c1953f6adb27cbb117f8439af2c57a0d7e053c7bbb"
+    },
+    {
+      "path": "matched/retention-trackdrive_020000-heavy-recorded/debug.mp4",
+      "sha256": "4ef2aea16245821be9a79d69cc5c024125cd7d7e339b844a9935fb37e9c0139d"
+    },
+    {
+      "path": "matched/retention-trackdrive_020000-heavy-recorded/research.mp4",
+      "sha256": "c4c2b4e667dd430ca6ce6039c60f9c20d4fc425b487db10812e48c9053791e55"
+    },
+    {
+      "path": "visual_stress_v1/retention-trackdrive_020000-heavy-recorded/debug.mp4",
+      "sha256": "0893a29f0e3f88b643fe2701df1a633dab29d244737e7d9b9f6a717962dc72cb"
+    },
+    {
+      "path": "visual_stress_v1/retention-trackdrive_020000-heavy-recorded/research.mp4",
+      "sha256": "42485866f9d9adc353ec7a54237d2427a9f0d2c56993c3ead5233a7b021c45b0"
+    }
+  ],
+  "browser_checks": {
+    "case": "retention-trackdrive_020000-light-recorded",
+    "debug_time_advanced_to_s": 8.3301,
+    "research_time_advanced_to_s": 20.3465,
+    "stress_duration_s": 122,
+    "browser_errors": null,
+    "resolution": [
+      1280,
+      768
+    ]
+  }
+}
