@@ -1,0 +1,382 @@
+{
+  "discipline": "skidpad",
+  "result": "finished",
+  "laps": [
+    9.351654065727459,
+    9.650020194741467,
+    9.57714378296594,
+    9.786670498697212
+  ],
+  "n_laps": 4,
+  "doo": 2,
+  "oc": 0,
+  "max_speed": 7.75499097094449,
+  "route": {
+    "expected_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "accepted_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "laps": [
+      {
+        "circle": "right",
+        "start_time": 3.4535210024348104,
+        "finish_time": 12.805175068162269,
+        "duration": 9.351654065727459,
+        "winding_right": -6.2831853071795845,
+        "winding_left": -9.8879238130678e-17
+      },
+      {
+        "circle": "right",
+        "start_time": 12.805175068162269,
+        "finish_time": 22.455195262903736,
+        "duration": 9.650020194741467,
+        "winding_right": -6.28318530717959,
+        "winding_left": 6.938893903907228e-17
+      },
+      {
+        "circle": "left",
+        "start_time": 22.455195262903736,
+        "finish_time": 32.032339045869676,
+        "duration": 9.57714378296594,
+        "winding_right": 1.942890293094024e-16,
+        "winding_left": 6.283185307179582
+      },
+      {
+        "circle": "left",
+        "start_time": 32.032339045869676,
+        "finish_time": 41.81900954456689,
+        "duration": 9.786670498697212,
+        "winding_right": -1.5612511283791264e-16,
+        "winding_left": 6.283185307179583
+      }
+    ],
+    "crossings": [
+      3.4535210024348104,
+      12.805175068162269,
+      22.455195262903736,
+      32.032339045869676,
+      41.81900954456689
+    ],
+    "complete": true,
+    "exited": true,
+    "stopped_in_zone": true,
+    "valid": true,
+    "violation": null,
+    "reverse_crossings": 0,
+    "termination": "finished"
+  },
+  "raw_time": 9.718345346719339,
+  "penalty": 0.4,
+  "time": 10.11834534671934,
+  "dq": false,
+  "complete": true,
+  "pass": true,
+  "case": {
+    "case_id": "skidpad-72002-heavy-recorded",
+    "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+    "command_mode": "recorded",
+    "controller": "pp",
+    "discipline": "skidpad",
+    "dr": "heavy",
+    "group": "skidpad",
+    "max_time": 120,
+    "noise": false,
+    "reference_index": 5,
+    "reference_result": {
+      "command_mode": "recorded",
+      "complete": true,
+      "controller": "pp",
+      "discipline": "skidpad",
+      "doo": 4,
+      "dq": false,
+      "dr": "heavy",
+      "laps": [
+        9.461519387129535,
+        9.926663607481501,
+        9.706387256789771,
+        9.842603266676221
+      ],
+      "max_speed": 7.94099463491391,
+      "n_laps": 4,
+      "oc": 0,
+      "pass": true,
+      "penalty": 0.8,
+      "progress": 1.00182953451951,
+      "raw_time": 9.884633437078861,
+      "result": "finished",
+      "route": {
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "complete": true,
+        "crossings": [
+          3.391441618542008,
+          12.852961005671542,
+          22.779624613153043,
+          32.486011869942814,
+          42.328615136619035
+        ],
+        "exited": true,
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "duration": 9.461519387129535,
+            "finish_time": 12.852961005671542,
+            "start_time": 3.391441618542008,
+            "winding_left": -1.4289784633358948e-16,
+            "winding_right": -6.283185307179586
+          },
+          {
+            "circle": "right",
+            "duration": 9.926663607481501,
+            "finish_time": 22.779624613153043,
+            "start_time": 12.852961005671542,
+            "winding_left": -4.718447854656915e-16,
+            "winding_right": -6.283185307179589
+          },
+          {
+            "circle": "left",
+            "duration": 9.706387256789771,
+            "finish_time": 32.486011869942814,
+            "start_time": 22.779624613153043,
+            "winding_left": 6.283185307179588,
+            "winding_right": -9.020562075079397e-17
+          },
+          {
+            "circle": "left",
+            "duration": 9.842603266676221,
+            "finish_time": 42.328615136619035,
+            "start_time": 32.486011869942814,
+            "winding_left": 6.283185307179584,
+            "winding_right": 2.914335439641036e-16
+          }
+        ],
+        "reverse_crossings": 0,
+        "stopped_in_zone": true,
+        "termination": "finished",
+        "valid": true,
+        "violation": null
+      },
+      "seed": 72002,
+      "time": 10.684633437078862
+    },
+    "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+    "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+    "seed": 72002,
+    "track_id": "skidpad",
+    "track_source": "fsop.track.fixed_layouts.skidpad()",
+    "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+    "venue_prob": 1.0
+  },
+  "pilot_only": false,
+  "final_state": {
+    "x": 23.09754753112793,
+    "y": 0.021131714805960655,
+    "yaw": -0.003896917389908258,
+    "vx": 2.9160758701343617e-06,
+    "vy": -1.6984444071447296e-07,
+    "r": 5.7703633538075394e-11,
+    "steer": -2.258505704791615e-06,
+    "accel": -1.0057123843683722,
+    "t": 46.2,
+    "extra": {}
+  },
+  "events": [
+    {
+      "t": 3.4535210024348104,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    },
+    {
+      "t": 12.805175068162269,
+      "kind": "line_cross",
+      "data": {
+        "n": 2
+      }
+    },
+    {
+      "t": 12.805175068162269,
+      "kind": "lap",
+      "data": {
+        "circle": "right",
+        "start_time": 3.4535210024348104,
+        "finish_time": 12.805175068162269,
+        "duration": 9.351654065727459,
+        "winding_right": -6.2831853071795845,
+        "winding_left": -9.8879238130678e-17
+      }
+    },
+    {
+      "t": 22.455195262903736,
+      "kind": "line_cross",
+      "data": {
+        "n": 3
+      }
+    },
+    {
+      "t": 22.455195262903736,
+      "kind": "lap",
+      "data": {
+        "circle": "right",
+        "start_time": 12.805175068162269,
+        "finish_time": 22.455195262903736,
+        "duration": 9.650020194741467,
+        "winding_right": -6.28318530717959,
+        "winding_left": 6.938893903907228e-17
+      }
+    },
+    {
+      "t": 28.85,
+      "kind": "doo",
+      "data": {
+        "cone": 24,
+        "dir": -2.138344567290002
+      }
+    },
+    {
+      "t": 32.032339045869676,
+      "kind": "line_cross",
+      "data": {
+        "n": 4
+      }
+    },
+    {
+      "t": 32.032339045869676,
+      "kind": "lap",
+      "data": {
+        "circle": "left",
+        "start_time": 22.455195262903736,
+        "finish_time": 32.032339045869676,
+        "duration": 9.57714378296594,
+        "winding_right": 1.942890293094024e-16,
+        "winding_left": 6.283185307179582
+      }
+    },
+    {
+      "t": 37.35,
+      "kind": "doo",
+      "data": {
+        "cone": 22,
+        "dir": -3.003569086672033
+      }
+    },
+    {
+      "t": 41.81900954456689,
+      "kind": "line_cross",
+      "data": {
+        "n": 5
+      }
+    },
+    {
+      "t": 41.81900954456689,
+      "kind": "lap",
+      "data": {
+        "circle": "left",
+        "start_time": 32.032339045869676,
+        "finish_time": 41.81900954456689,
+        "duration": 9.786670498697212,
+        "winding_right": -1.5612511283791264e-16,
+        "winding_left": 6.283185307179583
+      }
+    },
+    {
+      "t": 46.2,
+      "kind": "stopped",
+      "data": {
+        "in_stop_zone": true
+      }
+    },
+    {
+      "t": 46.2,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "pending_events": [
+    {
+      "t": 46.2,
+      "kind": "stopped",
+      "data": {
+        "in_stop_zone": true
+      }
+    },
+    {
+      "t": 46.2,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "recorded_frames": 924,
+  "physical_cone_hits": 3,
+  "contact_events": [
+    {
+      "t": 25.5,
+      "control_frame": 510,
+      "cone": "/World/Cones/c0018",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 27.75,
+      "control_frame": 555,
+      "cone": "/World/Cones/c0022",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 28.6,
+      "control_frame": 572,
+      "cone": "/World/Cones/c0024",
+      "time_convention": "start of the control interval containing first contact"
+    }
+  ],
+  "progress": 1.001737600510741,
+  "rms_lat": 0.3000377312565616,
+  "wall_seconds": 228.76966691599227,
+  "startup_seconds": 12.7564729640726,
+  "evidence_seconds": 35.550115093938075,
+  "seconds_simulated": 46.2,
+  "real_time_factor": 0.20194985035741364,
+  "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+  "state_sha256": "1921a60567422c86df551cd2a89a69170af38cc5c390bdd3d4cd049be8a9c50a",
+  "frozen_unchanged": true,
+  "manifest_sha256": "db09bf67135f8d4dd10fd9da36b4d262ac1a9fd364fac9793aaeca017287cc4e",
+  "protocol_sha256": "a9db979fc3ab2ddea1602eb4998d538c5faf7bfc7ab2e280292b7eb4015a2af3",
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "b0ec642194f13e0cf214f291f3fd7ac5166205a2fe73ac619b5bed8a00cca32e",
+  "torch_peak_allocated_gib": 0.13738584518432617,
+  "torch_peak_reserved_gib": 0.150390625,
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130"
+  }
+}

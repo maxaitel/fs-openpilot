@@ -1,0 +1,230 @@
+{
+  "complete": true,
+  "repair_source_sha256": "63c8e036233b98556a12277db25125719da65185d3176ee8900ed81133e6e74f",
+  "cases": [
+    {
+      "case_id": "retention-trackdrive_030061-light-recorded",
+      "repair_source_sha256": "63c8e036233b98556a12277db25125719da65185d3176ee8900ed81133e6e74f",
+      "before_sha256": "381a08ab00a15dbe89289d9706b909bd1123b4f0480752e50d2be166c65627b2",
+      "original_audit_sha256": "e49483d9fa1a1c9df75f1e792511575d91b0ffe3da53cd375875a85df48e069d",
+      "backup_file": "debug.backup.rrd",
+      "commands": [
+        {
+          "arguments": [
+            "verify",
+            "--check-footers=false",
+            "isaac_eval/runs/parity_v1/retention-trackdrive_030061-light-recorded/debug.rrd"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "1 file verified without error.\n"
+        },
+        {
+          "arguments": [
+            "migrate",
+            "isaac_eval/runs/parity_v1/retention-trackdrive_030061-light-recorded/debug.rrd"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "Migrating 1 .rrd file(s)\u2026\n\u2705 1 file(s) successfully migrated.\n"
+        },
+        {
+          "arguments": [
+            "verify",
+            "--check-footers=true",
+            "isaac_eval/runs/parity_v1/retention-trackdrive_030061-light-recorded/debug.rrd"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "1 file verified without error.\n"
+        },
+        {
+          "arguments": [
+            "compare",
+            "--unordered",
+            "isaac_eval/runs/parity_v1/retention-trackdrive_030061-light-recorded/debug.backup.rrd",
+            "isaac_eval/runs/parity_v1/retention-trackdrive_030061-light-recorded/debug.rrd"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      ],
+      "comparison_ignores": [
+        "log_time",
+        "row_order"
+      ],
+      "after_sha256": "e78ba482a032d5f98b5fe48884ba23e9f497eec550cb776424db148a4f6daee6",
+      "footer_verified": true,
+      "data_comparison_passed": true
+    },
+    {
+      "case_id": "retention-trackdrive_030061-heavy-recorded",
+      "repair_source_sha256": "63c8e036233b98556a12277db25125719da65185d3176ee8900ed81133e6e74f",
+      "before_sha256": "ecb7a077b0f921a5c9f80a33b65e54d4c02da6116112675359482af3cd257cf8",
+      "original_audit_sha256": "b1556a6c808a0ef9d2637bdd72d3807ef37c1f8ee1e9692e399327ee05100509",
+      "backup_file": "debug.backup.rrd",
+      "commands": [
+        {
+          "arguments": [
+            "verify",
+            "--check-footers=false",
+            "isaac_eval/runs/parity_v1/retention-trackdrive_030061-heavy-recorded/debug.rrd"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "1 file verified without error.\n"
+        },
+        {
+          "arguments": [
+            "migrate",
+            "isaac_eval/runs/parity_v1/retention-trackdrive_030061-heavy-recorded/debug.rrd"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "Migrating 1 .rrd file(s)\u2026\n\u2705 1 file(s) successfully migrated.\n"
+        },
+        {
+          "arguments": [
+            "verify",
+            "--check-footers=true",
+            "isaac_eval/runs/parity_v1/retention-trackdrive_030061-heavy-recorded/debug.rrd"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "1 file verified without error.\n"
+        },
+        {
+          "arguments": [
+            "compare",
+            "--unordered",
+            "isaac_eval/runs/parity_v1/retention-trackdrive_030061-heavy-recorded/debug.backup.rrd",
+            "isaac_eval/runs/parity_v1/retention-trackdrive_030061-heavy-recorded/debug.rrd"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      ],
+      "comparison_ignores": [
+        "log_time",
+        "row_order"
+      ],
+      "after_sha256": "3529e7c05da0f25dc7a9132f80a6f33787a7d7fde9fbc1042f5b7249d78769c6",
+      "footer_verified": true,
+      "data_comparison_passed": true
+    },
+    {
+      "case_id": "ablation-skidpad-72000-heavy-swapped",
+      "repair_source_sha256": "63c8e036233b98556a12277db25125719da65185d3176ee8900ed81133e6e74f",
+      "before_sha256": "a1522288f60bb96900779e6f15873ac136f6f5ce79154d19544d6ad203be1ae2",
+      "original_audit_sha256": "6ff5814ffc18c006f2472e34e9f62b3465fb5f49c9004256ddae7e0d76d5c2c2",
+      "backup_file": "debug.backup.rrd",
+      "commands": [
+        {
+          "arguments": [
+            "verify",
+            "--check-footers=false",
+            "isaac_eval/runs/parity_v1/ablation-skidpad-72000-heavy-swapped/debug.rrd"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "1 file verified without error.\n"
+        },
+        {
+          "arguments": [
+            "migrate",
+            "isaac_eval/runs/parity_v1/ablation-skidpad-72000-heavy-swapped/debug.rrd"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "Migrating 1 .rrd file(s)\u2026\n\u2705 1 file(s) successfully migrated.\n"
+        },
+        {
+          "arguments": [
+            "verify",
+            "--check-footers=true",
+            "isaac_eval/runs/parity_v1/ablation-skidpad-72000-heavy-swapped/debug.rrd"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "1 file verified without error.\n"
+        },
+        {
+          "arguments": [
+            "compare",
+            "--unordered",
+            "isaac_eval/runs/parity_v1/ablation-skidpad-72000-heavy-swapped/debug.backup.rrd",
+            "isaac_eval/runs/parity_v1/ablation-skidpad-72000-heavy-swapped/debug.rrd"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      ],
+      "comparison_ignores": [
+        "log_time",
+        "row_order"
+      ],
+      "after_sha256": "044b8c996e05889c392da39e6af974643d617b360631a504ddac0b41b127d8f4",
+      "footer_verified": true,
+      "data_comparison_passed": true
+    },
+    {
+      "case_id": "prior-failure-skidpad-71003-heavy-recorded",
+      "repair_source_sha256": "63c8e036233b98556a12277db25125719da65185d3176ee8900ed81133e6e74f",
+      "before_sha256": "a2b0db726a79792c695d9a0f62c10ce5ce0d549fcebb54a07d482d0c5a8dd15b",
+      "original_audit_sha256": "4116902c9e9c6be81cb440085f7d0f6d7c150ba5d03245aadb7a8322bdef2f3a",
+      "backup_file": "debug.backup.rrd",
+      "commands": [
+        {
+          "arguments": [
+            "verify",
+            "--check-footers=false",
+            "isaac_eval/runs/parity_v1/prior-failure-skidpad-71003-heavy-recorded/debug.rrd"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "1 file verified without error.\n"
+        },
+        {
+          "arguments": [
+            "migrate",
+            "isaac_eval/runs/parity_v1/prior-failure-skidpad-71003-heavy-recorded/debug.rrd"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "Migrating 1 .rrd file(s)\u2026\n\u2705 1 file(s) successfully migrated.\n"
+        },
+        {
+          "arguments": [
+            "verify",
+            "--check-footers=true",
+            "isaac_eval/runs/parity_v1/prior-failure-skidpad-71003-heavy-recorded/debug.rrd"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "1 file verified without error.\n"
+        },
+        {
+          "arguments": [
+            "compare",
+            "--unordered",
+            "isaac_eval/runs/parity_v1/prior-failure-skidpad-71003-heavy-recorded/debug.backup.rrd",
+            "isaac_eval/runs/parity_v1/prior-failure-skidpad-71003-heavy-recorded/debug.rrd"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      ],
+      "comparison_ignores": [
+        "log_time",
+        "row_order"
+      ],
+      "after_sha256": "a39f770c4017d209421894c5383310b2c6d173e22dabfa8bddbd4bf90183aea2",
+      "footer_verified": true,
+      "data_comparison_passed": true
+    }
+  ]
+}

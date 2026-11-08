@@ -1,0 +1,24 @@
+{
+  "case_id": "ablation-skidpad-72000-heavy-zero",
+  "inference_frames": 552,
+  "terminal_frames": 40,
+  "completion_sha256": "ce321d27edbb47dc4b0d8ea6f4d65a774689eb70c165fc78718a916aa73c9e8f",
+  "artifact_audit_sha256": "22a3ff5fcd00fe3464166c9bbfc7e1e967d6162bc3a04606e71664903f4ed339",
+  "producer_sha256": "ff960a135ef5e611424fa65c8f6cfcf49c5ec902ec7b7e4562ee67c62105ff60",
+  "videos": {
+    "debug": {
+      "sha256": "5406cef3f29a2fd039c4f19108db541bc37f75a04348ffaf6160efc9d8ab2025",
+      "source_sha256": "1ca32f8ef46f398376863372dba5da155ebbf0f5f437d6c9d10c682c3d5bf332",
+      "fps": 20.0,
+      "decoded_frames": 592
+    },
+    "research": {
+      "sha256": "fee8d1f0f38ac3b4176433695bd709a18528ddce55ebd2061dcebeff4edfddd4",
+      "source_sha256": "3aa48ecdbe43aca5ca3c1c27e5d9e832160ac9626ce9f51bb0bcb629856aee41",
+      "fps": 20.0,
+      "decoded_frames": 592
+    }
+  },
+  "rrd_sha256": "61de53193128d9949ac6edc5e67296eb6869ff9e7e3bcb4612b1e87c86f0ad0d",
+  "postprocess_seconds": 56.962190979975276
+}

@@ -1,0 +1,24 @@
+{
+  "case_id": "retention-trackdrive_020000-heavy-recorded",
+  "inference_frames": 1262,
+  "terminal_frames": 40,
+  "completion_sha256": "a350addb9765648271509d4eea1b957d053a13ee9520c12a4855de1a0a78364f",
+  "artifact_audit_sha256": "22ec5832606fe79c6b1819d69a612c54c394f5107c94266fbd4a5586aff52f09",
+  "producer_sha256": "ff960a135ef5e611424fa65c8f6cfcf49c5ec902ec7b7e4562ee67c62105ff60",
+  "videos": {
+    "debug": {
+      "sha256": "c19845ba9b5cc5ca60d152d36a562da0411261a49945e62ef62699aaf6bcfd28",
+      "source_sha256": "753e307c9f2956f35c501bad32297e45b99759eedefc647cea4ce2105945b9ca",
+      "fps": 20.0,
+      "decoded_frames": 1302
+    },
+    "research": {
+      "sha256": "b64ba1fa827a2776b25b081a8dfc011fd93529f9a323309cb803649bebe90071",
+      "source_sha256": "dd47d8d0802ec4bb684609346014c12c204a38f0ba9438304629c43421cd4651",
+      "fps": 20.0,
+      "decoded_frames": 1302
+    }
+  },
+  "rrd_sha256": "b146042a5e4517af2a4071969ec84ab2f16e475d49a8c3fc5732f90b1a579cef",
+  "postprocess_seconds": 135.06782682298217
+}

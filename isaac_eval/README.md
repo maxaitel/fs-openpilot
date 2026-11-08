@@ -1,6 +1,8 @@
 # Frozen-model Isaac Sim evaluation
 
-This page documents the original four-subframe baseline at commit `b2d78ab`. For the current plain/paddock comparison, use [the realistic-scene explanation](REALISM.md) and [run guide](REALISM_RUN.md). That experiment uses a newly verified 16-subframe profile in both arms and its own protocol. Check out the historical commit before running the baseline commands below.
+For the current 41-case diagnostic parity suite, use [Run the frozen diagnostic parity suite](PARITY_RUN.md) and the [report and evidence method](../docs/isaac-parity-method.md). The suite records the actual frozen-model inputs and outputs before exporting diagnostic videos offline.
+
+The rest of this page documents the historical four-subframe baseline at commit `b2d78ab`. Check out that commit before running its commands below. The later [plain/paddock comparison](REALISM.md) and its [run guide](REALISM_RUN.md) describe a separate historical experiment with a 16-subframe profile and its own protocol. Neither historical experiment is the current diagnostic parity suite.
 
 This directory is an independent evaluation adapter. It does not train a model or change the existing Panda3D training/simulation code. Run artifacts are ignored by Git.
 

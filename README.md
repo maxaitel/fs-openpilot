@@ -173,6 +173,11 @@ The [skidpad follow-up](docs/skidpad-training.md) adds repeated junction command
 validation, recovery training, and command-ablation results. Its checkpoint and video are local
 artifacts. These separate Spark runs do not reproduce the upstream leaderboard protocol.
 
+The [frozen Isaac evaluation](docs/isaac-parity-results/README.md) repeats 41 custom-simulator cases
+with the same checkpoint, controller, referee, and debug compositor. Its main comparison completes
+31 of 36 cases, with nine physically clean finishes. The report includes vision evidence, failures,
+hardware graphs, and a [reproduction guide](isaac_eval/PARITY_RUN.md).
+
 ## Roadmap
 
 This is my playground. The current focus and the idea backlog are in

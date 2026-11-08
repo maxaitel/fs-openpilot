@@ -1,0 +1,24 @@
+{
+  "case_id": "skidpad-72001-heavy-recorded",
+  "inference_frames": 1702,
+  "terminal_frames": 40,
+  "completion_sha256": "6469feb87121209ae402778915e903bd1db4690e73fd759fbb78249301d52a7f",
+  "artifact_audit_sha256": "f71c93913bb6bf7ab072c92bb7085b9953ec5598f1bfc780f411544e1744dcf5",
+  "producer_sha256": "ff960a135ef5e611424fa65c8f6cfcf49c5ec902ec7b7e4562ee67c62105ff60",
+  "videos": {
+    "debug": {
+      "sha256": "3ae92ac1425cf24cd3a4ccc478f67f76f752721e212388d9d384892b3c419c94",
+      "source_sha256": "ae92f7d4c0dc43084d8c519d0f87e1f1db031faf93669563c9dc616ae4c14bef",
+      "fps": 20.0,
+      "decoded_frames": 1742
+    },
+    "research": {
+      "sha256": "8dce25d59913cb8ada91ca0d5b5addf3b9a0ce8303cecdafaaa1ef6d101397b1",
+      "source_sha256": "2339b73378798f898118da96c3c3d932edaab68a262a19ddb6cdf5e4bc0a9af4",
+      "fps": 20.0,
+      "decoded_frames": 1742
+    }
+  },
+  "rrd_sha256": "bd7f3792669b39ca3013edd9db3690c9842c1ca1126451f2f73651cee9354fb6",
+  "postprocess_seconds": 163.0133172980277
+}

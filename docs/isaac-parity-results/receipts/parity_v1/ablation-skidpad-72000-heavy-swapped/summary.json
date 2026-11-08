@@ -1,0 +1,179 @@
+{
+  "discipline": "skidpad",
+  "result": "invalid_route",
+  "laps": [],
+  "n_laps": 0,
+  "doo": 0,
+  "oc": 0,
+  "max_speed": 7.281406591522815,
+  "route": {
+    "expected_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "accepted_route": [],
+    "laps": [],
+    "crossings": [
+      3.5749934009708837,
+      13.400286636629271
+    ],
+    "complete": false,
+    "exited": false,
+    "stopped_in_zone": false,
+    "valid": false,
+    "violation": "wrong_circle_expected_right_got_left",
+    "reverse_crossings": 0,
+    "termination": "invalid_route"
+  },
+  "raw_time": null,
+  "penalty": 0.0,
+  "time": null,
+  "dq": false,
+  "complete": false,
+  "pass": false,
+  "case": {
+    "case_id": "ablation-skidpad-72000-heavy-swapped",
+    "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+    "command_mode": "swapped",
+    "controller": "pp",
+    "discipline": "skidpad",
+    "dr": "heavy",
+    "group": "ablation",
+    "max_time": 120,
+    "noise": false,
+    "reference_index": 1,
+    "reference_result": {
+      "command_mode": "swapped",
+      "complete": false,
+      "controller": "pp",
+      "discipline": "skidpad",
+      "doo": 3,
+      "dq": false,
+      "dr": "heavy",
+      "laps": [],
+      "max_speed": 8.133247417709743,
+      "n_laps": 0,
+      "oc": 0,
+      "pass": false,
+      "penalty": 0.6000000000000001,
+      "progress": 0.07420037699042037,
+      "raw_time": null,
+      "result": "invalid_route",
+      "route": {
+        "accepted_route": [],
+        "complete": false,
+        "crossings": [
+          3.0951082476331218,
+          12.521504297577417
+        ],
+        "exited": false,
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [],
+        "reverse_crossings": 0,
+        "stopped_in_zone": false,
+        "termination": "invalid_route",
+        "valid": false,
+        "violation": "wrong_circle_expected_right_got_left"
+      },
+      "seed": 72000,
+      "time": null
+    },
+    "reference_sha256": "c91d39456e8eedde04098bce54fa4e0d1a513886e4013e770b915588ab78c5de",
+    "reference_source": "runs/skidpad_clean/commands_swapped/driving.json",
+    "seed": 72000,
+    "track_id": "skidpad",
+    "track_source": "fsop.track.fixed_layouts.skidpad()",
+    "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+    "venue_prob": 1.0
+  },
+  "pilot_only": false,
+  "final_state": {
+    "x": 0.2887510657310486,
+    "y": 0.35692715644836426,
+    "yaw": -0.02404238401639774,
+    "vx": 5.830602527232589,
+    "vy": 0.19680572510645605,
+    "r": 0.6529362797737122,
+    "steer": 0.18460368433882124,
+    "accel": 0.09896470769891356,
+    "t": 13.45,
+    "extra": {}
+  },
+  "events": [
+    {
+      "t": 3.5749934009708837,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    },
+    {
+      "t": 13.400286636629271,
+      "kind": "line_cross",
+      "data": {
+        "n": 2
+      }
+    },
+    {
+      "t": 13.400286636629271,
+      "kind": "invalid_route",
+      "data": {
+        "reason": "wrong_circle_expected_right_got_left"
+      }
+    }
+  ],
+  "pending_events": [
+    {
+      "t": 13.400286636629271,
+      "kind": "line_cross",
+      "data": {
+        "n": 2
+      }
+    },
+    {
+      "t": 13.400286636629271,
+      "kind": "invalid_route",
+      "data": {
+        "reason": "wrong_circle_expected_right_got_left"
+      }
+    }
+  ],
+  "recorded_frames": 269,
+  "physical_cone_hits": 0,
+  "contact_events": [],
+  "progress": 0.07454904110508315,
+  "rms_lat": 9.915518171343408,
+  "wall_seconds": 62.7043579070596,
+  "startup_seconds": 12.675566736026667,
+  "evidence_seconds": 7.076958151301369,
+  "seconds_simulated": 13.45,
+  "real_time_factor": 0.21449864808336908,
+  "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+  "state_sha256": "1921a60567422c86df551cd2a89a69170af38cc5c390bdd3d4cd049be8a9c50a",
+  "frozen_unchanged": true,
+  "manifest_sha256": "db09bf67135f8d4dd10fd9da36b4d262ac1a9fd364fac9793aaeca017287cc4e",
+  "protocol_sha256": "a9db979fc3ab2ddea1602eb4998d538c5faf7bfc7ab2e280292b7eb4015a2af3",
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "dd549b31fb3a97385290ead190e167886a755bc531a6a16e93c6a490e77f8db5",
+  "torch_peak_allocated_gib": 0.13738584518432617,
+  "torch_peak_reserved_gib": 0.150390625,
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130"
+  }
+}
