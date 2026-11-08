@@ -12,3 +12,6 @@ __pycache__/
 
 /isaac_eval/runs/
 /isaac_eval/cache/
+
+# Locally cached licensed scene assets
+isaac_eval/assets/

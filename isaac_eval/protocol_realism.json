@@ -1,0 +1,193 @@
+{
+  "date": "2026-11-09",
+  "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+  "base_commit": "e59014d",
+  "integration_report": "isaac_eval/runs/integration_realistic/verification.json",
+  "cases": [
+    {
+      "discipline": "trackdrive",
+      "seed": 91000
+    },
+    {
+      "discipline": "trackdrive",
+      "seed": 91001
+    },
+    {
+      "discipline": "trackdrive",
+      "seed": 91002
+    },
+    {
+      "discipline": "trackdrive",
+      "seed": 91003
+    },
+    {
+      "discipline": "trackdrive",
+      "seed": 91004
+    },
+    {
+      "discipline": "skidpad",
+      "seed": 91000
+    },
+    {
+      "discipline": "skidpad",
+      "seed": 91001
+    },
+    {
+      "discipline": "skidpad",
+      "seed": 91002
+    },
+    {
+      "discipline": "skidpad",
+      "seed": 91003
+    },
+    {
+      "discipline": "skidpad",
+      "seed": 91004
+    }
+  ],
+  "trackdrive": {
+    "geometry_seed": 93000,
+    "length_min": 220,
+    "length_max": 260,
+    "laps": 1
+  },
+  "skidpad": "standard entry, 2 right laps, 2 left laps, exit and stop",
+  "start_variation": {
+    "lateral_m": [
+      -0.1,
+      0.1
+    ],
+    "yaw_rad": [
+      -0.02,
+      0.02
+    ]
+  },
+  "max_seconds": 120,
+  "early_failure": "5 continuous seconds off course, rollover, invalid route, standstill or nonfinite model output",
+  "physics_hz": 120,
+  "control_hz": 20,
+  "video_hz": 10,
+  "render_subframes": 16,
+  "cone_hit_metric": "unique cones with PhysX contact report against any car rigid body",
+  "controller": "unchanged PlanPurePursuit plus existing mission launch/finish braking",
+  "privileged_inputs": "existing ground-truth route commands and mission progress; no privileged steering",
+  "source_sha256": {
+    "isaac_eval/scene.py": "ad6227ba643dc63861d5a5be55d17ff13e604a2900e4ff0119cd6902f5125677",
+    "isaac_eval/evaluate.py": "d2ba15e8b53a8d016938f05a5bbff4c71016e42758fa51aad9312d59aa948fea",
+    "src/fsop/eval/closed_loop.py": "f41bfae441f9c7a43e9d3ed9c7fb692dcd63d4e967dbd269f6bb9e7bb173deb7",
+    "src/fsop/eval/controller.py": "18294c2854b82fd7605505f018021b8c8eddea11608fc420ffba726b0f45c03c",
+    "src/fsop/model/temporal.py": "3b7ef159ae6a0f3f39dd950ae3943fb5f59f164af0d8e9ab329f6f5de876b8c7",
+    "src/fsop/geometry/yuv.py": "9a3651b22194b666ad3200fb799bc22e90259ac650b2dff140b5c62a8ab66ee5",
+    "isaac_eval/vehicle.py": "a2442c17ed03400d4ac9a85eeac90e0800542465c6fe80ff791c6dbc11fdd048",
+    "isaac_eval/realistic_scene.py": "fef1c04981e5b5f8b24b329358387b0465db7b47736282649224d9137ecb94cf",
+    "isaac_eval/appearance_guard.py": "80c1487c132cb3f29b1cd5bd8d442e1fa64c46da9991dc90c4a1b510d9ad987c",
+    "isaac_eval/preview_realism.py": "ad6a4dcf1dacdd361b4627d9a7b85ede12f0b2097b9c07d64e656ac15b2f735c",
+    "isaac_eval/export_scene.py": "1f7ecf011df773ad41395b2cfbcaf948ec1e5679c62ec2a71642790e72696fb3",
+    "isaac_eval/realistic_car.py": "c560cbaee5a8e0ca9cb249350de439c0c0ae5e1df8a791cebb59c878cfbfea38",
+    "isaac_eval/verify_integration.py": "8b9cfa2baf69ac5738e2c714d28ce42257dd3e8f69fce89b93f2f3a3aea87169",
+    "isaac_eval/realism_assets.py": "b84fe699655bfa2e49873aab4f7672b7df25d922aace8408a3bea74dd53190dd",
+    "isaac_eval/assets/manifest.json": "805219022e7de93a0c1acde5b9de6b33c7cea5cb8ad48ad434e84c6f0be65d00",
+    "src/fsop/geometry/camera.py": "98b8bc7f7b98cddc4e756d4b92103604f4462baea2b161f0410a943f30c207a3",
+    "src/fsop/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/baselines/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/baselines/yolo.py": "a5207b9b74c941f7445199f2bb45c47574f2629068f6966176bbef3da6867ed8",
+    "src/fsop/bench.py": "d3781cfc06127a92aaf201285ada0499159700b4cd6f189b6992d3bb113ac696",
+    "src/fsop/cli.py": "1f582754eb5bca7c39c87e2f6b2a40a5a17bff5faceea1353680ff5a21d04b42",
+    "src/fsop/config.py": "2de820cc65e9a8266b7163df51c4bbb052921cc6192e8ce76c47e2eeaf1b3a6b",
+    "src/fsop/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/data/feature_cache.py": "7ea4da7c8ece7b11766fe93e23cd3aa5a8ecf9486bad89664db22877181bc3de",
+    "src/fsop/data/fsoco.py": "7dda2a26d525da64cdf63f9058b2a58b85b20f16c3e844a9c56715a6abf95eaa",
+    "src/fsop/data/sim_dataset.py": "7753c0deae1f3aad51a747346f4ff7acab72c0f50860685196847845107affe3",
+    "src/fsop/data/targets.py": "a923bbe800bbe2d1bd25a50701edb7d077980d7d8481990ebd4baf6ca8652467",
+    "src/fsop/eval/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/eval/bev_metrics.py": "74729836f20c21d836e2a30efe586eb1b578a9ae00b97613fb1bff7a08bf4af4",
+    "src/fsop/eval/dagger.py": "7fc0c290541eaa945db52a262fe38a2639df5bec93304ca67955336f8600cba4",
+    "src/fsop/eval/det_metrics.py": "3c99d790e0777184065c4e35195babe9ade02d82aacbd78f63a8b0544b0103d2",
+    "src/fsop/eval/geometric.py": "e0ad7c4aa9157a04f1a83c242f83113acb84a25fb9152533fccb58e76cde9c02",
+    "src/fsop/eval/img_to_bev.py": "bcf10ece06c575512c45ea773335a1024fbc7ab95d20426a91ff18bd71d2d2d1",
+    "src/fsop/eval/open_loop.py": "3e402060bb9f73a1e59cf6ad8ff94eb99d3e07f82e9adde6e8fed52c02c86f52",
+    "src/fsop/eval/real_clip.py": "d62206e397e988111b00b75c9796a773ed87740b44fcff7f726184ca7afcceef",
+    "src/fsop/geometry/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/geometry/op_frames.py": "f09cea8cba5b74bf81e02df04487e3b34012e91dde4c3751525bf50e3520301f",
+    "src/fsop/geometry/warp.py": "a81bc405c769e46b3e9355bf53f2fd9fce83cfcc1d3c654ac389938546f97756",
+    "src/fsop/model/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/model/build.py": "e63d37106749a3664d7cbd1b619906b6212914d20d378923405fb02eaafac285",
+    "src/fsop/model/convert.py": "3a5531d927d8d68b557f841530c679258ccd6208d818ea3ff475f6ae4e15bc2c",
+    "src/fsop/model/export.py": "1d98e4266f133019775ab515c87d31d43b9a5e50159643e6cb0af21e1368f624",
+    "src/fsop/model/fetch.py": "e1d15dc11ca309e5a2b655fd28afdd83fcf17811030edb7f8443106534454992",
+    "src/fsop/model/heads/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/model/heads/cone_bev.py": "9fe44a7e2152d4906389142b0f4405f8d192e19ffdeea25db5698451e2a0c9ee",
+    "src/fsop/model/heads/cone_img.py": "cdf84bb4bcc25b2a05172b45f1d7d35dcaf17abca1bfe10370c1906c2ff3f42a",
+    "src/fsop/model/onnx_prep.py": "b6b7c3607078dfaf45249451d757247cc8deea4085a7f70e69f15f531e14a5f6",
+    "src/fsop/model/op_converters.py": "59f20f80b4a646870b108cc7f165e8bd48a2630f54b44b07eddf791052629d5f",
+    "src/fsop/model/static_shapes.py": "34668feafdb9e18ea6c91f53b51fb645e96191fe608abe9631c0f0ce25661a16",
+    "src/fsop/model/supercombo.py": "1128d2dc461466d9235ec3dc3386bce82c44222e127cbd6d8cf4ee0307eb5a3d",
+    "src/fsop/model/verify.py": "aa1cb5bb89869cbec5470fead1bb46eea285c27b2146c20c3fba7d91eedf0957",
+    "src/fsop/profile.py": "2c8968ba76880a1f167480e474f68301fedd8cd652be2df2670498d4230b19d0",
+    "src/fsop/runtime.py": "2a934220541dd562a558a480226be3821ab5a1702dffe6136bc51915187c7014",
+    "src/fsop/sim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/sim/batch_record.py": "42d54ca374ba2a05255c06d50e2cefe825292a68137dbaa7e1a69760ed75831e",
+    "src/fsop/sim/drive.py": "e7e8072c3375e0de9d89d6fadcbfac897fa21f47a7d084eee1e2d0dffe047bc1",
+    "src/fsop/sim/env.py": "43e4bc7b07fcb5f963a9ce022952d6d7d8d16cf34ef2cf66af648959e31a2026",
+    "src/fsop/sim/expert.py": "7f1c3fb9083b4edd04e61a33719a88b4b65bea85fb6490ea2ef191e66d35986e",
+    "src/fsop/sim/randomization.py": "25b492a84b289a3febf9d726e1a43ef59f4657986282d28d551f5bd49cccff04",
+    "src/fsop/sim/recorder.py": "d90ec0db290ca21d419a04ae4ceb609b7d5f8927ede25786ab727f71e390f7bf",
+    "src/fsop/sim/referee.py": "c0dacad0659a9cd806e25b2405e0e4a4aadd58897858d14a717a42c0132391e2",
+    "src/fsop/sim/render/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/sim/render/assets.py": "c790b7c47113c6a86c792059bc7ca1b23764111f870b6ae67d5b88fe5b9f6051",
+    "src/fsop/sim/render/panda3d_backend.py": "e06a3ad9e675a27d5875f553ab7f442bf0a450380dcaca08611e530e0e1e5519",
+    "src/fsop/sim/render/venue.py": "98a7ac4b041c0c3a149a52f21cce1b461d0d992601e240241e460fe0fd5339ca",
+    "src/fsop/sim/route_commands.py": "31def8ff21c2d86824fdd7783c9131928a12fa2ac1e9d5d427063e640f40b149",
+    "src/fsop/sim/skidpad.py": "a6169eec33804ce14b01cbd383a74b7474f77cf69b1baf072a805a1fcd8dc6a2",
+    "src/fsop/sim/vehicle.py": "55643a3d4f43c1a7605b8da3641517a8c0380bc92ba7526a5e555e0f7cd3ae39",
+    "src/fsop/track/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/track/batch.py": "71ed04273b4da5bf340d8abb3269448481d694ad2499330fceb616a13cc681c3",
+    "src/fsop/track/centerline.py": "de45a95eba2e8fa0419a7407ced66718bc6f49099dff8b00c7663f2bf7ac5887",
+    "src/fsop/track/cones.py": "45c784e93b40cb032e6641362b547bce8f5a79d5eb02e23d0a37db038728da93",
+    "src/fsop/track/fixed_layouts.py": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+    "src/fsop/track/generate.py": "6a971d82e14b154ef24eb3a87f212f567a08182701783a806110755b2d661264",
+    "src/fsop/track/io.py": "86a833f72d920882c55c1dee89de841a8d4b67d8cbaa0658ddb17a614bc8af4c",
+    "src/fsop/track/rules.py": "4c2c989ef7b401ed47e57744eae6a3219759629e09e412b4ee5d68de8764006d",
+    "src/fsop/track/schema.py": "f2f760bee7826c82f34e3f704a0b5807bcd0f6b043e856a781d8fe727ac1c04c",
+    "src/fsop/track/validate.py": "5a08f94b27f75a77ee69431f58493a0ead9bbc6154b6749b7d11d223080664a8",
+    "src/fsop/train/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/train/device.py": "cb2ec8fba9eb6959f11753ac93625090ea131f86f4476e8accb8d0151b1df483",
+    "src/fsop/train/losses.py": "81ed567255cf8a5024d31775a7819f88668f90ce158101ae70ea7752a148bdc5",
+    "src/fsop/train/trainer.py": "3a016bb5c4cf6556bca3d797d6653a2943e9918b4e6f2a69bb3c97fb3ffb30e7",
+    "src/fsop/viz/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/viz/inspect.py": "5cd19a506dcc688a2f6f8d536cfaa1ae310847324cd71c0dc96bd07d566730cd",
+    "src/fsop/viz/real_video.py": "1979fcb3d70e7d739b84c406b6ab7482708ec7f8aa93541d14ab3f91a866c381",
+    "src/fsop/viz/rr_log.py": "b1b0020705be517293fc413ff224e68c55d51c14ed9b9ec291ab2b3b0a7213ae",
+    "src/fsop/viz/track_preview.py": "5ace5f5cf0b9ab48e8e011edc280164a996f9eac7ce586a3ca5767c59e2683bc",
+    "src/fsop/viz/video.py": "b00f560bb00b574ddaf9d771aeddeb3ada56c8801c1c418367b64e6a1dabb56c",
+    "isaac_eval/rendering.py": "893ad28d35fedaee3e07f11140c75fd8760c28adb1bcbc1c1b13d9ec5a99004d",
+    "isaac_eval/run_realism_suite.sh": "afa47ea314aebfaa122bd56801bef16b30dac82d96a1950c5cc4912209e01a27"
+  },
+  "version": "realism-1",
+  "vehicle": "PhysX Vehicle tire/suspension solver, direct wheel torque and Ackermann steering",
+  "excluded_setup_attempt": "runs/trackdrive_91000: rigid-wheel prototype failed high-speed braking verification; NRD shader errors and incorrect chase aperture. Retained, not scored.",
+  "integration_report_sha256": "fb9303f3b9497e2779b3499f7bae7ebe48706e4db3d8e2c8dceee2749dec2c18",
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "experiment": "paired appearance-only paddock vs plain; frozen model",
+  "baseline_eval_commit": "b2d78ab",
+  "preview_verification_sha256": {
+    "isaac_eval/runs/preview_plain_track/verification.json": "e60531e5f8d267047d40e6c5787e15ba479941f99a2f023e7a8f98c6084eed07",
+    "isaac_eval/runs/preview_paddock_track/verification.json": "397ba1ec48a5befaf4aca4c536e6d1ed2613eaada99320dcd3e6c8127783dc83",
+    "isaac_eval/runs/preview_plain_skidpad/verification.json": "036e048dad649ca95fdb082960b4227db3b7cfa5bfdb9f224c5287a42c6a95f8",
+    "isaac_eval/runs/preview_paddock_skidpad/verification.json": "7b1c14e2ed63a5e40f557b8d4516ade047f794af3da61dbb06b0596a95dcb0f3"
+  },
+  "variants": [
+    "plain",
+    "paddock"
+  ],
+  "ordering": "alternate AB/BA by seed within each discipline",
+  "limitations": "Visual simulation only; unchanged dry friction, ideal cameras, no people or moving traffic."
+}

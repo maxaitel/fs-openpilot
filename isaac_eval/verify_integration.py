@@ -1,22 +1,26 @@
 # ruff: noqa: E402, I001
 # Isaac extensions must be imported after SimulationApp initialization.
 import json
+import argparse
 from pathlib import Path
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--scene", choices=["plain", "paddock"], default="plain")
+parser.add_argument("--out", type=Path, default=Path("/work/isaac_eval/runs/integration_vehicle_v3"))
+args = parser.parse_args()
 from isaacsim import SimulationApp
 
 app = SimulationApp(
     {"headless": True, "renderer": "RayTracedLighting", "anti_aliasing": 0, "disable_viewport_updates": True}
 )
-import carb
+from rendering import configure_rendering, capture, PROFILE
 
-carb.settings.get_settings().set("/rtx-transient/dldenoiser/enabled", True)
-carb.settings.get_settings().set("/rtx/post/motionblur/enabled", False)
+configure_rendering()
 import numpy as np
 from PIL import Image
 from scipy.spatial.transform import Rotation
 from pxr import PhysicsSchemaTools, UsdGeom, Gf
 import omni.physx
-import omni.replicator.core as rep
 from isaacsim.core.api import World
 from isaacsim.core.utils.stage import get_current_stage
 from fsop.geometry.camera import CAMERA_MODELS, project_world, se3, CameraMount
@@ -32,7 +36,7 @@ from scene import (
     AckermannActuators,
 )
 
-out = Path("/work/isaac_eval/runs/integration_vehicle_v3")
+out = args.out
 out.mkdir(parents=True, exist_ok=True)
 world = World(physics_dt=1 / 120, rendering_dt=1 / 20, backend="numpy", device="cpu")
 world.get_physics_context().enable_ccd(True)
@@ -40,6 +44,19 @@ stage = get_current_stage()
 create_ground(stage)
 robot = create_car(stage, world)
 create_cones(stage, np.array([[5.0, 200.0], [5.0, 300.0]]), [ConeColor.ORANGE, ConeColor.BLUE])
+if args.scene == "paddock":
+    from realistic_scene import apply_realism
+    from appearance_guard import physical_contract, assert_appearance_only
+
+    before = physical_contract(stage)
+    apply_realism(
+        stage,
+        np.array([[5.0, 200.0], [5.0, 300.0]]),
+        [ConeColor.ORANGE, ConeColor.BLUE],
+        asset_root=Path("isaac_eval/assets"),
+        seed=91000,
+    )
+    assert_appearance_only(before, stage)
 markers = [
     (np.array([10.0, 0.0, 1.1]), (1.0, 0.0, 0.0)),
     (np.array([10.0, -0.8, 0.8]), (0.0, 1.0, 0.0)),
@@ -71,7 +88,12 @@ p, r = state()
 pose_cameras(cameras, chase, p, r)
 for _ in range(20):
     world.render()
+from appearance_guard import evidence_sources
+
 report = {
+    "source_sha256": evidence_sources(),
+    "render_profile": PROFILE,
+    "scene": args.scene,
     "dofs": ["PhysX Vehicle wheel controllers"],
     "settled_position": p.tolist(),
     "camera": {},
@@ -115,8 +137,7 @@ p2 = p + np.array([0.0, 0.3, 0.0])
 pose_cameras(cameras, chase, p2, r)
 capture_time = world.current_time
 capture_pose = state()[0].copy()
-world.render()
-rep.orchestrator.step(rt_subframes=4, delta_time=0.0, pause_timeline=False)
+capture(world)
 report["capture_sim_dt"] = float(world.current_time - capture_time)
 report["capture_position_change_m"] = float(np.linalg.norm(state()[0] - capture_pose))
 freshness = {}

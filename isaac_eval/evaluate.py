@@ -16,6 +16,9 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--discipline", choices=["trackdrive", "skidpad"], required=True)
 parser.add_argument("--seed", type=int, required=True)
 parser.add_argument("--out", required=True)
+parser.add_argument("--scene", choices=["plain", "paddock"], default="plain")
+parser.add_argument("--assets", type=Path, default=Path("isaac_eval/assets"))
+parser.add_argument("--protocol", type=Path, default=Path("isaac_eval/protocol.json"))
 args = parser.parse_args()
 process_start = time.perf_counter()
 from isaacsim import SimulationApp
@@ -24,10 +27,9 @@ app = SimulationApp(
     {"headless": True, "renderer": "RayTracedLighting", "anti_aliasing": 0, "disable_viewport_updates": True}
 )
 import cv2
-import carb
+from rendering import configure_rendering, capture, PROFILE
 
-carb.settings.get_settings().set("/rtx-transient/dldenoiser/enabled", True)
-carb.settings.get_settings().set("/rtx/post/motionblur/enabled", False)
+configure_rendering()
 import numpy as np
 import psutil
 import pynvml
@@ -35,7 +37,6 @@ import torch
 from scipy.spatial.transform import Rotation
 from pxr import PhysicsSchemaTools
 import omni.physx
-import omni.replicator.core as rep
 from isaacsim.core.api import World
 from isaacsim.core.utils.stage import get_current_stage
 from fsop.eval.closed_loop import ModelPolicy
@@ -47,9 +48,17 @@ from scene import create_car, create_ground, create_cones, make_cameras, pose_ca
 
 out = Path(args.out)
 out.mkdir(parents=True, exist_ok=False)
-protocol = json.loads(Path("isaac_eval/protocol.json").read_text())
+protocol_bytes = args.protocol.read_bytes()
+protocol_sha256 = hashlib.sha256(protocol_bytes).hexdigest()
+protocol = json.loads(protocol_bytes)
+(out / "protocol.json").write_bytes(protocol_bytes)
 verification = json.loads(Path(protocol["integration_report"]).read_text())
 assert verification["pass"], "Integration gate has not passed"
+if "integration_report_sha256" in protocol:
+    assert (
+        hashlib.sha256(Path(protocol["integration_report"]).read_bytes()).hexdigest()
+        == protocol["integration_report_sha256"]
+    )
 for filename, sha in protocol["source_sha256"].items():
     assert hashlib.sha256(Path(filename).read_bytes()).hexdigest() == sha, filename
 checkpoint = Path("/frozen/model.pt")
@@ -90,6 +99,16 @@ stage = get_current_stage()
 create_ground(stage, args.seed)
 robot = create_car(stage, world)
 create_cones(stage, env.cones_xy, env.cone_colors)
+from appearance_guard import physical_contract, assert_appearance_only
+
+before = physical_contract(stage)
+scene_manifest = {"variant": args.scene}
+if args.scene == "paddock":
+    from realistic_scene import apply_realism
+
+    scene_manifest.update(apply_realism(stage, env.cones_xy, env.cone_colors, asset_root=args.assets, seed=args.seed))
+scene_manifest["physics_sha256"] = assert_appearance_only(before, stage)
+(out / "appearance.json").write_text(json.dumps(scene_manifest, indent=2))
 world.reset()
 rng = np.random.default_rng(args.seed)
 lat = float(rng.uniform(-0.10, 0.10))
@@ -127,7 +146,9 @@ torch.cuda.synchronize()
 torch.cuda.reset_peak_memory_stats()
 assert not any(p.requires_grad for p in policy.model.parameters())
 # Preserve the exact procedural scene and starting placement.
-stage.GetRootLayer().Export(str(out / "scene.usda"))
+from export_scene import export_scene
+
+export_scene(stage, out / "scene.usda", args.assets)
 hits = set()
 contact_events = []
 
@@ -219,7 +240,7 @@ def composite(steer, accel, label="RUNNING"):
     point = (int((env.state.x - center[0]) * scale + 160), int(-(env.state.y - center[1]) * scale + 577))
     cv2.circle(canvas, point, 4, (255, 60, 60), -1)
     lines = [
-        f"ISAAC SIM ZERO-SHOT | {args.discipline} | seed {args.seed} | {label}",
+        f"ISAAC {args.scene.upper()} | {args.discipline} | seed {args.seed} | {label}",
         f"t={env.state.t:.2f}s   speed={env.state.speed:.2f}m/s   progress={env.s:.1f}/{env.mission.s_end:.1f}m",
         f"PhysX cone contacts={len(hits)}   off-course events={env.referee.n_oc}   "
         f"steer={np.rad2deg(steer):.1f}deg   accel={accel:.2f}",
@@ -243,8 +264,7 @@ with torch.inference_mode():
         p, r = pose()
         pose_cameras(cameras, chase, p, r)
         t = time.perf_counter()
-        world.render()
-        rep.orchestrator.step(rt_subframes=4, delta_time=0.0, pause_timeline=False)
+        capture(world)
         obs = env.observe(False)
         obs.images = {k: c.get_rgba()[:, :, :3].astype(np.uint8) for k, c in cameras.items()}
         render_s = time.perf_counter() - t
@@ -318,8 +338,7 @@ stop.set()
 thread.join()
 p, r = pose()
 pose_cameras(cameras, chase, p, r)
-world.render()
-rep.orchestrator.step(rt_subframes=4, delta_time=0.0, pause_timeline=False)
+capture(world)
 final_frame = composite(steer, accel, env.referee.result.upper())
 cv2.imwrite(str(out / "last_frame.jpg"), final_frame)
 for _ in range(30):
@@ -330,6 +349,10 @@ summary = env.referee.summary()
 summary["legacy_footprint_contacts"] = summary.pop("doo")
 summary.update(
     {
+        "scene": args.scene,
+        "protocol_sha256": protocol_sha256,
+        "render_profile": PROFILE,
+        "physics_sha256": scene_manifest["physics_sha256"],
         "physical_cone_hits": len(hits),
         "contact_events": contact_events,
         "seed": args.seed,
