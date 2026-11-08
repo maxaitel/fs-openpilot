@@ -21,6 +21,7 @@ def main():
     parser.add_argument('--recovery', nargs='+', default=['data/sim/skidpad_recovery_r1'])
     parser.add_argument('--output', default='data/sim/spark_skidpad_recovery')
     parser.add_argument('--full-replay', action='store_true')
+    parser.add_argument('--report')
     args = parser.parse_args()
     source = Path('data/sim/spark_skidpad_intent')
     output = Path(args.output)
@@ -70,7 +71,9 @@ def main():
                                                     for eid in selected) for discipline in ('skidpad', 'trackdrive')},
               'validation_unchanged': True, 'test_unchanged': True, 'recovery': audit}
     name = 'centering-data.json' if args.full_replay else 'recovery-data.json'
-    (Path('runs/spark_skidpad') / name).write_text(json.dumps(report, indent=2))
+    report_path = Path(args.report) if args.report else Path('runs/spark_skidpad') / name
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(json.dumps(report, indent=2))
     print(json.dumps({k: v for k, v in report.items() if k != 'recovery'}, indent=2))
 
 

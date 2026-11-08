@@ -111,7 +111,10 @@ def collect_one(args) -> dict:
             learner_steer, learner_accel, _ = _POLICY(obs, env)
             expert_steer, expert_accel = env.expert_action()
             expert_accel = mission_brake(expert_accel, obs, env)
-            error = heading_error(env.mission, obs.s, obs.state.yaw)
+            heading = obs.state.yaw
+            if settings.get("heading_reference") == "course":
+                heading += math.atan2(obs.state.vy, max(obs.state.vx, 0.5))
+            error = heading_error(env.mission, obs.s, heading)
             teacher = guard.teacher(obs.t, obs.lat, error)
             steer, accel = (expert_steer, expert_accel) if teacher else (learner_steer, learner_accel)
             stage = route_stage(env, obs.s)
@@ -156,6 +159,7 @@ def main() -> None:
     parser.add_argument("--release-lat", type=float, default=0.3)
     parser.add_argument("--release-heading", type=float, default=0.12)
     parser.add_argument("--minimum-teacher-seconds", type=float, default=1.0)
+    parser.add_argument("--course-heading", action="store_true")
     args = parser.parse_args()
     guard = GuardSettings(args.threshold, args.heading_threshold, args.release_lat, args.release_heading,
                           args.minimum_teacher_seconds)
@@ -168,6 +172,8 @@ def main() -> None:
         checkpoint_sha256 = hashlib.file_digest(f, "sha256").hexdigest()
     settings = {"checkpoint_sha256": checkpoint_sha256, "guard": asdict(guard),
                 "controller": "pp", "max_time": 90.0, "venue_prob": 1.0, "noise": False}
+    if args.course_heading:
+        settings["heading_reference"] = "course"
     output = Path(args.output).resolve()
     output.mkdir(parents=True, exist_ok=True)
     specs = episode_specs(args.start_seed, args.count)
@@ -185,9 +191,12 @@ def main() -> None:
             if not meta_file.exists():
                 raise ValueError(f"incomplete episode at {path}; inspect before retrying")
             meta = json.loads(meta_file.read_text())
-            if (any(meta.get("collection", {}).get(k) != v for k, v in settings.items()) or meta.get("seed") != seed
+            collection = meta.get("collection", {})
+            if (any(collection.get(k) != v for k, v in settings.items())
+                    or collection.get("heading_reference", "body") != settings.get("heading_reference", "body")
+                    or meta.get("seed") != seed
                     or meta.get("id") != episode_id or meta.get("scene") is None or not (path / "controls.npy").exists()
-                    or meta.get("collection", {}).get("dr") != dr):
+                    or collection.get("dr") != dr):
                 raise ValueError(f"episode settings or checkpoint mismatch at {path}")
             rows.append({"id": episode_id, "track_id": meta["track_id"], "discipline": meta["discipline"],
                          "frames": meta["frames"], "dr": dr, "result": meta["summary"]["result"]})
