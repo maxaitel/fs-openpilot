@@ -13,10 +13,14 @@ parser.add_argument("--case", required=True)
 parser.add_argument("--manifest", type=Path, required=True)
 parser.add_argument("--out", type=Path, required=True)
 parser.add_argument("--protocol", type=Path)
+parser.add_argument("--stress-plan", type=Path)
+parser.add_argument("--variant", choices=("matched", "visual_stress_v1"))
 parser.add_argument("--pilot-steps", type=int, default=0)
 args = parser.parse_args()
-if (args.protocol is None) != (args.pilot_steps > 0):
-    parser.error("Use a verified protocol for a scored run, or --pilot-steps without a protocol")
+if args.pilot_steps < 0 or sum((bool(args.protocol), bool(args.stress_plan), bool(args.pilot_steps))) != 1:
+    parser.error("Choose one protocol, stress plan, or bounded pilot")
+if (args.stress_plan and not args.variant) or (args.protocol and args.variant):
+    parser.error("Stress runs require a variant; original protocol runs cannot have one")
 process_start = time.perf_counter()
 from isaacsim import SimulationApp
 
@@ -53,6 +57,9 @@ from rendering import configure_rendering, capture, PROFILE
 from scene import create_ground, create_car, create_cones, make_cameras, AckermannActuators
 from parity_geometry import pose_model_cameras
 from parity_scene import dress_matched_scene
+from isaac_eval.stress_experiment import episode_spec, validate_plan
+if args.variant:
+    from isaac_eval.stress_scene import apply_visual_stress, validate_stress_assets
 
 configure_rendering()
 out = args.out
@@ -67,6 +74,12 @@ protocol = json.loads(args.protocol.read_text()) if args.protocol else None
 if protocol:
     validate(protocol, manifest)
     (out / "protocol.json").write_bytes(args.protocol.read_bytes())
+stress_plan = json.loads(args.stress_plan.read_text()) if args.stress_plan else None
+spec = None
+if stress_plan:
+    validate_plan(stress_plan, manifest)
+    spec = episode_spec(stress_plan, args.case, args.variant)
+    (out / "experiment.json").write_bytes(args.stress_plan.read_bytes())
 verify_baseline()
 checkpoint = Path("/frozen/model.pt")
 checkpoint_sha = verify_checkpoint(checkpoint)
@@ -98,6 +111,16 @@ robot = create_car(stage, world)
 create_cones(stage, env.cones_xy, env.cone_colors)
 before = physical_contract(stage)
 appearance = dress_matched_scene(stage, env, Path("isaac_eval/assets"))
+asset_sha256, stress_receipt = None, None
+if args.variant:
+    _, _, asset_sha256 = validate_stress_assets(Path("isaac_eval/assets"))
+    if stress_plan and asset_sha256 != stress_plan["asset_sha256"]:
+        raise ValueError("Stress assets differ from frozen plan")
+    if args.variant == "visual_stress_v1":
+        stress_receipt = apply_visual_stress(stage, env, Path("isaac_eval/assets"))
+        if spec and stress_receipt["layout_sha256"] != spec["layout_sha256"]:
+            raise ValueError("Realized layout differs from frozen preview")
+        appearance["stress"] = stress_receipt
 appearance["physics_sha256"] = assert_appearance_only(before, stage)
 (out / "appearance.json").write_text(json.dumps(appearance, indent=2))
 world.reset()
@@ -227,6 +250,13 @@ metadata = {
     "oracle": "Offline custom bicycle expert, never supplied to policy or PhysX",
     "pilot_only": bool(args.pilot_steps),
 }
+if args.variant:
+    metadata.update(variant=args.variant, experiment_plan_sha256=stress_plan["plan_sha256"] if stress_plan else None,
+                    layout_sha256=spec["layout_sha256"] if spec else
+                    (stress_receipt["layout_sha256"] if stress_receipt else None), asset_sha256=asset_sha256,
+                    appearance_sha256=sha256_file(out / "appearance.json"),
+                    export_sha256=sha256_file(out / "export.json"), scene_sha256=sha256_file(out / "scene.usda"),
+                    experiment_file_sha256=sha256_file(out / "experiment.json") if stress_plan else None)
 telemetry, rows = [], []
 stop = threading.Event()
 pynvml.nvmlInit()
@@ -383,6 +413,10 @@ summary.update(
     torch_peak_reserved_gib=torch.cuda.max_memory_reserved() / 2**30,
     runtime={"python": platform.python_version(), "torch": torch.__version__},
 )
+if args.variant:
+    for key in ("variant", "experiment_plan_sha256", "layout_sha256", "asset_sha256", "appearance_sha256",
+                "export_sha256", "scene_sha256", "experiment_file_sha256"):
+        summary[key] = metadata[key]
 assert summary["frozen_unchanged"]
 (out / "summary.json").write_text(json.dumps(summary, indent=2))
 finalize_evidence(out / "evidence", out / "summary.json")

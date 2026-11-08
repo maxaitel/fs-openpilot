@@ -1,0 +1,344 @@
+{
+  "plan_sha256": "e35dce2437e04f6e67debbdc768e02b07e81c3e6732b60db1cb194ead9c2a8de",
+  "plan_validation_passed": true,
+  "exact_episode_membership": true,
+  "episodes": [
+    {
+      "case": "skidpad-72000-light-recorded",
+      "variant": "matched",
+      "frames": 964,
+      "raw_chunks_verified": 964,
+      "result": "finished",
+      "pass": true,
+      "physical_contacts": 3,
+      "oc": 0,
+      "videos": {
+        "debug": {
+          "sha256": "4cf0af8044ae643dcacc068d60f6b66d8bb27fceff1498a4f995d26631f40854",
+          "decoded_frames": 1004,
+          "fps": "20/1",
+          "width": 1280,
+          "height": 768
+        },
+        "research": {
+          "sha256": "92cbaf892e7cd6271261d993b168d570e6d402d7bd7f894e7cde46fc4445b563",
+          "decoded_frames": 1004,
+          "fps": "20/1",
+          "width": 1280,
+          "height": 768
+        }
+      },
+      "rrd_sha256": "2be130ae311584412278dfae9fb90095ca5e64ce92d205693796e7180fa2c2b2",
+      "rrd_verify_stdout": "",
+      "rrd_verify_stderr": "1 file verified without error."
+    },
+    {
+      "case": "skidpad-72000-light-recorded",
+      "variant": "visual_stress_v1",
+      "frames": 949,
+      "raw_chunks_verified": 949,
+      "result": "finished",
+      "pass": true,
+      "physical_contacts": 12,
+      "oc": 0,
+      "videos": {
+        "debug": {
+          "sha256": "5398a6e5ef872216b07008fc8a60b9545813532c05ab09e24b2b0f2d3f765f2a",
+          "decoded_frames": 989,
+          "fps": "20/1",
+          "width": 1280,
+          "height": 768
+        },
+        "research": {
+          "sha256": "baeafc00a77fb99048a5f8139640a3c169175287d09a027fd0b6f497f69999f9",
+          "decoded_frames": 989,
+          "fps": "20/1",
+          "width": 1280,
+          "height": 768
+        }
+      },
+      "rrd_sha256": "443678c7ca75d8523403a382613ac8b7b97a7add7f64b37c4af4ea9b7e4a9fc6",
+      "rrd_verify_stdout": "",
+      "rrd_verify_stderr": "1 file verified without error."
+    },
+    {
+      "case": "skidpad-72000-heavy-recorded",
+      "variant": "matched",
+      "frames": 940,
+      "raw_chunks_verified": 940,
+      "result": "finished",
+      "pass": true,
+      "physical_contacts": 15,
+      "oc": 0,
+      "videos": {
+        "debug": {
+          "sha256": "05e94aa27a934095d2850b30bddf6f04e5528dd4d1f00db7a70918b5b8162bfc",
+          "decoded_frames": 980,
+          "fps": "20/1",
+          "width": 1280,
+          "height": 768
+        },
+        "research": {
+          "sha256": "bab4cdc20952e5f7eb63b16b65b381fd912c1fec26dff23c4a15f17f5638d8e6",
+          "decoded_frames": 980,
+          "fps": "20/1",
+          "width": 1280,
+          "height": 768
+        }
+      },
+      "rrd_sha256": "92bab102b4e931fe5b3c924a39d4fcbf1db586c22ebd4db3c2424e31e65a1388",
+      "rrd_verify_stdout": "",
+      "rrd_verify_stderr": "1 file verified without error."
+    },
+    {
+      "case": "skidpad-72000-heavy-recorded",
+      "variant": "visual_stress_v1",
+      "frames": 928,
+      "raw_chunks_verified": 928,
+      "result": "finished",
+      "pass": true,
+      "physical_contacts": 4,
+      "oc": 0,
+      "videos": {
+        "debug": {
+          "sha256": "83a385429164289f211da56648c6924a88e03c4fdc9a3e3ac2cec19da922dd72",
+          "decoded_frames": 968,
+          "fps": "20/1",
+          "width": 1280,
+          "height": 768
+        },
+        "research": {
+          "sha256": "3e711b63b3cccec0b35841a771e3622311c515825b74cf4376635c8a55b8b812",
+          "decoded_frames": 968,
+          "fps": "20/1",
+          "width": 1280,
+          "height": 768
+        }
+      },
+      "rrd_sha256": "4ead98ca28ed53aecb29b53b06d3e3149fb53c6ed55512c192b3375ad1bc9fa6",
+      "rrd_verify_stdout": "",
+      "rrd_verify_stderr": "1 file verified without error."
+    },
+    {
+      "case": "retention-trackdrive_020000-light-recorded",
+      "variant": "matched",
+      "frames": 1258,
+      "raw_chunks_verified": 1258,
+      "result": "finished",
+      "pass": true,
+      "physical_contacts": 0,
+      "oc": 0,
+      "videos": {
+        "debug": {
+          "sha256": "bf135b9f6b096403548da469459c87df9e56bddf61dded9a96bf3479ffb0980e",
+          "decoded_frames": 1298,
+          "fps": "20/1",
+          "width": 1280,
+          "height": 768
+        },
+        "research": {
+          "sha256": "efe4abfd88db5970eb7c5f749b752c76ebba460fa7742bf8d6dac1da8d5ace67",
+          "decoded_frames": 1298,
+          "fps": "20/1",
+          "width": 1280,
+          "height": 768
+        }
+      },
+      "rrd_sha256": "abb966bac964e2d75cc91f5b5b6bf9e24ffd90e9f0ebff3bd55900972ce9cb8e",
+      "rrd_verify_stdout": "",
+      "rrd_verify_stderr": "1 file verified without error."
+    },
+    {
+      "case": "retention-trackdrive_020000-light-recorded",
+      "variant": "visual_stress_v1",
+      "frames": 2400,
+      "raw_chunks_verified": 2400,
+      "result": "timeout",
+      "pass": false,
+      "physical_contacts": 11,
+      "oc": 13,
+      "videos": {
+        "debug": {
+          "sha256": "0ac4ac8fe72d4b19a5487b216fc93a7e9fc277d5920ff7500590f2f61fc1acd5",
+          "decoded_frames": 2440,
+          "fps": "20/1",
+          "width": 1280,
+          "height": 768
+        },
+        "research": {
+          "sha256": "f2919868be27c1caa342f6c1953f6adb27cbb117f8439af2c57a0d7e053c7bbb",
+          "decoded_frames": 2440,
+          "fps": "20/1",
+          "width": 1280,
+          "height": 768
+        }
+      },
+      "rrd_sha256": "2b39937c81fd1e942aedefc83ab28addc918084653473959ec5621e1c10790d0",
+      "rrd_verify_stdout": "",
+      "rrd_verify_stderr": "1 file verified without error."
+    },
+    {
+      "case": "retention-trackdrive_020000-heavy-recorded",
+      "variant": "matched",
+      "frames": 1262,
+      "raw_chunks_verified": 1262,
+      "result": "finished",
+      "pass": true,
+      "physical_contacts": 0,
+      "oc": 0,
+      "videos": {
+        "debug": {
+          "sha256": "4ef2aea16245821be9a79d69cc5c024125cd7d7e339b844a9935fb37e9c0139d",
+          "decoded_frames": 1302,
+          "fps": "20/1",
+          "width": 1280,
+          "height": 768
+        },
+        "research": {
+          "sha256": "c4c2b4e667dd430ca6ce6039c60f9c20d4fc425b487db10812e48c9053791e55",
+          "decoded_frames": 1302,
+          "fps": "20/1",
+          "width": 1280,
+          "height": 768
+        }
+      },
+      "rrd_sha256": "479be339cead975dcb4c386ffe91cc206abf1c443f7ecd3613da80fac5a97b0a",
+      "rrd_verify_stdout": "",
+      "rrd_verify_stderr": "1 file verified without error."
+    },
+    {
+      "case": "retention-trackdrive_020000-heavy-recorded",
+      "variant": "visual_stress_v1",
+      "frames": 2400,
+      "raw_chunks_verified": 2400,
+      "result": "timeout",
+      "pass": false,
+      "physical_contacts": 9,
+      "oc": 22,
+      "videos": {
+        "debug": {
+          "sha256": "0893a29f0e3f88b643fe2701df1a633dab29d244737e7d9b9f6a717962dc72cb",
+          "decoded_frames": 2440,
+          "fps": "20/1",
+          "width": 1280,
+          "height": 768
+        },
+        "research": {
+          "sha256": "42485866f9d9adc353ec7a54237d2427a9f0d2c56993c3ead5233a7b021c45b0",
+          "decoded_frames": 2440,
+          "fps": "20/1",
+          "width": 1280,
+          "height": 768
+        }
+      },
+      "rrd_sha256": "1099bb95d9e42202e9863fbbab32c230822a8937949d11093027c9c24fcc6c81",
+      "rrd_verify_stdout": "",
+      "rrd_verify_stderr": "1 file verified without error."
+    }
+  ],
+  "pairs": [
+    {
+      "case": "skidpad-72000-light-recorded",
+      "invariant_keys": [
+        "case",
+        "initial_physical_state",
+        "checkpoint_sha256",
+        "state_sha256",
+        "manifest_sha256",
+        "graph_sha256",
+        "source_sha256",
+        "track",
+        "initial_cones_xyz",
+        "cone_colors",
+        "expert_params",
+        "vehicle_params",
+        "label_dt",
+        "nominal_detection_calibration",
+        "intrinsics"
+      ],
+      "physics_sha256": "3658068198f9ea7f39f365bcce19982a56bc0f3aa21214d70c6d2899e94c198a",
+      "realization_sha256": "5830e299125786ce457a7d3c68151d9cdb8b62074bbfe8de8ec0c61cc66caed7"
+    },
+    {
+      "case": "skidpad-72000-heavy-recorded",
+      "invariant_keys": [
+        "case",
+        "initial_physical_state",
+        "checkpoint_sha256",
+        "state_sha256",
+        "manifest_sha256",
+        "graph_sha256",
+        "source_sha256",
+        "track",
+        "initial_cones_xyz",
+        "cone_colors",
+        "expert_params",
+        "vehicle_params",
+        "label_dt",
+        "nominal_detection_calibration",
+        "intrinsics"
+      ],
+      "physics_sha256": "dd549b31fb3a97385290ead190e167886a755bc531a6a16e93c6a490e77f8db5",
+      "realization_sha256": "4e85295ec37322f66e9f88bdab7097fe2e1f91d977f40b09772820075c171d4e"
+    },
+    {
+      "case": "retention-trackdrive_020000-light-recorded",
+      "invariant_keys": [
+        "case",
+        "initial_physical_state",
+        "checkpoint_sha256",
+        "state_sha256",
+        "manifest_sha256",
+        "graph_sha256",
+        "source_sha256",
+        "track",
+        "initial_cones_xyz",
+        "cone_colors",
+        "expert_params",
+        "vehicle_params",
+        "label_dt",
+        "nominal_detection_calibration",
+        "intrinsics"
+      ],
+      "physics_sha256": "2a1b1694bfb8446f49c5ef3409c2f1af959f9814a0087b61a56f9bf3ad393951",
+      "realization_sha256": "48cf1e2a4c30c01e06a4d9549697d1ed17d709719632d900620756cf280465ab"
+    },
+    {
+      "case": "retention-trackdrive_020000-heavy-recorded",
+      "invariant_keys": [
+        "case",
+        "initial_physical_state",
+        "checkpoint_sha256",
+        "state_sha256",
+        "manifest_sha256",
+        "graph_sha256",
+        "source_sha256",
+        "track",
+        "initial_cones_xyz",
+        "cone_colors",
+        "expert_params",
+        "vehicle_params",
+        "label_dt",
+        "nominal_detection_calibration",
+        "intrinsics"
+      ],
+      "physics_sha256": "128840a39bc0bd2a26967326d252171a2f6f1135e9b5c2d31d1dde71a069ac1a",
+      "realization_sha256": "7832ed5bc1c8b04006727f7c9eab94278c63b1e8ab0a97f1d2c6ba52db3db3f3"
+    }
+  ],
+  "final_artifact_membership": {
+    "debug_mp4": 8,
+    "research_mp4": 8,
+    "debug_rrd": 8,
+    "exact_expected_paths": true
+  },
+  "raw_chunks_verified": 11101,
+  "verification_method": {
+    "location": "Spark container fsop-isaac-stress-export, /work/isaac_eval/runs/stress_v1",
+    "script": ".work/stress/independent_verify.py",
+    "mp4": "ffprobe -count_frames, stream cadence and dimensions; SHA-256 compared to video audit",
+    "rrd": "python -m rerun rrd verify --check-footers=true and SHA-256 compared to video audit",
+    "raw": "SHA-256 of each sequential NPZ compared to sealed manifest; completion hashes checked",
+    "identity": "validate_plan against current runtime, tools, checkpoint, graph, assets, gates and previews; audit and producer hashes cross-checked"
+  }
+}
