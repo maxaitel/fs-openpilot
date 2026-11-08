@@ -1,5 +1,4 @@
 # ruff: noqa: E402, I001
-"""Fixed-pose raw camera captures and appearance-only physics verification."""
 
 import argparse
 import json
@@ -46,10 +45,8 @@ record["physics_sha256"] = assert_appearance_only(before, stage)
 world.reset()
 cameras, chase = make_cameras()
 a.out.mkdir(parents=True, exist_ok=False)
-# Fixed camera poses are independent of policy outcomes.
 x, y, yaw = track.start_pose
 poses = [("start", x, y, yaw)]
-# View additional actual course points, using neighboring cone rows to find heading.
 xy = np.asarray(track.centerline)
 for name, fraction in [("turn", 0.25), ("far", 0.60)]:
     i = int(len(xy) * fraction)

@@ -74,7 +74,6 @@ def _rod(stage, path, start, end, radius, mat):
 
 
 def _loft(stage, path, sections, mat, lateral=0.0):
-    """Closed octagonal body sections: (x, half width, bottom z, top z)."""
     vertices = []
     for x, width, bottom, top in sections:
         bevel = min((top - bottom) * 0.22, width * 0.28)
@@ -98,7 +97,6 @@ def _loft(stage, path, sections, mat, lateral=0.0):
 
 
 def _sweep(stage, path, points, radius, mat, sides=8):
-    """Small continuous tube for bent hoops and coil springs."""
     centers = np.asarray(points, dtype=float)
     vertices = []
     for index, point in enumerate(centers):
@@ -121,7 +119,6 @@ def _sweep(stage, path, points, radius, mat, sides=8):
 
 
 def _lathe(stage, path, profile, mat, segments=64):
-    """Closed radial section revolved around local Y, the existing wheel axis."""
     vertices = [
         (r * np.cos(t), y, r * np.sin(t))
         for y, r in profile
@@ -135,7 +132,6 @@ def _lathe(stage, path, profile, mat, segments=64):
 
 
 def _wheel(stage, root, rubber, alloy, steel, dark):
-    # Maximum radius/width exactly match the 0.23 m / 0.20 m collider.
     _lathe(
         stage,
         root + "/Slick",
@@ -230,7 +226,6 @@ def dress_car(stage) -> dict:
     steel = _material(stage, "Steel", (0.23, 0.25, 0.27), 0.42, metallic=1.0)
     white = _material(stage, "IvoryPaint", (0.76, 0.77, 0.74), 0.36)
 
-    # Open monocoque, with visible cockpit floor instead of a solid central box.
     _loft(
         stage,
         _LOOK + "/Floor",
@@ -322,7 +317,6 @@ def dress_car(stage) -> dict:
     _box(stage, _LOOK + "/SteeringHub", (0.075, 0, 0.25), (0.035, 0.11, 0.055), carbon)
     _box(stage, _LOOK + "/DashDisplay", (0.285, 0, 0.222), (0.020, 0.12, 0.065), dark, tilt=-18)
 
-    # The hoop stays behind the calibrated camera (x=0, z=0.74 in chassis).
     hoop = [
         (-0.54, -0.25, 0.10),
         (-0.54, -0.25, 0.49),
@@ -337,7 +331,6 @@ def dress_car(stage) -> dict:
     _sweep(stage, _LOOK + "/RollHoop", hoop, 0.021, steel, sides=12)
     for side, sign in (("Left", 1), ("Right", -1)):
         _rod(stage, _LOOK + "/RollBrace" + side, (-0.54, sign * 0.20, 0.55), (-1.13, sign * 0.22, 0.04), 0.015, steel)
-        # Small white accent panels add a legible layered body silhouette.
         _loft(
             stage,
             _LOOK + "/Accent" + side,
@@ -376,7 +369,6 @@ def dress_car(stage) -> dict:
         UsdGeom.Xform.Define(stage, wheel_root)
         _wheel(stage, wheel_root, rubber, alloy, steel, dark)
 
-    # Author only visibility on original gprims, after constructing the visuals.
     for path in required:
         UsdGeom.Imageable(stage.GetPrimAtPath(path)).CreateVisibilityAttr().Set(UsdGeom.Tokens.invisible)
     root.GetPrim().SetCustomDataByKey("fsAppearance", receipt["asset"])

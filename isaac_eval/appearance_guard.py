@@ -1,5 +1,3 @@
-"""Compare the physical USD contract before and after dressing a scene."""
-
 import hashlib
 import json
 

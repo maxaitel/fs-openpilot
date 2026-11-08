@@ -137,7 +137,6 @@ def _pole(stage, path, x, y, height, radius, mat):
 
 def _cone(stage, path, spec, material, white, base, grime, index):
     n = 32
-    # Existing cone mesh spans z=.02 to .02+height in its rigid-body frame.
     levels = [
         (0.02, spec.radius_bottom),
         (0.02 + spec.height * 0.48, spec.radius_bottom * 0.55),
@@ -167,7 +166,6 @@ def _cone(stage, path, spec, material, white, base, grime, index):
     band.CreateIndicesAttr(list(range(n, 2 * n)))
     band.CreateFamilyNameAttr("materialBind")
     _bind(band.GetPrim(), white)
-    # Truncated corners and a sloping rim retain the original square footprint.
     half = spec.base / 2
     footprint = [(-1, -0.78), (-0.78, -1), (0.78, -1), (1, -0.78), (1, 0.78), (0.78, 1), (-0.78, 1), (-1, 0.78)]
     foot_points = [
@@ -179,7 +177,6 @@ def _cone(stage, path, spec, material, white, base, grime, index):
     foot_faces += [[8 + j, 8 + (j + 1) % 8, 16 + (j + 1) % 8, 16 + j] for j in range(8)]
     foot_faces += [list(range(16, 24))]
     _mesh(stage, path + "/Foot", foot_points, foot_faces, base)
-    # The dark inset and narrow lip suggest the hollow molded tip.
     z = 0.02 + spec.height
     lip_points = [
         (radius * math.cos(2 * math.pi * j / n), radius * math.sin(2 * math.pi * j / n), height)
@@ -190,7 +187,6 @@ def _cone(stage, path, spec, material, white, base, grime, index):
     lip_faces += [[n + j, n + (j + 1) % n, 2 * n + (j + 1) % n, 2 * n + j] for j in range(n)]
     _mesh(stage, path + "/Lip", lip_points, lip_faces, material)
     _mesh(stage, path + "/Opening", lip_points[2 * n :], [list(range(n))], base)
-    # Restrained molded-plastic scuffs, varied by cone index and below band scale.
     scuff_points, scuff_faces = [], []
     for j, fraction in enumerate((0.16, 0.30, 0.73)):
         angle = (index * 1.71 + j * 2.27) % (2 * math.pi)
@@ -210,10 +206,8 @@ def _cone(stage, path, spec, material, white, base, grime, index):
 
 
 def _venue(stage, lo, hi, mats):
-    """Modular venue stays beyond the axis-aligned cone envelope plus 15 m."""
     left, bottom = lo - 15
     right, top = hi + 15
-    # Ground stays a single collisionless mesh; shoulders are separate, slightly raised.
     for name, bounds in {
         "West": (-300, -300, min(left, 299), 300),
         "East": (max(right, -299), -300, 300, 300),
@@ -223,7 +217,6 @@ def _venue(stage, lo, hi, mats):
         x0, y0, x1, y1 = bounds
         if x1 > x0 and y1 > y0:
             _rect(stage, f"{_ROOT}/Shoulder{name}", x0, y0, x1, y1, 0.002, mats["gravel"], 2.46)
-    # Fence and repeated equipment are placed on a line outside the safe envelope.
     y = top + 3
     if y > 290:
         return {"fence_sections": 0, "workshops": 0, "tents": 0}
@@ -236,7 +229,6 @@ def _venue(stage, lo, hi, mats):
         _pole(stage, f"{_ROOT}/Fence/Post{i}", x, y, 2.1, 0.035, mats["steel"])
     for k, z in enumerate((0.18, 1.05, 2.0)):
         _box(stage, f"{_ROOT}/Fence/Rail{k}", ((start + end) / 2, y, z), (end - start, 0.045, 0.045), mats["steel"])
-    # Fine vertical rods read as mesh at a distance without expensive alpha textures.
     for i in range(count * 4 + 1):
         x = start + i * dx / 4
         _pole(stage, f"{_ROOT}/Fence/Wire{i}", x, y, 1.9, 0.007, mats["steel"])
@@ -254,7 +246,6 @@ def _venue(stage, lo, hi, mats):
         x = max(-270, min(270, center + (i - 1) * 22))
         _pole(stage, f"{_ROOT}/Lights/Pole{i}", x, y + 5, 7.0, 0.07, mats["steel"])
         _box(stage, f"{_ROOT}/Lights/Head{i}", (x, y + 5, 7), (1.2, 0.35, 0.15), mats["white"])
-    # Workshop with articulated facade, corrugated seams, doors, windows and canopy.
     wx, wy = max(-250, min(250, center)), y + 15
     _box(stage, f"{_ROOT}/Workshop/Body", (wx, wy, 2.25), (20, 8, 4.5), mats["wall"])
     _box(stage, f"{_ROOT}/Workshop/Roof", (wx, wy, 4.58), (20.8, 8.7, 0.18), mats["roof"])
@@ -273,7 +264,6 @@ def _venue(stage, lo, hi, mats):
     for i in range(21):
         _box(stage, f"{_ROOT}/Workshop/Clad{i}", (wx - 10 + i, wy - 4.03, 2.3), (0.025, 0.03, 4.35), mats["steel"])
     _box(stage, f"{_ROOT}/Workshop/Canopy", (wx, wy - 5.0, 4), (20.4, 2.1, 0.12), mats["roof"])
-    # Paddock tents with pitched canvas roofs and open sides.
     for i in range(2):
         tx, ty = wx + 17 + i * 8, wy - 2
         for a, (dx0, dy0) in enumerate(((-2.5, -2), (-2.5, 2), (2.5, -2), (2.5, 2))):
@@ -327,7 +317,6 @@ def apply_realism(stage, cones_xy, cone_colors, *, asset_root: Path, seed: int) 
     }
     UsdGeom.Imageable(stage.GetPrimAtPath("/World/Ground")).MakeInvisible()
     _rect(stage, f"{_ROOT}/Asphalt", -300, -300, 300, 300, 0.001, mats["asphalt"], 2.0)
-    # A few irregular repairs and branching tar seams break up repeated texture.
     rng = np.random.default_rng(seed)
     lo, hi = xy.min(axis=0), xy.max(axis=0)
     xmin, ymin = np.maximum(lo - 12, -290)
@@ -364,7 +353,6 @@ def apply_realism(stage, cones_xy, cone_colors, *, asset_root: Path, seed: int) 
                 math.degrees(angle),
             )
             x, y = nx, ny
-    # Faded parking bays are confined to an orderly staging row beyond the cones.
     bay_y = min(hi[1] + 11.0, 285.0)
     if bay_y >= hi[1] + 10:
         for i in range(7):
@@ -405,7 +393,6 @@ def apply_realism(stage, cones_xy, cone_colors, *, asset_root: Path, seed: int) 
         _cone(stage, parent + "/Appearance", spec, cone_mats[color], stripe, cone_mats[color], grime, i)
     venue_counts = _venue(stage, lo, hi, mats)
     car_record = dress_car(stage)
-    # Keep the existing lights' prims but use only the photographed HDR environment.
     sky = UsdLux.DomeLight.Get(stage, "/World/Sky")
     sun = UsdLux.DistantLight.Get(stage, "/World/Sun")
     if not sky or not sun:

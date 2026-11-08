@@ -1,5 +1,3 @@
-"""One verified capture profile for inspection, calibration and scored runs."""
-
 PROFILE = {
     "renderer": "RayTracedLighting",
     "anti_aliasing": 0,

@@ -1,5 +1,3 @@
-"""Freeze source/assets after fixed-pose verification, before scored runs."""
-
 import hashlib
 import json
 from pathlib import Path

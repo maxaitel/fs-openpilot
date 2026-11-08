@@ -1,5 +1,3 @@
-"""Export a portable scene with hash-verified local texture dependencies."""
-
 import os
 import shutil
 from pathlib import Path
