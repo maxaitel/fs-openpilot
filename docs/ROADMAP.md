@@ -8,7 +8,7 @@ the [changelog](../CHANGELOG.md).
 
 | | item | why / notes |
 |---|---|---|
-| 🔜 | **Skidpad** | Every policy fails it. Record ~60 route-conditioned skidpad episodes (`fsop sim record --skidpad 60`), check that the desire pulses are actually used, and add skidpad to the open-loop test split. |
+| 🧪 | **Skidpad** | Spark recovery training completes 9/10 held-out venue runs with physical route validation. Commands are refreshed at each junction. Cone hits and one heavy-randomization failure remain. See the [measured follow-up](skidpad-training.md). |
 | 🧪 | **Fewer cone hits** | Recovery excursions + 7× data took DOO from 7.7 to 1.3 per run (see lab note 2026-10-27). Next: DAgger rounds on top (`fsop eval dagger`), and the 8-track `closed_loop_suite` with heavy DR to get a less noisy number. |
 | 🔜 | **FSOCO in the loop** | Import FSOCO, train stage 2 with real images, and report image-head mAP on the FSOCO test split vs. a YOLO baseline (`fsop.baselines.yolo`). |
 | ✅ | **Bigger run on a GPU** | `scripts/modal_app.py`: dataset v2 (7× v1) + full-trunk fine-tune on an A100, ~$14 of Modal credit end to end. |

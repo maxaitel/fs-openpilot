@@ -128,6 +128,25 @@ class SimDataset(Dataset):
   def __len__(self) -> int:
     return len(self.index)
 
+  def sample_weights(self, prefix_weights: dict[str, float]) -> np.ndarray:
+    for prefix, weight in prefix_weights.items():
+      if not isinstance(prefix, str) or not prefix or not np.isfinite(weight) or weight <= 0:
+        raise ValueError("episode prefixes must be nonempty and weights finite and positive")
+    episode_weights = np.ones(len(self.eps), dtype=np.float64)
+    counts = np.bincount([ei for ei, _ in self.index], minlength=len(self.eps))
+    used = set()
+    for ei, episode in enumerate(self.eps):
+      matches = [prefix for prefix in prefix_weights if episode.path.name.startswith(prefix)]
+      if len(matches) > 1:
+        raise ValueError(f"overlapping weight prefixes for {episode.path.name}: {matches}")
+      if matches and counts[ei]:
+        prefix = matches[0]
+        episode_weights[ei] = prefix_weights[prefix]
+        used.add(prefix)
+    if missing := set(prefix_weights) - used:
+      raise ValueError(f"weight prefixes have no training samples: {sorted(missing)}")
+    return episode_weights[[ei for ei, _ in self.index]]
+
   def _feats(self, ei: int) -> dict:
     if ei not in self._cache:
       d = self.eps[ei].cache_dir(self.tag)

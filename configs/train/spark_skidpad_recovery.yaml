@@ -1,0 +1,8 @@
+defaults: [spark_skidpad_policy.yaml]
+name: spark_skidpad_recovery
+sim_root: data/sim/spark_skidpad_recovery
+cache_tag: spark_skidpad_vision_best
+init_ckpt: runs/spark_skidpad_vision/ckpt/best.pt
+steps: 2000
+lr: 0.0001
+val_every: 500

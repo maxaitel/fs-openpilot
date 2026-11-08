@@ -35,7 +35,8 @@ a **living research project**: it improves over time, and every model is recorde
 [benchmarks](#benchmarks).
 
 > **Status: experimental.** The model drives simulated trackdrive and acceleration runs. It has *not*
-> been driven on a real car, and skidpad is not solved yet. This is research software: nothing here
+> been driven on a real car. The Spark skidpad checkpoint completes 9/10 held-out venue runs,
+> with cone hits and one failure. See [the skidpad report](docs/skidpad-training.md). Nothing here
 > replaces your team's safety concept, ASR procedures or scrutineering.
 
 ## Highlights
@@ -168,13 +169,16 @@ Spark, see [the Spark performance report](docs/spark-performance.md). These perf
 separate generated dataset and do not belong in the driving-quality leaderboard above.
 The larger venue-scene run is documented in [the full Spark training report](docs/spark-full-training.md),
 including its dataset, training recipe, hardware measurements and held-out evaluation protocol.
+The [skidpad follow-up](docs/skidpad-training.md) adds repeated junction commands, physical route
+validation, recovery training, and command-ablation results. Its checkpoint and video are local
+artifacts. These separate Spark runs do not reproduce the upstream leaderboard protocol.
 
 ## Roadmap
 
 This is my playground. The current focus and the idea backlog are in
 [docs/ROADMAP.md](docs/ROADMAP.md), and changes are logged in [CHANGELOG.md](CHANGELOG.md).
 Near-term work:
-- skidpad (more route-conditioned data);
+- skidpad robustness and fewer cone hits;
 - fewer cone hits (DAgger, more data);
 - FSOCO in the training loop;
 - a real-car data path.
