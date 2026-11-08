@@ -1,7 +1,7 @@
 """Export measured training curves, hardware plots and machine-readable summaries."""
 
-import json
 import argparse
+import json
 import re
 from pathlib import Path
 

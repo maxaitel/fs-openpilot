@@ -19,3 +19,32 @@ Pass is the referee's pass field. Clean requires pass, zero legacy DOO and zero 
 The historical custom simulator and new Isaac evaluation share the frozen checkpoint, cases and matching contract, but differ in renderer, physics, scenery responses, platform and resulting trajectories. Historical initialization is reconstructed. The comparison cannot isolate a physics-only effect or establish a training curve.
 
 The raw vision view decodes image-head boxes at the original 0.25 threshold. Class IDs are 0 for blue, 1 for yellow, 2 for orange and 3 for large orange. Scores are uncalibrated model confidences. This auxiliary head does not directly control the car; the predicted path feeds the existing path follower.
+
+The video shows the exact 512 by 256 RGB input from each camera, enlarged for display. The data flow separates control from diagnostics:
+
+```mermaid
+flowchart LR
+  physics[PhysX state] --> camera[RTX road and wide cameras]
+  camera --> rgb[Original image postprocessing]
+  rgb --> pack[Original YUV packing and frame history]
+  pack --> vision[Frozen visual encoder]
+  vision --> policy[Frozen temporal policy]
+  physics --> progress[Original mission progress and route commands]
+  progress --> policy
+  policy --> plan[Predicted path]
+  plan --> pp[Original path follower]
+  physics -->|Speed| pp
+  pp --> brake[Original mission braking]
+  progress --> brake
+  brake --> physics
+  vision --> head[Auxiliary cone image head]
+  rgb --> evidence[Lossless per-call evidence]
+  plan --> evidence
+  head --> evidence
+  physics --> evidence
+  evidence --> video[Offline debug videos and audit]
+  evidence --> oracle[Offline custom bicycle expert reference]
+  oracle --> video
+```
+
+The route-command branch includes the original pulse history. The image head's flat-ground projection uses the sampled nominal calibration. Video path projection uses the saved actual camera pose, including body heave, pitch and roll.
