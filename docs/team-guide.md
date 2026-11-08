@@ -107,13 +107,17 @@ out.steer, out.accel   # from a pure-pursuit plan follower (fsop.eval.controller
 - **What your stack must provide:**
   - the AS state machine: go/stop, lap counting (D 8.3.4), stop-zone braking, EBS, RES;
   - for skidpad, route commands via `desire`: 2 = right circle, 1 = left circle, 7 = exit, each a
-    pulse about 2 s before the segment.
+    single-tick pulse about 2 s before each junction, including both repeated circles. Refresh
+    every second while approaching the junction. Keep low ticks between pulses; a held-high
+    command does not refresh the runtime's edge-triggered history.
 - **ROS 2:** wrap `FSDriver.step` in a node subscribing to your image topic(s) and wheel speed. A
   reference node is on the roadmap.
 
 ## Known gaps
 
-- **Skidpad** is not solved yet. More route-conditioned data is needed.
+- **Skidpad** has measured simulator support in the Spark checkpoint. It completed 9/10 held-out
+  venue scenes, with cone hits and one heavy-randomization failure. The mission layer still
+  supplies route commands from simulator progress. See [the report](skidpad-training.md).
 - **No real-car validation.** The sim-to-real gap is mitigated by domain randomization and FSOCO,
   but not measured.
 - **Rule values to verify** (`fsop.track.rules`, marked `verified=False`): cone dimensions, maximum cone
