@@ -1,0 +1,457 @@
+{
+  "pass": true,
+  "revision": "059b831",
+  "files": [
+    {
+      "path": "isaac_eval/scene.py",
+      "sha256": "ad6227ba643dc63861d5a5be55d17ff13e604a2900e4ff0119cd6902f5125677",
+      "origin": "059b831"
+    },
+    {
+      "path": "isaac_eval/evaluate.py",
+      "sha256": "d2ba15e8b53a8d016938f05a5bbff4c71016e42758fa51aad9312d59aa948fea",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/eval/closed_loop.py",
+      "sha256": "f41bfae441f9c7a43e9d3ed9c7fb692dcd63d4e967dbd269f6bb9e7bb173deb7",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/eval/controller.py",
+      "sha256": "18294c2854b82fd7605505f018021b8c8eddea11608fc420ffba726b0f45c03c",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/model/temporal.py",
+      "sha256": "3b7ef159ae6a0f3f39dd950ae3943fb5f59f164af0d8e9ab329f6f5de876b8c7",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/geometry/yuv.py",
+      "sha256": "9a3651b22194b666ad3200fb799bc22e90259ac650b2dff140b5c62a8ab66ee5",
+      "origin": "059b831"
+    },
+    {
+      "path": "isaac_eval/vehicle.py",
+      "sha256": "a2442c17ed03400d4ac9a85eeac90e0800542465c6fe80ff791c6dbc11fdd048",
+      "origin": "059b831"
+    },
+    {
+      "path": "isaac_eval/realistic_scene.py",
+      "sha256": "fef1c04981e5b5f8b24b329358387b0465db7b47736282649224d9137ecb94cf",
+      "origin": "059b831"
+    },
+    {
+      "path": "isaac_eval/appearance_guard.py",
+      "sha256": "80c1487c132cb3f29b1cd5bd8d442e1fa64c46da9991dc90c4a1b510d9ad987c",
+      "origin": "059b831"
+    },
+    {
+      "path": "isaac_eval/preview_realism.py",
+      "sha256": "ad6a4dcf1dacdd361b4627d9a7b85ede12f0b2097b9c07d64e656ac15b2f735c",
+      "origin": "059b831"
+    },
+    {
+      "path": "isaac_eval/export_scene.py",
+      "sha256": "1f7ecf011df773ad41395b2cfbcaf948ec1e5679c62ec2a71642790e72696fb3",
+      "origin": "059b831"
+    },
+    {
+      "path": "isaac_eval/realistic_car.py",
+      "sha256": "c560cbaee5a8e0ca9cb249350de439c0c0ae5e1df8a791cebb59c878cfbfea38",
+      "origin": "059b831"
+    },
+    {
+      "path": "isaac_eval/verify_integration.py",
+      "sha256": "8b9cfa2baf69ac5738e2c714d28ce42257dd3e8f69fce89b93f2f3a3aea87169",
+      "origin": "059b831"
+    },
+    {
+      "path": "isaac_eval/realism_assets.py",
+      "sha256": "b84fe699655bfa2e49873aab4f7672b7df25d922aace8408a3bea74dd53190dd",
+      "origin": "059b831"
+    },
+    {
+      "path": "isaac_eval/assets/manifest.json",
+      "sha256": "805219022e7de93a0c1acde5b9de6b33c7cea5cb8ad48ad434e84c6f0be65d00",
+      "origin": "local asset manifest"
+    },
+    {
+      "path": "src/fsop/geometry/camera.py",
+      "sha256": "98b8bc7f7b98cddc4e756d4b92103604f4462baea2b161f0410a943f30c207a3",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/baselines/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/baselines/yolo.py",
+      "sha256": "a5207b9b74c941f7445199f2bb45c47574f2629068f6966176bbef3da6867ed8",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/bench.py",
+      "sha256": "d3781cfc06127a92aaf201285ada0499159700b4cd6f189b6992d3bb113ac696",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/cli.py",
+      "sha256": "1f582754eb5bca7c39c87e2f6b2a40a5a17bff5faceea1353680ff5a21d04b42",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/config.py",
+      "sha256": "2de820cc65e9a8266b7163df51c4bbb052921cc6192e8ce76c47e2eeaf1b3a6b",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/data/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/data/feature_cache.py",
+      "sha256": "7ea4da7c8ece7b11766fe93e23cd3aa5a8ecf9486bad89664db22877181bc3de",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/data/fsoco.py",
+      "sha256": "7dda2a26d525da64cdf63f9058b2a58b85b20f16c3e844a9c56715a6abf95eaa",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/data/sim_dataset.py",
+      "sha256": "7753c0deae1f3aad51a747346f4ff7acab72c0f50860685196847845107affe3",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/data/targets.py",
+      "sha256": "a923bbe800bbe2d1bd25a50701edb7d077980d7d8481990ebd4baf6ca8652467",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/eval/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/eval/bev_metrics.py",
+      "sha256": "74729836f20c21d836e2a30efe586eb1b578a9ae00b97613fb1bff7a08bf4af4",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/eval/dagger.py",
+      "sha256": "7fc0c290541eaa945db52a262fe38a2639df5bec93304ca67955336f8600cba4",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/eval/det_metrics.py",
+      "sha256": "3c99d790e0777184065c4e35195babe9ade02d82aacbd78f63a8b0544b0103d2",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/eval/geometric.py",
+      "sha256": "e0ad7c4aa9157a04f1a83c242f83113acb84a25fb9152533fccb58e76cde9c02",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/eval/img_to_bev.py",
+      "sha256": "bcf10ece06c575512c45ea773335a1024fbc7ab95d20426a91ff18bd71d2d2d1",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/eval/open_loop.py",
+      "sha256": "3e402060bb9f73a1e59cf6ad8ff94eb99d3e07f82e9adde6e8fed52c02c86f52",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/eval/real_clip.py",
+      "sha256": "d62206e397e988111b00b75c9796a773ed87740b44fcff7f726184ca7afcceef",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/geometry/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/geometry/op_frames.py",
+      "sha256": "f09cea8cba5b74bf81e02df04487e3b34012e91dde4c3751525bf50e3520301f",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/geometry/warp.py",
+      "sha256": "a81bc405c769e46b3e9355bf53f2fd9fce83cfcc1d3c654ac389938546f97756",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/model/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/model/build.py",
+      "sha256": "e63d37106749a3664d7cbd1b619906b6212914d20d378923405fb02eaafac285",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/model/convert.py",
+      "sha256": "3a5531d927d8d68b557f841530c679258ccd6208d818ea3ff475f6ae4e15bc2c",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/model/export.py",
+      "sha256": "1d98e4266f133019775ab515c87d31d43b9a5e50159643e6cb0af21e1368f624",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/model/fetch.py",
+      "sha256": "e1d15dc11ca309e5a2b655fd28afdd83fcf17811030edb7f8443106534454992",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/model/heads/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/model/heads/cone_bev.py",
+      "sha256": "9fe44a7e2152d4906389142b0f4405f8d192e19ffdeea25db5698451e2a0c9ee",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/model/heads/cone_img.py",
+      "sha256": "cdf84bb4bcc25b2a05172b45f1d7d35dcaf17abca1bfe10370c1906c2ff3f42a",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/model/onnx_prep.py",
+      "sha256": "b6b7c3607078dfaf45249451d757247cc8deea4085a7f70e69f15f531e14a5f6",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/model/op_converters.py",
+      "sha256": "59f20f80b4a646870b108cc7f165e8bd48a2630f54b44b07eddf791052629d5f",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/model/static_shapes.py",
+      "sha256": "34668feafdb9e18ea6c91f53b51fb645e96191fe608abe9631c0f0ce25661a16",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/model/supercombo.py",
+      "sha256": "1128d2dc461466d9235ec3dc3386bce82c44222e127cbd6d8cf4ee0307eb5a3d",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/model/verify.py",
+      "sha256": "aa1cb5bb89869cbec5470fead1bb46eea285c27b2146c20c3fba7d91eedf0957",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/profile.py",
+      "sha256": "2c8968ba76880a1f167480e474f68301fedd8cd652be2df2670498d4230b19d0",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/runtime.py",
+      "sha256": "2a934220541dd562a558a480226be3821ab5a1702dffe6136bc51915187c7014",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/sim/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/sim/batch_record.py",
+      "sha256": "42d54ca374ba2a05255c06d50e2cefe825292a68137dbaa7e1a69760ed75831e",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/sim/drive.py",
+      "sha256": "e7e8072c3375e0de9d89d6fadcbfac897fa21f47a7d084eee1e2d0dffe047bc1",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/sim/env.py",
+      "sha256": "43e4bc7b07fcb5f963a9ce022952d6d7d8d16cf34ef2cf66af648959e31a2026",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/sim/expert.py",
+      "sha256": "7f1c3fb9083b4edd04e61a33719a88b4b65bea85fb6490ea2ef191e66d35986e",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/sim/randomization.py",
+      "sha256": "25b492a84b289a3febf9d726e1a43ef59f4657986282d28d551f5bd49cccff04",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/sim/recorder.py",
+      "sha256": "d90ec0db290ca21d419a04ae4ceb609b7d5f8927ede25786ab727f71e390f7bf",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/sim/referee.py",
+      "sha256": "c0dacad0659a9cd806e25b2405e0e4a4aadd58897858d14a717a42c0132391e2",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/sim/render/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/sim/render/assets.py",
+      "sha256": "c790b7c47113c6a86c792059bc7ca1b23764111f870b6ae67d5b88fe5b9f6051",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/sim/render/panda3d_backend.py",
+      "sha256": "e06a3ad9e675a27d5875f553ab7f442bf0a450380dcaca08611e530e0e1e5519",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/sim/render/venue.py",
+      "sha256": "98a7ac4b041c0c3a149a52f21cce1b461d0d992601e240241e460fe0fd5339ca",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/sim/route_commands.py",
+      "sha256": "31def8ff21c2d86824fdd7783c9131928a12fa2ac1e9d5d427063e640f40b149",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/sim/skidpad.py",
+      "sha256": "a6169eec33804ce14b01cbd383a74b7474f77cf69b1baf072a805a1fcd8dc6a2",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/sim/vehicle.py",
+      "sha256": "55643a3d4f43c1a7605b8da3641517a8c0380bc92ba7526a5e555e0f7cd3ae39",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/track/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/track/batch.py",
+      "sha256": "71ed04273b4da5bf340d8abb3269448481d694ad2499330fceb616a13cc681c3",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/track/centerline.py",
+      "sha256": "de45a95eba2e8fa0419a7407ced66718bc6f49099dff8b00c7663f2bf7ac5887",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/track/cones.py",
+      "sha256": "45c784e93b40cb032e6641362b547bce8f5a79d5eb02e23d0a37db038728da93",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/track/fixed_layouts.py",
+      "sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/track/generate.py",
+      "sha256": "6a971d82e14b154ef24eb3a87f212f567a08182701783a806110755b2d661264",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/track/io.py",
+      "sha256": "86a833f72d920882c55c1dee89de841a8d4b67d8cbaa0658ddb17a614bc8af4c",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/track/rules.py",
+      "sha256": "4c2c989ef7b401ed47e57744eae6a3219759629e09e412b4ee5d68de8764006d",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/track/schema.py",
+      "sha256": "f2f760bee7826c82f34e3f704a0b5807bcd0f6b043e856a781d8fe727ac1c04c",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/track/validate.py",
+      "sha256": "5a08f94b27f75a77ee69431f58493a0ead9bbc6154b6749b7d11d223080664a8",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/train/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/train/device.py",
+      "sha256": "cb2ec8fba9eb6959f11753ac93625090ea131f86f4476e8accb8d0151b1df483",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/train/losses.py",
+      "sha256": "81ed567255cf8a5024d31775a7819f88668f90ce158101ae70ea7752a148bdc5",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/train/trainer.py",
+      "sha256": "3a016bb5c4cf6556bca3d797d6653a2943e9918b4e6f2a69bb3c97fb3ffb30e7",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/viz/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/viz/inspect.py",
+      "sha256": "5cd19a506dcc688a2f6f8d536cfaa1ae310847324cd71c0dc96bd07d566730cd",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/viz/real_video.py",
+      "sha256": "1979fcb3d70e7d739b84c406b6ab7482708ec7f8aa93541d14ab3f91a866c381",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/viz/rr_log.py",
+      "sha256": "b1b0020705be517293fc413ff224e68c55d51c14ed9b9ec291ab2b3b0a7213ae",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/viz/track_preview.py",
+      "sha256": "5ace5f5cf0b9ab48e8e011edc280164a996f9eac7ce586a3ca5767c59e2683bc",
+      "origin": "059b831"
+    },
+    {
+      "path": "src/fsop/viz/video.py",
+      "sha256": "b00f560bb00b574ddaf9d771aeddeb3ada56c8801c1c418367b64e6a1dabb56c",
+      "origin": "059b831"
+    },
+    {
+      "path": "isaac_eval/rendering.py",
+      "sha256": "893ad28d35fedaee3e07f11140c75fd8760c28adb1bcbc1c1b13d9ec5a99004d",
+      "origin": "059b831"
+    },
+    {
+      "path": "isaac_eval/run_realism_suite.sh",
+      "sha256": "afa47ea314aebfaa122bd56801bef16b30dac82d96a1950c5cc4912209e01a27",
+      "origin": "059b831"
+    }
+  ],
+  "protocol_sha256": "a234f237b5387ce824486a0457337e79c8263d3973bfd1eb11e19830161c65c4"
+}

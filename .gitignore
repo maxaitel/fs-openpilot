@@ -9,3 +9,9 @@ __pycache__/
 .ruff_cache/
 .DS_Store
 /playground/
+
+/isaac_eval/runs/
+/isaac_eval/cache/
+
+# Locally cached licensed scene assets
+isaac_eval/assets/

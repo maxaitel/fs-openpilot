@@ -1,0 +1,86 @@
+{
+  "date": "2026-11-09",
+  "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+  "base_commit": "e59014d",
+  "integration_report": "isaac_eval/runs/integration_vehicle_v3/verification.json",
+  "cases": [
+    {
+      "discipline": "trackdrive",
+      "seed": 91000
+    },
+    {
+      "discipline": "trackdrive",
+      "seed": 91001
+    },
+    {
+      "discipline": "trackdrive",
+      "seed": 91002
+    },
+    {
+      "discipline": "trackdrive",
+      "seed": 91003
+    },
+    {
+      "discipline": "trackdrive",
+      "seed": 91004
+    },
+    {
+      "discipline": "skidpad",
+      "seed": 91000
+    },
+    {
+      "discipline": "skidpad",
+      "seed": 91001
+    },
+    {
+      "discipline": "skidpad",
+      "seed": 91002
+    },
+    {
+      "discipline": "skidpad",
+      "seed": 91003
+    },
+    {
+      "discipline": "skidpad",
+      "seed": 91004
+    }
+  ],
+  "trackdrive": {
+    "geometry_seed": 93000,
+    "length_min": 220,
+    "length_max": 260,
+    "laps": 1
+  },
+  "skidpad": "standard entry, 2 right laps, 2 left laps, exit and stop",
+  "start_variation": {
+    "lateral_m": [
+      -0.1,
+      0.1
+    ],
+    "yaw_rad": [
+      -0.02,
+      0.02
+    ]
+  },
+  "max_seconds": 120,
+  "early_failure": "5 continuous seconds off course, rollover, invalid route, standstill or nonfinite model output",
+  "physics_hz": 120,
+  "control_hz": 20,
+  "video_hz": 10,
+  "render_subframes": 4,
+  "cone_hit_metric": "unique cones with PhysX contact report against any car rigid body",
+  "controller": "unchanged PlanPurePursuit plus existing mission launch/finish braking",
+  "privileged_inputs": "existing ground-truth route commands and mission progress; no privileged steering",
+  "source_sha256": {
+    "isaac_eval/scene.py": "ad6227ba643dc63861d5a5be55d17ff13e604a2900e4ff0119cd6902f5125677",
+    "isaac_eval/evaluate.py": "fac98045b7699acd96ab911c307cbab6877f855ccf76e90d9834173d186197eb",
+    "src/fsop/eval/closed_loop.py": "f41bfae441f9c7a43e9d3ed9c7fb692dcd63d4e967dbd269f6bb9e7bb173deb7",
+    "src/fsop/eval/controller.py": "18294c2854b82fd7605505f018021b8c8eddea11608fc420ffba726b0f45c03c",
+    "src/fsop/model/temporal.py": "3b7ef159ae6a0f3f39dd950ae3943fb5f59f164af0d8e9ab329f6f5de876b8c7",
+    "src/fsop/geometry/yuv.py": "9a3651b22194b666ad3200fb799bc22e90259ac650b2dff140b5c62a8ab66ee5",
+    "isaac_eval/vehicle.py": "a2442c17ed03400d4ac9a85eeac90e0800542465c6fe80ff791c6dbc11fdd048"
+  },
+  "version": 2,
+  "vehicle": "PhysX Vehicle tire/suspension solver, direct wheel torque and Ackermann steering",
+  "excluded_setup_attempt": "runs/trackdrive_91000: rigid-wheel prototype failed high-speed braking verification; NRD shader errors and incorrect chase aperture. Retained, not scored."
+}
