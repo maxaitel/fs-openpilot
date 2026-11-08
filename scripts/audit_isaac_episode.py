@@ -222,7 +222,61 @@ def audit_episode(episode):
         sources = {str(path.relative_to(ROOT)): sha256_file(path) for path in paths}
         report["source_sha256"].update(sources)
         checks.compare("metadata.source_sha256", sources, metadata["source_sha256"])
-        if metadata["pilot_only"]:
+        experiment_digest = metadata.get("experiment_plan_sha256")
+        if experiment_digest:
+            from isaac_eval.stress_experiment import episode_spec, read_receipt, validate_plan
+
+            plan_path = episode / "experiment.json"
+            plan = json.loads(plan_path.read_text())
+            validate_plan(plan, read_receipt(plan["manifest"]))
+            spec = episode_spec(plan, case.case_id, metadata["variant"])
+            checks.compare("experiment.plan_sha256", plan["plan_sha256"], experiment_digest)
+            checks.compare("experiment.file_sha256", sha256_file(plan_path), metadata["experiment_file_sha256"])
+            checks.compare("experiment.layout", spec["layout_sha256"], metadata["layout_sha256"])
+            checks.compare("experiment.assets", plan["asset_sha256"], metadata["asset_sha256"])
+            checks.compare("experiment.graphs", plan["graph_sha256"], metadata["graph_sha256"])
+            checks.compare("experiment.sources", plan["source_sha256"], metadata["source_sha256"])
+            checks.compare("experiment.render_profile", plan["render_profile"], summary["render_profile"])
+            checks.compare("experiment.pilot", False, metadata["pilot_only"])
+            checks.compare("experiment.protocol", None, metadata["protocol_sha256"])
+            for key in (
+                "variant",
+                "experiment_plan_sha256",
+                "layout_sha256",
+                "asset_sha256",
+                "appearance_sha256",
+                "export_sha256",
+                "scene_sha256",
+                "experiment_file_sha256",
+            ):
+                checks.compare("experiment.summary." + key, metadata[key], summary[key])
+            for key, filename in (
+                ("appearance_sha256", "appearance.json"),
+                ("export_sha256", "export.json"),
+                ("scene_sha256", "scene.usda"),
+            ):
+                checks.compare("experiment." + key, sha256_file(episode / filename), metadata[key])
+            appearance = json.loads((episode / "appearance.json").read_text())
+            checks.compare("experiment.physics", appearance["physics_sha256"], summary["physics_sha256"])
+            if metadata["variant"] == "visual_stress_v1":
+                checks.compare(
+                    "experiment.appearance.layout", metadata["layout_sha256"], appearance["stress"]["layout_sha256"]
+                )
+                checks.compare(
+                    "experiment.appearance.assets", metadata["asset_sha256"], appearance["stress"]["asset_sha256"]
+                )
+            else:
+                checks.compare("experiment.matched_has_no_overlay", False, "stress" in appearance)
+            export = json.loads((episode / "export.json").read_text())
+            checks.compare("experiment.export.inventory", sorted(export["dependencies"]), sorted(export["sha256"]))
+            for name, digest in export["sha256"].items():
+                asset = (episode / "assets" / name).resolve()
+                if not asset.is_relative_to((episode / "assets").resolve()):
+                    raise ValueError("Export asset escapes bundle")
+                checks.compare("experiment.export.asset", digest, sha256_file(asset))
+        elif metadata.get("variant") and not metadata["pilot_only"]:
+            raise ValueError("Scored variant requires explicit experiment identity")
+        elif metadata["pilot_only"]:
             checks.compare("metadata.protocol_sha256", None, metadata["protocol_sha256"])
         else:
             protocol_path = episode / "protocol.json"
@@ -253,17 +307,26 @@ def audit_episode(episode):
                     "intrinsics": {name: cam.K.tolist() for name, cam in CAMERA_MODELS.items()}}
         checks.compare("metadata.environment", expected, {key: metadata.get(key) for key in expected})
         checks.compare("track", env.track.to_dict(), saved_track)
+        telemetry_path = episode / "telemetry.json"
+        telemetry_hash = sha256_file(telemetry_path) if telemetry_path.exists() else None
+        frames_hash = sha256_file(episode / "frames.json")
         rows = json.loads((episode / "frames.json").read_text())
         count, terminal_verified, computed = replay(read_evidence(evidence), env, summary, rows, checks)
         checks.compare("receipt.frame_count", count, receipt["frame_count"])
         checks.compare("npz.frame_count", count, len(list(evidence.glob("frame_*.npz"))))
         checks.compare("completion.unchanged", report["completion_sha256"], sha256_file(evidence / "completion.json"))
         verified_summary(evidence)
+        checks.compare("frames.unchanged", frames_hash, sha256_file(episode / "frames.json"))
+        if telemetry_hash is not None:
+            checks.compare("telemetry.unchanged", telemetry_hash, sha256_file(telemetry_path))
         report.update(frame_count=count, terminal_condition_verified=terminal_verified,
+                      telemetry_sha256=telemetry_hash,
                       recomputed_referee_summary=computed,
                       summary_sha256=sha256_file(episode / "summary.json"),
                       metadata_sha256=sha256_file(evidence / "metadata.json"),
-                      manifest_sha256=sha256_file(evidence / "manifest.jsonl"))
+                      manifest_sha256=sha256_file(evidence / "manifest.jsonl"),
+                      frames_sha256=frames_hash,
+                      realization_sha256=sha256_file(episode / "realization.json"))
         if not terminal_verified:
             report["verification_limits"].append(
                 "Isaac rollover is an unverified backend override; the final full body transform was not saved.")
