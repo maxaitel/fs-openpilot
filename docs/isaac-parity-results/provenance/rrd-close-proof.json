@@ -1,0 +1,23 @@
+{
+  "rerun": "0.42.0",
+  "distribution": "0.42.0",
+  "flushed_open": {
+    "size": 2355,
+    "sha256": "7db38fbdc325463ba2b5f8592716d9cb193e3a6812fcd9976399c9b79b1f1827"
+  },
+  "disconnected": {
+    "size": 5674,
+    "sha256": "21d1c1846a1d75b19172a28c3adb446205f491b0cf936a62edfe7494043a475f"
+  },
+  "changed_on_close": true,
+  "before_close_verification": {
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "\n    Welcome to Rerun!\n\n    This open source library collects anonymous usage data to\n    help the Rerun team improve the library.\n\n    Summary:\n    - We only collect high level events about the features used within the Rerun Viewer.\n    - The actual data you log to Rerun, such as point clouds, images, or text logs,\n      will never be collected.\n    - We don't log IP addresses.\n    - We don't log your user name, file paths, or any personal identifiable data.\n    - Usage data we do collect will be sent to and stored on servers within the EU.\n\n    For more details and instructions on how to opt out, run the command:\n\n      rerun analytics details\n\n    As this is this your first session, _no_ usage data has been sent yet,\n    giving you an opportunity to opt-out first if you wish.\n\n    Happy Rerunning!\n\n\"isaac_eval/runs/rrd-before-close.rrd\": Missing RRD footer / no RRD manifests\nError: Verification failed with 1 errors\n"
+  },
+  "after_close_verification": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "1 file verified without error.\n"
+  }
+}

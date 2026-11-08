@@ -1,0 +1,46 @@
+[
+  {
+    "command": [
+      "rrd",
+      "verify",
+      "--check-footers=false",
+      "isaac_eval/runs/rrd-before-close.rrd"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "1 file verified without error.\n"
+  },
+  {
+    "command": [
+      "rrd",
+      "migrate",
+      "isaac_eval/runs/rrd-before-close.rrd"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "Migrating 1 .rrd file(s)\u2026\n\u2705 1 file(s) successfully migrated.\n"
+  },
+  {
+    "command": [
+      "rrd",
+      "verify",
+      "--check-footers=true",
+      "isaac_eval/runs/rrd-before-close.rrd"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "1 file verified without error.\n"
+  },
+  {
+    "command": [
+      "rrd",
+      "compare",
+      "--unordered",
+      "isaac_eval/runs/rrd-before-close.backup.rrd",
+      "isaac_eval/runs/rrd-before-close.rrd"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

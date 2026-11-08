@@ -1,0 +1,134 @@
+{
+  "discipline": "trackdrive",
+  "result": "finished",
+  "laps": [
+    57.8
+  ],
+  "n_laps": 1,
+  "doo": 0,
+  "oc": 0,
+  "max_speed": 7.520998197637849,
+  "avg_speed_first3": null,
+  "raw_time": 57.8,
+  "penalty": 0.0,
+  "time": 57.8,
+  "dq": false,
+  "complete": true,
+  "pass": true,
+  "case": {
+    "case_id": "retention-trackdrive_020000-heavy-recorded",
+    "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+    "command_mode": "recorded",
+    "controller": "pp",
+    "discipline": "trackdrive",
+    "dr": "heavy",
+    "group": "retention",
+    "max_time": 120,
+    "noise": false,
+    "reference_index": 1,
+    "reference_result": {
+      "avg_speed_first3": null,
+      "complete": true,
+      "discipline": "trackdrive",
+      "doo": 4,
+      "dq": false,
+      "dr": "heavy",
+      "laps": [
+        56.04999999999698
+      ],
+      "max_speed": 8.840861573326517,
+      "n_laps": 1,
+      "oc": 3,
+      "pass": true,
+      "penalty": 38.0,
+      "raw_time": 56.04999999999698,
+      "result": "finished",
+      "seed": 0,
+      "time": 94.04999999999697,
+      "track": "trackdrive_020000"
+    },
+    "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+    "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+    "seed": 0,
+    "track_id": "trackdrive_020000",
+    "track_source": "data/sim/spark_full_venue/ep00002_trackdrive_020000_stand/track.json",
+    "track_source_sha256": "0b29ff8de4c5147a633f9c015e061d601f92b688ae32e9c12407bc9059b7e433",
+    "venue_prob": 1.0
+  },
+  "pilot_only": false,
+  "final_state": {
+    "x": -17.520505905151367,
+    "y": 100.2897720336914,
+    "yaw": -2.9713492061028077,
+    "vx": 2.1475688388801018e-06,
+    "vy": -2.1611894885264796e-07,
+    "r": 2.0834692304738667e-10,
+    "steer": 0.0018809246346317221,
+    "accel": -1.0034602461973676,
+    "t": 63.1,
+    "extra": {}
+  },
+  "events": [
+    {
+      "t": 2.45,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    },
+    {
+      "t": 60.25,
+      "kind": "line_cross",
+      "data": {
+        "n": 2
+      }
+    },
+    {
+      "t": 63.1,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "pending_events": [
+    {
+      "t": 63.1,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "recorded_frames": 1262,
+  "physical_cone_hits": 0,
+  "contact_events": [],
+  "progress": 1.0011413092860668,
+  "rms_lat": 0.4147302844085266,
+  "wall_seconds": 338.4806590520311,
+  "startup_seconds": 13.81827038305346,
+  "evidence_seconds": 49.371041391044855,
+  "seconds_simulated": 63.1,
+  "real_time_factor": 0.18642128674861833,
+  "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+  "state_sha256": "1921a60567422c86df551cd2a89a69170af38cc5c390bdd3d4cd049be8a9c50a",
+  "frozen_unchanged": true,
+  "manifest_sha256": "db09bf67135f8d4dd10fd9da36b4d262ac1a9fd364fac9793aaeca017287cc4e",
+  "protocol_sha256": "a9db979fc3ab2ddea1602eb4998d538c5faf7bfc7ab2e280292b7eb4015a2af3",
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "128840a39bc0bd2a26967326d252171a2f6f1135e9b5c2d31d1dde71a069ac1a",
+  "torch_peak_allocated_gib": 0.13738584518432617,
+  "torch_peak_reserved_gib": 0.150390625,
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130"
+  }
+}

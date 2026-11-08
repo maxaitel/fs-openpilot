@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "inference_frames": 120,
+  "rerun": "0.42.0",
+  "producer_sha256": "34dff1f6e9c565b2335c7933bb83d24ea87a8a5ce4d3ed1a9097a3d05626e002",
+  "audit_rrd_sha256": "ea584db43dbd76fe136bac5d31a8513c5cbf472e5a5f05ce73fd2b6baf50f0c0",
+  "after_return_sha256": "ea584db43dbd76fe136bac5d31a8513c5cbf472e5a5f05ce73fd2b6baf50f0c0",
+  "after_next_recording_sha256": "ea584db43dbd76fe136bac5d31a8513c5cbf472e5a5f05ce73fd2b6baf50f0c0",
+  "footer_verification_returncode": 0,
+  "footer_verification_output": "1 file verified without error.\n",
+  "after_process_exit_sha256": "ea584db43dbd76fe136bac5d31a8513c5cbf472e5a5f05ce73fd2b6baf50f0c0"
+}

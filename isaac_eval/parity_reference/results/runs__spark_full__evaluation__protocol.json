@@ -1,0 +1,25 @@
+{
+  "checkpoint": "runs/spark_full_refresh/ckpt/best.pt",
+  "sha256": "3e5c848ec9e6fe2308255836e0209ff472390dcd54f92de0895e4e9708609dc0",
+  "tracks": [
+    "trackdrive_020000",
+    "trackdrive_020005",
+    "trackdrive_020015",
+    "trackdrive_020023",
+    "trackdrive_030000",
+    "trackdrive_030010",
+    "trackdrive_030020",
+    "trackdrive_030061",
+    "skidpad",
+    "acceleration_w3.0"
+  ],
+  "dr": [
+    "light",
+    "heavy"
+  ],
+  "seed": 0,
+  "venue_probability": 1.0,
+  "laps": 1,
+  "max_seconds": 120,
+  "selection": "first four regular and first four tight test tracks; fixed layouts"
+}

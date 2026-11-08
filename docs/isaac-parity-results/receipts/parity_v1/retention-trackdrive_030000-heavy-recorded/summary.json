@@ -1,0 +1,197 @@
+{
+  "discipline": "trackdrive",
+  "result": "finished",
+  "laps": [
+    57.15
+  ],
+  "n_laps": 1,
+  "doo": 4,
+  "oc": 0,
+  "max_speed": 7.68918879666307,
+  "avg_speed_first3": null,
+  "raw_time": 57.15,
+  "penalty": 8.0,
+  "time": 65.15,
+  "dq": false,
+  "complete": true,
+  "pass": true,
+  "case": {
+    "case_id": "retention-trackdrive_030000-heavy-recorded",
+    "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+    "command_mode": "recorded",
+    "controller": "pp",
+    "discipline": "trackdrive",
+    "dr": "heavy",
+    "group": "retention",
+    "max_time": 120,
+    "noise": false,
+    "reference_index": 3,
+    "reference_result": {
+      "avg_speed_first3": null,
+      "complete": true,
+      "discipline": "trackdrive",
+      "doo": 2,
+      "dq": false,
+      "dr": "heavy",
+      "laps": [
+        54.599999999997266
+      ],
+      "max_speed": 8.601810917134618,
+      "n_laps": 1,
+      "oc": 0,
+      "pass": true,
+      "penalty": 4.0,
+      "raw_time": 54.599999999997266,
+      "result": "finished",
+      "seed": 0,
+      "time": 58.599999999997266,
+      "track": "trackdrive_030000"
+    },
+    "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+    "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+    "seed": 0,
+    "track_id": "trackdrive_030000",
+    "track_source": "data/sim/spark_full_venue/ep01093_trackdrive_030000/track.json",
+    "track_source_sha256": "ecba06afe4d332b37a12ad5711c5ede7eaad5e2fc67ec021bbd34fdb214a169b",
+    "venue_prob": 1.0
+  },
+  "pilot_only": false,
+  "final_state": {
+    "x": 45.15085220336914,
+    "y": 59.92774963378906,
+    "yaw": 0.9789745961158388,
+    "vx": 2.9432974612616725e-06,
+    "vy": -6.389262211531191e-08,
+    "r": 1.8868644147129743e-10,
+    "steer": 0.00043479519756285017,
+    "accel": -1.0059906235688467,
+    "t": 62.4,
+    "extra": {}
+  },
+  "events": [
+    {
+      "t": 2.45,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    },
+    {
+      "t": 13.15,
+      "kind": "doo",
+      "data": {
+        "cone": 96,
+        "dir": -0.6162919988442875
+      }
+    },
+    {
+      "t": 13.45,
+      "kind": "doo",
+      "data": {
+        "cone": 97,
+        "dir": -0.7214792172663865
+      }
+    },
+    {
+      "t": 41.85,
+      "kind": "doo",
+      "data": {
+        "cone": 55,
+        "dir": 2.146703624336915
+      }
+    },
+    {
+      "t": 43.7,
+      "kind": "doo",
+      "data": {
+        "cone": 141,
+        "dir": 3.0830398861623682
+      }
+    },
+    {
+      "t": 59.6,
+      "kind": "line_cross",
+      "data": {
+        "n": 2
+      }
+    },
+    {
+      "t": 62.4,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "pending_events": [
+    {
+      "t": 62.4,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "recorded_frames": 1248,
+  "physical_cone_hits": 5,
+  "contact_events": [
+    {
+      "t": 12.95,
+      "control_frame": 259,
+      "cone": "/World/Cones/c0096",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 13.35,
+      "control_frame": 267,
+      "cone": "/World/Cones/c0097",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 29.95,
+      "control_frame": 599,
+      "cone": "/World/Cones/c0122",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 41.8,
+      "control_frame": 836,
+      "cone": "/World/Cones/c0055",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 43.75,
+      "control_frame": 875,
+      "cone": "/World/Cones/c0141",
+      "time_convention": "start of the control interval containing first contact"
+    }
+  ],
+  "progress": 1.0011230084668292,
+  "rms_lat": 0.3108118052751956,
+  "wall_seconds": 339.6752412429778,
+  "startup_seconds": 13.956429587095045,
+  "evidence_seconds": 48.377369560999796,
+  "seconds_simulated": 62.4,
+  "real_time_factor": 0.18370488167362128,
+  "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+  "state_sha256": "1921a60567422c86df551cd2a89a69170af38cc5c390bdd3d4cd049be8a9c50a",
+  "frozen_unchanged": true,
+  "manifest_sha256": "db09bf67135f8d4dd10fd9da36b4d262ac1a9fd364fac9793aaeca017287cc4e",
+  "protocol_sha256": "a9db979fc3ab2ddea1602eb4998d538c5faf7bfc7ab2e280292b7eb4015a2af3",
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "c55fd55d97abe580c6e4eac45ffa717f2ebc856775335b59d3ec85057e8096a9",
+  "torch_peak_allocated_gib": 0.13738584518432617,
+  "torch_peak_reserved_gib": 0.150390625,
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130"
+  }
+}

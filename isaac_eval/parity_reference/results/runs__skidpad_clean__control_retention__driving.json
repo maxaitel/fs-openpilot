@@ -1,0 +1,361 @@
+{
+  "protocol": {
+    "checkpoint": "runs/spark_skidpad_control/ckpt/step500.pt",
+    "sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+    "tracks": [
+      "trackdrive_020000",
+      "trackdrive_020005",
+      "trackdrive_020015",
+      "trackdrive_020023",
+      "trackdrive_030000",
+      "trackdrive_030010",
+      "trackdrive_030020",
+      "trackdrive_030061"
+    ]
+  },
+  "summary": {
+    "runs": 16,
+    "passed": 16,
+    "clean": 7,
+    "cones": 25,
+    "off_course": 3
+  },
+  "runs": [
+    {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        53.89999999999741
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 8.423112776963109,
+      "avg_speed_first3": null,
+      "raw_time": 53.89999999999741,
+      "penalty": 0.0,
+      "time": 53.89999999999741,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "track": "trackdrive_020000",
+      "dr": "light",
+      "seed": 0
+    },
+    {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        56.04999999999698
+      ],
+      "n_laps": 1,
+      "doo": 4,
+      "oc": 3,
+      "max_speed": 8.840861573326517,
+      "avg_speed_first3": null,
+      "raw_time": 56.04999999999698,
+      "penalty": 38.0,
+      "time": 94.04999999999697,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "track": "trackdrive_020000",
+      "dr": "heavy",
+      "seed": 0
+    },
+    {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        51.69999999999785
+      ],
+      "n_laps": 1,
+      "doo": 2,
+      "oc": 0,
+      "max_speed": 9.074831586291571,
+      "avg_speed_first3": null,
+      "raw_time": 51.69999999999785,
+      "penalty": 4.0,
+      "time": 55.69999999999785,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "track": "trackdrive_030000",
+      "dr": "light",
+      "seed": 0
+    },
+    {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        54.599999999997266
+      ],
+      "n_laps": 1,
+      "doo": 2,
+      "oc": 0,
+      "max_speed": 8.601810917134618,
+      "avg_speed_first3": null,
+      "raw_time": 54.599999999997266,
+      "penalty": 4.0,
+      "time": 58.599999999997266,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "track": "trackdrive_030000",
+      "dr": "heavy",
+      "seed": 0
+    },
+    {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        30.850000000001998
+      ],
+      "n_laps": 1,
+      "doo": 1,
+      "oc": 0,
+      "max_speed": 10.233774639010743,
+      "avg_speed_first3": null,
+      "raw_time": 30.850000000001998,
+      "penalty": 2.0,
+      "time": 32.850000000002,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "track": "trackdrive_020005",
+      "dr": "light",
+      "seed": 0
+    },
+    {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        35.300000000001106
+      ],
+      "n_laps": 1,
+      "doo": 5,
+      "oc": 0,
+      "max_speed": 7.9090906692601415,
+      "avg_speed_first3": null,
+      "raw_time": 35.300000000001106,
+      "penalty": 10.0,
+      "time": 45.300000000001106,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "track": "trackdrive_020005",
+      "dr": "heavy",
+      "seed": 0
+    },
+    {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        46.99999999999878
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 11.513573806793852,
+      "avg_speed_first3": null,
+      "raw_time": 46.99999999999878,
+      "penalty": 0.0,
+      "time": 46.99999999999878,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "track": "trackdrive_030010",
+      "dr": "light",
+      "seed": 0
+    },
+    {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        53.549999999997496
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 9.241933389489406,
+      "avg_speed_first3": null,
+      "raw_time": 53.549999999997496,
+      "penalty": 0.0,
+      "time": 53.549999999997496,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "track": "trackdrive_030010",
+      "dr": "heavy",
+      "seed": 0
+    },
+    {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        46.749999999998835
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 9.522481147918766,
+      "avg_speed_first3": null,
+      "raw_time": 46.749999999998835,
+      "penalty": 0.0,
+      "time": 46.749999999998835,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "track": "trackdrive_020015",
+      "dr": "light",
+      "seed": 0
+    },
+    {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        51.69999999999788
+      ],
+      "n_laps": 1,
+      "doo": 1,
+      "oc": 0,
+      "max_speed": 9.0085978589101,
+      "avg_speed_first3": null,
+      "raw_time": 51.69999999999788,
+      "penalty": 2.0,
+      "time": 53.69999999999788,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "track": "trackdrive_020015",
+      "dr": "heavy",
+      "seed": 0
+    },
+    {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        29.700000000002174
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 11.815378422024436,
+      "avg_speed_first3": null,
+      "raw_time": 29.700000000002174,
+      "penalty": 0.0,
+      "time": 29.700000000002174,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "track": "trackdrive_030020",
+      "dr": "light",
+      "seed": 0
+    },
+    {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        35.4000000000011
+      ],
+      "n_laps": 1,
+      "doo": 1,
+      "oc": 0,
+      "max_speed": 12.34301020816925,
+      "avg_speed_first3": null,
+      "raw_time": 35.4000000000011,
+      "penalty": 2.0,
+      "time": 37.4000000000011,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "track": "trackdrive_030020",
+      "dr": "heavy",
+      "seed": 0
+    },
+    {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        50.59999999999804
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 9.415801095181882,
+      "avg_speed_first3": null,
+      "raw_time": 50.59999999999804,
+      "penalty": 0.0,
+      "time": 50.59999999999804,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "track": "trackdrive_020023",
+      "dr": "light",
+      "seed": 0
+    },
+    {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        53.849999999997436
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 8.091389980301743,
+      "avg_speed_first3": null,
+      "raw_time": 53.849999999997436,
+      "penalty": 0.0,
+      "time": 53.849999999997436,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "track": "trackdrive_020023",
+      "dr": "heavy",
+      "seed": 0
+    },
+    {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        49.94999999999819
+      ],
+      "n_laps": 1,
+      "doo": 2,
+      "oc": 0,
+      "max_speed": 12.287055445272918,
+      "avg_speed_first3": null,
+      "raw_time": 49.94999999999819,
+      "penalty": 4.0,
+      "time": 53.94999999999819,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "track": "trackdrive_030061",
+      "dr": "light",
+      "seed": 0
+    },
+    {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        58.499999999996525
+      ],
+      "n_laps": 1,
+      "doo": 7,
+      "oc": 0,
+      "max_speed": 8.601254019496228,
+      "avg_speed_first3": null,
+      "raw_time": 58.499999999996525,
+      "penalty": 14.0,
+      "time": 72.49999999999653,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "track": "trackdrive_030061",
+      "dr": "heavy",
+      "seed": 0
+    }
+  ]
+}

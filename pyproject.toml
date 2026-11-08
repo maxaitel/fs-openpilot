@@ -79,6 +79,7 @@ known-first-party = ["fsop"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
 
 [tool.hatch.metadata]
 allow-direct-references = true

@@ -1,0 +1,5766 @@
+{
+  "passed": true,
+  "frame_count": 946,
+  "completion_sha256": "954c36fc2d248ac67ea22a656053489134704e50e245ed714b4b45b4588ac9c2",
+  "atol": 1e-08,
+  "rtol": 1e-09,
+  "verification_limits": [
+    "Saved states replay original mission, route commands and referee. Model outputs are not rerun.",
+    "Checkpoint and model-state hashes check metadata consistency, not the actual weights.",
+    "Physical contact counts agree with saved contact events but are not independently simulated.",
+    "Final planar state is receipt-bound. The final physics transition is not reconstructed."
+  ],
+  "source_sha256": {
+    "scripts/audit_isaac_episode.py": "88f91af7a946c443efe80018d7779ff4c996b2ab86e59bd760a3da5b62e7ba1a",
+    "src/fsop/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/baselines/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/baselines/yolo.py": "a5207b9b74c941f7445199f2bb45c47574f2629068f6966176bbef3da6867ed8",
+    "src/fsop/bench.py": "d3781cfc06127a92aaf201285ada0499159700b4cd6f189b6992d3bb113ac696",
+    "src/fsop/cli.py": "1f582754eb5bca7c39c87e2f6b2a40a5a17bff5faceea1353680ff5a21d04b42",
+    "src/fsop/config.py": "2de820cc65e9a8266b7163df51c4bbb052921cc6192e8ce76c47e2eeaf1b3a6b",
+    "src/fsop/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/data/feature_cache.py": "7ea4da7c8ece7b11766fe93e23cd3aa5a8ecf9486bad89664db22877181bc3de",
+    "src/fsop/data/fsoco.py": "7dda2a26d525da64cdf63f9058b2a58b85b20f16c3e844a9c56715a6abf95eaa",
+    "src/fsop/data/sim_dataset.py": "7753c0deae1f3aad51a747346f4ff7acab72c0f50860685196847845107affe3",
+    "src/fsop/data/targets.py": "a923bbe800bbe2d1bd25a50701edb7d077980d7d8481990ebd4baf6ca8652467",
+    "src/fsop/eval/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/eval/bev_metrics.py": "74729836f20c21d836e2a30efe586eb1b578a9ae00b97613fb1bff7a08bf4af4",
+    "src/fsop/eval/closed_loop.py": "f41bfae441f9c7a43e9d3ed9c7fb692dcd63d4e967dbd269f6bb9e7bb173deb7",
+    "src/fsop/eval/controller.py": "18294c2854b82fd7605505f018021b8c8eddea11608fc420ffba726b0f45c03c",
+    "src/fsop/eval/dagger.py": "7fc0c290541eaa945db52a262fe38a2639df5bec93304ca67955336f8600cba4",
+    "src/fsop/eval/det_metrics.py": "3c99d790e0777184065c4e35195babe9ade02d82aacbd78f63a8b0544b0103d2",
+    "src/fsop/eval/geometric.py": "e0ad7c4aa9157a04f1a83c242f83113acb84a25fb9152533fccb58e76cde9c02",
+    "src/fsop/eval/img_to_bev.py": "bcf10ece06c575512c45ea773335a1024fbc7ab95d20426a91ff18bd71d2d2d1",
+    "src/fsop/eval/open_loop.py": "3e402060bb9f73a1e59cf6ad8ff94eb99d3e07f82e9adde6e8fed52c02c86f52",
+    "src/fsop/eval/real_clip.py": "d62206e397e988111b00b75c9796a773ed87740b44fcff7f726184ca7afcceef",
+    "src/fsop/geometry/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/geometry/camera.py": "98b8bc7f7b98cddc4e756d4b92103604f4462baea2b161f0410a943f30c207a3",
+    "src/fsop/geometry/op_frames.py": "f09cea8cba5b74bf81e02df04487e3b34012e91dde4c3751525bf50e3520301f",
+    "src/fsop/geometry/warp.py": "a81bc405c769e46b3e9355bf53f2fd9fce83cfcc1d3c654ac389938546f97756",
+    "src/fsop/geometry/yuv.py": "9a3651b22194b666ad3200fb799bc22e90259ac650b2dff140b5c62a8ab66ee5",
+    "src/fsop/model/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/model/build.py": "e63d37106749a3664d7cbd1b619906b6212914d20d378923405fb02eaafac285",
+    "src/fsop/model/convert.py": "3a5531d927d8d68b557f841530c679258ccd6208d818ea3ff475f6ae4e15bc2c",
+    "src/fsop/model/export.py": "1d98e4266f133019775ab515c87d31d43b9a5e50159643e6cb0af21e1368f624",
+    "src/fsop/model/fetch.py": "e1d15dc11ca309e5a2b655fd28afdd83fcf17811030edb7f8443106534454992",
+    "src/fsop/model/heads/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/model/heads/cone_bev.py": "9fe44a7e2152d4906389142b0f4405f8d192e19ffdeea25db5698451e2a0c9ee",
+    "src/fsop/model/heads/cone_img.py": "cdf84bb4bcc25b2a05172b45f1d7d35dcaf17abca1bfe10370c1906c2ff3f42a",
+    "src/fsop/model/onnx_prep.py": "b6b7c3607078dfaf45249451d757247cc8deea4085a7f70e69f15f531e14a5f6",
+    "src/fsop/model/op_converters.py": "59f20f80b4a646870b108cc7f165e8bd48a2630f54b44b07eddf791052629d5f",
+    "src/fsop/model/static_shapes.py": "34668feafdb9e18ea6c91f53b51fb645e96191fe608abe9631c0f0ce25661a16",
+    "src/fsop/model/supercombo.py": "1128d2dc461466d9235ec3dc3386bce82c44222e127cbd6d8cf4ee0307eb5a3d",
+    "src/fsop/model/temporal.py": "3b7ef159ae6a0f3f39dd950ae3943fb5f59f164af0d8e9ab329f6f5de876b8c7",
+    "src/fsop/model/verify.py": "aa1cb5bb89869cbec5470fead1bb46eea285c27b2146c20c3fba7d91eedf0957",
+    "src/fsop/profile.py": "2c8968ba76880a1f167480e474f68301fedd8cd652be2df2670498d4230b19d0",
+    "src/fsop/runtime.py": "2a934220541dd562a558a480226be3821ab5a1702dffe6136bc51915187c7014",
+    "src/fsop/sim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/sim/batch_record.py": "42d54ca374ba2a05255c06d50e2cefe825292a68137dbaa7e1a69760ed75831e",
+    "src/fsop/sim/drive.py": "e7e8072c3375e0de9d89d6fadcbfac897fa21f47a7d084eee1e2d0dffe047bc1",
+    "src/fsop/sim/env.py": "43e4bc7b07fcb5f963a9ce022952d6d7d8d16cf34ef2cf66af648959e31a2026",
+    "src/fsop/sim/expert.py": "7f1c3fb9083b4edd04e61a33719a88b4b65bea85fb6490ea2ef191e66d35986e",
+    "src/fsop/sim/randomization.py": "25b492a84b289a3febf9d726e1a43ef59f4657986282d28d551f5bd49cccff04",
+    "src/fsop/sim/recorder.py": "d90ec0db290ca21d419a04ae4ceb609b7d5f8927ede25786ab727f71e390f7bf",
+    "src/fsop/sim/referee.py": "c0dacad0659a9cd806e25b2405e0e4a4aadd58897858d14a717a42c0132391e2",
+    "src/fsop/sim/render/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/sim/render/assets.py": "c790b7c47113c6a86c792059bc7ca1b23764111f870b6ae67d5b88fe5b9f6051",
+    "src/fsop/sim/render/panda3d_backend.py": "e06a3ad9e675a27d5875f553ab7f442bf0a450380dcaca08611e530e0e1e5519",
+    "src/fsop/sim/render/venue.py": "98a7ac4b041c0c3a149a52f21cce1b461d0d992601e240241e460fe0fd5339ca",
+    "src/fsop/sim/route_commands.py": "31def8ff21c2d86824fdd7783c9131928a12fa2ac1e9d5d427063e640f40b149",
+    "src/fsop/sim/skidpad.py": "a6169eec33804ce14b01cbd383a74b7474f77cf69b1baf072a805a1fcd8dc6a2",
+    "src/fsop/sim/vehicle.py": "55643a3d4f43c1a7605b8da3641517a8c0380bc92ba7526a5e555e0f7cd3ae39",
+    "src/fsop/track/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/track/batch.py": "71ed04273b4da5bf340d8abb3269448481d694ad2499330fceb616a13cc681c3",
+    "src/fsop/track/centerline.py": "de45a95eba2e8fa0419a7407ced66718bc6f49099dff8b00c7663f2bf7ac5887",
+    "src/fsop/track/cones.py": "45c784e93b40cb032e6641362b547bce8f5a79d5eb02e23d0a37db038728da93",
+    "src/fsop/track/fixed_layouts.py": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+    "src/fsop/track/generate.py": "6a971d82e14b154ef24eb3a87f212f567a08182701783a806110755b2d661264",
+    "src/fsop/track/io.py": "86a833f72d920882c55c1dee89de841a8d4b67d8cbaa0658ddb17a614bc8af4c",
+    "src/fsop/track/rules.py": "4c2c989ef7b401ed47e57744eae6a3219759629e09e412b4ee5d68de8764006d",
+    "src/fsop/track/schema.py": "f2f760bee7826c82f34e3f704a0b5807bcd0f6b043e856a781d8fe727ac1c04c",
+    "src/fsop/track/validate.py": "5a08f94b27f75a77ee69431f58493a0ead9bbc6154b6749b7d11d223080664a8",
+    "src/fsop/train/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/train/device.py": "cb2ec8fba9eb6959f11753ac93625090ea131f86f4476e8accb8d0151b1df483",
+    "src/fsop/train/losses.py": "81ed567255cf8a5024d31775a7819f88668f90ce158101ae70ea7752a148bdc5",
+    "src/fsop/train/trainer.py": "3a016bb5c4cf6556bca3d797d6653a2943e9918b4e6f2a69bb3c97fb3ffb30e7",
+    "src/fsop/viz/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/viz/inspect.py": "5cd19a506dcc688a2f6f8d536cfaa1ae310847324cd71c0dc96bd07d566730cd",
+    "src/fsop/viz/real_video.py": "1979fcb3d70e7d739b84c406b6ab7482708ec7f8aa93541d14ab3f91a866c381",
+    "src/fsop/viz/rr_log.py": "b1b0020705be517293fc413ff224e68c55d51c14ed9b9ec291ab2b3b0a7213ae",
+    "src/fsop/viz/track_preview.py": "5ace5f5cf0b9ab48e8e011edc280164a996f9eac7ce586a3ca5767c59e2683bc",
+    "src/fsop/viz/video.py": "94013abd1f1e78a2869101f12aa3f53ab3c6accd86819069b78234ea9b696cd9",
+    "isaac_eval/appearance_guard.py": "a39945b0e237e462ecc90baf0c909aad502bf328bdec6ccef7a5591d406a69da",
+    "isaac_eval/benchmark_model.py": "5f988b1bbc7cff8df053563374d65d01fc346cc9140be8189f977d065f8f51a9",
+    "isaac_eval/evaluate.py": "d2ba15e8b53a8d016938f05a5bbff4c71016e42758fa51aad9312d59aa948fea",
+    "isaac_eval/evaluate_parity.py": "c3e92072d0eb40a3d7a1df7e9e67513fb0979fe59578f3aafc734481bb1577f5",
+    "isaac_eval/evidence.py": "00a38b56c9f813821674dfcf65b1d9f5b1db679c67e851d191f06a55540ac23f",
+    "isaac_eval/export_scene.py": "bda8336b1a5b7d72a18c9f3f08a0a9e4b215a60cb6e1bbb75912f63db9abde8a",
+    "isaac_eval/freeze_parity_protocol.py": "c33bf6537d93abbce1a9c3d4d30055b0233567b5a7780aeb108f945ebf0b4c37",
+    "isaac_eval/freeze_realism_protocol.py": "537c9fc2cc3349a65b0a99b756cae9bfee118bb2ad2a17c6e749f20380b4869d",
+    "isaac_eval/parity_cases.py": "2cf546e6853783384b79f22cad10245342c41b14744abdbd1e15f7db8f86e9c7",
+    "isaac_eval/parity_geometry.py": "63fa33114594a1ffcc3e3f729d22510f74a0ca9b3787f3f9783ba6e3ab87149d",
+    "isaac_eval/parity_protocol.py": "3fb0faef79bf7c2f8d542980cc29f8f7bd7491b5af3f8ccf43c3ad2be7a8c49f",
+    "isaac_eval/parity_scene.py": "5618592b23ac129307809f3d00d4c44e9cab6077ef6839e5d43558e6f346bf4f",
+    "isaac_eval/prepare_parity_cases.py": "9e43d7d623e8c5c2fa2a704139098ae696661b8f08b44a4ccab9d8ea18fafabf",
+    "isaac_eval/preview_realism.py": "0031e2c745f27e3bbc38d4cbdf206b2fe92aef089751bc50f6d0123853f57a02",
+    "isaac_eval/probe_asset.py": "01f72584ce4298d0e3dcca748a376412899f5474f71c2520b986bd639add8eb7",
+    "isaac_eval/realism_assets.py": "3da155f4e14052f9e4e545b16e3b5bc0e84460a8276da3ffc69635bb5144c9a2",
+    "isaac_eval/realistic_car.py": "35455344c7a8fb80abf050bd11dbe17b825df5363ed3e139309e1b58d5f5b4e1",
+    "isaac_eval/realistic_scene.py": "b2b23082eb5fe0aed84095fbd5ee612bc629ee1c6184fbdc28d7462bf8ebc853",
+    "isaac_eval/render_debug.py": "e1d3a8ab64f591928f76e829c76a10ef527b4236b1932cf64b621b40e99def49",
+    "isaac_eval/rendering.py": "7387b5952ab38f902a42786c9db8923ce649b1508feff6782c882cd9632c36c0",
+    "isaac_eval/report.py": "9fe2b14834045d08e6e58e415a82e0b4e5284d644587c3d152214bb984d72422",
+    "isaac_eval/report_realism.py": "cc67097f30773b85a71745cf4e8a3b5bcf8e4ac5e9baedcfd32c51d2eb3d9dbe",
+    "isaac_eval/run_parity_suite.py": "d7ae6f3bc9f4e2b64e907c0eae390e70eced3071022fc8fc59cb77455aff60cc",
+    "isaac_eval/scene.py": "0a1ce27ff205fb47ceb44b91c9b731050d6ad0ca4a29e89fea7ad16c59c49076",
+    "isaac_eval/vehicle.py": "a2442c17ed03400d4ac9a85eeac90e0800542465c6fe80ff791c6dbc11fdd048",
+    "isaac_eval/verify_frozen_sources.py": "01cdcc64c3f8f8ac25ca9f7b3a2d08b3dcecb69279b2690da05cd843cf80e8ef",
+    "isaac_eval/verify_inference.py": "3b72a2e7c613f635103275be6fb0ec6aff645464dc34b856de5c1fb186220667",
+    "isaac_eval/verify_integration.py": "8b9cfa2baf69ac5738e2c714d28ce42257dd3e8f69fce89b93f2f3a3aea87169",
+    "isaac_eval/verify_model.py": "e885d97b1d287957c8bc0635061c42df0fae506bb5c2a425fc724c37fbf5794f",
+    "isaac_eval/verify_parity_camera.py": "1fa445a585c1fea9b7eaa3a8708fd205bdf932d14ea4d358cf34b910d1ebd62b",
+    "isaac_eval/verify_realism_artifacts.py": "669152cc3a633dfe19874813875cc377325a9d48b803cdfe7efe8ac7ff174fe6"
+  },
+  "case_id": "skidpad-72006-heavy-recorded",
+  "terminal_condition_verified": true,
+  "recomputed_referee_summary": {
+    "discipline": "skidpad",
+    "result": "finished",
+    "laps": [
+      9.70307873237522,
+      10.125086966305044,
+      9.854007513825657,
+      9.919929798572277
+    ],
+    "n_laps": 4,
+    "doo": 4,
+    "oc": 0,
+    "max_speed": 7.979552657020704,
+    "route": {
+      "expected_route": [
+        "right",
+        "right",
+        "left",
+        "left"
+      ],
+      "accepted_route": [
+        "right",
+        "right",
+        "left",
+        "left"
+      ],
+      "laps": [
+        {
+          "circle": "right",
+          "start_time": 3.337369618570479,
+          "finish_time": 13.040448350945699,
+          "duration": 9.70307873237522,
+          "winding_right": -6.283185307179584,
+          "winding_left": -5.204170427930421e-17
+        },
+        {
+          "circle": "right",
+          "start_time": 13.040448350945699,
+          "finish_time": 23.165535317250743,
+          "duration": 10.125086966305044,
+          "winding_right": -6.2831853071795845,
+          "winding_left": -1.682681771697503e-16
+        },
+        {
+          "circle": "left",
+          "start_time": 23.165535317250743,
+          "finish_time": 33.0195428310764,
+          "duration": 9.854007513825657,
+          "winding_right": 1.457167719820518e-16,
+          "winding_left": 6.283185307179591
+        },
+        {
+          "circle": "left",
+          "start_time": 33.0195428310764,
+          "finish_time": 42.93947262964868,
+          "duration": 9.919929798572277,
+          "winding_right": 9.367506770274758e-17,
+          "winding_left": 6.283185307179589
+        }
+      ],
+      "crossings": [
+        3.337369618570479,
+        13.040448350945699,
+        23.165535317250743,
+        33.0195428310764,
+        42.93947262964868
+      ],
+      "complete": true,
+      "exited": true,
+      "stopped_in_zone": true,
+      "valid": true,
+      "violation": null,
+      "reverse_crossings": 0,
+      "termination": "finished"
+    },
+    "raw_time": 10.02250838243866,
+    "penalty": 0.8,
+    "time": 10.822508382438661,
+    "dq": false,
+    "complete": true,
+    "pass": true
+  },
+  "summary_sha256": "ce7ff5853f2bba69bf850401650a7b6150b7385bba04ccc57d64fe8ff8f229ef",
+  "metadata_sha256": "9745d78d3effbfdd470d277241156459f677dbac959b8403bf015c10d3c9b466",
+  "manifest_sha256": "e5284b56cb8a68719be7441fc79769a227f566a9c9167355f0b9a48865f953ef",
+  "comparisons": {
+    "metadata.case.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.keys[]": {
+      "comparisons": 18,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.track_id": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.case_id": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.group": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.noise": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.seed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.track_source": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.track_source_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.venue_prob": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.max_time": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.dr": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.discipline": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.command_mode": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_source": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.keys[]": {
+      "comparisons": 19,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.oc": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.result": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.keys[]": {
+      "comparisons": 11,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.termination": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.stopped_in_zone": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.laps.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.laps[].keys.length": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.laps[].keys[]": {
+      "comparisons": 24,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.laps[].duration": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.laps[].winding_right": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.laps[].winding_left": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.laps[].finish_time": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.laps[].start_time": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.laps[].circle": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.reverse_crossings": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.crossings.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.crossings[]": {
+      "comparisons": 5,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.valid": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.exited": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.violation": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.complete": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.expected_route.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.expected_route[]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.accepted_route.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.route.accepted_route[]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.raw_time": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.max_speed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.laps.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.laps[]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.dr": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.n_laps": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.pass": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.controller": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.progress": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.discipline": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.command_mode": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.time": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.dq": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.seed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.doo": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.complete": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_result.penalty": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.reference_index": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.controller": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.case.checkpoint_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.keys[]": {
+      "comparisons": 18,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.track_id": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.case_id": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.group": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.noise": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.seed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.track_source": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.track_source_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.venue_prob": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.max_time": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.dr": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.discipline": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.command_mode": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_source": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.keys[]": {
+      "comparisons": 19,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.oc": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.result": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.keys[]": {
+      "comparisons": 11,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.termination": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.stopped_in_zone": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.laps.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.laps[].keys.length": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.laps[].keys[]": {
+      "comparisons": 24,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.laps[].duration": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.laps[].winding_right": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.laps[].winding_left": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.laps[].finish_time": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.laps[].start_time": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.laps[].circle": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.reverse_crossings": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.crossings.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.crossings[]": {
+      "comparisons": 5,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.valid": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.exited": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.violation": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.complete": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.expected_route.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.expected_route[]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.accepted_route.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.route.accepted_route[]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.raw_time": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.max_speed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.laps.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.laps[]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.dr": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.n_laps": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.pass": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.controller": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.progress": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.discipline": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.command_mode": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.time": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.dq": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.seed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.doo": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.complete": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_result.penalty": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.reference_index": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.controller": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.case.checkpoint_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.pilot_only": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.checkpoint_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.state_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.manifest_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.protocol_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.checkpoint_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.state_sha256.valid": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.manifest_sha256.valid": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.fps": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.backend": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.schema_version": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.graph_inventory.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.graph_inventory[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.graph_digest_valid": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.frozen_unchanged": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.keys[]": {
+      "comparisons": 108,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/evaluate.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/sim/render/venue.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/train/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/geometry/yuv.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/data/targets.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/model/convert.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/model/build.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/config.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/geometry/op_frames.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/verify_inference.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/verify_model.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/parity_protocol.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/track/batch.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/model/temporal.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/eval/geometric.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/sim/skidpad.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/model/fetch.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/verify_frozen_sources.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/model/heads/cone_bev.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/model/supercombo.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/baselines/yolo.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/eval/real_clip.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/sim/env.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/eval/closed_loop.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/realism_assets.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/viz/inspect.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/train/trainer.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/verify_realism_artifacts.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/viz/rr_log.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/viz/real_video.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/rendering.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/bench.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/track/validate.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/geometry/camera.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/run_parity_suite.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/eval/det_metrics.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/prepare_parity_cases.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/model/heads/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/report.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/track/generate.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/parity_scene.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/realistic_car.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/eval/open_loop.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/track/cones.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/evidence.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/data/feature_cache.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/sim/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/sim/render/assets.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/profile.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/freeze_realism_protocol.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/eval/img_to_bev.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/track/schema.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/model/heads/cone_img.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/freeze_parity_protocol.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/train/device.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/appearance_guard.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/probe_asset.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/preview_realism.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/model/static_shapes.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/model/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/model/verify.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/track/io.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/model/op_converters.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/sim/route_commands.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/viz/video.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/eval/dagger.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/render_debug.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/verify_parity_camera.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/eval/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/model/export.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/sim/drive.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/track/fixed_layouts.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/sim/vehicle.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/geometry/warp.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/track/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/vehicle.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/data/fsoco.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/track/rules.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/parity_cases.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/model/onnx_prep.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/eval/bev_metrics.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/report_realism.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/sim/batch_record.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/verify_integration.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/sim/expert.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/sim/render/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/viz/track_preview.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/benchmark_model.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/evaluate_parity.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/eval/controller.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/parity_geometry.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/geometry/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/sim/randomization.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/sim/referee.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/sim/render/panda3d_backend.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/data/sim_dataset.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/track/centerline.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/export_scene.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/baselines/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/sim/recorder.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/data/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/scene.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.isaac_eval/realistic_scene.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/viz/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/train/losses.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/cli.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.source_sha256.src/fsop/runtime.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.file_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.digest": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.case_ids.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.case_ids[]": {
+      "comparisons": 41,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.manifest_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.keys[]": {
+      "comparisons": 108,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/evaluate.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/sim/render/venue.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/train/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/geometry/yuv.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/data/targets.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/model/convert.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/model/build.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/config.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/geometry/op_frames.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/verify_inference.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/verify_model.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/parity_protocol.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/track/batch.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/model/temporal.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/eval/geometric.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/sim/skidpad.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/model/fetch.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/verify_frozen_sources.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/model/heads/cone_bev.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/model/supercombo.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/baselines/yolo.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/eval/real_clip.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/sim/env.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/eval/closed_loop.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/realism_assets.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/viz/inspect.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/train/trainer.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/verify_realism_artifacts.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/viz/rr_log.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/viz/real_video.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/rendering.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/bench.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/track/validate.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/geometry/camera.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/run_parity_suite.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/eval/det_metrics.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/prepare_parity_cases.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/model/heads/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/report.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/track/generate.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/parity_scene.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/realistic_car.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/eval/open_loop.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/track/cones.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/evidence.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/data/feature_cache.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/sim/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/sim/render/assets.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/profile.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/freeze_realism_protocol.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/eval/img_to_bev.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/track/schema.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/model/heads/cone_img.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/freeze_parity_protocol.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/train/device.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/appearance_guard.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/probe_asset.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/preview_realism.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/model/static_shapes.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/model/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/model/verify.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/track/io.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/model/op_converters.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/sim/route_commands.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/viz/video.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/eval/dagger.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/render_debug.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/verify_parity_camera.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/eval/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/model/export.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/sim/drive.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/track/fixed_layouts.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/sim/vehicle.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/geometry/warp.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/track/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/vehicle.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/data/fsoco.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/track/rules.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/parity_cases.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/model/onnx_prep.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/eval/bev_metrics.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/report_realism.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/sim/batch_record.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/verify_integration.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/sim/expert.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/sim/render/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/viz/track_preview.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/benchmark_model.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/evaluate_parity.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/eval/controller.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/parity_geometry.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/geometry/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/sim/randomization.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/sim/referee.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/sim/render/panda3d_backend.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/data/sim_dataset.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/track/centerline.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/export_scene.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/baselines/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/sim/recorder.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/data/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/scene.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.isaac_eval/realistic_scene.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/viz/__init__.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/train/losses.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/cli.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.source_sha256.src/fsop/runtime.py": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.graph_sha256.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.graph_sha256.keys[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.graph_sha256.artifacts/models/prep/vision_fp32.onnx": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.graph_sha256.artifacts/models/prep/policy_fp32.onnx": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.render_profile.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.render_profile.keys[]": {
+      "comparisons": 7,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.render_profile.dlss_exec_mode": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.render_profile.anti_aliasing": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.render_profile.dl_denoiser": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.render_profile.reason": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.render_profile.renderer": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.render_profile.motion_blur": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "protocol.render_profile.subframes": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.digest": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.track_digest": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.keys[]": {
+      "comparisons": 20,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.keys[]": {
+      "comparisons": 10,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.vx": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.r": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.vy": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.t": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.steer": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.yaw": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.y": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.extra.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.x": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.accel": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.frame": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.lat": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.T_ego_cam.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.T_ego_cam[].length": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.T_ego_cam[][]": {
+      "comparisons": 16,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.schema_version": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.noise_timer": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.keys[]": {
+      "comparisons": 14,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.blur_prob": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.panorama_dir": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.cam_yaw_deg": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.venue_prob": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.level": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.jpeg_prob": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.cam_height_jitter": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.cam_pitch_deg": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.cone_missing": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.cam_roll_deg": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.image_noise": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.exposure.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.exposure[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.cone_extra": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.cone_jitter": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.keys[]": {
+      "comparisons": 8,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.s_end": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.kappa.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.kappa[]": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.laps": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.ds": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.L": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.v_ref.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.v_ref[]": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.s_arr.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.s_arr[]": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.closed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.keys[]": {
+      "comparisons": 38,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.vignette": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.cone_brightness_sigma": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.cone_lettering": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sun_azimuth": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.cam_roll": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.line_width": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.jpeg_quality": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.cam_yaw": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.blur": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sky_yaw": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.venue": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.ground_contrast": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.line_color.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.line_color[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sun_color.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sun_color[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.fog_density": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.resample": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.ground_kind": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.white_balance.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.white_balance[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.saturation": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sun_intensity": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.ambient": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.shadow_alpha": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.cam_dz": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.noise_sigma": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.exposure": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.boundary_lines": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sun_elevation": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.cam_pitch": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.cone_fade": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.seed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.haze": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sky_color.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sky_color[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.ground_tint.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.ground_tint[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.grass_ring": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sky_pano": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.extra.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.ground_base": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.line_gap_prob": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.hint": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.keys[]": {
+      "comparisons": 20,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.front_overhang": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.track": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.mu": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.lr": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.width": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.tau_steer": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.max_steer_rate": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.cr": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.cf": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.mass": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.max_brake": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.v_blend.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.v_blend[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.lf": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.rear_overhang": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.max_steer": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.drag": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.tau_accel": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.iz": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.max_accel": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.frame_desire.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.frame_desire[]": {
+      "comparisons": 8,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mount.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mount.keys[]": {
+      "comparisons": 6,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mount.pitch": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mount.yaw": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mount.y": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mount.z": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mount.x": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mount.roll": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.keys[]": {
+      "comparisons": 14,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.stop_after_line": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.a_acc": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.k_head": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.k_lat": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.a_brk": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.t_preview": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.lookahead_min": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.controller": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.kp_speed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.lookahead_max": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.k_lookahead": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.v_cap": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.stop_decel": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.a_lat_max": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.keys[]": {
+      "comparisons": 12,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.keys[]": {
+      "comparisons": 10,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.steer_theta": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.on_time.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.on_time[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.offset_max": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.speed_scale.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.speed_scale[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.offset_min": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.steer_sigma": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.off_time.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.off_time[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.enabled": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.offset_prob": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.offset_tau": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.fps": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.label_dt": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.start_speed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.venue_prob": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.render": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.max_time": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.cameras.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.cameras[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.dr": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.randomize_expert": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.random_start": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.substeps": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.s": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.seed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.route_decisions.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.route_decisions[].length": {
+      "comparisons": 5,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.route_decisions[][]": {
+      "comparisons": 10,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.keys[]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.has_uint32": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.uinteger": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.state.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.state.keys[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.state.inc": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.state.state": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.bit_generator": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.keys[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.xy.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.xy[].length": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.xy[][]": {
+      "comparisons": 172,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.source_indices.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.source_indices[]": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.colors.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.colors[]": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.keys[]": {
+      "comparisons": 8,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.intrinsics.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.intrinsics.keys[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.intrinsics.wide.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.intrinsics.wide[].length": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.intrinsics.wide[][]": {
+      "comparisons": 9,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.intrinsics.road.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.intrinsics.road[].length": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.intrinsics.road[][]": {
+      "comparisons": 9,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.label_dt": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.nominal_detection_calibration.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.nominal_detection_calibration[].length": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.nominal_detection_calibration[][]": {
+      "comparisons": 16,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.expert_params.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.expert_params.keys[]": {
+      "comparisons": 14,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.expert_params.stop_after_line": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.expert_params.k_lookahead": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.expert_params.a_acc": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.expert_params.k_head": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.expert_params.k_lat": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.expert_params.a_brk": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.expert_params.t_preview": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.expert_params.lookahead_min": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.expert_params.kp_speed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.expert_params.lookahead_max": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.expert_params.controller": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.expert_params.v_cap": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.expert_params.stop_decel": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.expert_params.a_lat_max": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.initial_cones_xyz.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.initial_cones_xyz[].length": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.initial_cones_xyz[][]": {
+      "comparisons": 258,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.keys[]": {
+      "comparisons": 20,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.front_overhang": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.track": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.mu": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.lr": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.width": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.tau_steer": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.max_steer_rate": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.cr": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.cf": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.mass": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.max_brake": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.v_blend.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.v_blend[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.lf": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.rear_overhang": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.max_steer": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.drag": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.tau_accel": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.iz": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.vehicle_params.max_accel": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.cone_colors.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.cone_colors[]": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.keys[]": {
+      "comparisons": 17,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.stop_zone.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.stop_zone[].length": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.stop_zone[][]": {
+      "comparisons": 8,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.laps": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.seed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.centerline.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.centerline[].length": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.centerline[][]": {
+      "comparisons": 2358,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.discipline": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.start_pose.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.start_pose[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.width_left.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.width_left[]": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.width_right.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.width_right[]": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.finish_line.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.finish_line[].length": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.finish_line[][]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.generator.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.generator.keys[]": {
+      "comparisons": 5,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.generator.center_distance": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.generator.segments.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.generator.segments.keys[]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.generator.segments.right.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.generator.segments.right[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.generator.segments.left.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.generator.segments.left[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.generator.segments.entry.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.generator.segments.entry[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.generator.segments.exit.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.generator.segments.exit[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.generator.R_drive": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.generator.R_out": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.generator.R_in": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.schema_version": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.stats.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.stats.keys[]": {
+      "comparisons": 5,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.stats.min_width": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.stats.max_straight": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.stats.n_cones": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.stats.min_radius": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.stats.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.id": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.closed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.timekeeping_line.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.timekeeping_line[].length": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.timekeeping_line[][]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.cones.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.cones[].keys.length": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.cones[].keys[]": {
+      "comparisons": 430,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.cones[].role": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.cones[].color": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.cones[].y": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.cones[].x": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.cones[].id": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.route.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.environment.track.route[]": {
+      "comparisons": 6,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.keys[]": {
+      "comparisons": 17,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.laps": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.seed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.route.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.route[]": {
+      "comparisons": 6,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.centerline.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.centerline[].length": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.centerline[][]": {
+      "comparisons": 2358,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.discipline": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.width_right.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.width_right[]": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.finish_line.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.finish_line[].length": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.finish_line[][]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.cones.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.cones[].keys.length": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.cones[].keys[]": {
+      "comparisons": 430,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.cones[].role": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.cones[].y": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.cones[].color": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.cones[].x": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.cones[].id": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stop_zone.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stop_zone[].length": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stop_zone[][]": {
+      "comparisons": 8,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.keys[]": {
+      "comparisons": 5,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.center_distance": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.keys[]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.right.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.right[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.left.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.left[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.entry.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.entry[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.exit.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.exit[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.R_drive": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.R_out": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.R_in": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stats.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stats.keys[]": {
+      "comparisons": 5,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stats.min_width": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stats.max_straight": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stats.n_cones": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stats.min_radius": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stats.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.id": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.schema_version": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.closed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.timekeeping_line.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.timekeeping_line[].length": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.timekeeping_line[][]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.width_left.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.width_left[]": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.start_pose.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.start_pose[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frame": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "manifest.frame": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "state.t": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.running_before_input": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.running_at_input": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial_physical_state.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial_physical_state.keys[]": {
+      "comparisons": 10,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial_physical_state.vx": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial_physical_state.r": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial_physical_state.t": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial_physical_state.vy": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial_physical_state.steer": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial_physical_state.yaw": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial_physical_state.y": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial_physical_state.extra.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial_physical_state.x": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial_physical_state.accel": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial_position": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial_yaw": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial_velocity.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial_velocity[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "progress.keys.length": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "progress.keys[]": {
+      "comparisons": 2838,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "progress.lat": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "progress.hint": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "progress.s": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "commands.keys.length": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "commands.keys[]": {
+      "comparisons": 2838,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "commands.requested": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "commands.applied": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "commands.mode": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "counters.keys.length": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "counters.keys[]": {
+      "comparisons": 5676,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "counters.laps": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "counters.total_laps": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "counters.result": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "counters.legacy_doo": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "counters.off_course": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "counters.physical_contacts": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events.length": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "temporal.keys.length": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "temporal.keys[]": {
+      "comparisons": 1892,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "temporal.older_image_frame": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "temporal.current_image_frame": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "nominal_detection_calibration": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "prediction.plan_shape": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "prediction.plan_finite": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "action_valid": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "image_head.cameras.length": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "image_head.cameras[]": {
+      "comparisons": 1892,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "images.valid": {
+      "comparisons": 1892,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "image_head.outputs.length": {
+      "comparisons": 1892,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "image_head.outputs[]": {
+      "comparisons": 5676,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "image_head.valid": {
+      "comparisons": 5676,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "body.state.length": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "body.state[]": {
+      "comparisons": 5676,
+      "mismatches": 0,
+      "max_abs": 1.7763568394002505e-15
+    },
+    "body.velocity_body": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.keys.length": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.keys[]": {
+      "comparisons": 9460,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.physical_contacts": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.t": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.frame": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.lat": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.yaw": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.y": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.legacy_doo": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.x": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.s": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.speed": {
+      "comparisons": 946,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "body.no_prior_rollover": {
+      "comparisons": 945,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].keys.length": {
+      "comparisons": 13,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].keys[]": {
+      "comparisons": 39,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].kind": {
+      "comparisons": 13,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].data.keys.length": {
+      "comparisons": 13,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].data.keys[]": {
+      "comparisons": 37,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].data.n": {
+      "comparisons": 5,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].t": {
+      "comparisons": 13,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].data.cone": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].data.dir": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].data.duration": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].data.winding_right": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].data.winding_left": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].data.finish_time": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].data.start_time": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].data.circle": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "nonempty": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "within_timeout": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "recorded_frames": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "final_state.t": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "terminal.finished_or_pilot": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.keys[]": {
+      "comparisons": 14,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.max_speed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.laps.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.laps[]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.oc": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.discipline": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.time": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.n_laps": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.result": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.doo": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.dq": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.pass": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.complete": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.penalty": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.keys[]": {
+      "comparisons": 11,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.termination": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.stopped_in_zone": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.laps.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.laps[].keys.length": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.laps[].keys[]": {
+      "comparisons": 24,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.laps[].duration": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.laps[].winding_right": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.laps[].winding_left": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.laps[].finish_time": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.laps[].start_time": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.laps[].circle": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.reverse_crossings": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.crossings.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.crossings[]": {
+      "comparisons": 5,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.valid": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.exited": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.violation": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.complete": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.expected_route.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.expected_route[]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.accepted_route.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.route.accepted_route[]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.referee.raw_time": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events[].keys.length": {
+      "comparisons": 15,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events[].keys[]": {
+      "comparisons": 45,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events[].kind": {
+      "comparisons": 15,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events[].t": {
+      "comparisons": 15,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events[].data.keys.length": {
+      "comparisons": 15,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events[].data.keys[]": {
+      "comparisons": 39,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events[].data.n": {
+      "comparisons": 5,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events[].data.cone": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events[].data.dir": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events[].data.duration": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events[].data.winding_right": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events[].data.winding_left": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events[].data.finish_time": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events[].data.start_time": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events[].data.circle": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.events[].data.in_stop_zone": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.pending_events.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.pending_events[].keys.length": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.pending_events[].keys[]": {
+      "comparisons": 6,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.pending_events[].kind": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.pending_events[].t": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.pending_events[].data.keys.length": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.pending_events[].data.keys[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.pending_events[].data.in_stop_zone": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.progress": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.rms_lat": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 2.7755575615628914e-17
+    },
+    "summary.seconds_simulated": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "contacts.count": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "contacts.unique": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "contacts.valid_frame": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "contacts.time": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "contacts.time_convention": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "contacts.cone": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "receipt.frame_count": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "npz.frame_count": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "completion.unchanged": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    }
+  },
+  "mismatches": [],
+  "max_errors": {
+    "metadata.case.keys.length": 0.0,
+    "metadata.case.keys[]": 0.0,
+    "metadata.case.track_id": 0.0,
+    "metadata.case.case_id": 0.0,
+    "metadata.case.group": 0.0,
+    "metadata.case.noise": 0.0,
+    "metadata.case.reference_sha256": 0.0,
+    "metadata.case.seed": 0.0,
+    "metadata.case.track_source": 0.0,
+    "metadata.case.track_source_sha256": 0.0,
+    "metadata.case.venue_prob": 0.0,
+    "metadata.case.max_time": 0.0,
+    "metadata.case.dr": 0.0,
+    "metadata.case.discipline": 0.0,
+    "metadata.case.command_mode": 0.0,
+    "metadata.case.reference_source": 0.0,
+    "metadata.case.reference_result.keys.length": 0.0,
+    "metadata.case.reference_result.keys[]": 0.0,
+    "metadata.case.reference_result.oc": 0.0,
+    "metadata.case.reference_result.result": 0.0,
+    "metadata.case.reference_result.route.keys.length": 0.0,
+    "metadata.case.reference_result.route.keys[]": 0.0,
+    "metadata.case.reference_result.route.termination": 0.0,
+    "metadata.case.reference_result.route.stopped_in_zone": 0.0,
+    "metadata.case.reference_result.route.laps.length": 0.0,
+    "metadata.case.reference_result.route.laps[].keys.length": 0.0,
+    "metadata.case.reference_result.route.laps[].keys[]": 0.0,
+    "metadata.case.reference_result.route.laps[].duration": 0.0,
+    "metadata.case.reference_result.route.laps[].winding_right": 0.0,
+    "metadata.case.reference_result.route.laps[].winding_left": 0.0,
+    "metadata.case.reference_result.route.laps[].finish_time": 0.0,
+    "metadata.case.reference_result.route.laps[].start_time": 0.0,
+    "metadata.case.reference_result.route.laps[].circle": 0.0,
+    "metadata.case.reference_result.route.reverse_crossings": 0.0,
+    "metadata.case.reference_result.route.crossings.length": 0.0,
+    "metadata.case.reference_result.route.crossings[]": 0.0,
+    "metadata.case.reference_result.route.valid": 0.0,
+    "metadata.case.reference_result.route.exited": 0.0,
+    "metadata.case.reference_result.route.violation": 0.0,
+    "metadata.case.reference_result.route.complete": 0.0,
+    "metadata.case.reference_result.route.expected_route.length": 0.0,
+    "metadata.case.reference_result.route.expected_route[]": 0.0,
+    "metadata.case.reference_result.route.accepted_route.length": 0.0,
+    "metadata.case.reference_result.route.accepted_route[]": 0.0,
+    "metadata.case.reference_result.raw_time": 0.0,
+    "metadata.case.reference_result.max_speed": 0.0,
+    "metadata.case.reference_result.laps.length": 0.0,
+    "metadata.case.reference_result.laps[]": 0.0,
+    "metadata.case.reference_result.dr": 0.0,
+    "metadata.case.reference_result.n_laps": 0.0,
+    "metadata.case.reference_result.pass": 0.0,
+    "metadata.case.reference_result.controller": 0.0,
+    "metadata.case.reference_result.progress": 0.0,
+    "metadata.case.reference_result.discipline": 0.0,
+    "metadata.case.reference_result.command_mode": 0.0,
+    "metadata.case.reference_result.time": 0.0,
+    "metadata.case.reference_result.dq": 0.0,
+    "metadata.case.reference_result.seed": 0.0,
+    "metadata.case.reference_result.doo": 0.0,
+    "metadata.case.reference_result.complete": 0.0,
+    "metadata.case.reference_result.penalty": 0.0,
+    "metadata.case.reference_index": 0.0,
+    "metadata.case.controller": 0.0,
+    "metadata.case.checkpoint_sha256": 0.0,
+    "identity.case.keys.length": 0.0,
+    "identity.case.keys[]": 0.0,
+    "identity.case.track_id": 0.0,
+    "identity.case.case_id": 0.0,
+    "identity.case.group": 0.0,
+    "identity.case.noise": 0.0,
+    "identity.case.reference_sha256": 0.0,
+    "identity.case.seed": 0.0,
+    "identity.case.track_source": 0.0,
+    "identity.case.track_source_sha256": 0.0,
+    "identity.case.venue_prob": 0.0,
+    "identity.case.max_time": 0.0,
+    "identity.case.dr": 0.0,
+    "identity.case.discipline": 0.0,
+    "identity.case.command_mode": 0.0,
+    "identity.case.reference_source": 0.0,
+    "identity.case.reference_result.keys.length": 0.0,
+    "identity.case.reference_result.keys[]": 0.0,
+    "identity.case.reference_result.oc": 0.0,
+    "identity.case.reference_result.result": 0.0,
+    "identity.case.reference_result.route.keys.length": 0.0,
+    "identity.case.reference_result.route.keys[]": 0.0,
+    "identity.case.reference_result.route.termination": 0.0,
+    "identity.case.reference_result.route.stopped_in_zone": 0.0,
+    "identity.case.reference_result.route.laps.length": 0.0,
+    "identity.case.reference_result.route.laps[].keys.length": 0.0,
+    "identity.case.reference_result.route.laps[].keys[]": 0.0,
+    "identity.case.reference_result.route.laps[].duration": 0.0,
+    "identity.case.reference_result.route.laps[].winding_right": 0.0,
+    "identity.case.reference_result.route.laps[].winding_left": 0.0,
+    "identity.case.reference_result.route.laps[].finish_time": 0.0,
+    "identity.case.reference_result.route.laps[].start_time": 0.0,
+    "identity.case.reference_result.route.laps[].circle": 0.0,
+    "identity.case.reference_result.route.reverse_crossings": 0.0,
+    "identity.case.reference_result.route.crossings.length": 0.0,
+    "identity.case.reference_result.route.crossings[]": 0.0,
+    "identity.case.reference_result.route.valid": 0.0,
+    "identity.case.reference_result.route.exited": 0.0,
+    "identity.case.reference_result.route.violation": 0.0,
+    "identity.case.reference_result.route.complete": 0.0,
+    "identity.case.reference_result.route.expected_route.length": 0.0,
+    "identity.case.reference_result.route.expected_route[]": 0.0,
+    "identity.case.reference_result.route.accepted_route.length": 0.0,
+    "identity.case.reference_result.route.accepted_route[]": 0.0,
+    "identity.case.reference_result.raw_time": 0.0,
+    "identity.case.reference_result.max_speed": 0.0,
+    "identity.case.reference_result.laps.length": 0.0,
+    "identity.case.reference_result.laps[]": 0.0,
+    "identity.case.reference_result.dr": 0.0,
+    "identity.case.reference_result.n_laps": 0.0,
+    "identity.case.reference_result.pass": 0.0,
+    "identity.case.reference_result.controller": 0.0,
+    "identity.case.reference_result.progress": 0.0,
+    "identity.case.reference_result.discipline": 0.0,
+    "identity.case.reference_result.command_mode": 0.0,
+    "identity.case.reference_result.time": 0.0,
+    "identity.case.reference_result.dq": 0.0,
+    "identity.case.reference_result.seed": 0.0,
+    "identity.case.reference_result.doo": 0.0,
+    "identity.case.reference_result.complete": 0.0,
+    "identity.case.reference_result.penalty": 0.0,
+    "identity.case.reference_index": 0.0,
+    "identity.case.controller": 0.0,
+    "identity.case.checkpoint_sha256": 0.0,
+    "identity.pilot_only": 0.0,
+    "identity.checkpoint_sha256": 0.0,
+    "identity.state_sha256": 0.0,
+    "identity.manifest_sha256": 0.0,
+    "identity.protocol_sha256": 0.0,
+    "metadata.checkpoint_sha256": 0.0,
+    "metadata.state_sha256.valid": 0.0,
+    "metadata.manifest_sha256.valid": 0.0,
+    "metadata.fps": 0.0,
+    "metadata.backend": 0.0,
+    "metadata.schema_version": 0.0,
+    "metadata.graph_inventory.length": 0.0,
+    "metadata.graph_inventory[]": 0.0,
+    "metadata.graph_digest_valid": 0.0,
+    "summary.frozen_unchanged": 0.0,
+    "metadata.source_sha256.keys.length": 0.0,
+    "metadata.source_sha256.keys[]": 0.0,
+    "metadata.source_sha256.src/fsop/__init__.py": 0.0,
+    "metadata.source_sha256.isaac_eval/evaluate.py": 0.0,
+    "metadata.source_sha256.src/fsop/sim/render/venue.py": 0.0,
+    "metadata.source_sha256.src/fsop/train/__init__.py": 0.0,
+    "metadata.source_sha256.src/fsop/geometry/yuv.py": 0.0,
+    "metadata.source_sha256.src/fsop/data/targets.py": 0.0,
+    "metadata.source_sha256.src/fsop/model/convert.py": 0.0,
+    "metadata.source_sha256.src/fsop/model/build.py": 0.0,
+    "metadata.source_sha256.src/fsop/config.py": 0.0,
+    "metadata.source_sha256.src/fsop/geometry/op_frames.py": 0.0,
+    "metadata.source_sha256.isaac_eval/verify_inference.py": 0.0,
+    "metadata.source_sha256.isaac_eval/verify_model.py": 0.0,
+    "metadata.source_sha256.isaac_eval/parity_protocol.py": 0.0,
+    "metadata.source_sha256.src/fsop/track/batch.py": 0.0,
+    "metadata.source_sha256.src/fsop/model/temporal.py": 0.0,
+    "metadata.source_sha256.src/fsop/eval/geometric.py": 0.0,
+    "metadata.source_sha256.src/fsop/sim/skidpad.py": 0.0,
+    "metadata.source_sha256.src/fsop/model/fetch.py": 0.0,
+    "metadata.source_sha256.isaac_eval/verify_frozen_sources.py": 0.0,
+    "metadata.source_sha256.src/fsop/model/heads/cone_bev.py": 0.0,
+    "metadata.source_sha256.src/fsop/model/supercombo.py": 0.0,
+    "metadata.source_sha256.src/fsop/baselines/yolo.py": 0.0,
+    "metadata.source_sha256.src/fsop/eval/real_clip.py": 0.0,
+    "metadata.source_sha256.src/fsop/sim/env.py": 0.0,
+    "metadata.source_sha256.src/fsop/eval/closed_loop.py": 0.0,
+    "metadata.source_sha256.isaac_eval/realism_assets.py": 0.0,
+    "metadata.source_sha256.src/fsop/viz/inspect.py": 0.0,
+    "metadata.source_sha256.src/fsop/train/trainer.py": 0.0,
+    "metadata.source_sha256.isaac_eval/verify_realism_artifacts.py": 0.0,
+    "metadata.source_sha256.src/fsop/viz/rr_log.py": 0.0,
+    "metadata.source_sha256.src/fsop/viz/real_video.py": 0.0,
+    "metadata.source_sha256.isaac_eval/rendering.py": 0.0,
+    "metadata.source_sha256.src/fsop/bench.py": 0.0,
+    "metadata.source_sha256.src/fsop/track/validate.py": 0.0,
+    "metadata.source_sha256.src/fsop/geometry/camera.py": 0.0,
+    "metadata.source_sha256.isaac_eval/run_parity_suite.py": 0.0,
+    "metadata.source_sha256.src/fsop/eval/det_metrics.py": 0.0,
+    "metadata.source_sha256.isaac_eval/prepare_parity_cases.py": 0.0,
+    "metadata.source_sha256.src/fsop/model/heads/__init__.py": 0.0,
+    "metadata.source_sha256.isaac_eval/report.py": 0.0,
+    "metadata.source_sha256.src/fsop/track/generate.py": 0.0,
+    "metadata.source_sha256.isaac_eval/parity_scene.py": 0.0,
+    "metadata.source_sha256.isaac_eval/realistic_car.py": 0.0,
+    "metadata.source_sha256.src/fsop/eval/open_loop.py": 0.0,
+    "metadata.source_sha256.src/fsop/track/cones.py": 0.0,
+    "metadata.source_sha256.isaac_eval/evidence.py": 0.0,
+    "metadata.source_sha256.src/fsop/data/feature_cache.py": 0.0,
+    "metadata.source_sha256.src/fsop/sim/__init__.py": 0.0,
+    "metadata.source_sha256.src/fsop/sim/render/assets.py": 0.0,
+    "metadata.source_sha256.src/fsop/profile.py": 0.0,
+    "metadata.source_sha256.isaac_eval/freeze_realism_protocol.py": 0.0,
+    "metadata.source_sha256.src/fsop/eval/img_to_bev.py": 0.0,
+    "metadata.source_sha256.src/fsop/track/schema.py": 0.0,
+    "metadata.source_sha256.src/fsop/model/heads/cone_img.py": 0.0,
+    "metadata.source_sha256.isaac_eval/freeze_parity_protocol.py": 0.0,
+    "metadata.source_sha256.src/fsop/train/device.py": 0.0,
+    "metadata.source_sha256.isaac_eval/appearance_guard.py": 0.0,
+    "metadata.source_sha256.isaac_eval/probe_asset.py": 0.0,
+    "metadata.source_sha256.isaac_eval/preview_realism.py": 0.0,
+    "metadata.source_sha256.src/fsop/model/static_shapes.py": 0.0,
+    "metadata.source_sha256.src/fsop/model/__init__.py": 0.0,
+    "metadata.source_sha256.src/fsop/model/verify.py": 0.0,
+    "metadata.source_sha256.src/fsop/track/io.py": 0.0,
+    "metadata.source_sha256.src/fsop/model/op_converters.py": 0.0,
+    "metadata.source_sha256.src/fsop/sim/route_commands.py": 0.0,
+    "metadata.source_sha256.src/fsop/viz/video.py": 0.0,
+    "metadata.source_sha256.src/fsop/eval/dagger.py": 0.0,
+    "metadata.source_sha256.isaac_eval/render_debug.py": 0.0,
+    "metadata.source_sha256.isaac_eval/verify_parity_camera.py": 0.0,
+    "metadata.source_sha256.src/fsop/eval/__init__.py": 0.0,
+    "metadata.source_sha256.src/fsop/model/export.py": 0.0,
+    "metadata.source_sha256.src/fsop/sim/drive.py": 0.0,
+    "metadata.source_sha256.src/fsop/track/fixed_layouts.py": 0.0,
+    "metadata.source_sha256.src/fsop/sim/vehicle.py": 0.0,
+    "metadata.source_sha256.src/fsop/geometry/warp.py": 0.0,
+    "metadata.source_sha256.src/fsop/track/__init__.py": 0.0,
+    "metadata.source_sha256.isaac_eval/vehicle.py": 0.0,
+    "metadata.source_sha256.src/fsop/data/fsoco.py": 0.0,
+    "metadata.source_sha256.src/fsop/track/rules.py": 0.0,
+    "metadata.source_sha256.isaac_eval/parity_cases.py": 0.0,
+    "metadata.source_sha256.src/fsop/model/onnx_prep.py": 0.0,
+    "metadata.source_sha256.src/fsop/eval/bev_metrics.py": 0.0,
+    "metadata.source_sha256.isaac_eval/report_realism.py": 0.0,
+    "metadata.source_sha256.src/fsop/sim/batch_record.py": 0.0,
+    "metadata.source_sha256.isaac_eval/verify_integration.py": 0.0,
+    "metadata.source_sha256.src/fsop/sim/expert.py": 0.0,
+    "metadata.source_sha256.src/fsop/sim/render/__init__.py": 0.0,
+    "metadata.source_sha256.src/fsop/viz/track_preview.py": 0.0,
+    "metadata.source_sha256.isaac_eval/benchmark_model.py": 0.0,
+    "metadata.source_sha256.isaac_eval/evaluate_parity.py": 0.0,
+    "metadata.source_sha256.src/fsop/eval/controller.py": 0.0,
+    "metadata.source_sha256.isaac_eval/parity_geometry.py": 0.0,
+    "metadata.source_sha256.src/fsop/geometry/__init__.py": 0.0,
+    "metadata.source_sha256.src/fsop/sim/randomization.py": 0.0,
+    "metadata.source_sha256.src/fsop/sim/referee.py": 0.0,
+    "metadata.source_sha256.src/fsop/sim/render/panda3d_backend.py": 0.0,
+    "metadata.source_sha256.src/fsop/data/sim_dataset.py": 0.0,
+    "metadata.source_sha256.src/fsop/track/centerline.py": 0.0,
+    "metadata.source_sha256.isaac_eval/export_scene.py": 0.0,
+    "metadata.source_sha256.src/fsop/baselines/__init__.py": 0.0,
+    "metadata.source_sha256.src/fsop/sim/recorder.py": 0.0,
+    "metadata.source_sha256.src/fsop/data/__init__.py": 0.0,
+    "metadata.source_sha256.isaac_eval/scene.py": 0.0,
+    "metadata.source_sha256.isaac_eval/realistic_scene.py": 0.0,
+    "metadata.source_sha256.src/fsop/viz/__init__.py": 0.0,
+    "metadata.source_sha256.src/fsop/train/losses.py": 0.0,
+    "metadata.source_sha256.src/fsop/cli.py": 0.0,
+    "metadata.source_sha256.src/fsop/runtime.py": 0.0,
+    "protocol.file_sha256": 0.0,
+    "protocol.digest": 0.0,
+    "protocol.case_ids.length": 0.0,
+    "protocol.case_ids[]": 0.0,
+    "protocol.manifest_sha256": 0.0,
+    "protocol.source_sha256.keys.length": 0.0,
+    "protocol.source_sha256.keys[]": 0.0,
+    "protocol.source_sha256.src/fsop/__init__.py": 0.0,
+    "protocol.source_sha256.isaac_eval/evaluate.py": 0.0,
+    "protocol.source_sha256.src/fsop/sim/render/venue.py": 0.0,
+    "protocol.source_sha256.src/fsop/train/__init__.py": 0.0,
+    "protocol.source_sha256.src/fsop/geometry/yuv.py": 0.0,
+    "protocol.source_sha256.src/fsop/data/targets.py": 0.0,
+    "protocol.source_sha256.src/fsop/model/convert.py": 0.0,
+    "protocol.source_sha256.src/fsop/model/build.py": 0.0,
+    "protocol.source_sha256.src/fsop/config.py": 0.0,
+    "protocol.source_sha256.src/fsop/geometry/op_frames.py": 0.0,
+    "protocol.source_sha256.isaac_eval/verify_inference.py": 0.0,
+    "protocol.source_sha256.isaac_eval/verify_model.py": 0.0,
+    "protocol.source_sha256.isaac_eval/parity_protocol.py": 0.0,
+    "protocol.source_sha256.src/fsop/track/batch.py": 0.0,
+    "protocol.source_sha256.src/fsop/model/temporal.py": 0.0,
+    "protocol.source_sha256.src/fsop/eval/geometric.py": 0.0,
+    "protocol.source_sha256.src/fsop/sim/skidpad.py": 0.0,
+    "protocol.source_sha256.src/fsop/model/fetch.py": 0.0,
+    "protocol.source_sha256.isaac_eval/verify_frozen_sources.py": 0.0,
+    "protocol.source_sha256.src/fsop/model/heads/cone_bev.py": 0.0,
+    "protocol.source_sha256.src/fsop/model/supercombo.py": 0.0,
+    "protocol.source_sha256.src/fsop/baselines/yolo.py": 0.0,
+    "protocol.source_sha256.src/fsop/eval/real_clip.py": 0.0,
+    "protocol.source_sha256.src/fsop/sim/env.py": 0.0,
+    "protocol.source_sha256.src/fsop/eval/closed_loop.py": 0.0,
+    "protocol.source_sha256.isaac_eval/realism_assets.py": 0.0,
+    "protocol.source_sha256.src/fsop/viz/inspect.py": 0.0,
+    "protocol.source_sha256.src/fsop/train/trainer.py": 0.0,
+    "protocol.source_sha256.isaac_eval/verify_realism_artifacts.py": 0.0,
+    "protocol.source_sha256.src/fsop/viz/rr_log.py": 0.0,
+    "protocol.source_sha256.src/fsop/viz/real_video.py": 0.0,
+    "protocol.source_sha256.isaac_eval/rendering.py": 0.0,
+    "protocol.source_sha256.src/fsop/bench.py": 0.0,
+    "protocol.source_sha256.src/fsop/track/validate.py": 0.0,
+    "protocol.source_sha256.src/fsop/geometry/camera.py": 0.0,
+    "protocol.source_sha256.isaac_eval/run_parity_suite.py": 0.0,
+    "protocol.source_sha256.src/fsop/eval/det_metrics.py": 0.0,
+    "protocol.source_sha256.isaac_eval/prepare_parity_cases.py": 0.0,
+    "protocol.source_sha256.src/fsop/model/heads/__init__.py": 0.0,
+    "protocol.source_sha256.isaac_eval/report.py": 0.0,
+    "protocol.source_sha256.src/fsop/track/generate.py": 0.0,
+    "protocol.source_sha256.isaac_eval/parity_scene.py": 0.0,
+    "protocol.source_sha256.isaac_eval/realistic_car.py": 0.0,
+    "protocol.source_sha256.src/fsop/eval/open_loop.py": 0.0,
+    "protocol.source_sha256.src/fsop/track/cones.py": 0.0,
+    "protocol.source_sha256.isaac_eval/evidence.py": 0.0,
+    "protocol.source_sha256.src/fsop/data/feature_cache.py": 0.0,
+    "protocol.source_sha256.src/fsop/sim/__init__.py": 0.0,
+    "protocol.source_sha256.src/fsop/sim/render/assets.py": 0.0,
+    "protocol.source_sha256.src/fsop/profile.py": 0.0,
+    "protocol.source_sha256.isaac_eval/freeze_realism_protocol.py": 0.0,
+    "protocol.source_sha256.src/fsop/eval/img_to_bev.py": 0.0,
+    "protocol.source_sha256.src/fsop/track/schema.py": 0.0,
+    "protocol.source_sha256.src/fsop/model/heads/cone_img.py": 0.0,
+    "protocol.source_sha256.isaac_eval/freeze_parity_protocol.py": 0.0,
+    "protocol.source_sha256.src/fsop/train/device.py": 0.0,
+    "protocol.source_sha256.isaac_eval/appearance_guard.py": 0.0,
+    "protocol.source_sha256.isaac_eval/probe_asset.py": 0.0,
+    "protocol.source_sha256.isaac_eval/preview_realism.py": 0.0,
+    "protocol.source_sha256.src/fsop/model/static_shapes.py": 0.0,
+    "protocol.source_sha256.src/fsop/model/__init__.py": 0.0,
+    "protocol.source_sha256.src/fsop/model/verify.py": 0.0,
+    "protocol.source_sha256.src/fsop/track/io.py": 0.0,
+    "protocol.source_sha256.src/fsop/model/op_converters.py": 0.0,
+    "protocol.source_sha256.src/fsop/sim/route_commands.py": 0.0,
+    "protocol.source_sha256.src/fsop/viz/video.py": 0.0,
+    "protocol.source_sha256.src/fsop/eval/dagger.py": 0.0,
+    "protocol.source_sha256.isaac_eval/render_debug.py": 0.0,
+    "protocol.source_sha256.isaac_eval/verify_parity_camera.py": 0.0,
+    "protocol.source_sha256.src/fsop/eval/__init__.py": 0.0,
+    "protocol.source_sha256.src/fsop/model/export.py": 0.0,
+    "protocol.source_sha256.src/fsop/sim/drive.py": 0.0,
+    "protocol.source_sha256.src/fsop/track/fixed_layouts.py": 0.0,
+    "protocol.source_sha256.src/fsop/sim/vehicle.py": 0.0,
+    "protocol.source_sha256.src/fsop/geometry/warp.py": 0.0,
+    "protocol.source_sha256.src/fsop/track/__init__.py": 0.0,
+    "protocol.source_sha256.isaac_eval/vehicle.py": 0.0,
+    "protocol.source_sha256.src/fsop/data/fsoco.py": 0.0,
+    "protocol.source_sha256.src/fsop/track/rules.py": 0.0,
+    "protocol.source_sha256.isaac_eval/parity_cases.py": 0.0,
+    "protocol.source_sha256.src/fsop/model/onnx_prep.py": 0.0,
+    "protocol.source_sha256.src/fsop/eval/bev_metrics.py": 0.0,
+    "protocol.source_sha256.isaac_eval/report_realism.py": 0.0,
+    "protocol.source_sha256.src/fsop/sim/batch_record.py": 0.0,
+    "protocol.source_sha256.isaac_eval/verify_integration.py": 0.0,
+    "protocol.source_sha256.src/fsop/sim/expert.py": 0.0,
+    "protocol.source_sha256.src/fsop/sim/render/__init__.py": 0.0,
+    "protocol.source_sha256.src/fsop/viz/track_preview.py": 0.0,
+    "protocol.source_sha256.isaac_eval/benchmark_model.py": 0.0,
+    "protocol.source_sha256.isaac_eval/evaluate_parity.py": 0.0,
+    "protocol.source_sha256.src/fsop/eval/controller.py": 0.0,
+    "protocol.source_sha256.isaac_eval/parity_geometry.py": 0.0,
+    "protocol.source_sha256.src/fsop/geometry/__init__.py": 0.0,
+    "protocol.source_sha256.src/fsop/sim/randomization.py": 0.0,
+    "protocol.source_sha256.src/fsop/sim/referee.py": 0.0,
+    "protocol.source_sha256.src/fsop/sim/render/panda3d_backend.py": 0.0,
+    "protocol.source_sha256.src/fsop/data/sim_dataset.py": 0.0,
+    "protocol.source_sha256.src/fsop/track/centerline.py": 0.0,
+    "protocol.source_sha256.isaac_eval/export_scene.py": 0.0,
+    "protocol.source_sha256.src/fsop/baselines/__init__.py": 0.0,
+    "protocol.source_sha256.src/fsop/sim/recorder.py": 0.0,
+    "protocol.source_sha256.src/fsop/data/__init__.py": 0.0,
+    "protocol.source_sha256.isaac_eval/scene.py": 0.0,
+    "protocol.source_sha256.isaac_eval/realistic_scene.py": 0.0,
+    "protocol.source_sha256.src/fsop/viz/__init__.py": 0.0,
+    "protocol.source_sha256.src/fsop/train/losses.py": 0.0,
+    "protocol.source_sha256.src/fsop/cli.py": 0.0,
+    "protocol.source_sha256.src/fsop/runtime.py": 0.0,
+    "protocol.graph_sha256.keys.length": 0.0,
+    "protocol.graph_sha256.keys[]": 0.0,
+    "protocol.graph_sha256.artifacts/models/prep/vision_fp32.onnx": 0.0,
+    "protocol.graph_sha256.artifacts/models/prep/policy_fp32.onnx": 0.0,
+    "protocol.render_profile.keys.length": 0.0,
+    "protocol.render_profile.keys[]": 0.0,
+    "protocol.render_profile.dlss_exec_mode": 0.0,
+    "protocol.render_profile.anti_aliasing": 0.0,
+    "protocol.render_profile.dl_denoiser": 0.0,
+    "protocol.render_profile.reason": 0.0,
+    "protocol.render_profile.renderer": 0.0,
+    "protocol.render_profile.motion_blur": 0.0,
+    "protocol.render_profile.subframes": 0.0,
+    "realization.digest": 0.0,
+    "realization.track_digest": 0.0,
+    "realization.keys.length": 0.0,
+    "realization.keys[]": 0.0,
+    "realization.state.keys.length": 0.0,
+    "realization.state.keys[]": 0.0,
+    "realization.state.vx": 0.0,
+    "realization.state.r": 0.0,
+    "realization.state.vy": 0.0,
+    "realization.state.t": 0.0,
+    "realization.state.steer": 0.0,
+    "realization.state.yaw": 0.0,
+    "realization.state.y": 0.0,
+    "realization.state.extra.keys.length": 0.0,
+    "realization.state.x": 0.0,
+    "realization.state.accel": 0.0,
+    "realization.frame": 0.0,
+    "realization.lat": 0.0,
+    "realization.T_ego_cam.length": 0.0,
+    "realization.T_ego_cam[].length": 0.0,
+    "realization.T_ego_cam[][]": 0.0,
+    "realization.schema_version": 0.0,
+    "realization.noise_timer": 0.0,
+    "realization.dr_config.keys.length": 0.0,
+    "realization.dr_config.keys[]": 0.0,
+    "realization.dr_config.blur_prob": 0.0,
+    "realization.dr_config.panorama_dir": 0.0,
+    "realization.dr_config.cam_yaw_deg": 0.0,
+    "realization.dr_config.venue_prob": 0.0,
+    "realization.dr_config.level": 0.0,
+    "realization.dr_config.jpeg_prob": 0.0,
+    "realization.dr_config.cam_height_jitter": 0.0,
+    "realization.dr_config.cam_pitch_deg": 0.0,
+    "realization.dr_config.cone_missing": 0.0,
+    "realization.dr_config.cam_roll_deg": 0.0,
+    "realization.dr_config.image_noise": 0.0,
+    "realization.dr_config.exposure.length": 0.0,
+    "realization.dr_config.exposure[]": 0.0,
+    "realization.dr_config.cone_extra": 0.0,
+    "realization.dr_config.cone_jitter": 0.0,
+    "realization.mission.keys.length": 0.0,
+    "realization.mission.keys[]": 0.0,
+    "realization.mission.s_end": 0.0,
+    "realization.mission.kappa.length": 0.0,
+    "realization.mission.kappa[]": 0.0,
+    "realization.mission.laps": 0.0,
+    "realization.mission.ds": 0.0,
+    "realization.mission.L": 0.0,
+    "realization.mission.v_ref.length": 0.0,
+    "realization.mission.v_ref[]": 0.0,
+    "realization.mission.s_arr.length": 0.0,
+    "realization.mission.s_arr[]": 0.0,
+    "realization.mission.closed": 0.0,
+    "realization.scene.keys.length": 0.0,
+    "realization.scene.keys[]": 0.0,
+    "realization.scene.vignette": 0.0,
+    "realization.scene.cone_brightness_sigma": 0.0,
+    "realization.scene.cone_lettering": 0.0,
+    "realization.scene.sun_azimuth": 0.0,
+    "realization.scene.cam_roll": 0.0,
+    "realization.scene.line_width": 0.0,
+    "realization.scene.jpeg_quality": 0.0,
+    "realization.scene.cam_yaw": 0.0,
+    "realization.scene.blur": 0.0,
+    "realization.scene.sky_yaw": 0.0,
+    "realization.scene.venue": 0.0,
+    "realization.scene.ground_contrast": 0.0,
+    "realization.scene.line_color.length": 0.0,
+    "realization.scene.line_color[]": 0.0,
+    "realization.scene.sun_color.length": 0.0,
+    "realization.scene.sun_color[]": 0.0,
+    "realization.scene.fog_density": 0.0,
+    "realization.scene.resample": 0.0,
+    "realization.scene.ground_kind": 0.0,
+    "realization.scene.white_balance.length": 0.0,
+    "realization.scene.white_balance[]": 0.0,
+    "realization.scene.saturation": 0.0,
+    "realization.scene.sun_intensity": 0.0,
+    "realization.scene.ambient": 0.0,
+    "realization.scene.shadow_alpha": 0.0,
+    "realization.scene.cam_dz": 0.0,
+    "realization.scene.noise_sigma": 0.0,
+    "realization.scene.exposure": 0.0,
+    "realization.scene.boundary_lines": 0.0,
+    "realization.scene.sun_elevation": 0.0,
+    "realization.scene.cam_pitch": 0.0,
+    "realization.scene.cone_fade": 0.0,
+    "realization.scene.seed": 0.0,
+    "realization.scene.haze": 0.0,
+    "realization.scene.sky_color.length": 0.0,
+    "realization.scene.sky_color[]": 0.0,
+    "realization.scene.ground_tint.length": 0.0,
+    "realization.scene.ground_tint[]": 0.0,
+    "realization.scene.grass_ring": 0.0,
+    "realization.scene.sky_pano": 0.0,
+    "realization.scene.extra.keys.length": 0.0,
+    "realization.scene.ground_base": 0.0,
+    "realization.scene.line_gap_prob": 0.0,
+    "realization.hint": 0.0,
+    "realization.vehicle.keys.length": 0.0,
+    "realization.vehicle.keys[]": 0.0,
+    "realization.vehicle.front_overhang": 0.0,
+    "realization.vehicle.track": 0.0,
+    "realization.vehicle.mu": 0.0,
+    "realization.vehicle.lr": 0.0,
+    "realization.vehicle.width": 0.0,
+    "realization.vehicle.tau_steer": 0.0,
+    "realization.vehicle.max_steer_rate": 0.0,
+    "realization.vehicle.cr": 0.0,
+    "realization.vehicle.cf": 0.0,
+    "realization.vehicle.mass": 0.0,
+    "realization.vehicle.max_brake": 0.0,
+    "realization.vehicle.v_blend.length": 0.0,
+    "realization.vehicle.v_blend[]": 0.0,
+    "realization.vehicle.lf": 0.0,
+    "realization.vehicle.rear_overhang": 0.0,
+    "realization.vehicle.max_steer": 0.0,
+    "realization.vehicle.length": 0.0,
+    "realization.vehicle.drag": 0.0,
+    "realization.vehicle.tau_accel": 0.0,
+    "realization.vehicle.iz": 0.0,
+    "realization.vehicle.max_accel": 0.0,
+    "realization.frame_desire.length": 0.0,
+    "realization.frame_desire[]": 0.0,
+    "realization.mount.keys.length": 0.0,
+    "realization.mount.keys[]": 0.0,
+    "realization.mount.pitch": 0.0,
+    "realization.mount.yaw": 0.0,
+    "realization.mount.y": 0.0,
+    "realization.mount.z": 0.0,
+    "realization.mount.x": 0.0,
+    "realization.mount.roll": 0.0,
+    "realization.expert_params.keys.length": 0.0,
+    "realization.expert_params.keys[]": 0.0,
+    "realization.expert_params.stop_after_line": 0.0,
+    "realization.expert_params.a_acc": 0.0,
+    "realization.expert_params.k_head": 0.0,
+    "realization.expert_params.k_lat": 0.0,
+    "realization.expert_params.a_brk": 0.0,
+    "realization.expert_params.t_preview": 0.0,
+    "realization.expert_params.lookahead_min": 0.0,
+    "realization.expert_params.controller": 0.0,
+    "realization.expert_params.kp_speed": 0.0,
+    "realization.expert_params.lookahead_max": 0.0,
+    "realization.expert_params.k_lookahead": 0.0,
+    "realization.expert_params.v_cap": 0.0,
+    "realization.expert_params.stop_decel": 0.0,
+    "realization.expert_params.a_lat_max": 0.0,
+    "realization.config.keys.length": 0.0,
+    "realization.config.keys[]": 0.0,
+    "realization.config.noise.keys.length": 0.0,
+    "realization.config.noise.keys[]": 0.0,
+    "realization.config.noise.steer_theta": 0.0,
+    "realization.config.noise.on_time.length": 0.0,
+    "realization.config.noise.on_time[]": 0.0,
+    "realization.config.noise.offset_max": 0.0,
+    "realization.config.noise.speed_scale.length": 0.0,
+    "realization.config.noise.speed_scale[]": 0.0,
+    "realization.config.noise.offset_min": 0.0,
+    "realization.config.noise.steer_sigma": 0.0,
+    "realization.config.noise.off_time.length": 0.0,
+    "realization.config.noise.off_time[]": 0.0,
+    "realization.config.noise.enabled": 0.0,
+    "realization.config.noise.offset_prob": 0.0,
+    "realization.config.noise.offset_tau": 0.0,
+    "realization.config.fps": 0.0,
+    "realization.config.label_dt": 0.0,
+    "realization.config.start_speed": 0.0,
+    "realization.config.venue_prob": 0.0,
+    "realization.config.render": 0.0,
+    "realization.config.max_time": 0.0,
+    "realization.config.cameras.length": 0.0,
+    "realization.config.cameras[]": 0.0,
+    "realization.config.dr": 0.0,
+    "realization.config.randomize_expert": 0.0,
+    "realization.config.random_start": 0.0,
+    "realization.config.substeps": 0.0,
+    "realization.s": 0.0,
+    "realization.seed": 0.0,
+    "realization.route_decisions.length": 0.0,
+    "realization.route_decisions[].length": 0.0,
+    "realization.route_decisions[][]": 0.0,
+    "realization.rng_state.keys.length": 0.0,
+    "realization.rng_state.keys[]": 0.0,
+    "realization.rng_state.has_uint32": 0.0,
+    "realization.rng_state.uinteger": 0.0,
+    "realization.rng_state.state.keys.length": 0.0,
+    "realization.rng_state.state.keys[]": 0.0,
+    "realization.rng_state.state.inc": 0.0,
+    "realization.rng_state.state.state": 0.0,
+    "realization.rng_state.bit_generator": 0.0,
+    "realization.cones.keys.length": 0.0,
+    "realization.cones.keys[]": 0.0,
+    "realization.cones.xy.length": 0.0,
+    "realization.cones.xy[].length": 0.0,
+    "realization.cones.xy[][]": 0.0,
+    "realization.cones.source_indices.length": 0.0,
+    "realization.cones.source_indices[]": 0.0,
+    "realization.cones.colors.length": 0.0,
+    "realization.cones.colors[]": 0.0,
+    "metadata.environment.keys.length": 0.0,
+    "metadata.environment.keys[]": 0.0,
+    "metadata.environment.intrinsics.keys.length": 0.0,
+    "metadata.environment.intrinsics.keys[]": 0.0,
+    "metadata.environment.intrinsics.wide.length": 0.0,
+    "metadata.environment.intrinsics.wide[].length": 0.0,
+    "metadata.environment.intrinsics.wide[][]": 0.0,
+    "metadata.environment.intrinsics.road.length": 0.0,
+    "metadata.environment.intrinsics.road[].length": 0.0,
+    "metadata.environment.intrinsics.road[][]": 0.0,
+    "metadata.environment.label_dt": 0.0,
+    "metadata.environment.nominal_detection_calibration.length": 0.0,
+    "metadata.environment.nominal_detection_calibration[].length": 0.0,
+    "metadata.environment.nominal_detection_calibration[][]": 0.0,
+    "metadata.environment.expert_params.keys.length": 0.0,
+    "metadata.environment.expert_params.keys[]": 0.0,
+    "metadata.environment.expert_params.stop_after_line": 0.0,
+    "metadata.environment.expert_params.k_lookahead": 0.0,
+    "metadata.environment.expert_params.a_acc": 0.0,
+    "metadata.environment.expert_params.k_head": 0.0,
+    "metadata.environment.expert_params.k_lat": 0.0,
+    "metadata.environment.expert_params.a_brk": 0.0,
+    "metadata.environment.expert_params.t_preview": 0.0,
+    "metadata.environment.expert_params.lookahead_min": 0.0,
+    "metadata.environment.expert_params.kp_speed": 0.0,
+    "metadata.environment.expert_params.lookahead_max": 0.0,
+    "metadata.environment.expert_params.controller": 0.0,
+    "metadata.environment.expert_params.v_cap": 0.0,
+    "metadata.environment.expert_params.stop_decel": 0.0,
+    "metadata.environment.expert_params.a_lat_max": 0.0,
+    "metadata.environment.initial_cones_xyz.length": 0.0,
+    "metadata.environment.initial_cones_xyz[].length": 0.0,
+    "metadata.environment.initial_cones_xyz[][]": 0.0,
+    "metadata.environment.vehicle_params.keys.length": 0.0,
+    "metadata.environment.vehicle_params.keys[]": 0.0,
+    "metadata.environment.vehicle_params.front_overhang": 0.0,
+    "metadata.environment.vehicle_params.track": 0.0,
+    "metadata.environment.vehicle_params.mu": 0.0,
+    "metadata.environment.vehicle_params.lr": 0.0,
+    "metadata.environment.vehicle_params.width": 0.0,
+    "metadata.environment.vehicle_params.tau_steer": 0.0,
+    "metadata.environment.vehicle_params.max_steer_rate": 0.0,
+    "metadata.environment.vehicle_params.cr": 0.0,
+    "metadata.environment.vehicle_params.cf": 0.0,
+    "metadata.environment.vehicle_params.mass": 0.0,
+    "metadata.environment.vehicle_params.max_brake": 0.0,
+    "metadata.environment.vehicle_params.v_blend.length": 0.0,
+    "metadata.environment.vehicle_params.v_blend[]": 0.0,
+    "metadata.environment.vehicle_params.lf": 0.0,
+    "metadata.environment.vehicle_params.rear_overhang": 0.0,
+    "metadata.environment.vehicle_params.max_steer": 0.0,
+    "metadata.environment.vehicle_params.length": 0.0,
+    "metadata.environment.vehicle_params.drag": 0.0,
+    "metadata.environment.vehicle_params.tau_accel": 0.0,
+    "metadata.environment.vehicle_params.iz": 0.0,
+    "metadata.environment.vehicle_params.max_accel": 0.0,
+    "metadata.environment.cone_colors.length": 0.0,
+    "metadata.environment.cone_colors[]": 0.0,
+    "metadata.environment.track.keys.length": 0.0,
+    "metadata.environment.track.keys[]": 0.0,
+    "metadata.environment.track.stop_zone.length": 0.0,
+    "metadata.environment.track.stop_zone[].length": 0.0,
+    "metadata.environment.track.stop_zone[][]": 0.0,
+    "metadata.environment.track.laps": 0.0,
+    "metadata.environment.track.seed": 0.0,
+    "metadata.environment.track.centerline.length": 0.0,
+    "metadata.environment.track.centerline[].length": 0.0,
+    "metadata.environment.track.centerline[][]": 0.0,
+    "metadata.environment.track.discipline": 0.0,
+    "metadata.environment.track.start_pose.length": 0.0,
+    "metadata.environment.track.start_pose[]": 0.0,
+    "metadata.environment.track.width_left.length": 0.0,
+    "metadata.environment.track.width_left[]": 0.0,
+    "metadata.environment.track.width_right.length": 0.0,
+    "metadata.environment.track.width_right[]": 0.0,
+    "metadata.environment.track.finish_line.length": 0.0,
+    "metadata.environment.track.finish_line[].length": 0.0,
+    "metadata.environment.track.finish_line[][]": 0.0,
+    "metadata.environment.track.generator.keys.length": 0.0,
+    "metadata.environment.track.generator.keys[]": 0.0,
+    "metadata.environment.track.generator.center_distance": 0.0,
+    "metadata.environment.track.generator.segments.keys.length": 0.0,
+    "metadata.environment.track.generator.segments.keys[]": 0.0,
+    "metadata.environment.track.generator.segments.right.length": 0.0,
+    "metadata.environment.track.generator.segments.right[]": 0.0,
+    "metadata.environment.track.generator.segments.left.length": 0.0,
+    "metadata.environment.track.generator.segments.left[]": 0.0,
+    "metadata.environment.track.generator.segments.entry.length": 0.0,
+    "metadata.environment.track.generator.segments.entry[]": 0.0,
+    "metadata.environment.track.generator.segments.exit.length": 0.0,
+    "metadata.environment.track.generator.segments.exit[]": 0.0,
+    "metadata.environment.track.generator.R_drive": 0.0,
+    "metadata.environment.track.generator.R_out": 0.0,
+    "metadata.environment.track.generator.R_in": 0.0,
+    "metadata.environment.track.schema_version": 0.0,
+    "metadata.environment.track.stats.keys.length": 0.0,
+    "metadata.environment.track.stats.keys[]": 0.0,
+    "metadata.environment.track.stats.min_width": 0.0,
+    "metadata.environment.track.stats.max_straight": 0.0,
+    "metadata.environment.track.stats.n_cones": 0.0,
+    "metadata.environment.track.stats.min_radius": 0.0,
+    "metadata.environment.track.stats.length": 0.0,
+    "metadata.environment.track.id": 0.0,
+    "metadata.environment.track.closed": 0.0,
+    "metadata.environment.track.timekeeping_line.length": 0.0,
+    "metadata.environment.track.timekeeping_line[].length": 0.0,
+    "metadata.environment.track.timekeeping_line[][]": 0.0,
+    "metadata.environment.track.cones.length": 0.0,
+    "metadata.environment.track.cones[].keys.length": 0.0,
+    "metadata.environment.track.cones[].keys[]": 0.0,
+    "metadata.environment.track.cones[].role": 0.0,
+    "metadata.environment.track.cones[].color": 0.0,
+    "metadata.environment.track.cones[].y": 0.0,
+    "metadata.environment.track.cones[].x": 0.0,
+    "metadata.environment.track.cones[].id": 0.0,
+    "metadata.environment.track.route.length": 0.0,
+    "metadata.environment.track.route[]": 0.0,
+    "track.keys.length": 0.0,
+    "track.keys[]": 0.0,
+    "track.laps": 0.0,
+    "track.seed": 0.0,
+    "track.route.length": 0.0,
+    "track.route[]": 0.0,
+    "track.centerline.length": 0.0,
+    "track.centerline[].length": 0.0,
+    "track.centerline[][]": 0.0,
+    "track.discipline": 0.0,
+    "track.width_right.length": 0.0,
+    "track.width_right[]": 0.0,
+    "track.finish_line.length": 0.0,
+    "track.finish_line[].length": 0.0,
+    "track.finish_line[][]": 0.0,
+    "track.cones.length": 0.0,
+    "track.cones[].keys.length": 0.0,
+    "track.cones[].keys[]": 0.0,
+    "track.cones[].role": 0.0,
+    "track.cones[].y": 0.0,
+    "track.cones[].color": 0.0,
+    "track.cones[].x": 0.0,
+    "track.cones[].id": 0.0,
+    "track.stop_zone.length": 0.0,
+    "track.stop_zone[].length": 0.0,
+    "track.stop_zone[][]": 0.0,
+    "track.generator.keys.length": 0.0,
+    "track.generator.keys[]": 0.0,
+    "track.generator.center_distance": 0.0,
+    "track.generator.segments.keys.length": 0.0,
+    "track.generator.segments.keys[]": 0.0,
+    "track.generator.segments.right.length": 0.0,
+    "track.generator.segments.right[]": 0.0,
+    "track.generator.segments.left.length": 0.0,
+    "track.generator.segments.left[]": 0.0,
+    "track.generator.segments.entry.length": 0.0,
+    "track.generator.segments.entry[]": 0.0,
+    "track.generator.segments.exit.length": 0.0,
+    "track.generator.segments.exit[]": 0.0,
+    "track.generator.R_drive": 0.0,
+    "track.generator.R_out": 0.0,
+    "track.generator.R_in": 0.0,
+    "track.stats.keys.length": 0.0,
+    "track.stats.keys[]": 0.0,
+    "track.stats.min_width": 0.0,
+    "track.stats.max_straight": 0.0,
+    "track.stats.n_cones": 0.0,
+    "track.stats.min_radius": 0.0,
+    "track.stats.length": 0.0,
+    "track.id": 0.0,
+    "track.schema_version": 0.0,
+    "track.closed": 0.0,
+    "track.timekeeping_line.length": 0.0,
+    "track.timekeeping_line[].length": 0.0,
+    "track.timekeeping_line[][]": 0.0,
+    "track.width_left.length": 0.0,
+    "track.width_left[]": 0.0,
+    "track.start_pose.length": 0.0,
+    "track.start_pose[]": 0.0,
+    "frame": 0.0,
+    "manifest.frame": 0.0,
+    "state.t": 0.0,
+    "referee.running_before_input": 0.0,
+    "referee.running_at_input": 0.0,
+    "initial_physical_state.keys.length": 0.0,
+    "initial_physical_state.keys[]": 0.0,
+    "initial_physical_state.vx": 0.0,
+    "initial_physical_state.r": 0.0,
+    "initial_physical_state.t": 0.0,
+    "initial_physical_state.vy": 0.0,
+    "initial_physical_state.steer": 0.0,
+    "initial_physical_state.yaw": 0.0,
+    "initial_physical_state.y": 0.0,
+    "initial_physical_state.extra.keys.length": 0.0,
+    "initial_physical_state.x": 0.0,
+    "initial_physical_state.accel": 0.0,
+    "initial_position": 0.0,
+    "initial_yaw": 0.0,
+    "initial_velocity.length": 0.0,
+    "initial_velocity[]": 0.0,
+    "progress.keys.length": 0.0,
+    "progress.keys[]": 0.0,
+    "progress.lat": 0.0,
+    "progress.hint": 0.0,
+    "progress.s": 0.0,
+    "commands.keys.length": 0.0,
+    "commands.keys[]": 0.0,
+    "commands.requested": 0.0,
+    "commands.applied": 0.0,
+    "commands.mode": 0.0,
+    "counters.keys.length": 0.0,
+    "counters.keys[]": 0.0,
+    "counters.laps": 0.0,
+    "counters.total_laps": 0.0,
+    "counters.result": 0.0,
+    "counters.legacy_doo": 0.0,
+    "counters.off_course": 0.0,
+    "counters.physical_contacts": 0.0,
+    "events.length": 0.0,
+    "temporal.keys.length": 0.0,
+    "temporal.keys[]": 0.0,
+    "temporal.older_image_frame": 0.0,
+    "temporal.current_image_frame": 0.0,
+    "nominal_detection_calibration": 0.0,
+    "prediction.plan_shape": 0.0,
+    "prediction.plan_finite": 0.0,
+    "action_valid": 0.0,
+    "image_head.cameras.length": 0.0,
+    "image_head.cameras[]": 0.0,
+    "images.valid": 0.0,
+    "image_head.outputs.length": 0.0,
+    "image_head.outputs[]": 0.0,
+    "image_head.valid": 0.0,
+    "body.state.length": 0.0,
+    "body.state[]": 1.7763568394002505e-15,
+    "body.velocity_body": 0.0,
+    "frames.keys.length": 0.0,
+    "frames.keys[]": 0.0,
+    "frames.physical_contacts": 0.0,
+    "frames.t": 0.0,
+    "frames.frame": 0.0,
+    "frames.lat": 0.0,
+    "frames.yaw": 0.0,
+    "frames.y": 0.0,
+    "frames.legacy_doo": 0.0,
+    "frames.x": 0.0,
+    "frames.s": 0.0,
+    "frames.speed": 0.0,
+    "body.no_prior_rollover": 0.0,
+    "events[].keys.length": 0.0,
+    "events[].keys[]": 0.0,
+    "events[].kind": 0.0,
+    "events[].data.keys.length": 0.0,
+    "events[].data.keys[]": 0.0,
+    "events[].data.n": 0.0,
+    "events[].t": 0.0,
+    "events[].data.cone": 0.0,
+    "events[].data.dir": 0.0,
+    "events[].data.duration": 0.0,
+    "events[].data.winding_right": 0.0,
+    "events[].data.winding_left": 0.0,
+    "events[].data.finish_time": 0.0,
+    "events[].data.start_time": 0.0,
+    "events[].data.circle": 0.0,
+    "nonempty": 0.0,
+    "within_timeout": 0.0,
+    "recorded_frames": 0.0,
+    "frames.length": 0.0,
+    "final_state.t": 0.0,
+    "terminal.finished_or_pilot": 0.0,
+    "summary.referee.keys.length": 0.0,
+    "summary.referee.keys[]": 0.0,
+    "summary.referee.max_speed": 0.0,
+    "summary.referee.laps.length": 0.0,
+    "summary.referee.laps[]": 0.0,
+    "summary.referee.oc": 0.0,
+    "summary.referee.discipline": 0.0,
+    "summary.referee.time": 0.0,
+    "summary.referee.n_laps": 0.0,
+    "summary.referee.result": 0.0,
+    "summary.referee.doo": 0.0,
+    "summary.referee.dq": 0.0,
+    "summary.referee.pass": 0.0,
+    "summary.referee.complete": 0.0,
+    "summary.referee.penalty": 0.0,
+    "summary.referee.route.keys.length": 0.0,
+    "summary.referee.route.keys[]": 0.0,
+    "summary.referee.route.termination": 0.0,
+    "summary.referee.route.stopped_in_zone": 0.0,
+    "summary.referee.route.laps.length": 0.0,
+    "summary.referee.route.laps[].keys.length": 0.0,
+    "summary.referee.route.laps[].keys[]": 0.0,
+    "summary.referee.route.laps[].duration": 0.0,
+    "summary.referee.route.laps[].winding_right": 0.0,
+    "summary.referee.route.laps[].winding_left": 0.0,
+    "summary.referee.route.laps[].finish_time": 0.0,
+    "summary.referee.route.laps[].start_time": 0.0,
+    "summary.referee.route.laps[].circle": 0.0,
+    "summary.referee.route.reverse_crossings": 0.0,
+    "summary.referee.route.crossings.length": 0.0,
+    "summary.referee.route.crossings[]": 0.0,
+    "summary.referee.route.valid": 0.0,
+    "summary.referee.route.exited": 0.0,
+    "summary.referee.route.violation": 0.0,
+    "summary.referee.route.complete": 0.0,
+    "summary.referee.route.expected_route.length": 0.0,
+    "summary.referee.route.expected_route[]": 0.0,
+    "summary.referee.route.accepted_route.length": 0.0,
+    "summary.referee.route.accepted_route[]": 0.0,
+    "summary.referee.raw_time": 0.0,
+    "summary.events.length": 0.0,
+    "summary.events[].keys.length": 0.0,
+    "summary.events[].keys[]": 0.0,
+    "summary.events[].kind": 0.0,
+    "summary.events[].t": 0.0,
+    "summary.events[].data.keys.length": 0.0,
+    "summary.events[].data.keys[]": 0.0,
+    "summary.events[].data.n": 0.0,
+    "summary.events[].data.cone": 0.0,
+    "summary.events[].data.dir": 0.0,
+    "summary.events[].data.duration": 0.0,
+    "summary.events[].data.winding_right": 0.0,
+    "summary.events[].data.winding_left": 0.0,
+    "summary.events[].data.finish_time": 0.0,
+    "summary.events[].data.start_time": 0.0,
+    "summary.events[].data.circle": 0.0,
+    "summary.events[].data.in_stop_zone": 0.0,
+    "summary.pending_events.length": 0.0,
+    "summary.pending_events[].keys.length": 0.0,
+    "summary.pending_events[].keys[]": 0.0,
+    "summary.pending_events[].kind": 0.0,
+    "summary.pending_events[].t": 0.0,
+    "summary.pending_events[].data.keys.length": 0.0,
+    "summary.pending_events[].data.keys[]": 0.0,
+    "summary.pending_events[].data.in_stop_zone": 0.0,
+    "summary.progress": 0.0,
+    "summary.rms_lat": 2.7755575615628914e-17,
+    "summary.seconds_simulated": 0.0,
+    "contacts.count": 0.0,
+    "contacts.unique": 0.0,
+    "contacts.valid_frame": 0.0,
+    "contacts.time": 0.0,
+    "contacts.time_convention": 0.0,
+    "contacts.cone": 0.0,
+    "receipt.frame_count": 0.0,
+    "npz.frame_count": 0.0,
+    "completion.unchanged": 0.0
+  }
+}

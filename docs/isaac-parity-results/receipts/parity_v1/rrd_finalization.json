@@ -1,0 +1,336 @@
+{
+  "complete": true,
+  "case_count": 41,
+  "finalizer_sha256": "ba61e4390e212a314ce408a3a4e12068581105d3c9772c06d42bb64eb026c06f",
+  "postprocess_status_sha256": "187f60b8391097c388cddbe546677699f84eb9cd91e99e8432d482e357244f3a",
+  "cases": [
+    {
+      "case_id": "skidpad-72000-light-recorded",
+      "original_audit_sha256": "8a61576c3a31bde0e262da07042509b96eb584ffab6c4bdfe91ccfb84d40c073",
+      "original_rrd_sha256": "197c9952f3f7945aedfe98d77137282ad28d575d4b7b8d59b5e0df083aaf4a8e",
+      "closed_rrd_sha256": "d11572084100e1bf0aec17358439b0607e34b6bafac37df655d747abb497709e",
+      "video_audit_sha256": "05db63112a37899e2ce33d8c6caf4d9ad68dab3cd4eb77bb0c4eb3eef14918dc",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72000-heavy-recorded",
+      "original_audit_sha256": "6c0934d38bc1c0d752a1ca39c0bd9e38c6e8d24fd458facbb886e889ea241814",
+      "original_rrd_sha256": "b3b6a04af5c89a1683efa3c775666eaa3ec78333061b4bc62a3c6155f43db6fa",
+      "closed_rrd_sha256": "86bbaf83b065fe50d4de4d3bb812436cbcc9f3729c0f1e784a8551e2727bf4e0",
+      "video_audit_sha256": "07928b27df3a01484ba7438afaa5150cb87082b9321c3bc2f71da0489bcea718",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72001-light-recorded",
+      "original_audit_sha256": "9b1b07f821baf1477fd5f68e75d9398617518ae394f7af04b63f683fc7c59fae",
+      "original_rrd_sha256": "fc21c99606e4744504c1d1f4f244f60c53f5e6b5fce36f59923be057c7678b73",
+      "closed_rrd_sha256": "f91ef00e11ce227bfcbe6f5fdd883ef834ea4dc2b9f70e75d444072f841e3eed",
+      "video_audit_sha256": "41453332d5cd02b568dcb88e1e68a38006d01550e9bda57056937e8c11e5b979",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72001-heavy-recorded",
+      "original_audit_sha256": "bbac4259707616a71d2d98d0502c08370227eb6a5bfdc61dc95fe88f488f14eb",
+      "original_rrd_sha256": "bd7f3792669b39ca3013edd9db3690c9842c1ca1126451f2f73651cee9354fb6",
+      "closed_rrd_sha256": "3c8ba33ecdfd9b29dcb3e170aa7593d5d5129b90c9e46a42db6b514acef38261",
+      "video_audit_sha256": "1cb2a4bff959d520ebfad830841459e77bf972315eef4bfbca1a9fa02f037c3a",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72002-light-recorded",
+      "original_audit_sha256": "f7f463ccd3c95a615536dc003d87b62ea21074d0bf1ffbc4a84629f03b311bff",
+      "original_rrd_sha256": "553367b0958bf96439929d22a5e16454705a59ae303d6525a0cecda6b9982557",
+      "closed_rrd_sha256": "cad5e4ddd90fba4db9e54da48c97f22d1d8643ce2af5612688443df6d974b621",
+      "video_audit_sha256": "6abf68eafaf9f9916d51c907dcd39ab715749a1113ca4da3ccb53beaad7443c2",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72002-heavy-recorded",
+      "original_audit_sha256": "78eab967735ef53c455e84594291493994af9feed3ae167654100fa7437666ff",
+      "original_rrd_sha256": "949361c833753dc0b6ab007262ad3dd8c3a6f08c7675a3fd8bbbb262da2a476e",
+      "closed_rrd_sha256": "f6f2b2e60c0830b74a2d3aa06f6351b5e30e6a2bae38ea5eb2c78ef48fff6751",
+      "video_audit_sha256": "5a716de72885696b65aad32613ca05d455a280fc8d9d43e11e1e60d3d2945ce2",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72003-light-recorded",
+      "original_audit_sha256": "040cd39d319d62b1e33c1f44e168b03ab26f415e194f1eea8b99f729b3f3ffde",
+      "original_rrd_sha256": "771db913b24930556760b70b2181ec073fd03186d6c03a0bcfa09d6ec428d021",
+      "closed_rrd_sha256": "ac48f2b1dc75f1fba65433b7c0ed37f8307ae61a295d7cc00557fe0458b02f34",
+      "video_audit_sha256": "00a3f1ad64b0b3a8edc7560b84c53e3a59d87d7a353cbd0ef72dcfa5deb55f54",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72003-heavy-recorded",
+      "original_audit_sha256": "957979085609f027f9a0aa1d5fe860c01bee1e363ee3cabf33bc5f8e96ccf9b1",
+      "original_rrd_sha256": "32ec01fbbc0eb990db3aea2ae6fada48a39591356ef31ed9c19c3a7b961ec9cb",
+      "closed_rrd_sha256": "07e4005d361788f72f0321ec7889c3a13d573cb34fe090dfdaf312236ebc928b",
+      "video_audit_sha256": "ddaef1cf3d5b7ad250045e88b0c97703b2a5d9513acafd249a89c61402d091a0",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72004-light-recorded",
+      "original_audit_sha256": "5b42de854020746f03772d007bc5034f266d96a7b447c6a8eaf24eca9329fc8a",
+      "original_rrd_sha256": "d48ea7133e9d233fa084a45868d57e7f425c3c46b3a125ca8ec199bc2ce3bd10",
+      "closed_rrd_sha256": "5aad507e260de78d82c3b98223902e9509ff025de810affb59552165e6a3972c",
+      "video_audit_sha256": "389f2435559115dae196fd53c01c7194f6ee6ce3fd50c6840e84b0c8ff9713c8",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72004-heavy-recorded",
+      "original_audit_sha256": "3f0fd8c1cdd1f56dd6e741427846e59c96f37b5757e2d7f382684728362d6f6f",
+      "original_rrd_sha256": "dd81e4c98b9a7c434c038c64dfda993dac184e87856877a2db601677011d92a7",
+      "closed_rrd_sha256": "a44579acc554418aed6b7492b6b31d55d603591bc93347f15e5ed0454d0a56b1",
+      "video_audit_sha256": "9b019b634abfbdeac2de296e892b04a8bb99ebc1658052d5d8d06f4cf3f979d1",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72005-light-recorded",
+      "original_audit_sha256": "cabc72b195866afdfaaf6d71f948944bb6928d7a3a75c46bb8a8ad3e4703f638",
+      "original_rrd_sha256": "4bea427d1fb8ca3ec470a389fa2c7e4c392c52bb4313416ac4406b4976f44ac2",
+      "closed_rrd_sha256": "38d4c294c0e2082a71d77b6776ea7e714ebd86f28fe582de6a91a4ebe795a190",
+      "video_audit_sha256": "ebb55532a54fb5647445f50ebd9e0c7db6e20fd2e2b255d9042e2bb52a9e802a",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72005-heavy-recorded",
+      "original_audit_sha256": "94d3d4412c9e460740daa288b1cfb4665b56f6c713e11691b967eb40ed515b81",
+      "original_rrd_sha256": "366e86f02d18fe125d9e84429966702499853897fdbdc158939c967d7992208b",
+      "closed_rrd_sha256": "aedfdc82eaf7f01357f03fd598532362b0bca12aed06004582bbdd8ccaad8b34",
+      "video_audit_sha256": "08850b1983064a9c22973620d8e661e6397dadb59d00720c526f9b75398d43c9",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72006-light-recorded",
+      "original_audit_sha256": "32170919a16c8b868ca837fbd6b1b771e0986024c68e1f79621ff07590c3dbbc",
+      "original_rrd_sha256": "88723a8d829c3f5643a4fe6f56a0b107b2f4cf6fe439309fbb63b6b0d4bc6f8d",
+      "closed_rrd_sha256": "e7b489421ba5a93f41066a054fab016ce508e4dc79276f0d7ae8d6736fdd9907",
+      "video_audit_sha256": "aaa1fba5f086c9b9f99b0c29c4ac56ae8adce76043e1665c485f9663a4a72d41",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72006-heavy-recorded",
+      "original_audit_sha256": "77399abe2acc097a0a38ac675e37232784c6cd48433575e6faf5fab5ce9e8c6f",
+      "original_rrd_sha256": "4a863f6580577ee31f2e42bc28795391b033325a78dd0bcc5ab287dd4b7a9847",
+      "closed_rrd_sha256": "bbdc4e3d51b132928f305999b1fe7994d0514da845d91c5cdb4c301dc2072c12",
+      "video_audit_sha256": "7fec94a60f51ec53323a3df142044da035e3bbcac2eba34ccc39912f7ca8b89b",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72007-light-recorded",
+      "original_audit_sha256": "ab14bb28acc8d77717c9daa9695e0e035d024453d4d583c806aa017fe69adadf",
+      "original_rrd_sha256": "da70dd7a7fc5026d9b7b8ed0c1b8235b24b2f9282748684bd148b75bf7012170",
+      "closed_rrd_sha256": "88dbf5786a2a902074b68a4a281a4323c502f3ce644daee381a1d678e7d78747",
+      "video_audit_sha256": "d5d0b5016a633e07a19a4b081241ff755acd9721854e5eff433bbbdd70ed5d7f",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72007-heavy-recorded",
+      "original_audit_sha256": "c99241e6ea080132323d79f3272670ac6f09ae42825f458c4a5ad511dfc1edd2",
+      "original_rrd_sha256": "c4865a60b9a8da878c3d6acdb9803d27a0de3922029419cde3ce915b3d015f3c",
+      "closed_rrd_sha256": "642ae75b9d44598528d28b083ef83696e2aa4f5d4aa71faba41c1ae8ef91cb4b",
+      "video_audit_sha256": "82c367878619d4e677041fd9058b8182fe3d9d3ed272c6843b970362bf17e5b1",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72008-light-recorded",
+      "original_audit_sha256": "48a3910b35b2c5f85d03ff190a97a800ef8b8b3e364116fb2c366eccb5b32f28",
+      "original_rrd_sha256": "784359ef660a43feb8e9ba245b8964c90730e686362e167a37d3fe297b586927",
+      "closed_rrd_sha256": "ede3798ebd0799e406191bc2daa0305fb485b679d6e2d333058798bdd94e1deb",
+      "video_audit_sha256": "d6ad3cced5a25220c51bea9b0941314d08300a390724e50bb9c69e2985d3087e",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72008-heavy-recorded",
+      "original_audit_sha256": "d78ca66d4449269db4945e49ab0b7ae0db25e3111d268d4669475faea68f7581",
+      "original_rrd_sha256": "af6e41a5eed21b75d9f09cb4d513a6f6d0b1ed70a971e72a6a3757263403cdb2",
+      "closed_rrd_sha256": "147784d9e08f3e6ec65d1b4a79554e045b3c5e46465bb561094636fb8543da10",
+      "video_audit_sha256": "30c7076ba58416d1108e09bce9c22361cbfebd991ba6fa9754fde568f25a1a09",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72009-light-recorded",
+      "original_audit_sha256": "e9d0eef629749ca2c8f28f873841cfe848311bb0578247161fe6f70442656c77",
+      "original_rrd_sha256": "2bc4de7f6a48610c7d23e8bfa3848fc5c75df0c16e2b4ebb675ffb490c81f803",
+      "closed_rrd_sha256": "dd2acdb2887ddb31e1d0ec590921d03fdeaa9ffa644684359c287cc4b8d000a0",
+      "video_audit_sha256": "325f922de4c3a2af7825161a4238f91c01ea6e94a56e5470dd96ad808d6f74ac",
+      "footer_verified": true
+    },
+    {
+      "case_id": "skidpad-72009-heavy-recorded",
+      "original_audit_sha256": "3147d6ba8363647f534fe076baa0db639ca8e9297f8ed343a84d30b11777db31",
+      "original_rrd_sha256": "56baf9bbaeaa6a8fd3955bd7e466ace5c7092be16cba2a65063af471dde58692",
+      "closed_rrd_sha256": "0808d0626a49e652b65fd96a12b33c2c4d35f9496249975fd0cfbc0b03b628e9",
+      "video_audit_sha256": "b770b108d5a95b5896b191816b12ced3e126078913e59e52fd4de909e2271614",
+      "footer_verified": true
+    },
+    {
+      "case_id": "retention-trackdrive_020000-light-recorded",
+      "original_audit_sha256": "08344a888fa0aceb86d5f23e5afeb7c6a7fe51f630b1a27528bd3fcdc38cad87",
+      "original_rrd_sha256": "bb770418a5e6b8e42740c17dd25ada5d59d19de1d6260e23a8690cfffdfef65b",
+      "closed_rrd_sha256": "b5c8d3c89e39b37d811a358d372455fb42effe43d63ac2b620217a61279d45b2",
+      "video_audit_sha256": "d523fac7b153abcc8b57aad4e053e0a42a355bc184de3f6d65dc7b3ae5501e1f",
+      "footer_verified": true
+    },
+    {
+      "case_id": "retention-trackdrive_020000-heavy-recorded",
+      "original_audit_sha256": "e8e00cbc9ba0008fd64347a5fd1afed65fbcf254d8e873ae52a93084dac6a9ed",
+      "original_rrd_sha256": "b146042a5e4517af2a4071969ec84ab2f16e475d49a8c3fc5732f90b1a579cef",
+      "closed_rrd_sha256": "9f83a17f68bd3dfe1aa0794b170fd9894d0a5fc4738b9be9e1162cf3a439b876",
+      "video_audit_sha256": "d765ed2bb87bb4df6dcbb56519b9880444c632506d382ba2dc54b9f6f8c97ab0",
+      "footer_verified": true
+    },
+    {
+      "case_id": "retention-trackdrive_020005-light-recorded",
+      "original_audit_sha256": "cac5f67e7bb91c709b33d7a580388219f7452604b6a3b50f77f6fae6ccb89d58",
+      "original_rrd_sha256": "c9268c2ccbc990241c0e0c4c7b3f43d3f5d89273954d3e902f5f8bee67444b03",
+      "closed_rrd_sha256": "98d95ca64064343c3715c16aa982b4e330aab93c3e9838b2cc1aed3fb885b0b5",
+      "video_audit_sha256": "e6ace37c037e64a5a81001af21fbec5ca36bfe19b0548fb0b29083db40f96bf1",
+      "footer_verified": true
+    },
+    {
+      "case_id": "retention-trackdrive_020005-heavy-recorded",
+      "original_audit_sha256": "8f1d804661012f94cedac806df6fdcb7a23bae90f94b85e0530f2b41f93aaa0e",
+      "original_rrd_sha256": "b7062e0ff82f63208cf435b20a7f86bff8de3f9735f42cd40c3e4ce064996d85",
+      "closed_rrd_sha256": "31c91ffd8f178aa793431f76028d7d9a217dd11f641efc878e0574a9c0bdc672",
+      "video_audit_sha256": "ec7d0ded9a75ffa79304add06f6a4cad516fa5be51f2caf24eff30c83430e1f8",
+      "footer_verified": true
+    },
+    {
+      "case_id": "retention-trackdrive_020015-light-recorded",
+      "original_audit_sha256": "58efedf4a78a3d99222d0244744dcfbe259e4c54abdb1009191cbc2fca882a0b",
+      "original_rrd_sha256": "1cb186e30b1dacf58813d95eedd4bea4157aa4e12c115e42aa6f5dfa8e1105d2",
+      "closed_rrd_sha256": "9e72b64a25c089c971a217f7fcc81f577fdf612ef4a663930fe538b3adbb4c9f",
+      "video_audit_sha256": "e42733fc964043c243af569fcf927d0193091fecd485c15d1821463658cb37d0",
+      "footer_verified": true
+    },
+    {
+      "case_id": "retention-trackdrive_020015-heavy-recorded",
+      "original_audit_sha256": "a915cfd14128a88f8fe2f8746f4ac1dc24fbaf4ca88a03dcb0dac393aa8b4d75",
+      "original_rrd_sha256": "958953c25c4f80e5c004adfa665a619a28cdf8f9917309e41b7e03ebba89b38f",
+      "closed_rrd_sha256": "9c96f8f86d5cd8dd13444b2a96eb3d50b0b36ad85b9a2d19279c5b2a86267a80",
+      "video_audit_sha256": "4192d118d86efe692c8b8b34d99b6ae97eee631334d211de1f2530ea9058217b",
+      "footer_verified": true
+    },
+    {
+      "case_id": "retention-trackdrive_020023-light-recorded",
+      "original_audit_sha256": "a61aed0b927a75f6ff120a03ab91c67515459c5d6daf8669c18e1f250f065e60",
+      "original_rrd_sha256": "506b86eac029cb1e3a8427c12f94c6a54d4a32ad2b405d3aa1fde164c8ba5e2d",
+      "closed_rrd_sha256": "f217489657df0c887fb56a3efa87de10f2199dbea6ccf504cc4bf20df4aab0ea",
+      "video_audit_sha256": "fca1923c1b9639c0e2a264786118f872cc458364dfa7c95150b755af7433d3aa",
+      "footer_verified": true
+    },
+    {
+      "case_id": "retention-trackdrive_020023-heavy-recorded",
+      "original_audit_sha256": "41cf5edcffbd57dfe8a90ac160d9ed7a4accc8ac74e344db4fec5ed21cf3a030",
+      "original_rrd_sha256": "04ada33a9f54df575781a6505e3f47b6b0de4587cbaec27e82a904faa40336ef",
+      "closed_rrd_sha256": "be6f345e751ce602ea505a0cc3123c5553d61bb32f2fd11ec8a4f36cb7a6b942",
+      "video_audit_sha256": "6d88cf566466a4cf1961817cade0a621c6198b21f0685afa35eb554e49102821",
+      "footer_verified": true
+    },
+    {
+      "case_id": "retention-trackdrive_030000-light-recorded",
+      "original_audit_sha256": "40807d81a17ec846a7e64289d31555415975158ef01290a13c19c43b5d119f98",
+      "original_rrd_sha256": "1cebca3158ccb7b2821443e17f3ad4ebdc74d983a44558fc7d4d20dfac797314",
+      "closed_rrd_sha256": "0dd94555178c8ba09717bd0d5810eb74bbc6f5171ed39324336a77f9bdae9609",
+      "video_audit_sha256": "b2646b693d2eedbcbcca88fd742fcab4b1c86c626f42ba2cf3651329088d1856",
+      "footer_verified": true
+    },
+    {
+      "case_id": "retention-trackdrive_030000-heavy-recorded",
+      "original_audit_sha256": "bcb9514b7e1c9946f302b683b998c4e7d4e56147f45502793527f147024ed674",
+      "original_rrd_sha256": "d4afe27a95b0bb41519393baa92922ee816ae4ef8fc51a484d780797f6cea1b0",
+      "closed_rrd_sha256": "7e4b83c97ac586403ebaf1169f587948caa40c7db628d584e912e7ab6ecf4ddf",
+      "video_audit_sha256": "e6db5e06bbb44d2b858eec68a20f7274d5623891627e3e13341429bb847445c9",
+      "footer_verified": true
+    },
+    {
+      "case_id": "retention-trackdrive_030010-light-recorded",
+      "original_audit_sha256": "31819cd080f9ac93462370f5b33f338aab1ed2283fa314bf6eb89762ed9248ea",
+      "original_rrd_sha256": "a4c4b1cfb053c4fc1985ee54a3c3e4860fde7f78fd975e047a6d19156826a23f",
+      "closed_rrd_sha256": "4f9e7e06e454e0b93cd7deff4bfa43f7b5ace9c18d8dfed9403f93950f6750a3",
+      "video_audit_sha256": "e1b487cd440291c7cbd42ec724f4956a71ad5c183006173d56c430bf8d040881",
+      "footer_verified": true
+    },
+    {
+      "case_id": "retention-trackdrive_030010-heavy-recorded",
+      "original_audit_sha256": "c313a469bd4a1bf925ff5214329e5649dd94322ac7e945c78a7cde9fb9f90eaf",
+      "original_rrd_sha256": "830645866b262d3c28cf4653f6b7da84639499c5fb873632d168451c6b3323f1",
+      "closed_rrd_sha256": "a70c5cb73c79fc2158192dd7f88a17771d53e44240ad9b246a59183e7fa4aed4",
+      "video_audit_sha256": "9bcbe78e4b9c42f7c9fb3839bee94e470c19ef18b10549cde6962063bbc4cfc4",
+      "footer_verified": true
+    },
+    {
+      "case_id": "retention-trackdrive_030020-light-recorded",
+      "original_audit_sha256": "e71ee72632b4526e3b988fa0a97595c381100e985355b871ba44439bebe35d31",
+      "original_rrd_sha256": "3e483ebee52313228ec99d2cc955f6a0e4482366ed39034fa12d3f4472ea1cec",
+      "closed_rrd_sha256": "f5c15d7db4e2fb2b039b2d19a3a9bbc92474a7fae587dc5bc467e89f7b21c0b1",
+      "video_audit_sha256": "d2b5f858f6548d4dd6186c205aacb5e795842b51727328468dc2f26b1a96a653",
+      "footer_verified": true
+    },
+    {
+      "case_id": "retention-trackdrive_030020-heavy-recorded",
+      "original_audit_sha256": "00ee1045fcc1b69ded0eeab86b0d4e3fa39d8002d2f4a26ac12e51c59c292a2e",
+      "original_rrd_sha256": "11bc2ecd35c935c0c2cae6fcc01cc9b6f636231516ef598b1c7e45a6fa4c6d91",
+      "closed_rrd_sha256": "dfe5944db05bd3761c2f1eb8827c749706fd848ede04e069f577f7937bc66687",
+      "video_audit_sha256": "ecf84024bacf5f5bdcff2895f666a71e673f7e65cadf83e556af9cf5135c3353",
+      "footer_verified": true
+    },
+    {
+      "case_id": "retention-trackdrive_030061-light-recorded",
+      "original_audit_sha256": "e49483d9fa1a1c9df75f1e792511575d91b0ffe3da53cd375875a85df48e069d",
+      "original_rrd_sha256": "381a08ab00a15dbe89289d9706b909bd1123b4f0480752e50d2be166c65627b2",
+      "closed_rrd_sha256": "e78ba482a032d5f98b5fe48884ba23e9f497eec550cb776424db148a4f6daee6",
+      "video_audit_sha256": "8f1d804350b69fd5830da1492fe867e9ad4d76eec4e3a3b5d125e3514d414d2d",
+      "footer_verified": true
+    },
+    {
+      "case_id": "retention-trackdrive_030061-heavy-recorded",
+      "original_audit_sha256": "b1556a6c808a0ef9d2637bdd72d3807ef37c1f8ee1e9692e399327ee05100509",
+      "original_rrd_sha256": "ecb7a077b0f921a5c9f80a33b65e54d4c02da6116112675359482af3cd257cf8",
+      "closed_rrd_sha256": "3529e7c05da0f25dc7a9132f80a6f33787a7d7fde9fbc1042f5b7249d78769c6",
+      "video_audit_sha256": "810688f9166d559cbb1353428bcb060a4bc1987d56657693bca53904bc639fdc",
+      "footer_verified": true
+    },
+    {
+      "case_id": "ablation-skidpad-72000-light-zero",
+      "original_audit_sha256": "38276d6a1188bf5d4d22569f3633690daf2708f973a37b7300966bf5beb5463d",
+      "original_rrd_sha256": "67dec4202849b8e044450bbbe386d74a33465e75b403675052dcfd57dcfde387",
+      "closed_rrd_sha256": "6ab50d7ff37f3511780f1257db250fe3109f05e66d4fc3b191b59f191dcc2d0a",
+      "video_audit_sha256": "58fc3c9f607b556ba1f2d3ebe3f36f68b69a864ed7eaafe20c6f902c6ca0de94",
+      "footer_verified": true
+    },
+    {
+      "case_id": "ablation-skidpad-72000-heavy-zero",
+      "original_audit_sha256": "c508223c8a9a2017c393a6792dd5fe20d3e5a87aae82cb6a2ad962fbfd501d6f",
+      "original_rrd_sha256": "61de53193128d9949ac6edc5e67296eb6869ff9e7e3bcb4612b1e87c86f0ad0d",
+      "closed_rrd_sha256": "9ea5b53beda4d703adbeca6f3875312b6c82da8437d27c518cba128e38ab5601",
+      "video_audit_sha256": "7ebeca851aed7d768ded071fe217efb75aa0a9b2c931f5af865f467089a8bd3b",
+      "footer_verified": true
+    },
+    {
+      "case_id": "ablation-skidpad-72000-light-swapped",
+      "original_audit_sha256": "ebc99b700a47049716cf98579d6e60a9e07c157ad743465023c3e45f19a82b89",
+      "original_rrd_sha256": "2faae6d1904ace58a7f2572fdb7eba0208c86c6123b9f9b944a708773c1a1255",
+      "closed_rrd_sha256": "cb6896085b0b1d17c15ab426c0055a404bb395c01f55f2c211a08ac288deb174",
+      "video_audit_sha256": "dc51e883b4a5e562034f32bd7102f004481b3215234cd9b33f89a13dd7724aea",
+      "footer_verified": true
+    },
+    {
+      "case_id": "ablation-skidpad-72000-heavy-swapped",
+      "original_audit_sha256": "6ff5814ffc18c006f2472e34e9f62b3465fb5f49c9004256ddae7e0d76d5c2c2",
+      "original_rrd_sha256": "a1522288f60bb96900779e6f15873ac136f6f5ce79154d19544d6ad203be1ae2",
+      "closed_rrd_sha256": "044b8c996e05889c392da39e6af974643d617b360631a504ddac0b41b127d8f4",
+      "video_audit_sha256": "1a8eadfe1419a6db56ae7b10e28cc8d04ed3e3b40389f768c7073a845b209c4f",
+      "footer_verified": true
+    },
+    {
+      "case_id": "prior-failure-skidpad-71003-heavy-recorded",
+      "original_audit_sha256": "4116902c9e9c6be81cb440085f7d0f6d7c150ba5d03245aadb7a8322bdef2f3a",
+      "original_rrd_sha256": "a2b0db726a79792c695d9a0f62c10ce5ce0d549fcebb54a07d482d0c5a8dd15b",
+      "closed_rrd_sha256": "a39f770c4017d209421894c5383310b2c6d173e22dabfa8bddbd4bf90183aea2",
+      "video_audit_sha256": "603d25274cb1102c67a084b76dc4ade64a16e4088660fb0b2238c96da6bb5ddc",
+      "footer_verified": true
+    }
+  ]
+}

@@ -1,0 +1,3479 @@
+{
+  "backend_differences": {
+    "camera": "Sampled mount and model intrinsics match; Isaac body heave/roll/pitch may change world extrinsics.",
+    "historical_state": "Realizations are reconstructed from source, seed and archived asset inventory; historical runs did not save initialization snapshots.",
+    "numeric_runtime": "NumPy, SciPy and platform versions are recorded; cross-platform floating point may differ.",
+    "physics": "PhysX replaces the custom bicycle model; dynamics, contact response and body motion differ.",
+    "renderer": "Isaac RTX replaces Panda3D; RGB, shadows, materials and lighting are not pixel-identical.",
+    "trajectory": "Commands and referee logic match, but different trajectories can change their timing and outcomes.",
+    "venue": "SceneDR values are sampled identically; backend-specific scenery meshes and material responses differ."
+  },
+  "case_count": 41,
+  "case_counts": {
+    "ablation": 4,
+    "prior_failure": 1,
+    "retention": 16,
+    "skidpad": 20
+  },
+  "cases": [
+    {
+      "case_id": "skidpad-72000-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "light",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 0,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 1,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          9.299362397767595,
+          9.892137411532865,
+          9.833234174728648,
+          10.181142423277649
+        ],
+        "max_speed": 8.17749266454785,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.2,
+        "progress": 1.001851233270046,
+        "raw_time": 10.036639917405257,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.3886608397673155,
+            12.68802323753491,
+            22.580160649067775,
+            32.41339482379642,
+            42.59453724707407
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.299362397767595,
+              "finish_time": 12.68802323753491,
+              "start_time": 3.3886608397673155,
+              "winding_left": -8.326672684688674e-17,
+              "winding_right": -6.283185307179584
+            },
+            {
+              "circle": "right",
+              "duration": 9.892137411532865,
+              "finish_time": 22.580160649067775,
+              "start_time": 12.68802323753491,
+              "winding_left": 4.926614671774132e-16,
+              "winding_right": -6.283185307179584
+            },
+            {
+              "circle": "left",
+              "duration": 9.833234174728648,
+              "finish_time": 32.41339482379642,
+              "start_time": 22.580160649067775,
+              "winding_left": 6.283185307179587,
+              "winding_right": 8.760353553682876e-16
+            },
+            {
+              "circle": "left",
+              "duration": 10.181142423277649,
+              "finish_time": 42.59453724707407,
+              "start_time": 32.41339482379642,
+              "winding_left": 6.283185307179585,
+              "winding_right": 2.42861286636753e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72000,
+        "time": 10.236639917405256
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72000,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72000-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "heavy",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 1,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 2,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          9.157728285819013,
+          9.661118085956977,
+          9.62032855495708,
+          9.756760000161979
+        ],
+        "max_speed": 8.709271899261722,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.4,
+        "progress": 1.001890789084213,
+        "raw_time": 9.708939043059477,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.0059724665651046,
+            12.163700752384118,
+            21.824818838341095,
+            31.445147393298175,
+            41.201907393460154
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.157728285819013,
+              "finish_time": 12.163700752384118,
+              "start_time": 3.0059724665651046,
+              "winding_left": -6.678685382510707e-16,
+              "winding_right": -6.283185307179587
+            },
+            {
+              "circle": "right",
+              "duration": 9.661118085956977,
+              "finish_time": 21.824818838341095,
+              "start_time": 12.163700752384118,
+              "winding_left": 4.614364446098307e-16,
+              "winding_right": -6.283185307179586
+            },
+            {
+              "circle": "left",
+              "duration": 9.62032855495708,
+              "finish_time": 31.445147393298175,
+              "start_time": 21.824818838341095,
+              "winding_left": 6.283185307179582,
+              "winding_right": -4.961309141293668e-16
+            },
+            {
+              "circle": "left",
+              "duration": 9.756760000161979,
+              "finish_time": 41.201907393460154,
+              "start_time": 31.445147393298175,
+              "winding_left": 6.283185307179591,
+              "winding_right": -4.2175464509686122e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72000,
+        "time": 10.108939043059477
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72000,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72001-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "light",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 2,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 1,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          9.658448406474792,
+          10.124520231800098,
+          9.705896697170779,
+          9.940011179883825
+        ],
+        "max_speed": 8.310749355106417,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.2,
+        "progress": 1.001889943451328,
+        "raw_time": 10.032265705841962,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.2309200385342067,
+            12.889368445008998,
+            23.013888676809096,
+            32.719785373979875,
+            42.6597965538637
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.658448406474792,
+              "finish_time": 12.889368445008998,
+              "start_time": 3.2309200385342067,
+              "winding_left": -1.1796119636642288e-16,
+              "winding_right": -6.283185307179586
+            },
+            {
+              "circle": "right",
+              "duration": 10.124520231800098,
+              "finish_time": 23.013888676809096,
+              "start_time": 12.889368445008998,
+              "winding_left": 6.938893903907228e-17,
+              "winding_right": -6.283185307179591
+            },
+            {
+              "circle": "left",
+              "duration": 9.705896697170779,
+              "finish_time": 32.719785373979875,
+              "start_time": 23.013888676809096,
+              "winding_left": 6.283185307179584,
+              "winding_right": 8.760353553682876e-16
+            },
+            {
+              "circle": "left",
+              "duration": 9.940011179883825,
+              "finish_time": 42.6597965538637,
+              "start_time": 32.719785373979875,
+              "winding_left": 6.283185307179588,
+              "winding_right": 4.501607420159814e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72001,
+        "time": 10.23226570584196
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72001,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72001-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "heavy",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 3,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 4,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          9.57813426328864,
+          9.991373766439953,
+          10.020757525832451,
+          10.233333512484755
+        ],
+        "max_speed": 7.923803714657231,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.8,
+        "progress": 1.0006338181552619,
+        "raw_time": 10.112353639462354,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.31805514972709,
+            12.89618941301573,
+            22.887563179455682,
+            32.90832070528813,
+            43.14165421777289
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.57813426328864,
+              "finish_time": 12.89618941301573,
+              "start_time": 3.31805514972709,
+              "winding_left": -1.3530843112619095e-16,
+              "winding_right": -6.283185307179588
+            },
+            {
+              "circle": "right",
+              "duration": 9.991373766439953,
+              "finish_time": 22.887563179455682,
+              "start_time": 12.89618941301573,
+              "winding_left": 2.8102520310824275e-16,
+              "winding_right": -6.283185307179586
+            },
+            {
+              "circle": "left",
+              "duration": 10.020757525832451,
+              "finish_time": 32.90832070528813,
+              "start_time": 22.887563179455682,
+              "winding_left": 6.28318530717959,
+              "winding_right": -5.898059818321144e-17
+            },
+            {
+              "circle": "left",
+              "duration": 10.233333512484755,
+              "finish_time": 43.14165421777289,
+              "start_time": 32.90832070528813,
+              "winding_left": 6.2831853071795845,
+              "winding_right": 6.938893903907228e-17
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72001,
+        "time": 10.912353639462355
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72001,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72002-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "light",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 4,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 3,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          9.516339051171936,
+          9.99626037463713,
+          9.783766830168815,
+          10.087879745041391
+        ],
+        "max_speed": 8.46553776577288,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.6000000000000001,
+        "progress": 1.0018775953974786,
+        "raw_time": 10.042070059839261,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.1694727661269066,
+            12.685811817298843,
+            22.682072191935973,
+            32.46583902210479,
+            42.55371876714618
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.516339051171936,
+              "finish_time": 12.685811817298843,
+              "start_time": 3.1694727661269066,
+              "winding_left": 7.875644580934704e-16,
+              "winding_right": -6.2831853071795845
+            },
+            {
+              "circle": "right",
+              "duration": 9.99626037463713,
+              "finish_time": 22.682072191935973,
+              "start_time": 12.685811817298843,
+              "winding_left": -3.677613769070831e-16,
+              "winding_right": -6.283185307179585
+            },
+            {
+              "circle": "left",
+              "duration": 9.783766830168815,
+              "finish_time": 32.46583902210479,
+              "start_time": 22.682072191935973,
+              "winding_left": 6.283185307179587,
+              "winding_right": 5.863365348801608e-16
+            },
+            {
+              "circle": "left",
+              "duration": 10.087879745041391,
+              "finish_time": 42.55371876714618,
+              "start_time": 32.46583902210479,
+              "winding_left": 6.283185307179586,
+              "winding_right": 2.1033522146218786e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72002,
+        "time": 10.642070059839261
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72002,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72002-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "heavy",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 5,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 4,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          9.461519387129535,
+          9.926663607481501,
+          9.706387256789771,
+          9.842603266676221
+        ],
+        "max_speed": 7.94099463491391,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.8,
+        "progress": 1.00182953451951,
+        "raw_time": 9.884633437078861,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.391441618542008,
+            12.852961005671542,
+            22.779624613153043,
+            32.486011869942814,
+            42.328615136619035
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.461519387129535,
+              "finish_time": 12.852961005671542,
+              "start_time": 3.391441618542008,
+              "winding_left": -1.4289784633358948e-16,
+              "winding_right": -6.283185307179586
+            },
+            {
+              "circle": "right",
+              "duration": 9.926663607481501,
+              "finish_time": 22.779624613153043,
+              "start_time": 12.852961005671542,
+              "winding_left": -4.718447854656915e-16,
+              "winding_right": -6.283185307179589
+            },
+            {
+              "circle": "left",
+              "duration": 9.706387256789771,
+              "finish_time": 32.486011869942814,
+              "start_time": 22.779624613153043,
+              "winding_left": 6.283185307179588,
+              "winding_right": -9.020562075079397e-17
+            },
+            {
+              "circle": "left",
+              "duration": 9.842603266676221,
+              "finish_time": 42.328615136619035,
+              "start_time": 32.486011869942814,
+              "winding_left": 6.283185307179584,
+              "winding_right": 2.914335439641036e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72002,
+        "time": 10.684633437078862
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72002,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72003-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "light",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 6,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 2,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          9.09575960835585,
+          9.679812707220794,
+          9.681655520642348,
+          9.965103104624756
+        ],
+        "max_speed": 8.126164843914873,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.4,
+        "progress": 1.0018847373032664,
+        "raw_time": 9.822457905922775,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.315538510960794,
+            12.411298119316644,
+            22.091110826537438,
+            31.772766347179786,
+            41.73786945180454
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.09575960835585,
+              "finish_time": 12.411298119316644,
+              "start_time": 3.315538510960794,
+              "winding_left": -4.3281350725621337e-16,
+              "winding_right": -6.283185307179588
+            },
+            {
+              "circle": "right",
+              "duration": 9.679812707220794,
+              "finish_time": 22.091110826537438,
+              "start_time": 12.411298119316644,
+              "winding_left": -1.0061396160665481e-16,
+              "winding_right": -6.283185307179585
+            },
+            {
+              "circle": "left",
+              "duration": 9.681655520642348,
+              "finish_time": 31.772766347179786,
+              "start_time": 22.091110826537438,
+              "winding_left": 6.2831853071795845,
+              "winding_right": -5.724587470723463e-17
+            },
+            {
+              "circle": "left",
+              "duration": 9.965103104624756,
+              "finish_time": 41.73786945180454,
+              "start_time": 31.772766347179786,
+              "winding_left": 6.283185307179586,
+              "winding_right": 1.97758476261356e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72003,
+        "time": 10.222457905922775
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72003,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72003-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "heavy",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 7,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 4,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          9.231584622276635,
+          9.723380930381728,
+          9.625016033377516,
+          9.794991515139898
+        ],
+        "max_speed": 8.298450389917416,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.8,
+        "progress": 1.001742555887121,
+        "raw_time": 9.759186222760814,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.202021995897075,
+            12.43360661817371,
+            22.15698754855544,
+            31.782003581932955,
+            41.57699509707285
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.231584622276635,
+              "finish_time": 12.43360661817371,
+              "start_time": 3.202021995897075,
+              "winding_left": -3.157196726277789e-16,
+              "winding_right": -6.2831853071795845
+            },
+            {
+              "circle": "right",
+              "duration": 9.723380930381728,
+              "finish_time": 22.15698754855544,
+              "start_time": 12.43360661817371,
+              "winding_left": 1.3270634591222574e-16,
+              "winding_right": -6.283185307179587
+            },
+            {
+              "circle": "left",
+              "duration": 9.625016033377516,
+              "finish_time": 31.782003581932955,
+              "start_time": 22.15698754855544,
+              "winding_left": 6.2831853071795845,
+              "winding_right": 1.4224732503009818e-16
+            },
+            {
+              "circle": "left",
+              "duration": 9.794991515139898,
+              "finish_time": 41.57699509707285,
+              "start_time": 31.782003581932955,
+              "winding_left": 6.283185307179586,
+              "winding_right": 1.8388068845354155e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72003,
+        "time": 10.559186222760815
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72003,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72004-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "light",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 8,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 0,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          9.50998866255013,
+          9.972331741795143,
+          9.812580206034756,
+          9.909262409374833
+        ],
+        "max_speed": 8.27616437922161,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.0,
+        "progress": 1.001851748774066,
+        "raw_time": 9.940797075584989,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.1649649786443885,
+            12.674953641194518,
+            22.64728538298966,
+            32.45986558902442,
+            42.36912799839925
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.50998866255013,
+              "finish_time": 12.674953641194518,
+              "start_time": 3.1649649786443885,
+              "winding_left": -1.3183898417423734e-16,
+              "winding_right": -6.283185307179588
+            },
+            {
+              "circle": "right",
+              "duration": 9.972331741795143,
+              "finish_time": 22.64728538298966,
+              "start_time": 12.674953641194518,
+              "winding_left": -4.926614671774132e-16,
+              "winding_right": -6.2831853071795845
+            },
+            {
+              "circle": "left",
+              "duration": 9.812580206034756,
+              "finish_time": 32.45986558902442,
+              "start_time": 22.64728538298966,
+              "winding_left": 6.283185307179586,
+              "winding_right": 1.5178830414797062e-16
+            },
+            {
+              "circle": "left",
+              "duration": 9.909262409374833,
+              "finish_time": 42.36912799839925,
+              "start_time": 32.45986558902442,
+              "winding_left": 6.283185307179585,
+              "winding_right": -3.0184188481996443e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72004,
+        "time": 9.940797075584989
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72004,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72004-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "heavy",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 9,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 0,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          9.254899487638514,
+          9.794888708980286,
+          9.593522780261178,
+          9.749325449073158
+        ],
+        "max_speed": 8.303471381888398,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.0,
+        "progress": 1.0013678864333562,
+        "raw_time": 9.772107079026721,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.3056100340841814,
+            12.560509521722695,
+            22.35539823070298,
+            31.94892101096416,
+            41.69824646003732
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.254899487638514,
+              "finish_time": 12.560509521722695,
+              "start_time": 3.3056100340841814,
+              "winding_left": -5.898059818321144e-17,
+              "winding_right": -6.283185307179583
+            },
+            {
+              "circle": "right",
+              "duration": 9.794888708980286,
+              "finish_time": 22.35539823070298,
+              "start_time": 12.560509521722695,
+              "winding_left": -2.211772431870429e-17,
+              "winding_right": -6.283185307179589
+            },
+            {
+              "circle": "left",
+              "duration": 9.593522780261178,
+              "finish_time": 31.94892101096416,
+              "start_time": 22.35539823070298,
+              "winding_left": 6.28318530717958,
+              "winding_right": 6.730727086790012e-16
+            },
+            {
+              "circle": "left",
+              "duration": 9.749325449073158,
+              "finish_time": 41.69824646003732,
+              "start_time": 31.94892101096416,
+              "winding_left": 6.283185307179586,
+              "winding_right": -1.3183898417423734e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72004,
+        "time": 9.772107079026721
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72004,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72005-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "light",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 10,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 3,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          9.501810698364515,
+          10.222056834659217,
+          9.74441540536289,
+          10.02579570209366
+        ],
+        "max_speed": 8.521029352665401,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.6000000000000001,
+        "progress": 1.0017424718166552,
+        "raw_time": 10.123926268376438,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.179803160845047,
+            12.681613859209563,
+            22.90367069386878,
+            32.64808609923167,
+            42.67388180132533
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.501810698364515,
+              "finish_time": 12.681613859209563,
+              "start_time": 3.179803160845047,
+              "winding_left": -3.5735303605122226e-16,
+              "winding_right": -6.283185307179585
+            },
+            {
+              "circle": "right",
+              "duration": 10.222056834659217,
+              "finish_time": 22.90367069386878,
+              "start_time": 12.681613859209563,
+              "winding_left": -5.074066167232161e-16,
+              "winding_right": -6.2831853071795845
+            },
+            {
+              "circle": "left",
+              "duration": 9.74441540536289,
+              "finish_time": 32.64808609923167,
+              "start_time": 22.90367069386878,
+              "winding_left": 6.2831853071795845,
+              "winding_right": 3.157196726277789e-16
+            },
+            {
+              "circle": "left",
+              "duration": 10.02579570209366,
+              "finish_time": 42.67388180132533,
+              "start_time": 32.64808609923167,
+              "winding_left": 6.283185307179585,
+              "winding_right": -3.608224830031759e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72005,
+        "time": 10.723926268376438
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72005,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72005-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "heavy",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 11,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 13,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          9.978197335644015,
+          10.40973808734911,
+          10.020909439080913,
+          10.299526210748525
+        ],
+        "max_speed": 8.305048735976467,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 2.6,
+        "progress": 1.001876341644723,
+        "raw_time": 10.354632149048818,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.215082354288642,
+            13.193279689932657,
+            23.603017777281767,
+            33.62392721636268,
+            43.923453427111205
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.978197335644015,
+              "finish_time": 13.193279689932657,
+              "start_time": 3.215082354288642,
+              "winding_left": 1.8041124150158794e-16,
+              "winding_right": -6.283185307179587
+            },
+            {
+              "circle": "right",
+              "duration": 10.40973808734911,
+              "finish_time": 23.603017777281767,
+              "start_time": 13.193279689932657,
+              "winding_left": 3.707971429900425e-16,
+              "winding_right": -6.283185307179593
+            },
+            {
+              "circle": "left",
+              "duration": 10.020909439080913,
+              "finish_time": 33.62392721636268,
+              "start_time": 23.603017777281767,
+              "winding_left": 6.283185307179584,
+              "winding_right": 1.3877787807814457e-16
+            },
+            {
+              "circle": "left",
+              "duration": 10.299526210748525,
+              "finish_time": 43.923453427111205,
+              "start_time": 33.62392721636268,
+              "winding_left": 6.283185307179582,
+              "winding_right": -5.898059818321144e-17
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72005,
+        "time": 12.954632149048818
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72005,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72006-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "light",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 12,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 0,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          9.545720456428365,
+          10.03303915847928,
+          9.879138849039279,
+          10.070223443541934
+        ],
+        "max_speed": 8.14205114102525,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.0,
+        "progress": 1.0018717619664277,
+        "raw_time": 10.051631301010607,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.252799266724937,
+            12.798519723153301,
+            22.83155888163258,
+            32.71069773067186,
+            42.780921174213795
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.545720456428365,
+              "finish_time": 12.798519723153301,
+              "start_time": 3.252799266724937,
+              "winding_left": -1.734723475976807e-16,
+              "winding_right": -6.283185307179582
+            },
+            {
+              "circle": "right",
+              "duration": 10.03303915847928,
+              "finish_time": 22.83155888163258,
+              "start_time": 12.798519723153301,
+              "winding_left": 5.134781488891349e-16,
+              "winding_right": -6.283185307179586
+            },
+            {
+              "circle": "left",
+              "duration": 9.879138849039279,
+              "finish_time": 32.71069773067186,
+              "start_time": 22.83155888163258,
+              "winding_left": 6.283185307179586,
+              "winding_right": -3.4954678040932663e-16
+            },
+            {
+              "circle": "left",
+              "duration": 10.070223443541934,
+              "finish_time": 42.780921174213795,
+              "start_time": 32.71069773067186,
+              "winding_left": 6.28318530717958,
+              "winding_right": 4.649058915617843e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72006,
+        "time": 10.051631301010607
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72006,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72006-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "heavy",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 13,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 4,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          9.494213753357474,
+          9.982319790002023,
+          9.660275692873714,
+          9.850668275335806
+        ],
+        "max_speed": 8.272843090462043,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.8,
+        "progress": 1.0018663908247623,
+        "raw_time": 9.916494032668915,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.2928090139112878,
+            12.787022767268763,
+            22.769342557270786,
+            32.4296182501445,
+            42.28028652548031
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.494213753357474,
+              "finish_time": 12.787022767268763,
+              "start_time": 3.2928090139112878,
+              "winding_left": 1.5265566588595902e-16,
+              "winding_right": -6.283185307179591
+            },
+            {
+              "circle": "right",
+              "duration": 9.982319790002023,
+              "finish_time": 22.769342557270786,
+              "start_time": 12.787022767268763,
+              "winding_left": -1.97758476261356e-16,
+              "winding_right": -6.283185307179587
+            },
+            {
+              "circle": "left",
+              "duration": 9.660275692873714,
+              "finish_time": 32.4296182501445,
+              "start_time": 22.769342557270786,
+              "winding_left": 6.283185307179587,
+              "winding_right": -8.708311849403572e-16
+            },
+            {
+              "circle": "left",
+              "duration": 9.850668275335806,
+              "finish_time": 42.28028652548031,
+              "start_time": 32.4296182501445,
+              "winding_left": 6.28318530717959,
+              "winding_right": -4.128641872824801e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72006,
+        "time": 10.716494032668916
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72006,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72007-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "light",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 14,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 0,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          9.469195159035195,
+          10.015056563597463,
+          9.817620568821468,
+          10.051604570848873
+        ],
+        "max_speed": 8.197854134593372,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.0,
+        "progress": 1.0018705851985774,
+        "raw_time": 10.033330567223167,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.3530427442644974,
+            12.822237903299692,
+            22.837294466897156,
+            32.65491503571862,
+            42.7065196065675
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.469195159035195,
+              "finish_time": 12.822237903299692,
+              "start_time": 3.3530427442644974,
+              "winding_left": 1.0581813203458523e-16,
+              "winding_right": -6.283185307179584
+            },
+            {
+              "circle": "right",
+              "duration": 10.015056563597463,
+              "finish_time": 22.837294466897156,
+              "start_time": 12.822237903299692,
+              "winding_left": -4.3368086899420177e-16,
+              "winding_right": -6.283185307179585
+            },
+            {
+              "circle": "left",
+              "duration": 9.817620568821468,
+              "finish_time": 32.65491503571862,
+              "start_time": 22.837294466897156,
+              "winding_left": 6.283185307179588,
+              "winding_right": 2.0513105103425744e-16
+            },
+            {
+              "circle": "left",
+              "duration": 10.051604570848873,
+              "finish_time": 42.7065196065675,
+              "start_time": 32.65491503571862,
+              "winding_left": 6.283185307179588,
+              "winding_right": 2.8275992658421956e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72007,
+        "time": 10.033330567223167
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72007,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72007-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "heavy",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 15,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 2,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          9.350567991386075,
+          9.88115822683395,
+          9.5919067178625,
+          9.934315415794067
+        ],
+        "max_speed": 8.33205270513113,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.4,
+        "progress": 1.0018303679792733,
+        "raw_time": 9.907736821314009,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.1470954835729836,
+            12.497663474959058,
+            22.378821701793008,
+            31.970728419655508,
+            41.905043835449575
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.350567991386075,
+              "finish_time": 12.497663474959058,
+              "start_time": 3.1470954835729836,
+              "winding_left": -4.510281037539698e-16,
+              "winding_right": -6.283185307179586
+            },
+            {
+              "circle": "right",
+              "duration": 9.88115822683395,
+              "finish_time": 22.378821701793008,
+              "start_time": 12.497663474959058,
+              "winding_left": -1.3877787807814457e-17,
+              "winding_right": -6.283185307179586
+            },
+            {
+              "circle": "left",
+              "duration": 9.5919067178625,
+              "finish_time": 31.970728419655508,
+              "start_time": 22.378821701793008,
+              "winding_left": 6.283185307179584,
+              "winding_right": -9.540979117872439e-17
+            },
+            {
+              "circle": "left",
+              "duration": 9.934315415794067,
+              "finish_time": 41.905043835449575,
+              "start_time": 31.970728419655508,
+              "winding_left": 6.283185307179584,
+              "winding_right": 2.3505503099485736e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72007,
+        "time": 10.307736821314009
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72007,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72008-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "light",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 16,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 2,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          9.581550880056302,
+          10.081815595264816,
+          9.807534857670955,
+          10.076538506711948
+        ],
+        "max_speed": 8.358279491193944,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.4,
+        "progress": 1.0018045580551505,
+        "raw_time": 10.079177050988381,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.1939680739,
+            12.775518953956302,
+            22.857334549221118,
+            32.66486940689207,
+            42.74140791360402
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.581550880056302,
+              "finish_time": 12.775518953956302,
+              "start_time": 3.1939680739,
+              "winding_left": -3.95516952522712e-16,
+              "winding_right": -6.2831853071795845
+            },
+            {
+              "circle": "right",
+              "duration": 10.081815595264816,
+              "finish_time": 22.857334549221118,
+              "start_time": 12.775518953956302,
+              "winding_left": -2.480654570646834e-16,
+              "winding_right": -6.283185307179591
+            },
+            {
+              "circle": "left",
+              "duration": 9.807534857670955,
+              "finish_time": 32.66486940689207,
+              "start_time": 22.857334549221118,
+              "winding_left": 6.283185307179581,
+              "winding_right": -1.1275702593849246e-16
+            },
+            {
+              "circle": "left",
+              "duration": 10.076538506711948,
+              "finish_time": 42.74140791360402,
+              "start_time": 32.66486940689207,
+              "winding_left": 6.283185307179584,
+              "winding_right": -3.3306690738754696e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72008,
+        "time": 10.479177050988381
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72008,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72008-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "heavy",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 17,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 7,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          8.775568573975319,
+          9.347026886262361,
+          9.812251180013728,
+          10.04645846603038
+        ],
+        "max_speed": 8.786814572741209,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 1.4000000000000001,
+        "progress": 1.001725270899179,
+        "raw_time": 9.696742676146371,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.0968038091660617,
+            11.87237238314138,
+            21.21939926940374,
+            31.03165044941747,
+            41.07810891544785
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 8.775568573975319,
+              "finish_time": 11.87237238314138,
+              "start_time": 3.0968038091660617,
+              "winding_left": 2.5673907444456745e-16,
+              "winding_right": -6.283185307179587
+            },
+            {
+              "circle": "right",
+              "duration": 9.347026886262361,
+              "finish_time": 21.21939926940374,
+              "start_time": 11.87237238314138,
+              "winding_left": 5.030698080332741e-16,
+              "winding_right": -6.283185307179588
+            },
+            {
+              "circle": "left",
+              "duration": 9.812251180013728,
+              "finish_time": 31.03165044941747,
+              "start_time": 21.21939926940374,
+              "winding_left": 6.28318530717959,
+              "winding_right": -6.730727086790012e-16
+            },
+            {
+              "circle": "left",
+              "duration": 10.04645846603038,
+              "finish_time": 41.07810891544785,
+              "start_time": 31.03165044941747,
+              "winding_left": 6.283185307179591,
+              "winding_right": 6.106226635438361e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72008,
+        "time": 11.096742676146372
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72008,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72009-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "light",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 18,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 3,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          9.555270416451268,
+          10.018685346035172,
+          9.562500677034219,
+          9.93719069932289
+        ],
+        "max_speed": 8.230286462346534,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.6000000000000001,
+        "progress": 1.0018805438166505,
+        "raw_time": 9.97793802267903,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.2602412474504714,
+            12.81551166390174,
+            22.83419700993691,
+            32.39669768697113,
+            42.33388838629402
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.555270416451268,
+              "finish_time": 12.81551166390174,
+              "start_time": 3.2602412474504714,
+              "winding_left": 1.1102230246251565e-16,
+              "winding_right": -6.283185307179584
+            },
+            {
+              "circle": "right",
+              "duration": 10.018685346035172,
+              "finish_time": 22.83419700993691,
+              "start_time": 12.81551166390174,
+              "winding_left": -6.314393452555578e-16,
+              "winding_right": -6.283185307179588
+            },
+            {
+              "circle": "left",
+              "duration": 9.562500677034219,
+              "finish_time": 32.39669768697113,
+              "start_time": 22.83419700993691,
+              "winding_left": 6.283185307179586,
+              "winding_right": -6.418476861114186e-16
+            },
+            {
+              "circle": "left",
+              "duration": 9.93719069932289,
+              "finish_time": 42.33388838629402,
+              "start_time": 32.39669768697113,
+              "winding_left": 6.283185307179584,
+              "winding_right": -2.740863092043355e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72009,
+        "time": 10.57793802267903
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72009,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "skidpad-72009-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "heavy",
+      "group": "skidpad",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 19,
+      "reference_result": {
+        "command_mode": "recorded",
+        "complete": true,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 6,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          9.214367728718596,
+          9.813264783226133,
+          9.177972957564165,
+          9.929111914738442
+        ],
+        "max_speed": 8.721969746255535,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "penalty": 1.2000000000000002,
+        "progress": 1.0018998683496738,
+        "raw_time": 9.871188348982287,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.2015705707892805,
+            12.415938299507877,
+            22.22920308273401,
+            31.407176040298175,
+            41.33628795503662
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.214367728718596,
+              "finish_time": 12.415938299507877,
+              "start_time": 3.2015705707892805,
+              "winding_left": -4.2500725161431774e-16,
+              "winding_right": -6.2831853071795845
+            },
+            {
+              "circle": "right",
+              "duration": 9.813264783226133,
+              "finish_time": 22.22920308273401,
+              "start_time": 12.415938299507877,
+              "winding_left": 6.106226635438361e-16,
+              "winding_right": -6.2831853071795845
+            },
+            {
+              "circle": "left",
+              "duration": 9.177972957564165,
+              "finish_time": 31.407176040298175,
+              "start_time": 22.22920308273401,
+              "winding_left": 6.283185307179589,
+              "winding_right": 5.221517662690189e-16
+            },
+            {
+              "circle": "left",
+              "duration": 9.929111914738442,
+              "finish_time": 41.33628795503662,
+              "start_time": 31.407176040298175,
+              "winding_left": 6.283185307179587,
+              "winding_right": -9.992007221626409e-16
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 72009,
+        "time": 11.071188348982286
+      },
+      "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+      "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+      "seed": 72009,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "retention-trackdrive_020000-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "trackdrive",
+      "dr": "light",
+      "group": "retention",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 0,
+      "reference_result": {
+        "avg_speed_first3": null,
+        "complete": true,
+        "discipline": "trackdrive",
+        "doo": 0,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          53.89999999999741
+        ],
+        "max_speed": 8.423112776963109,
+        "n_laps": 1,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.0,
+        "raw_time": 53.89999999999741,
+        "result": "finished",
+        "seed": 0,
+        "time": 53.89999999999741,
+        "track": "trackdrive_020000"
+      },
+      "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+      "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+      "seed": 0,
+      "track_id": "trackdrive_020000",
+      "track_source": "data/sim/spark_full_venue/ep00002_trackdrive_020000_stand/track.json",
+      "track_source_sha256": "0b29ff8de4c5147a633f9c015e061d601f92b688ae32e9c12407bc9059b7e433",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "retention-trackdrive_020000-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "trackdrive",
+      "dr": "heavy",
+      "group": "retention",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 1,
+      "reference_result": {
+        "avg_speed_first3": null,
+        "complete": true,
+        "discipline": "trackdrive",
+        "doo": 4,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          56.04999999999698
+        ],
+        "max_speed": 8.840861573326517,
+        "n_laps": 1,
+        "oc": 3,
+        "pass": true,
+        "penalty": 38.0,
+        "raw_time": 56.04999999999698,
+        "result": "finished",
+        "seed": 0,
+        "time": 94.04999999999697,
+        "track": "trackdrive_020000"
+      },
+      "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+      "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+      "seed": 0,
+      "track_id": "trackdrive_020000",
+      "track_source": "data/sim/spark_full_venue/ep00002_trackdrive_020000_stand/track.json",
+      "track_source_sha256": "0b29ff8de4c5147a633f9c015e061d601f92b688ae32e9c12407bc9059b7e433",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "retention-trackdrive_020005-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "trackdrive",
+      "dr": "light",
+      "group": "retention",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 4,
+      "reference_result": {
+        "avg_speed_first3": null,
+        "complete": true,
+        "discipline": "trackdrive",
+        "doo": 1,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          30.850000000001998
+        ],
+        "max_speed": 10.233774639010743,
+        "n_laps": 1,
+        "oc": 0,
+        "pass": true,
+        "penalty": 2.0,
+        "raw_time": 30.850000000001998,
+        "result": "finished",
+        "seed": 0,
+        "time": 32.850000000002,
+        "track": "trackdrive_020005"
+      },
+      "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+      "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+      "seed": 0,
+      "track_id": "trackdrive_020005",
+      "track_source": "data/sim/spark_full_venue/ep00012_trackdrive_020005/track.json",
+      "track_source_sha256": "ddff33a0fb10db044fb702cb74a49ed9e42afee1834f786691152be1ef5e2d37",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "retention-trackdrive_020005-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "trackdrive",
+      "dr": "heavy",
+      "group": "retention",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 5,
+      "reference_result": {
+        "avg_speed_first3": null,
+        "complete": true,
+        "discipline": "trackdrive",
+        "doo": 5,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          35.300000000001106
+        ],
+        "max_speed": 7.9090906692601415,
+        "n_laps": 1,
+        "oc": 0,
+        "pass": true,
+        "penalty": 10.0,
+        "raw_time": 35.300000000001106,
+        "result": "finished",
+        "seed": 0,
+        "time": 45.300000000001106,
+        "track": "trackdrive_020005"
+      },
+      "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+      "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+      "seed": 0,
+      "track_id": "trackdrive_020005",
+      "track_source": "data/sim/spark_full_venue/ep00012_trackdrive_020005/track.json",
+      "track_source_sha256": "ddff33a0fb10db044fb702cb74a49ed9e42afee1834f786691152be1ef5e2d37",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "retention-trackdrive_020015-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "trackdrive",
+      "dr": "light",
+      "group": "retention",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 8,
+      "reference_result": {
+        "avg_speed_first3": null,
+        "complete": true,
+        "discipline": "trackdrive",
+        "doo": 0,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          46.749999999998835
+        ],
+        "max_speed": 9.522481147918766,
+        "n_laps": 1,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.0,
+        "raw_time": 46.749999999998835,
+        "result": "finished",
+        "seed": 0,
+        "time": 46.749999999998835,
+        "track": "trackdrive_020015"
+      },
+      "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+      "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+      "seed": 0,
+      "track_id": "trackdrive_020015",
+      "track_source": "data/sim/spark_full_venue/ep00033_trackdrive_020015/track.json",
+      "track_source_sha256": "2372b9658aaba9a1aa6970e80aebf615a043339035dc159d34f7db351840e580",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "retention-trackdrive_020015-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "trackdrive",
+      "dr": "heavy",
+      "group": "retention",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 9,
+      "reference_result": {
+        "avg_speed_first3": null,
+        "complete": true,
+        "discipline": "trackdrive",
+        "doo": 1,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          51.69999999999788
+        ],
+        "max_speed": 9.0085978589101,
+        "n_laps": 1,
+        "oc": 0,
+        "pass": true,
+        "penalty": 2.0,
+        "raw_time": 51.69999999999788,
+        "result": "finished",
+        "seed": 0,
+        "time": 53.69999999999788,
+        "track": "trackdrive_020015"
+      },
+      "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+      "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+      "seed": 0,
+      "track_id": "trackdrive_020015",
+      "track_source": "data/sim/spark_full_venue/ep00033_trackdrive_020015/track.json",
+      "track_source_sha256": "2372b9658aaba9a1aa6970e80aebf615a043339035dc159d34f7db351840e580",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "retention-trackdrive_020023-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "trackdrive",
+      "dr": "light",
+      "group": "retention",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 12,
+      "reference_result": {
+        "avg_speed_first3": null,
+        "complete": true,
+        "discipline": "trackdrive",
+        "doo": 0,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          50.59999999999804
+        ],
+        "max_speed": 9.415801095181882,
+        "n_laps": 1,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.0,
+        "raw_time": 50.59999999999804,
+        "result": "finished",
+        "seed": 0,
+        "time": 50.59999999999804,
+        "track": "trackdrive_020023"
+      },
+      "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+      "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+      "seed": 0,
+      "track_id": "trackdrive_020023",
+      "track_source": "data/sim/spark_full_venue/ep00049_trackdrive_020023/track.json",
+      "track_source_sha256": "32fcbeb85cb70f11ea88b16000d23a0ccd2ad1a929b0646dce7576b7183c4e2f",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "retention-trackdrive_020023-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "trackdrive",
+      "dr": "heavy",
+      "group": "retention",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 13,
+      "reference_result": {
+        "avg_speed_first3": null,
+        "complete": true,
+        "discipline": "trackdrive",
+        "doo": 0,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          53.849999999997436
+        ],
+        "max_speed": 8.091389980301743,
+        "n_laps": 1,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.0,
+        "raw_time": 53.849999999997436,
+        "result": "finished",
+        "seed": 0,
+        "time": 53.849999999997436,
+        "track": "trackdrive_020023"
+      },
+      "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+      "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+      "seed": 0,
+      "track_id": "trackdrive_020023",
+      "track_source": "data/sim/spark_full_venue/ep00049_trackdrive_020023/track.json",
+      "track_source_sha256": "32fcbeb85cb70f11ea88b16000d23a0ccd2ad1a929b0646dce7576b7183c4e2f",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "retention-trackdrive_030000-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "trackdrive",
+      "dr": "light",
+      "group": "retention",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 2,
+      "reference_result": {
+        "avg_speed_first3": null,
+        "complete": true,
+        "discipline": "trackdrive",
+        "doo": 2,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          51.69999999999785
+        ],
+        "max_speed": 9.074831586291571,
+        "n_laps": 1,
+        "oc": 0,
+        "pass": true,
+        "penalty": 4.0,
+        "raw_time": 51.69999999999785,
+        "result": "finished",
+        "seed": 0,
+        "time": 55.69999999999785,
+        "track": "trackdrive_030000"
+      },
+      "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+      "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+      "seed": 0,
+      "track_id": "trackdrive_030000",
+      "track_source": "data/sim/spark_full_venue/ep01093_trackdrive_030000/track.json",
+      "track_source_sha256": "ecba06afe4d332b37a12ad5711c5ede7eaad5e2fc67ec021bbd34fdb214a169b",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "retention-trackdrive_030000-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "trackdrive",
+      "dr": "heavy",
+      "group": "retention",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 3,
+      "reference_result": {
+        "avg_speed_first3": null,
+        "complete": true,
+        "discipline": "trackdrive",
+        "doo": 2,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          54.599999999997266
+        ],
+        "max_speed": 8.601810917134618,
+        "n_laps": 1,
+        "oc": 0,
+        "pass": true,
+        "penalty": 4.0,
+        "raw_time": 54.599999999997266,
+        "result": "finished",
+        "seed": 0,
+        "time": 58.599999999997266,
+        "track": "trackdrive_030000"
+      },
+      "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+      "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+      "seed": 0,
+      "track_id": "trackdrive_030000",
+      "track_source": "data/sim/spark_full_venue/ep01093_trackdrive_030000/track.json",
+      "track_source_sha256": "ecba06afe4d332b37a12ad5711c5ede7eaad5e2fc67ec021bbd34fdb214a169b",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "retention-trackdrive_030010-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "trackdrive",
+      "dr": "light",
+      "group": "retention",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 6,
+      "reference_result": {
+        "avg_speed_first3": null,
+        "complete": true,
+        "discipline": "trackdrive",
+        "doo": 0,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          46.99999999999878
+        ],
+        "max_speed": 11.513573806793852,
+        "n_laps": 1,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.0,
+        "raw_time": 46.99999999999878,
+        "result": "finished",
+        "seed": 0,
+        "time": 46.99999999999878,
+        "track": "trackdrive_030010"
+      },
+      "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+      "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+      "seed": 0,
+      "track_id": "trackdrive_030010",
+      "track_source": "data/sim/spark_full_venue/ep01114_trackdrive_030010/track.json",
+      "track_source_sha256": "4a7581bcdf884c62e3f138c1585bb90cf38e756809bffcf5dcce974c08d0d308",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "retention-trackdrive_030010-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "trackdrive",
+      "dr": "heavy",
+      "group": "retention",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 7,
+      "reference_result": {
+        "avg_speed_first3": null,
+        "complete": true,
+        "discipline": "trackdrive",
+        "doo": 0,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          53.549999999997496
+        ],
+        "max_speed": 9.241933389489406,
+        "n_laps": 1,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.0,
+        "raw_time": 53.549999999997496,
+        "result": "finished",
+        "seed": 0,
+        "time": 53.549999999997496,
+        "track": "trackdrive_030010"
+      },
+      "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+      "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+      "seed": 0,
+      "track_id": "trackdrive_030010",
+      "track_source": "data/sim/spark_full_venue/ep01114_trackdrive_030010/track.json",
+      "track_source_sha256": "4a7581bcdf884c62e3f138c1585bb90cf38e756809bffcf5dcce974c08d0d308",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "retention-trackdrive_030020-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "trackdrive",
+      "dr": "light",
+      "group": "retention",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 10,
+      "reference_result": {
+        "avg_speed_first3": null,
+        "complete": true,
+        "discipline": "trackdrive",
+        "doo": 0,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          29.700000000002174
+        ],
+        "max_speed": 11.815378422024436,
+        "n_laps": 1,
+        "oc": 0,
+        "pass": true,
+        "penalty": 0.0,
+        "raw_time": 29.700000000002174,
+        "result": "finished",
+        "seed": 0,
+        "time": 29.700000000002174,
+        "track": "trackdrive_030020"
+      },
+      "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+      "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+      "seed": 0,
+      "track_id": "trackdrive_030020",
+      "track_source": "data/sim/spark_full_venue/ep01135_trackdrive_030020/track.json",
+      "track_source_sha256": "900cb0b2fadb8fa72f2cee09590733ef88dd7879ad71d29a861b030c9a2780e9",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "retention-trackdrive_030020-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "trackdrive",
+      "dr": "heavy",
+      "group": "retention",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 11,
+      "reference_result": {
+        "avg_speed_first3": null,
+        "complete": true,
+        "discipline": "trackdrive",
+        "doo": 1,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          35.4000000000011
+        ],
+        "max_speed": 12.34301020816925,
+        "n_laps": 1,
+        "oc": 0,
+        "pass": true,
+        "penalty": 2.0,
+        "raw_time": 35.4000000000011,
+        "result": "finished",
+        "seed": 0,
+        "time": 37.4000000000011,
+        "track": "trackdrive_030020"
+      },
+      "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+      "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+      "seed": 0,
+      "track_id": "trackdrive_030020",
+      "track_source": "data/sim/spark_full_venue/ep01135_trackdrive_030020/track.json",
+      "track_source_sha256": "900cb0b2fadb8fa72f2cee09590733ef88dd7879ad71d29a861b030c9a2780e9",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "retention-trackdrive_030061-light-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "trackdrive",
+      "dr": "light",
+      "group": "retention",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 14,
+      "reference_result": {
+        "avg_speed_first3": null,
+        "complete": true,
+        "discipline": "trackdrive",
+        "doo": 2,
+        "dq": false,
+        "dr": "light",
+        "laps": [
+          49.94999999999819
+        ],
+        "max_speed": 12.287055445272918,
+        "n_laps": 1,
+        "oc": 0,
+        "pass": true,
+        "penalty": 4.0,
+        "raw_time": 49.94999999999819,
+        "result": "finished",
+        "seed": 0,
+        "time": 53.94999999999819,
+        "track": "trackdrive_030061"
+      },
+      "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+      "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+      "seed": 0,
+      "track_id": "trackdrive_030061",
+      "track_source": "data/sim/spark_full_venue/ep01218_trackdrive_030061/track.json",
+      "track_source_sha256": "07c24917b0db36d1c6bddc97a7f2bc8eac74f05817b5394e653e24b2ec2e0b6a",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "retention-trackdrive_030061-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "trackdrive",
+      "dr": "heavy",
+      "group": "retention",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 15,
+      "reference_result": {
+        "avg_speed_first3": null,
+        "complete": true,
+        "discipline": "trackdrive",
+        "doo": 7,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [
+          58.499999999996525
+        ],
+        "max_speed": 8.601254019496228,
+        "n_laps": 1,
+        "oc": 0,
+        "pass": true,
+        "penalty": 14.0,
+        "raw_time": 58.499999999996525,
+        "result": "finished",
+        "seed": 0,
+        "time": 72.49999999999653,
+        "track": "trackdrive_030061"
+      },
+      "reference_sha256": "88b3ac9b1abb5bc21163875c88863cec5b674f367f2a72822add9da669e28124",
+      "reference_source": "runs/skidpad_clean/control_retention/driving.json",
+      "seed": 0,
+      "track_id": "trackdrive_030061",
+      "track_source": "data/sim/spark_full_venue/ep01218_trackdrive_030061/track.json",
+      "track_source_sha256": "07c24917b0db36d1c6bddc97a7f2bc8eac74f05817b5394e653e24b2ec2e0b6a",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "ablation-skidpad-72000-light-zero",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "zero",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "light",
+      "group": "ablation",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 0,
+      "reference_result": {
+        "command_mode": "zero",
+        "complete": false,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 2,
+        "dq": true,
+        "dr": "light",
+        "laps": [],
+        "max_speed": 9.635957801743643,
+        "n_laps": 0,
+        "oc": 1,
+        "pass": false,
+        "penalty": 0.4,
+        "progress": 0.2853292968843609,
+        "raw_time": null,
+        "result": "invalid_route",
+        "route": {
+          "accepted_route": [],
+          "complete": false,
+          "crossings": [
+            3.386905988588289,
+            25.956037258151955
+          ],
+          "exited": false,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [],
+          "reverse_crossings": 0,
+          "stopped_in_zone": false,
+          "termination": "invalid_route",
+          "valid": false,
+          "violation": "incomplete_or_outside_circle"
+        },
+        "seed": 72000,
+        "time": null
+      },
+      "reference_sha256": "7bf2e1ea90ef2b58f46cfb3185ca55ec71456f9af83d86cfc0b661ced9e1afe9",
+      "reference_source": "runs/skidpad_clean/commands_zero/driving.json",
+      "seed": 72000,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "ablation-skidpad-72000-heavy-zero",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "zero",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "heavy",
+      "group": "ablation",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 1,
+      "reference_result": {
+        "command_mode": "zero",
+        "complete": false,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 8,
+        "dq": true,
+        "dr": "heavy",
+        "laps": [],
+        "max_speed": 9.206543305519851,
+        "n_laps": 0,
+        "oc": 9,
+        "pass": false,
+        "penalty": 1.6,
+        "progress": 0.2852310286328229,
+        "raw_time": null,
+        "result": "invalid_route",
+        "route": {
+          "accepted_route": [],
+          "complete": false,
+          "crossings": [
+            3.0328668403520704,
+            81.9605773950291
+          ],
+          "exited": false,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [],
+          "reverse_crossings": 0,
+          "stopped_in_zone": false,
+          "termination": "invalid_route",
+          "valid": false,
+          "violation": "incomplete_or_outside_circle"
+        },
+        "seed": 72000,
+        "time": null
+      },
+      "reference_sha256": "7bf2e1ea90ef2b58f46cfb3185ca55ec71456f9af83d86cfc0b661ced9e1afe9",
+      "reference_source": "runs/skidpad_clean/commands_zero/driving.json",
+      "seed": 72000,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "ablation-skidpad-72000-light-swapped",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "swapped",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "light",
+      "group": "ablation",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 0,
+      "reference_result": {
+        "command_mode": "swapped",
+        "complete": false,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 2,
+        "dq": false,
+        "dr": "light",
+        "laps": [],
+        "max_speed": 7.5435570930074896,
+        "n_laps": 0,
+        "oc": 0,
+        "pass": false,
+        "penalty": 0.4,
+        "progress": 0.07476444477862206,
+        "raw_time": null,
+        "result": "invalid_route",
+        "route": {
+          "accepted_route": [],
+          "complete": false,
+          "crossings": [
+            3.4852350532019054,
+            13.400776020306653
+          ],
+          "exited": false,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [],
+          "reverse_crossings": 0,
+          "stopped_in_zone": false,
+          "termination": "invalid_route",
+          "valid": false,
+          "violation": "wrong_circle_expected_right_got_left"
+        },
+        "seed": 72000,
+        "time": null
+      },
+      "reference_sha256": "c91d39456e8eedde04098bce54fa4e0d1a513886e4013e770b915588ab78c5de",
+      "reference_source": "runs/skidpad_clean/commands_swapped/driving.json",
+      "seed": 72000,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "ablation-skidpad-72000-heavy-swapped",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "swapped",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "heavy",
+      "group": "ablation",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 1,
+      "reference_result": {
+        "command_mode": "swapped",
+        "complete": false,
+        "controller": "pp",
+        "discipline": "skidpad",
+        "doo": 3,
+        "dq": false,
+        "dr": "heavy",
+        "laps": [],
+        "max_speed": 8.133247417709743,
+        "n_laps": 0,
+        "oc": 0,
+        "pass": false,
+        "penalty": 0.6000000000000001,
+        "progress": 0.07420037699042037,
+        "raw_time": null,
+        "result": "invalid_route",
+        "route": {
+          "accepted_route": [],
+          "complete": false,
+          "crossings": [
+            3.0951082476331218,
+            12.521504297577417
+          ],
+          "exited": false,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [],
+          "reverse_crossings": 0,
+          "stopped_in_zone": false,
+          "termination": "invalid_route",
+          "valid": false,
+          "violation": "wrong_circle_expected_right_got_left"
+        },
+        "seed": 72000,
+        "time": null
+      },
+      "reference_sha256": "c91d39456e8eedde04098bce54fa4e0d1a513886e4013e770b915588ab78c5de",
+      "reference_source": "runs/skidpad_clean/commands_swapped/driving.json",
+      "seed": 72000,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    },
+    {
+      "case_id": "prior-failure-skidpad-71003-heavy-recorded",
+      "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+      "command_mode": "recorded",
+      "controller": "pp",
+      "discipline": "skidpad",
+      "dr": "heavy",
+      "group": "prior_failure",
+      "max_time": 120,
+      "noise": false,
+      "reference_index": 0,
+      "reference_result": {
+        "checkpoint": "runs/skidpad_clean/final.pt",
+        "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+        "complete": true,
+        "discipline": "skidpad",
+        "doo": 5,
+        "dq": false,
+        "dr": "heavy",
+        "frames": 935,
+        "laps": [
+          9.630839513963252,
+          9.991143852922857,
+          9.495776719399043,
+          9.727738055448313
+        ],
+        "max_speed": 8.152904078826454,
+        "n_laps": 4,
+        "oc": 0,
+        "pass": true,
+        "path": "runs/skidpad_clean/video_previous_failure/skidpad-raw.mp4",
+        "penalty": 1.0,
+        "raw_time": 9.859440954185585,
+        "result": "finished",
+        "route": {
+          "accepted_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "complete": true,
+          "crossings": [
+            3.380757010369387,
+            13.011596524332639,
+            23.002740377255495,
+            32.49851709665454,
+            42.22625515210285
+          ],
+          "exited": true,
+          "expected_route": [
+            "right",
+            "right",
+            "left",
+            "left"
+          ],
+          "laps": [
+            {
+              "circle": "right",
+              "duration": 9.630839513963252,
+              "finish_time": 13.011596524332639,
+              "start_time": 3.380757010369387,
+              "winding_left": -9.540979117872439e-18,
+              "winding_right": -6.283185307179588
+            },
+            {
+              "circle": "right",
+              "duration": 9.991143852922857,
+              "finish_time": 23.002740377255495,
+              "start_time": 13.011596524332639,
+              "winding_left": -3.645087703896266e-16,
+              "winding_right": -6.283185307179587
+            },
+            {
+              "circle": "left",
+              "duration": 9.495776719399043,
+              "finish_time": 32.49851709665454,
+              "start_time": 23.002740377255495,
+              "winding_left": 6.283185307179587,
+              "winding_right": 5.065392549852277e-16
+            },
+            {
+              "circle": "left",
+              "duration": 9.727738055448313,
+              "finish_time": 42.22625515210285,
+              "start_time": 32.49851709665454,
+              "winding_left": 6.28318530717959,
+              "winding_right": 9.367506770274758e-17
+            }
+          ],
+          "reverse_crossings": 0,
+          "stopped_in_zone": true,
+          "termination": "finished",
+          "valid": true,
+          "violation": null
+        },
+        "seed": 71003,
+        "time": 10.859440954185585,
+        "venue_probability": 1.0
+      },
+      "reference_sha256": "63135f99a2809f351dee6043f275014ce4705b60bd5605c4debcde5b3f42ed77",
+      "reference_source": "runs/skidpad_clean/video_previous_failure/video.json",
+      "seed": 71003,
+      "track_id": "skidpad",
+      "track_source": "fsop.track.fixed_layouts.skidpad()",
+      "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "venue_prob": 1.0
+    }
+  ],
+  "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+  "current_environment_source_hashes": {
+    "src/fsop/geometry/camera.py": "98b8bc7f7b98cddc4e756d4b92103604f4462baea2b161f0410a943f30c207a3",
+    "src/fsop/profile.py": "2c8968ba76880a1f167480e474f68301fedd8cd652be2df2670498d4230b19d0",
+    "src/fsop/sim/env.py": "43e4bc7b07fcb5f963a9ce022952d6d7d8d16cf34ef2cf66af648959e31a2026",
+    "src/fsop/sim/expert.py": "7f1c3fb9083b4edd04e61a33719a88b4b65bea85fb6490ea2ef191e66d35986e",
+    "src/fsop/sim/randomization.py": "25b492a84b289a3febf9d726e1a43ef59f4657986282d28d551f5bd49cccff04",
+    "src/fsop/sim/referee.py": "c0dacad0659a9cd806e25b2405e0e4a4aadd58897858d14a717a42c0132391e2",
+    "src/fsop/sim/route_commands.py": "31def8ff21c2d86824fdd7783c9131928a12fa2ac1e9d5d427063e640f40b149",
+    "src/fsop/sim/skidpad.py": "a6169eec33804ce14b01cbd383a74b7474f77cf69b1baf072a805a1fcd8dc6a2",
+    "src/fsop/sim/vehicle.py": "55643a3d4f43c1a7605b8da3641517a8c0380bc92ba7526a5e555e0f7cd3ae39",
+    "src/fsop/track/centerline.py": "de45a95eba2e8fa0419a7407ced66718bc6f49099dff8b00c7663f2bf7ac5887",
+    "src/fsop/track/fixed_layouts.py": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+    "src/fsop/track/io.py": "86a833f72d920882c55c1dee89de841a8d4b67d8cbaa0658ddb17a614bc8af4c",
+    "src/fsop/track/schema.py": "f2f760bee7826c82f34e3f704a0b5807bcd0f6b043e856a781d8fe727ac1c04c"
+  },
+  "manifest_sha256": "db09bf67135f8d4dd10fd9da36b4d262ac1a9fd364fac9793aaeca017287cc4e",
+  "matching_contract": {
+    "cameras": [
+      "road",
+      "wide"
+    ],
+    "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+    "commands": "RouteCommands.advance on physical progress; zero or swap channels 1 and 2 at policy boundary",
+    "controller": "pp",
+    "fps": 20,
+    "initialization": "FSEnv reset renders and postprocesses once before the first policy observation",
+    "max_time": 120.0,
+    "noise": false,
+    "panorama_sampling": "frozen sorted inventory of the 20 original artifacts/panoramas/*.jpg files",
+    "postprocessing": "original postprocess with env.rng, road then wide, once per policy observation",
+    "profile": "built-in TeamProfile defaults",
+    "random_start": false,
+    "randomize_expert": true,
+    "referee": "original Referee using actual randomized cone positions and original mission_done threshold",
+    "retention_laps": 1,
+    "start_speed": 0.0,
+    "substeps": 5,
+    "venue_prob": 1.0
+  },
+  "panorama_asset_hashes": {
+    "abandoned_hopper_terminal_04.jpg": "111f70622638c0bd90ba33e1c9c512493870fdb833e71c825320f798a734afe2",
+    "abandoned_parking.jpg": "e61e11e0c077f408f3969d0a259e1a5c9cb2eaec0282f476a8aa97d5f5013fd7",
+    "abandoned_tank_farm_01.jpg": "62da3d87437af90cb84fd6aa853d7e22634bcc1341f97b4c5394576a3b22e799",
+    "abandoned_tank_farm_03.jpg": "09f3b43566d99d37adcd712dfb3fe9d6e8753da90e475d859445d62ac1c01f07",
+    "autumn_field_puresky.jpg": "f3a38a7a20bfbfc60165f3eef2c60e853f8468359d69d6a8747655fb81d13246",
+    "autumn_road.jpg": "7e7e1ebf74066101e016449485308185ed09519400122fe3911f5df48af3e1fe",
+    "bloem_olive_house.jpg": "eacf9e8817e4b1ea99bda4a79eb942979bd9670870e26e10ba5a6c650d181941",
+    "countrytrax_midday.jpg": "8bc65ba95e878df19a2386a18b5697f51f38b942c3e6929836972a07b98288b5",
+    "crosswalk.jpg": "1a221dd5fc3f5099e4a2b4b2b01cb8248f48e350813d9813c9649ac7add6c18d",
+    "derelict_airfield_01.jpg": "37fa33d9c2d86080ccd83a6a28bbb4c8e5e26582b96b1cd5600a7df1db58e6d6",
+    "derelict_airfield_02.jpg": "9effaf8261adc71151ee24e7952b3c2f23affc567827c183396b276ebe6be0d2",
+    "derelict_highway_midday.jpg": "208a496189445d64cdefa42490ddef5e3e7b667a248b6636d679642946888597",
+    "derelict_highway_noon.jpg": "74d99bc64a02eb3d2ddf390773cc5b654acf1a5c52540c59c10ec3b101a32896",
+    "dirt_bike_track_01.jpg": "7ffaf50858ee77d64fa4af37a3dc5f4304fd0c5bba6ea731d062d203411fe193",
+    "driving_school.jpg": "9eafac8422001d0c0b800bdf2d5a2fafc42ca0c8dce8d99375b25348d1d614ff",
+    "farm_field_puresky.jpg": "fc21170b0cff16b715bf71c6972bd5e7927c1c93b19370e5a58b6f74285be808",
+    "future_parking.jpg": "36f9459ad12f7cd256636f1f796a33ced892debc1caa040e2aed2d9a4c44bf93",
+    "german_town_street.jpg": "3f3d85ab15e22d9a0dfe55946ec26f62dc08cbfa3feaded601152fcbe4969b29",
+    "glencairn_expressway.jpg": "c04a600327b18d58609aad87bdf13632ff1698fc19287e85f9c6cf74e580ce97",
+    "hanger_exterior_cloudy.jpg": "c7d8a020680d5615fafd3b9e4c7a89f95d3106f94f932e6f1b4978929d2563e1"
+  },
+  "realizations": [
+    {
+      "case_id": "skidpad-72000-light-recorded",
+      "path": "realizations/skidpad-72000-light-recorded.json",
+      "realization_sha256": "5c517680c8aba8e941730aa0d7fc5748ff35ad80db7bd532cd1f906994517f07",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72000-heavy-recorded",
+      "path": "realizations/skidpad-72000-heavy-recorded.json",
+      "realization_sha256": "ed4cba128737ed27450471ff2c2e257b70f1301cc40d0b9a2fcbf632bc09a5ad",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72001-light-recorded",
+      "path": "realizations/skidpad-72001-light-recorded.json",
+      "realization_sha256": "98b39305eabdf9d3cb75bfda9c478c29ac9ac35b46edb53082e13e7bf23de58c",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72001-heavy-recorded",
+      "path": "realizations/skidpad-72001-heavy-recorded.json",
+      "realization_sha256": "deba1f88e499df3b355b46ab9e6853003883bdf48b9ec8cb238300cf832deeb3",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72002-light-recorded",
+      "path": "realizations/skidpad-72002-light-recorded.json",
+      "realization_sha256": "a6246d6d57cc6a37cf50072a19cdad3b1683a6a15ab617a3fbd3594e5c7b746f",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72002-heavy-recorded",
+      "path": "realizations/skidpad-72002-heavy-recorded.json",
+      "realization_sha256": "01b34daa447a57bc8562118e5cd4906574dbce8c332d166059caa975d6b85c6d",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72003-light-recorded",
+      "path": "realizations/skidpad-72003-light-recorded.json",
+      "realization_sha256": "7f563c8dc702d84109b163d221d0d618e501e9a8ffc293084579443ad6d858d8",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72003-heavy-recorded",
+      "path": "realizations/skidpad-72003-heavy-recorded.json",
+      "realization_sha256": "0da67f07bac355ee9223fc58bd73dc77de61889881aa8a30a5f515ed1d0f2bbd",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72004-light-recorded",
+      "path": "realizations/skidpad-72004-light-recorded.json",
+      "realization_sha256": "4e409617949455f722b6093c6fbdf06514a5e4fa5439c9e1ccaaef9183b0db22",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72004-heavy-recorded",
+      "path": "realizations/skidpad-72004-heavy-recorded.json",
+      "realization_sha256": "3f279444f74caf1752736a532260d7ad99d0eac736130028a06eabda97bb3fe4",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72005-light-recorded",
+      "path": "realizations/skidpad-72005-light-recorded.json",
+      "realization_sha256": "f32eee6e439eaf38be2159e44a1c09ffc38d0b313d6d31e703ac64b067ebf726",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72005-heavy-recorded",
+      "path": "realizations/skidpad-72005-heavy-recorded.json",
+      "realization_sha256": "937b1812ac622a3cf5e40ffe1d1d4d46e1e57ef02d5070169bb8f4a17b31dafc",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72006-light-recorded",
+      "path": "realizations/skidpad-72006-light-recorded.json",
+      "realization_sha256": "e204b4c4abdf4d34276f016719f1e9ed1a3ba6d3d0611e60deec7cdf33a8ffe6",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72006-heavy-recorded",
+      "path": "realizations/skidpad-72006-heavy-recorded.json",
+      "realization_sha256": "fe4f7c8a2b0f429f9cf23a49e1e1a65250ab0a4835d0b5e42025c067b981cc11",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72007-light-recorded",
+      "path": "realizations/skidpad-72007-light-recorded.json",
+      "realization_sha256": "3a80f51556b75ad877eea6d2e84502c49a6ba1eb545bd1c60ca44e55b0fea1ee",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72007-heavy-recorded",
+      "path": "realizations/skidpad-72007-heavy-recorded.json",
+      "realization_sha256": "75bf1eedc356e156b46a925ec159e96520b784c9098f3f661119e53122472407",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72008-light-recorded",
+      "path": "realizations/skidpad-72008-light-recorded.json",
+      "realization_sha256": "f36467154d412156f59250ad193254044d7e2f208e113527dc31f0ccb6932ee1",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72008-heavy-recorded",
+      "path": "realizations/skidpad-72008-heavy-recorded.json",
+      "realization_sha256": "4ffba710c6f0f8420bd6ac2b4efa2cec81881fd42d6d27704e8ff8af5884f379",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72009-light-recorded",
+      "path": "realizations/skidpad-72009-light-recorded.json",
+      "realization_sha256": "79912ac40059aff4ce749fb86af6f1169595f616a668fc818894daeb4ac6775b",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "skidpad-72009-heavy-recorded",
+      "path": "realizations/skidpad-72009-heavy-recorded.json",
+      "realization_sha256": "3b52253f789b36eee1f177697c0a425e8096a5ffd244a0433b5c4466304fffd3",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "retention-trackdrive_020000-light-recorded",
+      "path": "realizations/retention-trackdrive_020000-light-recorded.json",
+      "realization_sha256": "39030d6cb853575e4902f2a97a1ba3a21a82fc33b4291a55307f182ed84ebfb5",
+      "track_sha256": "826f7c1b49536e44354963f3e186cc9facd0fcd20ba01a36bfa66422fdb79d71"
+    },
+    {
+      "case_id": "retention-trackdrive_020000-heavy-recorded",
+      "path": "realizations/retention-trackdrive_020000-heavy-recorded.json",
+      "realization_sha256": "a7aa6e6584e035593384fca962a6d59b7185b63df5df0c005ddacbdd010663e6",
+      "track_sha256": "826f7c1b49536e44354963f3e186cc9facd0fcd20ba01a36bfa66422fdb79d71"
+    },
+    {
+      "case_id": "retention-trackdrive_020005-light-recorded",
+      "path": "realizations/retention-trackdrive_020005-light-recorded.json",
+      "realization_sha256": "10ae43f85257fadf21d9acfb2d36454792238443713ad59937a475d03c263f16",
+      "track_sha256": "8e85c9041ddf3ecd5cac5af1eb6d0ae567222b40e4730bcd8f9e86876400de40"
+    },
+    {
+      "case_id": "retention-trackdrive_020005-heavy-recorded",
+      "path": "realizations/retention-trackdrive_020005-heavy-recorded.json",
+      "realization_sha256": "e64e043239dd8bc9dd4253f4a5b6b478949300001e31d972e1bb4926067728ae",
+      "track_sha256": "8e85c9041ddf3ecd5cac5af1eb6d0ae567222b40e4730bcd8f9e86876400de40"
+    },
+    {
+      "case_id": "retention-trackdrive_020015-light-recorded",
+      "path": "realizations/retention-trackdrive_020015-light-recorded.json",
+      "realization_sha256": "fd64c8ccd34efbf58c12ba62227de0f642d6add342bddc612f862c0214db9ae6",
+      "track_sha256": "db8574d42523e7fa2434b9a036e10a906d61bca326841a3c74f17fae775ca904"
+    },
+    {
+      "case_id": "retention-trackdrive_020015-heavy-recorded",
+      "path": "realizations/retention-trackdrive_020015-heavy-recorded.json",
+      "realization_sha256": "14af5f5bfe4664920990b5b9e6ebb02cca816c759160573344977a8c3ca9d9ee",
+      "track_sha256": "db8574d42523e7fa2434b9a036e10a906d61bca326841a3c74f17fae775ca904"
+    },
+    {
+      "case_id": "retention-trackdrive_020023-light-recorded",
+      "path": "realizations/retention-trackdrive_020023-light-recorded.json",
+      "realization_sha256": "e5737542eb60c09b7e05cc286dc9f1ec4b35b12acf8e04b1b65a250b085c06d3",
+      "track_sha256": "f73e62070d3d307a2043bf65669eea377279527614e1621789e1cbace2a6a9b4"
+    },
+    {
+      "case_id": "retention-trackdrive_020023-heavy-recorded",
+      "path": "realizations/retention-trackdrive_020023-heavy-recorded.json",
+      "realization_sha256": "9eefb4a869e199b8867fa29eb531dbbbf2571ac67ee51222565bf1b30d82265a",
+      "track_sha256": "f73e62070d3d307a2043bf65669eea377279527614e1621789e1cbace2a6a9b4"
+    },
+    {
+      "case_id": "retention-trackdrive_030000-light-recorded",
+      "path": "realizations/retention-trackdrive_030000-light-recorded.json",
+      "realization_sha256": "282ca8df1c0193b3984e8899446ae231c848e7a222e972560a04dd056210ad8a",
+      "track_sha256": "68d7fbaba2cdb14b14887e76322cb09abdf3d449cc94a26bb22db971ad89bea9"
+    },
+    {
+      "case_id": "retention-trackdrive_030000-heavy-recorded",
+      "path": "realizations/retention-trackdrive_030000-heavy-recorded.json",
+      "realization_sha256": "f86c663d58f2afb80f1d259ede6447164e79eeab7ff25f699f72364e2333b3ed",
+      "track_sha256": "68d7fbaba2cdb14b14887e76322cb09abdf3d449cc94a26bb22db971ad89bea9"
+    },
+    {
+      "case_id": "retention-trackdrive_030010-light-recorded",
+      "path": "realizations/retention-trackdrive_030010-light-recorded.json",
+      "realization_sha256": "d833a803d33dae1a0da74e3f93da97d71657b24daa5277891c4631cd42e487f4",
+      "track_sha256": "cb33def44d15dcd6e4231a3c4803adb45e1573de5b3b55fccc8f9196cbfd9cee"
+    },
+    {
+      "case_id": "retention-trackdrive_030010-heavy-recorded",
+      "path": "realizations/retention-trackdrive_030010-heavy-recorded.json",
+      "realization_sha256": "aefed5ebd755b7e948cd2b4c4ddce486fcdd4b143919a0cdce2f73bd088bb864",
+      "track_sha256": "cb33def44d15dcd6e4231a3c4803adb45e1573de5b3b55fccc8f9196cbfd9cee"
+    },
+    {
+      "case_id": "retention-trackdrive_030020-light-recorded",
+      "path": "realizations/retention-trackdrive_030020-light-recorded.json",
+      "realization_sha256": "ea37f50440dc32c46b6a090b3dab6d3dd66b51959140a0b1b55e8f06413751a8",
+      "track_sha256": "01f4d743bdeaa828fbf48dd5ad1475e6fd79e3bbc307df92ff2f085a51043379"
+    },
+    {
+      "case_id": "retention-trackdrive_030020-heavy-recorded",
+      "path": "realizations/retention-trackdrive_030020-heavy-recorded.json",
+      "realization_sha256": "38ba396a77e4f02d7c035fc15738dd0b325279bc37bc980d8f434fe418b88802",
+      "track_sha256": "01f4d743bdeaa828fbf48dd5ad1475e6fd79e3bbc307df92ff2f085a51043379"
+    },
+    {
+      "case_id": "retention-trackdrive_030061-light-recorded",
+      "path": "realizations/retention-trackdrive_030061-light-recorded.json",
+      "realization_sha256": "99816314101969b3362e5c6b8c5d18d220adaa5c2e135112f08a9b231aebe29f",
+      "track_sha256": "b6f188c14136916428b876c8b91914f57c0ca95918b0f659d2878becf6a96416"
+    },
+    {
+      "case_id": "retention-trackdrive_030061-heavy-recorded",
+      "path": "realizations/retention-trackdrive_030061-heavy-recorded.json",
+      "realization_sha256": "df68932153530b814c13ac5a3efbfd8ef1b979157e8d6ea98d184518cd2c22ad",
+      "track_sha256": "b6f188c14136916428b876c8b91914f57c0ca95918b0f659d2878becf6a96416"
+    },
+    {
+      "case_id": "ablation-skidpad-72000-light-zero",
+      "path": "realizations/ablation-skidpad-72000-light-zero.json",
+      "realization_sha256": "5c517680c8aba8e941730aa0d7fc5748ff35ad80db7bd532cd1f906994517f07",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "ablation-skidpad-72000-heavy-zero",
+      "path": "realizations/ablation-skidpad-72000-heavy-zero.json",
+      "realization_sha256": "ed4cba128737ed27450471ff2c2e257b70f1301cc40d0b9a2fcbf632bc09a5ad",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "ablation-skidpad-72000-light-swapped",
+      "path": "realizations/ablation-skidpad-72000-light-swapped.json",
+      "realization_sha256": "5c517680c8aba8e941730aa0d7fc5748ff35ad80db7bd532cd1f906994517f07",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "ablation-skidpad-72000-heavy-swapped",
+      "path": "realizations/ablation-skidpad-72000-heavy-swapped.json",
+      "realization_sha256": "ed4cba128737ed27450471ff2c2e257b70f1301cc40d0b9a2fcbf632bc09a5ad",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    },
+    {
+      "case_id": "prior-failure-skidpad-71003-heavy-recorded",
+      "path": "realizations/prior-failure-skidpad-71003-heavy-recorded.json",
+      "realization_sha256": "015c5bf87037e356a45c775db3e475da8dd706715fb25ab3d2fef99d0cf1f887",
+      "track_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d"
+    }
+  ],
+  "reference_sha256": "3aba439995027dc70d96ae64c902aa53ae3c4702d94d2052d716681c1785809c",
+  "runtime": {
+    "packages": {
+      "cv2": "4.11.0",
+      "numpy": "1.26.0",
+      "scipy": "1.15.3",
+      "shapely": "2.1.2"
+    },
+    "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+    "python": "3.11.13"
+  },
+  "schema_version": 1,
+  "source_hashes": {
+    "runs/skidpad_clean/final_evaluation.py": "0a093bafec509448d3f55a7a0b35641ee763cb13514495f187c44261934b4f4e",
+    "runs/skidpad_clean/retention.py": "cd069c5c4a681d1df28f6edc4ad1194fa57ddc33617cbc1037ce04ef91c4d1c3",
+    "scripts/evaluate_skidpad_clean.py": "23d5a3d98c0437374644ec7564771e77e211217603ca4bd99d2bfd544abac626",
+    "scripts/evaluate_skidpad_retention.py": "beb31eb2968a4cb8ed8ed90acc3ca392ee4129e30055eb741082e2fdf23d2218",
+    "scripts/probe_skidpad.py": "40f809b2bf1fe36946b966fb278061fff549aa9a560b14de8e382a673b8ee229",
+    "scripts/render_skidpad.py": "525b0b77ac72e33e1beac6e8a1fcfdffc88e6f44cb1d7780949cb17c3972ee0a",
+    "src/fsop/data/sim_dataset.py": "7753c0deae1f3aad51a747346f4ff7acab72c0f50860685196847845107affe3",
+    "src/fsop/eval/closed_loop.py": "f41bfae441f9c7a43e9d3ed9c7fb692dcd63d4e967dbd269f6bb9e7bb173deb7",
+    "src/fsop/eval/controller.py": "18294c2854b82fd7605505f018021b8c8eddea11608fc420ffba726b0f45c03c",
+    "src/fsop/geometry/camera.py": "98b8bc7f7b98cddc4e756d4b92103604f4462baea2b161f0410a943f30c207a3",
+    "src/fsop/profile.py": "2c8968ba76880a1f167480e474f68301fedd8cd652be2df2670498d4230b19d0",
+    "src/fsop/sim/drive.py": "e7e8072c3375e0de9d89d6fadcbfac897fa21f47a7d084eee1e2d0dffe047bc1",
+    "src/fsop/sim/env.py": "43e4bc7b07fcb5f963a9ce022952d6d7d8d16cf34ef2cf66af648959e31a2026",
+    "src/fsop/sim/expert.py": "7f1c3fb9083b4edd04e61a33719a88b4b65bea85fb6490ea2ef191e66d35986e",
+    "src/fsop/sim/randomization.py": "25b492a84b289a3febf9d726e1a43ef59f4657986282d28d551f5bd49cccff04",
+    "src/fsop/sim/referee.py": "c0dacad0659a9cd806e25b2405e0e4a4aadd58897858d14a717a42c0132391e2",
+    "src/fsop/sim/render/assets.py": "c790b7c47113c6a86c792059bc7ca1b23764111f870b6ae67d5b88fe5b9f6051",
+    "src/fsop/sim/render/panda3d_backend.py": "e06a3ad9e675a27d5875f553ab7f442bf0a450380dcaca08611e530e0e1e5519",
+    "src/fsop/sim/render/venue.py": "98a7ac4b041c0c3a149a52f21cce1b461d0d992601e240241e460fe0fd5339ca",
+    "src/fsop/sim/route_commands.py": "31def8ff21c2d86824fdd7783c9131928a12fa2ac1e9d5d427063e640f40b149",
+    "src/fsop/sim/skidpad.py": "a6169eec33804ce14b01cbd383a74b7474f77cf69b1baf072a805a1fcd8dc6a2",
+    "src/fsop/sim/vehicle.py": "55643a3d4f43c1a7605b8da3641517a8c0380bc92ba7526a5e555e0f7cd3ae39",
+    "src/fsop/track/centerline.py": "de45a95eba2e8fa0419a7407ced66718bc6f49099dff8b00c7663f2bf7ac5887",
+    "src/fsop/track/fixed_layouts.py": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+    "src/fsop/track/io.py": "86a833f72d920882c55c1dee89de841a8d4b67d8cbaa0658ddb17a614bc8af4c",
+    "src/fsop/track/schema.py": "f2f760bee7826c82f34e3f704a0b5807bcd0f6b043e856a781d8fe727ac1c04c",
+    "src/fsop/viz/video.py": "b00f560bb00b574ddaf9d771aeddeb3ada56c8801c1c418367b64e6a1dabb56c"
+  }
+}

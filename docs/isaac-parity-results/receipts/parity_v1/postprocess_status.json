@@ -1,0 +1,211 @@
+{
+  "complete": true,
+  "cases": [
+    {
+      "case_id": "skidpad-72000-heavy-recorded",
+      "frames": 938,
+      "seconds": 95.5371191110462
+    },
+    {
+      "case_id": "skidpad-72001-light-recorded",
+      "frames": 976,
+      "seconds": 103.62575473706238
+    },
+    {
+      "case_id": "skidpad-72000-light-recorded",
+      "frames": 971,
+      "seconds": 104.19785901589785
+    },
+    {
+      "case_id": "skidpad-72001-heavy-recorded",
+      "frames": 1702,
+      "seconds": 163.0133172980277
+    },
+    {
+      "case_id": "skidpad-72003-heavy-recorded",
+      "frames": 292,
+      "seconds": 31.93340692995116
+    },
+    {
+      "case_id": "skidpad-72002-heavy-recorded",
+      "frames": 924,
+      "seconds": 91.79853835189715
+    },
+    {
+      "case_id": "skidpad-72002-light-recorded",
+      "frames": 946,
+      "seconds": 100.2169494710397
+    },
+    {
+      "case_id": "skidpad-72003-light-recorded",
+      "frames": 955,
+      "seconds": 97.56739958596881
+    },
+    {
+      "case_id": "skidpad-72004-light-recorded",
+      "frames": 956,
+      "seconds": 93.94080595299602
+    },
+    {
+      "case_id": "skidpad-72005-light-recorded",
+      "frames": 964,
+      "seconds": 93.19170682202093
+    },
+    {
+      "case_id": "skidpad-72004-heavy-recorded",
+      "frames": 947,
+      "seconds": 99.02029536291957
+    },
+    {
+      "case_id": "skidpad-72005-heavy-recorded",
+      "frames": 962,
+      "seconds": 100.67239722190425
+    },
+    {
+      "case_id": "skidpad-72006-light-recorded",
+      "frames": 947,
+      "seconds": 94.494192030048
+    },
+    {
+      "case_id": "skidpad-72006-heavy-recorded",
+      "frames": 946,
+      "seconds": 101.01000233995728
+    },
+    {
+      "case_id": "skidpad-72007-light-recorded",
+      "frames": 957,
+      "seconds": 97.0321765660774
+    },
+    {
+      "case_id": "skidpad-72007-heavy-recorded",
+      "frames": 944,
+      "seconds": 95.6131885079667
+    },
+    {
+      "case_id": "skidpad-72009-light-recorded",
+      "frames": 952,
+      "seconds": 85.47407646896318
+    },
+    {
+      "case_id": "skidpad-72008-light-recorded",
+      "frames": 962,
+      "seconds": 99.67245665192604
+    },
+    {
+      "case_id": "skidpad-72009-heavy-recorded",
+      "frames": 853,
+      "seconds": 94.61702492996119
+    },
+    {
+      "case_id": "retention-trackdrive_020005-light-recorded",
+      "frames": 822,
+      "seconds": 79.81029658997431
+    },
+    {
+      "case_id": "retention-trackdrive_020000-light-recorded",
+      "frames": 1251,
+      "seconds": 118.52232559898403
+    },
+    {
+      "case_id": "retention-trackdrive_020000-heavy-recorded",
+      "frames": 1262,
+      "seconds": 135.06782682298217
+    },
+    {
+      "case_id": "skidpad-72008-heavy-recorded",
+      "frames": 2400,
+      "seconds": 239.69537328602746
+    },
+    {
+      "case_id": "retention-trackdrive_020015-light-recorded",
+      "frames": 1141,
+      "seconds": 110.7608500639908
+    },
+    {
+      "case_id": "retention-trackdrive_020023-light-recorded",
+      "frames": 1156,
+      "seconds": 111.01864329399541
+    },
+    {
+      "case_id": "retention-trackdrive_020015-heavy-recorded",
+      "frames": 1151,
+      "seconds": 123.6429918409558
+    },
+    {
+      "case_id": "retention-trackdrive_020005-heavy-recorded",
+      "frames": 2400,
+      "seconds": 258.85006690002047
+    },
+    {
+      "case_id": "retention-trackdrive_020023-heavy-recorded",
+      "frames": 1195,
+      "seconds": 127.46849438396748
+    },
+    {
+      "case_id": "retention-trackdrive_030000-light-recorded",
+      "frames": 1249,
+      "seconds": 121.1887100150343
+    },
+    {
+      "case_id": "retention-trackdrive_030000-heavy-recorded",
+      "frames": 1248,
+      "seconds": 134.24146057502367
+    },
+    {
+      "case_id": "retention-trackdrive_030020-light-recorded",
+      "frames": 868,
+      "seconds": 82.77563886495773
+    },
+    {
+      "case_id": "retention-trackdrive_030010-light-recorded",
+      "frames": 1174,
+      "seconds": 114.27142094902229
+    },
+    {
+      "case_id": "retention-trackdrive_030010-heavy-recorded",
+      "frames": 1161,
+      "seconds": 123.48531492101029
+    },
+    {
+      "case_id": "retention-trackdrive_030020-heavy-recorded",
+      "frames": 904,
+      "seconds": 95.04587047290988
+    },
+    {
+      "case_id": "ablation-skidpad-72000-light-zero",
+      "frames": 453,
+      "seconds": 49.41919330309611
+    },
+    {
+      "case_id": "ablation-skidpad-72000-heavy-zero",
+      "frames": 552,
+      "seconds": 56.962190979975276
+    },
+    {
+      "case_id": "ablation-skidpad-72000-light-swapped",
+      "frames": 281,
+      "seconds": 31.078820533002727
+    },
+    {
+      "case_id": "ablation-skidpad-72000-heavy-swapped",
+      "frames": 269,
+      "seconds": 28.200367643963546
+    },
+    {
+      "case_id": "prior-failure-skidpad-71003-heavy-recorded",
+      "frames": 288,
+      "seconds": 27.751028236933053
+    },
+    {
+      "case_id": "retention-trackdrive_030061-light-recorded",
+      "frames": 1271,
+      "seconds": 123.6019330919953
+    },
+    {
+      "case_id": "retention-trackdrive_030061-heavy-recorded",
+      "frames": 1705,
+      "seconds": 181.7372556050541
+    }
+  ],
+  "wall_seconds": 1128.126177072525
+}

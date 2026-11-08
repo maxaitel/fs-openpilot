@@ -1,0 +1,56 @@
+{
+  "case_id": "prior-failure-skidpad-71003-heavy-recorded",
+  "repair_source_sha256": "63c8e036233b98556a12277db25125719da65185d3176ee8900ed81133e6e74f",
+  "before_sha256": "a2b0db726a79792c695d9a0f62c10ce5ce0d549fcebb54a07d482d0c5a8dd15b",
+  "original_audit_sha256": "4116902c9e9c6be81cb440085f7d0f6d7c150ba5d03245aadb7a8322bdef2f3a",
+  "backup_file": "debug.backup.rrd",
+  "commands": [
+    {
+      "arguments": [
+        "verify",
+        "--check-footers=false",
+        "isaac_eval/runs/parity_v1/prior-failure-skidpad-71003-heavy-recorded/debug.rrd"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "1 file verified without error.\n"
+    },
+    {
+      "arguments": [
+        "migrate",
+        "isaac_eval/runs/parity_v1/prior-failure-skidpad-71003-heavy-recorded/debug.rrd"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "Migrating 1 .rrd file(s)\u2026\n\u2705 1 file(s) successfully migrated.\n"
+    },
+    {
+      "arguments": [
+        "verify",
+        "--check-footers=true",
+        "isaac_eval/runs/parity_v1/prior-failure-skidpad-71003-heavy-recorded/debug.rrd"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "1 file verified without error.\n"
+    },
+    {
+      "arguments": [
+        "compare",
+        "--unordered",
+        "isaac_eval/runs/parity_v1/prior-failure-skidpad-71003-heavy-recorded/debug.backup.rrd",
+        "isaac_eval/runs/parity_v1/prior-failure-skidpad-71003-heavy-recorded/debug.rrd"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "comparison_ignores": [
+    "log_time",
+    "row_order"
+  ],
+  "after_sha256": "a39f770c4017d209421894c5383310b2c6d173e22dabfa8bddbd4bf90183aea2",
+  "footer_verified": true,
+  "data_comparison_passed": true
+}

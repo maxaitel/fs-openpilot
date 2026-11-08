@@ -119,7 +119,7 @@ def create_cones(stage, xy, colors):
         UsdPhysics.MeshCollisionAPI.Apply(mesh.GetPrim()).CreateApproximationAttr("convexHull")
 
 
-def make_cameras():
+def make_cameras(with_chase=True):
     cameras = {}
     for name, model in CAMERA_MODELS.items():
         cam = Camera("/World/Camera_" + name, resolution=(512, 256), frequency=-1)
@@ -136,6 +136,8 @@ def make_cameras():
         cam.set_clipping_range(0.05, 500.0)
         cam.initialize()
         cameras[name] = cam
+    if not with_chase:
+        return cameras, None
     chase = Camera("/World/Chase", resolution=(768, 512), frequency=-1)
     chase.set_focal_length(0.018)
     chase.set_horizontal_aperture(0.036)

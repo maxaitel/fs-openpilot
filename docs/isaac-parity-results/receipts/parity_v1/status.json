@@ -1,0 +1,418 @@
+{
+  "started_unix": 1794161032.5328734,
+  "elapsed_wall_seconds": 11853.716058254242,
+  "expected_cases": 41,
+  "cases": [
+    {
+      "case_id": "skidpad-72000-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 5,
+      "oc": 0,
+      "recorded_frames": 971
+    },
+    {
+      "case_id": "skidpad-72000-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 8,
+      "oc": 0,
+      "recorded_frames": 938
+    },
+    {
+      "case_id": "skidpad-72001-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 5,
+      "oc": 0,
+      "recorded_frames": 976
+    },
+    {
+      "case_id": "skidpad-72001-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": false,
+      "result": "dnf",
+      "doo": 19,
+      "oc": 10,
+      "recorded_frames": 1702
+    },
+    {
+      "case_id": "skidpad-72002-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 0,
+      "oc": 0,
+      "recorded_frames": 946
+    },
+    {
+      "case_id": "skidpad-72002-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 2,
+      "oc": 0,
+      "recorded_frames": 924
+    },
+    {
+      "case_id": "skidpad-72003-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 3,
+      "oc": 0,
+      "recorded_frames": 955
+    },
+    {
+      "case_id": "skidpad-72003-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": false,
+      "result": "invalid_route",
+      "doo": 2,
+      "oc": 1,
+      "recorded_frames": 292
+    },
+    {
+      "case_id": "skidpad-72004-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 3,
+      "oc": 0,
+      "recorded_frames": 956
+    },
+    {
+      "case_id": "skidpad-72004-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 2,
+      "oc": 0,
+      "recorded_frames": 947
+    },
+    {
+      "case_id": "skidpad-72005-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 1,
+      "oc": 0,
+      "recorded_frames": 964
+    },
+    {
+      "case_id": "skidpad-72005-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 10,
+      "oc": 0,
+      "recorded_frames": 962
+    },
+    {
+      "case_id": "skidpad-72006-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 1,
+      "oc": 0,
+      "recorded_frames": 947
+    },
+    {
+      "case_id": "skidpad-72006-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 4,
+      "oc": 0,
+      "recorded_frames": 946
+    },
+    {
+      "case_id": "skidpad-72007-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 0,
+      "oc": 0,
+      "recorded_frames": 957
+    },
+    {
+      "case_id": "skidpad-72007-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 0,
+      "oc": 0,
+      "recorded_frames": 944
+    },
+    {
+      "case_id": "skidpad-72008-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 7,
+      "oc": 0,
+      "recorded_frames": 962
+    },
+    {
+      "case_id": "skidpad-72008-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": false,
+      "result": "timeout",
+      "doo": 15,
+      "oc": 6,
+      "recorded_frames": 2400
+    },
+    {
+      "case_id": "skidpad-72009-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 4,
+      "oc": 0,
+      "recorded_frames": 952
+    },
+    {
+      "case_id": "skidpad-72009-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": false,
+      "result": "invalid_route",
+      "doo": 6,
+      "oc": 0,
+      "recorded_frames": 853
+    },
+    {
+      "case_id": "retention-trackdrive_020000-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 0,
+      "oc": 0,
+      "recorded_frames": 1251
+    },
+    {
+      "case_id": "retention-trackdrive_020000-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 0,
+      "oc": 0,
+      "recorded_frames": 1262
+    },
+    {
+      "case_id": "retention-trackdrive_020005-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 3,
+      "oc": 0,
+      "recorded_frames": 822
+    },
+    {
+      "case_id": "retention-trackdrive_020005-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": false,
+      "result": "timeout",
+      "doo": 19,
+      "oc": 15,
+      "recorded_frames": 2400
+    },
+    {
+      "case_id": "retention-trackdrive_020015-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 0,
+      "oc": 0,
+      "recorded_frames": 1141
+    },
+    {
+      "case_id": "retention-trackdrive_020015-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 0,
+      "oc": 0,
+      "recorded_frames": 1151
+    },
+    {
+      "case_id": "retention-trackdrive_020023-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 0,
+      "oc": 0,
+      "recorded_frames": 1156
+    },
+    {
+      "case_id": "retention-trackdrive_020023-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 0,
+      "oc": 0,
+      "recorded_frames": 1195
+    },
+    {
+      "case_id": "retention-trackdrive_030000-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 3,
+      "oc": 0,
+      "recorded_frames": 1249
+    },
+    {
+      "case_id": "retention-trackdrive_030000-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 4,
+      "oc": 0,
+      "recorded_frames": 1248
+    },
+    {
+      "case_id": "retention-trackdrive_030010-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 0,
+      "oc": 0,
+      "recorded_frames": 1174
+    },
+    {
+      "case_id": "retention-trackdrive_030010-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 2,
+      "oc": 1,
+      "recorded_frames": 1161
+    },
+    {
+      "case_id": "retention-trackdrive_030020-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 0,
+      "oc": 0,
+      "recorded_frames": 868
+    },
+    {
+      "case_id": "retention-trackdrive_030020-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 0,
+      "oc": 0,
+      "recorded_frames": 904
+    },
+    {
+      "case_id": "retention-trackdrive_030061-light-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 3,
+      "oc": 0,
+      "recorded_frames": 1271
+    },
+    {
+      "case_id": "retention-trackdrive_030061-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": true,
+      "result": "finished",
+      "doo": 13,
+      "oc": 4,
+      "recorded_frames": 1705
+    },
+    {
+      "case_id": "ablation-skidpad-72000-light-zero",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": false,
+      "result": "invalid_route",
+      "doo": 1,
+      "oc": 1,
+      "recorded_frames": 453
+    },
+    {
+      "case_id": "ablation-skidpad-72000-heavy-zero",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": false,
+      "result": "invalid_route",
+      "doo": 5,
+      "oc": 2,
+      "recorded_frames": 552
+    },
+    {
+      "case_id": "ablation-skidpad-72000-light-swapped",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": false,
+      "result": "invalid_route",
+      "doo": 0,
+      "oc": 0,
+      "recorded_frames": 281
+    },
+    {
+      "case_id": "ablation-skidpad-72000-heavy-swapped",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": false,
+      "result": "invalid_route",
+      "doo": 0,
+      "oc": 0,
+      "recorded_frames": 269
+    },
+    {
+      "case_id": "prior-failure-skidpad-71003-heavy-recorded",
+      "returncode": 0,
+      "technical_success": true,
+      "pass": false,
+      "result": "invalid_route",
+      "doo": 9,
+      "oc": 0,
+      "recorded_frames": 288
+    }
+  ],
+  "complete": true
+}

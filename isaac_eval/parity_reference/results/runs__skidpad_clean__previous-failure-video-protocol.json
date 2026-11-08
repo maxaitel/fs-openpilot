@@ -1,0 +1,6 @@
+{
+  "seed": 71003,
+  "dr": "heavy",
+  "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+  "reason": "Reproduce the previously failed scene with the frozen selected model"
+}

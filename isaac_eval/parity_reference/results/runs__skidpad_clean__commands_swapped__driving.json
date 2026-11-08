@@ -1,0 +1,87 @@
+{
+  "checkpoint": "runs/skidpad_clean/final.pt",
+  "runs": [
+    {
+      "discipline": "skidpad",
+      "result": "invalid_route",
+      "laps": [],
+      "n_laps": 0,
+      "doo": 2,
+      "oc": 0,
+      "max_speed": 7.5435570930074896,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [],
+        "laps": [],
+        "crossings": [
+          3.4852350532019054,
+          13.400776020306653
+        ],
+        "complete": false,
+        "exited": false,
+        "stopped_in_zone": false,
+        "valid": false,
+        "violation": "wrong_circle_expected_right_got_left",
+        "reverse_crossings": 0,
+        "termination": "invalid_route"
+      },
+      "raw_time": null,
+      "penalty": 0.4,
+      "time": null,
+      "dq": false,
+      "complete": false,
+      "pass": false,
+      "seed": 72000,
+      "dr": "light",
+      "controller": "pp",
+      "command_mode": "swapped",
+      "progress": 0.07476444477862206
+    },
+    {
+      "discipline": "skidpad",
+      "result": "invalid_route",
+      "laps": [],
+      "n_laps": 0,
+      "doo": 3,
+      "oc": 0,
+      "max_speed": 8.133247417709743,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [],
+        "laps": [],
+        "crossings": [
+          3.0951082476331218,
+          12.521504297577417
+        ],
+        "complete": false,
+        "exited": false,
+        "stopped_in_zone": false,
+        "valid": false,
+        "violation": "wrong_circle_expected_right_got_left",
+        "reverse_crossings": 0,
+        "termination": "invalid_route"
+      },
+      "raw_time": null,
+      "penalty": 0.6000000000000001,
+      "time": null,
+      "dq": false,
+      "complete": false,
+      "pass": false,
+      "seed": 72000,
+      "dr": "heavy",
+      "controller": "pp",
+      "command_mode": "swapped",
+      "progress": 0.07420037699042037
+    }
+  ]
+}

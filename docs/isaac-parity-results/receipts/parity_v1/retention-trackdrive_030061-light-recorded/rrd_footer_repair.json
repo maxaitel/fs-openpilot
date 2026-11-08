@@ -1,0 +1,56 @@
+{
+  "case_id": "retention-trackdrive_030061-light-recorded",
+  "repair_source_sha256": "63c8e036233b98556a12277db25125719da65185d3176ee8900ed81133e6e74f",
+  "before_sha256": "381a08ab00a15dbe89289d9706b909bd1123b4f0480752e50d2be166c65627b2",
+  "original_audit_sha256": "e49483d9fa1a1c9df75f1e792511575d91b0ffe3da53cd375875a85df48e069d",
+  "backup_file": "debug.backup.rrd",
+  "commands": [
+    {
+      "arguments": [
+        "verify",
+        "--check-footers=false",
+        "isaac_eval/runs/parity_v1/retention-trackdrive_030061-light-recorded/debug.rrd"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "1 file verified without error.\n"
+    },
+    {
+      "arguments": [
+        "migrate",
+        "isaac_eval/runs/parity_v1/retention-trackdrive_030061-light-recorded/debug.rrd"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "Migrating 1 .rrd file(s)\u2026\n\u2705 1 file(s) successfully migrated.\n"
+    },
+    {
+      "arguments": [
+        "verify",
+        "--check-footers=true",
+        "isaac_eval/runs/parity_v1/retention-trackdrive_030061-light-recorded/debug.rrd"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "1 file verified without error.\n"
+    },
+    {
+      "arguments": [
+        "compare",
+        "--unordered",
+        "isaac_eval/runs/parity_v1/retention-trackdrive_030061-light-recorded/debug.backup.rrd",
+        "isaac_eval/runs/parity_v1/retention-trackdrive_030061-light-recorded/debug.rrd"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "comparison_ignores": [
+    "log_time",
+    "row_order"
+  ],
+  "after_sha256": "e78ba482a032d5f98b5fe48884ba23e9f497eec550cb776424db148a4f6daee6",
+  "footer_verified": true,
+  "data_comparison_passed": true
+}

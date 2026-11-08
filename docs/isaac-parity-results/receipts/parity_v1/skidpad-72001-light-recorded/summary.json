@@ -1,0 +1,430 @@
+{
+  "discipline": "skidpad",
+  "result": "finished",
+  "laps": [
+    10.10681535659332,
+    10.45843531236953,
+    10.071645490786526,
+    10.204007593884462
+  ],
+  "n_laps": 4,
+  "doo": 5,
+  "oc": 0,
+  "max_speed": 7.9363247782081805,
+  "route": {
+    "expected_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "accepted_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "laps": [
+      {
+        "circle": "right",
+        "start_time": 3.4388565558059265,
+        "finish_time": 13.545671912399246,
+        "duration": 10.10681535659332,
+        "winding_right": -6.283185307179591,
+        "winding_left": 2.6020852139652106e-16
+      },
+      {
+        "circle": "right",
+        "start_time": 13.545671912399246,
+        "finish_time": 24.004107224768777,
+        "duration": 10.45843531236953,
+        "winding_right": -6.283185307179586,
+        "winding_left": -5.5077470362263625e-17
+      },
+      {
+        "circle": "left",
+        "start_time": 24.004107224768777,
+        "finish_time": 34.0757527155553,
+        "duration": 10.071645490786526,
+        "winding_right": -9.367506770274758e-17,
+        "winding_left": 6.283185307179589
+      },
+      {
+        "circle": "left",
+        "start_time": 34.0757527155553,
+        "finish_time": 44.279760309439766,
+        "duration": 10.204007593884462,
+        "winding_right": -3.3306690738754696e-16,
+        "winding_left": 6.283185307179588
+      }
+    ],
+    "crossings": [
+      3.4388565558059265,
+      13.545671912399246,
+      24.004107224768777,
+      34.0757527155553,
+      44.279760309439766
+    ],
+    "complete": true,
+    "exited": true,
+    "stopped_in_zone": true,
+    "valid": true,
+    "violation": null,
+    "reverse_crossings": 0,
+    "termination": "finished"
+  },
+  "raw_time": 10.331221453126997,
+  "penalty": 1.0,
+  "time": 11.331221453126997,
+  "dq": false,
+  "complete": true,
+  "pass": true,
+  "case": {
+    "case_id": "skidpad-72001-light-recorded",
+    "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+    "command_mode": "recorded",
+    "controller": "pp",
+    "discipline": "skidpad",
+    "dr": "light",
+    "group": "skidpad",
+    "max_time": 120,
+    "noise": false,
+    "reference_index": 2,
+    "reference_result": {
+      "command_mode": "recorded",
+      "complete": true,
+      "controller": "pp",
+      "discipline": "skidpad",
+      "doo": 1,
+      "dq": false,
+      "dr": "light",
+      "laps": [
+        9.658448406474792,
+        10.124520231800098,
+        9.705896697170779,
+        9.940011179883825
+      ],
+      "max_speed": 8.310749355106417,
+      "n_laps": 4,
+      "oc": 0,
+      "pass": true,
+      "penalty": 0.2,
+      "progress": 1.001889943451328,
+      "raw_time": 10.032265705841962,
+      "result": "finished",
+      "route": {
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "complete": true,
+        "crossings": [
+          3.2309200385342067,
+          12.889368445008998,
+          23.013888676809096,
+          32.719785373979875,
+          42.6597965538637
+        ],
+        "exited": true,
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "duration": 9.658448406474792,
+            "finish_time": 12.889368445008998,
+            "start_time": 3.2309200385342067,
+            "winding_left": -1.1796119636642288e-16,
+            "winding_right": -6.283185307179586
+          },
+          {
+            "circle": "right",
+            "duration": 10.124520231800098,
+            "finish_time": 23.013888676809096,
+            "start_time": 12.889368445008998,
+            "winding_left": 6.938893903907228e-17,
+            "winding_right": -6.283185307179591
+          },
+          {
+            "circle": "left",
+            "duration": 9.705896697170779,
+            "finish_time": 32.719785373979875,
+            "start_time": 23.013888676809096,
+            "winding_left": 6.283185307179584,
+            "winding_right": 8.760353553682876e-16
+          },
+          {
+            "circle": "left",
+            "duration": 9.940011179883825,
+            "finish_time": 42.6597965538637,
+            "start_time": 32.719785373979875,
+            "winding_left": 6.283185307179588,
+            "winding_right": 4.501607420159814e-16
+          }
+        ],
+        "reverse_crossings": 0,
+        "stopped_in_zone": true,
+        "termination": "finished",
+        "valid": true,
+        "violation": null
+      },
+      "seed": 72001,
+      "time": 10.23226570584196
+    },
+    "reference_sha256": "5b23e9f502dd2926c197074e4d4c706d4b5317815250b185950705a11858d5a6",
+    "reference_source": "runs/skidpad_clean/fresh_after/driving.json",
+    "seed": 72001,
+    "track_id": "skidpad",
+    "track_source": "fsop.track.fixed_layouts.skidpad()",
+    "track_source_sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+    "venue_prob": 1.0
+  },
+  "pilot_only": false,
+  "final_state": {
+    "x": 23.072019577026367,
+    "y": 0.05295790359377861,
+    "yaw": 0.004300551807529594,
+    "vx": 2.7162293624839217e-06,
+    "vy": 5.829559918444107e-08,
+    "r": 1.1252114517912304e-10,
+    "steer": 8.209179473157617e-05,
+    "accel": -1.005560346512017,
+    "t": 48.8,
+    "extra": {}
+  },
+  "events": [
+    {
+      "t": 3.4388565558059265,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    },
+    {
+      "t": 5.0,
+      "kind": "doo",
+      "data": {
+        "cone": 45,
+        "dir": -1.0635907904232265
+      }
+    },
+    {
+      "t": 5.6,
+      "kind": "doo",
+      "data": {
+        "cone": 44,
+        "dir": -1.4745028963527622
+      }
+    },
+    {
+      "t": 6.25,
+      "kind": "doo",
+      "data": {
+        "cone": 43,
+        "dir": -1.8564163723221936
+      }
+    },
+    {
+      "t": 6.9,
+      "kind": "doo",
+      "data": {
+        "cone": 42,
+        "dir": -2.2538197540674663
+      }
+    },
+    {
+      "t": 13.545671912399246,
+      "kind": "line_cross",
+      "data": {
+        "n": 2
+      }
+    },
+    {
+      "t": 13.545671912399246,
+      "kind": "lap",
+      "data": {
+        "circle": "right",
+        "start_time": 3.4388565558059265,
+        "finish_time": 13.545671912399246,
+        "duration": 10.10681535659332,
+        "winding_right": -6.283185307179591,
+        "winding_left": 2.6020852139652106e-16
+      }
+    },
+    {
+      "t": 24.004107224768777,
+      "kind": "line_cross",
+      "data": {
+        "n": 3
+      }
+    },
+    {
+      "t": 24.004107224768777,
+      "kind": "lap",
+      "data": {
+        "circle": "right",
+        "start_time": 13.545671912399246,
+        "finish_time": 24.004107224768777,
+        "duration": 10.45843531236953,
+        "winding_right": -6.283185307179586,
+        "winding_left": -5.5077470362263625e-17
+      }
+    },
+    {
+      "t": 24.65,
+      "kind": "doo",
+      "data": {
+        "cone": 31,
+        "dir": 0.39293682655497597
+      }
+    },
+    {
+      "t": 34.0757527155553,
+      "kind": "line_cross",
+      "data": {
+        "n": 4
+      }
+    },
+    {
+      "t": 34.0757527155553,
+      "kind": "lap",
+      "data": {
+        "circle": "left",
+        "start_time": 24.004107224768777,
+        "finish_time": 34.0757527155553,
+        "duration": 10.071645490786526,
+        "winding_right": -9.367506770274758e-17,
+        "winding_left": 6.283185307179589
+      }
+    },
+    {
+      "t": 44.279760309439766,
+      "kind": "line_cross",
+      "data": {
+        "n": 5
+      }
+    },
+    {
+      "t": 44.279760309439766,
+      "kind": "lap",
+      "data": {
+        "circle": "left",
+        "start_time": 34.0757527155553,
+        "finish_time": 44.279760309439766,
+        "duration": 10.204007593884462,
+        "winding_right": -3.3306690738754696e-16,
+        "winding_left": 6.283185307179588
+      }
+    },
+    {
+      "t": 48.8,
+      "kind": "stopped",
+      "data": {
+        "in_stop_zone": true
+      }
+    },
+    {
+      "t": 48.8,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "pending_events": [
+    {
+      "t": 48.8,
+      "kind": "stopped",
+      "data": {
+        "in_stop_zone": true
+      }
+    },
+    {
+      "t": 48.8,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "recorded_frames": 976,
+  "physical_cone_hits": 7,
+  "contact_events": [
+    {
+      "t": 4.5,
+      "control_frame": 90,
+      "cone": "/World/Cones/c0046",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 5.05,
+      "control_frame": 101,
+      "cone": "/World/Cones/c0045",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 5.65,
+      "control_frame": 113,
+      "cone": "/World/Cones/c0044",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 6.3,
+      "control_frame": 126,
+      "cone": "/World/Cones/c0043",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 7.0,
+      "control_frame": 140,
+      "cone": "/World/Cones/c0042",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 23.95,
+      "control_frame": 479,
+      "cone": "/World/Cones/c0030",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 24.45,
+      "control_frame": 489,
+      "cone": "/World/Cones/c0031",
+      "time_convention": "start of the control interval containing first contact"
+    }
+  ],
+  "progress": 1.0016437318876648,
+  "rms_lat": 0.2804268994343949,
+  "wall_seconds": 245.4665993100498,
+  "startup_seconds": 12.690760434954427,
+  "evidence_seconds": 38.89050444064196,
+  "seconds_simulated": 48.8,
+  "real_time_factor": 0.19880505183664737,
+  "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+  "state_sha256": "1921a60567422c86df551cd2a89a69170af38cc5c390bdd3d4cd049be8a9c50a",
+  "frozen_unchanged": true,
+  "manifest_sha256": "db09bf67135f8d4dd10fd9da36b4d262ac1a9fd364fac9793aaeca017287cc4e",
+  "protocol_sha256": "a9db979fc3ab2ddea1602eb4998d538c5faf7bfc7ab2e280292b7eb4015a2af3",
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "aafb3f59c05104af72cfe2e702a4361c29937f5da02e82c15c9c47c89e68388c",
+  "torch_peak_allocated_gib": 0.13738584518432617,
+  "torch_peak_reserved_gib": 0.150390625,
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130"
+  }
+}

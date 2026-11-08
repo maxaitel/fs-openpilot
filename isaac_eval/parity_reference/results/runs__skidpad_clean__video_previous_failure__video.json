@@ -1,0 +1,89 @@
+{
+  "frames": 935,
+  "path": "runs/skidpad_clean/video_previous_failure/skidpad-raw.mp4",
+  "discipline": "skidpad",
+  "result": "finished",
+  "laps": [
+    9.630839513963252,
+    9.991143852922857,
+    9.495776719399043,
+    9.727738055448313
+  ],
+  "n_laps": 4,
+  "doo": 5,
+  "oc": 0,
+  "max_speed": 8.152904078826454,
+  "route": {
+    "expected_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "accepted_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "laps": [
+      {
+        "circle": "right",
+        "start_time": 3.380757010369387,
+        "finish_time": 13.011596524332639,
+        "duration": 9.630839513963252,
+        "winding_right": -6.283185307179588,
+        "winding_left": -9.540979117872439e-18
+      },
+      {
+        "circle": "right",
+        "start_time": 13.011596524332639,
+        "finish_time": 23.002740377255495,
+        "duration": 9.991143852922857,
+        "winding_right": -6.283185307179587,
+        "winding_left": -3.645087703896266e-16
+      },
+      {
+        "circle": "left",
+        "start_time": 23.002740377255495,
+        "finish_time": 32.49851709665454,
+        "duration": 9.495776719399043,
+        "winding_right": 5.065392549852277e-16,
+        "winding_left": 6.283185307179587
+      },
+      {
+        "circle": "left",
+        "start_time": 32.49851709665454,
+        "finish_time": 42.22625515210285,
+        "duration": 9.727738055448313,
+        "winding_right": 9.367506770274758e-17,
+        "winding_left": 6.28318530717959
+      }
+    ],
+    "crossings": [
+      3.380757010369387,
+      13.011596524332639,
+      23.002740377255495,
+      32.49851709665454,
+      42.22625515210285
+    ],
+    "complete": true,
+    "exited": true,
+    "stopped_in_zone": true,
+    "valid": true,
+    "violation": null,
+    "reverse_crossings": 0,
+    "termination": "finished"
+  },
+  "raw_time": 9.859440954185585,
+  "penalty": 1.0,
+  "time": 10.859440954185585,
+  "dq": false,
+  "complete": true,
+  "pass": true,
+  "checkpoint": "runs/skidpad_clean/final.pt",
+  "seed": 71003,
+  "dr": "heavy",
+  "venue_probability": 1.0,
+  "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e"
+}
