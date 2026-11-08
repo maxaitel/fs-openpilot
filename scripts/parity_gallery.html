@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  />
+  <title>Isaac evaluation · frozen model</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font: 16px/1.5 system-ui;
+      background: #10151b;
+      color: #e8edf2;
+    }
+    body {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+    h1 {
+      font-size: 32px;
+      margin: 0;
+    }
+    h2 {
+      font-size: 21px;
+    }
+    p {
+      max-width: 1050px;
+      color: #bcc8d2;
+    }
+    a {
+      color: #8dcaff;
+    }
+    button,
+    select {
+      font: inherit;
+      background: #202c38;
+      color: white;
+      border: 1px solid #526171;
+      border-radius: 6px;
+      padding: 9px;
+    }
+    select {
+      max-width: 100%;
+      min-width: 340px;
+    }
+    button {
+      cursor: pointer;
+    }
+    button[aria-pressed="true"] {
+      background: #315c77;
+    }
+    .controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 22px 0;
+    }
+    .chips {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .chip {
+      padding: 12px 16px;
+      background: #1b2631;
+      border-radius: 8px;
+    }
+    video {
+      width: 100%;
+      background: #080c10;
+      max-height: 75vh;
+    }
+    .panel {
+      padding: 18px;
+      background: #18212a;
+      border: 1px solid #33404c;
+      border-radius: 10px;
+      margin-top: 18px;
+    }
+    .warn {
+      color: #ffd09a;
+    }
+    .good {
+      color: #8bdfaf;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .grid img {
+      width: 100%;
+      background: white;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th,
+    td {
+      text-align: left;
+      padding: 8px;
+      border-bottom: 1px solid #33404c;
+    }
+    tr[data-id] {
+      cursor: pointer;
+    }
+    tr[data-id]:hover {
+      background: #223342;
+    }
+    code {
+      overflow-wrap: anywhere;
+      font-size: 12px;
+    }
+    summary {
+      cursor: pointer;
+    }
+    small {
+      color: #aabbc8;
+    }
+    .legend {
+      margin: 10px 0;
+    }
+    .hidden {
+      display: none;
+    }
+    @media (max-width: 800px) {
+      body {
+        padding: 14px;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      table {
+        font-size: 11px;
+      }
+      td,
+      th {
+        padding: 5px;
+      }
+      h1 {
+        font-size: 25px;
+      }
+    }
+  </style>
+  <header>
+    <small>DGX SPARK · ZERO-SHOT · WEIGHTS FROZEN</small>
+    <h1>Isaac evaluation, with the model's own diagnostics</h1>
+    <p id="status"></p>
+    <div class="chips" id="chips"></div>
+  </header>
+  <div class="controls">
+    <select id="case" aria-label="Evaluation case"></select
+    ><button id="main" aria-pressed="true">Custom debug layout</button
+    ><button id="research" aria-pressed="false">Raw image-head inference</button
+    ><label><input id="failures" type="checkbox" /> Failures only</label>
+  </div>
+  <div class="panel">
+    <h2 id="title"></h2>
+    <div id="metrics"></div>
+    <video id="video" controls preload="metadata"></video>
+    <p class="legend" id="legend"></p>
+    <div id="links"></div>
+  </div>
+  <div class="panel hidden" id="comparison">
+    <details>
+      <summary>Compare with the historical custom-simulator video</summary>
+      <p id="comparisonNote"></p>
+      <video id="custom" controls preload="none"></video
+      ><button id="playBoth">Play both from zero</button>
+      <p>
+        These are independent trajectories, not frame-aligned sensor pairs. The
+        original video is retained unchanged.
+      </p>
+    </details>
+  </div>
+  <div class="panel">
+    <h2>How to read the evidence</h2>
+    <p>
+      Magenta is the model plan and its uncalibrated scale. Green is an offline
+      privileged expert reference using the custom bicycle model. Map dots are
+      simulator ground truth; detection rings and image boxes come from the
+      recorded model call. Ground truth and the oracle are not vision
+      predictions.
+    </p>
+    <p>
+      Every video plays at 20 simulation frames per second. The final two
+      seconds show the terminal result and explicitly contain no current
+      prediction. Pass means the original referee accepted the run. Clean
+      additionally requires zero geometric cone penalties and zero off-course
+      events. PhysX contacts are reported separately.
+    </p>
+    <p>
+      The controller still receives speed, nominal calibration, mission progress
+      and route commands. This is not a vision-only system. All 41 case
+      identities, checkpoint, original referee and controller match the archived
+      custom evaluation. RTX rendering, scenery, physical dynamics and
+      trajectories differ. These single runs do not establish real-world safety
+      or statistical superiority.
+    </p>
+    <p id="evidenceLocation"></p>
+    <p>
+      <a href="report.md">Full report</a> ·
+      <a href="cases.csv">Per-case CSV</a> ·
+      <a href="parity.json">Results and frozen protocol</a>
+    </p>
+    <code id="hash"></code>
+  </div>
+  <div class="panel">
+    <h2>All cases, including failures</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Case</th>
+          <th>Custom pass / DOO</th>
+          <th>Isaac result</th>
+          <th>Legacy DOO / OC</th>
+          <th>PhysX contacts</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <div class="grid">
+    <div class="panel">
+      <h2>Pass and clean counts</h2>
+      <img src="outcomes.png" alt="Outcome comparison" />
+    </div>
+    <div class="panel">
+      <h2>Runtime per inference frame</h2>
+      <img src="frame_timing.png" alt="Timing breakdown" />
+    </div>
+    <div class="panel">
+      <h2>Cone counts by case</h2>
+      <img src="paired_contacts.png" alt="Geometric and physical cone counts" />
+    </div>
+    <div class="panel">
+      <h2>Spark telemetry</h2>
+      <img src="gpu_telemetry.png" alt="GPU utilization and power" />
+    </div>
+  </div>
+  <script>
+    const data = __DATA__,
+      select = document.querySelector("#case"),
+      video = document.querySelector("#video");
+    let mode = "debug";
+    const fmt = (x) => (x === undefined || x === null ? "unavailable" : x);
+    function render() {
+      const row = data.cases.find((x) => x.case_id === select.value);
+      if (!row) {
+        video.removeAttribute("src");
+        video.load();
+        document.querySelector("#title").textContent =
+          "No completed cases match this filter";
+        document.querySelector("#metrics").textContent = "";
+        document.querySelector("#links").replaceChildren();
+        document.querySelector("#legend").textContent = "";
+        document.querySelector("#comparison").classList.add("hidden");
+        return;
+      }
+      document.querySelector("#title").textContent = row.case_id;
+      document.querySelector("#metrics").textContent =
+        `${row.isaac_result} · ${row.isaac_clean ? "CLEAN" : row.isaac_pass ? "PASS, NOT CLEAN" : "FAIL"} · geometric DOO ${row.isaac_doo} · off-course ${row.isaac_oc} · PhysX contacts ${row.physical_cone_hits}`;
+      video.src = row[mode + "_url"];
+      document
+        .querySelector("#main")
+        .setAttribute("aria-pressed", mode === "debug");
+      document
+        .querySelector("#research")
+        .setAttribute("aria-pressed", mode === "research");
+      document.querySelector("#legend").textContent =
+        mode === "debug"
+          ? "Same compositor as the custom simulator: both cameras, model plan and scale, expert reference, detection rings, track map and ego map."
+          : "Raw image-head boxes and confidence scores from the same inference call, before ground projection. Route commands, controls, counters, timing and exact RGB hash appear below.";
+      const links = document.querySelector("#links");
+      links.replaceChildren();
+      for (const [label, key] of [
+        ["Main video", "debug_url"],
+        ["Image-head video", "research_url"],
+        ["Rerun recording", "rrd_url"],
+        ["Terminal summary", "summary_url"],
+        ["Evidence manifest", "manifest_url"],
+        ["Artifact audit", "audit_url"],
+      ]) {
+        if (!row[key]) continue;
+        const a = document.createElement("a");
+        a.href = row[key];
+        a.textContent = label;
+        links.append(a, document.createTextNode(" · "));
+      }
+      const original = data.custom[row.case_id];
+      document
+        .querySelector("#comparison")
+        .classList.toggle("hidden", !original);
+      if (original) {
+        document.querySelector("#custom").src = original.url;
+        document.querySelector("#comparisonNote").textContent =
+          `Historical custom video: ${original.result}, ${original.doo} geometric cone penalties. This separate video rollout may differ from the archived benchmark row shown in the table.`;
+      }
+    }
+    function options() {
+      select.replaceChildren();
+      for (const row of data.cases.filter(
+        (x) => !document.querySelector("#failures").checked || !x.isaac_pass,
+      )) {
+        const o = document.createElement("option");
+        o.value = row.case_id;
+        o.textContent = `${row.case_id} · ${row.isaac_pass ? "PASS" : "FAIL"}`;
+        select.append(o);
+      }
+      render();
+    }
+    document.querySelector("#status").textContent = data.complete
+      ? `${data.cases.length} completed cases. Exact input frames and same-call predictions are retained with hashes.`
+      : "INCOMPLETE MONITORING VIEW. The full suite is still running.";
+    document.querySelector("#evidenceLocation").textContent =
+      data.remoteEvidence
+        ? "Full lossless inputs and Rerun recordings remain at " +
+          data.remoteEvidence
+        : "Full evidence is stored beside the videos.";
+    document.querySelector("#hash").textContent =
+      "Frozen checkpoint SHA-256 " + data.checkpoint;
+    for (const group of ["skidpad", "retention", "ablation", "prior_failure"]) {
+      const g = data.groups[group],
+        d = document.createElement("div");
+      d.className = "chip";
+      d.textContent = `${group}: ${g.isaac_pass}/${g.observed} pass · ${g.isaac_clean} clean`;
+      document.querySelector("#chips").append(d);
+    }
+    for (const row of data.cases) {
+      const tr = document.createElement("tr");
+      tr.dataset.id = row.case_id;
+      for (const value of [
+        row.case_id,
+        `${row.reference_pass} / ${row.reference_doo}`,
+        row.isaac_result,
+        `${row.isaac_doo} / ${row.isaac_oc}`,
+        row.physical_cone_hits,
+      ]) {
+        const td = document.createElement("td");
+        td.textContent = fmt(value);
+        tr.append(td);
+      }
+      tr.onclick = () => {
+        document.querySelector("#failures").checked = false;
+        options();
+        select.value = row.case_id;
+        render();
+        video.scrollIntoView({ behavior: "smooth" });
+      };
+      document.querySelector("#rows").append(tr);
+    }
+    select.onchange = render;
+    document.querySelector("#main").onclick = () => {
+      mode = "debug";
+      render();
+    };
+    document.querySelector("#research").onclick = () => {
+      mode = "research";
+      render();
+    };
+    document.querySelector("#failures").onchange = options;
+    document.querySelector("#playBoth").onclick = () => {
+      for (const v of [video, document.querySelector("#custom")]) {
+        v.currentTime = 0;
+        v.play();
+      }
+    };
+    options();
+  </script>
+</html>
