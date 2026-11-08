@@ -40,7 +40,7 @@ BIG = CONE_CLASSES.index(ConeColor.BIG_ORANGE)
 
 
 class Episode:
-  def __init__(self, path: str | Path):
+  def __init__(self, path: str | Path, steering_labels: bool = False):
     self.path = Path(path)
     self.meta = json.loads((self.path / "meta.json").read_text())
     self.T = int(self.meta["frames"])
@@ -52,6 +52,44 @@ class Episode:
     m = self.meta["mount"]
     self.T_ego_cam = CameraMount(**m).T_ego_cam()
     self._mask = None
+    self.steering = self._steering_labels() if steering_labels else None
+
+  def _steering_labels(self) -> tuple[np.ndarray, float, float, float] | None:
+    path = self.path / "controls.npy"
+    collection = self.meta.get("collection", {})
+    if not path.exists():
+      if collection.get("assisted"):
+        raise ValueError(f"missing controls for assisted episode {self.path}")
+      return None
+    columns = collection.get("control_columns", [])
+    if columns.count("t") != 1 or columns.count("expert_steer") != 1 or collection.get("noise") is not False:
+      raise ValueError(f"invalid steering label metadata in {self.path}")
+    fps = collection.get("control_fps")
+    if not isinstance(fps, int | float) or not np.isfinite(fps) or fps <= 0:
+      raise ValueError(f"invalid control fps in {self.path}")
+    controls = np.load(path)
+    if controls.ndim != 2 or controls.shape[1] != len(columns) or len(controls) == 0:
+      raise ValueError(f"invalid controls shape in {self.path}")
+    times = controls[:, columns.index("t")]
+    targets = controls[:, columns.index("expert_steer")]
+    sample_times = self.states[:, 0]
+    if (len(sample_times) != self.T or not np.isfinite(times).all() or not np.isfinite(targets).all()
+        or not np.isfinite(sample_times).all() or np.any(np.diff(times) <= 0)
+        or np.any(np.diff(sample_times) <= 0)):
+      raise ValueError(f"invalid timestamps or steering labels in {self.path}")
+    tol = 1e-5 / fps
+    left = np.searchsorted(times, sample_times - tol, side="left")
+    right = np.searchsorted(times, sample_times + tol, side="right")
+    if np.any(right - left != 1) or len(np.unique(left)) != len(left):
+      raise ValueError(f"steering labels do not align uniquely in {self.path}")
+    vehicle = self.meta.get("vehicle", {})
+    try:
+      lf, lr, limit = (float(vehicle[key]) for key in ("lf", "lr", "max_steer"))
+    except (KeyError, TypeError, ValueError) as exc:
+      raise ValueError(f"invalid steering geometry in {self.path}") from exc
+    if not np.isfinite([lf, lr, limit]).all() or lf <= 0 or lr <= 0 or limit <= 0:
+      raise ValueError(f"invalid steering geometry in {self.path}")
+    return np.clip(targets[left], -limit, limit).astype(np.float32), lr, lf + lr, limit
 
   @cached_property
   def frames(self):
@@ -115,13 +153,15 @@ def hash_str(s: str) -> int:
 
 class SimDataset(Dataset):
   def __init__(self, root: str | Path, split: str = "train", mode: str = "cached", cache_tag: str = "op_b361e952",
-               min_k: int = 1, image_targets_on: bool = True, episodes: list[str] | None = None):
+               min_k: int = 1, image_targets_on: bool = True, episodes: list[str] | None = None,
+               steering_labels: bool = False):
     self.root = Path(root)
     ids = episodes if episodes is not None else split_episodes(root, split)
-    self.eps = [Episode(self.root / i) for i in ids]
+    self.eps = [Episode(self.root / i, steering_labels=steering_labels) for i in ids]
     self.mode = mode
     self.tag = cache_tag
     self.image_targets_on = image_targets_on
+    self.steering_labels = steering_labels
     self.index = [(ei, k) for ei, ep in enumerate(self.eps) for k in range(min_k, ep.T)]
     self._cache: dict[int, dict] = {}
 
@@ -175,6 +215,12 @@ class SimDataset(Dataset):
     s["traffic"] = np.array([1.0, 0.0], np.float32)
     s["plan"] = ego_to_op_plan(ep.plan[k]).astype(np.float32)
     s["speed"] = np.float32(ep.states[k, 4])
+    if self.steering_labels:
+      valid = ep.steering is not None
+      targets, lr, wheelbase, limit = ep.steering if valid else (None, 0.0, 0.0, 0.0)
+      s.update(steer_target=np.float32(targets[k] if valid else 0.0), steer_valid=np.bool_(valid),
+               vehicle_lr=np.float32(lr), vehicle_wheelbase=np.float32(wheelbase),
+               vehicle_max_steer=np.float32(limit))
     s["history"] = self.history(ei, k)
     f = self._feats(ei)
     if self.mode == "cached":

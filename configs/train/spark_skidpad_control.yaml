@@ -1,0 +1,8 @@
+defaults: [spark_skidpad_centering.yaml]
+name: spark_skidpad_control
+init_ckpt: runs/spark_skidpad/final.pt
+steps: 1500
+lr: 0.00005
+w_steer: 3.281158240898283
+val_every: 500
+keep_checkpoints: true

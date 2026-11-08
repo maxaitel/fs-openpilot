@@ -53,9 +53,11 @@ class TrainCfg:
   grad_clip: float = 1.0
   l2sp: float = 1e-3
   w_plan: float = 1.0
+  w_steer: float = 0.0
   w_bev: float = 1.0
   w_img: float = 1.0
   val_every: int = 500
+  keep_checkpoints: bool = False
   val_batches: int = 40
   log_every: int = 25
   seed: int = 0
@@ -69,6 +71,8 @@ class TrainCfg:
 class Trainer:
   def __init__(self, cfg: TrainCfg):
     self.cfg = cfg
+    if not math.isfinite(cfg.w_steer) or cfg.w_steer < 0:
+      raise ValueError("w_steer must be finite and nonnegative")
     torch.manual_seed(cfg.seed)
     np.random.seed(cfg.seed)
     self.device = pick_device(cfg.device)
@@ -78,11 +82,14 @@ class Trainer:
     (self.run_dir / "ckpt").mkdir(parents=True, exist_ok=True)
     save_config(cfg, self.run_dir / "config.yaml")
     mode = "cached" if cfg.stage == 1 else "images"
-    self.train_ds = SimDataset(cfg.sim_root, "train", mode, cfg.cache_tag)
+    label_args = {"steering_labels": True} if cfg.w_steer > 0 else {}
+    self.train_ds = SimDataset(cfg.sim_root, "train", mode, cfg.cache_tag, **label_args)
     if cfg.max_episodes:
       self.train_ds = SimDataset(cfg.sim_root, "train", mode, cfg.cache_tag,
-                                 episodes=[e.path.name for e in self.train_ds.eps[: cfg.max_episodes]])
-    self.val_ds = SimDataset(cfg.sim_root, "val", mode, cfg.cache_tag)
+                                 episodes=[e.path.name for e in self.train_ds.eps[: cfg.max_episodes]], **label_args)
+    if cfg.w_steer > 0 and not any(ep.steering is not None for ep in self.train_ds.eps):
+      raise ValueError("steering adaptation requires labeled training episodes")
+    self.val_ds = SimDataset(cfg.sim_root, "val", mode, cfg.cache_tag, **label_args)
     self.train_sampler = None
     if cfg.episode_prefix_weights:
       self.train_sampler = WeightedRandomSampler(
@@ -94,6 +101,8 @@ class Trainer:
     if sd is not None:
       missing, unexpected = self.model.load_state_dict(sd, strict=False)
       print(f"init from {cfg.init_ckpt}: missing {len(missing)} unexpected {len(unexpected)}")
+      if cfg.w_steer > 0 and (missing or unexpected):
+        raise ValueError("steering adaptation requires a complete checkpoint")
     if cfg.stage == 1 and self.model.img is not None:
       self.model.img.requires_grad_(False)
     self.model.set_trunk_trainable(cfg.trunk if cfg.stage >= 2 else "frozen")
@@ -153,6 +162,8 @@ class Trainer:
 
   def losses(self, out: dict, b: dict) -> dict[str, torch.Tensor]:
     ls = {"plan": self.cfg.w_plan * L.plan_nll(out["plan_mu"], out["plan_logstd"], b["plan"])}
+    if self.cfg.w_steer > 0:
+      ls["steer"] = self.cfg.w_steer * L.steering_loss(out["plan_mu"], b)
     for k, v in L.bev_loss(out["bev"], b).items():
       ls[k] = self.cfg.w_bev * v
     if "img" in out:
@@ -224,6 +235,8 @@ class Trainer:
               + f" | {sps:.0f} samples/s")
       if self.step % c.val_every == 0 or self.step == c.steps:
         self.validate()
+        if c.keep_checkpoints:
+          self.save(f"step{self.step}")
         self.model.train()
     self.save("last")
 

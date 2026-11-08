@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import torch
+import torch.nn.functional as F
 
 from fsop.sim.expert import T_IDXS
 
@@ -10,6 +11,27 @@ from fsop.sim.expert import T_IDXS
 PLAN_COL_W = torch.tensor([1.0, 1.0, 0.1, 0.5, 0.5, 0.1, 0.1, 0.1, 0.0, 0.0, 0.0, 0.5, 0.0, 0.0, 0.3])
 # per-time weights: full weight up to 4 s, fading to 0.2 at 10 s (far beyond the cones' visibility)
 PLAN_T_W = torch.tensor([1.0 if t <= 4.0 else max(0.2, 1.0 - 0.8 * (t - 4.0) / 6.0) for t in T_IDXS])
+
+
+def pp_steer_from_op_plan(mu: torch.Tensor, speed: torch.Tensor, lr: torch.Tensor,
+                          wheelbase: torch.Tensor) -> torch.Tensor:
+  mu, speed, lr, wheelbase = (x.float() for x in (mu, speed, lr, wheelbase))
+  times = torch.as_tensor(T_IDXS, dtype=mu.dtype, device=mu.device)
+  t = (0.35 + 0.03 * speed).clamp(0.35, 1.0)
+  hi = torch.searchsorted(times, t.contiguous()).clamp(1, len(T_IDXS) - 1)
+  lo = hi - 1
+  a = (t - times[lo]) / (times[hi] - times[lo])
+  rows = torch.arange(mu.shape[0], device=mu.device)
+  point = mu[rows, lo, :2] * (1 - a[:, None]) + mu[rows, hi, :2] * a[:, None]
+  x, y = point[:, 0] + lr, -point[:, 1]
+  return torch.atan(2 * wheelbase * y / (x.square() + y.square()).clamp_min(1.0))
+
+
+def steering_loss(mu: torch.Tensor, b: dict) -> torch.Tensor:
+  pred = pp_steer_from_op_plan(mu, b["speed"], b["vehicle_lr"], b["vehicle_wheelbase"])
+  mask = b["steer_valid"].bool()
+  error = F.smooth_l1_loss(pred, b["steer_target"].float(), reduction="none", beta=0.05)
+  return (error * mask).sum() / mask.sum().clamp_min(1)
 
 
 def plan_nll(mu: torch.Tensor, log_std: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
