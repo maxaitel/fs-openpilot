@@ -184,6 +184,9 @@ def main():
                     isaac_pass=summary["pass"],
                     isaac_complete=summary["complete"],
                     isaac_clean=clean(summary),
+                    isaac_physical_clean=bool(
+                        summary["pass"] and summary["physical_cone_hits"] == 0 and summary["oc"] == 0
+                    ),
                     isaac_result=summary["result"],
                     isaac_doo=summary["doo"],
                     isaac_oc=summary["oc"],
@@ -224,6 +227,7 @@ def main():
             "reference_clean": sum(r["reference_clean"] for r in subset),
             "isaac_pass": sum(r["isaac_pass"] is True for r in observed),
             "isaac_clean": sum(r["isaac_clean"] for r in observed),
+            "isaac_physical_clean": sum(r["isaac_physical_clean"] for r in observed),
         }
     timing = (
         {
@@ -339,16 +343,18 @@ def main():
         "reconstructed. This is not a controlled physics-only comparison.",
         "",
         "Clean means pass and zero legacy DOO and OC. Pass and complete do not imply clean. "
-        "PhysX cone hits are a separate contact measure, not legacy DOO.",
+        "PhysX cone hits are a separate contact measure, not legacy DOO. "
+        "Physical-clean means pass with zero PhysX cone contacts and zero OC.",
         "",
-        "| Group | Cases observed / expected | Custom pass | Custom clean | Isaac pass | Isaac clean |",
-        "|---|---:|---:|---:|---:|---:|",
+        "| Group | Cases observed / expected | Custom pass | Custom clean | Isaac pass | Isaac clean | "
+        "Physical-clean |",
+        "|---|---:|---:|---:|---:|---:|---:|",
     ]
     for g, v in groups.items():
         lines.append(
             f"| {g} | {v['observed']}/{v['expected']} | {v['reference_pass']}/{v['expected']} | "
             f"{v['reference_clean']}/{v['expected']} | {v['isaac_pass']}/{v['observed']} | "
-            f"{v['isaac_clean']}/{v['observed']} |"
+            f"{v['isaac_clean']}/{v['observed']} | {v['isaac_physical_clean']}/{v['observed']} |"
         )
     if valid:
         lines.extend(["", "| Metric | Samples | Median | P95 |", "|---|---:|---:|---:|"])

@@ -10,6 +10,8 @@ The new runner stores every 20 Hz input pair, model plan, model scale, raw image
 
 Both backends use the same diagnostic compositor. A separate research view shows raw image-head boxes and confidence scores. The expert reference is computed offline using the original bicycle model and is labeled as privileged reference data. Ground-truth map data is labeled separately.
 
+The predicted path drives the existing controller. The cone image head is an auxiliary output sharing the visual encoder; its detections are not fed into the path follower. Displayed boxes use the original 0.25 confidence threshold before ground projection and cross-camera merging. A visible detection therefore does not establish that the planner will avoid that cone.
+
 ## Freeze the actual custom case matrix
 
 The matrix contains 20 skidpad cases, 16 trackdrive retention cases, four live command ablations and one previous-failure diagnostic. The exact eight retention track files and historical results are archived. Environment initialization reproduces the original panorama inventory, reset rendering random draws, camera order and expert randomization.

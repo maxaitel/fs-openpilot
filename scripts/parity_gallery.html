@@ -193,7 +193,7 @@
       events. PhysX contacts are reported separately.
     </p>
     <p>
-      The controller still receives speed, nominal calibration, mission progress
+      The predicted path drives the controller. Cone boxes are an auxiliary vision-head output and are not fed into the path follower. The controller still receives speed, nominal calibration, mission progress
       and route commands. This is not a vision-only system. All 41 case
       identities, checkpoint, original referee and controller match the archived
       custom evaluation. RTX rendering, scenery, physical dynamics and
@@ -250,6 +250,7 @@
     function render() {
       const row = data.cases.find((x) => x.case_id === select.value);
       if (!row) {
+        video.hidden = true;
         video.removeAttribute("src");
         video.load();
         document.querySelector("#title").textContent =
@@ -263,6 +264,7 @@
       document.querySelector("#title").textContent = row.case_id;
       document.querySelector("#metrics").textContent =
         `${row.isaac_result} · ${row.isaac_clean ? "CLEAN" : row.isaac_pass ? "PASS, NOT CLEAN" : "FAIL"} · geometric DOO ${row.isaac_doo} · off-course ${row.isaac_oc} · PhysX contacts ${row.physical_cone_hits}`;
+      video.hidden = false;
       video.src = row[mode + "_url"];
       document
         .querySelector("#main")
