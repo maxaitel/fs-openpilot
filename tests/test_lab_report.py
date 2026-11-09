@@ -1,8 +1,10 @@
 import hashlib
 import json
+from zipfile import ZipFile
 
 import pytest
 
+from scripts.lab_comparison import FIELDS
 from scripts.report_lab_training import main, wilson_interval
 
 
@@ -19,7 +21,30 @@ def episode(root, model, case, result="finished", command_mode="recorded", pilot
     folder = root / model / case["id"]
     evidence = folder / "evidence"
     evidence.mkdir(parents=True)
-    metadata = {"case": case, "pilot_only": pilot, "checkpoint_sha256": "abc", "state_sha256": "def"}
+    write(folder / "export.json", {"dependencies": [], "sha256": {}})
+    for name in ("realization.json", "appearance.json"):
+        (folder / name).write_text("{}")
+    with ZipFile(folder / "source.zip", "w"):
+        pass
+    metadata = {key: "same" for key in FIELDS}
+    metadata.update(
+        {
+            "realization_sha256": sha(folder / "realization.json"),
+            "appearance_sha256": sha(folder / "appearance.json"),
+            "source_archive_sha256": sha(folder / "source.zip"),
+        }
+    )
+    metadata.update(
+        {
+            "case": case,
+            "pilot_only": pilot,
+            "checkpoint_sha256": "abc",
+            "state_sha256": "def",
+            "export_sha256": sha(folder / "export.json"),
+            "source_sha256": {},
+            "graph_sha256": {},
+        }
+    )
     if command_mode is not None:
         metadata["command_mode"] = command_mode
     write(evidence / "metadata.json", metadata)
@@ -91,6 +116,32 @@ def episode(root, model, case, result="finished", command_mode="recorded", pilot
             },
         },
     )
+    lock_path = root / "plan.lock.json"
+    lock = (
+        read_json(lock_path)
+        if lock_path.exists()
+        else {
+            "source_sha256": {},
+            "graph_sha256": {},
+            "coordinator_sha256": "coord",
+            "timeout_seconds": 7200,
+            "models": [],
+            "cases": [],
+        }
+    )
+    if not any(item["name"] == model for item in lock["models"]):
+        lock["models"].append({"name": model, "sha256": "abc"})
+    if not any(item["name"] == case["id"] for item in lock["cases"]):
+        lock["cases"].append({"name": case["id"], "case": case})
+    write(lock_path, lock)
+    manifest_path = root / "manifest.json"
+    manifest = read_json(manifest_path) if manifest_path.exists() else {"complete": True, "episodes": {}}
+    manifest["lock_sha256"] = sha(lock_path)
+    manifest["episodes"][f"{model}/{case['id']}"] = {
+        "status": "complete",
+        "receipt": {"completion_sha256": sha(evidence / "completion.json")},
+    }
+    write(manifest_path, manifest)
     return folder
 
 
@@ -392,10 +443,14 @@ def test_unequal_plans_separate_cohorts_and_only_compare_paired_cases(tmp_path):
     paired = dict(base, id="paired")
     legacy = [dict(base, id="legacy1"), dict(base, id="legacy2")]
     evaluation = tmp_path / "eval"
-    episode(evaluation, "baseline", paired, "finished")
-    episode(evaluation, "candidate", paired, "timeout")
+    paired_root, legacy_root = tmp_path / "paired-origin", tmp_path / "legacy-origin"
+    for model in ("baseline", "candidate"):
+        (evaluation / model).mkdir(parents=True)
+        original = episode(paired_root, model, paired, "finished" if model == "baseline" else "timeout")
+        (evaluation / model / paired["id"]).symlink_to(original, target_is_directory=True)
     for case in legacy:
-        episode(evaluation, "candidate", case, "finished")
+        original = episode(legacy_root, "candidate", case, "finished")
+        (evaluation / "candidate" / case["id"]).symlink_to(original, target_is_directory=True)
     models = [
         {"name": name, "checkpoint": "/remote/not-needed.pt", "sha256": "abc"} for name in ("baseline", "candidate")
     ]
@@ -526,14 +581,30 @@ def test_final_gate_rejects_same_length_foreign_video_receipt(tmp_path):
 def test_validation_components_preserve_baseline_and_independent_changes(tmp_path):
     training = tmp_path / "training"
     out = tmp_path / "out"
-    write(training / "baseline_validation.json", {
-        "step": 0, "aggregate": {"loss": 2.5, "plan_nll": 2, "steer": 0.1, "longitudinal": 0.2},
-    })
-    (training / "history.jsonl").write_text(json.dumps({
-        "step": 10, "val_loss": 1.5, "validation": {"aggregate": {
-            "loss": 1.5, "plan_nll": 0.8, "steer": 0.3, "longitudinal": 0.15,
-        }},
-    }) + "\n")
+    write(
+        training / "baseline_validation.json",
+        {
+            "step": 0,
+            "aggregate": {"loss": 2.5, "plan_nll": 2, "steer": 0.1, "longitudinal": 0.2},
+        },
+    )
+    (training / "history.jsonl").write_text(
+        json.dumps(
+            {
+                "step": 10,
+                "val_loss": 1.5,
+                "validation": {
+                    "aggregate": {
+                        "loss": 1.5,
+                        "plan_nll": 0.8,
+                        "steer": 0.3,
+                        "longitudinal": 0.15,
+                    }
+                },
+            }
+        )
+        + "\n"
+    )
     main(["--training", str(training), "--evaluation", str(tmp_path / "none"), "--out", str(out)])
     rows = read_json(out / "aggregates.json")["training"]["validation_series"]
     assert rows[0] == {"step": 0, "loss": 2.5, "plan_nll": 2, "steer": 0.1, "longitudinal": 0.2}
@@ -545,18 +616,41 @@ def test_validation_components_preserve_baseline_and_independent_changes(tmp_pat
 def test_training_telemetry_missing_malformed_and_failed_are_visible(tmp_path):
     out = tmp_path / "out"
     receipt = tmp_path / "telemetry.json"
-    args = ["--training", str(tmp_path / "none"), "--evaluation", str(tmp_path / "none"),
-            "--out", str(out), "--training-telemetry", str(receipt)]
+    args = [
+        "--training",
+        str(tmp_path / "none"),
+        "--evaluation",
+        str(tmp_path / "none"),
+        "--out",
+        str(out),
+        "--training-telemetry",
+        str(receipt),
+    ]
     main(args)
     assert read_json(out / "aggregates.json")["training"]["telemetry"]["status"] == "unavailable"
     assert "Training hardware telemetry: unavailable" in (out / "index.html").read_text()
     receipt.write_text("{")
     main(args)
     assert read_json(out / "aggregates.json")["training"]["telemetry"]["status"] == "malformed"
-    sample = {"wall_s": 1, "gpu_pct": 75, "power_w": 100, "host_ram_gib": 10, "cpu_pct": 25,
-              "compute_processes": [{"pid": 8, "name": "other"}]}
-    write(receipt, {"command": ["python", "train.py"], "wall_seconds": 2, "returncode": 1,
-                    "samples": [sample], "compute_processes_before": [], "compute_processes_after": []})
+    sample = {
+        "wall_s": 1,
+        "gpu_pct": 75,
+        "power_w": 100,
+        "host_ram_gib": 10,
+        "cpu_pct": 25,
+        "compute_processes": [{"pid": 8, "name": "other"}],
+    }
+    write(
+        receipt,
+        {
+            "command": ["python", "train.py"],
+            "wall_seconds": 2,
+            "returncode": 1,
+            "samples": [sample],
+            "compute_processes_before": [],
+            "compute_processes_after": [],
+        },
+    )
     main(args)
     telemetry = read_json(out / "aggregates.json")["training"]["telemetry"]
     assert telemetry["status"] == "failed" and telemetry["returncode"] == 1
@@ -566,3 +660,94 @@ def test_training_telemetry_missing_malformed_and_failed_are_visible(tmp_path):
     page = (out / "index.html").read_text()
     assert "Training hardware telemetry: failed" in page and "other" in page
     assert (out / "training-hardware.png").is_file()
+
+
+def test_final_report_rejects_noncomparable_pairs(tmp_path):
+    case = {
+        "id": "pair",
+        "split": "regression",
+        "discipline": "skidpad",
+        "seed": 0,
+        "dr": "heavy",
+        "variant": "matched",
+        "track_seed": None,
+        "frozen_case": None,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0,
+    }
+    evaluation = tmp_path / "eval"
+    episode(evaluation, "baseline", case)
+    candidate = episode(evaluation, "candidate", case)
+    plan = tmp_path / "plan.json"
+    write(
+        plan,
+        {
+            "version": 1,
+            "cases": [{"path": "unused", "case": case}],
+            "models": [{"name": name, "checkpoint": "unused", "sha256": "abc"} for name in ("baseline", "candidate")],
+        },
+    )
+    coverage = tmp_path / "coverage.json"
+    write(coverage, {"schema_version": 1, "paired_case_ids": ["pair"], "candidate_only_legacy_case_ids": []})
+    out = tmp_path / "report"
+    args = [
+        "--training",
+        str(tmp_path / "none"),
+        "--evaluation",
+        str(evaluation),
+        "--out",
+        str(out),
+        "--plan",
+        str(plan),
+        "--coverage",
+        str(coverage),
+        "--require-complete",
+    ]
+    main(args)
+    assert read_json(out / "aggregates.json")["paired_comparisons"]["measured_pairs"] == 1
+
+    def change_metadata(field, value):
+        evidence = candidate / "evidence"
+        metadata = read_json(evidence / "metadata.json")
+        if value is None:
+            metadata.pop(field)
+        else:
+            metadata[field] = value
+        write(evidence / "metadata.json", metadata)
+        frame = json.loads((evidence / "manifest.jsonl").read_text())
+        frame["metadata_sha256"] = sha(evidence / "metadata.json")
+        (evidence / "manifest.jsonl").write_text(json.dumps(frame) + "\n")
+        completion = read_json(evidence / "completion.json")
+        completion.update(
+            metadata_sha256=sha(evidence / "metadata.json"), manifest_sha256=sha(evidence / "manifest.jsonl")
+        )
+        write(evidence / "completion.json", completion)
+        audit = read_json(candidate / "lab_artifact_audit.json")
+        audit["completion_sha256"] = sha(evidence / "completion.json")
+        write(candidate / "lab_artifact_audit.json", audit)
+        video = read_json(candidate / "lab_video_audit.json")
+        video.update(
+            completion_sha256=sha(evidence / "completion.json"),
+            artifact_audit_sha256=sha(candidate / "lab_artifact_audit.json"),
+        )
+        write(candidate / "lab_video_audit.json", video)
+        manifest_path = evaluation / "manifest.json"
+        manifest = read_json(manifest_path)
+        manifest["episodes"]["candidate/pair"]["receipt"]["completion_sha256"] = sha(evidence / "completion.json")
+        write(manifest_path, manifest)
+
+    change_metadata("physics_settings", "different")
+    with pytest.raises(SystemExit, match="Final gate failed"):
+        main(args)
+    assert "physics_settings" in read_json(out / "aggregates.json")["paired_comparisons"]["comparison_errors"]["pair"]
+    change_metadata("physics_settings", None)
+    with pytest.raises(SystemExit, match="Final gate failed"):
+        main(args)
+    assert "physics_settings" in read_json(out / "aggregates.json")["paired_comparisons"]["comparison_errors"]["pair"]
+    change_metadata("physics_settings", "same")
+    (candidate / "export.json").write_text("tampered")
+    with pytest.raises(SystemExit, match="Final gate failed"):
+        main(args)
+    report = read_json(out / "aggregates.json")
+    assert report["paired_comparisons"]["cases"] == []
+    assert any("noncomparable" in failure for failure in report["final_gate"]["failures"])

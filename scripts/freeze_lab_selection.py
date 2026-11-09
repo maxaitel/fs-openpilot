@@ -17,6 +17,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from zipfile import ZipFile
 
+from scripts.lab_comparison import compare_conditions, comparison_conditions
 from scripts.run_lab_evaluations import digest, normalize_case, validate_episode
 
 
@@ -133,13 +134,59 @@ def verify_training(training, dataset, verification_path, baseline_sha, candidat
     }
 
 
+def verify_training_chain(training, dataset, verification, baseline, candidate, ancestor_specs):
+    if not ancestor_specs:
+        return verify_training(
+            training,
+            dataset,
+            verification,
+            baseline["checkpoint_sha256"],
+            candidate["checkpoint_sha256"],
+            candidate["step"],
+        )
+    stages = [(Path(run).resolve(), Path(checkpoint).resolve()) for run, checkpoint in ancestor_specs]
+    run_paths = [run for run, _ in stages] + [Path(training).resolve()]
+    if len(set(run_paths)) != len(run_paths):
+        raise ValueError("Duplicate or cyclic training runs")
+    infos = [checkpoint_info(path) for _, path in stages]
+    hashes = [
+        baseline["checkpoint_sha256"],
+        *(info["checkpoint_sha256"] for info in infos),
+        candidate["checkpoint_sha256"],
+    ]
+    if len(set(hashes)) != len(hashes):
+        raise ValueError("Duplicate or cyclic training checkpoints")
+    if any(info["signature"] != baseline["signature"] for info in infos):
+        raise ValueError("Ancestor checkpoint does not retain the complete model signature")
+    ancestors = []
+    for index, ((run, checkpoint), info) in enumerate(zip(stages, infos, strict=True)):
+        proof = verify_training(run, dataset, verification, hashes[index], hashes[index + 1], info["step"])
+        ancestors.append(
+            {
+                "path": str(run),
+                "checkpoint": str(checkpoint),
+                "checkpoint_sha256": info["checkpoint_sha256"],
+                "step": info["step"],
+                **proof,
+            }
+        )
+    proof = verify_training(training, dataset, verification, hashes[-2], hashes[-1], candidate["step"])
+    proof["ancestors"] = ancestors
+    return proof
+
+
 def verify_development(lock_paths, candidate_sha, baseline_sha, candidate_state_sha, baseline_state_sha):
     if not lock_paths:
         raise ValueError("At least one completed development plan is required")
     episodes, locks, case_defs = [], [], {}
-    pairs = {"candidate": set(), "baseline": set()}
+    pairs = {"candidate": {}, "baseline": {}}
+    seen_locks = set()
+    lock_conditions = None
     for lock_path in lock_paths:
         lock_path = Path(lock_path).resolve()
+        if lock_path in seen_locks:
+            raise ValueError("Duplicate development lock")
+        seen_locks.add(lock_path)
         lock = read_json(lock_path)
         if lock_path.name != "plan.lock.json":
             raise ValueError("Development plan must be an evaluation plan.lock.json")
@@ -148,8 +195,16 @@ def verify_development(lock_paths, candidate_sha, baseline_sha, candidate_state_
         manifest = read_json(manifest_path)
         if manifest.get("complete") is not True or manifest.get("lock_sha256") != digest(lock_path):
             raise ValueError("Development manifest is incomplete or belongs to a different plan")
-        if not any(m["sha256"] == candidate_sha for m in lock["models"]):
-            raise ValueError("Development plan does not include the selected candidate")
+        if not any(m["sha256"] in (candidate_sha, baseline_sha) for m in lock["models"]):
+            raise ValueError("Development plan does not include a selected model")
+        fields = ("source_sha256", "graph_sha256", "coordinator_sha256", "timeout_seconds")
+        if any(field not in lock or lock[field] is None for field in fields):
+            raise ValueError("Development lock is missing comparison conditions")
+        conditions = {field: lock[field] for field in fields}
+        if lock_conditions is None:
+            lock_conditions = conditions
+        elif conditions != lock_conditions:
+            raise ValueError("Development lock comparison conditions differ")
         if any(row["case"]["split"] not in ("val", "regression") for row in lock["cases"]):
             raise ValueError("Development plans cannot contain fresh test cases")
         expected_keys = {f"{m['name']}/{c['name']}" for c in lock["cases"] for m in lock["models"]}
@@ -180,6 +235,7 @@ def verify_development(lock_paths, candidate_sha, baseline_sha, candidate_state_
                 ):
                     raise ValueError(f"Development artifact audit is missing, failed or unbound: {key}")
                 role = None
+                comparison_artifacts = {}
                 if model["sha256"] == candidate_sha:
                     role = "candidate"
                 if model["sha256"] == baseline_sha:
@@ -189,10 +245,24 @@ def verify_development(lock_paths, candidate_sha, baseline_sha, candidate_state_
                         role = "baseline"
                 if role:
                     expected_state = candidate_state_sha if role == "candidate" else baseline_state_sha
-                    recorded_state = read_json(episode / "evidence/metadata.json").get("state_sha256")
+                    metadata = read_json(episode / "evidence/metadata.json")
+                    recorded_state = metadata.get("state_sha256")
                     if recorded_state != expected_state:
                         raise ValueError(f"Development model state differs from selected checkpoint: {key}")
-                    pairs[role].add(identity)
+                    if identity in pairs[role]:
+                        raise ValueError(f"Duplicate selected development episode: {role}/{identity}")
+                    pairs[role][identity] = comparison_conditions(episode, metadata)
+                    comparison_artifacts = {
+                        "evidence/metadata.json": digest(episode / "evidence/metadata.json"),
+                        "source.zip": metadata["source_archive_sha256"],
+                        "realization.json": metadata["realization_sha256"],
+                        "appearance.json": metadata["appearance_sha256"],
+                        "export.json": metadata["export_sha256"],
+                        **{
+                            f"assets/{name}": value
+                            for name, value in pairs[role][identity]["asset_dependencies"].items()
+                        },
+                    }
                 episodes.append(
                     {
                         "plan": str(lock_path),
@@ -205,12 +275,15 @@ def verify_development(lock_paths, candidate_sha, baseline_sha, candidate_state_
                         "summary": read_json(episode / "summary.json"),
                         "audit_sha256": digest(audit_path),
                         "terminal_condition_verified": audit.get("terminal_condition_verified"),
+                        "comparison_artifacts": comparison_artifacts,
                     }
                 )
         locks.append({"path": str(lock_path), "sha256": digest(lock_path), "manifest_sha256": digest(manifest_path)})
-    shared = pairs["candidate"] & pairs["baseline"]
-    if shared != pairs["candidate"]:
+    shared = pairs["candidate"].keys() & pairs["baseline"].keys()
+    if shared != pairs["candidate"].keys():
         raise ValueError("Every selected-candidate development case requires a matching baseline episode")
+    for identity in shared:
+        compare_conditions(pairs["baseline"][identity], pairs["candidate"][identity])
     if not any(case_defs[i]["split"] == "val" and not case_defs[i].get("frozen_case") for i in shared):
         raise ValueError("A paired native validation case is required")
     if not any(case_defs[i]["split"] == "regression" and case_defs[i].get("frozen_case") for i in shared):
@@ -305,6 +378,16 @@ def recheck_inputs(
         coverage: coverage_sha,
         membership_path: training_provenance["membership_sha256"],
     }
+    for row in training_provenance.get("ancestors", []):
+        run = Path(row["path"])
+        expected_files[Path(row["checkpoint"])] = row["checkpoint_sha256"]
+        for filename, key in (
+            ("run.json", "run_sha256"),
+            ("history.jsonl", "history_sha256"),
+            ("baseline_validation.json", "baseline_validation_sha256"),
+            ("source.zip", "source_archive_sha256"),
+        ):
+            expected_files[run / filename] = row[key]
     for row in inventory.values():
         expected_files[Path(row["path"])] = row["sha256"]
     for row in development["plans"]:
@@ -317,6 +400,8 @@ def recheck_inputs(
         expected_files[episode / "lab_artifact_audit.json"] = row["audit_sha256"]
         expected_files[episode / "evidence/completion.json"] = row["receipt"]["completion_sha256"]
         expected_files[episode / "frames.json"] = row["receipt"]["frames_sha256"]
+        for name, expected in row.get("comparison_artifacts", {}).items():
+            expected_files[episode / name] = expected
     for path, expected in expected_files.items():
         if digest(path) != expected:
             raise ValueError(f"Input changed during selection verification: {path}")
@@ -340,13 +425,8 @@ def freeze(args):
     candidate, baseline = checkpoint_info(candidate_path), checkpoint_info(baseline_path)
     if candidate["signature"] != baseline["signature"]:
         raise ValueError("Candidate does not retain the complete baseline model tensor keys, shapes and dtypes")
-    training_provenance = verify_training(
-        training,
-        dataset,
-        verification,
-        baseline["checkpoint_sha256"],
-        candidate["checkpoint_sha256"],
-        candidate["step"],
+    training_provenance = verify_training_chain(
+        training, dataset, verification, baseline, candidate, getattr(args, "ancestor_training", None) or []
     )
     development = verify_development(
         args.development_plan,
@@ -419,8 +499,7 @@ def freeze(args):
                 **payload,
                 "cases": [os.path.relpath(path, out) for path in payload["cases"]],
                 "models": [
-                    {**model, "checkpoint": os.path.relpath(model["checkpoint"], out)}
-                    for model in payload["models"]
+                    {**model, "checkpoint": os.path.relpath(model["checkpoint"], out)} for model in payload["models"]
                 ],
             }
         (out / name).write_text(json.dumps(payload, indent=2, allow_nan=False) + "\n")
@@ -474,6 +553,13 @@ def main():
     parser.add_argument("--candidate", type=Path, required=True)
     parser.add_argument("--baseline", type=Path, required=True)
     parser.add_argument("--training", type=Path, required=True)
+    parser.add_argument(
+        "--ancestor-training",
+        nargs=2,
+        action="append",
+        metavar=("RUN_DIR", "CHECKPOINT"),
+        help="Prior run and its actual selected checkpoint, in chronological order; repeat for each stage",
+    )
     parser.add_argument("--dataset", type=Path, required=True)
     parser.add_argument("--dataset-verification", type=Path)
     parser.add_argument("--coverage", type=Path, required=True)
@@ -481,7 +567,8 @@ def main():
     parser.add_argument("--reason", required=True)
     parser.add_argument("--timeout-seconds", type=float, default=7200)
     parser.add_argument(
-        "--portable-plans", action="store_true",
+        "--portable-plans",
+        action="store_true",
         help="Use paths relative to the selection directory in generated plans",
     )
     parser.add_argument("--out", type=Path, required=True)

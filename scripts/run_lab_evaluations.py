@@ -128,6 +128,7 @@ def atomic_json(path, value):
     with tempfile.NamedTemporaryFile(dir=path.parent, prefix=".manifest-", delete=False) as temp:
         name = temp.name
         try:
+            os.fchmod(temp.fileno(), 0o644)
             temp.write(payload)
             temp.flush()
             os.fsync(temp.fileno())

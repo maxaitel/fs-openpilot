@@ -1,4 +1,4 @@
-"""Full-model native Lab replay trainer; no cached vision features are used."""
+"""Full-model native Lab replay trainer with optional frozen-vision caching."""
 from __future__ import annotations
 
 import argparse
@@ -19,7 +19,7 @@ from fsop.data.native_replay import NativeReplay, episode_paths, history_indices
 from fsop.model.build import PREP, load_fs
 from fsop.sim.expert import T_IDXS
 from fsop.train.device import autocast_ctx, pick_device
-from fsop.train.losses import plan_nll, pp_steer_from_op_plan
+from fsop.train.losses import plan_l1, plan_nll, pp_steer_from_op_plan
 
 
 def pp_accel_from_op_plan(mu, speed, max_brake, max_accel):
@@ -62,6 +62,79 @@ def fresh_history(model, episodes, episode_ids, frame_ids, device, chunk_size=64
         for batch, slot in destinations[key]:
           result[batch, slot] = hidden[j]
   return result
+
+
+class FrozenFeatureCache:
+  """Episode/frame keyed FP32 features tied to frozen vision and replay arrays."""
+
+  def __init__(self, model, datasets, device, chunk_size, history_context, channels_last=False):
+    if (model.training or any(m.training for m in model.base.vision.modules()) or
+        any(p.requires_grad for p in model.base.vision.parameters())):
+      raise ValueError('feature cache requires eval mode and frozen vision')
+    if history_context not in (8, 24):
+      raise ValueError('history context must be 8 or 24')
+    self.episodes = datasets[0].episodes
+    self.history_context = history_context
+    if any(ds.episodes is not self.episodes for ds in datasets):
+      raise ValueError('feature cache datasets must share episode arrays')
+    self.array_ids = [(id(ep.road), id(ep.wide)) for ep in self.episodes]
+    self.vision_hash = {k: v for k, v in state_hashes(model.state_dict()).items() if k.startswith('base.vision.')}
+    pairs = set()
+    for dataset in datasets:
+      for ei, frame in dataset.index:
+        pairs.add((ei, frame))
+        pairs.update((ei, int(k)) for k in history_indices(frame)[-history_context:] if k >= 0)
+    pairs = sorted(pairs)
+    self.features = {}
+    start = time.monotonic()
+    with torch.no_grad():
+      for offset in range(0, len(pairs), chunk_size):
+        block = pairs[offset:offset + chunk_size]
+        road = np.stack([self.episodes[ei].frame_pair('road', k) for ei, k in block])
+        wide = np.stack([self.episodes[ei].frame_pair('wide', k) for ei, k in block])
+        road = torch.from_numpy(road).to(device).float()
+        wide = torch.from_numpy(wide).to(device).float()
+        if channels_last:
+          road = road.contiguous(memory_format=torch.channels_last)
+          wide = wide.contiguous(memory_format=torch.channels_last)
+        hidden = model.base.encode(road, wide).hidden.float().cpu()
+        if hidden.shape != (len(block), 512) or not torch.isfinite(hidden).all():
+          raise ValueError('invalid cached hidden features')
+        self.features.update(zip(block, hidden.unbind(), strict=True))
+    self.build_seconds = time.monotonic() - start
+    self.memory_bytes = len(pairs) * 512 * 4
+    self.check(model, self.episodes, check_hash=True)
+
+  def check(self, model, episodes, check_hash=False):
+    if (model.training or any(m.training for m in model.base.vision.modules()) or
+        any(p.requires_grad for p in model.base.vision.parameters())):
+      raise ValueError('feature cache requires eval mode and frozen vision')
+    if episodes is not self.episodes or [(id(ep.road), id(ep.wide)) for ep in episodes] != self.array_ids:
+      raise ValueError('feature cache episode arrays changed')
+    if check_hash:
+      hashes = {k: v for k, v in state_hashes(model.state_dict()).items() if k.startswith('base.vision.')}
+      if hashes != self.vision_hash:
+        raise ValueError('feature cache vision state changed')
+
+  def batch(self, model, episodes, episode_ids, frame_ids, device, history_context):
+    self.check(model, episodes)
+    if history_context != self.history_context:
+      raise ValueError('feature cache history context changed')
+    history = torch.zeros((len(episode_ids), 24, 512), dtype=torch.float32)
+    current = []
+    for b, (ei, frame) in enumerate(zip(episode_ids, frame_ids, strict=True)):
+      ei, frame = int(ei), int(frame)
+      current.append(self.features[(ei, frame)])
+      for slot, k in enumerate(history_indices(frame)):
+        if k >= 0 and slot >= 24 - history_context:
+          history[b, slot] = self.features[(ei, int(k))]
+    return history.to(device), torch.stack(current).to(device)
+
+  def receipt(self):
+    return {'build_seconds': self.build_seconds, 'feature_bytes': self.memory_bytes,
+            'frames': len(self.features), 'vision_state_sha256': self.vision_hash,
+            'episodes': [{'path': str(ep.path), 'arrays_sha256': {k: ep.meta['arrays_sha256'][k]
+                         for k in ('road.npy', 'wide.npy')}} for ep in self.episodes]}
 
 
 def sha256(path):
@@ -168,8 +241,10 @@ def telemetry():
     return None
 
 
-def configure(model):
+def configure(model, freeze_vision=False):
   model.set_trunk_trainable('all')
+  if freeze_vision:
+    model.base.vision.requires_grad_(False)
   for head in (model.bev, model.img):
     if head is not None:
       head.requires_grad_(False)
@@ -178,33 +253,75 @@ def configure(model):
   for name, p in model.named_parameters():
     if p.requires_grad and not torch.isfinite(p).all():
       raise ValueError(f'nonfinite trainable parameter: {name}')
-  if not any(p.requires_grad for p in model.base.vision.parameters()) or not any(
-      p.requires_grad for p in model.base.policy.parameters()):
-    raise ValueError('vision and policy must both have trainable parameters')
+  if not any(p.requires_grad for p in model.base.policy.parameters()):
+    raise ValueError('policy must have trainable parameters')
+  if not freeze_vision and not any(p.requires_grad for p in model.base.vision.parameters()):
+    raise ValueError('vision must have trainable parameters')
+
+
+def state_hashes(state):
+  """Hash the exact bytes and metadata of vision and auxiliary state tensors."""
+  result = {}
+  for name, tensor in state.items():
+    if name.startswith(('base.vision.', 'bev.', 'img.')):
+      value = tensor.detach().cpu().contiguous()
+      result[name] = {'dtype': str(value.dtype), 'shape': list(value.shape),
+                      'sha256': hashlib.sha256(value.reshape(-1).view(torch.uint8).numpy().tobytes()).hexdigest()}
+  return result
+
+
+def save_checkpoint(state, path, reference, freeze_vision, trainable_names):
+  def check(model_state):
+    hashes = state_hashes(model_state)
+    if hashes.keys() != reference.keys():
+      raise ValueError('vision or auxiliary state keys changed')
+    for name, digest in hashes.items():
+      if (freeze_vision or not name.startswith('base.vision.')) and digest != reference[name]:
+        raise ValueError(f'frozen state changed: {name}')
+    for name in trainable_names:
+      if not torch.isfinite(model_state[name]).all():
+        raise ValueError(f'nonfinite checkpoint parameter: {name}')
+    return hashes
+
+  current = check(state['model'])
+  torch.save(state, path)
+  saved = check(torch.load(path, map_location='cpu', weights_only=False)['model'])
+  if current != saved:
+    raise ValueError('saved vision or auxiliary state differs from live state')
+  return saved
 
 
 def vision_l2sp(model, reference, weight):
-  return weight * sum((p - reference[name]).square().sum()
-                      for name, p in model.base.vision.named_parameters() if name in reference)
+  terms = [(p - reference[name]).square().sum()
+           for name, p in model.base.vision.named_parameters() if name in reference]
+  return weight * sum(terms, torch.zeros((), device=next(model.parameters()).device))
 
 
 
 def batch_loss(model, dataset, indices, device, w_steer, w_long, chunk_size, amp=False, channels_last=False,
-               history_context=24):
+               history_context=24, w_plan=1.0, cache=None, return_outputs=False):
+  if cache is not None and amp:
+    raise ValueError('feature cache requires FP32')
   batch = collate([dataset[int(i)] for i in indices])
-  history = fresh_history(model, dataset.episodes, batch.pop('episode').tolist(), batch.pop('frame').tolist(),
-                          device, chunk_size, amp=amp, channels_last=channels_last,
-                          history_context=history_context)
+  episode_ids, frame_ids = batch.pop('episode').tolist(), batch.pop('frame').tolist()
+  if cache is None:
+    history = fresh_history(model, dataset.episodes, episode_ids, frame_ids, device, chunk_size,
+                            amp=amp, channels_last=channels_last, history_context=history_context)
+  else:
+    history, hidden = cache.batch(model, dataset.episodes, episode_ids, frame_ids, device, history_context)
+    batch.pop('img')
+    batch.pop('big_img')
   b = {k: v.to(device) for k, v in batch.items()}
   for name, tensor in b.items():
     if tensor.is_floating_point() and not torch.isfinite(tensor).all():
       raise ValueError(f'nonfinite input {name}')
   b['history'] = history
-  if channels_last:
+  if channels_last and cache is None:
     for key in ('img', 'big_img'):
       b[key] = b[key].contiguous(memory_format=torch.channels_last)
   with autocast_ctx(device, enabled=amp):
-    out = model.forward_images(b, heads=('plan',))
+    out = (model.forward_images(b, heads=('plan',)) if cache is None else
+           model.plan(history, hidden, b['desire'], b['traffic']))
   mu, logstd = out['plan_mu'].float(), out['plan_logstd'].float()
   if not torch.isfinite(mu).all() or not torch.isfinite(logstd).all():
     raise ValueError('nonfinite model plan')
@@ -213,8 +330,43 @@ def batch_loss(model, dataset, indices, device, w_steer, w_long, chunk_size, amp
   steer_loss = F.smooth_l1_loss(steer, b['steer_target'], beta=0.05)
   long = pp_accel_from_op_plan(mu, b['speed'], b['vehicle_max_brake'], b['vehicle_max_accel'])
   long_loss = F.smooth_l1_loss(long, b['accel_target'], beta=0.05)
-  total = plan + w_steer * steer_loss + w_long * long_loss
-  return total, {'plan_nll': plan, 'steer': steer_loss, 'longitudinal': long_loss}
+  total = w_plan * plan + w_steer * steer_loss + w_long * long_loss
+  components = {'plan_nll': plan, 'plan_l1': plan_l1(mu, b['plan']),
+                'steer': steer_loss, 'longitudinal': long_loss}
+  return (total, components, out) if return_outputs else (total, components)
+
+
+def frozen_cache_gate(model, dataset, indices, device, args, cache):
+  """Compare plan, losses, and every trainable policy gradient at fixed tolerances."""
+  cache.check(model, dataset.episodes, check_hash=True)
+  parameters = [(name, p) for name, p in model.base.policy.named_parameters() if p.requires_grad]
+  if not parameters:
+    raise ValueError('cache parity gate requires trainable policy')
+  results = []
+  for candidate in (None, cache):
+    loss, parts, output = batch_loss(model, dataset, indices, device, args.w_steer, args.w_long,
+                                     args.history_chunk_size, amp=False, channels_last=args.channels_last,
+                                     history_context=args.history_context, w_plan=args.w_plan,
+                                     cache=candidate, return_outputs=True)
+    grads = torch.autograd.grad(loss, [p for _, p in parameters], allow_unused=True)
+    results.append(({**{k: v.detach() for k, v in output.items() if k in ('plan_mu', 'plan_logstd', 'desire_state')},
+                     'loss': loss.detach(), **{k: v.detach() for k, v in parts.items()}}, grads))
+  comparisons = {}
+  for name, value in results[0][0].items():
+    other = results[1][0][name]
+    comparisons[name] = {'passed': bool(torch.allclose(value, other, atol=1e-5, rtol=1e-5)),
+                         'max_abs': float((value - other).abs().max())}
+  for (name, _), left, right in zip(parameters, results[0][1], results[1][1], strict=True):
+    if left is None or right is None:
+      comparisons['gradient:' + name] = {'passed': left is None and right is None, 'max_abs': None}
+    else:
+      comparisons['gradient:' + name] = {'passed': bool(torch.allclose(left, right, atol=1e-5, rtol=1e-4)),
+                                         'max_abs': float((left - right).abs().max())}
+  cache.check(model, dataset.episodes, check_hash=True)
+  return {'passed': all(v['passed'] for v in comparisons.values()),
+          'tolerances': {'plan_loss_atol': 1e-5, 'plan_loss_rtol': 1e-5,
+                         'gradient_atol': 1e-5, 'gradient_rtol': 1e-4},
+          'indices': list(map(int, indices)), 'comparisons': comparisons}
 
 
 def grad_norms(model):
@@ -263,17 +415,18 @@ def validation_samples(dataset, limit):
   return selected
 
 
-def validate(model, dataset, selected, device, args):
+def validate(model, dataset, selected, device, args, cache=None):
   """Evaluate the same episode-balanced anchor set in FP32 regardless of training AMP."""
   episodes = []
   with torch.no_grad():
     for ei, indices in selected.items():
-      totals = {'loss': 0., 'plan_nll': 0., 'steer': 0., 'longitudinal': 0.}
+      totals = {'loss': 0., 'plan_nll': 0., 'plan_l1': 0., 'steer': 0., 'longitudinal': 0.}
       for start in range(0, len(indices), args.batch_size):
         block = indices[start:start + args.batch_size]
         loss, components = batch_loss(model, dataset, block, device, args.w_steer, args.w_long,
                                       args.history_chunk_size, amp=False, channels_last=args.channels_last,
-                                      history_context=args.history_context)
+                                      history_context=args.history_context, w_plan=args.w_plan,
+                                      **({'cache': cache} if cache is not None else {}))
         for name, value in {'loss': loss, **components}.items():
           totals[name] += float(value) * len(block)
       scores = {name: value / len(indices) for name, value in totals.items()}
@@ -282,18 +435,22 @@ def validate(model, dataset, selected, device, args):
       episodes.append({'path': str(dataset.episodes[ei].path), 'count': len(indices), **scores})
   # Equal episode weighting keeps a short valid episode from being overwhelmed by a long one.
   aggregate = {name: float(np.mean([ep[name] for ep in episodes]))
-               for name in ('loss', 'plan_nll', 'steer', 'longitudinal')}
+               for name in ('loss', 'plan_nll', 'plan_l1', 'steer', 'longitudinal')}
   return {'precision': 'float32', 'aggregation': 'equal_episode', 'count': sum(e['count'] for e in episodes),
           'aggregate': aggregate, 'episodes': episodes}
 
 
 def run(args):
+  cache_enabled = getattr(args, 'cache_frozen_features', False)
+  parity_only = getattr(args, 'cache_parity_only', False)
+  if (cache_enabled or parity_only) and (not args.freeze_vision or args.amp):
+    raise ValueError('feature cache requires --freeze-vision and FP32 without --amp')
   if args.steps < 1 or args.batch_size < 1 or args.lr <= 0 or args.val_every < 1 or args.history_chunk_size < 1:
     raise ValueError('steps, batch size, learning rate, val interval and history chunk must be positive')
-  values = (args.lr, args.w_steer, args.w_long, args.lr_policy, args.lr_trunk, args.l2sp, args.grad_clip)
+  values = (args.lr, args.w_steer, args.w_long, args.w_plan, args.lr_policy, args.lr_trunk, args.l2sp, args.grad_clip)
   if not all(math.isfinite(v) for v in values) or min(values[1:]) < 0:
     raise ValueError('learning rates, loss weights and gradient clip must be finite and nonnegative')
-  if args.lr_policy == 0 or args.lr_trunk == 0 or args.grad_clip == 0:
+  if args.lr_policy == 0 or (not args.freeze_vision and args.lr_trunk == 0) or args.grad_clip == 0:
     raise ValueError('learning rate multipliers and gradient clip must be positive')
   if args.threads < 1:
     raise ValueError('threads must be positive')
@@ -326,17 +483,19 @@ def run(args):
   # Eval mode preserves the runtime's behavior; gradients are still enabled.
   model.eval()
   context_proof = prove_policy_context(model) if args.history_context == 8 else None
-  configure(model)
+  configure(model, freeze_vision=args.freeze_vision)
   reference = {n: p.detach().clone() for n, p in model.base.vision.named_parameters() if p.requires_grad}
-  optimizer = torch.optim.AdamW([
-    {'params': [p for p in model.base.policy.parameters() if p.requires_grad], 'lr': args.lr * args.lr_policy},
-    {'params': [p for p in model.base.vision.parameters() if p.requires_grad],
-     'lr': args.lr * args.lr_trunk, 'weight_decay': 0.0},
-  ], weight_decay=1e-4)
+  groups = [{'params': [p for p in model.base.policy.parameters() if p.requires_grad],
+             'lr': args.lr * args.lr_policy}]
+  if not args.freeze_vision:
+    groups.append({'params': [p for p in model.base.vision.parameters() if p.requires_grad],
+                   'lr': args.lr * args.lr_trunk, 'weight_decay': 0.0})
+  optimizer = torch.optim.AdamW(groups, weight_decay=1e-4)
+  frozen_reference = state_hashes(model.state_dict())
   out = Path(args.out)
   out.mkdir(parents=True, exist_ok=True)
   names = [name for name, p in model.named_parameters() if p.requires_grad]
-  info = {'args': vars(args), 'device': str(device),
+  info = {'args': vars(args), 'device': str(device), 'baseline_state_sha256': frozen_reference,
           'numeric_precision': 'CUDA autocast bfloat16; history outputs and losses float32' if args.amp else 'float32',
           'init_sha256': sha256(args.init), 'train_anchors': len(train),
           'val_anchors': len(val), 'trainable_tensors': names,
@@ -355,19 +514,32 @@ def run(args):
   if any((out / name).exists() for name in
          ('history.jsonl', 'run.json', 'source.zip', 'baseline_validation.json', 'selected.pt')):
     raise FileExistsError(f'{out} contains a run; use a new output directory')
+  cache = (FrozenFeatureCache(model, [train, val], device, args.history_chunk_size,
+                              args.history_context, args.channels_last)
+           if cache_enabled or parity_only else None)
+  if cache is not None:
+    info['frozen_feature_cache'] = cache.receipt()
   info['manifest_sha256'] = manifest_sha
   info['dataset_verification'] = verification
   info['source'] = archive_source(out / 'source.zip')
   (out / 'run.json').write_text(json.dumps(info, indent=2) + '\n')
+  if parity_only:
+    indices = np.linspace(0, len(train) - 1, min(args.batch_size, len(train)), dtype=int)
+    result = frozen_cache_gate(model, train, indices, device, args, cache)
+    (out / 'cache_parity.json').write_text(json.dumps(result, indent=2, allow_nan=False) + '\n')
+    if not result['passed']:
+      raise ValueError('frozen feature cache parity gate failed')
+    return
   if device.type == 'cuda':
     torch.cuda.reset_peak_memory_stats(device)
   start = time.monotonic()
-  baseline = validate(model, val, validation_selection, device, args)
+  baseline = validate(model, val, validation_selection, device, args, **({'cache': cache} if cache else {}))
   best = baseline['aggregate']['loss']
   selected = out / 'selected.pt'
   baseline_state = {'model': model.state_dict(), 'step': 0,
                     'optimizer': optimizer.state_dict(), 'config': vars(args)}
-  torch.save(baseline_state, selected)
+  baseline['saved_state_sha256'] = save_checkpoint(baseline_state, selected, frozen_reference,
+                                                   args.freeze_vision, names)
   model.load_state_dict(torch.load(selected, map_location=device, weights_only=False)['model'], strict=True)
   baseline['step'] = 0
   baseline['selected_sha256'] = sha256(selected)
@@ -379,7 +551,8 @@ def run(args):
       optimizer.zero_grad(set_to_none=True)
       loss, components = batch_loss(model, train, idx, device, args.w_steer, args.w_long, args.history_chunk_size,
                                     amp=args.amp, channels_last=args.channels_last,
-                                    history_context=args.history_context)
+                                    history_context=args.history_context, w_plan=args.w_plan,
+                                    **({'cache': cache} if cache else {}))
       retention = vision_l2sp(model, reference, args.l2sp)
       loss = loss + retention
       if not torch.isfinite(loss):
@@ -394,21 +567,23 @@ def run(args):
              'step_seconds': time.monotonic() - tick, 'elapsed_seconds': time.monotonic() - start,
              'torch_peak_memory_bytes': torch.cuda.max_memory_allocated(device) if device.type == 'cuda' else None}
       if step == 1 or step % args.val_every == 0 or step == args.steps:
-        validation = validate(model, val, validation_selection, device, args)
+        if cache is not None:
+          cache.check(model, episodes, check_hash=True)
+        validation = validate(model, val, validation_selection, device, args, **({'cache': cache} if cache else {}))
         score = validation['aggregate']['loss']
         row['val_loss'] = score
         row['validation'] = validation
         row['nvml'] = telemetry()
         ckpt = out / f'step_{step:06d}.pt'
         state = {'model': model.state_dict(), 'step': step, 'optimizer': optimizer.state_dict(), 'config': vars(args)}
-        torch.save(state, ckpt)
+        row['state_sha256'] = save_checkpoint(state, ckpt, frozen_reference, args.freeze_vision, names)
         row['checkpoint'] = str(ckpt)
         row['checkpoint_sha256'] = sha256(ckpt)
         if score < best:
           best = score
           selected = out / 'selected.pt'
           # Same complete state dictionary; strict reload verifies the artifact.
-          torch.save(state, selected)
+          row['selected_state_sha256'] = save_checkpoint(state, selected, frozen_reference, args.freeze_vision, names)
           model.load_state_dict(torch.load(selected, map_location=device, weights_only=False)['model'], strict=True)
           row['selected_sha256'] = sha256(selected)
       log.write(json.dumps(row, allow_nan=False) + '\n')
@@ -431,6 +606,11 @@ def main(argv=None):
   p.add_argument('--val-samples', type=int, default=128)
   p.add_argument('--history-chunk-size', type=int, default=64)
   p.add_argument('--history-context', type=int, choices=(8, 24), default=24)
+  p.add_argument('--freeze-vision', action='store_true')
+  p.add_argument('--cache-frozen-features', action='store_true')
+  p.add_argument('--cache-parity-only', action='store_true',
+                 help='write a fixed-batch numerical parity receipt and exit')
+  p.add_argument('--w-plan', type=float, default=1.0)
   p.add_argument('--w-steer', type=float, default=3.281158240898283)
   p.add_argument('--w-long', type=float, default=1.0)
   p.add_argument('--lr-policy', type=float, default=0.3)

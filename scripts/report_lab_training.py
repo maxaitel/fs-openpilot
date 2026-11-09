@@ -15,12 +15,15 @@ import os
 from collections import defaultdict
 from pathlib import Path
 from urllib.parse import quote
+from zipfile import BadZipFile
 
 import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
+
+from scripts.lab_comparison import compare_conditions, comparison_conditions
 
 
 def digest(path):
@@ -191,6 +194,43 @@ def load_episode(folder, model):
         checkpoint_sha256=summary.get("checkpoint_sha256"),
         frame_count=receipt["frame_count"],
     )
+    try:
+        conditions = comparison_conditions(folder, metadata)
+        original = folder.resolve()
+        root = original.parent.parent
+        lock_path = root / "plan.lock.json"
+        lock, manifest = read_json(lock_path), read_json(root / "manifest.json")
+        if manifest.get("complete") is not True or manifest.get("lock_sha256") != digest(lock_path):
+            raise ValueError("Original evaluation manifest is incomplete or unbound")
+        key = f"{original.parent.name}/{original.name}"
+        models, cases = lock["models"], lock["cases"]
+        expected = {f"{model['name']}/{case['name']}" for model in models for case in cases}
+        if set(manifest["episodes"]) != expected or any(
+            item.get("status") != "complete" for item in manifest["episodes"].values()
+        ):
+            raise ValueError("Original evaluation manifest does not cover its complete plan")
+        if not any(
+            model["name"] == original.parent.name and model["sha256"] == metadata["checkpoint_sha256"]
+            for model in models
+        ):
+            raise ValueError("Original lock does not bind the episode checkpoint")
+        if not any(case["name"] == original.name and case["case"] == metadata["case"] for case in cases):
+            raise ValueError("Original lock does not bind the episode case")
+        record = manifest["episodes"][key]
+        if record.get("status") != "complete" or record.get("receipt", {}).get("completion_sha256") != digest(
+            folder / "evidence/completion.json"
+        ):
+            raise ValueError("Original evaluation manifest does not bind this episode")
+        for field in ("source_sha256", "graph_sha256"):
+            if field not in lock or lock[field] != conditions[field]:
+                raise ValueError(f"Original lock differs from episode {field}")
+        for field in ("coordinator_sha256", "timeout_seconds"):
+            if field not in lock or lock[field] is None:
+                raise ValueError(f"Original lock missing {field}")
+            conditions[field] = lock[field]
+        row["comparison_conditions"] = conditions
+    except (OSError, ValueError, KeyError, TypeError, AttributeError, BadZipFile) as exc:
+        row["comparison_error"] = str(exc)
     row["audit"], audit = audit_status(folder, receipt)
     row["latency"] = latency(folder, audit, row["audit"])
     for name in ("debug", "research"):
@@ -309,12 +349,14 @@ def paired_comparisons(episodes, coverage, has_plan):
             "measured_pairs": 0,
             "unplanned_case_ids": sorted(coverage["paired"]),
             "unmeasured_case_ids": [],
+            "comparison_errors": {},
             "cases": [],
         }
     by_key = {(row["model"], row["case_id"]): row for row in episodes if row.get("expected")}
     cases = []
     unplanned = []
     unmeasured = []
+    comparison_errors = {}
     required = 0
     for ident in sorted(coverage["paired"]):
         base = by_key.get(("baseline", ident))
@@ -335,6 +377,17 @@ def paired_comparisons(episodes, coverage, has_plan):
             or base.get("cohort") not in ("paired_fresh", "paired_exposed")
             or base.get("cohort") != candidate.get("cohort")
         ):
+            unmeasured.append(ident)
+            continue
+
+        try:
+            left, right = base["comparison_conditions"], candidate["comparison_conditions"]
+            compare_conditions(left, right)
+            for field in ("coordinator_sha256", "timeout_seconds"):
+                if left[field] != right[field]:
+                    raise ValueError(f"Noncomparable episode condition: {field}")
+        except (KeyError, ValueError) as exc:
+            comparison_errors[ident] = base.get("comparison_error") or candidate.get("comparison_error") or str(exc)
             unmeasured.append(ident)
             continue
 
@@ -365,6 +418,7 @@ def paired_comparisons(episodes, coverage, has_plan):
         "measured_pairs": len(cases),
         "unplanned_case_ids": unplanned,
         "unmeasured_case_ids": unmeasured,
+        "comparison_errors": comparison_errors,
         "cases": cases,
     }
 
@@ -500,8 +554,12 @@ def validation_series(history, baseline):
     rows = []
     if baseline is not None:
         values = baseline["aggregate"]
-        rows.append({"step": 0, **{key: values.get(key) if finite(values.get(key)) else None
-                                  for key, _ in VALIDATION_COMPONENTS}})
+        rows.append(
+            {
+                "step": 0,
+                **{key: values.get(key) if finite(values.get(key)) else None for key, _ in VALIDATION_COMPONENTS},
+            }
+        )
     for row in history:
         validation = row.get("validation")
         aggregate = validation.get("aggregate") if isinstance(validation, dict) else None
@@ -510,8 +568,9 @@ def validation_series(history, baseline):
         if values["loss"] is None:
             values["loss"] = row.get("val_loss")
         if any(finite(value) for value in values.values()):
-            rows.append({"step": row["step"],
-                         **{key: value if finite(value) else None for key, value in values.items()}})
+            rows.append(
+                {"step": row["step"], **{key: value if finite(value) else None for key, value in values.items()}}
+            )
     return rows
 
 
@@ -528,36 +587,56 @@ def read_training_telemetry(path):
         command = receipt.get("command")
         code = receipt.get("returncode")
         samples = receipt.get("samples")
-        if (not isinstance(command, list) or not command or any(not isinstance(x, str) for x in command)
-                or not isinstance(code, int) or isinstance(code, bool)
-                or not finite(receipt.get("wall_seconds")) or receipt["wall_seconds"] < 0
-                or not isinstance(samples, list) or not samples):
+        if (
+            not isinstance(command, list)
+            or not command
+            or any(not isinstance(x, str) for x in command)
+            or not isinstance(code, int)
+            or isinstance(code, bool)
+            or not finite(receipt.get("wall_seconds"))
+            or receipt["wall_seconds"] < 0
+            or not isinstance(samples, list)
+            or not samples
+        ):
             raise ValueError("missing command, return code, wall time or samples")
         inventories = [receipt.get("compute_processes_before"), receipt.get("compute_processes_after")]
         last_wall = -1
         for sample in samples:
-            if (not isinstance(sample, dict) or not finite(sample.get("wall_s"))
-                    or not last_wall <= sample["wall_s"] <= receipt["wall_seconds"]):
+            if (
+                not isinstance(sample, dict)
+                or not finite(sample.get("wall_s"))
+                or not last_wall <= sample["wall_s"] <= receipt["wall_seconds"]
+            ):
                 raise ValueError("invalid sample wall time")
             last_wall = sample["wall_s"]
             if any(not finite(sample.get(key)) or sample[key] < 0 for key, _ in TELEMETRY_METRICS):
                 raise ValueError("invalid or missing telemetry metric")
             inventories.append(sample.get("compute_processes"))
-        if any(not isinstance(items, list) or any(
-            not isinstance(item, dict) or not isinstance(item.get("pid"), int) or isinstance(item.get("pid"), bool)
-            or not isinstance(item.get("name"), str) for item in items) for items in inventories):
+        if any(
+            not isinstance(items, list)
+            or any(
+                not isinstance(item, dict)
+                or not isinstance(item.get("pid"), int)
+                or isinstance(item.get("pid"), bool)
+                or not isinstance(item.get("name"), str)
+                for item in items
+            )
+            for items in inventories
+        ):
             raise ValueError("invalid compute process inventory")
         processes = sorted({(item["pid"], item["name"]) for items in inventories for item in items})
         result.update(
-            status="completed" if code == 0 else "failed", command=command, returncode=code,
-            wall_seconds=receipt["wall_seconds"], sample_count=len(samples),
+            status="completed" if code == 0 else "failed",
+            command=command,
+            returncode=code,
+            wall_seconds=receipt["wall_seconds"],
+            sample_count=len(samples),
             median_gpu_pct=float(np.median([row["gpu_pct"] for row in samples])),
             median_power_w=float(np.median([row["power_w"] for row in samples])),
             peak_host_ram_gib=max(row["host_ram_gib"] for row in samples),
             compute_processes=[{"pid": pid, "name": name} for pid, name in processes],
             scope="Whole GPU and host; host RAM is unified system memory, not dedicated VRAM",
-            samples=[{"wall_s": row["wall_s"], **{key: row[key] for key, _ in TELEMETRY_METRICS}}
-                     for row in samples],
+            samples=[{"wall_s": row["wall_s"], **{key: row[key] for key, _ in TELEMETRY_METRICS}} for row in samples],
         )
     except (OSError, ValueError, TypeError, UnicodeDecodeError) as exc:
         result["status"] = "unavailable" if isinstance(exc, OSError) else "malformed"
@@ -754,20 +833,27 @@ def render_html(report, out, graphs, eval_graph):
     body.extend(f'<p><img src="{esc(name)}" alt="{esc(name)}"></p>' for name in graphs[:-1])
     telemetry = report["training"]["telemetry"]
     body.append(f"<h3>Training hardware telemetry: {esc(telemetry['status'])}</h3>")
-    body.append("<p>Whole GPU and host measurements. Host RAM is unified system memory. "
-                "GPU utilization is not SM occupancy; process inventory may include the training job.</p>")
+    body.append(
+        "<p>Whole GPU and host measurements. Host RAM is unified system memory. "
+        "GPU utilization is not SM occupancy; process inventory may include the training job.</p>"
+    )
     if telemetry.get("error"):
         body.append(f"<p>{esc(telemetry['error'])}</p>")
     if "command" in telemetry:
-        body.append(f"<p>Job wall seconds: {esc(telemetry['wall_seconds'])}; "
-                    f"median GPU utilization: {esc(telemetry['median_gpu_pct'])}%; "
-                    f"median GPU power: {esc(telemetry['median_power_w'])} W; "
-                    f"peak sampled host RAM: {esc(telemetry['peak_host_ram_gib'])} GiB; "
-                    f"return code: {esc(telemetry['returncode'])}.</p>")
-        body.append(f"<p>Observed GPU compute processes, including possible competing processes: "
-                    f"{esc(json.dumps(telemetry['compute_processes']))}</p>")
-        body.append(f"<p>Receipt SHA-256: {esc(telemetry['sha256'])}; "
-                    f"command: {esc(json.dumps(telemetry['command']))}</p>")
+        body.append(
+            f"<p>Job wall seconds: {esc(telemetry['wall_seconds'])}; "
+            f"median GPU utilization: {esc(telemetry['median_gpu_pct'])}%; "
+            f"median GPU power: {esc(telemetry['median_power_w'])} W; "
+            f"peak sampled host RAM: {esc(telemetry['peak_host_ram_gib'])} GiB; "
+            f"return code: {esc(telemetry['returncode'])}.</p>"
+        )
+        body.append(
+            f"<p>Observed GPU compute processes, including possible competing processes: "
+            f"{esc(json.dumps(telemetry['compute_processes']))}</p>"
+        )
+        body.append(
+            f"<p>Receipt SHA-256: {esc(telemetry['sha256'])}; command: {esc(json.dumps(telemetry['command']))}</p>"
+        )
     body.append(f'<p><img src="{esc(graphs[-1])}" alt="{esc(graphs[-1])}"></p>')
     body += [
         "<h2>Evaluation</h2>",
@@ -959,6 +1045,12 @@ def main(argv=None):
                     gate["failures"].append(f"{model}/{ident}: required coverage case not in supplied plans")
         if gate["failures"]:
             gate["status"] = "failed"
+    pairs = paired_comparisons(episodes, coverage, bool(args.plan))
+    for ident in pairs["unmeasured_case_ids"]:
+        detail = pairs["comparison_errors"].get(ident, "missing or unaudited evidence")
+        gate["failures"].append(f"{ident}: paired episodes are incomplete or noncomparable ({detail})")
+    if gate["failures"]:
+        gate["status"] = "failed"
     report = {
         "training": {
             "path": str(args.training.resolve()),
@@ -976,7 +1068,7 @@ def main(argv=None):
         "coverage_path": str(args.coverage.resolve()) if args.coverage else None,
         "episodes": episodes,
         "groups": aggregate(episodes),
-        "paired_comparisons": paired_comparisons(episodes, coverage, bool(args.plan)),
+        "paired_comparisons": pairs,
         "limitations": [
             "Summary seal and frame membership checked; frame NPZ content hashes not rechecked.",
             "Audit and videos reported separately from summary seal.",

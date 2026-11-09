@@ -281,14 +281,14 @@ def test_balanced_validation_is_fixed_and_fp32(monkeypatch):
   assert len({i for indices in selected.values() for i in indices}) == 32
   calls = []
 
-  def fake_loss(model, ds, indices, device, w_steer, w_long, chunk_size, amp, channels_last, history_context):
+  def fake_loss(model, ds, indices, device, w_steer, w_long, chunk_size, amp, channels_last, history_context, w_plan):
     calls.append((amp, channels_last))
     value = torch.tensor(float(ds.index[indices[0]][0]))
-    return value, {'plan_nll': value, 'steer': value * 2, 'longitudinal': value * 3}
+    return value, {'plan_nll': value, 'plan_l1': value * 4, 'steer': value * 2, 'longitudinal': value * 3}
 
   monkeypatch.setattr(lab_train, 'batch_loss', fake_loss)
   args = SimpleNamespace(batch_size=2, w_steer=1., w_long=1., history_chunk_size=64,
-                         channels_last=False, amp=True, history_context=24)
+                         channels_last=False, amp=True, history_context=24, w_plan=1.)
   metrics = lab_train.validate(None, dataset, selected, torch.device('cpu'), args)
   assert all(not amp for amp, _ in calls)
   assert len(metrics['episodes']) == 8
@@ -317,7 +317,59 @@ def test_gradient_norms_match_and_reject_nonfinite():
     grad_norms(model)
 
 
-def test_baseline_checkpoint_can_remain_selected(tmp_path, monkeypatch):
+def test_batch_loss_plan_weight_and_plan_l1(monkeypatch):
+  from fsop.train import lab_train
+  from fsop.train.losses import plan_l1
+
+  class Model:
+    def forward_images(self, batch, heads):
+      mu = torch.ones((len(batch['speed']), 33, 15))
+      return {'plan_mu': mu, 'plan_logstd': torch.zeros_like(mu)}
+
+  sample = {'episode': 0, 'frame': 0, 'plan': torch.zeros((33, 15)), 'speed': torch.tensor(1.),
+            'vehicle_lr': torch.tensor(.8), 'vehicle_wheelbase': torch.tensor(1.55),
+            'vehicle_max_brake': torch.tensor(13.), 'vehicle_max_accel': torch.tensor(7.),
+            'steer_target': torch.tensor(0.), 'accel_target': torch.tensor(0.)}
+
+  class Dataset:
+    episodes = []
+
+    def __getitem__(self, index):
+      return sample.copy()
+
+  monkeypatch.setattr(lab_train, 'fresh_history', lambda *args, **kwargs: torch.zeros((1, 24, 512)))
+  args = (Model(), Dataset(), [0], torch.device('cpu'), 3.281158, 1., 64)
+  default, parts = lab_train.batch_loss(*args)
+  weighted, weighted_parts = lab_train.batch_loss(*args, w_plan=.1)
+  assert parts['plan_l1'] == pytest.approx(plan_l1(torch.ones((1, 33, 15)), sample['plan'][None]).item())
+  assert default == pytest.approx((parts['plan_nll'] + 3.281158 * parts['steer'] + parts['longitudinal']).item())
+  assert weighted == pytest.approx((.1 * parts['plan_nll'] + 3.281158 * parts['steer'] + parts['longitudinal']).item())
+  assert weighted_parts['plan_l1'] == parts['plan_l1']
+
+
+def test_checkpoint_rejects_mutated_frozen_buffer_and_nonfinite_parameter(tmp_path):
+  from fsop.train.lab_train import save_checkpoint, state_hashes
+
+  model = torch.nn.Module()
+  model.base = torch.nn.Module()
+  model.base.vision = torch.nn.Linear(1, 1)
+  model.base.vision.register_buffer('counter', torch.tensor(1))
+  model.base.policy = torch.nn.Linear(1, 1)
+  model.bev = torch.nn.Linear(1, 1)
+  reference = state_hashes(model.state_dict())
+  state = {'model': model.state_dict()}
+  model.base.vision.counter.add_(1)
+  with pytest.raises(ValueError, match='frozen state changed: base.vision.counter'):
+    save_checkpoint(state, tmp_path / 'bad.pt', reference, True, ['base.policy.weight'])
+  model.base.vision.counter.sub_(1)
+  with torch.no_grad():
+    model.base.policy.weight.fill_(float('nan'))
+  with pytest.raises(ValueError, match='nonfinite checkpoint parameter'):
+    save_checkpoint(state, tmp_path / 'bad.pt', reference, True, ['base.policy.weight'])
+
+
+@pytest.mark.parametrize('freeze_vision', [False, True])
+def test_baseline_checkpoint_can_remain_selected(tmp_path, monkeypatch, freeze_vision):
   from fsop.train import lab_train
 
   class Model(torch.nn.Module):
@@ -328,6 +380,8 @@ def test_baseline_checkpoint_can_remain_selected(tmp_path, monkeypatch):
       self.base.policy = torch.nn.Linear(1, 1, bias=False)
       self.bev = torch.nn.Linear(1, 1)
       self.img = torch.nn.Linear(1, 1)
+      self.base.vision.register_buffer('counter', torch.tensor([17], dtype=torch.int64))
+      self.bev.register_buffer('counter', torch.tensor([23], dtype=torch.int64))
       torch.nn.init.zeros_(self.base.vision.weight)
       torch.nn.init.zeros_(self.base.policy.weight)
 
@@ -351,10 +405,10 @@ def test_baseline_checkpoint_can_remain_selected(tmp_path, monkeypatch):
       return len(self.index)
 
   def fake_loss(model, dataset, indices, device, w_steer, w_long, chunk_size, amp=False, channels_last=False,
-                history_context=24):
+                history_context=24, w_plan=1.):
     v, p = model.base.vision.weight, model.base.policy.weight
     loss = ((v - 1).square() + (p - 1).square()).sum() if dataset.split == 'train' else p.square().sum()
-    return loss, {'plan_nll': loss, 'steer': loss * 0, 'longitudinal': loss * 0}
+    return loss, {'plan_nll': loss, 'plan_l1': loss, 'steer': loss * 0, 'longitudinal': loss * 0}
 
   init = tmp_path / 'init.pt'
   init.write_bytes(b'initial checkpoint')
@@ -368,7 +422,7 @@ def test_baseline_checkpoint_can_remain_selected(tmp_path, monkeypatch):
                          batch_size=2, lr=.1, val_every=1, val_samples=4, history_chunk_size=64,
                          w_steer=1., w_long=1., lr_policy=1., lr_trunk=1., l2sp=.001,
                          grad_clip=1., device='cpu', amp=False, channels_last=False, threads=1, seed=0,
-                         history_context=24, dataset_verification=None)
+                         history_context=24, dataset_verification=None, w_plan=1., freeze_vision=freeze_vision)
   lab_train.run(args)
   receipt = json.loads((tmp_path / 'run' / 'run.json').read_text())['dataset_verification']
   assert receipt == {'status': 'unverified_development_data', 'path': None, 'sha256': None}
@@ -380,6 +434,17 @@ def test_baseline_checkpoint_can_remain_selected(tmp_path, monkeypatch):
   row = json.loads((tmp_path / 'run' / 'history.jsonl').read_text())
   assert row['step'] == 1
   assert row['val_loss'] > baseline['aggregate']['loss']
+  trained = torch.load(tmp_path / 'run' / 'step_000001.pt', weights_only=False)
+  assert not torch.equal(trained['model']['base.policy.weight'], selected['model']['base.policy.weight'])
+  assert torch.equal(trained['model']['base.vision.weight'], selected['model']['base.vision.weight']) == freeze_vision
+  assert torch.equal(trained['model']['base.vision.counter'], selected['model']['base.vision.counter'])
+  assert torch.equal(trained['model']['bev.counter'], selected['model']['bev.counter'])
+  assert len(trained['optimizer']['param_groups']) == (1 if freeze_vision else 2)
+  initial_hashes = json.loads((tmp_path / 'run' / 'run.json').read_text())['baseline_state_sha256']
+  assert baseline['saved_state_sha256'] == initial_hashes
+  assert row['state_sha256']['bev.counter'] == initial_hashes['bev.counter']
+  assert (row['state_sha256']['base.vision.weight'] == initial_hashes['base.vision.weight']) == freeze_vision
+  assert baseline['aggregate']['plan_l1'] == 0
 
 
 def test_context_pruning_preserves_active_features_output_and_gradients(tmp_path):
@@ -591,3 +656,65 @@ def test_verification_receipt_binds_manifest_and_membership(tmp_path):
   manifest.write_text(manifest.read_text() + ' ')
   with pytest.raises(ValueError, match='does not match'):
     dataset_verification(manifest)
+
+
+def test_frozen_feature_cache_history_gate_and_mutation(tmp_path):
+  from fsop.train.lab_train import FrozenFeatureCache, batch_loss, frozen_cache_gate
+
+  class Vision(torch.nn.Module):
+    def __init__(self):
+      super().__init__()
+      self.scale = torch.nn.Parameter(torch.tensor(0.01))
+
+    def forward(self, road, wide):
+      value = (road[:, 0, 0, 0] * 2 + wide[:, 6, 0, 0]) * self.scale
+      return SimpleNamespace(hidden=value[:, None].expand(-1, 512))
+
+  class Model(torch.nn.Module):
+    def __init__(self):
+      super().__init__()
+      self.base = torch.nn.Module()
+      self.base.vision = Vision()
+      self.base.policy = torch.nn.Linear(1, 1)
+      self.base.encode = self.base.vision
+
+    def plan(self, history, hidden, desire, traffic):
+      features = torch.cat([history, hidden[:, None]], dim=1)
+      value = self.base.policy((features.mean((1, 2)) + desire.mean((1, 2)) + traffic.mean(1))[:, None])
+      mu = value[:, :, None].expand(-1, 33, 15)
+      return {'plan_mu': mu, 'plan_logstd': mu * 0, 'desire_state': value.expand(-1, 8)}
+
+    def forward_images(self, batch, heads):
+      hidden = self.base.encode(batch['img'].float(), batch['big_img'].float()).hidden
+      return self.plan(batch['history'], hidden, batch['desire'], batch['traffic'])
+
+  ep = NativeEpisode(episode(tmp_path / 'ep'))
+  episodes = [ep]
+  ds = NativeReplay(episodes, 'train')
+  model = Model().eval()
+  with pytest.raises(ValueError, match='frozen vision'):
+    FrozenFeatureCache(model, [ds], torch.device('cpu'), 2, 8)
+  model.base.vision.requires_grad_(False)
+  cache = FrozenFeatureCache(model, [ds], torch.device('cpu'), 2, 8)
+  history, current = cache.batch(model, episodes, [0, 0], [0, 3], torch.device('cpu'), 8)
+  fresh = fresh_history(model, episodes, [0, 0], [0, 3], torch.device('cpu'), 2, history_context=8)
+  assert torch.equal(history, fresh)
+  assert torch.count_nonzero(history[0]) == 0
+  assert torch.count_nonzero(history[1, :21]) == 0
+  assert current[0, 0] == pytest.approx(.03)
+  assert current[1, 0] == pytest.approx(.10)
+  args = SimpleNamespace(w_steer=1., w_long=1., w_plan=1., history_chunk_size=2,
+                         channels_last=False, history_context=8)
+  gate = frozen_cache_gate(model, ds, [0, 3], torch.device('cpu'), args, cache)
+  assert gate['passed']
+  assert any(k.startswith('gradient:') for k in gate['comparisons'])
+  cache.features[(0, 3)] = cache.features[(0, 3)] + 1
+  failed = frozen_cache_gate(model, ds, [0, 3], torch.device('cpu'), args, cache)
+  assert not failed['passed']
+  assert not failed['comparisons']['plan_mu']['passed']
+  with pytest.raises(ValueError, match='requires FP32'):
+    batch_loss(model, ds, [0], torch.device('cpu'), 1., 1., 2, amp=True, cache=cache)
+  with torch.no_grad():
+    model.base.vision.scale.add_(1)
+  with pytest.raises(ValueError, match='vision state changed'):
+    cache.check(model, episodes, check_hash=True)

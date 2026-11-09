@@ -16,6 +16,7 @@ from zipfile import ZipFile
 import numpy as np
 
 from scripts import freeze_lab_selection as selection
+from scripts.lab_comparison import FIELDS
 from scripts.run_lab_evaluations import GRAPH_FILES, digest, load_plan, normalize_case
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -145,7 +146,14 @@ class SelectionTests(unittest.TestCase):
         models = [{"name": "candidate", "sha256": "c" * 64}]
         if include_baseline:
             models.append({"name": "baseline", "sha256": "b" * 64})
-        lock = {"cases": [case], "models": models}
+        lock = {
+            "cases": [case],
+            "models": models,
+            "source_sha256": {},
+            "graph_sha256": {},
+            "coordinator_sha256": "coord",
+            "timeout_seconds": 7200,
+        }
         lock_path = root / "plan.lock.json"
         lock_path.write_text(json.dumps(lock))
         receipt = {
@@ -201,7 +209,18 @@ class SelectionTests(unittest.TestCase):
         ]
         models = [{"name": "candidate", "sha256": "c" * 64}, {"name": "baseline", "sha256": "b" * 64}]
         lock_path = root / "plan.lock.json"
-        lock_path.write_text(json.dumps({"cases": cases, "models": models}))
+        lock_path.write_text(
+            json.dumps(
+                {
+                    "cases": cases,
+                    "models": models,
+                    "source_sha256": {},
+                    "graph_sha256": {},
+                    "coordinator_sha256": "coord",
+                    "timeout_seconds": 7200,
+                }
+            )
+        )
         receipt = {
             "completion_sha256": "1" * 64,
             "frames_sha256": "2" * 64,
@@ -217,7 +236,22 @@ class SelectionTests(unittest.TestCase):
                 (episode / "summary.json").write_text('{"result": "finished"}')
                 (episode / "telemetry.json").write_text("[]")
                 state_sha = "e" * 64 if model["name"] == "candidate" else "f" * 64
-                (episode / "evidence/metadata.json").write_text(json.dumps({"state_sha256": state_sha}))
+                (episode / "export.json").write_text(json.dumps({"dependencies": [], "sha256": {}}))
+                for name in ("realization.json", "appearance.json"):
+                    (episode / name).write_text("{}")
+                with ZipFile(episode / "source.zip", "w"):
+                    pass
+                metadata = {key: "same" for key in FIELDS}
+                metadata.update(
+                    source_sha256={},
+                    source_archive_sha256=digest(episode / "source.zip"),
+                    realization_sha256=digest(episode / "realization.json"),
+                    appearance_sha256=digest(episode / "appearance.json"),
+                )
+                metadata.update(
+                    state_sha256=state_sha, case=case["case"], export_sha256=digest(episode / "export.json")
+                )
+                (episode / "evidence/metadata.json").write_text(json.dumps(metadata))
                 (episode / "lab_artifact_audit.json").write_text(
                     json.dumps(
                         {
@@ -302,16 +336,30 @@ class SelectionTests(unittest.TestCase):
             "episodes": [{"case": case, "role": role} for case in cases for role in ("baseline", "candidate")],
         }
         signature = {"tensor": {"shape": [1], "dtype": "float32"}}
-        candidate = {"checkpoint_sha256": digest(candidate_path), "step": 7, "state_sha256": "e" * 64,
-                     "signature": signature}
-        baseline = {"checkpoint_sha256": digest(baseline_path), "step": 4, "state_sha256": "f" * 64,
-                    "signature": signature}
+        candidate = {
+            "checkpoint_sha256": digest(candidate_path),
+            "step": 7,
+            "state_sha256": "e" * 64,
+            "signature": signature,
+        }
+        baseline = {
+            "checkpoint_sha256": digest(baseline_path),
+            "step": 4,
+            "state_sha256": "f" * 64,
+            "signature": signature,
+        }
         args = argparse.Namespace(
-            candidate=candidate_path, baseline=baseline_path, training=source / "training",
-            dataset=source / "data/manifest.json", dataset_verification=None,
-            coverage=coverage_dir / COVERAGE.name, development_plan=[source / "dev/plan.lock.json"],
-            reason="Selected using development evidence", timeout_seconds=7200,
-            out=source / "runs/selection", portable_plans=True,
+            candidate=candidate_path,
+            baseline=baseline_path,
+            training=source / "training",
+            dataset=source / "data/manifest.json",
+            dataset_verification=None,
+            coverage=coverage_dir / COVERAGE.name,
+            development_plan=[source / "dev/plan.lock.json"],
+            reason="Selected using development evidence",
+            timeout_seconds=7200,
+            out=source / "runs/selection",
+            portable_plans=True,
         )
         training = {"membership_sha256": digest(coverage_dir / "membership.json")}
         with (
@@ -345,3 +393,166 @@ class SelectionTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_training_chain_checks_each_checkpoint_and_run(tmp_path):
+    import torch
+
+    fixture = SelectionTests()
+    fixture.root = tmp_path
+    first, dataset, verification = fixture.make_training()
+    second = tmp_path / "second"
+    shutil.copytree(first, second)
+
+    def checkpoint(path, step, value):
+        torch.save(
+            {
+                "step": step,
+                "model": {
+                    f"{prefix}.weight": torch.tensor([value]) for prefix in ("base.vision", "base.policy", "bev", "img")
+                },
+            },
+            path,
+        )
+        return selection.checkpoint_info(path)
+
+    baseline = checkpoint(tmp_path / "base.pt", 0, 1)
+    intermediate = checkpoint(tmp_path / "mid.pt", 7, 2)
+    candidate = checkpoint(tmp_path / "candidate.pt", 5, 3)
+    for run, init, result in ((first, baseline, intermediate), (second, intermediate, candidate)):
+        data = json.loads((run / "run.json").read_text())
+        data["init_sha256"] = init["checkpoint_sha256"]
+        (run / "run.json").write_text(json.dumps(data))
+        (run / "history.jsonl").write_text(
+            json.dumps({"step": result["step"], "checkpoint_sha256": result["checkpoint_sha256"]}) + "\n"
+        )
+    chain = [(first, tmp_path / "mid.pt")]
+    proof = selection.verify_training_chain(second, dataset, verification, baseline, candidate, chain)
+    assert proof["ancestors"][0]["checkpoint_sha256"] == intermediate["checkpoint_sha256"]
+    with unittest.TestCase().assertRaisesRegex(ValueError, "initialization"):
+        selection.verify_training_chain(
+            first, dataset, verification, baseline, candidate, [(second, tmp_path / "mid.pt")]
+        )
+    with unittest.TestCase().assertRaisesRegex(ValueError, "Duplicate or cyclic"):
+        selection.verify_training_chain(second, dataset, verification, baseline, candidate, chain + chain)
+    (first / "history.jsonl").write_text(
+        json.dumps({"step": 8, "checkpoint_sha256": intermediate["checkpoint_sha256"]}) + "\n"
+    )
+    with unittest.TestCase().assertRaisesRegex(ValueError, "step differs"):
+        selection.verify_training_chain(second, dataset, verification, baseline, candidate, chain)
+    (first / "history.jsonl").write_text(
+        json.dumps({"step": 7, "checkpoint_sha256": intermediate["checkpoint_sha256"]}) + "\n"
+    )
+    (first / "source.zip").write_bytes(b"tampered")
+    with unittest.TestCase().assertRaisesRegex(ValueError, "source archive"):
+        selection.verify_training_chain(second, dataset, verification, baseline, candidate, chain)
+
+
+def test_reused_baseline_preserves_old_candidate_and_rejects_mismatches(tmp_path):
+    from scripts.lab_comparison import FIELDS
+
+    cases = [
+        {"name": "val", "case": {"id": "val", "split": "val", "frozen_case": None}},
+        {"name": "reg", "case": {"id": "reg", "split": "regression", "frozen_case": "old"}},
+    ]
+    receipt = {"completion_sha256": "1" * 64, "frames_sha256": "2" * 64, "frame_count": 1}
+
+    def make_lock(name, models):
+        root = tmp_path / name
+        root.mkdir()
+        lock = {
+            "cases": cases,
+            "models": models,
+            "source_sha256": {"source": "hash"},
+            "graph_sha256": {"graph": "hash"},
+            "coordinator_sha256": "coordinator",
+            "timeout_seconds": 7200,
+        }
+        path = root / "plan.lock.json"
+        path.write_text(json.dumps(lock))
+        manifest = {"complete": True, "lock_sha256": digest(path), "episodes": {}}
+        for case in cases:
+            for model in models:
+                episode = root / model["name"] / case["name"]
+                (episode / "evidence").mkdir(parents=True)
+                (episode / "summary.json").write_text('{"result": "timeout"}')
+                (episode / "telemetry.json").write_text("[]")
+                (episode / "export.json").write_text(json.dumps({"dependencies": [], "sha256": {}}))
+                for name in ("realization.json", "appearance.json"):
+                    (episode / name).write_text("{}")
+                with ZipFile(episode / "source.zip", "w"):
+                    pass
+                metadata = {key: "same" for key in FIELDS}
+                metadata.update(
+                    source_sha256={},
+                    source_archive_sha256=digest(episode / "source.zip"),
+                    realization_sha256=digest(episode / "realization.json"),
+                    appearance_sha256=digest(episode / "appearance.json"),
+                )
+                metadata.update(
+                    case=case["case"],
+                    state_sha256="f" * 64 if model["name"] == "baseline" else "e" * 64,
+                    export_sha256=digest(episode / "export.json"),
+                )
+                (episode / "evidence/metadata.json").write_text(json.dumps(metadata))
+                (episode / "lab_artifact_audit.json").write_text(
+                    json.dumps({"passed": True, **receipt, "telemetry_sha256": digest(episode / "telemetry.json")})
+                )
+                manifest["episodes"][f"{model['name']}/{case['name']}"] = {"status": "complete", "receipt": receipt}
+        (root / "manifest.json").write_text(json.dumps(manifest))
+        return path
+
+    old = make_lock("old", [{"name": "baseline", "sha256": "b" * 64}, {"name": "candidate", "sha256": "a" * 64}])
+    new = make_lock("new", [{"name": "candidate", "sha256": "c" * 64}])
+    args = ([old, new], "c" * 64, "b" * 64, "e" * 64, "f" * 64)
+    with patch.object(selection, "validate_episode", return_value=receipt):
+        result = selection.verify_development(*args)
+        assert result["paired_case_ids"] == ["reg", "val"]
+        assert sum(row["role"] is None for row in result["episodes"]) == 2
+        with unittest.TestCase().assertRaisesRegex(ValueError, "Duplicate development lock"):
+            selection.verify_development([old, new, new], *args[1:])
+        metadata_path = new.parent / "candidate/val/evidence/metadata.json"
+        metadata = json.loads(metadata_path.read_text())
+        for field in (
+            "source_sha256",
+            "graph_sha256",
+            "realization_sha256",
+            "initial_physical_state",
+            "intrinsics",
+            "sim_render_settings",
+            "command_mode",
+            "asset_sha256",
+        ):
+            changed = dict(metadata, **{field: "different"})
+            metadata_path.write_text(json.dumps(changed))
+            with unittest.TestCase().assertRaises(ValueError):
+                selection.verify_development(*args)
+        missing = dict(metadata)
+        del missing["physics_settings"]
+        metadata_path.write_text(json.dumps(missing))
+        with unittest.TestCase().assertRaisesRegex(ValueError, "Missing comparison"):
+            selection.verify_development(*args)
+        metadata_path.write_text(json.dumps(metadata))
+        base_only = make_lock("base", [{"name": "baseline", "sha256": "b" * 64}])
+        assert selection.verify_development([base_only, new], *args[1:])["paired_case_ids"] == ["reg", "val"]
+        same = make_lock("same", [{"name": "baseline", "sha256": "b" * 64}, {"name": "candidate", "sha256": "b" * 64}])
+        for case in cases:
+            path = same.parent / "candidate" / case["name"] / "evidence/metadata.json"
+            item = json.loads(path.read_text())
+            item["state_sha256"] = "f" * 64
+            path.write_text(json.dumps(item))
+        assert selection.verify_development([same], "b" * 64, "b" * 64, "f" * 64, "f" * 64)["paired_case_ids"] == [
+            "reg",
+            "val",
+        ]
+        with unittest.TestCase().assertRaisesRegex(ValueError, "Duplicate selected"):
+            selection.verify_development([old, base_only, new], *args[1:])
+        lock = json.loads(new.read_text())
+        lock["graph_sha256"] = {"graph": "different"}
+        new.write_text(json.dumps(lock))
+        manifest_path = new.parent / "manifest.json"
+        manifest = json.loads(manifest_path.read_text())
+        manifest["lock_sha256"] = digest(new)
+        manifest_path.write_text(json.dumps(manifest))
+        with unittest.TestCase().assertRaisesRegex(ValueError, "lock comparison conditions"):
+            selection.verify_development(*args)
