@@ -4,6 +4,7 @@ import argparse
 import copy
 import hashlib
 import json
+import shutil
 import sys
 import tempfile
 import types
@@ -15,7 +16,7 @@ from zipfile import ZipFile
 import numpy as np
 
 from scripts import freeze_lab_selection as selection
-from scripts.run_lab_evaluations import digest, normalize_case
+from scripts.run_lab_evaluations import GRAPH_FILES, digest, load_plan, normalize_case
 
 ROOT = Path(__file__).resolve().parents[1]
 COVERAGE = ROOT / "docs/isaac-lab-training/evaluation_coverage.json"
@@ -283,6 +284,63 @@ class SelectionTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Missing or mismatched"):
                 selection.freeze(args)
         self.assertFalse(args.out.exists())
+
+    def test_portable_plans_survive_copying_the_mirrored_tree(self):
+        source = self.root / "source"
+        coverage_dir = source / "docs/isaac-lab-training"
+        shutil.copytree(COVERAGE.parent, coverage_dir)
+        candidate_path = source / "models/candidate.pt"
+        baseline_path = source / "models/baseline.pt"
+        candidate_path.parent.mkdir(parents=True)
+        candidate_path.write_bytes(b"candidate checkpoint")
+        baseline_path.write_bytes(b"baseline checkpoint")
+        members = json.loads((coverage_dir / "membership.json").read_text())["cases"]
+        cases = [normalize_case(c) for c in members if c["split"] in ("val", "regression")]
+        development = {
+            "plans": [],
+            "paired_case_ids": [case["id"] for case in cases],
+            "episodes": [{"case": case, "role": role} for case in cases for role in ("baseline", "candidate")],
+        }
+        signature = {"tensor": {"shape": [1], "dtype": "float32"}}
+        candidate = {"checkpoint_sha256": digest(candidate_path), "step": 7, "state_sha256": "e" * 64,
+                     "signature": signature}
+        baseline = {"checkpoint_sha256": digest(baseline_path), "step": 4, "state_sha256": "f" * 64,
+                    "signature": signature}
+        args = argparse.Namespace(
+            candidate=candidate_path, baseline=baseline_path, training=source / "training",
+            dataset=source / "data/manifest.json", dataset_verification=None,
+            coverage=coverage_dir / COVERAGE.name, development_plan=[source / "dev/plan.lock.json"],
+            reason="Selected using development evidence", timeout_seconds=7200,
+            out=source / "runs/selection", portable_plans=True,
+        )
+        training = {"membership_sha256": digest(coverage_dir / "membership.json")}
+        with (
+            patch.object(selection, "checkpoint_info", side_effect=[copy.deepcopy(candidate), copy.deepcopy(baseline)]),
+            patch.object(selection, "verify_training", return_value=training),
+            patch.object(selection, "verify_development", return_value=development),
+            patch.object(selection, "recheck_inputs"),
+        ):
+            selection.freeze(args)
+        repo = self.root / "runtime"
+        (repo / "src/fsop").mkdir(parents=True)
+        (repo / "src/fsop/runtime.py").write_text("pass\n")
+        for graph in GRAPH_FILES:
+            (repo / graph).parent.mkdir(parents=True, exist_ok=True)
+            (repo / graph).write_bytes(b"graph")
+        copied = (self.root / "copied").resolve()
+        shutil.copytree(source, copied)
+        for name in ("fresh_plan.json", "paired_plan.json", "legacy_plan.json"):
+            original = args.out / name
+            transferred = copied / "runs/selection" / name
+            self.assertEqual(digest(original), digest(transferred))
+            plan = json.loads(transferred.read_text())
+            self.assertTrue(all(not Path(path).is_absolute() for path in plan["cases"]))
+            self.assertTrue(all(not Path(model["checkpoint"]).is_absolute() for model in plan["models"]))
+            lock = load_plan(transferred, repo=repo)
+            for model in lock["models"]:
+                self.assertTrue(Path(model["checkpoint"]).is_relative_to(copied))
+                self.assertEqual(digest(model["checkpoint"]), model["sha256"])
+            self.assertTrue(all(Path(case["path"]).is_relative_to(copied) for case in lock["cases"]))
 
 
 if __name__ == "__main__":

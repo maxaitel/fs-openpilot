@@ -482,6 +482,121 @@ def read_training(root):
     return run, history, baseline, warnings
 
 
+VALIDATION_COMPONENTS = (
+    ("loss", "Total loss"),
+    ("plan_nll", "Plan NLL"),
+    ("steer", "Steering loss"),
+    ("longitudinal", "Longitudinal loss"),
+)
+TELEMETRY_METRICS = (
+    ("gpu_pct", "Whole GPU utilization (%)"),
+    ("power_w", "GPU power (W)"),
+    ("host_ram_gib", "Host unified RAM used (GiB)"),
+    ("cpu_pct", "Host CPU utilization (%)"),
+)
+
+
+def validation_series(history, baseline):
+    rows = []
+    if baseline is not None:
+        values = baseline["aggregate"]
+        rows.append({"step": 0, **{key: values.get(key) if finite(values.get(key)) else None
+                                  for key, _ in VALIDATION_COMPONENTS}})
+    for row in history:
+        validation = row.get("validation")
+        aggregate = validation.get("aggregate") if isinstance(validation, dict) else None
+        aggregate = aggregate if isinstance(aggregate, dict) else {}
+        values = {key: aggregate.get(key) for key, _ in VALIDATION_COMPONENTS}
+        if values["loss"] is None:
+            values["loss"] = row.get("val_loss")
+        if any(finite(value) for value in values.values()):
+            rows.append({"step": row["step"],
+                         **{key: value if finite(value) else None for key, value in values.items()}})
+    return rows
+
+
+def read_training_telemetry(path):
+    if path is None:
+        return {"status": "not supplied", "path": None}
+    result = {"status": "unavailable", "path": str(path.resolve())}
+    try:
+        raw = path.read_bytes()
+        result["sha256"] = hashlib.sha256(raw).hexdigest()
+        receipt = json.loads(raw)
+        if not isinstance(receipt, dict):
+            raise ValueError("expected a receipt object")
+        command = receipt.get("command")
+        code = receipt.get("returncode")
+        samples = receipt.get("samples")
+        if (not isinstance(command, list) or not command or any(not isinstance(x, str) for x in command)
+                or not isinstance(code, int) or isinstance(code, bool)
+                or not finite(receipt.get("wall_seconds")) or receipt["wall_seconds"] < 0
+                or not isinstance(samples, list) or not samples):
+            raise ValueError("missing command, return code, wall time or samples")
+        inventories = [receipt.get("compute_processes_before"), receipt.get("compute_processes_after")]
+        last_wall = -1
+        for sample in samples:
+            if (not isinstance(sample, dict) or not finite(sample.get("wall_s"))
+                    or not last_wall <= sample["wall_s"] <= receipt["wall_seconds"]):
+                raise ValueError("invalid sample wall time")
+            last_wall = sample["wall_s"]
+            if any(not finite(sample.get(key)) or sample[key] < 0 for key, _ in TELEMETRY_METRICS):
+                raise ValueError("invalid or missing telemetry metric")
+            inventories.append(sample.get("compute_processes"))
+        if any(not isinstance(items, list) or any(
+            not isinstance(item, dict) or not isinstance(item.get("pid"), int) or isinstance(item.get("pid"), bool)
+            or not isinstance(item.get("name"), str) for item in items) for items in inventories):
+            raise ValueError("invalid compute process inventory")
+        processes = sorted({(item["pid"], item["name"]) for items in inventories for item in items})
+        result.update(
+            status="completed" if code == 0 else "failed", command=command, returncode=code,
+            wall_seconds=receipt["wall_seconds"], sample_count=len(samples),
+            median_gpu_pct=float(np.median([row["gpu_pct"] for row in samples])),
+            median_power_w=float(np.median([row["power_w"] for row in samples])),
+            peak_host_ram_gib=max(row["host_ram_gib"] for row in samples),
+            compute_processes=[{"pid": pid, "name": name} for pid, name in processes],
+            scope="Whole GPU and host; host RAM is unified system memory, not dedicated VRAM",
+            samples=[{"wall_s": row["wall_s"], **{key: row[key] for key, _ in TELEMETRY_METRICS}}
+                     for row in samples],
+        )
+    except (OSError, ValueError, TypeError, UnicodeDecodeError) as exc:
+        result["status"] = "unavailable" if isinstance(exc, OSError) else "malformed"
+        result["error"] = str(exc)
+    return result
+
+
+def validation_graph(rows, out):
+    filename = "training-validation.png"
+    fig, axes = plt.subplots(2, 2, figsize=(10, 7), layout="constrained")
+    for ax, (key, label) in zip(axes.flat, VALIDATION_COMPONENTS, strict=True):
+        points = [(row["step"], row[key]) for row in rows if finite(row.get(key))]
+        if points:
+            ax.plot(*zip(*points, strict=True), marker="o", markersize=3, linewidth=1.2)
+        else:
+            ax.text(0.5, 0.5, "No validation data", transform=ax.transAxes, ha="center", va="center")
+        ax.set(title=label, xlabel="Step", ylabel="Validation loss")
+        ax.grid(alpha=0.2)
+    fig.savefig(out / filename, dpi=130)
+    plt.close(fig)
+    return filename
+
+
+def telemetry_graph(telemetry, out):
+    filename = "training-hardware.png"
+    fig, axes = plt.subplots(2, 2, figsize=(10, 7), layout="constrained")
+    for ax, (key, label) in zip(axes.flat, TELEMETRY_METRICS, strict=True):
+        samples = telemetry.get("samples", [])
+        if samples:
+            ax.plot([row["wall_s"] for row in samples], [row[key] for row in samples], linewidth=1.2)
+        else:
+            ax.text(0.5, 0.5, f"Telemetry {telemetry['status']}", transform=ax.transAxes, ha="center", va="center")
+        ax.set(title=label, xlabel="Wall time (s)")
+        ax.grid(alpha=0.2)
+    fig.savefig(out / filename, dpi=130)
+    plt.close(fig)
+    return filename
+
+
 def training_graphs(history, out):
     graphs = []
     specs = [
@@ -636,7 +751,24 @@ def render_html(report, out, graphs, eval_graph):
         )
     for warning in report["training"]["warnings"]:
         body.append(f"<p>{esc(warning)}</p>")
-    body.extend(f'<p><img src="{esc(name)}" alt="{esc(name)}"></p>' for name in graphs)
+    body.extend(f'<p><img src="{esc(name)}" alt="{esc(name)}"></p>' for name in graphs[:-1])
+    telemetry = report["training"]["telemetry"]
+    body.append(f"<h3>Training hardware telemetry: {esc(telemetry['status'])}</h3>")
+    body.append("<p>Whole GPU and host measurements. Host RAM is unified system memory. "
+                "GPU utilization is not SM occupancy; process inventory may include the training job.</p>")
+    if telemetry.get("error"):
+        body.append(f"<p>{esc(telemetry['error'])}</p>")
+    if "command" in telemetry:
+        body.append(f"<p>Job wall seconds: {esc(telemetry['wall_seconds'])}; "
+                    f"median GPU utilization: {esc(telemetry['median_gpu_pct'])}%; "
+                    f"median GPU power: {esc(telemetry['median_power_w'])} W; "
+                    f"peak sampled host RAM: {esc(telemetry['peak_host_ram_gib'])} GiB; "
+                    f"return code: {esc(telemetry['returncode'])}.</p>")
+        body.append(f"<p>Observed GPU compute processes, including possible competing processes: "
+                    f"{esc(json.dumps(telemetry['compute_processes']))}</p>")
+        body.append(f"<p>Receipt SHA-256: {esc(telemetry['sha256'])}; "
+                    f"command: {esc(json.dumps(telemetry['command']))}</p>")
+    body.append(f'<p><img src="{esc(graphs[-1])}" alt="{esc(graphs[-1])}"></p>')
     body += [
         "<h2>Evaluation</h2>",
         f'<p><img src="{esc(eval_graph)}" alt="Evaluation results by group"></p>',
@@ -765,6 +897,7 @@ def main(argv=None):
         "--additional-plan", action="append", type=Path, default=[], help="Additional plan or lock; may be repeated"
     )
     parser.add_argument("--coverage", type=Path, help="Evaluation coverage membership JSON")
+    parser.add_argument("--training-telemetry", type=Path, help="Completed measure_native.py receipt")
     parser.add_argument(
         "--require-complete", action="store_true", help="Fail unless every planned episode passes the final gate"
     )
@@ -775,6 +908,8 @@ def main(argv=None):
         parser.error("--require-complete requires --plan")
     args.out.mkdir(parents=True, exist_ok=True)
     run, history, baseline, warnings = read_training(args.training)
+    telemetry = read_training_telemetry(args.training_telemetry)
+    validation = validation_series(history, baseline)
     coverage = load_coverage(args.coverage)
     plan_paths = [args.plan, *args.additional_plan] if args.plan else []
     episodes = []
@@ -830,6 +965,8 @@ def main(argv=None):
             "run": run,
             "history_rows": len(history),
             "baseline_validation": baseline,
+            "validation_series": validation,
+            "telemetry": telemetry,
             "warnings": warnings,
         },
         "final_gate": gate,
@@ -850,6 +987,8 @@ def main(argv=None):
     if baseline is not None:
         plot_history = [{"step": 0, "val_loss": baseline["aggregate"]["loss"]}, *history]
     graphs = training_graphs(plot_history, args.out)
+    graphs.append(validation_graph(validation, args.out))
+    graphs.append(telemetry_graph(telemetry, args.out))
     eval_graph = evaluation_graphs(report["groups"], args.out)
     (args.out / "aggregates.json").write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
     render_html(report, args.out, graphs, eval_graph)

@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 from datetime import UTC, datetime
 from pathlib import Path
 from zipfile import ZipFile
@@ -413,6 +414,15 @@ def freeze(args):
         ("legacy_plan.json", legacy_plan),
         ("fresh_plan.json", fresh_plan),
     ):
+        if getattr(args, "portable_plans", False):
+            payload = {
+                **payload,
+                "cases": [os.path.relpath(path, out) for path in payload["cases"]],
+                "models": [
+                    {**model, "checkpoint": os.path.relpath(model["checkpoint"], out)}
+                    for model in payload["models"]
+                ],
+            }
         (out / name).write_text(json.dumps(payload, indent=2, allow_nan=False) + "\n")
     # Signatures are checked above; retain a hash rather than a verbose per-tensor table.
     signatures = {
@@ -470,6 +480,10 @@ def main():
     parser.add_argument("--development-plan", type=Path, action="append", required=True)
     parser.add_argument("--reason", required=True)
     parser.add_argument("--timeout-seconds", type=float, default=7200)
+    parser.add_argument(
+        "--portable-plans", action="store_true",
+        help="Use paths relative to the selection directory in generated plans",
+    )
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
     selection = freeze(args)

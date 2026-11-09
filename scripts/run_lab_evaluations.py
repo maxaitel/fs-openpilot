@@ -305,7 +305,7 @@ def run(plan_path, out, max_new_cases=None):
     out = Path(out).resolve()
     out.mkdir(parents=True, exist_ok=True)
     flags = os.O_CREAT | os.O_RDWR | getattr(os, "O_NOFOLLOW", 0)
-    descriptor = os.open(out / ".coordinator.lock", flags, 0o600)
+    descriptor = os.open(out / ".coordinator.lock", flags, 0o644)
     with os.fdopen(descriptor, "r+") as suite_lock:
         try:
             fcntl.flock(suite_lock, fcntl.LOCK_EX | fcntl.LOCK_NB)

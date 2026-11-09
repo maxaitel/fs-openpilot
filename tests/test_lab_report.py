@@ -521,3 +521,48 @@ def test_final_gate_rejects_same_length_foreign_video_receipt(tmp_path):
     rows = {r["case_id"]: r for r in report["episodes"]}
     assert rows["first"]["videos"]["debug"]["status"] == "receipt mismatch"
     assert rows["second"]["videos"]["debug"]["status"] == "receipt hash/count matched"
+
+
+def test_validation_components_preserve_baseline_and_independent_changes(tmp_path):
+    training = tmp_path / "training"
+    out = tmp_path / "out"
+    write(training / "baseline_validation.json", {
+        "step": 0, "aggregate": {"loss": 2.5, "plan_nll": 2, "steer": 0.1, "longitudinal": 0.2},
+    })
+    (training / "history.jsonl").write_text(json.dumps({
+        "step": 10, "val_loss": 1.5, "validation": {"aggregate": {
+            "loss": 1.5, "plan_nll": 0.8, "steer": 0.3, "longitudinal": 0.15,
+        }},
+    }) + "\n")
+    main(["--training", str(training), "--evaluation", str(tmp_path / "none"), "--out", str(out)])
+    rows = read_json(out / "aggregates.json")["training"]["validation_series"]
+    assert rows[0] == {"step": 0, "loss": 2.5, "plan_nll": 2, "steer": 0.1, "longitudinal": 0.2}
+    assert rows[1]["plan_nll"] < rows[0]["plan_nll"]
+    assert rows[1]["steer"] > rows[0]["steer"]
+    assert (out / "training-validation.png").is_file()
+
+
+def test_training_telemetry_missing_malformed_and_failed_are_visible(tmp_path):
+    out = tmp_path / "out"
+    receipt = tmp_path / "telemetry.json"
+    args = ["--training", str(tmp_path / "none"), "--evaluation", str(tmp_path / "none"),
+            "--out", str(out), "--training-telemetry", str(receipt)]
+    main(args)
+    assert read_json(out / "aggregates.json")["training"]["telemetry"]["status"] == "unavailable"
+    assert "Training hardware telemetry: unavailable" in (out / "index.html").read_text()
+    receipt.write_text("{")
+    main(args)
+    assert read_json(out / "aggregates.json")["training"]["telemetry"]["status"] == "malformed"
+    sample = {"wall_s": 1, "gpu_pct": 75, "power_w": 100, "host_ram_gib": 10, "cpu_pct": 25,
+              "compute_processes": [{"pid": 8, "name": "other"}]}
+    write(receipt, {"command": ["python", "train.py"], "wall_seconds": 2, "returncode": 1,
+                    "samples": [sample], "compute_processes_before": [], "compute_processes_after": []})
+    main(args)
+    telemetry = read_json(out / "aggregates.json")["training"]["telemetry"]
+    assert telemetry["status"] == "failed" and telemetry["returncode"] == 1
+    assert telemetry["sha256"] == sha(receipt) and telemetry["command"] == ["python", "train.py"]
+    assert telemetry["median_gpu_pct"] == 75 and telemetry["median_power_w"] == 100
+    assert telemetry["peak_host_ram_gib"] == 10 and telemetry["compute_processes"][0]["name"] == "other"
+    page = (out / "index.html").read_text()
+    assert "Training hardware telemetry: failed" in page and "other" in page
+    assert (out / "training-hardware.png").is_file()
