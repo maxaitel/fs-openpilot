@@ -1,0 +1,12 @@
+{
+  "id": "train-skidpad-82000-matched",
+  "split": "train",
+  "discipline": "skidpad",
+  "seed": 82000,
+  "dr": "light",
+  "variant": "matched",
+  "track_seed": null,
+  "frozen_case": null,
+  "lateral_start": 0.0,
+  "yaw_start": 0.0
+}

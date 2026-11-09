@@ -15,7 +15,7 @@ WHEELBASE = 1.55
 TRACK_WIDTH = 1.20
 
 
-def create_car(stage, world):
+def create_car(stage, world=None):
     from isaacsim.core.utils.extensions import enable_extension
     from scene import bind, body, cube, material
 
@@ -99,7 +99,9 @@ def create_car(stage, world):
         ctrl.CreateBrakeTorqueAttr(0.0)
         ctrl.CreateSteerAngleAttr(0.0)
         controllers.append(ctrl)
-    robot = world.scene.add(SingleRigidPrim(path, name="car"))
+    robot = SingleRigidPrim(path, name="car")
+    if world is not None:
+        robot = world.scene.add(robot)
     robot.wheel_controllers = controllers
     return robot
 

@@ -1,0 +1,12 @@
+{
+  "id": "train-trackdrive-82008-matched",
+  "split": "train",
+  "discipline": "trackdrive",
+  "seed": 82008,
+  "dr": "light",
+  "variant": "matched",
+  "track_seed": 81008,
+  "frozen_case": null,
+  "lateral_start": 0.0,
+  "yaw_start": 0.0
+}
