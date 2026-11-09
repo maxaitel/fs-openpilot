@@ -19,7 +19,7 @@ def coherence(value=0.1):
     return {k: {stat: value for stat in s.STATS} for k in s.COHERENCE_METRICS}
 
 
-def fixture(tmp_path, monkeypatch):
+def fixture(tmp_path, monkeypatch, recipe_arg=None):
     training, calibration = tmp_path / "training", tmp_path / "calibration"
     training.mkdir()
     calibration.mkdir()
@@ -98,13 +98,14 @@ def fixture(tmp_path, monkeypatch):
         "seed": 0,
         "recovery_provenance_mode": "off_policy_v1",
         "collection_policy_checkpoint_sha": s.COLLECTION,
-        "recovery_cases": str(recipe),
+        "recovery_cases": recipe_arg or str(recipe),
         "expected_calibration": str(calibration / "calibration.json"),
     }
     manifest = "b" * 64
     episodes = [{"path": path} for path in paths]
-    names = [f"base.policy.weight{i}" for i in range(42)]
-    model = {**{name: torch.tensor([0.0]) for name in names}, **{f"fixed{i}": torch.tensor([0.0]) for i in range(375)}}
+    names = [f"base.policy.weight{i}" for i in range(50)]
+    monkeypatch.setattr(s, "policy_trainable_names", lambda checkpoint: names)
+    model = {**{name: torch.tensor([0.0]) for name in names}, **{f"fixed{i}": torch.tensor([0.0]) for i in range(367)}}
     run = {
         "args": args,
         "trainable_tensors": names,
@@ -382,4 +383,25 @@ def test_native_target_coherence_cannot_change(tmp_path, monkeypatch, scope):
     target["target_coherence"]["position_interval_m"]["mean"] = 0.09
     (training / "history.jsonl").write_text("".join(json.dumps(r) + "\n" for r in history))
     with pytest.raises(ValueError, match="native target coherence changed at step 100"):
+        s.select(training, cal, protocol)
+
+
+def test_relative_recipe_path_binds_same_file(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    training, cal, protocol, _, _ = fixture(tmp_path, monkeypatch, recipe_arg="recipe.json")
+    assert s.select(training, cal, protocol)["trained_candidate"]
+
+
+def test_different_recipe_path_is_rejected(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "other_recipe.json").write_text("recipe")
+    training, cal, protocol, _, _ = fixture(tmp_path, monkeypatch, recipe_arg="other_recipe.json")
+    with pytest.raises(ValueError, match="training configuration mismatch"):
+        s.select(training, cal, protocol)
+
+
+def test_trainable_inventory_must_match_loaded_graph(tmp_path, monkeypatch):
+    training, cal, protocol, _, _ = fixture(tmp_path, monkeypatch)
+    monkeypatch.setattr(s, "policy_trainable_names", lambda checkpoint: ["base.policy.unexpected"])
+    with pytest.raises(ValueError, match="trainable tensor inventory"):
         s.select(training, cal, protocol)

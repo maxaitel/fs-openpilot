@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/work/scripts/select_lab_tangent.py", line 516, in <module>
+    main()
+  File "/work/scripts/select_lab_tangent.py", line 508, in main
+    result = select(args.training, args.calibration, args.protocol)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/scripts/select_lab_tangent.py", line 298, in select
+    raise ValueError("training configuration mismatch")
+ValueError: training configuration mismatch
+There was an error running python

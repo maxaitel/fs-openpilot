@@ -1,0 +1,15 @@
+{
+  "created_utc": "2026-11-09T15:19:44.551920+00:00",
+  "kind": "selector_runtime_identity_repairs",
+  "failed_selector_sha256": "d34d1230af540cebdabafcffe9e5fb77d0effdb6b553ac836e038936686ba4fc",
+  "repaired_selector_sha256": "01547a57a4b4e6d6358c67081dae11de1ed76d94f2588edc4963750d5420de17",
+  "failure_log_sha256": "d2bf44a4611c133134df570935ec7101ced08500c65fa73b7452c75bd65f3ee8",
+  "unchanged_protocol_sha256": "f1ce3776281955b0a1b899a201089cea8b099b24c89c9959caa84468f5fb17ba",
+  "change": "Resolve recovery recipe paths before identity comparison; require a nonempty path. Relative config and absolute sampler paths name the same file. Existing recipe-byte hash verification remains.",
+  "selection_constraints_changed": false,
+  "tests": "10 selector tests passed; graph inventory mismatch rejected; Ruff passed",
+  "runtime_or_training_source_changed": false,
+  "inventory_failure_log_sha256": "70b1cb9cfd9399c3dc2e77829adb0ef1d802b7bdf6bb693b9d6bacfd50a56b98",
+  "additional_change": "Replace incorrect hardcoded 42 trainable tensor count with exact ordered names derived from the loaded initializer policy graph. Actual trainer and calibration record 50 trainable policy tensors. 42 referred to tensors changed in earlier runs, not the trainable inventory.",
+  "independent_review": "Path repair and loaded-graph inventory repair independently reviewed; no numeric, ranking or sampling constraint changes."
+}

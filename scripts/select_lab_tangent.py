@@ -190,6 +190,13 @@ def assess(v, bounds, anchors, path_to_case):
     return gates
 
 
+def policy_trainable_names(checkpoint):
+    from fsop.model.build import load_fs
+
+    model = load_fs(checkpoint, map_location="cpu")
+    return ["base.policy." + name for name, tensor in model.base.policy.named_parameters() if tensor.requires_grad]
+
+
 def select(training, calibration, protocol):
     training, calibration, protocol = map(lambda x: Path(x).resolve(), (training, calibration, protocol))
     if training == calibration:
@@ -293,7 +300,8 @@ def select(training, calibration, protocol):
         or args.get("recovery_draws") != 16
         or args.get("recovery_provenance_mode") != "off_policy_v1"
         or args.get("collection_policy_checkpoint_sha") != COLLECTION
-        or args.get("recovery_cases") != run["recovery_sampling"]["recipe_path"]
+        or not args.get("recovery_cases")
+        or Path(args["recovery_cases"]).resolve() != Path(run["recovery_sampling"]["recipe_path"]).resolve()
     ):
         raise ValueError("training configuration mismatch")
     if not args.get("expected_calibration") or sha(bind(args["expected_calibration"])) != p["calibration_sha256"]:
@@ -361,7 +369,7 @@ def select(training, calibration, protocol):
     names = run.get("trainable_tensors")
     if (
         not isinstance(names, list)
-        or len(names) != 42
+        or names != policy_trainable_names(args["init"])
         or len(set(names)) != len(names)
         or any(not isinstance(n, str) or not n.startswith("base.policy.") or n not in init_model for n in names)
         or len(init_model) != 417
