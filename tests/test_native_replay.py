@@ -718,3 +718,15 @@ def test_frozen_feature_cache_history_gate_and_mutation(tmp_path):
     model.base.vision.scale.add_(1)
   with pytest.raises(ValueError, match='vision state changed'):
     cache.check(model, episodes, check_hash=True)
+
+
+def test_native_replay_exposes_same_tick_measured_lateral_speed_and_yaw_rate(tmp_path):
+  path = episode(tmp_path / 'velocity')
+  states = np.load(path / 'states.npy', mmap_mode='r+')
+  states[4, 4:6] = [.27, -.14]
+  states.flush()
+  rehash(path)
+  sample = NativeEpisode(path).sample(1)
+  assert sample['speed'] == pytest.approx(2)
+  assert sample['lateral_speed'] == pytest.approx(.27)
+  assert sample['yaw_rate'] == pytest.approx(-.14)

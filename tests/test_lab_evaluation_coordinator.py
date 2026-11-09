@@ -172,6 +172,50 @@ class CoordinatorTests(unittest.TestCase):
         time.sleep(1.7)
         self.assertFalse(marker.exists())
 
+    def test_v2_controller_contract_is_frozen_and_required_in_episode(self):
+        from fsop.eval.controller import controller_contract
+        repo, plan_path, _, checkpoint = self.make_plan()
+        import torch
+        torch.save({"model": {}}, checkpoint)
+        plan = json.loads(plan_path.read_text())
+        plan["models"][0]["sha256"] = coordinator.digest(checkpoint)
+        plan["version"] = 2
+        plan["models"][0]["controller_contract"] = controller_contract("op_tangent_v1")
+        plan_path.write_text(json.dumps(plan))
+        lock = coordinator.load_plan(plan_path, repo)
+        self.assertEqual(lock["models"][0]["controller_contract"], controller_contract("op_tangent_v1"))
+        plan["models"][0]["controller_contract"]["speed_gain"] = 9
+        plan_path.write_text(json.dumps(plan))
+        with self.assertRaisesRegex(ValueError, "controller contract"):
+            coordinator.load_plan(plan_path, repo)
+        d, case, model, episode_lock = self.make_episode()
+        episode_lock["version"] = 2
+        model["controller_contract"] = controller_contract("op_tangent_v1")
+        with self.assertRaisesRegex(ValueError, "schema 2|controller contract"):
+            coordinator.validate_episode(d, case, model, episode_lock)
+        # Re-seal matching metadata and summary, then verify substitution fails.
+        metadata_path, summary_path = d / "evidence/metadata.json", d / "summary.json"
+        metadata, summary = json.loads(metadata_path.read_text()), json.loads(summary_path.read_text())
+        metadata["schema_version"] = 2
+        metadata["controller_contract"] = summary["controller_contract"] = model["controller_contract"]
+        metadata_path.write_text(json.dumps(metadata))
+        summary_path.write_text(json.dumps(summary))
+        completion_path = d / "evidence/completion.json"
+        completion = json.loads(completion_path.read_text())
+        manifest_path = d / "evidence/manifest.jsonl"
+        entries = [json.loads(line) for line in manifest_path.read_text().splitlines()]
+        for entry in entries:
+            entry["metadata_sha256"] = coordinator.digest(metadata_path)
+        manifest_path.write_text("".join(json.dumps(entry) + "\n" for entry in entries))
+        completion["manifest_sha256"] = coordinator.digest(manifest_path)
+        completion["metadata_sha256"] = coordinator.digest(metadata_path)
+        completion["summary_sha256"] = coordinator.digest(summary_path)
+        completion_path.write_text(json.dumps(completion))
+        self.assertEqual(coordinator.validate_episode(d, case, model, episode_lock)["result"], "timeout")
+        model["controller_contract"] = controller_contract("pp")
+        with self.assertRaisesRegex(ValueError, "controller contract"):
+            coordinator.validate_episode(d, case, model, episode_lock)
+
     def test_invalid_names_are_rejected(self):
         for name in ("../escape", "/absolute", "", "x/y"):
             with self.subTest(name=name), self.assertRaises(ValueError):

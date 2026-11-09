@@ -73,10 +73,15 @@ def comparison_conditions(folder, metadata):
         asset = (folder / "assets" / name).resolve()
         if not asset.is_relative_to((folder / "assets").resolve()) or digest(asset) != expected:
             raise ValueError("Scene asset digest mismatch or path escape")
-    return {**{key: metadata[key] for key in FIELDS}, "asset_dependencies": hashes}
+    from fsop.eval.controller import controller_contract
+    contract = metadata.get("controller_contract", controller_contract("pp"))
+    if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1")
+            or contract != controller_contract(contract["mode"])):
+        raise ValueError("Invalid comparison controller contract")
+    return {**{key: metadata[key] for key in FIELDS}, "asset_dependencies": hashes, "controller_contract": contract}
 
 
 def compare_conditions(left, right):
-    for key in (*FIELDS, "asset_dependencies"):
+    for key in (*FIELDS, "asset_dependencies", "controller_contract"):
         if key not in left or key not in right or left[key] != right[key]:
             raise ValueError(f"Noncomparable episode condition: {key}")

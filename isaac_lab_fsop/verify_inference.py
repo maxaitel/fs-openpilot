@@ -147,10 +147,24 @@ def verify(episode, checkpoint, output, max_frames=PILOT_FRAMES):
     torch.set_num_threads(4)
     torch.backends.cuda.matmul.allow_tf32 = False
     torch.backends.cudnn.allow_tf32 = False
-    captured = ModelPolicy.from_checkpoint(checkpoint, controller="pp")
+    from fsop.eval.controller import controller_contract
+    schema = metadata.get("schema_version", 1)
+    if (schema not in (1, 2) or
+            (schema == 2 and ("controller_contract" not in metadata or "controller_contract" not in summary))):
+        raise ValueError("Invalid evidence schema or missing controller contract")
+    contract = metadata.get("controller_contract", controller_contract("pp"))
+    if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1")
+            or contract != controller_contract(contract["mode"])):
+        raise ValueError("Invalid evidence controller contract")
+    if (schema == 2) != (contract["mode"] == "op_tangent_v1"):
+        raise ValueError("Evidence schema does not match controller contract")
+    if summary.get("controller_contract", controller_contract("pp")) != contract:
+        raise ValueError("Controller contract differs between evidence and summary")
+    mode = contract["mode"]
+    captured = ModelPolicy.from_checkpoint(checkpoint, controller=mode)
     captured.model.requires_grad_(False)
-    plain = ModelPolicy(captured.model, controller="pp", device=captured.device)
-    black = ModelPolicy(captured.model, controller="pp", device=captured.device)
+    plain = ModelPolicy(captured.model, controller=mode, device=captured.device)
+    black = ModelPolicy(captured.model, controller=mode, device=captured.device)
     before = state_digest(captured.model)
     if before != metadata["state_sha256"] or before != summary["state_sha256"]:
         raise ValueError("Loaded model state differs from recorded state")
@@ -214,6 +228,7 @@ def verify(episode, checkpoint, output, max_frames=PILOT_FRAMES):
         "frames": count,
         "expected_frames": PILOT_FRAMES,
         "case": metadata["case"],
+        "controller_contract": contract,
         "checkpoint_sha256": checkpoint_sha,
         "state_sha256": before,
         "state_sha256_after": after,

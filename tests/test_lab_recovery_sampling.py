@@ -251,6 +251,30 @@ def test_training_keeps_step_zero_and_records_draws(tmp_path, monkeypatch):
         assert sampling["counts_sha256"] == lab_train.sha256(counts)
         assert json.loads(counts.read_text())["total_draws"] == step * 32
 
+    # The identical pre-update path can be run independently and bound by a later run.
+    args.out = str(tmp_path / "calibration")
+    args.calibration_only = True
+    lab_train.run(args)
+    calibration = Path(args.out)
+    assert (calibration / "step_000000.pt").is_file()
+    assert (calibration / "calibration.json").is_file()
+    assert not (calibration / "history.jsonl").exists()
+    assert json.loads((calibration / "run.json").read_text())["calibration_only"] is True
+    args.out = str(tmp_path / "reproduced")
+    args.calibration_only = False
+    args.expected_calibration = str(calibration / "calibration.json")
+    lab_train.run(args)
+    assert len((Path(args.out) / "history.jsonl").read_text().splitlines()) == 2
+    altered = json.loads((calibration / "calibration.json").read_text())
+    altered["identity"]["init_sha256"] = "f" * 64
+    bad = tmp_path / "bad-calibration.json"
+    bad.write_text(json.dumps(altered))
+    args.out = str(tmp_path / "rejected")
+    args.expected_calibration = str(bad)
+    with pytest.raises(ValueError, match="differs from expected calibration"):
+        lab_train.run(args)
+    assert not (Path(args.out) / "history.jsonl").exists()
+
 
 def test_terminal_anchor_is_excluded(tmp_path):
     dataset, recipe, gates = sampler_fixture(tmp_path)
@@ -303,3 +327,25 @@ def test_missing_gates_and_invalid_terminal_fail(tmp_path):
     dataset.episodes[0].meta["terminal_continuation"]["start_tick"] = 5
     with pytest.raises(ValueError, match="invalid terminal"):
         RecoverySampler(dataset, recipe, gates, 128, 16, CHECKPOINT)
+
+
+def test_off_policy_provenance_is_explicit_and_preserves_collection_validation(tmp_path):
+    dataset, recipe, gates = sampler_fixture(tmp_path)
+    init = 'b' * 64
+    with pytest.raises(ValueError, match='recipe checkpoint'):
+        RecoverySampler(dataset, recipe, gates, 128, 16, init)
+    with pytest.raises(ValueError, match='explicit collection'):
+        RecoverySampler(dataset, recipe, gates, 128, 16, init, provenance_mode='off_policy_v1')
+    sampler = RecoverySampler(dataset, recipe, gates, 128, 16, init,
+                              provenance_mode='off_policy_v1', collection_policy_checkpoint_sha=CHECKPOINT)
+    protocol = sampler.protocol()
+    assert protocol['collection_policy_checkpoint_sha'] == CHECKPOINT
+    assert protocol['optimization_init_sha256'] == init
+    assert protocol['provenance_mode'] == 'off_policy_v1'
+    with pytest.raises(ValueError, match='recipe checkpoint'):
+        RecoverySampler(dataset, recipe, gates, 128, 16, init,
+                        provenance_mode='off_policy_v1', collection_policy_checkpoint_sha='c' * 64)
+    dataset.episodes[0].meta['checkpoint_sha256'] = 'c' * 64
+    with pytest.raises(ValueError, match='learner checkpoint'):
+        RecoverySampler(dataset, recipe, gates, 128, 16, init,
+                        provenance_mode='off_policy_v1', collection_policy_checkpoint_sha=CHECKPOINT)

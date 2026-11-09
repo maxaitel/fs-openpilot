@@ -86,6 +86,8 @@ def export_onnx(ckpt: str | Path, out: str | Path, src_onnx: str | Path = SRC_ON
   out = Path(out)
   out.parent.mkdir(parents=True, exist_ok=True)
   m = load_fs(ckpt).eval()
+  if getattr(m, "controller_contract", None) is not None:
+    raise ValueError("Export of controller-bound checkpoints is not supported")
   w = ExportWrapper(m).eval()
   args = (torch.zeros(1, 12, 128, 256, dtype=torch.uint8), torch.zeros(1, 12, 128, 256, dtype=torch.uint8),
           torch.zeros(1, 24, 512), torch.zeros(1, 25, 8), torch.tensor([[1.0, 0.0]]), torch.zeros(1, 2))

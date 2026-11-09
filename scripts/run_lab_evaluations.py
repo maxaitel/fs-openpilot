@@ -84,8 +84,8 @@ def normalize_case(data):
 def load_plan(path, repo=REPO):
     path = Path(path).resolve()
     plan = json.loads(path.read_text())
-    if set(plan) != {"version", "timeout_seconds", "cases", "models"} or plan["version"] != 1:
-        raise ValueError("Plan requires version 1, timeout_seconds, cases, and models")
+    if set(plan) != {"version", "timeout_seconds", "cases", "models"} or plan["version"] not in (1, 2):
+        raise ValueError("Plan requires version 1 or 2, timeout_seconds, cases, and models")
     timeout = plan["timeout_seconds"]
     if isinstance(timeout, bool) or not isinstance(timeout, (int, float)) or not 0 < timeout < float("inf"):
         raise ValueError("timeout_seconds must be positive and finite")
@@ -104,19 +104,34 @@ def load_plan(path, repo=REPO):
         cases.append({"name": _name(entry.get("name", case["id"]), "case output name"),
                       "path": str(case_path), "file_sha256": digest(case_path), "case": case})
     for entry in plan["models"]:
-        if not isinstance(entry, dict) or set(entry) != {"name", "checkpoint", "sha256"}:
-            raise ValueError("Models require name, checkpoint and sha256")
+        expected_keys = {"name", "checkpoint", "sha256"} | ({"controller_contract"} if plan["version"] == 2 else set())
+        if not isinstance(entry, dict) or set(entry) != expected_keys:
+            raise ValueError("Model fields do not match plan version")
         name = _name(entry["name"], "model name")
         checkpoint = _resolve(path.parent, entry["checkpoint"])
         expected = entry["sha256"]
         if not isinstance(expected, str) or not SHA.fullmatch(expected) or digest(checkpoint) != expected:
             raise ValueError(f"Checkpoint SHA-256 mismatch for {name}")
-        models.append({"name": name, "checkpoint": str(checkpoint), "sha256": expected})
+        model = {"name": name, "checkpoint": str(checkpoint), "sha256": expected}
+        if plan["version"] == 2:
+            import torch
+
+            from fsop.eval.controller import controller_contract, validate_checkpoint_payload
+
+            contract = entry["controller_contract"]
+            if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1")
+            or contract != controller_contract(contract["mode"])):
+                raise ValueError("Invalid controller contract")
+            payload = torch.load(checkpoint, map_location="cpu", weights_only=False)
+            validate_checkpoint_payload(payload, contract["mode"])
+            del payload
+            model["controller_contract"] = contract
+        models.append(model)
     if any(model["name"] in {"cases", "logs"} for model in models):
         raise ValueError("Model names cannot use reserved output directories")
     if len({c["name"] for c in cases}) != len(cases) or len({m["name"] for m in models}) != len(models):
         raise ValueError("Case and model output names must be unique within their lists")
-    return {"version": 1, "plan_path": str(path), "plan_sha256": digest(path), "timeout_seconds": timeout,
+    return {"version": plan["version"], "plan_path": str(path), "plan_sha256": digest(path), "timeout_seconds": timeout,
             "cases": cases, "models": models, "source_sha256": source_inventory(repo),
             "graph_sha256": {name: digest(repo / name) for name in GRAPH_FILES},
             "coordinator_sha256": digest(__file__)}
@@ -208,6 +223,14 @@ def validate_episode(directory, case, model, lock):
             or summary.get("state_sha256_after") != metadata.get("state_sha256")
             or summary.get("frozen_unchanged") is not True):
         raise ValueError("Checkpoint or model-state identity mismatch")
+    from fsop.eval.controller import controller_contract
+    expected_contract = model.get("controller_contract", controller_contract("pp"))
+    if expected_contract["mode"] == "op_tangent_v1" and metadata.get("schema_version") != 2:
+        raise ValueError("Tangent episode requires evidence schema 2")
+    for artifact in (metadata, summary):
+        actual_contract = artifact.get("controller_contract")
+        if actual_contract != expected_contract and (lock.get("version", 1) != 1 or actual_contract is not None):
+            raise ValueError("Episode controller contract differs from frozen plan")
     if metadata.get("source_sha256") != lock["source_sha256"] or metadata.get("graph_sha256") != lock["graph_sha256"]:
         raise ValueError("Episode source or graph identity differs from frozen plan")
     state_sha = metadata.get("state_sha256")
@@ -370,6 +393,8 @@ def _run_locked(plan_path, out, max_new_cases=None):
         command = [sys.executable, "-m", "isaac_lab_fsop.evaluate", "--case", str(snapshot),
                    "--checkpoint", model["checkpoint"], "--expected-sha", model["sha256"],
                    "--out", str(directory), "--async-evidence"]
+        if lock["version"] == 2:
+            command.extend(["--controller", model["controller_contract"]["mode"]])
         manifest["episodes"][key] = {"status": "running", "command": command, "log": str(logfile.relative_to(out))}
         atomic_json(manifest_path, manifest)
         try:

@@ -20,6 +20,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--case", type=Path, required=True)
     parser.add_argument("--checkpoint", type=Path, required=True)
+    parser.add_argument("--controller", choices=("pp", "op_tangent_v1"), default="pp")
     parser.add_argument("--expected-sha", help="Optional expected complete checkpoint SHA-256")
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--pilot-steps", type=int, default=0)
@@ -73,6 +74,7 @@ def main():
         from isaacsim.core.utils.extensions import enable_extension
 
         from fsop.eval.closed_loop import ModelPolicy
+        from fsop.eval.controller import controller_contract
         from fsop.geometry.camera import CAMERA_MODELS
         from isaac_eval.evidence import EvidenceWriter, ImageHeadCapture, finalize_evidence
         from isaac_eval.parity_cases import get_case, json_sha256, realized_environment
@@ -89,7 +91,7 @@ def main():
         torch.set_num_threads(4)
         torch.backends.cuda.matmul.allow_tf32 = False
         torch.backends.cudnn.allow_tf32 = False
-        policy = ModelPolicy.from_checkpoint(args.checkpoint, controller="pp")
+        policy = ModelPolicy.from_checkpoint(args.checkpoint, controller=args.controller)
         policy.model.requires_grad_(False)
         state_sha = model_digest(policy.model)
         env = environment(case)
@@ -133,11 +135,12 @@ def main():
         writer_type = AsyncEvidenceWriter if args.async_evidence else EvidenceWriter
         metadata = {
             "evidence_writer": writer_type.__name__,
-            "schema_version": 1,
+            "schema_version": 2 if args.controller == "op_tangent_v1" else 1,
             "fps": 20,
             "backend": "Isaac Lab PhysX",
             "case": asdict(case),
             "checkpoint_sha256": checkpoint_sha,
+            "controller_contract": controller_contract(args.controller),
             "checkpoint_size_bytes": args.checkpoint.stat().st_size,
             "state_sha256": state_sha,
             "track": env.track.to_dict(),
@@ -341,6 +344,7 @@ def main():
             evidence_seconds=evidence_seconds,
             seconds_simulated=env.state.t,
             real_time_factor=env.state.t / elapsed,
+            controller_contract=controller_contract(args.controller),
             checkpoint_sha256=checkpoint_sha,
             checkpoint_sha256_after=final_checkpoint_sha,
             state_sha256=state_sha,

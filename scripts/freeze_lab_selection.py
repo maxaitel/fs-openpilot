@@ -73,6 +73,9 @@ def verify_training(training, dataset, verification_path, baseline_sha, candidat
     training, dataset, verification_path = Path(training), Path(dataset), Path(verification_path)
     run_path, history_path = training / "run.json", training / "history.jsonl"
     run, manifest, verified = read_json(run_path), read_json(dataset), read_json(verification_path)
+    if (run.get("args", {}).get("controller_mode", "pp") != "pp"
+            or run.get("controller_contract", {}).get("mode", "pp") != "pp"):
+        raise ValueError("legacy freezer does not support this controller contract")
     manifest_sha = digest(dataset)
     if run.get("init_sha256") != baseline_sha or run.get("manifest_sha256") != manifest_sha:
         raise ValueError("Training initialization or dataset does not match selected inputs")

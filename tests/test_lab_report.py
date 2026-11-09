@@ -751,3 +751,102 @@ def test_final_report_rejects_noncomparable_pairs(tmp_path):
     report = read_json(out / "aggregates.json")
     assert report["paired_comparisons"]["cases"] == []
     assert any("noncomparable" in failure for failure in report["final_gate"]["failures"])
+
+
+def test_explicit_v2_package_comparison_binds_contract_and_keeps_all_other_conditions():
+    from fsop.eval.controller import controller_contract
+    from scripts.report_lab_training import paired_comparisons
+    contracts = [controller_contract('pp'), controller_contract('op_tangent_v1')]
+    conditions = {key: 'same' for key in FIELDS}
+    conditions.update(asset_dependencies={}, coordinator_sha256='coord', timeout_seconds=7200)
+    rows = []
+    for model, contract in zip(('baseline', 'candidate'), contracts, strict=True):
+        rows.append({'model': model, 'case_id': 'case', 'expected': True, 'seal': 'verified', 'pilot': False,
+                     'audit': 'passed', 'case': {'id': 'case'}, 'command_mode': 'recorded',
+                     'cohort': 'paired_exposed', 'split': 'regression', 'discipline': 'skidpad',
+                     'variant': 'matched', 'dr': 'heavy', 'result': 'finished', 'plan_version': 2,
+                     'locked_plan_version': 2, 'locked_controller_contract': contract,
+                     'planned_controller_contract': contract, 'audited_controller_contract': contract,
+                     'comparison_conditions': {**conditions, 'controller_contract': contract,
+                                               'schema_version': 1 if model == 'baseline' else 2}})
+    coverage = {'paired': {'case'}, 'legacy': set()}
+    legacy = paired_comparisons(rows, coverage, True)
+    assert legacy['measured_pairs'] == 0
+    result = paired_comparisons(rows, coverage, True, 'controller_model_package')
+    assert result['measured_pairs'] == 1
+    assert result['cases'][0]['scope'] == 'controller_model_package'
+    assert result['cases'][0]['baseline_controller_contract'] == contracts[0]
+    assert result['cases'][0]['candidate_controller_contract'] == contracts[1]
+    assert result['cases'][0]['baseline_evidence_schema_version'] == 1
+    assert result['cases'][0]['candidate_evidence_schema_version'] == 2
+    rows[1]['comparison_conditions']['schema_version'] = 1
+    assert paired_comparisons(rows, coverage, True, 'controller_model_package')['measured_pairs'] == 0
+    rows[1]['comparison_conditions']['schema_version'] = 2
+    rows[1]['audited_controller_contract'] = contracts[0]
+    assert paired_comparisons(rows, coverage, True, 'controller_model_package')['measured_pairs'] == 0
+    rows[1]['audited_controller_contract'] = contracts[1]
+    rows[1]['comparison_conditions']['physics_settings'] = 'tampered'
+    result = paired_comparisons(rows, coverage, True, 'controller_model_package')
+    assert result['measured_pairs'] == 0 and 'physics_settings' in result['comparison_errors']['case']
+    rows[1]['comparison_conditions']['physics_settings'] = 'same'
+    rows[1]['locked_plan_version'] = 1
+    assert paired_comparisons(rows, coverage, True, 'controller_model_package')['measured_pairs'] == 0
+
+
+def test_v2_plan_requires_complete_controller_contract(tmp_path):
+    from scripts.report_lab_training import plan_matrix
+    case = {'id': 'x', 'split': 'test', 'discipline': 'skidpad'}
+    plan = tmp_path / 'plan.json'
+    write(plan, {'version': 2, 'cases': [{'path': 'unused', 'case': case}],
+                 'models': [{'name': 'candidate', 'sha256': 'a', 'checkpoint': 'unused'}]})
+    with pytest.raises(ValueError, match='controller contract'):
+        plan_matrix(plan)
+
+
+def test_v2_episode_requires_plan_summary_metadata_and_audit_agreement(tmp_path):
+    from fsop.eval.controller import controller_contract
+    from scripts.report_lab_training import load_episode
+    case = {'id': 'case', 'split': 'regression', 'discipline': 'skidpad'}
+    evaluation = tmp_path / 'eval'
+    folder = episode(evaluation, 'candidate', case)
+    contract = controller_contract('op_tangent_v1')
+    metadata_path, summary_path = folder / 'evidence/metadata.json', folder / 'summary.json'
+    metadata, summary = read_json(metadata_path), read_json(summary_path)
+    metadata['controller_contract'] = summary['controller_contract'] = contract
+    write(metadata_path, metadata)
+    write(summary_path, summary)
+    manifest_path = folder / 'evidence/manifest.jsonl'
+    frame = json.loads(manifest_path.read_text())
+    frame['metadata_sha256'] = sha(metadata_path)
+    manifest_path.write_text(json.dumps(frame) + '\n')
+    receipt_path = folder / 'evidence/completion.json'
+    receipt = read_json(receipt_path)
+    receipt.update(metadata_sha256=sha(metadata_path), manifest_sha256=sha(manifest_path),
+                   summary_sha256=sha(summary_path))
+    write(receipt_path, receipt)
+    audit_path = folder / 'lab_artifact_audit.json'
+    audit = read_json(audit_path)
+    audit.update(completion_sha256=sha(receipt_path), controller_contract=contract)
+    write(audit_path, audit)
+    lock_path = evaluation / 'plan.lock.json'
+    lock = read_json(lock_path)
+    lock['version'] = 2
+    lock['models'][0]['controller_contract'] = contract
+    write(lock_path, lock)
+    manifest_path = evaluation / 'manifest.json'
+    manifest = read_json(manifest_path)
+    manifest['lock_sha256'] = sha(lock_path)
+    manifest['episodes']['candidate/case']['receipt']['completion_sha256'] = sha(receipt_path)
+    write(manifest_path, manifest)
+    row = load_episode(folder, 'candidate')
+    assert row['locked_controller_contract'] == row['audited_controller_contract'] == contract
+    assert row['audit'] == 'passed'
+    audit['controller_contract'] = controller_contract('pp')
+    write(audit_path, audit)
+    assert load_episode(folder, 'candidate')['audit'] == 'controller contract mismatch'
+    lock['models'][0].pop('controller_contract')
+    write(lock_path, lock)
+    manifest['lock_sha256'] = sha(lock_path)
+    write(manifest_path, manifest)
+    row = load_episode(folder, 'candidate')
+    assert 'controller contract differs' in row['comparison_error']

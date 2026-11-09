@@ -95,6 +95,13 @@ def build_base(ckpt: str | Path | None = None) -> SupercomboBase:
 
 def load_fs(ckpt: str | Path, map_location: str = "cpu") -> SupercomboFS:
   sd = torch.load(ckpt, map_location=map_location, weights_only=False)
+  from fsop.eval.controller import validate_checkpoint_payload
+
+  config = sd.get("config") or {}
+  if not isinstance(config, dict):
+    raise ValueError("Checkpoint config must be a mapping")
+  validate_checkpoint_payload(sd, config.get("controller_mode", "pp"))
   m = SupercomboFS(image_head=any(k.startswith("img.") for k in sd["model"]))
   m.load_state_dict(sd["model"], strict=True)
+  m.controller_contract = sd.get("controller_contract")
   return m

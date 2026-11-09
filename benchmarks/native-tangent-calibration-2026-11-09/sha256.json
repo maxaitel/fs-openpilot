@@ -1,0 +1,22 @@
+{
+  "README.md": "69c333c07bfa798d02cd112e906cf970356756a28ed97e4868d211c4118b1c5c",
+  "build_tangent_protocol2.py": "6dd7e14741abd05ac1f0674c7ee049e4af92d29af985b69abfbfb3a12990d6ea",
+  "calibration1/baseline_validation.json": "97520171fda9f967aec7f4c1ee4ce4bbba2a37909cef7f5a30a7a593c153bda0",
+  "calibration1/calibration.json": "fb844328c2d5509fdc9af72dbde1c93bb4896969fb23e51e4c4ad50e417ca26b",
+  "calibration1/run.json": "f9cf2cae5c79a0ad5b82d267ff5ff850a49c01e3674d54818226bad2ae0afd3c",
+  "calibration1/source.zip": "42ff96bc9f05a92fd159d2a329ffb1d421f95def758acffbe65dd1cb4c77b4e3",
+  "calibration2/baseline_validation.json": "b99c6dffc71f3f8fb9781a819796a87d7bb784e4ac6658ba69e354db9b10acac",
+  "calibration2/calibration.json": "94f21a4d3741611578f38f83242ae8b9c7222eb65fff6b31db1188f1f6205300",
+  "calibration2/run.json": "713f0944998db1f321377e148e5bdce2651633931226ab5ef0f8a7e6035334cf",
+  "calibration2/source.zip": "950a076bf7629b4fcd51c65e5e23c5c2843b9ae3f79f31f48fb74ba1ae950a0a",
+  "native_tangent_calibration2.yaml": "de599147b54b015f6cc15ff02e22ee4c59d6caa43e78162ad0dbe4fe8686af64",
+  "native_tangent_numeric_review2.md": "827aa05e3860d82edfcf0bca5bcc18a2c158bedbbfc50608e2c26e7524d0c3fc",
+  "native_tangent_runtime_freeze1.json": "5242d9aee9059adf283d8bb258c5e213ae8e6afcb482cf539ed6136a95f68d18",
+  "native_tangent_runtime_freeze2.json": "1a48d566ffc6d93f674043c8aa623d0dff91ab9671dcdb94ae159ef6e80e76df",
+  "native_tangent_training_freeze2.json": "a04799909e5a6d86f456052b62dffcc1c6eeae09fee016528418e4ab2c4598f9",
+  "native_tangent_trial2.yaml": "369a8bd944fda75dfb55463cde5431dece492a1e1eb36e36030176a09f501bac",
+  "tangent_calibration1_inference.json": "6a55f04b56ad686f11c5cad315000b80afb9eb3b2490b5aa29409ff5bffc7390",
+  "tangent_nullspace_coherence_snapshot1.py": "57a0f58cb6b7a1841f3cbaafc5e7ee2732782c2dd55088b8b6be064edfe93158",
+  "tangent_nullspace_repro1.json": "0150f45eb961fdb100eb8b218f54c8141bbbf3507c29bfb93ec154da3e747767",
+  "tangent_nullspace_repro1.py": "681d13054acdd5481de7f9bf0caccadd71b3c5f66176bdb77bb18ee0002b32d1"
+}

@@ -216,6 +216,22 @@ def load_episode(folder, model):
             raise ValueError("Original lock does not bind the episode checkpoint")
         if not any(case["name"] == original.name and case["case"] == metadata["case"] for case in cases):
             raise ValueError("Original lock does not bind the episode case")
+        lock_version = lock.get("version", 1)
+        if lock_version not in (1, 2):
+            raise ValueError("Unsupported original lock version")
+        locked_model = next(model for model in models if model["name"] == original.parent.name)
+        from fsop.eval.controller import controller_contract
+        contract = locked_model.get("controller_contract")
+        if lock_version == 2:
+            if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1")
+                or contract != controller_contract(contract["mode"])
+                or metadata.get("controller_contract") != contract or summary.get("controller_contract") != contract):
+                raise ValueError("Original lock controller contract differs from episode")
+        elif (metadata.get("controller_contract", controller_contract("pp")) != controller_contract("pp")
+              or summary.get("controller_contract", controller_contract("pp")) != controller_contract("pp")):
+            raise ValueError("Version 1 lock cannot bind a non-legacy controller")
+        row["locked_plan_version"] = lock_version
+        row["locked_controller_contract"] = contract
         record = manifest["episodes"][key]
         if record.get("status") != "complete" or record.get("receipt", {}).get("completion_sha256") != digest(
             folder / "evidence/completion.json"
@@ -232,6 +248,10 @@ def load_episode(folder, model):
     except (OSError, ValueError, KeyError, TypeError, AttributeError, BadZipFile) as exc:
         row["comparison_error"] = str(exc)
     row["audit"], audit = audit_status(folder, receipt)
+    if row.get("locked_plan_version") == 2 and row["audit"] == "passed":
+        row["audited_controller_contract"] = audit.get("controller_contract")
+        if row["audited_controller_contract"] != row.get("locked_controller_contract"):
+            row["audit"] = "controller contract mismatch"
     row["latency"] = latency(folder, audit, row["audit"])
     for name in ("debug", "research"):
         row["videos"][name] = video_status(folder, name, receipt)
@@ -254,7 +274,7 @@ def planned_command_mode(case):
 
 def plan_matrix(plan_path):
     plan = read_json(plan_path)
-    if plan.get("version") != 1:
+    if plan.get("version") not in (1, 2):
         raise ValueError("Unsupported evaluation plan version")
     cases = []
     for spec in plan["cases"]:
@@ -275,7 +295,14 @@ def plan_matrix(plan_path):
         if not isinstance(name, str) or Path(name).name != name or name in (".", ".."):
             raise ValueError("Invalid case output name")
         cases.append((name, case))
-    models = plan["models"]
+    models = [dict(model, _plan_version=plan["version"]) for model in plan["models"]]
+    if plan["version"] == 2:
+        from fsop.eval.controller import controller_contract
+        for model in models:
+            contract = model.get("controller_contract")
+            if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1")
+                or contract != controller_contract(contract["mode"])):
+                raise ValueError("Version 2 plan requires an exact controller contract for each model")
     keys = [(model["name"], name) for model in models for name, _ in cases]
     if len(keys) != len(set(keys)):
         raise ValueError("Duplicate expected model/case output")
@@ -294,7 +321,7 @@ def merge_plans(paths):
     for path in paths:
         for model, name, case in plan_matrix(path):
             key = (model["name"], name)
-            digest_value = model.get("sha256")
+            digest_value = (model.get("sha256"), model.get("controller_contract"), model["_plan_version"])
             if model["name"] in model_hashes and model_hashes[model["name"]] != digest_value:
                 raise ValueError(f"Conflicting checkpoint identity for model {model['name']}")
             model_hashes[model["name"]] = digest_value
@@ -304,7 +331,12 @@ def merge_plans(paths):
             identities[identity] = name
             if key in merged:
                 previous_model, _, previous_case = merged[key]
-                if previous_case != case or previous_model.get("sha256") != digest_value:
+                previous_identity = (
+                    previous_model.get("sha256"),
+                    previous_model.get("controller_contract"),
+                    previous_model["_plan_version"],
+                )
+                if previous_case != case or previous_identity != digest_value:
                     raise ValueError(f"Contradictory duplicate planned episode: {key}")
             else:
                 merged[key] = (model, name, case)
@@ -341,7 +373,7 @@ def cohort_for(row, coverage):
     return "unknown"
 
 
-def paired_comparisons(episodes, coverage, has_plan):
+def paired_comparisons(episodes, coverage, has_plan, scope="same_controller"):
     if not has_plan:
         return {
             "coverage_pairs": len(coverage["paired"]),
@@ -382,6 +414,22 @@ def paired_comparisons(episodes, coverage, has_plan):
 
         try:
             left, right = base["comparison_conditions"], candidate["comparison_conditions"]
+            if scope == "controller_model_package":
+                if any(r.get("plan_version") != 2 or r.get("locked_plan_version") != 2 for r in (base, candidate)):
+                    raise ValueError("Package comparison requires frozen version 2 plans for both models")
+                for r, conditions in ((base, left), (candidate, right)):
+                    contract = r.get("planned_controller_contract")
+                    if (not contract or r.get("locked_controller_contract") != contract
+                        or conditions.get("controller_contract") != contract
+                        or r.get("audited_controller_contract") != contract):
+                        raise ValueError("Audited controller differs from frozen model contract")
+                    expected_schema = {"pp": 1, "op_tangent_v1": 2}.get(contract.get("mode"))
+                    if conditions.get("schema_version") != expected_schema:
+                        raise ValueError("Evidence schema does not match frozen controller mode")
+                # Schema is part of the versioned controller representation; every other
+                # shared condition remains under the normal strict comparison.
+                left = {**left, "controller_contract": right["controller_contract"],
+                        "schema_version": right["schema_version"]}
             compare_conditions(left, right)
             for field in ("coordinator_sha256", "timeout_seconds"):
                 if left[field] != right[field]:
@@ -398,6 +446,11 @@ def paired_comparisons(episodes, coverage, has_plan):
         cases.append(
             {
                 "case_id": ident,
+                "scope": scope,
+                "baseline_controller_contract": base.get("planned_controller_contract"),
+                "candidate_controller_contract": candidate.get("planned_controller_contract"),
+                "baseline_evidence_schema_version": base["comparison_conditions"].get("schema_version"),
+                "candidate_evidence_schema_version": candidate["comparison_conditions"].get("schema_version"),
                 "cohort": base["cohort"],
                 "split": base["split"],
                 "discipline": base["discipline"],
@@ -943,6 +996,11 @@ def render_html(report, out, graphs, eval_graph):
     body += [
         "</tbody></table></div>",
         "<h2>Paired baseline to candidate</h2>",
+        "<p>Frozen controller contracts: "
+        f"{esc(json.dumps(report.get('planned_controller_contracts', {}), sort_keys=True))}</p>",
+        f"<p>Comparison scope: {esc(report.get('comparison_scope', 'same_controller'))}. "
+        + ("Controller/model package comparison; outcomes cannot be attributed to retraining alone."
+           if report.get('comparison_scope') == 'controller_model_package' else "") + "</p>",
         f"<p>Measured {pairs['measured_pairs']} of {pairs['required_pairs']} jointly planned paired cases "
         f"({pairs['coverage_pairs']} in coverage); {len(pairs['unplanned_case_ids'])} coverage cases are not "
         f"jointly planned and {len(pairs['unmeasured_case_ids'])} planned pairs could not be compared. "
@@ -983,6 +1041,8 @@ def main(argv=None):
         "--additional-plan", action="append", type=Path, default=[], help="Additional plan or lock; may be repeated"
     )
     parser.add_argument("--coverage", type=Path, help="Evaluation coverage membership JSON")
+    parser.add_argument("--comparison-scope", choices=("same_controller", "controller_model_package"),
+                        default="same_controller", help="Explicitly compare frozen version 2 controller/model packages")
     parser.add_argument("--training-telemetry", type=Path, help="Completed measure_native.py receipt")
     parser.add_argument(
         "--require-complete", action="store_true", help="Fail unless every planned episode passes the final gate"
@@ -998,6 +1058,10 @@ def main(argv=None):
     validation = validation_series(history, baseline)
     coverage = load_coverage(args.coverage)
     plan_paths = [args.plan, *args.additional_plan] if args.plan else []
+    if args.comparison_scope == "controller_model_package" and (
+        not plan_paths or any(read_json(path).get("version") != 2 for path in plan_paths)
+    ):
+        raise ValueError("Package comparison requires explicit version 2 plans")
     episodes = []
     expected_keys = set()
     if args.plan:
@@ -1006,8 +1070,16 @@ def main(argv=None):
             expected_keys.add(key)
             row = load_episode(args.evaluation / model["name"] / name, model["name"])
             row["expected"] = True
+            row["plan_version"] = model["_plan_version"]
+            row["planned_controller_contract"] = model.get("controller_contract")
             if row["seal"] == "verified":
                 expected_identity = row["case"] == case and row.get("checkpoint_sha256") == model.get("sha256")
+                if model["_plan_version"] == 2 and (
+                    row.get("locked_plan_version") != 2
+                    or row.get("locked_controller_contract") != model["controller_contract"]
+                    or row.get("audited_controller_contract") != model["controller_contract"]
+                ):
+                    expected_identity = False
                 planned_mode = planned_command_mode(case)
                 if planned_mode != "unknown" and row["command_mode"] != planned_mode:
                     expected_identity = False
@@ -1045,7 +1117,7 @@ def main(argv=None):
                     gate["failures"].append(f"{model}/{ident}: required coverage case not in supplied plans")
         if gate["failures"]:
             gate["status"] = "failed"
-    pairs = paired_comparisons(episodes, coverage, bool(args.plan))
+    pairs = paired_comparisons(episodes, coverage, bool(args.plan), args.comparison_scope)
     for ident in pairs["unmeasured_case_ids"]:
         detail = pairs["comparison_errors"].get(ident, "missing or unaudited evidence")
         gate["failures"].append(f"{ident}: paired episodes are incomplete or noncomparable ({detail})")
@@ -1062,6 +1134,11 @@ def main(argv=None):
             "warnings": warnings,
         },
         "final_gate": gate,
+        "comparison_scope": args.comparison_scope,
+        "planned_controller_contracts": {
+            model["name"]: model.get("controller_contract")
+            for model, _, _ in merge_plans(plan_paths)
+        },
         "evaluation_path": str(args.evaluation.resolve()),
         "plan_path": str(args.plan.resolve()) if args.plan else None,
         "plan_paths": [str(p.resolve()) for p in plan_paths],

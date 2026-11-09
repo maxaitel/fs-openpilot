@@ -1,0 +1,68 @@
+{
+  "kind": "synthetic_trapezoidal_nullspace_reproduction",
+  "scope": "A synthetic constant-speed straight plan, not native validation or a learned candidate.",
+  "execution": "Exact plan_coherence function snapshot plus actual OpenpilotTangentFollower implementation.",
+  "source_sha256": {
+    ".work/lab/tangent_nullspace_coherence_snapshot1.py": "57a0f58cb6b7a1841f3cbaafc5e7ee2732782c2dd55088b8b6be064edfe93158",
+    "src/fsop/eval/controller.py": "5f73f920e3b0594fa035147ff86d6181a994dd15b8e6c6c7685224e17670e229",
+    "src/fsop/sim/expert.py": "7f1c3fb9083b4edd04e61a33719a88b4b65bea85fb6490ea2ef191e66d35986e",
+    "src/fsop/sim/vehicle.py": "55643a3d4f43c1a7605b8da3641517a8c0380bc92ba7526a5e555e0f7cd3ae39",
+    "src/fsop/train/losses.py": "b1f35b2102cbe6dd1776776d7e051889de9456b80f2adc59aa6d16309f3bc2ac"
+  },
+  "changed_channel": "OP x acceleration at knots 0 through 10, alternating +20 and -20 m/s^2",
+  "interval_end_s": 0.9765625,
+  "base_action": {
+    "steer_rad": 0.0,
+    "accel_mps2": 0.0
+  },
+  "changed_action": {
+    "steer_rad": 0.0,
+    "accel_mps2": 0.39999999999999825
+  },
+  "original_13_metrics": {
+    "base": {
+      "position_interval_m": 0.0,
+      "position_interval_max_m": 0.0,
+      "velocity_interval_mps": 0.0,
+      "velocity_interval_max_mps": 0.0,
+      "yaw_interval_rad": 0.0,
+      "yaw_interval_max_rad": 0.0,
+      "position_cumulative_max_m": 0.0,
+      "velocity_cumulative_max_mps": 0.0,
+      "yaw_cumulative_max_rad": 0.0,
+      "initial_position_m": 0.0,
+      "initial_yaw_rad": 0.0,
+      "initial_velocity_mps": 0.0,
+      "initial_yaw_rate_radps": 0.0
+    },
+    "alternating": {
+      "position_interval_m": 0.0,
+      "position_interval_max_m": 0.0,
+      "velocity_interval_mps": 0.0,
+      "velocity_interval_max_mps": 0.0,
+      "yaw_interval_rad": 0.0,
+      "yaw_interval_max_rad": 0.0,
+      "position_cumulative_max_m": 0.0,
+      "velocity_cumulative_max_mps": 0.0,
+      "yaw_cumulative_max_rad": 0.0,
+      "initial_position_m": 0.0,
+      "initial_yaw_rad": 0.0,
+      "initial_velocity_mps": 0.0,
+      "initial_yaw_rate_radps": 0.0
+    }
+  },
+  "added_endpoint_metrics": {
+    "base": {
+      "velocity_secant_max_mps": 0.0,
+      "acceleration_secant_max_mps2": 0.0,
+      "yaw_rate_secant_max_radps": 0.0
+    },
+    "alternating": {
+      "velocity_secant_max_mps": 0.0,
+      "acceleration_secant_max_mps2": 20.0,
+      "yaw_rate_secant_max_radps": 0.0
+    }
+  },
+  "weighted_plan_l1_vs_synthetic_base": 0.18547743313986423,
+  "limitation": "This shows metric blindness. It does not establish that an actual trained candidate exploits it or passes all action gates."
+}

@@ -16,7 +16,7 @@ import numpy as np
 import torch
 import yaml
 
-from fsop.eval.controller import make_controller
+from fsop.eval.controller import make_controller, validate_checkpoint_controller
 from fsop.geometry.op_frames import op_to_ego_plan
 from fsop.geometry.yuv import rgb_to_model
 from fsop.model.temporal import TemporalState
@@ -28,6 +28,7 @@ class ModelPolicy:
   """Runs SupercomboFS (or the untouched base model) at 20 Hz with openpilot's queue semantics."""
 
   def __init__(self, model, controller: str = "pp", device=None, bev: bool = True, cones: str = "img"):
+    validate_checkpoint_controller(getattr(model, "controller_contract", None), controller)
     self.cones = cones  # img: image head + ground projection | bev: learned BEV head
     self.device = device or pick_device()
     self.model = model.to(self.device).eval()
@@ -73,7 +74,8 @@ class ModelPolicy:
     mu = op_to_ego_plan(p[0, 0].cpu().numpy())
     std = np.exp(p[0, 1].clamp(-7, 7).cpu().numpy())
     self.ts.push_hidden(v.hidden[0].cpu().numpy())
-    steer, accel = self.ctrl(mu, obs.state.vx)
+    steer, accel = (self.ctrl(mu, obs.state.vx, obs.state.vy) if self.controller_name == "op_tangent_v1"
+                    else self.ctrl(mu, obs.state.vx))
     info = {"plan": mu, "plan_std": std}
     if self.bev:
       if self.cones == "img" and getattr(m, "img", None) is not None:
@@ -139,7 +141,8 @@ class GeometricPolicy:
       _, _, info = self.mp(obs, env)
       xy, cls = info["cones_xy"], info["cones_cls"]
     plan = plan_from_cones(xy, cls, obs.state.vx)
-    steer, accel = self.ctrl(plan, obs.state.vx)
+    steer, accel = (self.ctrl(plan, obs.state.vx, obs.state.vy) if self.controller_name == "op_tangent_v1"
+                    else self.ctrl(plan, obs.state.vx))
     info = {**info, "plan": plan, "cones_xy": xy, "cones_cls": cls}
     return steer, mission_brake(accel, obs, env), info
 

@@ -214,6 +214,8 @@ def select(
     ):
         raise ValueError("verified manifest or actual validation anchors differ")
     args = action["args"]
+    if args.get('controller_mode', 'pp') != 'pp' or action.get('controller_contract', {}).get('mode', 'pp') != 'pp':
+        raise ValueError('legacy selector does not support this controller contract')
     if args.get("freeze_vision") is not True or args.get("w_plan") != 0.1 or args.get("steps") != expected_steps:
         raise ValueError("action configuration mismatch")
     if args.get("val_every", 0) < 1:

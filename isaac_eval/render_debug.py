@@ -61,7 +61,7 @@ def terminal_frame(summary, count):
   return frame
 
 
-def research_frame(record, entry):
+def research_frame(record, entry, controller=None):
   """Raw same-call image-head boxes; projection and ground-truth are not used."""
   frame = np.full((768, 1280, 3), 24, np.uint8)
   outputs = record.get("image_head")
@@ -96,6 +96,8 @@ def research_frame(record, entry):
     f"render: {diagnostics.get('render_ms', 'unavailable')} ms",
     "Boxes are image-head predictions before ground projection; model scale is not calibrated uncertainty.",
   ]
+  if controller is not None:
+    lines.append(f"controller: {controller}")
   for i, line in enumerate(lines):
     cv2.putText(frame, str(line)[:150], (12, 350 + i * 30), cv2.FONT_HERSHEY_SIMPLEX, 0.48,
                 (230, 230, 230), 1, cv2.LINE_AA)
@@ -206,13 +208,15 @@ def render(directory, output, research=None, fps=20):
       hud = (f"t {state['t']:.1f}s v {state['vx'] * 3.6:.0f} km/h "
              f"laps {counters.get('laps', '?')}/{counters.get('total_laps', '?')} "
              f"DOO {counters.get('legacy_doo', '?')} OC {counters.get('off_course', '?')}")
+      if "controller_contract" in metadata:
+        hud += f" controller {metadata['controller_contract']['mode']}"
       cones = np.asarray(record["actual_cones_xyz"])[:, :2]
       frame = compose_frame(oracle.track, cones, metadata["cone_colors"], record["images"], state,
                             np.asarray(record["T_plan_ego_camera"]), record["prediction"],
                             oracle.reference(record), trail, hud)
       main.write(frame)
       if extra is not None:
-        extra.write(research_frame(record, entry))
+        extra.write(research_frame(record, entry, metadata.get("controller_contract", {}).get("mode")))
       count += 1
     if not count:
       raise ValueError("no evidence frames")

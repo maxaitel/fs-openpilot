@@ -8,6 +8,7 @@ import re
 import subprocess
 from dataclasses import asdict
 from pathlib import Path
+from types import SimpleNamespace
 
 import numpy as np
 
@@ -40,6 +41,24 @@ def audit_episode(directory):
         if (evidence / receipt["summary_path"]).resolve() != (directory / "summary.json").resolve():
             raise ValueError("Completion receipt does not bind the episode summary")
         metadata = json.loads((evidence / "metadata.json").read_text())
+        from fsop.eval.controller import controller_contract
+        schema = metadata.get("schema_version", 1)
+        if (schema not in (1, 2) or
+            (schema == 2 and ("controller_contract" not in metadata or "controller_contract" not in summary))):
+            raise ValueError("Invalid evidence schema or missing controller contract")
+        contract = metadata.get("controller_contract", controller_contract("pp"))
+        if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1")
+            or contract != controller_contract(contract["mode"])):
+            raise ValueError("Invalid evidence controller contract")
+        if (schema == 2) != (contract["mode"] == "op_tangent_v1"):
+            raise ValueError("Evidence schema does not match controller contract")
+        if summary.get("controller_contract", controller_contract("pp")) != contract:
+            raise ValueError("Controller contract differs between evidence and summary")
+        if contract["mode"] == "op_tangent_v1":
+            for name in ("src/fsop/eval/controller.py", "src/fsop/eval/closed_loop.py"):
+                if sha256_file(name) != metadata.get("source_sha256", {}).get(name):
+                    raise ValueError("Controller audit source differs from sealed evidence")
+        report["controller_contract"] = contract
         case = Case(**metadata["case"])
         env = environment(case)
         expected_realization = realized_environment(env)
@@ -53,7 +72,7 @@ def audit_episode(directory):
         checks.compare("case.summary", metadata["case"], summary["case"])
         checks.compare("backend", "Isaac Lab PhysX", metadata["backend"])
         checks.compare("fps", 20, metadata["fps"])
-        checks.compare("schema_version", 1, metadata["schema_version"])
+        checks.compare("schema_version", schema, metadata["schema_version"])
         for key in ("checkpoint_sha256", "state_sha256", "pilot_only"):
             checks.compare("identity." + key, metadata[key], summary[key])
         for key in ("checkpoint_sha256", "state_sha256"):
@@ -170,6 +189,12 @@ def audit_episode(directory):
             )
             action = np.asarray(record["action"])
             checks.compare("action.valid", True, action.shape == (2,) and bool(np.isfinite(action).all()), frame)
+            if contract["mode"] == "op_tangent_v1":
+                from fsop.eval.closed_loop import mission_brake
+                from fsop.eval.controller import make_controller
+                steer, accel = make_controller(contract["mode"], env.vp)(plan, env.state.vx, env.state.vy)
+                accel = mission_brake(accel, SimpleNamespace(state=env.state, s=env.s), env)
+                checks.compare("controller.action", np.array([steer, accel]), action, frame)
             body = record["body"]
             rot, velocity = np.asarray(body["rotation"]), np.asarray(body["velocity_world"])
             a = np.arctan2(rot[1, 0], rot[0, 0])
@@ -266,6 +291,7 @@ def main():
             raise ValueError("Video frame count mismatch")
         result["completion_sha256"] = sha256_file(args.episode / "evidence/completion.json")
         result["artifact_audit_sha256"] = sha256_file(args.episode / "lab_artifact_audit.json")
+        result["controller_contract"] = audit["controller_contract"]
         result["videos"] = {}
         for name in ("debug", "research"):
             path = args.episode / f"{name}.mp4"
