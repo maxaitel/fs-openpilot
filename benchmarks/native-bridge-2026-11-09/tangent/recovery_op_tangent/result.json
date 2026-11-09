@@ -1,0 +1,451 @@
+{
+  "case": "recovery",
+  "case_id": "train-skidpad-82000-matched",
+  "arm": "op_tangent",
+  "anchor_tick": 84,
+  "takeover_tick": 84,
+  "end_tick": 124,
+  "full_window": true,
+  "repeat_gate_pass": null,
+  "source_errors_from_reset": {
+    "position_m": 0.1993440965477926,
+    "yaw_rad": 0.022474098827655498,
+    "velocity_mps": 0.17629382457744763,
+    "yaw_rate_radps": 0.12538692355155945,
+    "actuator_steer_rad": 0.03918640904762617,
+    "actuator_accel_mps2": 0.18262677148137343,
+    "time_s": 0.0
+  },
+  "source_errors_active_window": {
+    "position_m": 0.1993440965477926,
+    "yaw_rad": 0.022474098827655498,
+    "velocity_mps": 0.17629382457744763,
+    "yaw_rate_radps": 0.12538692355155945,
+    "actuator_steer_rad": 0.03918640904762617,
+    "actuator_accel_mps2": 0.18262677148137343,
+    "time_s": 0.0
+  },
+  "contacts_match_source": true,
+  "action_mae_active_vs_source": [
+    0.009011786210571087,
+    0.09518549069798575
+  ],
+  "tangent_audit_columns": [
+    "target_speed_mps",
+    "target_tangent_accel_mps2",
+    "actual_speed_mps",
+    "raw_accel_mps2",
+    "clipped_accel_mps2"
+  ],
+  "mission_accel_override_count_active": 0,
+  "nearest_progress_columns": [
+    "source_tick",
+    "source_minus_actual_progress_m",
+    "position_error_m"
+  ],
+  "nearest_progress_sha256": "d461b6eea157b8942b54275e492fe9da1bbc3867a4b991f6aac38e2b1b1bb888",
+  "referee": {
+    "discipline": "skidpad",
+    "result": "running",
+    "laps": [],
+    "n_laps": 0,
+    "doo": 0,
+    "oc": 0,
+    "max_speed": 7.886662305617761,
+    "route": {
+      "expected_route": [
+        "right",
+        "right",
+        "left",
+        "left"
+      ],
+      "accepted_route": [],
+      "laps": [],
+      "crossings": [
+        3.080219950884508
+      ],
+      "complete": false,
+      "exited": false,
+      "stopped_in_zone": false,
+      "valid": true,
+      "violation": null,
+      "reverse_crossings": 0,
+      "termination": "running"
+    },
+    "raw_time": null,
+    "penalty": 0.0,
+    "time": null,
+    "dq": false,
+    "complete": false,
+    "pass": false,
+    "final_state": {
+      "x": 7.9698967933654785,
+      "y": -13.774426460266113,
+      "yaw": -2.094222901025637,
+      "vx": 5.754888239697097,
+      "vy": -0.20107893906755092,
+      "r": -0.6125611662864685,
+      "steer": -0.17754289449101146,
+      "accel": 0.2917883795145657,
+      "t": 6.2,
+      "extra": {}
+    },
+    "physical_cone_hits": 0,
+    "contact_events": [],
+    "progress": 0.1439649773445123,
+    "rms_lat": 0.17391731097327304
+  },
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130",
+    "numpy": "1.26.0",
+    "physics_dt": 0.008333333333333333,
+    "device": "cpu",
+    "use_fabric": true,
+    "scene_queries": true,
+    "physx": {
+      "solver_type": 1,
+      "min_position_iteration_count": 1,
+      "max_position_iteration_count": 255,
+      "min_velocity_iteration_count": 0,
+      "max_velocity_iteration_count": 255,
+      "enable_ccd": false,
+      "enable_stabilization": false,
+      "enable_enhanced_determinism": false,
+      "bounce_threshold_velocity": 0.5,
+      "friction_offset_threshold": 0.04,
+      "friction_correlation_distance": 0.025,
+      "gpu_max_rigid_contact_count": 8388608,
+      "gpu_max_rigid_patch_count": 163840,
+      "gpu_found_lost_pairs_capacity": 2097152,
+      "gpu_found_lost_aggregate_pairs_capacity": 33554432,
+      "gpu_total_aggregate_pairs_capacity": 2097152,
+      "gpu_collision_stack_size": 67108864,
+      "gpu_heap_capacity": 67108864,
+      "gpu_temp_buffer_capacity": 16777216,
+      "gpu_max_num_partitions": 8,
+      "gpu_max_soft_body_contacts": 1048576,
+      "gpu_max_particle_contacts": 1048576,
+      "solve_articulation_contact_last": false
+    }
+  },
+  "appearance": {
+    "appearance": "realistic_v1",
+    "seed": 82000,
+    "manifest_sha256": "805219022e7de93a0c1acde5b9de6b33c7cea5cb8ad48ad434e84c6f0be65d00",
+    "asset_sha256": {
+      "asphalt_track/diffuse.jpg": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c",
+      "asphalt_track/roughness.jpg": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e",
+      "asphalt_track/normal_gl.jpg": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd",
+      "asphalt_02/diffuse.jpg": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c",
+      "asphalt_02/roughness.jpg": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c",
+      "asphalt_02/normal_gl.jpg": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21",
+      "concrete_floor_01/diffuse.jpg": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017",
+      "concrete_floor_01/roughness.jpg": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774",
+      "concrete_floor_01/normal_gl.jpg": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01",
+      "gravel_floor_04/diffuse.jpg": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd",
+      "gravel_floor_04/roughness.jpg": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3",
+      "gravel_floor_04/normal_gl.jpg": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e",
+      "derelict_airfield_01/hdri.hdr": "57eb0fd4bd5d9fe2fc7d23da31933ffccb2ab3bb371e7ac17734488bb901bfe0"
+    },
+    "assets": {
+      "asphalt_track": {
+        "name": "Asphalt Track",
+        "authors": {
+          "Dimitrios Savva": "All"
+        },
+        "asset_url": "https://polyhaven.com/a/asphalt_track",
+        "license": "CC0-1.0",
+        "license_url": "https://polyhaven.com/license",
+        "resolution": "2k",
+        "dimensions_mm": [
+          2000,
+          2000
+        ],
+        "files": {
+          "diffuse": {
+            "path": "asphalt_track/diffuse.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_track/asphalt_track_diff_2k.jpg",
+            "size": 3779263,
+            "md5": "faec159f1f29d231581c32bd256b5ede",
+            "sha256": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c"
+          },
+          "roughness": {
+            "path": "asphalt_track/roughness.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_track/asphalt_track_rough_2k.jpg",
+            "size": 2182047,
+            "md5": "213b9f13c03772e24a9cd55c4e43f391",
+            "sha256": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e"
+          },
+          "normal_gl": {
+            "path": "asphalt_track/normal_gl.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_track/asphalt_track_nor_gl_2k.jpg",
+            "size": 3694762,
+            "md5": "5381e78d5deda41e9ff5dd9c317bfa62",
+            "sha256": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd"
+          }
+        }
+      },
+      "asphalt_02": {
+        "name": "Asphalt 02",
+        "authors": {
+          "Rob Tuytel": "All"
+        },
+        "asset_url": "https://polyhaven.com/a/asphalt_02",
+        "license": "CC0-1.0",
+        "license_url": "https://polyhaven.com/license",
+        "resolution": "2k",
+        "dimensions_mm": [
+          3000.000238418579,
+          3000
+        ],
+        "files": {
+          "diffuse": {
+            "path": "asphalt_02/diffuse.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_02/asphalt_02_diff_2k.jpg",
+            "size": 3075676,
+            "md5": "336af399fd98a39ab986d8b3bf73b4ff",
+            "sha256": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c"
+          },
+          "roughness": {
+            "path": "asphalt_02/roughness.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_02/asphalt_02_rough_2k.jpg",
+            "size": 2230457,
+            "md5": "6fe669ab38640ef2009d6a28d1ad5ee9",
+            "sha256": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c"
+          },
+          "normal_gl": {
+            "path": "asphalt_02/normal_gl.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_02/asphalt_02_nor_gl_2k.jpg",
+            "size": 4943950,
+            "md5": "77ebd1cc0b020ccaa1c6b58f103d1f75",
+            "sha256": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21"
+          }
+        }
+      },
+      "concrete_floor_01": {
+        "name": "Concrete Floor 01",
+        "authors": {
+          "Rob Tuytel": "All"
+        },
+        "asset_url": "https://polyhaven.com/a/concrete_floor_01",
+        "license": "CC0-1.0",
+        "license_url": "https://polyhaven.com/license",
+        "resolution": "2k",
+        "dimensions_mm": [
+          2000,
+          2000
+        ],
+        "files": {
+          "diffuse": {
+            "path": "concrete_floor_01/diffuse.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_floor_01/concrete_floor_01_diff_2k.jpg",
+            "size": 2967720,
+            "md5": "bde1be20188bbec1d3970f37ee210ca1",
+            "sha256": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017"
+          },
+          "roughness": {
+            "path": "concrete_floor_01/roughness.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_floor_01/concrete_floor_01_rough_2k.jpg",
+            "size": 1488360,
+            "md5": "3e7d67a2c5444140a30570e93eb23bd3",
+            "sha256": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774"
+          },
+          "normal_gl": {
+            "path": "concrete_floor_01/normal_gl.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_floor_01/concrete_floor_01_nor_gl_2k.jpg",
+            "size": 3261423,
+            "md5": "ee04738b0919c3bd75ea77fc55e1e7d8",
+            "sha256": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01"
+          }
+        }
+      },
+      "gravel_floor_04": {
+        "name": "Gravel Floor 04",
+        "authors": {
+          "Charlotte Baglioni": "All"
+        },
+        "asset_url": "https://polyhaven.com/a/gravel_floor_04",
+        "license": "CC0-1.0",
+        "license_url": "https://polyhaven.com/license",
+        "resolution": "2k",
+        "dimensions_mm": [
+          2460.0000381469727,
+          2460.0000381469727
+        ],
+        "files": {
+          "diffuse": {
+            "path": "gravel_floor_04/diffuse.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravel_floor_04/gravel_floor_04_diff_2k.jpg",
+            "size": 3971898,
+            "md5": "f6bf2949038a5d8f445c67ad59c77007",
+            "sha256": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd"
+          },
+          "roughness": {
+            "path": "gravel_floor_04/roughness.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravel_floor_04/gravel_floor_04_rough_2k.jpg",
+            "size": 1214552,
+            "md5": "25afd9258b98b21f5c100caf17dd4c72",
+            "sha256": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3"
+          },
+          "normal_gl": {
+            "path": "gravel_floor_04/normal_gl.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravel_floor_04/gravel_floor_04_nor_gl_2k.jpg",
+            "size": 5737956,
+            "md5": "bae4fc4a9d6ef4afbf33451a34ee3329",
+            "sha256": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e"
+          }
+        }
+      },
+      "derelict_airfield_01": {
+        "name": "Derelict Airfield 01",
+        "authors": {
+          "Alexander Scholten": "All"
+        },
+        "asset_url": "https://polyhaven.com/a/derelict_airfield_01",
+        "license": "CC0-1.0",
+        "license_url": "https://polyhaven.com/license",
+        "resolution": "4k",
+        "dimensions_mm": null,
+        "files": {
+          "hdri": {
+            "path": "derelict_airfield_01/hdri.hdr",
+            "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/4k/derelict_airfield_01_4k.hdr",
+            "size": 23302754,
+            "md5": "40665cda9a09dea8dbc2fe6b9b967308",
+            "sha256": "57eb0fd4bd5d9fe2fc7d23da31933ffccb2ab3bb371e7ac17734488bb901bfe0"
+          }
+        }
+      }
+    },
+    "settings": {
+      "asphalt": "asphalt_track",
+      "asphalt_tile_m": 2.0,
+      "asphalt_albedo_gain": 4.0,
+      "hdri": "derelict_airfield_01",
+      "dome_intensity": 500.0,
+      "distant_sun_intensity": 0.0,
+      "repairs": 14,
+      "branching_seams": 20,
+      "parking_bays": 6
+    },
+    "preview_selection": {
+      "v0": "rejected: asphalt too dark",
+      "v1": "rejected: repeated texture cracks formed a grid",
+      "v2": "retained: asphalt_track with 4x linear albedo gain"
+    },
+    "counts": {
+      "cones": 86,
+      "fence_sections": 25,
+      "workshops": 1,
+      "tents": 2
+    },
+    "car": {
+      "asset": "original_procedural_fs_car_v1",
+      "description": "Generic FS visual bodywork; original PhysX vehicle retained",
+      "hidden_prims": [
+        "/World/Car/Chassis/Body",
+        "/World/Car/Chassis/Cockpit",
+        "/World/Car/Chassis/Wheel_fl/Tire",
+        "/World/Car/Chassis/Wheel_fr/Tire",
+        "/World/Car/Chassis/Wheel_rl/Tire",
+        "/World/Car/Chassis/Wheel_rr/Tire"
+      ],
+      "visual_roots": [
+        "/World/Car/Chassis/Visual",
+        "/World/Car/Chassis/Wheel_fl/Visual",
+        "/World/Car/Chassis/Wheel_fr/Visual",
+        "/World/Car/Chassis/Wheel_rl/Visual",
+        "/World/Car/Chassis/Wheel_rr/Visual"
+      ],
+      "external_assets": []
+    },
+    "matching": {
+      "sampled_scene": {
+        "sun_azimuth": 2.917988211849125,
+        "sun_elevation": 0.8365859598012712,
+        "sun_intensity": 0.8364893895663011,
+        "sun_color": [
+          1.0,
+          0.9489800151557979,
+          0.8724500378894948
+        ],
+        "ambient": 0.27778283044238516,
+        "fog_density": 0.0,
+        "sky_color": [
+          0.7279513580635114,
+          0.90850425142746,
+          0.9001150541025007
+        ],
+        "ground_kind": "venue",
+        "ground_base": 0.3626733936592707,
+        "ground_contrast": 0.08401452331059102,
+        "ground_tint": [
+          1.0512796614175652,
+          1.0703566687658943,
+          0.999009770484354
+        ],
+        "grass_ring": false,
+        "cone_brightness_sigma": 0.05,
+        "boundary_lines": true,
+        "line_color": [
+          0.2878693313828022,
+          0.6579870431606908,
+          0.2878693313828022
+        ],
+        "line_width": 0.07087319441323801,
+        "line_gap_prob": 0.05458658088244461,
+        "cam_dz": -0.08226975849105114,
+        "cam_pitch": 0.007822082494958112,
+        "cam_roll": -0.005256154857737793,
+        "cam_yaw": -0.00027191375737935415,
+        "exposure": 0.906766230464149,
+        "noise_sigma": 1.2469158322123344,
+        "blur": true,
+        "jpeg_quality": 61,
+        "seed": 425112565,
+        "venue": true,
+        "sky_pano": "artifacts/panoramas/abandoned_tank_farm_03.jpg",
+        "sky_yaw": 2.1225371870831826,
+        "shadow_alpha": 0.7493685348387029,
+        "cone_fade": 0.4995665522578242,
+        "cone_lettering": true,
+        "haze": 0.19800341894623313,
+        "saturation": 0.7094271207467527,
+        "white_balance": [
+          1.025502683707507,
+          0.9943436622197235,
+          1.0000523086896724
+        ],
+        "resample": 1.0,
+        "vignette": 0.09331122159998201,
+        "extra": {}
+      },
+      "panorama_sha256": "09f3b43566d99d37adcd712dfb3fe9d6e8753da90e475d859445d62ac1c01f07",
+      "sun_direction": [
+        0.6533211688805947,
+        -0.1485699214590195,
+        -0.7423600398257939
+      ],
+      "sun_intensity": 1672.9787791326023,
+      "ambient_intensity": 308.6475893804279,
+      "exact_shared": [
+        "panorama asset",
+        "sky yaw",
+        "sun direction and color",
+        "camera mount",
+        "sampled cone layout",
+        "image postprocess function and parameters"
+      ],
+      "backend_differences": [
+        "Panda light units mapped to fixed USD intensity scales; radiometry is not identical",
+        "Scanned asphalt, detailed cones and paddock props replace Panda procedural geometry/materials",
+        "Panda fog, grass-ring, paint gaps, cone fade/lettering/brightness and ground texture parameters are not reproduced",
+        "PhysX moves contacted cones; Panda uses its geometric knockdown animation"
+      ]
+    },
+    "physics_sha256": "07495d8a8ce087a0b962c6d072653c730f27fda32a626ea0f7fec424829f8980"
+  },
+  "source_meta_sha256": "e05fa00e0a7cf6c1fb1622038cde2f76bfb379887958e46ae5dee23daa7c0bbc",
+  "trace_sha256": "1ba4aebf595430cb37b10a0c9d09eadd229fab6aebd527f1c1864d8d8364378b"
+}

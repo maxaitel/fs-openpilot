@@ -1,0 +1,26 @@
+{
+  "anchor_tick": 326,
+  "errors": {
+    "position_m": 0.0,
+    "yaw_rad": 0.0,
+    "velocity_mps": 0.0,
+    "yaw_rate_radps": 0.0,
+    "actuator_steer_rad": 0.0,
+    "actuator_accel_mps2": 0.0,
+    "time_s": 0.0
+  },
+  "limits": {
+    "max_position_m": 0.0001,
+    "max_yaw_rad": 0.0001,
+    "max_velocity_mps": 0.0001,
+    "max_yaw_rate_radps": 0.0001,
+    "max_actuator_steer_rad": 0.0001,
+    "max_actuator_accel_mps2": 0.0001,
+    "contacts": "exact source count at every tick",
+    "require_full_window": true,
+    "max_time_s": 1e-08
+  },
+  "contacts_match_source": true,
+  "passed": true,
+  "trace_sha256": "e5e6b692c15ec332521924f748edd5a465358e5db002e3a3923b668e9e7ba25e"
+}

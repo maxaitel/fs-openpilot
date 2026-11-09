@@ -127,3 +127,24 @@ The fixed first stored anchor in each recovery case still has 0.07451 rad mean s
 The steering-weight run completed all 500 updates in 478.12 seconds. Its original validation-only selector chose step 300, which failed the fixed imitation limits at 0.04459 rad mean and 0.09730 rad maximum first-anchor error. That selection and rejection remain intact.
 
 `steering_joint_selection.json` declares a separate selection-only follow-up. It applies the same imitation limits to every checkpoint that already passed the original validation requirements, then ranks joint passes by the original validation steering metric. No physical result from this run or fresh-test result informed that amendment. Steps 0, 100, 200, 300 and 400 failed imitation. Only step 500 passed, with 0.02842 rad mean and 0.06464 rad maximum first-anchor error. This is exploratory post-selection development, not the original preregistered selection result or proof of successful driving.
+
+The selected step-500 checkpoint (`96dfd7d450a1a1a07309ec1d70dca208373dfd92313565dd776feefe46131408`) passed the 120-frame saved-input inference check. Its complete exposed heavy-clutter results were:
+
+| Case | Model | Result | Simulated seconds | Physical contacts | Off-course events |
+|---|---|---|---:|---:|---:|
+| Track | Original baseline | Timeout | 120.00 | 3 | 25 |
+| Track | Steering candidate | Finished | 57.25 | 3 | 2 |
+| Skidpad | Original baseline | Finished | 46.35 | 1 | 0 |
+| Skidpad | Steering candidate | Finished | 46.45 | 8 | 0 |
+
+The candidate was rejected for the skidpad contact regression. Both supplied development pairs were measured and all eight debug/research videos passed the source-bound audit and local copy hash checks. Required broader development and fresh coverage remains incomplete. Baseline repeats vary materially, so these individual pairs are not reliable improvement estimates. Fresh tests remain unopened.
+
+This fourth training run used 64,000 draws, including 8,000 draws from 80 distinct recovery anchors, in 478.12 seconds. Median sampled whole-GPU utilization was 86%, median power 48.736 W and peak sampled host unified RAM 8.031 GiB. The model retains 31,154,802 parameters; 6,949,412 policy parameters were trainable. Sampled utilization does not measure peak-FLOPS efficiency. Evaluation recorded roughly 3.78–4.12 frames per wall second at 20 Hz simulated control. Rendering averaged 224–243 ms per frame and instrumented policy execution 9–11 ms. CPU exports and short CPU diagnostics overlapped track evaluation, so these are not isolated throughput comparisons.
+
+## Trajectory-to-controller diagnosis
+
+The fourth candidate's first skidpad contacts followed outward predicted motion. Sampled actuator steering closely followed the request. Exact-input comparisons also found an internally inconsistent near-term position knot: predicted position implied about -0.21 then 10.65 m/s while the corresponding predicted velocities were about 5–6 m/s. This local defect was absent in the original and first native vision checkpoints, appeared in the action-trained checkpoint and persisted in later policy continuations. Native teacher targets did not contain it. Smoothing that knot alone would weaken the corrective steering, so it was not deployed as a fix.
+
+Two [native reference bridge experiments](../../benchmarks/native-bridge-2026-11-09/README.md) then tested the mapping independently of model inference. All recorded-control and native-teacher repeats exactly matched the recorded nine-state/contact data before follower comparisons. The original controller used future fixed-frame x velocity and acceleration as forward speed and acceleration, causing false braking in a turn. Computing planar speed and tangential acceleration at each knot before interpolation removed that coordinate error. Together with the existing Openpilot steering mapping, maximum time-aligned error fell from about 1.1 m to about 0.2 m in the tested two-second turn/recovery windows.
+
+These are short selected training windows, not mission completion or learned-model results. The corrected mapping retains a longitudinal residual because net motion acceleration and wheel-torque demand differ. No fitted resistance compensation or physics changes were introduced. Integration and retraining with a mode-bound controller contract must be evaluated separately.

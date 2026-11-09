@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "purpose": "Bounded native experimental tangent-longitudinal bridge using exactly the same three TRAIN windows as probe 1; not a benchmark or learned policy evaluation.",
+  "manifest": "data/native/lab_v4/manifest.json",
+  "manifest_sha256": "a8b32953dcbeb66c26e9a77a343786aba81590c22062e03d08932f7a0eeaaa38",
+  "recipe": "docs/isaac-lab-training/recovery_recipe_event.json",
+  "recipe_sha256": "05ca009f60d525b6f6c32c8dbc043b7e7e1e59eef74f2a20ce544ded6298236f",
+  "membership": "docs/isaac-lab-training/membership.json",
+  "membership_sha256": "d041e56c7e0245e438e0db990190b3d3b0859f9c61c2536fb56b17427ea15c8c",
+  "cases": [
+    {
+      "name": "straight",
+      "case_id": "train-trackdrive-82000-matched",
+      "selection": "first post-recovery 1-second window with speed at least 4 m/s and absolute yaw rate at most 0.08 rad/s"
+    },
+    {
+      "name": "steady_turn",
+      "case_id": "train-skidpad-82000-matched",
+      "selection": "first post-recovery 1-second window with speed at least 4 m/s and absolute yaw rate at least 0.25 rad/s and constant sign"
+    },
+    {
+      "name": "recovery",
+      "case_id": "train-skidpad-82000-matched",
+      "selection": "recorded takeover tick"
+    }
+  ],
+  "selection_rule": "Post-recovery means at least 80 ticks after takeover. Selection is based only on source kinematics and requires 2 seconds of comparison plus a complete 10-second teacher future before terminal braking. No fallback or outcome-based selection.",
+  "window_ticks": 40,
+  "future_ticks": 200,
+  "arms": [
+    "recorded",
+    "teacher",
+    "pp_tangent",
+    "op_tangent"
+  ],
+  "reference_clock": "At simulation tick i use the same actual source tick i and its next 200 recorded states as probe 1, regardless of progress divergence; no nearest-path rematching, time warping, extrapolation or synthetic reference. Source position, velocity and acceleration are transformed into current actual ego frame. Production PP or OP steering is unchanged and receives actual body vx. Both experimental arms use the same tangent longitudinal helper and production mission_brake at actual current state/progress.",
+  "repeat_gate": {
+    "max_position_m": 0.0001,
+    "max_yaw_rad": 0.0001,
+    "max_velocity_mps": 0.0001,
+    "max_yaw_rate_radps": 0.0001,
+    "max_actuator_steer_rad": 0.0001,
+    "max_actuator_accel_mps2": 0.0001,
+    "contacts": "exact source count at every tick",
+    "require_full_window": true,
+    "max_time_s": 1e-08
+  },
+  "gate_policy": "For each case, recorded controls from reset through comparison window must pass before any teacher or follower arm; teacher must also pass the full-window repeat gate before either experimental arm. All arms independently pass prefix gate before branching.",
+  "render": "Cameras and initial reset rendering are enabled exactly as collection; after reset no camera captures or rendering occur in any arm. Recorded-control and teacher replay gates must pass before conclusions. This tests physical state reproducibility under omitted captures and does not claim camera equivalence.",
+  "limits": "Time-indexed reference may move ahead of a lagging vehicle; this tests that declared bridge, not a progress-matched tracker or learned policy. Native repeat is checked in recorded planar state and contacts; hidden wheel state is reconstructed by replay, not measured or proven identical. Windows are short and selected training examples; no generalization or mission-completion claim. Replay tolerances are predeclared engineering limits, not calibrated simulator noise bounds. Runtime, source, scene and physics must match; fail closed on mismatch. Per-process wall-clock timeout is 900 seconds; an incomplete run is not evidence of a control outcome. The gate covers the nine recorded planar/actuator state columns and contacts; full native wheel, chassis 3D and hidden physics state are reconstructed but unobserved. The small tolerances are a stringent predeclared reproducibility gate, not a proven bound on hidden state. Tangential acceleration is defined as zero when the predicted velocity is zero, using a 0.001 m/s denominator floor; scalar speed is nonnegative and does not model reverse motion.",
+  "diagnostics": "Report both same-clock error and nearest-source-progress positional error; nearest progress is diagnostic only, using the finite selected source window, never to select reference or hide clock error.",
+  "teacher_gate": "Teacher actuation must satisfy the same full-window state and contact repeat thresholds against the recorded source. Failure stops before follower arms and makes the bridge outcome inconclusive; teacher-versus-recorded action errors are also reported.",
+  "prefix_gate": "Every intervention process separately passes the repeat thresholds and exact contacts from tick 0 through handoff before it may branch.",
+  "interpretation": "Compare pp_tangent and op_tangent to source teacher and existing probe 1 PP/OP arms on same windows, reporting same-clock and finite nearest-progress path errors, actions, mission overrides, contacts and referee state. No physical-success or learned-policy claim follows from these short TRAIN windows.",
+  "worker_timeout_seconds": 900,
+  "baseline_probe": {
+    "script": ".work/lab/native_bridge_probe.py",
+    "script_sha256": "eff34f9a45d13e009f945c1be00eeb4229ec1ad6f6148f8d59581da36e2565e5",
+    "protocol": ".work/lab/native_bridge_protocol.json",
+    "protocol_sha256": "375af488a4b6c55249ac05343d885df49b0e531e03d0ee06ba1b682e074f4d8d",
+    "anchors": {
+      "straight": 326,
+      "steady_turn": 164,
+      "recovery": 84
+    }
+  },
+  "longitudinal": "For each plan knot compute speed=hypot(vx,vy) and tangential acceleration=(vx*ax+vy*ay)/max(speed,0.001); only then interpolate those scalar series to 0.3 s. Compute 1.5*(target_speed-hypot(actual_vx,actual_vy))+0.5*tangential_acceleration; clip to vehicle max brake/accel, then apply production mission_brake. This is experimental, not a production controller change. Knotwise norm/dot occurs before temporal interpolation."
+}
