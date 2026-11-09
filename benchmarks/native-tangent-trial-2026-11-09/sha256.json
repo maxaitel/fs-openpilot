@@ -1,0 +1,86 @@
+{
+  "archived": {
+    "training/run.json": {
+      "sha256": "cbad3dfb6286fd2a38e0bdc826baa35c9ebaa7c7e667852da3756f5ac7f02cb2",
+      "source": "runs/lab_v4/tangent_trial1/run.json"
+    },
+    "training/history.jsonl": {
+      "sha256": "5c8d79abf9487fe6558c406c62190900467cb62afb7bc65bc276f63c83045f26",
+      "source": "runs/lab_v4/tangent_trial1/history.jsonl"
+    },
+    "training/calibration.json": {
+      "sha256": "94f21a4d3741611578f38f83242ae8b9c7222eb65fff6b31db1188f1f6205300",
+      "source": "runs/lab_v4/tangent_trial1/calibration.json"
+    },
+    "training/baseline_validation.json": {
+      "sha256": "8ae2c36c492b8b791bc5c68fbcd171dfc69aea90ac6d3b268ff253da330700a1",
+      "source": "runs/lab_v4/tangent_trial1/baseline_validation.json"
+    },
+    "training/selection_protocol.json": {
+      "sha256": "f1ce3776281955b0a1b899a201089cea8b099b24c89c9959caa84468f5fb17ba",
+      "source": "runs/lab_v4/tangent_trial1/selection_protocol.json"
+    },
+    "training/selection_receipt.json": {
+      "sha256": "23afca511b11197a8c6e8bb774260354ca08b66511934de84ea599697e5d1137",
+      "source": "runs/lab_v4/tangent_trial1/selection_receipt.json"
+    },
+    "training/telemetry.json": {
+      "sha256": "5d450a02c8d8c03ad53015efeb531211c47e3d489ae337b2494c3c49da140d03",
+      "source": "runs/lab_v4/tangent_trial1_telemetry.json"
+    },
+    "residual/report.json": {
+      "sha256": "4ad281034288442431103108d6edf4d461a56127e8f5df166c9ae97e13f0a6f7",
+      "source": ".work/lab/tangent_residual1/report.json"
+    },
+    "residual/analysis.json": {
+      "sha256": "0d7f2a9d50b621be1c47d3e4665f4d2fe2df6ac240b8b76400275e25dd40ef3a",
+      "source": ".work/lab/tangent_residual1/analysis.json"
+    },
+    "residual/anchors.json": {
+      "sha256": "89d9d6c4230ba85ba8b9612184b6c7b5d1f1cb1d72db1ff0b4deaf29da937f42",
+      "source": ".work/lab/tangent_residual1/anchors.json"
+    },
+    "gradient/report.json": {
+      "sha256": "77443145c546967aaa75b19671dba274046714053db109b1f43a115510be6a48",
+      "source": ".work/lab/native_future_gradient1/report.json"
+    },
+    "gradient/inventory.json": {
+      "sha256": "e746d177e817546e3dbe5c1b93e25d1e178e433067fc5b0185f56e7ac9cff25a",
+      "source": ".work/lab/native_future_gradient1/inventory.json"
+    },
+    "tangent_residual_diagnostic.py": {
+      "sha256": "6cd1ddec8e6c64266973d50303c27e11343525f74c59e94ad18b6c429f7ae74f",
+      "source": ".work/lab/tangent_residual_diagnostic.py"
+    },
+    "analyze_tangent_residual1.py": {
+      "sha256": "68ba8f01ad9b1fc076d620254e6f5b5de060e1d42f9883fdc6a02eff2029b807",
+      "source": ".work/lab/analyze_tangent_residual1.py"
+    },
+    "native_future_gradient_diagnostic.py": {
+      "sha256": "5ed139ba235cb2a69cf63a075be883c6843fe3bee0617257deb283fe29e137f6",
+      "source": ".work/lab/native_future_gradient_diagnostic.py"
+    },
+    "export_audited_native.py": {
+      "sha256": "c3b147573db00bebc233ac7b5c071efd8cf70df5d8f4643db6c216931f47b745",
+      "source": ".work/lab/export_audited_native.py"
+    }
+  },
+  "external_arrays": {
+    ".work/lab/tangent_residual1/arrays.npz": {
+      "sha256": "07467ead51e3451e2f4179c864cf97b332a5d037db98fd6d9224f991b84be183",
+      "bytes": 4578369,
+      "locations": [
+        "active worktree",
+        "/home/maxaitel/fsop-isaac-lab-training on max-spark"
+      ]
+    },
+    ".work/lab/native_future_gradient1/arrays.npz": {
+      "sha256": "b4d1febf7f2c4a7e382074a35cba543fd02f3dd6f80c501505698b60dbe55b3f",
+      "bytes": 2485663,
+      "locations": [
+        "active worktree",
+        "/home/maxaitel/fsop-isaac-lab-training on max-spark"
+      ]
+    }
+  }
+}
