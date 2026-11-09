@@ -1,0 +1,14 @@
+{
+  "calibration/run.json": "1fe80b9f55fd2a97452f47d6c71247ef586a151e8ec67b76a79686aeb548ec2d",
+  "calibration/calibration.json": "6e4c030e48737469137056439e71abf66bc7a299998aeed583f8714df3701672",
+  "calibration/baseline_validation.json": "f3a83e4e282a9b39011e0dd8c5fa157354ac812f8c691246335846a8d3e75737",
+  "calibration/source.zip": "c0bc49719a293bc19e4057a0832effe8bfb1d74e61137279ce8672bdcd4d2245",
+  "native_future_runtime_freeze1.json": "b6331303add7302d34d260d434f4c4028e40dff6a6a38b0eb81d1f263f42e628",
+  "native_future_training_freeze1.json": "ecb48d1aa1cf21d830903bb2a67a4cd09f5e24a34cfcbe52e972d449e8eade86",
+  "native_future_protocol1_receipt.json": "6a62ced7623d1f8c13db64fa6b01111846a7f511d3fc1c38f501193b6843c8c8",
+  "native_future_calibration1.yaml": "dbf4cf67c73fe8d500051fdc4a32c0b777ee1fa1130ff638fb81898e46aaaa88",
+  "native_future_trial1.yaml": "3f00547886a78a15fbf89e7e94bdc416138df1fc0b8febe1b4c5e9295f111ee4",
+  "build_native_future_protocol1.py": "40901544e9205cc042932299fe3af1c86e448b1d5874cfcb8b1848968c3dc047",
+  "native_future_selection1.json": "219e1657b576240ea186600e30f5218f5ae8f760eb30bed1ad3c2edd76045e48",
+  "native_future_selection1.md": "892af3c9297941738cb0e3cd4ac19586f07b804c6bfff77d416ad4d89828b8bf"
+}
