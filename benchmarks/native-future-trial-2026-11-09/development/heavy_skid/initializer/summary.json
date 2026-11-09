@@ -1,0 +1,261 @@
+{
+  "discipline": "skidpad",
+  "result": "invalid_route",
+  "laps": [],
+  "n_laps": 0,
+  "doo": 8,
+  "oc": 0,
+  "max_speed": 8.02295301346093,
+  "route": {
+    "expected_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "accepted_route": [],
+    "laps": [],
+    "crossings": [
+      3.028271663456046,
+      12.55313611436273
+    ],
+    "complete": false,
+    "exited": false,
+    "stopped_in_zone": false,
+    "valid": false,
+    "violation": "incomplete_or_outside_circle",
+    "reverse_crossings": 0,
+    "termination": "invalid_route"
+  },
+  "raw_time": null,
+  "penalty": 1.6,
+  "time": null,
+  "dq": false,
+  "complete": false,
+  "pass": false,
+  "final_state": {
+    "x": 0.29256951808929443,
+    "y": -0.5311639904975891,
+    "yaw": -0.09020804678285524,
+    "vx": 6.26083550876961,
+    "vy": -0.1345920512157128,
+    "r": -0.6355108618736267,
+    "steer": -0.1668615984200817,
+    "accel": 0.39511552260840827,
+    "t": 12.6,
+    "extra": {}
+  },
+  "physical_cone_hits": 8,
+  "contact_events": [
+    {
+      "t": 6.65,
+      "control_frame": 133,
+      "cone": "/World/Cones/c0041",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 7.15,
+      "control_frame": 143,
+      "cone": "/World/Cones/c0040",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 7.75,
+      "control_frame": 155,
+      "cone": "/World/Cones/c0039",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 8.4,
+      "control_frame": 168,
+      "cone": "/World/Cones/c0038",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 9.0,
+      "control_frame": 180,
+      "cone": "/World/Cones/c0037",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 9.7,
+      "control_frame": 194,
+      "cone": "/World/Cones/c0036",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 10.4,
+      "control_frame": 208,
+      "cone": "/World/Cones/c0035",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 12.55,
+      "control_frame": 251,
+      "cone": "/World/Cones/c0004",
+      "time_convention": "start of the control interval containing first contact"
+    }
+  ],
+  "progress": 0.2855134252538722,
+  "rms_lat": 0.7871499395053165,
+  "case": {
+    "id": "regression-skidpad-72000-heavy-recorded-visual_stress_v1",
+    "split": "regression",
+    "discipline": "skidpad",
+    "seed": 72000,
+    "dr": "heavy",
+    "variant": "visual_stress_v1",
+    "track_seed": null,
+    "frozen_case": "skidpad-72000-heavy-recorded",
+    "lateral_start": 0.0,
+    "yaw_start": 0.0
+  },
+  "pilot_only": false,
+  "events": [
+    {
+      "t": 3.028271663456046,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    },
+    {
+      "t": 6.6,
+      "kind": "doo",
+      "data": {
+        "cone": 41,
+        "dir": -2.4923587609902462
+      }
+    },
+    {
+      "t": 7.2,
+      "kind": "doo",
+      "data": {
+        "cone": 40,
+        "dir": -2.8785261445249453
+      }
+    },
+    {
+      "t": 7.75,
+      "kind": "doo",
+      "data": {
+        "cone": 39,
+        "dir": 3.0417314453830824
+      }
+    },
+    {
+      "t": 8.4,
+      "kind": "doo",
+      "data": {
+        "cone": 38,
+        "dir": 2.6153160214680446
+      }
+    },
+    {
+      "t": 9.05,
+      "kind": "doo",
+      "data": {
+        "cone": 37,
+        "dir": 2.2220617842082246
+      }
+    },
+    {
+      "t": 9.75,
+      "kind": "doo",
+      "data": {
+        "cone": 36,
+        "dir": 1.7536417930095736
+      }
+    },
+    {
+      "t": 10.4,
+      "kind": "doo",
+      "data": {
+        "cone": 35,
+        "dir": 1.3238708539330049
+      }
+    },
+    {
+      "t": 12.55,
+      "kind": "doo",
+      "data": {
+        "cone": 4,
+        "dir": -0.05447509349982293
+      }
+    },
+    {
+      "t": 12.55313611436273,
+      "kind": "line_cross",
+      "data": {
+        "n": 2
+      }
+    },
+    {
+      "t": 12.55313611436273,
+      "kind": "invalid_route",
+      "data": {
+        "reason": "incomplete_or_outside_circle"
+      }
+    }
+  ],
+  "pending_events": [
+    {
+      "t": 12.55313611436273,
+      "kind": "line_cross",
+      "data": {
+        "n": 2
+      }
+    },
+    {
+      "t": 12.55313611436273,
+      "kind": "invalid_route",
+      "data": {
+        "reason": "incomplete_or_outside_circle"
+      }
+    }
+  ],
+  "recorded_frames": 252,
+  "wall_seconds": 56.327679945970885,
+  "startup_seconds": 15.29279634798877,
+  "evidence_seconds": 15.358052678522654,
+  "seconds_simulated": 12.6,
+  "real_time_factor": 0.22369108779352942,
+  "controller_contract": {
+    "version": 1,
+    "mode": "op_tangent_v1",
+    "steering": "openpilot_follower_body_vx",
+    "steering_action_time_s": 0.2,
+    "steering_min_speed_mps": 1.0,
+    "steering_delay_floor_s": 0.05,
+    "longitudinal": "knotwise_planar_tangent",
+    "action_time_s": 0.3,
+    "speed_gain": 1.5,
+    "accel_feedforward": 0.5,
+    "speed_floor_mps": 0.001,
+    "current_velocity": "measured_body_vx_vy",
+    "mission_layer": "mission_brake_after_follower",
+    "mission_brake_decel_mps2": 3.5,
+    "mission_launch_accel_mps2": 2.0
+  },
+  "checkpoint_sha256": "ca708a509e24f1bf8d089fffca1b40da1b63ea47661eb865991b701432bbdbf8",
+  "checkpoint_sha256_after": "ca708a509e24f1bf8d089fffca1b40da1b63ea47661eb865991b701432bbdbf8",
+  "state_sha256": "a8378574610e7554039e4b2d3cc3d66c0b43b11da33bcb25a8c96629914830b7",
+  "state_sha256_after": "a8378574610e7554039e4b2d3cc3d66c0b43b11da33bcb25a8c96629914830b7",
+  "frozen_unchanged": true,
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "b3963886d3ef1bc35601a743d9190f3cc621b920c10bb8d5d44c6e21cc4127b2",
+  "torch_peak_allocated_gib": 0.13738584518432617,
+  "torch_peak_reserved_gib": 0.150390625,
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130"
+  }
+}

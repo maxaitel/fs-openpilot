@@ -1,0 +1,290 @@
+{
+  "archived": {
+    "training/run.json": {
+      "sha256": "586ca9dd8973e601f4a859adf4e1b226dcc70070d4d4f76d86f0b6c9e60f970f",
+      "source": "runs/lab_v4/native_future_trial1/run.json"
+    },
+    "training/history.jsonl": {
+      "sha256": "a80a9d872ffd3d60d87e83602a21c663d8c0f2abceb9311a2c76c90d87be1f5a",
+      "source": "runs/lab_v4/native_future_trial1/history.jsonl"
+    },
+    "training/calibration.json": {
+      "sha256": "6e4c030e48737469137056439e71abf66bc7a299998aeed583f8714df3701672",
+      "source": "runs/lab_v4/native_future_trial1/calibration.json"
+    },
+    "training/baseline_validation.json": {
+      "sha256": "abcecd015ce82cb131179eadf109c800bd1bd96509af1d495ad669ee72a6d88e",
+      "source": "runs/lab_v4/native_future_trial1/baseline_validation.json"
+    },
+    "training/selection_protocol.json": {
+      "sha256": "219e1657b576240ea186600e30f5218f5ae8f760eb30bed1ad3c2edd76045e48",
+      "source": "runs/lab_v4/native_future_trial1/selection_protocol.json"
+    },
+    "training/selection_receipt.json": {
+      "sha256": "4d63113543fec74ca8dfd1a2cd4f4db360e50eee9638256c3894d1785a602f34",
+      "source": "runs/lab_v4/native_future_trial1/selection_receipt.json"
+    },
+    "training/source.zip": {
+      "sha256": "a0d774cf8a0c5e46f7be3cfa4bf737c456c9f929984f6ea7ec8a2803ae3b8bda",
+      "source": "runs/lab_v4/native_future_trial1/source.zip"
+    },
+    "training/telemetry.json": {
+      "sha256": "90c1e91c5a9aae087ee874790599fbfe9a945e26700b69404f73cc2c739406a1",
+      "source": "runs/lab_v4/native_future_trial1_telemetry.json"
+    },
+    "residual/report.json": {
+      "sha256": "080a5efcdea6adfbb314e9bae7cb22f2a02d34a6a62fd387748e2a45266991fd",
+      "source": ".work/lab/native_future_residual1/report.json"
+    },
+    "residual/analysis.json": {
+      "sha256": "b4e3870de14a961db43f36f93ebedb677dba9183c1a3ca20bd0bce756e1ccc13",
+      "source": ".work/lab/native_future_residual1/analysis.json"
+    },
+    "residual/anchors.json": {
+      "sha256": "807ea448bd97388ce1b7eada6b6bd0daaa1dca8a4bc361b4b49486df1d305914",
+      "source": ".work/lab/native_future_residual1/anchors.json"
+    },
+    "residual/analysis.md": {
+      "sha256": "4fb7e07081019acbf5769c844b991b949c0f6adc5fc96c08c7db9d287864d685",
+      "source": ".work/lab/native_future_residual1/analysis.md"
+    },
+    "residual/residual_localization.png": {
+      "sha256": "8d11c6a8b1a90acb106a82a3baa91761ccb5433c2533bfa0acdc48e02d4c1740",
+      "source": ".work/lab/native_future_residual1/residual_localization.png"
+    },
+    "residual/representative_plans.png": {
+      "sha256": "c8b83c66d1425ec6dc61ea7639b54ee115bcfb356d34dbf753d51d2102bd9153",
+      "source": ".work/lab/native_future_residual1/representative_plans.png"
+    },
+    "native_future_residual_diagnostic.py": {
+      "sha256": "5c48448d4c22c59700f15b61b72077e2c5c036f5e6c47407a83592fea7378223",
+      "source": ".work/lab/native_future_residual_diagnostic.py"
+    },
+    "analyze_native_future_residual1.py": {
+      "sha256": "ee1826535b26b20c4997da746a486b05ab3c0b3ff3059e2b86c78c0d12a437ad",
+      "source": ".work/lab/analyze_native_future_residual1.py"
+    },
+    "native_future_steering_readout.py": {
+      "sha256": "cbff85fbd3db50498436156024e6af8afcabb6ffaa34f283f483ce558141b294",
+      "source": ".work/lab/native_future_steering_readout.py"
+    },
+    "native_future_steering_readout1.json": {
+      "sha256": "0bc92c7ad3102a6ba431f672e1ddb9b715b1349f35372f95605eddc55b8b9586",
+      "source": ".work/lab/native_future_steering_readout1.json"
+    },
+    "native_future_steering_readout2.py": {
+      "sha256": "be829627b1c30737ed400d2fdd479de96278c4ac00f0396da198d8b571a6c3e4",
+      "source": ".work/lab/native_future_steering_readout2.py"
+    },
+    "native_future_steering_readout2.json": {
+      "sha256": "5884f2790ce7867a13c5d5af07fe4769f3130c999d5e9d4c399dd42ceee227cc",
+      "source": ".work/lab/native_future_steering_readout2.json"
+    },
+    "measured_yaw_validation_ablation.py": {
+      "sha256": "91da7b2ebe14607b9692d31f494fba72b694a51b44c4aa9353759448b07ba073",
+      "source": ".work/lab/measured_yaw_validation_ablation.py"
+    },
+    "measured_yaw_validation_ablation.json": {
+      "sha256": "785f3e4265d33c7cdb464f35a5af7ba10c906d2659c9cab8eff50453cabddcb4",
+      "source": ".work/lab/measured_yaw_validation_ablation.json"
+    },
+    "measured_yaw_validation_ablation.md": {
+      "sha256": "a415b082e0f2d7a802d38b5aee891eb98ad0a1c0b3aa58a4618b2a7eae062bd0",
+      "source": ".work/lab/measured_yaw_validation_ablation.md"
+    },
+    "report_native_future_trial1.py": {
+      "sha256": "bd90eadfcf93f8e2640db1ed6869488085acda471545285232c231a94953ae7a",
+      "source": ".work/lab/report_native_future_trial1.py"
+    },
+    "prepare_native_future_development.py": {
+      "sha256": "6c6cde9e9a82fa7a1ce9211f471560ee4e67983f6eb0ca579db11aafc73a5f24",
+      "source": ".work/lab/prepare_native_future_development.py"
+    },
+    "pilot/inference.json": {
+      "sha256": "690e801df756567f2009e8b9e35138709bbaff31903f961b4773b3df025335b8",
+      "source": "runs/gates/native_future_trial1_rejected_inference.json"
+    },
+    "pilot/summary.json": {
+      "sha256": "2e022ecce74e1247c2957b00bf8832ad43149d765be37c678a89b9468af81bad",
+      "source": "runs/gates/native_future_trial1_rejected_pilot/summary.json"
+    },
+    "pilot/lab_artifact_audit.json": {
+      "sha256": "659022ba5fc42deb789571ddf5b3f770122767ba5e33b85e789e8b6f854869d4",
+      "source": "runs/gates/native_future_trial1_rejected_pilot/lab_artifact_audit.json"
+    },
+    "pilot/lab_video_audit.json": {
+      "sha256": "5f21472bb1f3a31ba36a37857f4927efdcfca1d030aada9b8e64b0a626c2bd3e",
+      "source": "runs/gates/native_future_trial1_rejected_pilot/lab_video_audit.json"
+    },
+    "pilot/producer_render_receipt.json": {
+      "sha256": "6401c7e504f0551839bf8689aba59a00d0ce12df235f293dbcefa6fce10b5035",
+      "source": "runs/gates/native_future_trial1_rejected_pilot/producer_render_receipt.json"
+    },
+    "development/sha256.json": {
+      "sha256": "0d1f2210fd2979d60d0c9530e867949ef254f07e166b3d8cd945922fa310d8da",
+      "source": "runs/native_future_trial1_development_report/sha256.json"
+    },
+    "development/aggregates.json": {
+      "sha256": "74ae61262137ce846e6aaa2b29bc93a7e5516d1c063162f6f3dee968113549f2",
+      "source": "runs/native_future_trial1_development_report/aggregates.json"
+    },
+    "development/same_controller_comparison.json": {
+      "sha256": "715552ae8d9743f164f0caff5b83df5f0ca4d077a396250e17d3c9834a9b327c",
+      "source": "runs/native_future_trial1_development_report/same_controller_comparison.json"
+    },
+    "development/contacts.png": {
+      "sha256": "e9b4fb0e0cba5c812946171f1be8f1d5ae1926a1340109241470acc3048eb19b",
+      "source": "runs/native_future_trial1_development_report/contacts.png"
+    },
+    "development/evaluation.png": {
+      "sha256": "9e94c335189a1703e375950e9bf79e3173840b16f40fe23a217fb20d129e4573",
+      "source": "runs/native_future_trial1_development_report/evaluation.png"
+    },
+    "development/heavy_track/plan.lock.json": {
+      "sha256": "5af1d738348c5dda92423851d14301c3a7d2586c175f60880950795185b9f6ca",
+      "source": "runs/native_future_trial1_development_report/heavy_track/plan.lock.json"
+    },
+    "development/heavy_track/manifest.json": {
+      "sha256": "df167eb038a3d9180154f5b9f79de5f8efe37808f7a0395db9b1b1aa4aced00e",
+      "source": "runs/native_future_trial1_development_report/heavy_track/manifest.json"
+    },
+    "development/heavy_track/baseline/summary.json": {
+      "sha256": "db7ffd2ec9b79647dcf8dfbde5f9a7556494f76de1cd5effaae44e1be74dc20f",
+      "source": "runs/development_media/native_future_trial1/heavy_track/baseline/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1/summary.json"
+    },
+    "development/heavy_track/baseline/lab_artifact_audit.json": {
+      "sha256": "aed70eca59a702074b544da17a1be87a2453e1787b9a64e8410af8dda869204b",
+      "source": "runs/development_media/native_future_trial1/heavy_track/baseline/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1/lab_artifact_audit.json"
+    },
+    "development/heavy_track/baseline/lab_video_audit.json": {
+      "sha256": "05ac9f9c02a94b8d16278e59c5cac50c3e6e43af2503324630fcdda88baefd31",
+      "source": "runs/development_media/native_future_trial1/heavy_track/baseline/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1/lab_video_audit.json"
+    },
+    "development/heavy_track/baseline/producer_render_receipt.json": {
+      "sha256": "f1ff2d34ad7ad9dc7890677e2c92f9cfba6f02c065f12a1706d0a3bd09c8d56e",
+      "source": "runs/development_media/native_future_trial1/heavy_track/baseline/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1/producer_render_receipt.json"
+    },
+    "development/heavy_track/baseline/evidence/completion.json": {
+      "sha256": "3d46736de60fe6a2b7afdccb9105dc2ca0fcc901b9d5b89df2ac656107b5bf68",
+      "source": "runs/development_media/native_future_trial1/heavy_track/baseline/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1/evidence/completion.json"
+    },
+    "development/heavy_track/initializer/summary.json": {
+      "sha256": "11ce479ba8cec2f36ce95d7b570a70d82ee99d92dbd0956685f8cd526e47d1b3",
+      "source": "runs/development_media/native_future_trial1/heavy_track/initializer/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1/summary.json"
+    },
+    "development/heavy_track/initializer/lab_artifact_audit.json": {
+      "sha256": "3f1edae8ec38cbf8d57f9ed8cc408dbb3f6a1c90c9683b2cd031e545d00e78c0",
+      "source": "runs/development_media/native_future_trial1/heavy_track/initializer/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1/lab_artifact_audit.json"
+    },
+    "development/heavy_track/initializer/lab_video_audit.json": {
+      "sha256": "7e356a0715d4fc05870265838008e0640086519ed4d5d3ff9779b246887e7489",
+      "source": "runs/development_media/native_future_trial1/heavy_track/initializer/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1/lab_video_audit.json"
+    },
+    "development/heavy_track/initializer/producer_render_receipt.json": {
+      "sha256": "8c23beeb5eed17ce1bf9aa27575efab28fa54d937bc18c0b30099ac4ee1cdc10",
+      "source": "runs/development_media/native_future_trial1/heavy_track/initializer/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1/producer_render_receipt.json"
+    },
+    "development/heavy_track/initializer/evidence/completion.json": {
+      "sha256": "126e14b886fdcced63cdbd0b094002124b7a7798281aa9450dcb2c2d957f971a",
+      "source": "runs/development_media/native_future_trial1/heavy_track/initializer/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1/evidence/completion.json"
+    },
+    "development/heavy_track/candidate/summary.json": {
+      "sha256": "b7a621691d0528ea08e02166462daebf8ce5b00ef964b6ca245bbffc8c479c4a",
+      "source": "runs/development_media/native_future_trial1/heavy_track/candidate/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1/summary.json"
+    },
+    "development/heavy_track/candidate/lab_artifact_audit.json": {
+      "sha256": "612553c439cba60c7534b85eabe38e5063d47a4fe8fbf16c2d02a352066aa605",
+      "source": "runs/development_media/native_future_trial1/heavy_track/candidate/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1/lab_artifact_audit.json"
+    },
+    "development/heavy_track/candidate/lab_video_audit.json": {
+      "sha256": "704279ac87853b944e534c13343385ca1a9a47479fa6c5702a249682248099b9",
+      "source": "runs/development_media/native_future_trial1/heavy_track/candidate/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1/lab_video_audit.json"
+    },
+    "development/heavy_track/candidate/producer_render_receipt.json": {
+      "sha256": "0ed7d0ba0610afc48d3e8c6ae74775baeb2ddf3d80472f46d576d85ba1225e29",
+      "source": "runs/development_media/native_future_trial1/heavy_track/candidate/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1/producer_render_receipt.json"
+    },
+    "development/heavy_track/candidate/evidence/completion.json": {
+      "sha256": "37776944254b0a7f62c314e8a0899404a8720856fe709369f0cffee1daab27b5",
+      "source": "runs/development_media/native_future_trial1/heavy_track/candidate/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1/evidence/completion.json"
+    },
+    "development/heavy_skid/plan.lock.json": {
+      "sha256": "107613f8c40e406c13a6d4f8503b704bfbe546becf4f2a2ff08ffc6e3df99e37",
+      "source": "runs/native_future_trial1_development_report/heavy_skid/plan.lock.json"
+    },
+    "development/heavy_skid/manifest.json": {
+      "sha256": "8ce3c73888d8c79d556bcf810b008550d72a565225ca197527f61ec77c992f0f",
+      "source": "runs/native_future_trial1_development_report/heavy_skid/manifest.json"
+    },
+    "development/heavy_skid/baseline/summary.json": {
+      "sha256": "92c7443a5be1e49b361d0d33bbb4b3a27d58cd33e97a05ac9451ff022254e108",
+      "source": "runs/development_media/native_future_trial1/heavy_skid/baseline/regression-skidpad-72000-heavy-recorded-visual_stress_v1/summary.json"
+    },
+    "development/heavy_skid/baseline/lab_artifact_audit.json": {
+      "sha256": "ae6ff2ad3f98ab671ac17733f8372a0c459d3951c975ca8984c53066806f3148",
+      "source": "runs/development_media/native_future_trial1/heavy_skid/baseline/regression-skidpad-72000-heavy-recorded-visual_stress_v1/lab_artifact_audit.json"
+    },
+    "development/heavy_skid/baseline/lab_video_audit.json": {
+      "sha256": "8e7961adf3a82bb9de69c86f24d577ba918489fc208f7d7d5bb102a96763bd6e",
+      "source": "runs/development_media/native_future_trial1/heavy_skid/baseline/regression-skidpad-72000-heavy-recorded-visual_stress_v1/lab_video_audit.json"
+    },
+    "development/heavy_skid/baseline/producer_render_receipt.json": {
+      "sha256": "88601becf2d3034e5a45bce721c3566c2b0c1274f788b60a69bfb9537eaf4def",
+      "source": "runs/development_media/native_future_trial1/heavy_skid/baseline/regression-skidpad-72000-heavy-recorded-visual_stress_v1/producer_render_receipt.json"
+    },
+    "development/heavy_skid/baseline/evidence/completion.json": {
+      "sha256": "b9011ecabfe8c3ce8105ffa2431fa4afc1c87f00ea168d04a47ad098c5cba0a9",
+      "source": "runs/development_media/native_future_trial1/heavy_skid/baseline/regression-skidpad-72000-heavy-recorded-visual_stress_v1/evidence/completion.json"
+    },
+    "development/heavy_skid/initializer/summary.json": {
+      "sha256": "c91fa844d0edea169be57739a2caf494d2517855e849e4ef8046ff824a8cadb3",
+      "source": "runs/development_media/native_future_trial1/heavy_skid/initializer/regression-skidpad-72000-heavy-recorded-visual_stress_v1/summary.json"
+    },
+    "development/heavy_skid/initializer/lab_artifact_audit.json": {
+      "sha256": "e586af0dd92e7bf0dbaeaf9af8de538a26d3b91c5dd5f82f5f9db80dc0a8daa2",
+      "source": "runs/development_media/native_future_trial1/heavy_skid/initializer/regression-skidpad-72000-heavy-recorded-visual_stress_v1/lab_artifact_audit.json"
+    },
+    "development/heavy_skid/initializer/lab_video_audit.json": {
+      "sha256": "78afa92cb94f1b5bbc0f8562f5da711b9f986c8ffef85d676170d142f4444ea4",
+      "source": "runs/development_media/native_future_trial1/heavy_skid/initializer/regression-skidpad-72000-heavy-recorded-visual_stress_v1/lab_video_audit.json"
+    },
+    "development/heavy_skid/initializer/producer_render_receipt.json": {
+      "sha256": "6f6d3e1c09ee55ed052fa127edcc5da897149f612cd4da1e93b99e8d8a79bb4c",
+      "source": "runs/development_media/native_future_trial1/heavy_skid/initializer/regression-skidpad-72000-heavy-recorded-visual_stress_v1/producer_render_receipt.json"
+    },
+    "development/heavy_skid/initializer/evidence/completion.json": {
+      "sha256": "c8c0791ce2c39f906e15e93c6642bb28559dea77a9abb9b3c7226221dacaf4c0",
+      "source": "runs/development_media/native_future_trial1/heavy_skid/initializer/regression-skidpad-72000-heavy-recorded-visual_stress_v1/evidence/completion.json"
+    },
+    "development/heavy_skid/candidate/summary.json": {
+      "sha256": "b6b9ee3d1bc8806e185ef710b9ea5976c14b6c2892eeb9d72c38cc03b64e0904",
+      "source": "runs/development_media/native_future_trial1/heavy_skid/candidate/regression-skidpad-72000-heavy-recorded-visual_stress_v1/summary.json"
+    },
+    "development/heavy_skid/candidate/lab_artifact_audit.json": {
+      "sha256": "3a8f7d3fcf1d75d30f074ad9621a09d8adbe5a41559d0455a788021924e2f611",
+      "source": "runs/development_media/native_future_trial1/heavy_skid/candidate/regression-skidpad-72000-heavy-recorded-visual_stress_v1/lab_artifact_audit.json"
+    },
+    "development/heavy_skid/candidate/lab_video_audit.json": {
+      "sha256": "34f82e6e1ebe60bcbf48eac85b8c50755dcd3b01c831d80df2eca44fbc6246da",
+      "source": "runs/development_media/native_future_trial1/heavy_skid/candidate/regression-skidpad-72000-heavy-recorded-visual_stress_v1/lab_video_audit.json"
+    },
+    "development/heavy_skid/candidate/producer_render_receipt.json": {
+      "sha256": "64689b1b10ae8dd11822aa050baba36378c3b159040c42a9f8e3f46bf2ff4c07",
+      "source": "runs/development_media/native_future_trial1/heavy_skid/candidate/regression-skidpad-72000-heavy-recorded-visual_stress_v1/producer_render_receipt.json"
+    },
+    "development/heavy_skid/candidate/evidence/completion.json": {
+      "sha256": "f69f2aa0b015586fd818f596c2765d7775cfac2d755c605da8230c3d7d8a5527",
+      "source": "runs/development_media/native_future_trial1/heavy_skid/candidate/regression-skidpad-72000-heavy-recorded-visual_stress_v1/evidence/completion.json"
+    }
+  },
+  "external_arrays": {
+    ".work/lab/native_future_residual1/arrays.npz": {
+      "sha256": "e432a932ba399ece5d7ad3028bbe2b21641484d9e71c842bee3f7fb55d3e397e",
+      "bytes": 4578323,
+      "locations": [
+        "active worktree",
+        "/home/maxaitel/fsop-isaac-lab-training on max-spark"
+      ]
+    }
+  }
+}

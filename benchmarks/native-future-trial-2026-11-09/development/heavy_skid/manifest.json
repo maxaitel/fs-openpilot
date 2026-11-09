@@ -1,0 +1,88 @@
+{
+  "complete": true,
+  "episodes": {
+    "baseline/regression-skidpad-72000-heavy-recorded-visual_stress_v1": {
+      "command": [
+        "/isaac-sim/kit/python/bin/python3",
+        "-m",
+        "isaac_lab_fsop.evaluate",
+        "--case",
+        "/work/runs/development_native_future_trial1/heavy_skid/cases/regression-skidpad-72000-heavy-recorded-visual_stress_v1.json",
+        "--checkpoint",
+        "/frozen/model.pt",
+        "--expected-sha",
+        "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+        "--out",
+        "/work/runs/development_native_future_trial1/heavy_skid/baseline/regression-skidpad-72000-heavy-recorded-visual_stress_v1",
+        "--async-evidence",
+        "--controller",
+        "pp"
+      ],
+      "log": "logs/baseline/regression-skidpad-72000-heavy-recorded-visual_stress_v1.log",
+      "receipt": {
+        "completion_sha256": "b9011ecabfe8c3ce8105ffa2431fa4afc1c87f00ea168d04a47ad098c5cba0a9",
+        "frame_count": 927,
+        "frames_sha256": "b3205d9a02b9e5dde52b7739badfed3ef8d42be3c2d42c4bbe0927181c0a4973",
+        "result": "finished",
+        "summary_sha256": "92c7443a5be1e49b361d0d33bbb4b3a27d58cd33e97a05ac9451ff022254e108"
+      },
+      "status": "complete"
+    },
+    "candidate/regression-skidpad-72000-heavy-recorded-visual_stress_v1": {
+      "command": [
+        "/isaac-sim/kit/python/bin/python3",
+        "-m",
+        "isaac_lab_fsop.evaluate",
+        "--case",
+        "/work/runs/development_native_future_trial1/heavy_skid/cases/regression-skidpad-72000-heavy-recorded-visual_stress_v1.json",
+        "--checkpoint",
+        "/work/runs/lab_v4/native_future_trial1/step_000500.pt",
+        "--expected-sha",
+        "c121faa268d8c98bdac537974a9c21d3523a7b57cdab7f480351cbb2f98f89ac",
+        "--out",
+        "/work/runs/development_native_future_trial1/heavy_skid/candidate/regression-skidpad-72000-heavy-recorded-visual_stress_v1",
+        "--async-evidence",
+        "--controller",
+        "op_tangent_v1"
+      ],
+      "log": "logs/candidate/regression-skidpad-72000-heavy-recorded-visual_stress_v1.log",
+      "receipt": {
+        "completion_sha256": "f69f2aa0b015586fd818f596c2765d7775cfac2d755c605da8230c3d7d8a5527",
+        "frame_count": 1525,
+        "frames_sha256": "300ec195553b0d9f1229b90526248f5a559162f431f113f7f32969f4b4ff61b9",
+        "result": "dnf",
+        "summary_sha256": "b6b9ee3d1bc8806e185ef710b9ea5976c14b6c2892eeb9d72c38cc03b64e0904"
+      },
+      "status": "complete"
+    },
+    "initializer/regression-skidpad-72000-heavy-recorded-visual_stress_v1": {
+      "command": [
+        "/isaac-sim/kit/python/bin/python3",
+        "-m",
+        "isaac_lab_fsop.evaluate",
+        "--case",
+        "/work/runs/development_native_future_trial1/heavy_skid/cases/regression-skidpad-72000-heavy-recorded-visual_stress_v1.json",
+        "--checkpoint",
+        "/work/runs/lab_v4/native_future_calibration1/step_000000.pt",
+        "--expected-sha",
+        "ca708a509e24f1bf8d089fffca1b40da1b63ea47661eb865991b701432bbdbf8",
+        "--out",
+        "/work/runs/development_native_future_trial1/heavy_skid/initializer/regression-skidpad-72000-heavy-recorded-visual_stress_v1",
+        "--async-evidence",
+        "--controller",
+        "op_tangent_v1"
+      ],
+      "log": "logs/initializer/regression-skidpad-72000-heavy-recorded-visual_stress_v1.log",
+      "receipt": {
+        "completion_sha256": "c8c0791ce2c39f906e15e93c6642bb28559dea77a9abb9b3c7226221dacaf4c0",
+        "frame_count": 252,
+        "frames_sha256": "79560457039d40b00228ba3dab3d0982b1b12e87df42efb3a7b23fc3ae87cd9e",
+        "result": "invalid_route",
+        "summary_sha256": "c91fa844d0edea169be57739a2caf494d2517855e849e4ef8046ff824a8cadb3"
+      },
+      "status": "complete"
+    }
+  },
+  "lock_sha256": "107613f8c40e406c13a6d4f8503b704bfbe546becf4f2a2ff08ffc6e3df99e37",
+  "version": 1
+}

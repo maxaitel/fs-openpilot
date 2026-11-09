@@ -40,10 +40,12 @@ policy adapted from executed PhysX teacher trajectories. See the [native workflo
 for the pinned runtime, split integrity, selection gates and debug-video pipeline. Explicit previous
 training configurations remain available for reproducing the historical results below.
 
-> **Status: experimental.** The model drives simulated trackdrive and acceleration runs. It has *not*
-> been driven on a real car. The Spark skidpad checkpoint completes 9/10 held-out venue runs,
-> with cone hits and one failure. See [the skidpad report](docs/skidpad-training.md). Nothing here
-> replaces your team's safety concept, ASR procedures or scrutineering.
+> **Status: experimental.** Native Isaac training and evaluation are active, but no newly trained
+> native checkpoint has passed all promotion gates. The historical custom-simulator skidpad
+> checkpoint completed 9/10 held-out venue runs, with cone hits and one failure. See the
+> [historical skidpad report](docs/skidpad-training.md) and the separate
+> [native run record](docs/isaac-lab-training/run.md). The model has not been driven on a real car.
+> Nothing here replaces your team's safety concept, ASR procedures or scrutineering.
 
 ## Highlights
 

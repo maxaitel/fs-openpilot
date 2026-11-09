@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "numpy_version": "1.26.0",
+  "inputs": {
+    "completion_sha256": "b9011ecabfe8c3ce8105ffa2431fa4afc1c87f00ea168d04a47ad098c5cba0a9",
+    "artifact_audit_sha256": "ae6ff2ad3f98ab671ac17733f8372a0c459d3951c975ca8984c53066806f3148",
+    "frames_sha256": "b3205d9a02b9e5dde52b7739badfed3ef8d42be3c2d42c4bbe0927181c0a4973",
+    "telemetry_sha256": "c97df1ab772649d38b24ce3e3c274f39376423b51366baf365f0f1dabe5d5e16",
+    "render_code_sha256": "176fcbe153412eca84bfcff85d4c1d104809aba978b240ac8bd9ae47314a7ebb",
+    "process_code_sha256": "653cfe2b52e44a9ac7fb861533fc76368627e305074cd1d870e51196e4dc48ba",
+    "wrapper_code_sha256": "c3b147573db00bebc233ac7b5c071efd8cf70df5d8f4643db6c216931f47b745"
+  },
+  "inference_frames": 927,
+  "terminal_frames": 40,
+  "controller_contract": {
+    "mission_layer": "mission_brake_after_follower",
+    "mode": "pp",
+    "version": 1
+  },
+  "raw_videos": {
+    "debug": {
+      "path": "debug-raw.mp4",
+      "sha256": "f74591d121ecba7612aa29aae57a9cd890228cdbbc5a45e1760e0920c0f81f20"
+    },
+    "research": {
+      "path": "research-raw.mp4",
+      "sha256": "18e3796276edf63e46700d3ddb4c7399169226389ee8f3e186d1714ff3790d6c"
+    }
+  }
+}

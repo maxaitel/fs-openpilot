@@ -2,6 +2,8 @@
 
 `fsop train` now defaults to `configs/train/spark_isaac_lab.yaml`. It trains the full existing image/temporal-plan model from native Isaac Lab episodes. Explicit legacy configs remain available for reproducing previous experiments. The change is the data and simulation backend, not a replacement with a small reinforcement-learning policy.
 
+The migration runs on Spark, but no newly trained native checkpoint has passed every promotion gate. The sixth experiment completed training and saved-input verification, then failed the exposed skidpad with 25 physical contacts. Native results must not be confused with the historical custom-simulator skidpad benchmark. Fresh test scenes remain unopened.
+
 ## Runtime boundary
 
 The tested Spark renderer/trainer uses Isaac Lab 2.3, Isaac Sim 5.1, Python 3.11.13, PyTorch 2.9.0+cu130 and NumPy 1.26.0. Its task container is `fsop-isaac-lab-training`; the immutable image is `fsop-isaac-eval:verified` (`sha256:7092a76a990f364ea684b64a48681e9a7c1992a8d4af2edfc758e640b57668bb`). The checkout is mounted at `/work`, with `PYTHONPATH=/work:/work/src:/work/isaac_eval`. Prepared original model graphs and appearance assets are mounted read-only.
@@ -156,3 +158,36 @@ The native evaluator and trainer now share the explicit `op_tangent_v1` controll
 The full model is initialized from the first vision-adapted checkpoint, before the action-stage position notch. The next policy stage uses the verified v4 native data with an explicit off-policy recovery contract. Collection-policy identity and optimization initialization are recorded separately. The [frozen selection protocol](tangent_selection2.md) requires action retention, plan consistency and unchanged frozen tensors. The zero-update initializer fails the new acceleration-consistency limits, so retaining it means no eligible candidate.
 
 [Calibration records](../../benchmarks/native-tangent-calibration-2026-11-09/README.md) preserve two zero-update runs, the rejected initial screen, an executable counterexample and independent review. The six-second camera/inference pilot recorded zero physical contacts and zero off-course events. All 120 inference frames replayed, artifact auditing passed, and both 160-frame videos fully decoded. The full local suite passed 364 tests with four skipped and seven subtests. These checks verify integration, not improved full-mission driving.
+
+## Completed tangent and native-future experiments
+
+The fifth tangent-controller run completed 500 policy updates in 474.74 seconds at 87% median sampled GPU utilization. No checkpoint passed its frozen selection gates. The declared final-step diagnostic finished the exposed track in 56.80 simulated seconds with one physical contact and one off-course event, but failed skidpad at 75.65 seconds with 17 contacts and five off-course events. Its same-controller initializer finished track in 56.55 seconds with one contact and one off-course event and violated the skidpad route at 12.55 seconds with nine contacts. [Exact fifth-run evidence](../../benchmarks/native-tangent-trial-2026-11-09/README.md) retains the failure and the target diagnosis.
+
+A trajectory can exactly match the native future while disagreeing with another controller's recorded immediate command. The experimental `native_future_v1` target corrects this mismatch by applying the deployed follower to the detached native future, measured body velocity and vehicle limits before mission braking. Raw teacher-command errors remain separately named diagnostics. This target is versioned through training, calibration, checkpoints and selection. It is available only with `op_tangent_v1`; legacy recipes retain their original target meaning.
+
+The [new calibration and protocol](native_future_selection1.md) exactly reproduced the old predicted-plan metrics, native target consistency and teacher diagnostics before updates. All 441 plan/consistency bound values were retained. Only 18 action ceilings were recalibrated under the explicitly different target definition. The 143-file pre-update freeze was verified on Spark. No threshold was loosened after training.
+
+The sixth run completed 500 updates in 475.77 seconds. Median sampled whole-device GPU utilization was 86%, median power 48.95 W and peak host unified RAM was 8.121 GiB. It retained all 31,154,802 parameters and trained 6,949,412 policy parameters. Its 64,000 draws included 8,000 replacement draws from 80 distinct recovery anchors. Training used FP32 and eight-frame history; BF16 and the feature cache remain disabled after failed parity checks. This isolated training measurement excludes collection, physical evaluation and video export. GPU utilization is busy time, not peak-FLOPS efficiency.
+
+No sixth-run checkpoint passed every frozen gate. Step-500 acceleration/secant mean, p95 and maximum were 1.146, 5.180 and 6.942 m/s² against ceilings 1, 2 and 4. The 120-frame saved-input inference replay passed. The final-step diagnostic then produced:
+
+| Case | Model | Result | Simulated seconds | Physical contacts | Off-course events |
+|---|---|---|---:|---:|---:|
+| Track | Original PP baseline | Timeout | 120.00 | 11 | 10 |
+| Track | Same-controller initializer | Finished | 56.55 | 1 | 1 |
+| Track | Rejected step 500 | Finished | 56.95 | 2 | 1 |
+| Skidpad | Original PP baseline | Finished | 46.35 | 6 | 0 |
+| Skidpad | Same-controller initializer | Invalid route | 12.60 | 8 | 0 |
+| Skidpad | Rejected step 500 | DNF | 76.25 | 25 | 6 |
+
+Each model completed one of two exposed cases. These single runs do not estimate reliable completion rates, and the timed-out baseline does not establish a lap-time speedup. The latest model did not fix skidpad or improve overall cone avoidance. No model was promoted. Required broader development and fresh coverage remains incomplete; fresh test scenes remain unopened.
+
+The [sixth-run archive](../../benchmarks/native-future-trial-2026-11-09/README.md) preserves the exact receipts and subsequent no-update analyses. Current saved-anchor replay finds compensating velocity and acceleration errors. A descriptive interpolation reduces consistency error while worsening the current objective on 11 of 14 tail anchors; it leaves steering unchanged. Raw measured-yaw-rate substitution also worsens steering loss in six of eight validation scenes. Neither intervention was deployed or used to justify another optimizer run. The physical skidpad trace cuts inside cones and completes only the two right circles. Its actuator follows the requested steering; the failure cannot be explained away as an unexecuted control command.
+
+The current implementation passed 378 CPU tests with four skips and seven subtests, plus 56 focused target/controller/selector tests and Ruff. These checks establish software contracts and integration, not a successful learned driver. The full camera evidence, checkpoint hashes and unsuccessful videos remain available.
+
+## Producer-version video audit
+
+Strict controller replay in the NumPy 2.4 CPU exporter exposed tiny rounding differences from the NumPy 1.26 producer. Failed audits were preserved. Auditing and rendering with the producer environment reproduced the commands without widening tolerances. The external two-phase exporter then binds source/input/raw-video hashes before H.264 encoding in the CPU exporter and fully decodes both 1280×768, 20 fps videos. The compositor remains unchanged, including camera views, predicted plans, image-head diagnostics, command pulses and referee counters. The green custom-bicycle reference and auxiliary detections remain explicitly diagnostic.
+
+CPU exports and short saved-record diagnostics overlapped parts of physical evaluation. Reported evaluation timing therefore describes the actual instrumented workload, not isolated renderer throughput. Training itself ran without those workloads.

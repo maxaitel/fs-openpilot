@@ -1,0 +1,40 @@
+{
+  "inference_frames": 252,
+  "terminal_frames": 40,
+  "completion_sha256": "c8c0791ce2c39f906e15e93c6642bb28559dea77a9abb9b3c7226221dacaf4c0",
+  "artifact_audit_sha256": "e586af0dd92e7bf0dbaeaf9af8de538a26d3b91c5dd5f82f5f9db80dc0a8daa2",
+  "controller_contract": {
+    "accel_feedforward": 0.5,
+    "action_time_s": 0.3,
+    "current_velocity": "measured_body_vx_vy",
+    "longitudinal": "knotwise_planar_tangent",
+    "mission_brake_decel_mps2": 3.5,
+    "mission_launch_accel_mps2": 2.0,
+    "mission_layer": "mission_brake_after_follower",
+    "mode": "op_tangent_v1",
+    "speed_floor_mps": 0.001,
+    "speed_gain": 1.5,
+    "steering": "openpilot_follower_body_vx",
+    "steering_action_time_s": 0.2,
+    "steering_delay_floor_s": 0.05,
+    "steering_min_speed_mps": 1.0,
+    "version": 1
+  },
+  "videos": {
+    "debug": {
+      "sha256": "aa269340e5d29100963c76cbdf3f9d27402e2e600d8fb824eb60acfb3e24e799",
+      "fps": 20.0,
+      "decoded_frames": 292
+    },
+    "research": {
+      "sha256": "f9c09548ced56ce62e41b5ed6345973ced420f5b1a5fe4dddcbef326c0b7d5a4",
+      "fps": 20.0,
+      "decoded_frames": 292
+    }
+  },
+  "producer_render_receipt_sha256": "6f6d3e1c09ee55ed052fa127edcc5da897149f612cd4da1e93b99e8d8a79bb4c",
+  "producer_numpy_version": "1.26.0",
+  "render_code_sha256": "176fcbe153412eca84bfcff85d4c1d104809aba978b240ac8bd9ae47314a7ebb",
+  "process_code_sha256": "653cfe2b52e44a9ac7fb861533fc76368627e305074cd1d870e51196e4dc48ba",
+  "wrapper_code_sha256": "c3b147573db00bebc233ac7b5c071efd8cf70df5d8f4643db6c216931f47b745"
+}

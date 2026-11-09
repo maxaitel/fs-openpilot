@@ -1,0 +1,28 @@
+{
+  "inference_frames": 927,
+  "terminal_frames": 40,
+  "completion_sha256": "b9011ecabfe8c3ce8105ffa2431fa4afc1c87f00ea168d04a47ad098c5cba0a9",
+  "artifact_audit_sha256": "ae6ff2ad3f98ab671ac17733f8372a0c459d3951c975ca8984c53066806f3148",
+  "controller_contract": {
+    "mission_layer": "mission_brake_after_follower",
+    "mode": "pp",
+    "version": 1
+  },
+  "videos": {
+    "debug": {
+      "sha256": "cb7ff33f4773897f21a61b7319ed224237f8ca15f16ab1d9915f20979e40091b",
+      "fps": 20.0,
+      "decoded_frames": 967
+    },
+    "research": {
+      "sha256": "4044902a6f09911e54556568fb85a2d985dd1f3feee315f1f2a44b879d17229c",
+      "fps": 20.0,
+      "decoded_frames": 967
+    }
+  },
+  "producer_render_receipt_sha256": "88601becf2d3034e5a45bce721c3566c2b0c1274f788b60a69bfb9537eaf4def",
+  "producer_numpy_version": "1.26.0",
+  "render_code_sha256": "176fcbe153412eca84bfcff85d4c1d104809aba978b240ac8bd9ae47314a7ebb",
+  "process_code_sha256": "653cfe2b52e44a9ac7fb861533fc76368627e305074cd1d870e51196e4dc48ba",
+  "wrapper_code_sha256": "c3b147573db00bebc233ac7b5c071efd8cf70df5d8f4643db6c216931f47b745"
+}

@@ -1,0 +1,140 @@
+{
+  "discipline": "trackdrive",
+  "result": "finished",
+  "laps": [
+    51.85
+  ],
+  "n_laps": 1,
+  "doo": 0,
+  "oc": 1,
+  "max_speed": 8.218582867277924,
+  "avg_speed_first3": null,
+  "raw_time": 51.85,
+  "penalty": 10.0,
+  "time": 61.85,
+  "dq": false,
+  "complete": true,
+  "pass": true,
+  "final_state": {
+    "x": -17.52774429321289,
+    "y": 100.36015319824219,
+    "yaw": -2.9913323097605256,
+    "vx": 2.4868930866114777e-06,
+    "vy": -2.0185434282920788e-08,
+    "r": 2.906185847528775e-10,
+    "steer": -7.595982466183228e-05,
+    "accel": -1.0057707775508475,
+    "t": 56.55,
+    "extra": {}
+  },
+  "physical_cone_hits": 1,
+  "contact_events": [
+    {
+      "t": 38.9,
+      "control_frame": 778,
+      "cone": "/World/Cones/c0130",
+      "time_convention": "start of the control interval containing first contact"
+    }
+  ],
+  "progress": 1.0011288263064262,
+  "rms_lat": 1.1904357177636877,
+  "case": {
+    "id": "regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1",
+    "split": "regression",
+    "discipline": "trackdrive",
+    "seed": 0,
+    "dr": "heavy",
+    "variant": "visual_stress_v1",
+    "track_seed": null,
+    "frozen_case": "retention-trackdrive_020000-heavy-recorded",
+    "lateral_start": 0.0,
+    "yaw_start": 0.0
+  },
+  "pilot_only": false,
+  "events": [
+    {
+      "t": 2.0,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    },
+    {
+      "t": 39.85,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 42.15,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 53.85,
+      "kind": "line_cross",
+      "data": {
+        "n": 2
+      }
+    },
+    {
+      "t": 56.55,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "pending_events": [
+    {
+      "t": 56.55,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "recorded_frames": 1131,
+  "wall_seconds": 279.9230346350232,
+  "startup_seconds": 18.352134122047573,
+  "evidence_seconds": 88.28674116998445,
+  "seconds_simulated": 56.55,
+  "real_time_factor": 0.2020198161745872,
+  "controller_contract": {
+    "version": 1,
+    "mode": "op_tangent_v1",
+    "steering": "openpilot_follower_body_vx",
+    "steering_action_time_s": 0.2,
+    "steering_min_speed_mps": 1.0,
+    "steering_delay_floor_s": 0.05,
+    "longitudinal": "knotwise_planar_tangent",
+    "action_time_s": 0.3,
+    "speed_gain": 1.5,
+    "accel_feedforward": 0.5,
+    "speed_floor_mps": 0.001,
+    "current_velocity": "measured_body_vx_vy",
+    "mission_layer": "mission_brake_after_follower",
+    "mission_brake_decel_mps2": 3.5,
+    "mission_launch_accel_mps2": 2.0
+  },
+  "checkpoint_sha256": "ca708a509e24f1bf8d089fffca1b40da1b63ea47661eb865991b701432bbdbf8",
+  "checkpoint_sha256_after": "ca708a509e24f1bf8d089fffca1b40da1b63ea47661eb865991b701432bbdbf8",
+  "state_sha256": "a8378574610e7554039e4b2d3cc3d66c0b43b11da33bcb25a8c96629914830b7",
+  "state_sha256_after": "a8378574610e7554039e4b2d3cc3d66c0b43b11da33bcb25a8c96629914830b7",
+  "frozen_unchanged": true,
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "925dfc6fd77287955334523a1ef93f5bd53d247a5cabd856fac108546deaeccc",
+  "torch_peak_allocated_gib": 0.13738584518432617,
+  "torch_peak_reserved_gib": 0.150390625,
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130"
+  }
+}

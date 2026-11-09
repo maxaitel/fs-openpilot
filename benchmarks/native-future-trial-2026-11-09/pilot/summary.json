@@ -1,0 +1,99 @@
+{
+  "discipline": "trackdrive",
+  "result": "running",
+  "laps": [],
+  "n_laps": 0,
+  "doo": 0,
+  "oc": 0,
+  "max_speed": 7.885382232242011,
+  "avg_speed_first3": null,
+  "raw_time": 0,
+  "penalty": 0.0,
+  "time": 0.0,
+  "dq": false,
+  "complete": false,
+  "pass": false,
+  "final_state": {
+    "x": 58.370365142822266,
+    "y": 37.230552673339844,
+    "yaw": -3.0586501941374795,
+    "vx": 7.4249611558950335,
+    "vy": 0.0798701790556359,
+    "r": 0.48637306690216064,
+    "steer": 0.10445598994826207,
+    "accel": -0.047871947702430605,
+    "t": 6.0,
+    "extra": {}
+  },
+  "physical_cone_hits": 0,
+  "contact_events": [],
+  "progress": 0.07775123651429927,
+  "rms_lat": 0.14587291559553692,
+  "case": {
+    "id": "val-trackdrive-84000-matched",
+    "split": "val",
+    "discipline": "trackdrive",
+    "seed": 84000,
+    "dr": "light",
+    "variant": "matched",
+    "track_seed": 83000,
+    "frozen_case": null,
+    "lateral_start": 0.0,
+    "yaw_start": 0.0
+  },
+  "pilot_only": true,
+  "events": [
+    {
+      "t": 2.05,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    }
+  ],
+  "pending_events": [],
+  "recorded_frames": 120,
+  "wall_seconds": 24.502997272997163,
+  "startup_seconds": 13.096838245983236,
+  "evidence_seconds": 10.247324730968103,
+  "seconds_simulated": 6.0,
+  "real_time_factor": 0.2448680026019564,
+  "controller_contract": {
+    "version": 1,
+    "mode": "op_tangent_v1",
+    "steering": "openpilot_follower_body_vx",
+    "steering_action_time_s": 0.2,
+    "steering_min_speed_mps": 1.0,
+    "steering_delay_floor_s": 0.05,
+    "longitudinal": "knotwise_planar_tangent",
+    "action_time_s": 0.3,
+    "speed_gain": 1.5,
+    "accel_feedforward": 0.5,
+    "speed_floor_mps": 0.001,
+    "current_velocity": "measured_body_vx_vy",
+    "mission_layer": "mission_brake_after_follower",
+    "mission_brake_decel_mps2": 3.5,
+    "mission_launch_accel_mps2": 2.0
+  },
+  "checkpoint_sha256": "c121faa268d8c98bdac537974a9c21d3523a7b57cdab7f480351cbb2f98f89ac",
+  "checkpoint_sha256_after": "c121faa268d8c98bdac537974a9c21d3523a7b57cdab7f480351cbb2f98f89ac",
+  "state_sha256": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+  "state_sha256_after": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+  "frozen_unchanged": true,
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "2a2816b693368ff47b40133a77a0b4429b012e62f4f8786eaf53118264416f25",
+  "torch_peak_allocated_gib": 0.13738584518432617,
+  "torch_peak_reserved_gib": 0.150390625,
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130"
+  }
+}

@@ -1,0 +1,7117 @@
+{
+  "command": [
+    "/isaac-sim/python.sh",
+    "-m",
+    "fsop.cli",
+    "train",
+    "--cfg",
+    ".work/lab/native_future_trial1.yaml"
+  ],
+  "wall_seconds": 475.77051029901486,
+  "returncode": 0,
+  "samples": [
+    {
+      "wall_s": 0.0024303130339831114,
+      "gpu_pct": 0,
+      "power_w": 11.9,
+      "temp_c": 47,
+      "cpu_pct": 4.1,
+      "host_ram_gib": 4.134071350097656,
+      "host_available_gib": 116.41099548339844,
+      "compute_processes": []
+    },
+    {
+      "wall_s": 1.0062664430588484,
+      "gpu_pct": 0,
+      "power_w": 11.929,
+      "temp_c": 47,
+      "cpu_pct": 5.1,
+      "host_ram_gib": 4.4820098876953125,
+      "host_available_gib": 116.06305694580078,
+      "compute_processes": []
+    },
+    {
+      "wall_s": 2.0069128200411797,
+      "gpu_pct": 0,
+      "power_w": 11.911,
+      "temp_c": 47,
+      "cpu_pct": 5.2,
+      "host_ram_gib": 4.50665283203125,
+      "host_available_gib": 116.03841781616211,
+      "compute_processes": []
+    },
+    {
+      "wall_s": 3.007532452000305,
+      "gpu_pct": 0,
+      "power_w": 11.916,
+      "temp_c": 47,
+      "cpu_pct": 5.2,
+      "host_ram_gib": 4.514274597167969,
+      "host_available_gib": 116.03079605102539,
+      "compute_processes": []
+    },
+    {
+      "wall_s": 4.008159660035744,
+      "gpu_pct": 0,
+      "power_w": 11.885,
+      "temp_c": 47,
+      "cpu_pct": 5.1,
+      "host_ram_gib": 4.522407531738281,
+      "host_available_gib": 116.02266311645508,
+      "compute_processes": []
+    },
+    {
+      "wall_s": 5.008838091976941,
+      "gpu_pct": 0,
+      "power_w": 11.91,
+      "temp_c": 47,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 5.318920135498047,
+      "host_available_gib": 115.19312286376953,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 6.017027070047334,
+      "gpu_pct": 36,
+      "power_w": 16.018,
+      "temp_c": 48,
+      "cpu_pct": 5.2,
+      "host_ram_gib": 6.542510986328125,
+      "host_available_gib": 113.95524978637695,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 7.018268515006639,
+      "gpu_pct": 68,
+      "power_w": 40.002,
+      "temp_c": 53,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 6.6127777099609375,
+      "host_available_gib": 113.8849868774414,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 8.0190914029954,
+      "gpu_pct": 0,
+      "power_w": 36.913,
+      "temp_c": 49,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 6.641811370849609,
+      "host_available_gib": 113.85595321655273,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 9.02019706997089,
+      "gpu_pct": 87,
+      "power_w": 24.252,
+      "temp_c": 56,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 6.701869964599609,
+      "host_available_gib": 113.79589080810547,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 10.021449114079587,
+      "gpu_pct": 71,
+      "power_w": 39.05,
+      "temp_c": 55,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.7526092529296875,
+      "host_available_gib": 112.74515151977539,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 11.022320186020806,
+      "gpu_pct": 87,
+      "power_w": 43.196,
+      "temp_c": 56,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.805976867675781,
+      "host_available_gib": 112.69178009033203,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 12.02313766698353,
+      "gpu_pct": 0,
+      "power_w": 28.79,
+      "temp_c": 50,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 8.007930755615234,
+      "host_available_gib": 112.48982238769531,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 13.024481512024067,
+      "gpu_pct": 79,
+      "power_w": 43.128,
+      "temp_c": 55,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 8.06304931640625,
+      "host_available_gib": 112.4347152709961,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 14.026842000079341,
+      "gpu_pct": 87,
+      "power_w": 43.675,
+      "temp_c": 57,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 8.096611022949219,
+      "host_available_gib": 112.40114212036133,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 15.028523497050628,
+      "gpu_pct": 86,
+      "power_w": 43.805,
+      "temp_c": 57,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 8.121322631835938,
+      "host_available_gib": 112.37643432617188,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 16.03002287307754,
+      "gpu_pct": 86,
+      "power_w": 43.363,
+      "temp_c": 56,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 8.10721206665039,
+      "host_available_gib": 112.39054489135742,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 17.031636418076232,
+      "gpu_pct": 85,
+      "power_w": 43.626,
+      "temp_c": 58,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 8.085426330566406,
+      "host_available_gib": 112.4123306274414,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 18.032655630027875,
+      "gpu_pct": 88,
+      "power_w": 43.385,
+      "temp_c": 59,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 8.063602447509766,
+      "host_available_gib": 112.43415451049805,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 19.03395274200011,
+      "gpu_pct": 86,
+      "power_w": 43.952,
+      "temp_c": 58,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 8.04910659790039,
+      "host_available_gib": 112.44865036010742,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 20.03643204900436,
+      "gpu_pct": 87,
+      "power_w": 43.826,
+      "temp_c": 59,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 8.04080581665039,
+      "host_available_gib": 112.45694732666016,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 21.03857712203171,
+      "gpu_pct": 95,
+      "power_w": 42.965,
+      "temp_c": 60,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 8.02652359008789,
+      "host_available_gib": 112.47122955322266,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 22.04174462996889,
+      "gpu_pct": 54,
+      "power_w": 44.095,
+      "temp_c": 59,
+      "cpu_pct": 5.8,
+      "host_ram_gib": 8.034126281738281,
+      "host_available_gib": 112.463623046875,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 23.043407364049926,
+      "gpu_pct": 86,
+      "power_w": 44.009,
+      "temp_c": 59,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 8.024421691894531,
+      "host_available_gib": 112.47334289550781,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 24.045503342989832,
+      "gpu_pct": 86,
+      "power_w": 44.076,
+      "temp_c": 59,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 8.017318725585938,
+      "host_available_gib": 112.48043441772461,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 25.04800053499639,
+      "gpu_pct": 89,
+      "power_w": 44.281,
+      "temp_c": 61,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 8.012645721435547,
+      "host_available_gib": 112.485107421875,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 26.051190254976973,
+      "gpu_pct": 86,
+      "power_w": 44.586,
+      "temp_c": 60,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 8.00014877319336,
+      "host_available_gib": 112.49760818481445,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 27.054042299976572,
+      "gpu_pct": 86,
+      "power_w": 44.002,
+      "temp_c": 59,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.998664855957031,
+      "host_available_gib": 112.49909210205078,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 28.05658073606901,
+      "gpu_pct": 86,
+      "power_w": 44.461,
+      "temp_c": 60,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.99993896484375,
+      "host_available_gib": 112.49781036376953,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 29.05904698802624,
+      "gpu_pct": 86,
+      "power_w": 44.696,
+      "temp_c": 61,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.988948822021484,
+      "host_available_gib": 112.50879669189453,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 30.060194022022188,
+      "gpu_pct": 93,
+      "power_w": 44.842,
+      "temp_c": 60,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.988349914550781,
+      "host_available_gib": 112.50939559936523,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 31.062199137057178,
+      "gpu_pct": 54,
+      "power_w": 42.804,
+      "temp_c": 58,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.984897613525391,
+      "host_available_gib": 112.51286697387695,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 32.06376195407938,
+      "gpu_pct": 86,
+      "power_w": 44.654,
+      "temp_c": 61,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.971305847167969,
+      "host_available_gib": 112.52645874023438,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 33.06607488298323,
+      "gpu_pct": 86,
+      "power_w": 44.937,
+      "temp_c": 62,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.972938537597656,
+      "host_available_gib": 112.52482604980469,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 34.06879061006475,
+      "gpu_pct": 85,
+      "power_w": 44.974,
+      "temp_c": 60,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.964633941650391,
+      "host_available_gib": 112.53312301635742,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 35.07035593606997,
+      "gpu_pct": 86,
+      "power_w": 45.139,
+      "temp_c": 61,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.921234130859375,
+      "host_available_gib": 112.57652282714844,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 36.07161592505872,
+      "gpu_pct": 86,
+      "power_w": 45.179,
+      "temp_c": 62,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.950038909912109,
+      "host_available_gib": 112.5477180480957,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 37.07280857907608,
+      "gpu_pct": 87,
+      "power_w": 45.461,
+      "temp_c": 64,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.944484710693359,
+      "host_available_gib": 112.55327606201172,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 38.07553498598281,
+      "gpu_pct": 71,
+      "power_w": 44.555,
+      "temp_c": 60,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.966861724853516,
+      "host_available_gib": 112.53089141845703,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 39.07740376202855,
+      "gpu_pct": 59,
+      "power_w": 45.609,
+      "temp_c": 62,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.964530944824219,
+      "host_available_gib": 112.53321838378906,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 40.080380127066746,
+      "gpu_pct": 86,
+      "power_w": 45.442,
+      "temp_c": 61,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.9621734619140625,
+      "host_available_gib": 112.53558349609375,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 41.08279502496589,
+      "gpu_pct": 86,
+      "power_w": 45.965,
+      "temp_c": 63,
+      "cpu_pct": 5.2,
+      "host_ram_gib": 7.984825134277344,
+      "host_available_gib": 112.5129280090332,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 42.0851652600104,
+      "gpu_pct": 86,
+      "power_w": 45.665,
+      "temp_c": 63,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.940673828125,
+      "host_available_gib": 112.55709075927734,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 43.08723174396437,
+      "gpu_pct": 86,
+      "power_w": 46.155,
+      "temp_c": 65,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.967803955078125,
+      "host_available_gib": 112.52996063232422,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 44.09012317296583,
+      "gpu_pct": 86,
+      "power_w": 45.832,
+      "temp_c": 64,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.929962158203125,
+      "host_available_gib": 112.56779861450195,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 45.09173482598271,
+      "gpu_pct": 85,
+      "power_w": 45.936,
+      "temp_c": 63,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.922229766845703,
+      "host_available_gib": 112.57552337646484,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 46.09326599200722,
+      "gpu_pct": 86,
+      "power_w": 46.154,
+      "temp_c": 64,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.957874298095703,
+      "host_available_gib": 112.53988647460938,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 47.09562181599904,
+      "gpu_pct": 93,
+      "power_w": 45.922,
+      "temp_c": 64,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.913078308105469,
+      "host_available_gib": 112.58468627929688,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 48.097482991055585,
+      "gpu_pct": 59,
+      "power_w": 45.588,
+      "temp_c": 63,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.931915283203125,
+      "host_available_gib": 112.56584548950195,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 49.09935657703318,
+      "gpu_pct": 85,
+      "power_w": 45.881,
+      "temp_c": 66,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.902305603027344,
+      "host_available_gib": 112.59545135498047,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 50.10194947605487,
+      "gpu_pct": 86,
+      "power_w": 46.115,
+      "temp_c": 65,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.932682037353516,
+      "host_available_gib": 112.5650749206543,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 51.103706522029825,
+      "gpu_pct": 89,
+      "power_w": 46.202,
+      "temp_c": 65,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.897205352783203,
+      "host_available_gib": 112.60055160522461,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 52.10691999201663,
+      "gpu_pct": 86,
+      "power_w": 46.48,
+      "temp_c": 65,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.9188690185546875,
+      "host_available_gib": 112.57888793945312,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 53.109241769998334,
+      "gpu_pct": 86,
+      "power_w": 46.423,
+      "temp_c": 65,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.87335205078125,
+      "host_available_gib": 112.62440872192383,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 54.11046009301208,
+      "gpu_pct": 85,
+      "power_w": 46.547,
+      "temp_c": 65,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.875450134277344,
+      "host_available_gib": 112.62231063842773,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 55.111631980049424,
+      "gpu_pct": 85,
+      "power_w": 46.73,
+      "temp_c": 65,
+      "cpu_pct": 5.2,
+      "host_ram_gib": 7.896045684814453,
+      "host_available_gib": 112.60169982910156,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 56.113358858041465,
+      "gpu_pct": 94,
+      "power_w": 46.477,
+      "temp_c": 65,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.844566345214844,
+      "host_available_gib": 112.6531982421875,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 57.11548119201325,
+      "gpu_pct": 58,
+      "power_w": 45.232,
+      "temp_c": 62,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.8529510498046875,
+      "host_available_gib": 112.64480972290039,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 58.11764654505532,
+      "gpu_pct": 69,
+      "power_w": 46.136,
+      "temp_c": 64,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.819553375244141,
+      "host_available_gib": 112.6782112121582,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 59.119125792058185,
+      "gpu_pct": 90,
+      "power_w": 46.752,
+      "temp_c": 68,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.832401275634766,
+      "host_available_gib": 112.66535568237305,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 60.121317968005314,
+      "gpu_pct": 85,
+      "power_w": 46.536,
+      "temp_c": 65,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.840915679931641,
+      "host_available_gib": 112.65684127807617,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 61.123207370052114,
+      "gpu_pct": 86,
+      "power_w": 46.792,
+      "temp_c": 66,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.843166351318359,
+      "host_available_gib": 112.65459060668945,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 62.125021454063244,
+      "gpu_pct": 86,
+      "power_w": 46.201,
+      "temp_c": 66,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.8391571044921875,
+      "host_available_gib": 112.65859603881836,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 63.12809015298262,
+      "gpu_pct": 86,
+      "power_w": 46.483,
+      "temp_c": 66,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.832866668701172,
+      "host_available_gib": 112.66489028930664,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 64.13046716200188,
+      "gpu_pct": 86,
+      "power_w": 46.759,
+      "temp_c": 65,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.833454132080078,
+      "host_available_gib": 112.664306640625,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 65.13204179203603,
+      "gpu_pct": 93,
+      "power_w": 46.493,
+      "temp_c": 66,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.857780456542969,
+      "host_available_gib": 112.63998031616211,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 66.13455092196818,
+      "gpu_pct": 52,
+      "power_w": 45.38,
+      "temp_c": 66,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.876190185546875,
+      "host_available_gib": 112.62157440185547,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 67.13653310004156,
+      "gpu_pct": 86,
+      "power_w": 47.019,
+      "temp_c": 66,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.853477478027344,
+      "host_available_gib": 112.644287109375,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 68.13947944203392,
+      "gpu_pct": 85,
+      "power_w": 46.996,
+      "temp_c": 67,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.874340057373047,
+      "host_available_gib": 112.62341690063477,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 69.14235528302379,
+      "gpu_pct": 88,
+      "power_w": 46.798,
+      "temp_c": 69,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.852725982666016,
+      "host_available_gib": 112.6450309753418,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 70.14551512303296,
+      "gpu_pct": 86,
+      "power_w": 46.968,
+      "temp_c": 67,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.8474578857421875,
+      "host_available_gib": 112.65029907226562,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 71.14807889005169,
+      "gpu_pct": 86,
+      "power_w": 46.777,
+      "temp_c": 69,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.87860107421875,
+      "host_available_gib": 112.61915588378906,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 72.15002896997612,
+      "gpu_pct": 86,
+      "power_w": 46.661,
+      "temp_c": 68,
+      "cpu_pct": 5.8,
+      "host_ram_gib": 7.853954315185547,
+      "host_available_gib": 112.64380645751953,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 73.15175725205336,
+      "gpu_pct": 93,
+      "power_w": 47.071,
+      "temp_c": 68,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.878223419189453,
+      "host_available_gib": 112.61954116821289,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 74.1535147309769,
+      "gpu_pct": 65,
+      "power_w": 45.374,
+      "temp_c": 65,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.8654632568359375,
+      "host_available_gib": 112.6323013305664,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 75.15516849397682,
+      "gpu_pct": 51,
+      "power_w": 46.881,
+      "temp_c": 68,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.870567321777344,
+      "host_available_gib": 112.627197265625,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 76.1577080040006,
+      "gpu_pct": 86,
+      "power_w": 46.908,
+      "temp_c": 68,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.848407745361328,
+      "host_available_gib": 112.64935302734375,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 77.1589564459864,
+      "gpu_pct": 86,
+      "power_w": 47.09,
+      "temp_c": 67,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.872077941894531,
+      "host_available_gib": 112.62567901611328,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 78.16091172106098,
+      "gpu_pct": 87,
+      "power_w": 46.956,
+      "temp_c": 69,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.848152160644531,
+      "host_available_gib": 112.64960479736328,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 79.16349947801791,
+      "gpu_pct": 86,
+      "power_w": 46.82,
+      "temp_c": 68,
+      "cpu_pct": 5.2,
+      "host_ram_gib": 7.766357421875,
+      "host_available_gib": 112.73140335083008,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 80.16483210399747,
+      "gpu_pct": 88,
+      "power_w": 47.312,
+      "temp_c": 70,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.868782043457031,
+      "host_available_gib": 112.62897491455078,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 81.16648053599056,
+      "gpu_pct": 86,
+      "power_w": 47.456,
+      "temp_c": 69,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.847496032714844,
+      "host_available_gib": 112.65026092529297,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 82.16817242198158,
+      "gpu_pct": 85,
+      "power_w": 46.823,
+      "temp_c": 67,
+      "cpu_pct": 6.1,
+      "host_ram_gib": 7.8673553466796875,
+      "host_available_gib": 112.63039779663086,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 83.17012360307854,
+      "gpu_pct": 94,
+      "power_w": 46.56,
+      "temp_c": 70,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.819324493408203,
+      "host_available_gib": 112.67842864990234,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 84.17165689100511,
+      "gpu_pct": 73,
+      "power_w": 46.294,
+      "temp_c": 67,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.864421844482422,
+      "host_available_gib": 112.63333892822266,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 85.17340787302237,
+      "gpu_pct": 53,
+      "power_w": 47.329,
+      "temp_c": 69,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.850536346435547,
+      "host_available_gib": 112.6472282409668,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 86.17519378103316,
+      "gpu_pct": 85,
+      "power_w": 47.073,
+      "temp_c": 69,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.869174957275391,
+      "host_available_gib": 112.62858581542969,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 87.1768596060574,
+      "gpu_pct": 85,
+      "power_w": 47.476,
+      "temp_c": 69,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.836750030517578,
+      "host_available_gib": 112.6610107421875,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 88.17859680496622,
+      "gpu_pct": 85,
+      "power_w": 47.454,
+      "temp_c": 68,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.870033264160156,
+      "host_available_gib": 112.62772369384766,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 89.1802317610709,
+      "gpu_pct": 85,
+      "power_w": 47.481,
+      "temp_c": 69,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.844676971435547,
+      "host_available_gib": 112.65307235717773,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 90.18140314298216,
+      "gpu_pct": 85,
+      "power_w": 47.511,
+      "temp_c": 71,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.835514068603516,
+      "host_available_gib": 112.66223526000977,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 91.18292870197911,
+      "gpu_pct": 85,
+      "power_w": 47.692,
+      "temp_c": 71,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.860950469970703,
+      "host_available_gib": 112.63679504394531,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 92.18461939506233,
+      "gpu_pct": 85,
+      "power_w": 47.318,
+      "temp_c": 70,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.836040496826172,
+      "host_available_gib": 112.66170120239258,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 93.1860382129671,
+      "gpu_pct": 92,
+      "power_w": 47.239,
+      "temp_c": 70,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.852016448974609,
+      "host_available_gib": 112.64572143554688,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 94.187664790079,
+      "gpu_pct": 50,
+      "power_w": 46.973,
+      "temp_c": 66,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.8323974609375,
+      "host_available_gib": 112.66535186767578,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 95.18946922302712,
+      "gpu_pct": 87,
+      "power_w": 47.464,
+      "temp_c": 71,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.854564666748047,
+      "host_available_gib": 112.64319610595703,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 96.19078827404883,
+      "gpu_pct": 87,
+      "power_w": 47.473,
+      "temp_c": 71,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.850238800048828,
+      "host_available_gib": 112.64752197265625,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 97.19239302107599,
+      "gpu_pct": 91,
+      "power_w": 47.304,
+      "temp_c": 71,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.848682403564453,
+      "host_available_gib": 112.64907455444336,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 98.19421967200469,
+      "gpu_pct": 85,
+      "power_w": 47.824,
+      "temp_c": 71,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.831295013427734,
+      "host_available_gib": 112.66646194458008,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 99.1963190920651,
+      "gpu_pct": 85,
+      "power_w": 47.88,
+      "temp_c": 70,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.802967071533203,
+      "host_available_gib": 112.69478607177734,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 100.1982926200144,
+      "gpu_pct": 87,
+      "power_w": 47.928,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.857738494873047,
+      "host_available_gib": 112.64001083374023,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 101.19988054502755,
+      "gpu_pct": 85,
+      "power_w": 47.538,
+      "temp_c": 69,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.746807098388672,
+      "host_available_gib": 112.75093841552734,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 102.20135752402712,
+      "gpu_pct": 83,
+      "power_w": 46.535,
+      "temp_c": 72,
+      "cpu_pct": 5.2,
+      "host_ram_gib": 7.747280120849609,
+      "host_available_gib": 112.7504653930664,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 103.20221662498079,
+      "gpu_pct": 76,
+      "power_w": 46.993,
+      "temp_c": 70,
+      "cpu_pct": 5.1,
+      "host_ram_gib": 7.771198272705078,
+      "host_available_gib": 112.7265510559082,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 104.20344465505332,
+      "gpu_pct": 5,
+      "power_w": 19.729,
+      "temp_c": 64,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.904762268066406,
+      "host_available_gib": 112.59298324584961,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 105.20554254506715,
+      "gpu_pct": 45,
+      "power_w": 46.999,
+      "temp_c": 69,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.896312713623047,
+      "host_available_gib": 112.60144805908203,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 106.20806062896736,
+      "gpu_pct": 86,
+      "power_w": 47.495,
+      "temp_c": 71,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.8954925537109375,
+      "host_available_gib": 112.60226821899414,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 107.21043525496498,
+      "gpu_pct": 85,
+      "power_w": 47.953,
+      "temp_c": 70,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.891429901123047,
+      "host_available_gib": 112.60633087158203,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 108.21245578106027,
+      "gpu_pct": 85,
+      "power_w": 47.841,
+      "temp_c": 70,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.894222259521484,
+      "host_available_gib": 112.60354232788086,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 109.21420555305667,
+      "gpu_pct": 86,
+      "power_w": 47.572,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.814624786376953,
+      "host_available_gib": 112.68313598632812,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 110.21586573903915,
+      "gpu_pct": 85,
+      "power_w": 47.7,
+      "temp_c": 71,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.890331268310547,
+      "host_available_gib": 112.60742568969727,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 111.21725537907332,
+      "gpu_pct": 86,
+      "power_w": 47.836,
+      "temp_c": 71,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.890663146972656,
+      "host_available_gib": 112.60709381103516,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 112.21863722603302,
+      "gpu_pct": 85,
+      "power_w": 47.936,
+      "temp_c": 70,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.899322509765625,
+      "host_available_gib": 112.59843826293945,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 113.22000851202756,
+      "gpu_pct": 85,
+      "power_w": 47.784,
+      "temp_c": 71,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.901451110839844,
+      "host_available_gib": 112.59630584716797,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 114.22286974207964,
+      "gpu_pct": 94,
+      "power_w": 48.041,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.900306701660156,
+      "host_available_gib": 112.59744262695312,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 115.2255281220423,
+      "gpu_pct": 85,
+      "power_w": 47.358,
+      "temp_c": 71,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.8996124267578125,
+      "host_available_gib": 112.59814071655273,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 116.22765153902583,
+      "gpu_pct": 88,
+      "power_w": 48.244,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.899074554443359,
+      "host_available_gib": 112.59866714477539,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 117.23067412804812,
+      "gpu_pct": 85,
+      "power_w": 48.056,
+      "temp_c": 71,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.8980865478515625,
+      "host_available_gib": 112.59965133666992,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 118.23292066401336,
+      "gpu_pct": 86,
+      "power_w": 48.112,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.904487609863281,
+      "host_available_gib": 112.5932502746582,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 119.23536281706765,
+      "gpu_pct": 86,
+      "power_w": 48.498,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.8421630859375,
+      "host_available_gib": 112.65556716918945,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 120.23701166897081,
+      "gpu_pct": 85,
+      "power_w": 48.221,
+      "temp_c": 73,
+      "cpu_pct": 5.8,
+      "host_ram_gib": 7.894809722900391,
+      "host_available_gib": 112.60292434692383,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 121.23860034404788,
+      "gpu_pct": 88,
+      "power_w": 48.093,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.892414093017578,
+      "host_available_gib": 112.60531997680664,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 122.24062089400832,
+      "gpu_pct": 85,
+      "power_w": 48.637,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.8862152099609375,
+      "host_available_gib": 112.61151504516602,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 123.24220750504173,
+      "gpu_pct": 86,
+      "power_w": 48.511,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.885398864746094,
+      "host_available_gib": 112.61233139038086,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 124.24303393496666,
+      "gpu_pct": 95,
+      "power_w": 46.631,
+      "temp_c": 68,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.886329650878906,
+      "host_available_gib": 112.61139678955078,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 125.24427070398815,
+      "gpu_pct": 52,
+      "power_w": 47.665,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.887184143066406,
+      "host_available_gib": 112.61055755615234,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 126.2464466310339,
+      "gpu_pct": 48,
+      "power_w": 48.276,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.8839263916015625,
+      "host_available_gib": 112.61383438110352,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 127.24754114297684,
+      "gpu_pct": 91,
+      "power_w": 48.556,
+      "temp_c": 73,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.891262054443359,
+      "host_available_gib": 112.60650253295898,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 128.2492540270323,
+      "gpu_pct": 86,
+      "power_w": 48.486,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.887111663818359,
+      "host_available_gib": 112.61065292358398,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 129.25171158707235,
+      "gpu_pct": 86,
+      "power_w": 48.609,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.846138000488281,
+      "host_available_gib": 112.65203857421875,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 130.25338242400903,
+      "gpu_pct": 90,
+      "power_w": 48.835,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.887409210205078,
+      "host_available_gib": 112.61034393310547,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 131.25522807706147,
+      "gpu_pct": 86,
+      "power_w": 48.79,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.888797760009766,
+      "host_available_gib": 112.60895538330078,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 132.25662078498863,
+      "gpu_pct": 86,
+      "power_w": 48.682,
+      "temp_c": 71,
+      "cpu_pct": 5.8,
+      "host_ram_gib": 7.8931884765625,
+      "host_available_gib": 112.60456085205078,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 133.2594015330542,
+      "gpu_pct": 94,
+      "power_w": 48.863,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.893337249755859,
+      "host_available_gib": 112.60441589355469,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 134.26187688705977,
+      "gpu_pct": 63,
+      "power_w": 48.189,
+      "temp_c": 70,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.890613555908203,
+      "host_available_gib": 112.60713958740234,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 135.26310725905932,
+      "gpu_pct": 57,
+      "power_w": 47.996,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.892902374267578,
+      "host_available_gib": 112.60486221313477,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 136.265292837983,
+      "gpu_pct": 85,
+      "power_w": 48.756,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.8885345458984375,
+      "host_available_gib": 112.60922622680664,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 137.26737192005385,
+      "gpu_pct": 86,
+      "power_w": 48.795,
+      "temp_c": 71,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.890354156494141,
+      "host_available_gib": 112.60740661621094,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 138.2697218040703,
+      "gpu_pct": 86,
+      "power_w": 48.441,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.891002655029297,
+      "host_available_gib": 112.60675430297852,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 139.2713534940267,
+      "gpu_pct": 86,
+      "power_w": 48.845,
+      "temp_c": 72,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.88916015625,
+      "host_available_gib": 112.60859298706055,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 140.27265495900065,
+      "gpu_pct": 85,
+      "power_w": 48.692,
+      "temp_c": 71,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.8911590576171875,
+      "host_available_gib": 112.60659408569336,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 141.27433250600006,
+      "gpu_pct": 87,
+      "power_w": 48.721,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.892093658447266,
+      "host_available_gib": 112.60565567016602,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 142.2755360529991,
+      "gpu_pct": 90,
+      "power_w": 48.742,
+      "temp_c": 73,
+      "cpu_pct": 5.9,
+      "host_ram_gib": 7.896484375,
+      "host_available_gib": 112.60126113891602,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 143.27775258105248,
+      "gpu_pct": 93,
+      "power_w": 49.215,
+      "temp_c": 74,
+      "cpu_pct": 7.8,
+      "host_ram_gib": 7.9163665771484375,
+      "host_available_gib": 112.5813980102539,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 144.27968210203107,
+      "gpu_pct": 51,
+      "power_w": 47.203,
+      "temp_c": 74,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.916557312011719,
+      "host_available_gib": 112.58120346069336,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 145.2820008250419,
+      "gpu_pct": 86,
+      "power_w": 48.639,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.916004180908203,
+      "host_available_gib": 112.58175277709961,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 146.2835927780252,
+      "gpu_pct": 86,
+      "power_w": 48.651,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.916706085205078,
+      "host_available_gib": 112.58105850219727,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 147.2859662079718,
+      "gpu_pct": 86,
+      "power_w": 48.777,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.911201477050781,
+      "host_available_gib": 112.5865592956543,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 148.2885137849953,
+      "gpu_pct": 86,
+      "power_w": 48.896,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.834011077880859,
+      "host_available_gib": 112.66374588012695,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 149.29013705498073,
+      "gpu_pct": 86,
+      "power_w": 48.421,
+      "temp_c": 74,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.906074523925781,
+      "host_available_gib": 112.5916862487793,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 150.29292089107912,
+      "gpu_pct": 86,
+      "power_w": 48.784,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.905525207519531,
+      "host_available_gib": 112.59223175048828,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 151.29411478503607,
+      "gpu_pct": 89,
+      "power_w": 48.782,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.904209136962891,
+      "host_available_gib": 112.59354782104492,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 152.29654380807187,
+      "gpu_pct": 91,
+      "power_w": 48.556,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.900177001953125,
+      "host_available_gib": 112.59757995605469,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 153.29948221007362,
+      "gpu_pct": 86,
+      "power_w": 48.854,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.901500701904297,
+      "host_available_gib": 112.59625625610352,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 154.30192653101403,
+      "gpu_pct": 48,
+      "power_w": 46.875,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.904140472412109,
+      "host_available_gib": 112.5936050415039,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 155.30312560102902,
+      "gpu_pct": 86,
+      "power_w": 48.735,
+      "temp_c": 71,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.901142120361328,
+      "host_available_gib": 112.59660339355469,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 156.30427785601933,
+      "gpu_pct": 85,
+      "power_w": 48.83,
+      "temp_c": 73,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.898769378662109,
+      "host_available_gib": 112.59899139404297,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 157.30603406799491,
+      "gpu_pct": 87,
+      "power_w": 49.04,
+      "temp_c": 74,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.8849334716796875,
+      "host_available_gib": 112.61282730102539,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 158.30763533699792,
+      "gpu_pct": 86,
+      "power_w": 48.725,
+      "temp_c": 73,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.884082794189453,
+      "host_available_gib": 112.61367797851562,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 159.30947155307513,
+      "gpu_pct": 86,
+      "power_w": 48.818,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.8846588134765625,
+      "host_available_gib": 112.61309432983398,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 160.3119670379674,
+      "gpu_pct": 86,
+      "power_w": 48.759,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.884212493896484,
+      "host_available_gib": 112.61354064941406,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 161.31380602705758,
+      "gpu_pct": 86,
+      "power_w": 48.612,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.8848114013671875,
+      "host_available_gib": 112.61294174194336,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 162.3161592760589,
+      "gpu_pct": 88,
+      "power_w": 48.918,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.884967803955078,
+      "host_available_gib": 112.61279296875,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 163.31777588406112,
+      "gpu_pct": 87,
+      "power_w": 49.007,
+      "temp_c": 71,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.883537292480469,
+      "host_available_gib": 112.61421966552734,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 164.31915313296486,
+      "gpu_pct": 51,
+      "power_w": 47.312,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.886409759521484,
+      "host_available_gib": 112.61134338378906,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 165.3212569160387,
+      "gpu_pct": 88,
+      "power_w": 49.204,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.884525299072266,
+      "host_available_gib": 112.61322784423828,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 166.32336118200328,
+      "gpu_pct": 86,
+      "power_w": 48.653,
+      "temp_c": 71,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.882404327392578,
+      "host_available_gib": 112.6153564453125,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 167.3254661380779,
+      "gpu_pct": 86,
+      "power_w": 48.792,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.883270263671875,
+      "host_available_gib": 112.61449432373047,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 168.32768237707205,
+      "gpu_pct": 86,
+      "power_w": 48.897,
+      "temp_c": 74,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.806003570556641,
+      "host_available_gib": 112.69175720214844,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 169.32912407105323,
+      "gpu_pct": 86,
+      "power_w": 48.864,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.881561279296875,
+      "host_available_gib": 112.61619567871094,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 170.33104049006943,
+      "gpu_pct": 86,
+      "power_w": 48.625,
+      "temp_c": 71,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.880950927734375,
+      "host_available_gib": 112.61680603027344,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 171.33249444607645,
+      "gpu_pct": 86,
+      "power_w": 48.878,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.880828857421875,
+      "host_available_gib": 112.6169319152832,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 172.333858900005,
+      "gpu_pct": 86,
+      "power_w": 48.613,
+      "temp_c": 71,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.879131317138672,
+      "host_available_gib": 112.61862564086914,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 173.3359703840688,
+      "gpu_pct": 93,
+      "power_w": 48.834,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.878917694091797,
+      "host_available_gib": 112.61883544921875,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 174.3382378560491,
+      "gpu_pct": 49,
+      "power_w": 47.609,
+      "temp_c": 69,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.878990173339844,
+      "host_available_gib": 112.61876678466797,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 175.33978827204555,
+      "gpu_pct": 81,
+      "power_w": 48.849,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.877906799316406,
+      "host_available_gib": 112.6198501586914,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 176.34121169801801,
+      "gpu_pct": 86,
+      "power_w": 48.413,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.875244140625,
+      "host_available_gib": 112.62251281738281,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 177.34362916299142,
+      "gpu_pct": 85,
+      "power_w": 49.028,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.880340576171875,
+      "host_available_gib": 112.61742401123047,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 178.34471529803704,
+      "gpu_pct": 86,
+      "power_w": 48.202,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.8475189208984375,
+      "host_available_gib": 112.65024185180664,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 179.345768508967,
+      "gpu_pct": 86,
+      "power_w": 47.97,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.881072998046875,
+      "host_available_gib": 112.6166877746582,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 180.34743196505588,
+      "gpu_pct": 91,
+      "power_w": 48.528,
+      "temp_c": 74,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.880867004394531,
+      "host_available_gib": 112.61688995361328,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 181.3492400010582,
+      "gpu_pct": 86,
+      "power_w": 49.0,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.884441375732422,
+      "host_available_gib": 112.61331558227539,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 182.35096472804435,
+      "gpu_pct": 90,
+      "power_w": 49.073,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.881187438964844,
+      "host_available_gib": 112.6165657043457,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 183.35317472403403,
+      "gpu_pct": 87,
+      "power_w": 49.122,
+      "temp_c": 73,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.884403228759766,
+      "host_available_gib": 112.61334991455078,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 184.35590890201274,
+      "gpu_pct": 45,
+      "power_w": 48.515,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.881889343261719,
+      "host_available_gib": 112.61586380004883,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 185.35797616804484,
+      "gpu_pct": 87,
+      "power_w": 48.804,
+      "temp_c": 71,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.8818817138671875,
+      "host_available_gib": 112.61587142944336,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 186.36013708706014,
+      "gpu_pct": 86,
+      "power_w": 49.136,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.886333465576172,
+      "host_available_gib": 112.61143112182617,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 187.36312537197955,
+      "gpu_pct": 85,
+      "power_w": 48.834,
+      "temp_c": 74,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.890354156494141,
+      "host_available_gib": 112.60740661621094,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 188.3653903619852,
+      "gpu_pct": 86,
+      "power_w": 49.4,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.811717987060547,
+      "host_available_gib": 112.68604278564453,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 189.3673388750758,
+      "gpu_pct": 86,
+      "power_w": 47.538,
+      "temp_c": 69,
+      "cpu_pct": 5.8,
+      "host_ram_gib": 7.883338928222656,
+      "host_available_gib": 112.61442184448242,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 190.370770166046,
+      "gpu_pct": 86,
+      "power_w": 48.919,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.87799072265625,
+      "host_available_gib": 112.6197738647461,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 191.37363280099817,
+      "gpu_pct": 86,
+      "power_w": 48.994,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.881526947021484,
+      "host_available_gib": 112.6162338256836,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 192.37510028399993,
+      "gpu_pct": 86,
+      "power_w": 48.557,
+      "temp_c": 73,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.883720397949219,
+      "host_available_gib": 112.61404037475586,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 193.37765412707813,
+      "gpu_pct": 89,
+      "power_w": 48.896,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.884006500244141,
+      "host_available_gib": 112.61375427246094,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 194.38050874206237,
+      "gpu_pct": 73,
+      "power_w": 49.069,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.883964538574219,
+      "host_available_gib": 112.6137924194336,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 195.38236543803941,
+      "gpu_pct": 70,
+      "power_w": 48.604,
+      "temp_c": 71,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.809844970703125,
+      "host_available_gib": 112.68790435791016,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 196.38458319602069,
+      "gpu_pct": 86,
+      "power_w": 48.412,
+      "temp_c": 73,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.809062957763672,
+      "host_available_gib": 112.68868637084961,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 197.38617036305368,
+      "gpu_pct": 3,
+      "power_w": 34.829,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.890754699707031,
+      "host_available_gib": 112.60699462890625,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 198.38742308598012,
+      "gpu_pct": 87,
+      "power_w": 48.686,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.888401031494141,
+      "host_available_gib": 112.60934066772461,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 199.3889766780194,
+      "gpu_pct": 94,
+      "power_w": 48.814,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.887393951416016,
+      "host_available_gib": 112.61034774780273,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 200.3909561310429,
+      "gpu_pct": 52,
+      "power_w": 48.827,
+      "temp_c": 71,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.886264801025391,
+      "host_available_gib": 112.61147689819336,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 201.39291730197147,
+      "gpu_pct": 86,
+      "power_w": 49.06,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.886070251464844,
+      "host_available_gib": 112.6116714477539,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 202.39450029900763,
+      "gpu_pct": 86,
+      "power_w": 48.583,
+      "temp_c": 73,
+      "cpu_pct": 6.0,
+      "host_ram_gib": 7.890209197998047,
+      "host_available_gib": 112.6075325012207,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 203.3971553039737,
+      "gpu_pct": 86,
+      "power_w": 48.843,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.892444610595703,
+      "host_available_gib": 112.60529327392578,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 204.39985869906377,
+      "gpu_pct": 86,
+      "power_w": 49.153,
+      "temp_c": 74,
+      "cpu_pct": 6.5,
+      "host_ram_gib": 7.892215728759766,
+      "host_available_gib": 112.60552215576172,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 205.40292224206496,
+      "gpu_pct": 86,
+      "power_w": 47.229,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.893558502197266,
+      "host_available_gib": 112.60417938232422,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 206.4047909710789,
+      "gpu_pct": 86,
+      "power_w": 49.121,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.893730163574219,
+      "host_available_gib": 112.6040267944336,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 207.40663269604556,
+      "gpu_pct": 86,
+      "power_w": 48.767,
+      "temp_c": 71,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.893398284912109,
+      "host_available_gib": 112.60436630249023,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 208.40819509804714,
+      "gpu_pct": 86,
+      "power_w": 48.995,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.893104553222656,
+      "host_available_gib": 112.60465621948242,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 209.410410850076,
+      "gpu_pct": 95,
+      "power_w": 48.749,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.891925811767578,
+      "host_available_gib": 112.6058349609375,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 210.41404709103517,
+      "gpu_pct": 44,
+      "power_w": 48.863,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.8943939208984375,
+      "host_available_gib": 112.60335922241211,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 211.4164793980308,
+      "gpu_pct": 85,
+      "power_w": 49.213,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.891223907470703,
+      "host_available_gib": 112.60652923583984,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 212.4193337110337,
+      "gpu_pct": 88,
+      "power_w": 48.872,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.8919677734375,
+      "host_available_gib": 112.60578155517578,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 213.42119268106762,
+      "gpu_pct": 86,
+      "power_w": 48.476,
+      "temp_c": 73,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.82220458984375,
+      "host_available_gib": 112.67554092407227,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 214.4231561369961,
+      "gpu_pct": 86,
+      "power_w": 48.555,
+      "temp_c": 72,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.890106201171875,
+      "host_available_gib": 112.60763168334961,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 215.42609804996755,
+      "gpu_pct": 86,
+      "power_w": 47.475,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.891746520996094,
+      "host_available_gib": 112.60598754882812,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 216.42773202701937,
+      "gpu_pct": 86,
+      "power_w": 48.633,
+      "temp_c": 73,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.890480041503906,
+      "host_available_gib": 112.60725402832031,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 217.42990324401762,
+      "gpu_pct": 86,
+      "power_w": 49.194,
+      "temp_c": 74,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.887599945068359,
+      "host_available_gib": 112.61014556884766,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 218.43190089706331,
+      "gpu_pct": 86,
+      "power_w": 49.063,
+      "temp_c": 75,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.886444091796875,
+      "host_available_gib": 112.6113166809082,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 219.43336660205387,
+      "gpu_pct": 95,
+      "power_w": 48.964,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.8862152099609375,
+      "host_available_gib": 112.61154556274414,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 220.4357488109963,
+      "gpu_pct": 66,
+      "power_w": 49.052,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.887611389160156,
+      "host_available_gib": 112.61014938354492,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 221.4377236639848,
+      "gpu_pct": 49,
+      "power_w": 49.111,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.888637542724609,
+      "host_available_gib": 112.60912704467773,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 222.4399292920716,
+      "gpu_pct": 86,
+      "power_w": 48.916,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.8881378173828125,
+      "host_available_gib": 112.60962295532227,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 223.4424056300195,
+      "gpu_pct": 86,
+      "power_w": 49.212,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.815635681152344,
+      "host_available_gib": 112.68212509155273,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 224.44409037102014,
+      "gpu_pct": 86,
+      "power_w": 49.006,
+      "temp_c": 75,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.892208099365234,
+      "host_available_gib": 112.60554885864258,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 225.44598315097392,
+      "gpu_pct": 86,
+      "power_w": 47.317,
+      "temp_c": 71,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.8924102783203125,
+      "host_available_gib": 112.60533142089844,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 226.44764443102758,
+      "gpu_pct": 86,
+      "power_w": 49.177,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.889556884765625,
+      "host_available_gib": 112.60818099975586,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 227.4502545200521,
+      "gpu_pct": 86,
+      "power_w": 49.075,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.889507293701172,
+      "host_available_gib": 112.60824584960938,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 228.45210189302452,
+      "gpu_pct": 86,
+      "power_w": 49.034,
+      "temp_c": 75,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.889713287353516,
+      "host_available_gib": 112.60805130004883,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 229.4539206479676,
+      "gpu_pct": 90,
+      "power_w": 48.832,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.890037536621094,
+      "host_available_gib": 112.60772323608398,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 230.45628305803984,
+      "gpu_pct": 87,
+      "power_w": 49.244,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.891487121582031,
+      "host_available_gib": 112.60626602172852,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 231.4594484360423,
+      "gpu_pct": 46,
+      "power_w": 48.867,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.892005920410156,
+      "host_available_gib": 112.60575485229492,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 232.4613480080152,
+      "gpu_pct": 79,
+      "power_w": 49.264,
+      "temp_c": 72,
+      "cpu_pct": 5.9,
+      "host_ram_gib": 7.898517608642578,
+      "host_available_gib": 112.5992431640625,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 233.4633947230177,
+      "gpu_pct": 86,
+      "power_w": 48.834,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.899234771728516,
+      "host_available_gib": 112.59851837158203,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 234.46548578096554,
+      "gpu_pct": 86,
+      "power_w": 49.354,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.902519226074219,
+      "host_available_gib": 112.59523010253906,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 235.4677708609961,
+      "gpu_pct": 86,
+      "power_w": 47.988,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.896839141845703,
+      "host_available_gib": 112.60090637207031,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 236.46988898701966,
+      "gpu_pct": 86,
+      "power_w": 48.856,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.897006988525391,
+      "host_available_gib": 112.60073852539062,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 237.47152729402296,
+      "gpu_pct": 86,
+      "power_w": 49.122,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.897315979003906,
+      "host_available_gib": 112.60043334960938,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 238.47318696707953,
+      "gpu_pct": 89,
+      "power_w": 48.93,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.897590637207031,
+      "host_available_gib": 112.60015487670898,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 239.47520015202463,
+      "gpu_pct": 89,
+      "power_w": 49.369,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.897533416748047,
+      "host_available_gib": 112.60021591186523,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 240.47634802898392,
+      "gpu_pct": 90,
+      "power_w": 49.333,
+      "temp_c": 75,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.894390106201172,
+      "host_available_gib": 112.60336303710938,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 241.47855135402642,
+      "gpu_pct": 95,
+      "power_w": 49.611,
+      "temp_c": 73,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.890010833740234,
+      "host_available_gib": 112.60774612426758,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 242.4817064970266,
+      "gpu_pct": 49,
+      "power_w": 49.206,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.890956878662109,
+      "host_available_gib": 112.6068000793457,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 243.48444620601367,
+      "gpu_pct": 86,
+      "power_w": 49.431,
+      "temp_c": 76,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.889690399169922,
+      "host_available_gib": 112.60806274414062,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 244.48616639804095,
+      "gpu_pct": 86,
+      "power_w": 49.326,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.818988800048828,
+      "host_available_gib": 112.67876052856445,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 245.48757710901555,
+      "gpu_pct": 86,
+      "power_w": 49.336,
+      "temp_c": 73,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.891567230224609,
+      "host_available_gib": 112.60617446899414,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 246.49045250099152,
+      "gpu_pct": 86,
+      "power_w": 47.497,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.890205383300781,
+      "host_available_gib": 112.60753631591797,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 247.49185530503746,
+      "gpu_pct": 87,
+      "power_w": 48.631,
+      "temp_c": 74,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.894020080566406,
+      "host_available_gib": 112.60373306274414,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 248.4938337500207,
+      "gpu_pct": 86,
+      "power_w": 49.255,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.888813018798828,
+      "host_available_gib": 112.60894775390625,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 249.49656394706108,
+      "gpu_pct": 86,
+      "power_w": 48.896,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.892753601074219,
+      "host_available_gib": 112.60500717163086,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 250.49789251503535,
+      "gpu_pct": 87,
+      "power_w": 49.257,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.8945770263671875,
+      "host_available_gib": 112.60317611694336,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 251.49936269107275,
+      "gpu_pct": 92,
+      "power_w": 49.35,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.890907287597656,
+      "host_available_gib": 112.60684585571289,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 252.50184897205327,
+      "gpu_pct": 95,
+      "power_w": 49.436,
+      "temp_c": 74,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.889251708984375,
+      "host_available_gib": 112.6084976196289,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 253.50335346604697,
+      "gpu_pct": 49,
+      "power_w": 49.198,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.890007019042969,
+      "host_available_gib": 112.60773849487305,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 254.50520185602363,
+      "gpu_pct": 90,
+      "power_w": 49.265,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.892219543457031,
+      "host_available_gib": 112.60552597045898,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 255.50670708506368,
+      "gpu_pct": 86,
+      "power_w": 49.185,
+      "temp_c": 75,
+      "cpu_pct": 8.0,
+      "host_ram_gib": 7.865638732910156,
+      "host_available_gib": 112.63211822509766,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 256.5079552640673,
+      "gpu_pct": 86,
+      "power_w": 49.67,
+      "temp_c": 74,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.926155090332031,
+      "host_available_gib": 112.57160186767578,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 257.51016729197,
+      "gpu_pct": 86,
+      "power_w": 47.382,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.926799774169922,
+      "host_available_gib": 112.57095718383789,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 258.512170784059,
+      "gpu_pct": 86,
+      "power_w": 48.055,
+      "temp_c": 72,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.92401123046875,
+      "host_available_gib": 112.5737533569336,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 259.5143287630053,
+      "gpu_pct": 86,
+      "power_w": 49.393,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.932220458984375,
+      "host_available_gib": 112.56553649902344,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 260.5164851170266,
+      "gpu_pct": 86,
+      "power_w": 49.209,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.931110382080078,
+      "host_available_gib": 112.56664657592773,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 261.519535016967,
+      "gpu_pct": 89,
+      "power_w": 49.145,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.927730560302734,
+      "host_available_gib": 112.57002639770508,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 262.5215611780295,
+      "gpu_pct": 94,
+      "power_w": 49.413,
+      "temp_c": 74,
+      "cpu_pct": 6.0,
+      "host_ram_gib": 7.929840087890625,
+      "host_available_gib": 112.56791687011719,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 263.5228964650305,
+      "gpu_pct": 48,
+      "power_w": 48.873,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.927394866943359,
+      "host_available_gib": 112.57036209106445,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 264.52487707405817,
+      "gpu_pct": 53,
+      "power_w": 49.197,
+      "temp_c": 73,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.927146911621094,
+      "host_available_gib": 112.57061004638672,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 265.5272862659767,
+      "gpu_pct": 86,
+      "power_w": 49.197,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.8809967041015625,
+      "host_available_gib": 112.61675643920898,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 266.5290371449664,
+      "gpu_pct": 86,
+      "power_w": 49.425,
+      "temp_c": 74,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.931278228759766,
+      "host_available_gib": 112.56646728515625,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 267.5307065760717,
+      "gpu_pct": 88,
+      "power_w": 47.877,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.924934387207031,
+      "host_available_gib": 112.57282257080078,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 268.5318829100579,
+      "gpu_pct": 86,
+      "power_w": 48.786,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.928684234619141,
+      "host_available_gib": 112.56907272338867,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 269.5333465000149,
+      "gpu_pct": 86,
+      "power_w": 49.226,
+      "temp_c": 74,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.926933288574219,
+      "host_available_gib": 112.57081604003906,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 270.5347949300194,
+      "gpu_pct": 89,
+      "power_w": 49.121,
+      "temp_c": 74,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.928165435791016,
+      "host_available_gib": 112.5695915222168,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 271.5369434650056,
+      "gpu_pct": 86,
+      "power_w": 48.95,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.928192138671875,
+      "host_available_gib": 112.56956481933594,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 272.5381402630592,
+      "gpu_pct": 95,
+      "power_w": 49.174,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.926792144775391,
+      "host_available_gib": 112.57096481323242,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 273.5395930210361,
+      "gpu_pct": 59,
+      "power_w": 49.286,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.924228668212891,
+      "host_available_gib": 112.57352828979492,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 274.5419531969819,
+      "gpu_pct": 64,
+      "power_w": 48.817,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.9244232177734375,
+      "host_available_gib": 112.57332611083984,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 275.54385283601005,
+      "gpu_pct": 86,
+      "power_w": 49.119,
+      "temp_c": 74,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.890266418457031,
+      "host_available_gib": 112.60747909545898,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 276.5458660830045,
+      "gpu_pct": 87,
+      "power_w": 49.07,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.926204681396484,
+      "host_available_gib": 112.57154083251953,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 277.5480384749826,
+      "gpu_pct": 86,
+      "power_w": 47.558,
+      "temp_c": 76,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.909526824951172,
+      "host_available_gib": 112.58821487426758,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 278.55103170801885,
+      "gpu_pct": 86,
+      "power_w": 48.849,
+      "temp_c": 73,
+      "cpu_pct": 5.9,
+      "host_ram_gib": 7.915977478027344,
+      "host_available_gib": 112.581787109375,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 279.5534929650603,
+      "gpu_pct": 86,
+      "power_w": 49.001,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.905368804931641,
+      "host_available_gib": 112.59239196777344,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 280.5552419089945,
+      "gpu_pct": 86,
+      "power_w": 49.157,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.902690887451172,
+      "host_available_gib": 112.5950698852539,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 281.556892461027,
+      "gpu_pct": 86,
+      "power_w": 49.389,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.900550842285156,
+      "host_available_gib": 112.59720611572266,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 282.55909764696844,
+      "gpu_pct": 94,
+      "power_w": 49.522,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.899265289306641,
+      "host_available_gib": 112.59849166870117,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 283.56065341597423,
+      "gpu_pct": 50,
+      "power_w": 48.884,
+      "temp_c": 75,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.906951904296875,
+      "host_available_gib": 112.59080505371094,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 284.5615293850424,
+      "gpu_pct": 73,
+      "power_w": 48.788,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.868659973144531,
+      "host_available_gib": 112.62908935546875,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 285.5629432509886,
+      "gpu_pct": 88,
+      "power_w": 49.293,
+      "temp_c": 75,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.896003723144531,
+      "host_available_gib": 112.60174560546875,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 286.56485781504307,
+      "gpu_pct": 86,
+      "power_w": 48.895,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.8960723876953125,
+      "host_available_gib": 112.60167694091797,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 287.5671583240619,
+      "gpu_pct": 86,
+      "power_w": 47.909,
+      "temp_c": 71,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.896934509277344,
+      "host_available_gib": 112.6008071899414,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 288.5700396740576,
+      "gpu_pct": 90,
+      "power_w": 50.425,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.817333221435547,
+      "host_available_gib": 112.6804084777832,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 289.5712500070222,
+      "gpu_pct": 86,
+      "power_w": 48.952,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.816143035888672,
+      "host_available_gib": 112.68160629272461,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 290.5725680759642,
+      "gpu_pct": 87,
+      "power_w": 39.4,
+      "temp_c": 69,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.923732757568359,
+      "host_available_gib": 112.57401275634766,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 291.5740880110534,
+      "gpu_pct": 86,
+      "power_w": 45.404,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.921825408935547,
+      "host_available_gib": 112.57593154907227,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 292.5759910120396,
+      "gpu_pct": 86,
+      "power_w": 47.44,
+      "temp_c": 71,
+      "cpu_pct": 5.9,
+      "host_ram_gib": 7.912532806396484,
+      "host_available_gib": 112.5852165222168,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 293.5779067890253,
+      "gpu_pct": 86,
+      "power_w": 49.147,
+      "temp_c": 74,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.917579650878906,
+      "host_available_gib": 112.5801773071289,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 294.5807460329961,
+      "gpu_pct": 87,
+      "power_w": 49.077,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.912742614746094,
+      "host_available_gib": 112.58501434326172,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 295.582687171991,
+      "gpu_pct": 86,
+      "power_w": 49.27,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.912822723388672,
+      "host_available_gib": 112.58487319946289,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 296.5840655040229,
+      "gpu_pct": 87,
+      "power_w": 49.418,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.913368225097656,
+      "host_available_gib": 112.58438110351562,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 297.5865676699905,
+      "gpu_pct": 95,
+      "power_w": 49.268,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.9156646728515625,
+      "host_available_gib": 112.58208465576172,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 298.589502086048,
+      "gpu_pct": 47,
+      "power_w": 49.073,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.913177490234375,
+      "host_available_gib": 112.58456802368164,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 299.59223740699235,
+      "gpu_pct": 86,
+      "power_w": 49.463,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.838321685791016,
+      "host_available_gib": 112.659423828125,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 300.5935662710108,
+      "gpu_pct": 86,
+      "power_w": 49.385,
+      "temp_c": 74,
+      "cpu_pct": 5.9,
+      "host_ram_gib": 7.912548065185547,
+      "host_available_gib": 112.585205078125,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 301.5959604260279,
+      "gpu_pct": 86,
+      "power_w": 49.074,
+      "temp_c": 73,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.911323547363281,
+      "host_available_gib": 112.58642578125,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 302.5992956960108,
+      "gpu_pct": 86,
+      "power_w": 47.34,
+      "temp_c": 76,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.909534454345703,
+      "host_available_gib": 112.58822250366211,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 303.6020543340128,
+      "gpu_pct": 86,
+      "power_w": 49.302,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.915439605712891,
+      "host_available_gib": 112.58232498168945,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 304.6031771720154,
+      "gpu_pct": 86,
+      "power_w": 49.458,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.913482666015625,
+      "host_available_gib": 112.58427047729492,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 305.6049304200569,
+      "gpu_pct": 86,
+      "power_w": 49.649,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.916984558105469,
+      "host_available_gib": 112.58077621459961,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 306.6079978069756,
+      "gpu_pct": 86,
+      "power_w": 49.184,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.916748046875,
+      "host_available_gib": 112.58101272583008,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 307.6097240980016,
+      "gpu_pct": 88,
+      "power_w": 49.448,
+      "temp_c": 75,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.924873352050781,
+      "host_available_gib": 112.57288360595703,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 308.6111597099807,
+      "gpu_pct": 95,
+      "power_w": 49.898,
+      "temp_c": 75,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.919471740722656,
+      "host_available_gib": 112.57828521728516,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 309.6130457330728,
+      "gpu_pct": 46,
+      "power_w": 49.609,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.920204162597656,
+      "host_available_gib": 112.57754898071289,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 310.6146505490178,
+      "gpu_pct": 86,
+      "power_w": 49.649,
+      "temp_c": 75,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.9197845458984375,
+      "host_available_gib": 112.5779800415039,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 311.61565755098127,
+      "gpu_pct": 86,
+      "power_w": 49.642,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.916416168212891,
+      "host_available_gib": 112.58134841918945,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 312.6175607549958,
+      "gpu_pct": 90,
+      "power_w": 48.973,
+      "temp_c": 75,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.919017791748047,
+      "host_available_gib": 112.57874298095703,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 313.6200380810769,
+      "gpu_pct": 89,
+      "power_w": 48.657,
+      "temp_c": 71,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.9195404052734375,
+      "host_available_gib": 112.57821655273438,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 314.62105826404877,
+      "gpu_pct": 86,
+      "power_w": 49.322,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.917659759521484,
+      "host_available_gib": 112.58009338378906,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 315.6230640580179,
+      "gpu_pct": 86,
+      "power_w": 49.419,
+      "temp_c": 73,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.916229248046875,
+      "host_available_gib": 112.58152389526367,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 316.624996453058,
+      "gpu_pct": 86,
+      "power_w": 49.456,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.924152374267578,
+      "host_available_gib": 112.57360458374023,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 317.6262422669679,
+      "gpu_pct": 89,
+      "power_w": 49.259,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.921455383300781,
+      "host_available_gib": 112.57630157470703,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 318.6281191459857,
+      "gpu_pct": 95,
+      "power_w": 49.133,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.9227752685546875,
+      "host_available_gib": 112.5749740600586,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 319.630186356022,
+      "gpu_pct": 58,
+      "power_w": 49.52,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.922756195068359,
+      "host_available_gib": 112.57500457763672,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 320.63255994406063,
+      "gpu_pct": 53,
+      "power_w": 49.467,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.847393035888672,
+      "host_available_gib": 112.65037155151367,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 321.6336544220103,
+      "gpu_pct": 86,
+      "power_w": 49.645,
+      "temp_c": 75,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.916297912597656,
+      "host_available_gib": 112.58146667480469,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 322.63525121402927,
+      "gpu_pct": 86,
+      "power_w": 49.525,
+      "temp_c": 76,
+      "cpu_pct": 5.9,
+      "host_ram_gib": 7.919780731201172,
+      "host_available_gib": 112.57797622680664,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 323.63635243300814,
+      "gpu_pct": 86,
+      "power_w": 48.24,
+      "temp_c": 76,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.920799255371094,
+      "host_available_gib": 112.57696151733398,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 324.637906413991,
+      "gpu_pct": 86,
+      "power_w": 49.35,
+      "temp_c": 75,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.919429779052734,
+      "host_available_gib": 112.57833099365234,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 325.63905838900246,
+      "gpu_pct": 86,
+      "power_w": 49.531,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.919811248779297,
+      "host_available_gib": 112.57795333862305,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 326.64156109502073,
+      "gpu_pct": 89,
+      "power_w": 49.033,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.920413970947266,
+      "host_available_gib": 112.57734680175781,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 327.64482509100344,
+      "gpu_pct": 87,
+      "power_w": 49.304,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.921573638916016,
+      "host_available_gib": 112.57618713378906,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 328.6473582020262,
+      "gpu_pct": 93,
+      "power_w": 49.662,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.920200347900391,
+      "host_available_gib": 112.57756042480469,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 329.64837194699794,
+      "gpu_pct": 50,
+      "power_w": 49.428,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.890216827392578,
+      "host_available_gib": 112.60754776000977,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 330.6494109190535,
+      "gpu_pct": 86,
+      "power_w": 49.269,
+      "temp_c": 75,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.918727874755859,
+      "host_available_gib": 112.57903289794922,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 331.65215450897813,
+      "gpu_pct": 86,
+      "power_w": 49.601,
+      "temp_c": 74,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.920322418212891,
+      "host_available_gib": 112.57743835449219,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 332.65490353503264,
+      "gpu_pct": 86,
+      "power_w": 49.652,
+      "temp_c": 76,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.920867919921875,
+      "host_available_gib": 112.5768928527832,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 333.6563140420476,
+      "gpu_pct": 86,
+      "power_w": 47.891,
+      "temp_c": 72,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.925422668457031,
+      "host_available_gib": 112.57233047485352,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 334.6577432489721,
+      "gpu_pct": 86,
+      "power_w": 49.408,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.918743133544922,
+      "host_available_gib": 112.57900619506836,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 335.65969488199335,
+      "gpu_pct": 86,
+      "power_w": 49.783,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.918659210205078,
+      "host_available_gib": 112.57909393310547,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 336.66210630198475,
+      "gpu_pct": 86,
+      "power_w": 49.627,
+      "temp_c": 76,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.9201812744140625,
+      "host_available_gib": 112.57757186889648,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 337.6639713490149,
+      "gpu_pct": 88,
+      "power_w": 49.684,
+      "temp_c": 75,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.923435211181641,
+      "host_available_gib": 112.57432556152344,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 338.66646296705585,
+      "gpu_pct": 95,
+      "power_w": 49.524,
+      "temp_c": 76,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.918926239013672,
+      "host_available_gib": 112.57883834838867,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 339.66750042000785,
+      "gpu_pct": 50,
+      "power_w": 49.944,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.9217071533203125,
+      "host_available_gib": 112.57605743408203,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 340.6694138830062,
+      "gpu_pct": 55,
+      "power_w": 49.383,
+      "temp_c": 75,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.920955657958984,
+      "host_available_gib": 112.57680892944336,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 341.6719660300296,
+      "gpu_pct": 86,
+      "power_w": 49.859,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.928764343261719,
+      "host_available_gib": 112.56899642944336,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 342.6732281399891,
+      "gpu_pct": 86,
+      "power_w": 49.528,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.9233245849609375,
+      "host_available_gib": 112.57443618774414,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 343.6750244849827,
+      "gpu_pct": 86,
+      "power_w": 48.48,
+      "temp_c": 76,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.92254638671875,
+      "host_available_gib": 112.57521057128906,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 344.6778516250197,
+      "gpu_pct": 90,
+      "power_w": 48.725,
+      "temp_c": 71,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.928977966308594,
+      "host_available_gib": 112.56877517700195,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 345.6793930489803,
+      "gpu_pct": 86,
+      "power_w": 49.454,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.923210144042969,
+      "host_available_gib": 112.57454681396484,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 346.68193851504475,
+      "gpu_pct": 86,
+      "power_w": 49.606,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.920326232910156,
+      "host_available_gib": 112.57742691040039,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 347.68512509705033,
+      "gpu_pct": 87,
+      "power_w": 49.621,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.921482086181641,
+      "host_available_gib": 112.5762710571289,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 348.6880843460094,
+      "gpu_pct": 90,
+      "power_w": 49.535,
+      "temp_c": 75,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.923870086669922,
+      "host_available_gib": 112.57388305664062,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 349.69086167006753,
+      "gpu_pct": 57,
+      "power_w": 49.809,
+      "temp_c": 74,
+      "cpu_pct": 6.7,
+      "host_ram_gib": 7.951808929443359,
+      "host_available_gib": 112.54594421386719,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 350.6921377420658,
+      "gpu_pct": 70,
+      "power_w": 49.559,
+      "temp_c": 76,
+      "cpu_pct": 6.9,
+      "host_ram_gib": 7.926414489746094,
+      "host_available_gib": 112.57134628295898,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 351.69355934497435,
+      "gpu_pct": 86,
+      "power_w": 49.89,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.915611267089844,
+      "host_available_gib": 112.58214950561523,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 352.69518979196437,
+      "gpu_pct": 86,
+      "power_w": 49.97,
+      "temp_c": 74,
+      "cpu_pct": 5.9,
+      "host_ram_gib": 7.910388946533203,
+      "host_available_gib": 112.58737182617188,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 353.69778101798147,
+      "gpu_pct": 86,
+      "power_w": 47.788,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.907932281494141,
+      "host_available_gib": 112.58982467651367,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 354.7007905440405,
+      "gpu_pct": 86,
+      "power_w": 49.624,
+      "temp_c": 71,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.920249938964844,
+      "host_available_gib": 112.57750701904297,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 355.70308470504824,
+      "gpu_pct": 86,
+      "power_w": 49.719,
+      "temp_c": 73,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.918052673339844,
+      "host_available_gib": 112.57970428466797,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 356.70480244606733,
+      "gpu_pct": 86,
+      "power_w": 49.935,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.916210174560547,
+      "host_available_gib": 112.58154296875,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 357.7072448710678,
+      "gpu_pct": 88,
+      "power_w": 49.498,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.919948577880859,
+      "host_available_gib": 112.57780075073242,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 358.70927885896526,
+      "gpu_pct": 89,
+      "power_w": 49.484,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.919212341308594,
+      "host_available_gib": 112.57853317260742,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 359.71198098699097,
+      "gpu_pct": 71,
+      "power_w": 49.66,
+      "temp_c": 76,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.848968505859375,
+      "host_available_gib": 112.6487808227539,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 360.7144020709675,
+      "gpu_pct": 62,
+      "power_w": 49.752,
+      "temp_c": 75,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.919120788574219,
+      "host_available_gib": 112.57863998413086,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 361.71699033502955,
+      "gpu_pct": 86,
+      "power_w": 49.781,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.918567657470703,
+      "host_available_gib": 112.57919311523438,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 362.71969605004415,
+      "gpu_pct": 86,
+      "power_w": 49.594,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.920234680175781,
+      "host_available_gib": 112.57752227783203,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 363.72233886504546,
+      "gpu_pct": 86,
+      "power_w": 48.227,
+      "temp_c": 77,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.915443420410156,
+      "host_available_gib": 112.58231353759766,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 364.7245571160456,
+      "gpu_pct": 86,
+      "power_w": 49.527,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.913627624511719,
+      "host_available_gib": 112.5841293334961,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 365.7262026440585,
+      "gpu_pct": 86,
+      "power_w": 49.695,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.914012908935547,
+      "host_available_gib": 112.58373260498047,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 366.7279498639982,
+      "gpu_pct": 86,
+      "power_w": 49.877,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.915729522705078,
+      "host_available_gib": 112.58201599121094,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 367.729214631021,
+      "gpu_pct": 86,
+      "power_w": 50.0,
+      "temp_c": 75,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.915576934814453,
+      "host_available_gib": 112.58217239379883,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 368.73102968302555,
+      "gpu_pct": 88,
+      "power_w": 49.831,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.914485931396484,
+      "host_available_gib": 112.58326721191406,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 369.73294340306893,
+      "gpu_pct": 85,
+      "power_w": 49.901,
+      "temp_c": 76,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.90960693359375,
+      "host_available_gib": 112.58814239501953,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 370.734477599035,
+      "gpu_pct": 75,
+      "power_w": 50.059,
+      "temp_c": 77,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.909030914306641,
+      "host_available_gib": 112.5887336730957,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 371.7359276639763,
+      "gpu_pct": 86,
+      "power_w": 49.948,
+      "temp_c": 76,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.908161163330078,
+      "host_available_gib": 112.58960342407227,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 372.737087532063,
+      "gpu_pct": 86,
+      "power_w": 49.664,
+      "temp_c": 76,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.908573150634766,
+      "host_available_gib": 112.58918762207031,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 373.7393373809755,
+      "gpu_pct": 86,
+      "power_w": 47.857,
+      "temp_c": 77,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.908012390136719,
+      "host_available_gib": 112.5897445678711,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 374.7407693390269,
+      "gpu_pct": 86,
+      "power_w": 49.707,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.910240173339844,
+      "host_available_gib": 112.5875129699707,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 375.7424120120704,
+      "gpu_pct": 89,
+      "power_w": 49.882,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.926490783691406,
+      "host_available_gib": 112.57126235961914,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 376.7439772100188,
+      "gpu_pct": 86,
+      "power_w": 49.834,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.928783416748047,
+      "host_available_gib": 112.56896209716797,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 377.745227028965,
+      "gpu_pct": 90,
+      "power_w": 49.8,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.9278564453125,
+      "host_available_gib": 112.56988525390625,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 378.74712965998333,
+      "gpu_pct": 66,
+      "power_w": 49.537,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.848812103271484,
+      "host_available_gib": 112.64892578125,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 379.748789743986,
+      "gpu_pct": 51,
+      "power_w": 49.722,
+      "temp_c": 74,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.928417205810547,
+      "host_available_gib": 112.56932067871094,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 380.7515640150523,
+      "gpu_pct": 85,
+      "power_w": 49.54,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.925342559814453,
+      "host_available_gib": 112.57240676879883,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 381.75424570706673,
+      "gpu_pct": 86,
+      "power_w": 49.947,
+      "temp_c": 76,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.852321624755859,
+      "host_available_gib": 112.64543533325195,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 382.75680104398634,
+      "gpu_pct": 84,
+      "power_w": 49.709,
+      "temp_c": 76,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.8497314453125,
+      "host_available_gib": 112.64802169799805,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 383.7585641860496,
+      "gpu_pct": 88,
+      "power_w": 47.652,
+      "temp_c": 71,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.852939605712891,
+      "host_available_gib": 112.64480209350586,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 384.7607631010469,
+      "gpu_pct": 87,
+      "power_w": 38.764,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 8.004867553710938,
+      "host_available_gib": 112.49288177490234,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 385.7631216919981,
+      "gpu_pct": 87,
+      "power_w": 50.338,
+      "temp_c": 77,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 8.06380844116211,
+      "host_available_gib": 112.4339370727539,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 386.76549787900876,
+      "gpu_pct": 87,
+      "power_w": 50.439,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 8.060436248779297,
+      "host_available_gib": 112.43731689453125,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 387.7668249930721,
+      "gpu_pct": 87,
+      "power_w": 48.954,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 8.057510375976562,
+      "host_available_gib": 112.44024276733398,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 388.76820325502194,
+      "gpu_pct": 87,
+      "power_w": 50.525,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 8.035968780517578,
+      "host_available_gib": 112.46178436279297,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 389.76987709803507,
+      "gpu_pct": 87,
+      "power_w": 50.577,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 8.019950866699219,
+      "host_available_gib": 112.47780227661133,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 390.77125561097637,
+      "gpu_pct": 91,
+      "power_w": 50.329,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 8.005287170410156,
+      "host_available_gib": 112.49245071411133,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 391.7724716240773,
+      "gpu_pct": 73,
+      "power_w": 50.467,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.970493316650391,
+      "host_available_gib": 112.52727127075195,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 392.77418488205876,
+      "gpu_pct": 91,
+      "power_w": 50.535,
+      "temp_c": 76,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.957340240478516,
+      "host_available_gib": 112.54042053222656,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 393.7763443769654,
+      "gpu_pct": 87,
+      "power_w": 50.699,
+      "temp_c": 76,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.946502685546875,
+      "host_available_gib": 112.5512580871582,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 394.77774740499444,
+      "gpu_pct": 87,
+      "power_w": 50.795,
+      "temp_c": 78,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.939975738525391,
+      "host_available_gib": 112.55778503417969,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 395.7796289100079,
+      "gpu_pct": 87,
+      "power_w": 49.23,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.939182281494141,
+      "host_available_gib": 112.55856704711914,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 396.7825482360786,
+      "gpu_pct": 89,
+      "power_w": 50.669,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.92987060546875,
+      "host_available_gib": 112.56787872314453,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 397.78494035906624,
+      "gpu_pct": 90,
+      "power_w": 50.651,
+      "temp_c": 76,
+      "cpu_pct": 5.8,
+      "host_ram_gib": 7.920589447021484,
+      "host_available_gib": 112.57715606689453,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 398.7870100790169,
+      "gpu_pct": 92,
+      "power_w": 50.897,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.912586212158203,
+      "host_available_gib": 112.58515930175781,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 399.7891768210102,
+      "gpu_pct": 90,
+      "power_w": 50.83,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.9079742431640625,
+      "host_available_gib": 112.58977127075195,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 400.7911700080149,
+      "gpu_pct": 67,
+      "power_w": 51.074,
+      "temp_c": 78,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.902759552001953,
+      "host_available_gib": 112.59497451782227,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 401.79378652002197,
+      "gpu_pct": 87,
+      "power_w": 50.768,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.902198791503906,
+      "host_available_gib": 112.59556198120117,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 402.7963698609965,
+      "gpu_pct": 87,
+      "power_w": 50.826,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.9033050537109375,
+      "host_available_gib": 112.59445571899414,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 403.79946171096526,
+      "gpu_pct": 89,
+      "power_w": 49.402,
+      "temp_c": 74,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.900669097900391,
+      "host_available_gib": 112.59708786010742,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 404.80069167306647,
+      "gpu_pct": 87,
+      "power_w": 50.781,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.899486541748047,
+      "host_available_gib": 112.5982666015625,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 405.8021456960123,
+      "gpu_pct": 87,
+      "power_w": 50.878,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.903881072998047,
+      "host_available_gib": 112.59387588500977,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 406.8032024690183,
+      "gpu_pct": 88,
+      "power_w": 50.776,
+      "temp_c": 75,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.898704528808594,
+      "host_available_gib": 112.59904479980469,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 407.80557755799964,
+      "gpu_pct": 96,
+      "power_w": 50.473,
+      "temp_c": 76,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.895931243896484,
+      "host_available_gib": 112.60182189941406,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 408.80848659505136,
+      "gpu_pct": 53,
+      "power_w": 50.741,
+      "temp_c": 76,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.899112701416016,
+      "host_available_gib": 112.59864044189453,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 409.810574447969,
+      "gpu_pct": 87,
+      "power_w": 50.898,
+      "temp_c": 77,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.894573211669922,
+      "host_available_gib": 112.60317993164062,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 410.81242410698906,
+      "gpu_pct": 91,
+      "power_w": 50.904,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.895481109619141,
+      "host_available_gib": 112.60226821899414,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 411.8155610570684,
+      "gpu_pct": 87,
+      "power_w": 49.86,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.894081115722656,
+      "host_available_gib": 112.60368347167969,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 412.8178219110705,
+      "gpu_pct": 87,
+      "power_w": 51.102,
+      "temp_c": 78,
+      "cpu_pct": 5.9,
+      "host_ram_gib": 7.894283294677734,
+      "host_available_gib": 112.60348129272461,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 413.82091666501947,
+      "gpu_pct": 87,
+      "power_w": 50.718,
+      "temp_c": 76,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.899318695068359,
+      "host_available_gib": 112.59844207763672,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 414.822906329995,
+      "gpu_pct": 91,
+      "power_w": 51.002,
+      "temp_c": 78,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.896053314208984,
+      "host_available_gib": 112.6017074584961,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 415.8248485689983,
+      "gpu_pct": 64,
+      "power_w": 50.79,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.84185791015625,
+      "host_available_gib": 112.65590286254883,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 416.8259541040752,
+      "gpu_pct": 74,
+      "power_w": 50.961,
+      "temp_c": 78,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.901374816894531,
+      "host_available_gib": 112.59638595581055,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 417.82739459502045,
+      "gpu_pct": 87,
+      "power_w": 50.946,
+      "temp_c": 78,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.900306701660156,
+      "host_available_gib": 112.59745407104492,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 418.82897375698667,
+      "gpu_pct": 87,
+      "power_w": 50.959,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.900089263916016,
+      "host_available_gib": 112.59767150878906,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 419.8317160990555,
+      "gpu_pct": 87,
+      "power_w": 50.266,
+      "temp_c": 73,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.901531219482422,
+      "host_available_gib": 112.59622955322266,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 420.8335898639634,
+      "gpu_pct": 87,
+      "power_w": 50.182,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.899486541748047,
+      "host_available_gib": 112.5982666015625,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 421.83571097103413,
+      "gpu_pct": 87,
+      "power_w": 50.937,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.898555755615234,
+      "host_available_gib": 112.59919738769531,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 422.83812159497757,
+      "gpu_pct": 92,
+      "power_w": 50.967,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.897705078125,
+      "host_available_gib": 112.60005950927734,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 423.8392456920119,
+      "gpu_pct": 82,
+      "power_w": 51.138,
+      "temp_c": 77,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.856136322021484,
+      "host_available_gib": 112.64162826538086,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 424.8404029230587,
+      "gpu_pct": 63,
+      "power_w": 50.838,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.900474548339844,
+      "host_available_gib": 112.5972900390625,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 425.8426309500355,
+      "gpu_pct": 91,
+      "power_w": 50.687,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.900684356689453,
+      "host_available_gib": 112.59707260131836,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 426.84444316802546,
+      "gpu_pct": 87,
+      "power_w": 51.216,
+      "temp_c": 78,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.90069580078125,
+      "host_available_gib": 112.59706115722656,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 427.8462417529663,
+      "gpu_pct": 87,
+      "power_w": 49.436,
+      "temp_c": 76,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.904804229736328,
+      "host_available_gib": 112.59295654296875,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 428.8478757920675,
+      "gpu_pct": 87,
+      "power_w": 50.865,
+      "temp_c": 77,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.9111480712890625,
+      "host_available_gib": 112.58660888671875,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 429.8495250620181,
+      "gpu_pct": 87,
+      "power_w": 50.936,
+      "temp_c": 78,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.9049072265625,
+      "host_available_gib": 112.59284210205078,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 430.85174178506713,
+      "gpu_pct": 93,
+      "power_w": 51.199,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.901466369628906,
+      "host_available_gib": 112.59627151489258,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 431.85361823404673,
+      "gpu_pct": 48,
+      "power_w": 50.781,
+      "temp_c": 77,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.8979949951171875,
+      "host_available_gib": 112.59976577758789,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 432.8562672419939,
+      "gpu_pct": 87,
+      "power_w": 51.413,
+      "temp_c": 76,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.8967437744140625,
+      "host_available_gib": 112.60102081298828,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 433.85776229703333,
+      "gpu_pct": 89,
+      "power_w": 51.248,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.897216796875,
+      "host_available_gib": 112.60054397583008,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 434.8588588400744,
+      "gpu_pct": 87,
+      "power_w": 50.304,
+      "temp_c": 74,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.898487091064453,
+      "host_available_gib": 112.59926986694336,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 435.859899588977,
+      "gpu_pct": 87,
+      "power_w": 51.213,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.898204803466797,
+      "host_available_gib": 112.59955596923828,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 436.86133678397164,
+      "gpu_pct": 89,
+      "power_w": 50.965,
+      "temp_c": 79,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.896465301513672,
+      "host_available_gib": 112.60128784179688,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 437.8639853360364,
+      "gpu_pct": 87,
+      "power_w": 51.255,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.8966217041015625,
+      "host_available_gib": 112.60113143920898,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 438.86566342401784,
+      "gpu_pct": 94,
+      "power_w": 51.307,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.9002227783203125,
+      "host_available_gib": 112.59753036499023,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 439.86773733398877,
+      "gpu_pct": 53,
+      "power_w": 51.319,
+      "temp_c": 77,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.897148132324219,
+      "host_available_gib": 112.60060119628906,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 440.8691429400351,
+      "gpu_pct": 87,
+      "power_w": 51.152,
+      "temp_c": 79,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.89794921875,
+      "host_available_gib": 112.59978866577148,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 441.871160240029,
+      "gpu_pct": 91,
+      "power_w": 51.13,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.896961212158203,
+      "host_available_gib": 112.60077667236328,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 442.8727685160702,
+      "gpu_pct": 87,
+      "power_w": 50.124,
+      "temp_c": 75,
+      "cpu_pct": 6.7,
+      "host_ram_gib": 7.9163818359375,
+      "host_available_gib": 112.58137130737305,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 443.8752841160167,
+      "gpu_pct": 87,
+      "power_w": 50.666,
+      "temp_c": 77,
+      "cpu_pct": 7.4,
+      "host_ram_gib": 7.939098358154297,
+      "host_available_gib": 112.55866241455078,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 444.87701293302234,
+      "gpu_pct": 87,
+      "power_w": 51.2,
+      "temp_c": 78,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.934299468994141,
+      "host_available_gib": 112.56346130371094,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 445.8787152840523,
+      "gpu_pct": 87,
+      "power_w": 51.18,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.9300384521484375,
+      "host_available_gib": 112.56771850585938,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 446.88050505903084,
+      "gpu_pct": 96,
+      "power_w": 51.284,
+      "temp_c": 77,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.857280731201172,
+      "host_available_gib": 112.6404800415039,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 447.8818779370049,
+      "gpu_pct": 50,
+      "power_w": 51.217,
+      "temp_c": 79,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.920322418212891,
+      "host_available_gib": 112.57743835449219,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 448.8838543490274,
+      "gpu_pct": 87,
+      "power_w": 51.217,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.926677703857422,
+      "host_available_gib": 112.57108306884766,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 449.88572213600855,
+      "gpu_pct": 87,
+      "power_w": 51.302,
+      "temp_c": 77,
+      "cpu_pct": 5.7,
+      "host_ram_gib": 7.922084808349609,
+      "host_available_gib": 112.57567596435547,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 450.8880320179742,
+      "gpu_pct": 87,
+      "power_w": 51.108,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.9197845458984375,
+      "host_available_gib": 112.57797622680664,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 451.8906959780725,
+      "gpu_pct": 87,
+      "power_w": 49.508,
+      "temp_c": 74,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.919288635253906,
+      "host_available_gib": 112.57847213745117,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 452.8921863710275,
+      "gpu_pct": 87,
+      "power_w": 50.897,
+      "temp_c": 79,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.910743713378906,
+      "host_available_gib": 112.58702087402344,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 453.89330791600514,
+      "gpu_pct": 87,
+      "power_w": 51.104,
+      "temp_c": 77,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.917079925537109,
+      "host_available_gib": 112.58068084716797,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 454.8952814430231,
+      "gpu_pct": 87,
+      "power_w": 51.754,
+      "temp_c": 77,
+      "cpu_pct": 5.3,
+      "host_ram_gib": 7.910434722900391,
+      "host_available_gib": 112.58732986450195,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 455.89766823197715,
+      "gpu_pct": 93,
+      "power_w": 51.287,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.908557891845703,
+      "host_available_gib": 112.58920669555664,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 456.89939892606344,
+      "gpu_pct": 81,
+      "power_w": 51.471,
+      "temp_c": 78,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.910404205322266,
+      "host_available_gib": 112.58736038208008,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 457.9017477299785,
+      "gpu_pct": 78,
+      "power_w": 51.57,
+      "temp_c": 79,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.913776397705078,
+      "host_available_gib": 112.58398818969727,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 458.9034068060573,
+      "gpu_pct": 91,
+      "power_w": 51.445,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.9045257568359375,
+      "host_available_gib": 112.5932388305664,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 459.9058676720597,
+      "gpu_pct": 87,
+      "power_w": 50.607,
+      "temp_c": 75,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.906894683837891,
+      "host_available_gib": 112.59086990356445,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 460.9077704270603,
+      "gpu_pct": 88,
+      "power_w": 50.797,
+      "temp_c": 75,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.904518127441406,
+      "host_available_gib": 112.59323501586914,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 461.90991743607447,
+      "gpu_pct": 87,
+      "power_w": 51.345,
+      "temp_c": 77,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.903736114501953,
+      "host_available_gib": 112.5940170288086,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 462.91264623601455,
+      "gpu_pct": 87,
+      "power_w": 51.444,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.906894683837891,
+      "host_available_gib": 112.59085845947266,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 463.9154770190362,
+      "gpu_pct": 89,
+      "power_w": 51.403,
+      "temp_c": 79,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.827747344970703,
+      "host_available_gib": 112.67001342773438,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 464.917022189009,
+      "gpu_pct": 78,
+      "power_w": 51.255,
+      "temp_c": 78,
+      "cpu_pct": 5.6,
+      "host_ram_gib": 7.904994964599609,
+      "host_available_gib": 112.59276580810547,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 465.9192624120042,
+      "gpu_pct": 52,
+      "power_w": 51.217,
+      "temp_c": 76,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.905059814453125,
+      "host_available_gib": 112.59270477294922,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 466.922056170064,
+      "gpu_pct": 87,
+      "power_w": 51.143,
+      "temp_c": 79,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.910236358642578,
+      "host_available_gib": 112.58752822875977,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 467.92576435697265,
+      "gpu_pct": 87,
+      "power_w": 51.349,
+      "temp_c": 77,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.907489776611328,
+      "host_available_gib": 112.59027099609375,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 468.9297868789872,
+      "gpu_pct": 87,
+      "power_w": 50.644,
+      "temp_c": 77,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.906055450439453,
+      "host_available_gib": 112.59170532226562,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 469.93294186599087,
+      "gpu_pct": 90,
+      "power_w": 51.064,
+      "temp_c": 76,
+      "cpu_pct": 5.4,
+      "host_ram_gib": 7.907955169677734,
+      "host_available_gib": 112.58980560302734,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 470.9347335610073,
+      "gpu_pct": 87,
+      "power_w": 51.439,
+      "temp_c": 79,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.908092498779297,
+      "host_available_gib": 112.58966827392578,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 471.93661922297906,
+      "gpu_pct": 87,
+      "power_w": 51.112,
+      "temp_c": 78,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.908580780029297,
+      "host_available_gib": 112.58917999267578,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 472.9399456330575,
+      "gpu_pct": 90,
+      "power_w": 51.323,
+      "temp_c": 78,
+      "cpu_pct": 6.0,
+      "host_ram_gib": 7.830547332763672,
+      "host_available_gib": 112.66720581054688,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 473.9424675980117,
+      "gpu_pct": 74,
+      "power_w": 51.791,
+      "temp_c": 78,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.830196380615234,
+      "host_available_gib": 112.66756820678711,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    },
+    {
+      "wall_s": 474.945316425059,
+      "gpu_pct": 81,
+      "power_w": 51.734,
+      "temp_c": 77,
+      "cpu_pct": 5.5,
+      "host_ram_gib": 7.807834625244141,
+      "host_available_gib": 112.6899299621582,
+      "compute_processes": [
+        {
+          "pid": 57333,
+          "name": "/isaac-sim/kit/python/bin/python3"
+        }
+      ]
+    }
+  ],
+  "compute_processes_before": [],
+  "compute_processes_after": [],
+  "scope": "Whole GPU and host; host RAM is unified system memory, not dedicated VRAM"
+}

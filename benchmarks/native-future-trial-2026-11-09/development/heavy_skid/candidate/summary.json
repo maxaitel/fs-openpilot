@@ -1,0 +1,570 @@
+{
+  "discipline": "skidpad",
+  "result": "dnf",
+  "laps": [
+    9.55501560795921,
+    9.654134578028257
+  ],
+  "n_laps": 2,
+  "doo": 21,
+  "oc": 6,
+  "max_speed": 8.158913562884909,
+  "route": {
+    "expected_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "accepted_route": [
+      "right",
+      "right"
+    ],
+    "laps": [
+      {
+        "circle": "right",
+        "start_time": 3.2148947016321734,
+        "finish_time": 12.769910309591383,
+        "duration": 9.55501560795921,
+        "winding_right": -6.283185307179587,
+        "winding_left": -1.0755285551056204e-16
+      },
+      {
+        "circle": "right",
+        "start_time": 12.769910309591383,
+        "finish_time": 22.42404488761964,
+        "duration": 9.654134578028257,
+        "winding_right": -6.283185307179586,
+        "winding_left": 2.1163626406917047e-16
+      }
+    ],
+    "crossings": [
+      3.2148947016321734,
+      12.769910309591383,
+      22.42404488761964
+    ],
+    "complete": false,
+    "exited": false,
+    "stopped_in_zone": false,
+    "valid": true,
+    "violation": null,
+    "reverse_crossings": 0,
+    "termination": "dnf"
+  },
+  "raw_time": null,
+  "penalty": 4.2,
+  "time": null,
+  "dq": true,
+  "complete": false,
+  "pass": false,
+  "final_state": {
+    "x": 23.101913452148438,
+    "y": -4.757237434387207,
+    "yaw": -0.023114288572966664,
+    "vx": -3.8065986539135305e-09,
+    "vy": -5.9685817235004645e-09,
+    "r": 9.830966769819316e-12,
+    "steer": 0.00023155171385189955,
+    "accel": -1.0000000000000002,
+    "t": 76.25,
+    "extra": {}
+  },
+  "physical_cone_hits": 25,
+  "contact_events": [
+    {
+      "t": 4.4,
+      "control_frame": 88,
+      "cone": "/World/Cones/c0002",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 4.65,
+      "control_frame": 93,
+      "cone": "/World/Cones/c0001",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 5.8,
+      "control_frame": 116,
+      "cone": "/World/Cones/c0016",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 6.6,
+      "control_frame": 132,
+      "cone": "/World/Cones/c0015",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 23.25,
+      "control_frame": 465,
+      "cone": "/World/Cones/c0031",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 23.45,
+      "control_frame": 469,
+      "cone": "/World/Cones/c0032",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 23.85,
+      "control_frame": 477,
+      "cone": "/World/Cones/c0033",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 24.4,
+      "control_frame": 488,
+      "cone": "/World/Cones/c0017",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 24.85,
+      "control_frame": 497,
+      "cone": "/World/Cones/c0018",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 25.4,
+      "control_frame": 508,
+      "cone": "/World/Cones/c0019",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 25.95,
+      "control_frame": 519,
+      "cone": "/World/Cones/c0020",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 26.25,
+      "control_frame": 525,
+      "cone": "/World/Cones/c0021",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 26.7,
+      "control_frame": 534,
+      "cone": "/World/Cones/c0022",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 27.35,
+      "control_frame": 547,
+      "cone": "/World/Cones/c0023",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 28.65,
+      "control_frame": 573,
+      "cone": "/World/Cones/c0057",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 29.35,
+      "control_frame": 587,
+      "cone": "/World/Cones/c0058",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 30.25,
+      "control_frame": 605,
+      "cone": "/World/Cones/c0059",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 31.5,
+      "control_frame": 630,
+      "cone": "/World/Cones/c0005",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 31.8,
+      "control_frame": 636,
+      "cone": "/World/Cones/c0084",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 32.2,
+      "control_frame": 644,
+      "cone": "/World/Cones/c0085",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 32.5,
+      "control_frame": 650,
+      "cone": "/World/Cones/c0004",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 37.25,
+      "control_frame": 745,
+      "cone": "/World/Cones/c0024",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 40.2,
+      "control_frame": 804,
+      "cone": "/World/Cones/c0063",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 41.4,
+      "control_frame": 828,
+      "cone": "/World/Cones/c0007",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 43.65,
+      "control_frame": 873,
+      "cone": "/World/Cones/c0045",
+      "time_convention": "start of the control interval containing first contact"
+    }
+  ],
+  "progress": 1.0017536544018215,
+  "rms_lat": 3.6846408384947895,
+  "case": {
+    "id": "regression-skidpad-72000-heavy-recorded-visual_stress_v1",
+    "split": "regression",
+    "discipline": "skidpad",
+    "seed": 72000,
+    "dr": "heavy",
+    "variant": "visual_stress_v1",
+    "track_seed": null,
+    "frozen_case": "skidpad-72000-heavy-recorded",
+    "lateral_start": 0.0,
+    "yaw_start": 0.0
+  },
+  "pilot_only": false,
+  "events": [
+    {
+      "t": 3.2148947016321734,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    },
+    {
+      "t": 4.8,
+      "kind": "doo",
+      "data": {
+        "cone": 1,
+        "dir": -1.1093800855720877
+      }
+    },
+    {
+      "t": 12.769910309591383,
+      "kind": "line_cross",
+      "data": {
+        "n": 2
+      }
+    },
+    {
+      "t": 12.769910309591383,
+      "kind": "lap",
+      "data": {
+        "circle": "right",
+        "start_time": 3.2148947016321734,
+        "finish_time": 12.769910309591383,
+        "duration": 9.55501560795921,
+        "winding_right": -6.283185307179587,
+        "winding_left": -1.0755285551056204e-16
+      }
+    },
+    {
+      "t": 15.45,
+      "kind": "doo",
+      "data": {
+        "cone": 16,
+        "dir": -1.7493831084507623
+      }
+    },
+    {
+      "t": 22.42404488761964,
+      "kind": "line_cross",
+      "data": {
+        "n": 3
+      }
+    },
+    {
+      "t": 22.42404488761964,
+      "kind": "lap",
+      "data": {
+        "circle": "right",
+        "start_time": 12.769910309591383,
+        "finish_time": 22.42404488761964,
+        "duration": 9.654134578028257,
+        "winding_right": -6.283185307179586,
+        "winding_left": 2.1163626406917047e-16
+      }
+    },
+    {
+      "t": 23.35,
+      "kind": "doo",
+      "data": {
+        "cone": 32,
+        "dir": 0.7132617515000415
+      }
+    },
+    {
+      "t": 23.9,
+      "kind": "doo",
+      "data": {
+        "cone": 33,
+        "dir": 1.136396663341904
+      }
+    },
+    {
+      "t": 24.4,
+      "kind": "doo",
+      "data": {
+        "cone": 17,
+        "dir": 1.482219300829373
+      }
+    },
+    {
+      "t": 24.9,
+      "kind": "doo",
+      "data": {
+        "cone": 18,
+        "dir": 1.789366081995268
+      }
+    },
+    {
+      "t": 25.05,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 25.35,
+      "kind": "doo",
+      "data": {
+        "cone": 19,
+        "dir": 2.0955116519201766
+      }
+    },
+    {
+      "t": 25.85,
+      "kind": "doo",
+      "data": {
+        "cone": 20,
+        "dir": 2.4203291228423534
+      }
+    },
+    {
+      "t": 26.25,
+      "kind": "doo",
+      "data": {
+        "cone": 21,
+        "dir": 2.6780497540354795
+      }
+    },
+    {
+      "t": 26.3,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 26.75,
+      "kind": "doo",
+      "data": {
+        "cone": 22,
+        "dir": 2.9861667362849746
+      }
+    },
+    {
+      "t": 28.7,
+      "kind": "doo",
+      "data": {
+        "cone": 57,
+        "dir": -2.045748070771834
+      }
+    },
+    {
+      "t": 29.35,
+      "kind": "doo",
+      "data": {
+        "cone": 58,
+        "dir": -1.6368238919842046
+      }
+    },
+    {
+      "t": 30.3,
+      "kind": "doo",
+      "data": {
+        "cone": 59,
+        "dir": -1.1073244674789482
+      }
+    },
+    {
+      "t": 31.55,
+      "kind": "doo",
+      "data": {
+        "cone": 5,
+        "dir": -0.35091866038277814
+      }
+    },
+    {
+      "t": 31.8,
+      "kind": "doo",
+      "data": {
+        "cone": 84,
+        "dir": -0.2055736872720678
+      }
+    },
+    {
+      "t": 32.05,
+      "kind": "doo",
+      "data": {
+        "cone": 85,
+        "dir": -0.06080400019572238
+      }
+    },
+    {
+      "t": 32.15,
+      "kind": "doo",
+      "data": {
+        "cone": 4,
+        "dir": -0.008889060954018585
+      }
+    },
+    {
+      "t": 34.8,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 37.2,
+      "kind": "doo",
+      "data": {
+        "cone": 24,
+        "dir": -3.0708892898077864
+      }
+    },
+    {
+      "t": 37.35,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 38.55,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 39.75,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 40.25,
+      "kind": "doo",
+      "data": {
+        "cone": 63,
+        "dir": -1.172297896854937
+      }
+    },
+    {
+      "t": 40.8,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 41.05,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 41.4,
+      "kind": "doo",
+      "data": {
+        "cone": 7,
+        "dir": -0.4827138366097557
+      }
+    },
+    {
+      "t": 41.85,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 43.35,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 43.7,
+      "kind": "doo",
+      "data": {
+        "cone": 45,
+        "dir": 0.06862612102734392
+      }
+    },
+    {
+      "t": 44.0,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 76.25,
+      "kind": "dnf",
+      "data": {
+        "reason": "standstill"
+      }
+    }
+  ],
+  "pending_events": [
+    {
+      "t": 76.25,
+      "kind": "dnf",
+      "data": {
+        "reason": "standstill"
+      }
+    }
+  ],
+  "recorded_frames": 1525,
+  "wall_seconds": 400.18663412099704,
+  "startup_seconds": 15.331345946993679,
+  "evidence_seconds": 92.84512717684265,
+  "seconds_simulated": 76.25,
+  "real_time_factor": 0.19053609865677246,
+  "controller_contract": {
+    "version": 1,
+    "mode": "op_tangent_v1",
+    "steering": "openpilot_follower_body_vx",
+    "steering_action_time_s": 0.2,
+    "steering_min_speed_mps": 1.0,
+    "steering_delay_floor_s": 0.05,
+    "longitudinal": "knotwise_planar_tangent",
+    "action_time_s": 0.3,
+    "speed_gain": 1.5,
+    "accel_feedforward": 0.5,
+    "speed_floor_mps": 0.001,
+    "current_velocity": "measured_body_vx_vy",
+    "mission_layer": "mission_brake_after_follower",
+    "mission_brake_decel_mps2": 3.5,
+    "mission_launch_accel_mps2": 2.0
+  },
+  "checkpoint_sha256": "c121faa268d8c98bdac537974a9c21d3523a7b57cdab7f480351cbb2f98f89ac",
+  "checkpoint_sha256_after": "c121faa268d8c98bdac537974a9c21d3523a7b57cdab7f480351cbb2f98f89ac",
+  "state_sha256": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+  "state_sha256_after": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+  "frozen_unchanged": true,
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "b3963886d3ef1bc35601a743d9190f3cc621b920c10bb8d5d44c6e21cc4127b2",
+  "torch_peak_allocated_gib": 0.13738584518432617,
+  "torch_peak_reserved_gib": 0.150390625,
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130"
+  }
+}

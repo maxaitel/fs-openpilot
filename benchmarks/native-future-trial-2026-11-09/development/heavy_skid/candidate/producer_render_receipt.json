@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "numpy_version": "1.26.0",
+  "inputs": {
+    "completion_sha256": "f69f2aa0b015586fd818f596c2765d7775cfac2d755c605da8230c3d7d8a5527",
+    "artifact_audit_sha256": "3a8f7d3fcf1d75d30f074ad9621a09d8adbe5a41559d0455a788021924e2f611",
+    "frames_sha256": "300ec195553b0d9f1229b90526248f5a559162f431f113f7f32969f4b4ff61b9",
+    "telemetry_sha256": "2a1bdfb287eef9cb1a6521971ee802ebd66e029ad337ade9dc1d0b436c6d94a1",
+    "render_code_sha256": "176fcbe153412eca84bfcff85d4c1d104809aba978b240ac8bd9ae47314a7ebb",
+    "process_code_sha256": "653cfe2b52e44a9ac7fb861533fc76368627e305074cd1d870e51196e4dc48ba",
+    "wrapper_code_sha256": "c3b147573db00bebc233ac7b5c071efd8cf70df5d8f4643db6c216931f47b745"
+  },
+  "inference_frames": 1525,
+  "terminal_frames": 40,
+  "controller_contract": {
+    "accel_feedforward": 0.5,
+    "action_time_s": 0.3,
+    "current_velocity": "measured_body_vx_vy",
+    "longitudinal": "knotwise_planar_tangent",
+    "mission_brake_decel_mps2": 3.5,
+    "mission_launch_accel_mps2": 2.0,
+    "mission_layer": "mission_brake_after_follower",
+    "mode": "op_tangent_v1",
+    "speed_floor_mps": 0.001,
+    "speed_gain": 1.5,
+    "steering": "openpilot_follower_body_vx",
+    "steering_action_time_s": 0.2,
+    "steering_delay_floor_s": 0.05,
+    "steering_min_speed_mps": 1.0,
+    "version": 1
+  },
+  "raw_videos": {
+    "debug": {
+      "path": "debug-raw.mp4",
+      "sha256": "df35712eefd04e8dd6106038b82e214f18a8281474bb38f177177eea2e437f98"
+    },
+    "research": {
+      "path": "research-raw.mp4",
+      "sha256": "cd3f5c86e5103a214b43b5a67221fa0707d2693e9f947f8d41da39c7028244eb"
+    }
+  }
+}
