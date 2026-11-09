@@ -85,6 +85,35 @@ The optional in-memory feature cache is only valid with frozen vision. Before us
 
 `select_lab_action.py --training ACTION_RUN --baseline-training VISION_RUN --out NEW_RECEIPT` screens the completed recovery checkpoints before physical evaluation. Aggregate steering loss must be at most 1.25 times the original baseline. Per-episode steering must be at most twice that baseline, with a 0.0005 floor. Weighted plan L1 may increase by at most 10% and longitudinal loss by at most 25% relative to recovery step zero. These are explicit experimental screening thresholds, not safety guarantees. Every rejected checkpoint remains in the receipt; no eligible checkpoint produces a rejection result.
 
+The executed action run completed all 500 updates in 490.80 seconds, sampling 64,000 examples with replacement. Median whole-GPU utilization was 87%, median power was 48.471 W, and peak sampled host unified RAM was 8.648 GiB. Its earlier portion overlapped CPU video export, so its wall time is not an isolated speed comparison with the full-vision run. All 31,154,802 model parameters remain in the saved model; 6,949,412 policy parameters were trainable in this stage. The selector chose `step_000500.pt`, SHA-256 `1ac2e3ba949db39ab445c636f841360973e2add8c86edab689a3a872f040ce55`. Its validation steering loss is 0.00122650, weighted plan L1 is 0.892578 and longitudinal loss is 0.208606. All eight episode steering limits passed. The six-second integration pilot had zero physical contacts and its 120-frame saved-input inference replay passed. None of those results establishes a completed race or improved closed-loop driving.
+
+The cache parity probe failed the declared plan and policy-gradient tolerances, so the actual recovery run used direct image encoding. A proposed pre-update diagnostic of separate loss gradients and their pairwise cosines was omitted. The measured target disagreement remains valid, but gradient interference was not demonstrated. The trainer also recorded an additional step-1 validation, which was ineligible and did not affect checkpoint selection. Preserve these protocol deviations with the results.
+
 For final selection, `freeze_lab_selection.py` accepts repeatable `--ancestor-training RUN_DIR CHECKPOINT` pairs in chronological order. Each actual checkpoint must connect the preceding history to the next initialization and retain the complete model signature. Separate completed baseline and candidate plans can contribute paired evidence only when their sealed scene, physics, camera, runtime, source, graph and asset conditions agree. Keep original batch directories intact and use a symlinked model/case view for the final report.
 
 `archive_lab_batch.py` copies a completed, audited, video-covered batch and verifies complete remote/local SHA-256 inventories before writing a sibling receipt. It never removes remote evidence. Container-created copies must be readable by the SSH user before archival; changing file read permissions does not change the sealed contents. Preserve at least 25 GiB free on each machine.
+
+## Physical development and recovery data
+
+The action checkpoint was rejected for promotion. On the exposed heavy track, it finished in 57.65 simulated seconds with 14 physical cone contacts and zero off-course events. Its paired original baseline timed out at 120 seconds with 15 contacts and 18 off-course events. On the exposed heavy skidpad, the action checkpoint recorded 17 contacts and failed at 43.3 seconds with `outside_exit_lane`; all four circles were accepted in the required right, right, left, left order. The paired baseline finished in 46.4 seconds with three contacts. These are two exposed development cases, not a held-out completion rate.
+
+Repeated original-baseline heavy-track runs timed out with six and 15 contacts. Their initial physical states, camera transforms and cone positions match, while their raw RGB and predictions already differ at frame zero. The first observed state difference is at frame one. This establishes substantial run variability, not its exact rendering cause. Preserve both runs and avoid treating a one-contact difference as a demonstrated improvement.
+
+The first learner-prefix collection recipe handed over after eight seconds or 0.6 m lateral drift. Its first pilot finished cleanly, but at handoff the lateral and yaw errors were only 0.25156 m and 0.03263 rad. It failed the predeclared corrective-state gate. The partial `data/native/lab_v3` dataset and receipt remain intact, and no training used it.
+
+`recovery_recipe_event.json` separately freezes an event-triggered follow-up. The learner hands over at 0.4 m lateral drift, with a 120-second cap. The same corrective-state, contact-free completion and return-to-center gates remain. Eight named training episodes are proposed as replacements; 24 original training episodes and all eight validation episodes remain byte-identical. The first four must pass before the remaining four. New collection captures at 20 Hz and stores phase-zero 5 Hz training images. Retained episodes keep their older capture behavior.
+
+Run the two phases inside the Spark training container, without changing the frozen recipe or producer files between phases:
+
+```bash
+/isaac-sim/python.sh scripts/collect_lab_recovery.py \
+  --recipe docs/isaac-lab-training/recovery_recipe_event.json \
+  --source data/native/lab_v2 --out data/native/lab_v4 --phase pilot
+/isaac-sim/python.sh scripts/collect_lab_recovery.py \
+  --recipe docs/isaac-lab-training/recovery_recipe_event.json \
+  --source data/native/lab_v2 --out data/native/lab_v4 --phase remaining
+```
+
+The coordinator records exact commands and source identities, stops on the first failed gate, and refuses to silently retry failed attempts. Only a completed and independently verified v4 dataset may feed `spark_isaac_lab_recovery.yaml`. That configuration proposes 500 policy-only updates with 16 of each 128 samples drawn from the first two expert-controlled seconds after qualifying handoffs. The other 112 draws come from the remaining qualified anchors. Recovery pools must exactly match their passed, hash-bound gate receipts and exclude terminal-braking anchors. This is a declared experiment, not an established fix.
+
+Recovery selection adds `--parent-training runs/lab_v2/action_trial1` to the original vision reference. It verifies unchanged validation case identities, array hashes and selected frames across the v2 and v4 datasets, rather than requiring identical training inventories. The durable step-zero model must byte-match the immediate parent. Final ancestry verification uses each stage's own dataset through repeatable `--ancestor-dataset RUN MANIFEST RECEIPT` arguments when recorded paths are unavailable. Physical development and the frozen fresh suite remain required after offline screening.

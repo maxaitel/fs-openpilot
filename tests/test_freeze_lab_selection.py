@@ -87,10 +87,12 @@ class SelectionTests(unittest.TestCase):
         with ZipFile(training / "source.zip", "w") as archive:
             archive.writestr("fsop/source.py", b"source")
         run = {
+            "args": {"manifest": str(dataset)},
             "init_sha256": "a" * 64,
             "manifest_sha256": digest(dataset),
             "dataset_verification": {
                 "status": "verified",
+                "path": str(verification),
                 "sha256": digest(verification),
                 "manifest_sha256": digest(dataset),
                 "membership_sha256": "d" * 64,
@@ -395,10 +397,12 @@ if __name__ == "__main__":
     unittest.main()
 
 
-def test_training_chain_checks_each_checkpoint_and_run(tmp_path):
+def test_training_chain_checks_each_checkpoint_and_run(tmp_path, monkeypatch):
     import torch
 
     fixture = SelectionTests()
+    monkeypatch.setattr(selection, "validation_identity", lambda *args: {
+        "fingerprint": {"case": {"frames": [1]}}, "membership_sha256": "d" * 64, "input_sha256": {}})
     fixture.root = tmp_path
     first, dataset, verification = fixture.make_training()
     second = tmp_path / "second"

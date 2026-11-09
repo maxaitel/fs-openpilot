@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import math
 import platform
 from zipfile import ZipFile, ZIP_DEFLATED
 import time
@@ -14,6 +15,7 @@ p.add_argument("--out", type=Path, required=True)
 p.add_argument("--membership", type=Path, default=Path("docs/isaac-lab-training/membership.json"))
 p.add_argument("--checkpoint", type=Path)
 p.add_argument("--takeover", type=float, default=0.0)
+p.add_argument("--lateral-takeover", type=float, default=0.6)
 p.add_argument("--speed", type=float, default=8.0)
 p.add_argument("--alat", type=float, default=4.0)
 p.add_argument("--controller", default="pure_pursuit")
@@ -43,8 +45,13 @@ try:
         raise ValueError("Case is outside the frozen membership")
     if case.split not in ("train", "val"):
         raise ValueError("Collection permits training/development cases only")
+    if not math.isfinite(a.takeover) or a.takeover < 0:
+        raise ValueError("Takeover time must be finite and nonnegative")
+    if not math.isfinite(a.lateral_takeover) or a.lateral_takeover <= 0:
+        raise ValueError("Lateral takeover threshold must be finite and positive")
     if a.takeover and a.checkpoint is None:
         raise ValueError("Learner-prefix recovery requires a checkpoint")
+    checkpoint_sha = hashlib.sha256(a.checkpoint.read_bytes()).hexdigest() if a.checkpoint else None
     a.out.mkdir(parents=True, exist_ok=False)
     source_hashes = source_inventory()
     with ZipFile(a.out / "source.zip", "x", compression=ZIP_DEFLATED) as archive:
@@ -66,15 +73,18 @@ try:
     ticks, states, controls, teacher, desires, contacts = [], [], [], [], [], []
     latitudes = []
     taken = a.takeover <= 0
+    takeover_reason = "expert_from_start" if taken else None
+    takeover_tick = 0 if taken else None
     for frame in range(2400):
         states.append(obs.state.as_array())
         contacts.append(len(drive.hits))
         desire = ts.push_desire(obs.desire)
         latitudes.append(obs.lat)
-        if not taken and (obs.t >= a.takeover or abs(obs.lat) >= 0.6):
+        if not taken and (obs.t >= a.takeover or abs(obs.lat) >= a.lateral_takeover):
             taken = True
-        if frame % 4 == 0 or not taken:
-            obs = drive.observe(render=True)
+            takeover_tick = frame
+            takeover_reason = "lateral_threshold" if abs(obs.lat) >= a.lateral_takeover else "time_limit"
+        obs = drive.observe(render=True)
         if frame % 4 == 0:
             ticks.append(frame)
             desires.append(desire)
@@ -100,8 +110,8 @@ try:
             states.append(obs.state.as_array())
             contacts.append(len(drive.hits))
             desire = ts.push_desire(obs.desire)
+            obs = drive.observe(render=True)
             if frame % 4 == 0:
-                obs = drive.observe(render=True)
                 ticks.append(frame)
                 desires.append(desire)
                 for name in frames:
@@ -163,13 +173,23 @@ try:
         "frames": len(ticks),
         "wall_seconds": time.perf_counter() - started,
         "image_hz": 5,
+        "capture_hz": 20,
         "physics_hz": 120,
         "control_hz": 20,
         "labels": "future actually executed native expert controls; contact and horizon masks applied by dataset",
-        "checkpoint_sha256": hashlib.sha256(a.checkpoint.read_bytes()).hexdigest() if a.checkpoint else None,
+        "checkpoint_sha256": checkpoint_sha,
+        "collection_policy": {
+            "mode": "learner_prefix" if a.checkpoint and a.takeover > 0 else "expert",
+            "requested_takeover_s": a.takeover,
+            "lateral_takeover_threshold_m": a.lateral_takeover,
+            "actual_takeover_tick": takeover_tick,
+            "takeover_reason": takeover_reason,
+        },
         "arrays_sha256": {f.name: hashlib.sha256(f.read_bytes()).hexdigest() for f in a.out.glob("*.npy")},
     }
     (a.out / "track.json").write_text(json.dumps(drive.env.track.to_dict()))
+    if a.checkpoint and hashlib.sha256(a.checkpoint.read_bytes()).hexdigest() != checkpoint_sha:
+        raise RuntimeError("Learner checkpoint changed during collection")
     if source_inventory() != source_hashes:
         raise RuntimeError("Source changed during collection")
     (a.out / "meta.json").write_text(json.dumps(metadata, indent=2))

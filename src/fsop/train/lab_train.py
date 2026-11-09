@@ -15,7 +15,7 @@ import torch
 import torch.nn.functional as F
 from torch.utils.data import default_collate as collate
 
-from fsop.data.native_replay import NativeReplay, episode_paths, history_indices, load_episodes
+from fsop.data.native_replay import NativeReplay, episode_paths, history_indices, load_episodes, verify_arrays
 from fsop.model.build import PREP, load_fs
 from fsop.sim.expert import T_IDXS
 from fsop.train.device import autocast_ctx, pick_device
@@ -415,6 +415,143 @@ def validation_samples(dataset, limit):
   return selected
 
 
+
+class RecoverySampler:
+
+  def __init__(self, dataset, recipe_path, gates_dir, batch_size, recovery_draws, init_sha256):
+    if not 0 < recovery_draws < batch_size:
+      raise ValueError('recovery draws must be positive and smaller than batch size')
+    recipe_path = Path(recipe_path).resolve()
+    recipe_bytes = recipe_path.read_bytes()
+    recipe = json.loads(recipe_bytes)
+    if not isinstance(recipe, dict) or recipe.get('checkpoint_sha256') != init_sha256:
+      raise ValueError('recovery recipe checkpoint does not match initialization')
+    ids = recipe.get('recovery_case_ids') if isinstance(recipe, dict) else None
+    if (not isinstance(ids, list) or not ids or
+        any(not isinstance(x, str) or not x or Path(x).name != x or x in ('.', '..') for x in ids) or
+        len(set(ids)) != len(ids)):
+      raise ValueError('recovery recipe must contain unique recovery_case_ids')
+    recipe_sha = hashlib.sha256(recipe_bytes).hexdigest()
+    if not gates_dir:
+      raise ValueError('recovery gates directory is required')
+    gates_dir = Path(gates_dir).resolve()
+    if not gates_dir.is_dir():
+      raise ValueError('recovery gates directory does not exist')
+    by_id = {}
+    marked = set()
+    for ei, ep in enumerate(dataset.episodes):
+      if ep.meta['split'] != 'train':
+        continue
+      case_id = ep.meta.get('id')
+      if case_id in by_id:
+        raise ValueError('duplicate training case identity')
+      by_id[case_id] = ei
+      if ep.meta.get('collection_policy', {}).get('mode') == 'learner_prefix':
+        marked.add(case_id)
+    if set(ids) != marked or not set(ids).issubset(by_id):
+      raise ValueError('recovery recipe case IDs must match learner-prefix training episodes')
+    index_by_episode = {}
+    for index, (ei, frame) in enumerate(dataset.index):
+      index_by_episode.setdefault(ei, []).append((index, frame))
+    self.groups = []
+    self.recovery_indices = set()
+    for case_id in ids:
+      ei = by_id[case_id]
+      ep = dataset.episodes[ei]
+      policy = ep.meta['collection_policy']
+      tick = policy.get('actual_takeover_tick')
+      if (type(tick) is not int or tick <= 0 or tick >= len(ep.teacher) or
+          np.any(ep.teacher[:tick]) or not np.all(ep.teacher[tick:]) or
+          ep.meta.get('control_hz') != 20 or ep.meta.get('checkpoint_sha256') != init_sha256):
+        raise ValueError(f'{case_id}: invalid teacher handoff, control frequency, or learner checkpoint')
+      terminal = ep.meta.get('terminal_continuation', {})
+      terminal_tick = terminal.get('start_tick')
+      if (type(terminal_tick) is not int or not tick < terminal_tick <= len(ep.teacher) or
+          terminal.get('end_tick') != len(ep.teacher) or len(ep.teacher) - terminal_tick != 200 or
+          terminal.get('contacts') != 0):
+        raise ValueError(f'{case_id}: invalid terminal continuation')
+      anchors = [(index, frame) for index, frame in index_by_episode.get(ei, [])
+                 if tick <= int(ep.ticks[frame]) < min(tick + 40, terminal_tick)]
+      if len(anchors) < 8:
+        raise ValueError(f'{case_id}: fewer than eight qualified recovery anchors')
+      receipt_path = gates_dir / f'{case_id}.json'
+      try:
+        receipt_bytes = receipt_path.read_bytes()
+        receipt = json.loads(receipt_bytes)
+        meta_bytes = (ep.path / 'meta.json').read_bytes()
+        disk_meta = json.loads(meta_bytes)
+        verify_arrays(ep.path, ep.meta.get('arrays_sha256'))
+        source_sha = sha256(ep.path / 'source.zip')
+        hashes = receipt.get('hashes', {})
+        if (type(receipt.get('schema_version')) is not int or receipt['schema_version'] != 1 or
+            receipt.get('passed') is not True or
+            receipt.get('reasons') != [] or receipt.get('case_id') != case_id or
+            Path(receipt.get('episode', '')).resolve() != ep.path.resolve() or
+            Path(receipt.get('recipe', '')).resolve() != recipe_path or disk_meta != ep.meta or
+            hashes.get('recipe_sha256') != recipe_sha or
+            hashes.get('meta_sha256') != hashlib.sha256(meta_bytes).hexdigest() or
+            hashes.get('arrays_sha256') != ep.meta.get('arrays_sha256') or
+            hashes.get('source_archive_sha256') != source_sha or
+            source_sha != ep.meta.get('source_archive_sha256') or
+            receipt.get('takeover_tick') != tick or receipt.get('terminal_start_tick') != terminal_tick or
+            receipt.get('recovery_frame_indices') != [frame for _, frame in anchors] or
+            receipt.get('recovery_ticks') != [int(ep.ticks[frame]) for _, frame in anchors]):
+          raise ValueError('receipt does not match episode, recipe, or selected anchors')
+      except (OSError, ValueError, TypeError, AttributeError) as exc:
+        raise ValueError(f'{case_id}: invalid recovery gate: {exc}') from exc
+      self.recovery_indices.update(index for index, _ in anchors)
+      self.groups.append({'case_id': case_id, 'episode': ei, 'takeover_tick': tick,
+                          'gate_path': str(receipt_path), 'gate_sha256': hashlib.sha256(receipt_bytes).hexdigest(),
+                          'terminal_start_tick': terminal_tick, 'indices': [index for index, _ in anchors],
+                          'frames': [frame for _, frame in anchors],
+                          'ticks': [int(ep.ticks[frame]) for _, frame in anchors]})
+    self.other = np.array([i for i in range(len(dataset)) if i not in self.recovery_indices], dtype=np.int64)
+    if not len(self.other):
+      raise ValueError('non-recovery training pool is empty')
+    self.dataset = dataset
+    self.batch_size = batch_size
+    self.recovery_draws = recovery_draws
+    self.counts = np.zeros(len(dataset), dtype=np.int64)
+    self.recipe_path = recipe_path
+    self.recipe_sha256 = recipe_sha
+
+  def draw(self, rng):
+    choices = rng.integers(len(self.groups), size=self.recovery_draws)
+    recovery = [self.groups[int(group)]['indices'][int(rng.integers(len(self.groups[int(group)]['indices'])))]
+                for group in choices]
+    other = self.other[rng.integers(len(self.other), size=self.batch_size - self.recovery_draws)]
+    result = np.concatenate((np.asarray(recovery, dtype=np.int64), other))
+    rng.shuffle(result)
+    np.add.at(self.counts, result, 1)
+    return result
+
+  def protocol(self):
+    other_groups = {}
+    for index in self.other:
+      ei, frame = self.dataset.index[int(index)]
+      other_groups.setdefault(ei, []).append(frame)
+    return {'recipe_path': str(self.recipe_path), 'recipe_sha256': self.recipe_sha256,
+            'window_ticks': 40, 'control_hz': 20, 'with_replacement': True,
+            'recovery_draws_per_batch': self.recovery_draws,
+            'other_draws_per_batch': self.batch_size - self.recovery_draws,
+            'recovery_episode_probability': 1 / len(self.groups),
+            'other_anchor_probability': 1 / len(self.other),
+            'recovery_anchor_count': len(self.recovery_indices), 'other_anchor_count': len(self.other),
+            'recovery_episodes': [{**g, 'anchor_probability': 1 / (len(self.groups) * len(g['indices']))}
+                                  for g in self.groups],
+            'other_episodes': [{'case_id': self.dataset.episodes[ei].meta['id'],
+                                'episode': ei, 'frames': frames}
+                               for ei, frames in other_groups.items()]}
+
+  def draw_counts(self):
+    return {'total_draws': int(self.counts.sum()),
+            'recovery_draws': int(sum(self.counts[i] for i in self.recovery_indices)),
+            'episodes': [{'case_id': ep.meta['id'],
+                          'anchors': [{'frame': frame, 'draws': int(self.counts[i])}
+                                      for i, (episode, frame) in enumerate(self.dataset.index) if episode == ei]}
+                         for ei, ep in enumerate(self.dataset.episodes) if ep.meta['split'] == 'train']}
+
+
 def validate(model, dataset, selected, device, args, cache=None):
   """Evaluate the same episode-balanced anchor set in FP32 regardless of training AMP."""
   episodes = []
@@ -472,6 +609,13 @@ def run(args):
     raise ValueError('manifest or episode metadata changed while loading')
   train, val = NativeReplay(episodes, 'train'), NativeReplay(episodes, 'val')
   validation_selection = validation_samples(val, args.val_samples)
+  recovery_cases = getattr(args, 'recovery_cases', None)
+  recovery_draws = getattr(args, 'recovery_draws', 0)
+  recovery_gates = getattr(args, 'recovery_gates', None)
+  if len({bool(recovery_cases), bool(recovery_draws), bool(recovery_gates)}) != 1:
+    raise ValueError('recovery cases, gates, and positive recovery draws must be supplied together')
+  sampler = (RecoverySampler(train, recovery_cases, recovery_gates, args.batch_size, recovery_draws, sha256(args.init))
+             if recovery_cases else None)
   device = pick_device(args.device)
   if args.amp and device.type != 'cuda':
     raise ValueError('--amp requires a CUDA device')
@@ -510,9 +654,12 @@ def run(args):
           'episodes': [{'path': str(e.path), 'split': e.meta['split'], 'accepted': len(e.anchors),
                         'attempted': len(e.ticks), 'rejected': e.rejections,
                         'meta_sha256': sha256(e.path / 'meta.json')} for e in episodes]}
+  if sampler is not None:
+    info['recovery_sampling'] = sampler.protocol()
   history_file = out / 'history.jsonl'
-  if any((out / name).exists() for name in
-         ('history.jsonl', 'run.json', 'source.zip', 'baseline_validation.json', 'selected.pt')):
+  if (any((out / name).exists() for name in
+          ('history.jsonl', 'run.json', 'source.zip', 'baseline_validation.json', 'selected.pt')) or
+      any(out.glob('step_*.pt')) or any(out.glob('sampling_counts_*.json'))):
     raise FileExistsError(f'{out} contains a run; use a new output directory')
   cache = (FrozenFeatureCache(model, [train, val], device, args.history_chunk_size,
                               args.history_context, args.channels_last)
@@ -541,13 +688,17 @@ def run(args):
   baseline['saved_state_sha256'] = save_checkpoint(baseline_state, selected, frozen_reference,
                                                    args.freeze_vision, names)
   model.load_state_dict(torch.load(selected, map_location=device, weights_only=False)['model'], strict=True)
+  initial_checkpoint = out / 'step_000000.pt'
+  save_checkpoint(baseline_state, initial_checkpoint, frozen_reference, args.freeze_vision, names)
+  baseline['checkpoint'] = str(initial_checkpoint)
+  baseline['checkpoint_sha256'] = sha256(initial_checkpoint)
   baseline['step'] = 0
   baseline['selected_sha256'] = sha256(selected)
   (out / 'baseline_validation.json').write_text(json.dumps(baseline, indent=2, allow_nan=False) + '\n')
   with history_file.open('x') as log:
     for step in range(1, args.steps + 1):
       tick = time.monotonic()
-      idx = rng.integers(len(train), size=args.batch_size)
+      idx = sampler.draw(rng) if sampler is not None else rng.integers(len(train), size=args.batch_size)
       optimizer.zero_grad(set_to_none=True)
       loss, components = batch_loss(model, train, idx, device, args.w_steer, args.w_long, args.history_chunk_size,
                                     amp=args.amp, channels_last=args.channels_last,
@@ -572,6 +723,12 @@ def run(args):
         validation = validate(model, val, validation_selection, device, args, **({'cache': cache} if cache else {}))
         score = validation['aggregate']['loss']
         row['val_loss'] = score
+        if sampler is not None:
+          counts_path = out / f'sampling_counts_{step:06d}.json'
+          counts_path.write_text(json.dumps(sampler.draw_counts(), separators=(',', ':')) + '\n')
+          row['sampling'] = {'total_draws': int(sampler.counts.sum()),
+                             'recovery_draws': int(sum(sampler.counts[i] for i in sampler.recovery_indices)),
+                             'counts_path': str(counts_path), 'counts_sha256': sha256(counts_path)}
         row['validation'] = validation
         row['nvml'] = telemetry()
         ckpt = out / f'step_{step:06d}.pt'
@@ -601,6 +758,9 @@ def main(argv=None):
   p.add_argument('--out', required=True)
   p.add_argument('--steps', type=int, default=1000)
   p.add_argument('--batch-size', type=int, default=8)
+  p.add_argument('--recovery-cases', help='frozen JSON recipe with ordered recovery_case_ids')
+  p.add_argument('--recovery-gates', help='directory of passed per-case recovery gate receipts')
+  p.add_argument('--recovery-draws', type=int, default=0)
   p.add_argument('--lr', type=float, default=1e-4)
   p.add_argument('--val-every', type=int, default=100)
   p.add_argument('--val-samples', type=int, default=128)

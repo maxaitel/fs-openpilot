@@ -18,6 +18,7 @@ from pathlib import Path
 from zipfile import ZipFile
 
 from scripts.lab_comparison import compare_conditions, comparison_conditions
+from scripts.lab_training_provenance import MEMBERSHIP, dataset_paths, validation_identity
 from scripts.run_lab_evaluations import digest, normalize_case, validate_episode
 
 
@@ -112,8 +113,9 @@ def verify_training(training, dataset, verification_path, baseline_sha, candidat
     baseline_path = training / "baseline_validation.json"
     baseline = read_json(baseline_path)
     matches = []
-    if baseline.get("selected_sha256") == candidate_sha:
-        matches.append({"file": str(baseline_path.resolve()), "field": "selected_sha256", "step": baseline.get("step")})
+    for field in ("selected_sha256", "checkpoint_sha256"):
+        if baseline.get(field) == candidate_sha:
+            matches.append({"file": str(baseline_path.resolve()), "field": field, "step": baseline.get("step")})
     for row in rows:
         for field in ("checkpoint_sha256", "selected_sha256"):
             if row.get(field) == candidate_sha:
@@ -128,14 +130,20 @@ def verify_training(training, dataset, verification_path, baseline_sha, candidat
         "baseline_validation_sha256": digest(baseline_path),
         "source_archive_sha256": digest(source_path),
         "dataset_sha256": manifest_sha,
+        "dataset": str(dataset.resolve()),
         "dataset_verification_sha256": digest(verification_path),
+        "dataset_verification": str(verification_path.resolve()),
         "membership_sha256": manifest["membership_sha256"],
         "candidate_records": matches,
     }
 
 
-def verify_training_chain(training, dataset, verification, baseline, candidate, ancestor_specs):
+def verify_training_chain(
+    training, dataset, verification, baseline, candidate, ancestor_specs, ancestor_datasets=None, membership=MEMBERSHIP
+):
     if not ancestor_specs:
+        if ancestor_datasets:
+            raise ValueError("Ancestor dataset overrides require ancestor training runs")
         return verify_training(
             training,
             dataset,
@@ -148,6 +156,12 @@ def verify_training_chain(training, dataset, verification, baseline, candidate, 
     run_paths = [run for run, _ in stages] + [Path(training).resolve()]
     if len(set(run_paths)) != len(run_paths):
         raise ValueError("Duplicate or cyclic training runs")
+    overrides = {}
+    for run, manifest, receipt in ancestor_datasets or []:
+        run = Path(run).resolve()
+        if run not in run_paths[:-1] or run in overrides:
+            raise ValueError("Unknown or duplicate ancestor dataset override")
+        overrides[run] = (manifest, receipt)
     infos = [checkpoint_info(path) for _, path in stages]
     hashes = [
         baseline["checkpoint_sha256"],
@@ -156,11 +170,24 @@ def verify_training_chain(training, dataset, verification, baseline, candidate, 
     ]
     if len(set(hashes)) != len(hashes):
         raise ValueError("Duplicate or cyclic training checkpoints")
-    if any(info["signature"] != baseline["signature"] for info in infos):
+    if any(info["signature"] != baseline["signature"] for info in [*infos, candidate]):
         raise ValueError("Ancestor checkpoint does not retain the complete model signature")
     ancestors = []
+    fingerprint = None
+    membership_sha = None
+    input_sha256 = {}
     for index, ((run, checkpoint), info) in enumerate(zip(stages, infos, strict=True)):
-        proof = verify_training(run, dataset, verification, hashes[index], hashes[index + 1], info["step"])
+        recorded = read_json(run / "run.json")
+        stage_dataset, stage_verification = dataset_paths(recorded, *overrides.get(run, (None, None)))
+        proof = verify_training(run, stage_dataset, stage_verification, hashes[index], hashes[index + 1], info["step"])
+        identity = validation_identity(recorded, stage_dataset, stage_verification, membership)
+        if fingerprint is not None and (
+            identity["fingerprint"] != fingerprint or identity["membership_sha256"] != membership_sha
+        ):
+            raise ValueError("Training chain validation fingerprint or membership differs")
+        fingerprint, membership_sha = identity["fingerprint"], identity["membership_sha256"]
+        input_sha256.update(identity["input_sha256"])
+        proof["validation_fingerprint"] = fingerprint
         ancestors.append(
             {
                 "path": str(run),
@@ -171,6 +198,12 @@ def verify_training_chain(training, dataset, verification, baseline, candidate, 
             }
         )
     proof = verify_training(training, dataset, verification, hashes[-2], hashes[-1], candidate["step"])
+    identity = validation_identity(read_json(Path(training) / "run.json"), dataset, verification, membership)
+    if identity["fingerprint"] != fingerprint or identity["membership_sha256"] != membership_sha:
+        raise ValueError("Training chain validation fingerprint or membership differs")
+    input_sha256.update(identity["input_sha256"])
+    proof["validation_fingerprint"] = fingerprint
+    proof["dataset_input_sha256"] = input_sha256
     proof["ancestors"] = ancestors
     return proof
 
@@ -381,6 +414,8 @@ def recheck_inputs(
     for row in training_provenance.get("ancestors", []):
         run = Path(row["path"])
         expected_files[Path(row["checkpoint"])] = row["checkpoint_sha256"]
+        expected_files[Path(row["dataset"])] = row["dataset_sha256"]
+        expected_files[Path(row["dataset_verification"])] = row["dataset_verification_sha256"]
         for filename, key in (
             ("run.json", "run_sha256"),
             ("history.jsonl", "history_sha256"),
@@ -388,6 +423,9 @@ def recheck_inputs(
             ("source.zip", "source_archive_sha256"),
         ):
             expected_files[run / filename] = row[key]
+    expected_files.update(
+        {Path(path): value for path, value in training_provenance.get("dataset_input_sha256", {}).items()}
+    )
     for row in inventory.values():
         expected_files[Path(row["path"])] = row["sha256"]
     for row in development["plans"]:
@@ -426,7 +464,14 @@ def freeze(args):
     if candidate["signature"] != baseline["signature"]:
         raise ValueError("Candidate does not retain the complete baseline model tensor keys, shapes and dtypes")
     training_provenance = verify_training_chain(
-        training, dataset, verification, baseline, candidate, getattr(args, "ancestor_training", None) or []
+        training,
+        dataset,
+        verification,
+        baseline,
+        candidate,
+        getattr(args, "ancestor_training", None) or [],
+        getattr(args, "ancestor_dataset", None),
+        coverage.parent / "membership.json",
     )
     development = verify_development(
         args.development_plan,
@@ -561,6 +606,13 @@ def main():
         help="Prior run and its actual selected checkpoint, in chronological order; repeat for each stage",
     )
     parser.add_argument("--dataset", type=Path, required=True)
+    parser.add_argument(
+        "--ancestor-dataset",
+        nargs=3,
+        action="append",
+        metavar=("RUN_DIR", "MANIFEST", "RECEIPT"),
+        help="Explicit dataset paths for this ancestor, required when its recorded paths are unavailable locally",
+    )
     parser.add_argument("--dataset-verification", type=Path)
     parser.add_argument("--coverage", type=Path, required=True)
     parser.add_argument("--development-plan", type=Path, action="append", required=True)
