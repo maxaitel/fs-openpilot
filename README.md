@@ -34,6 +34,12 @@ It is meant to be a **framework other FS / FSAE teams can use** with their own c
 a **living research project**: it improves over time, and every model is recorded in the
 [benchmarks](#benchmarks).
 
+The active Spark training workflow now uses **native Isaac Sim / Isaac Lab** collection and physical
+evaluation. `fsop train` defaults to the native replay configuration, with the full vision and temporal
+policy adapted from executed PhysX teacher trajectories. See the [native workflow](docs/isaac-lab-training/run.md)
+for the pinned runtime, split integrity, selection gates and debug-video pipeline. Explicit previous
+training configurations remain available for reproducing the historical results below.
+
 > **Status: experimental.** The model drives simulated trackdrive and acceleration runs. It has *not*
 > been driven on a real car. The Spark skidpad checkpoint completes 9/10 held-out venue runs,
 > with cone hits and one failure. See [the skidpad report](docs/skidpad-training.md). Nothing here

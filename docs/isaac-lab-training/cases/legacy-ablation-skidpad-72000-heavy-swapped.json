@@ -1,0 +1,12 @@
+{
+  "id": "legacy-ablation-skidpad-72000-heavy-swapped",
+  "split": "regression",
+  "discipline": "skidpad",
+  "seed": 72000,
+  "dr": "heavy",
+  "variant": "matched",
+  "track_seed": null,
+  "frozen_case": "ablation-skidpad-72000-heavy-swapped",
+  "lateral_start": 0.0,
+  "yaw_start": 0.0
+}

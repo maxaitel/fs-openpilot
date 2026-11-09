@@ -1,0 +1,12 @@
+{
+  "id": "legacy-retention-trackdrive_030010-heavy-recorded",
+  "split": "regression",
+  "discipline": "trackdrive",
+  "seed": 0,
+  "dr": "heavy",
+  "variant": "matched",
+  "track_seed": null,
+  "frozen_case": "retention-trackdrive_030010-heavy-recorded",
+  "lateral_start": 0.0,
+  "yaw_start": 0.0
+}

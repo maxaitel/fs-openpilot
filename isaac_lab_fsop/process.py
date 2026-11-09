@@ -264,6 +264,8 @@ def main():
         result = render(args.episode / "evidence", args.episode / "debug.mp4", args.episode / "research.mp4")
         if result != {"inference_frames": audit["frame_count"], "terminal_frames": 40}:
             raise ValueError("Video frame count mismatch")
+        result["completion_sha256"] = sha256_file(args.episode / "evidence/completion.json")
+        result["artifact_audit_sha256"] = sha256_file(args.episode / "lab_artifact_audit.json")
         result["videos"] = {}
         for name in ("debug", "research"):
             path = args.episode / f"{name}.mp4"

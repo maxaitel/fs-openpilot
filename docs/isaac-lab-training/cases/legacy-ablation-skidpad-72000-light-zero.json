@@ -1,0 +1,12 @@
+{
+  "id": "legacy-ablation-skidpad-72000-light-zero",
+  "split": "regression",
+  "discipline": "skidpad",
+  "seed": 72000,
+  "dr": "light",
+  "variant": "matched",
+  "track_seed": null,
+  "frozen_case": "ablation-skidpad-72000-light-zero",
+  "lateral_start": 0.0,
+  "yaw_start": 0.0
+}

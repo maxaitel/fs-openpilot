@@ -32,24 +32,52 @@ def verify_arrays(path: Path, hashes: dict) -> None:
       raise ValueError(f'{path}: SHA-256 mismatch for {name}')
 
 
+def _valid_sha256(value) -> bool:
+  return isinstance(value, str) and len(value) == 64 and all(c in '0123456789abcdef' for c in value)
+
+
 def episode_paths(*, manifest: str | Path | None = None, data: str | Path | None = None) -> list[Path]:
   if (manifest is None) == (data is None):
     raise ValueError('provide exactly one of manifest or data')
   if data is not None:
     return sorted(p for p in Path(data).iterdir() if (p / 'meta.json').is_file())
   path = Path(manifest).resolve()
-  entries = json.loads(path.read_text())
-  if isinstance(entries, dict):
-    entries = entries['episodes']
-  if not isinstance(entries, list):
-    raise ValueError('manifest must contain a list of episode paths')
-  result = []
-  for entry in entries:
-    if isinstance(entry, dict):
-      entry = entry['path']
-    p = Path(entry)
-    result.append((path.parent / p).resolve() if not p.is_absolute() else p.resolve())
-  return result
+  document = json.loads(path.read_text())
+  if isinstance(document, dict):
+    entries = document.get('episodes')
+    membership_sha = document.get('membership_sha256')
+    if (type(document.get('schema_version')) is not int or document['schema_version'] != 1 or
+        document.get('complete') is not True or
+        not isinstance(entries, list) or not entries or type(document.get('expected_episodes')) is not int or
+        document['expected_episodes'] != len(entries) or not _valid_sha256(membership_sha)):
+      raise ValueError('native manifest is incomplete or has invalid schema/membership')
+    result = []
+    for row in entries:
+      if (not isinstance(row, dict) or not isinstance(row.get('path'), str) or not row['path'] or
+          not _valid_sha256(row.get('meta_sha256'))):
+        raise ValueError('native manifest has an invalid episode entry')
+      episode = (path.parent / row['path']).resolve()
+      if episode == path.parent or not episode.is_relative_to(path.parent):
+        raise ValueError('native manifest episode escapes dataset root')
+      meta_path = (episode / 'meta.json').resolve()
+      if not meta_path.is_relative_to(path.parent):
+        raise ValueError('native episode metadata escapes dataset root')
+      raw_meta = meta_path.read_bytes()
+      if hashlib.sha256(raw_meta).hexdigest() != row['meta_sha256']:
+        raise ValueError(f'native manifest metadata SHA-256 mismatch: {episode}')
+      metadata = json.loads(raw_meta)
+      if not isinstance(metadata, dict) or metadata.get('membership_sha256') != membership_sha:
+        raise ValueError(f'native episode membership mismatch: {episode}')
+      for field in ('id', 'split'):
+        if field in row and row[field] != metadata.get(field):
+          raise ValueError(f'native episode {field} mismatch: {episode}')
+      result.append(episode)
+    if len(set(result)) != len(result):
+      raise ValueError('native manifest episode paths must be unique')
+    return result
+  if not isinstance(document, list) or any(not isinstance(entry, str) for entry in document):
+    raise ValueError('manifest must contain a native episode inventory or a list of paths')
+  return [(path.parent / entry).resolve() for entry in document]
 
 
 def history_indices(k: int) -> np.ndarray:

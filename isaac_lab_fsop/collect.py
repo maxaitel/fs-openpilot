@@ -17,6 +17,7 @@ p.add_argument("--takeover", type=float, default=0.0)
 p.add_argument("--speed", type=float, default=8.0)
 p.add_argument("--alat", type=float, default=4.0)
 p.add_argument("--controller", default="pure_pursuit")
+p.add_argument("--lookahead", type=float, default=0.25)
 a = p.parse_args()
 from isaac_lab_fsop.runtime import launch, shutdown
 
@@ -54,7 +55,8 @@ try:
     x, y, yaw = drive.env.track.start_pose
     start_pose = (x - case.lateral_start * np.sin(yaw), y + case.lateral_start * np.cos(yaw), yaw + case.yaw_start)
     obs = drive.reset(start_pose=start_pose)
-    expert = NativeExpert(drive, ExpertParams(v_cap=a.speed, a_lat_max=a.alat, controller=a.controller))
+    expert = NativeExpert(drive, ExpertParams(v_cap=a.speed, a_lat_max=a.alat,
+                                            controller=a.controller, k_lookahead=a.lookahead))
     policy = ModelPolicy.from_checkpoint(a.checkpoint) if a.checkpoint else None
     if policy:
         policy.model.requires_grad_(False)
