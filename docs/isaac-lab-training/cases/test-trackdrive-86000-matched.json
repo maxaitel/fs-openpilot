@@ -1,0 +1,12 @@
+{
+  "id": "test-trackdrive-86000-matched",
+  "split": "test",
+  "discipline": "trackdrive",
+  "seed": 86000,
+  "dr": "light",
+  "variant": "matched",
+  "track_seed": 85000,
+  "frozen_case": null,
+  "lateral_start": 0.0,
+  "yaw_start": 0.0
+}

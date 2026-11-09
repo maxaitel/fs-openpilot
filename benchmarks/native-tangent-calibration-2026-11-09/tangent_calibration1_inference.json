@@ -1,0 +1,386 @@
+{
+  "passed": true,
+  "frames": 120,
+  "expected_frames": 120,
+  "case": {
+    "discipline": "trackdrive",
+    "dr": "light",
+    "frozen_case": null,
+    "id": "val-trackdrive-84000-matched",
+    "lateral_start": 0.0,
+    "seed": 84000,
+    "split": "val",
+    "track_seed": 83000,
+    "variant": "matched",
+    "yaw_start": 0.0
+  },
+  "controller_contract": {
+    "accel_feedforward": 0.5,
+    "action_time_s": 0.3,
+    "current_velocity": "measured_body_vx_vy",
+    "longitudinal": "knotwise_planar_tangent",
+    "mission_brake_decel_mps2": 3.5,
+    "mission_launch_accel_mps2": 2.0,
+    "mission_layer": "mission_brake_after_follower",
+    "mode": "op_tangent_v1",
+    "speed_floor_mps": 0.001,
+    "speed_gain": 1.5,
+    "steering": "openpilot_follower_body_vx",
+    "steering_action_time_s": 0.2,
+    "steering_delay_floor_s": 0.05,
+    "steering_min_speed_mps": 1.0,
+    "version": 1
+  },
+  "checkpoint_sha256": "f6ebe71aa77d0ce356d9f559f5eb45f043f9d13fa08941ec3376052c424d4e0f",
+  "state_sha256": "a8378574610e7554039e4b2d3cc3d66c0b43b11da33bcb25a8c96629914830b7",
+  "state_sha256_after": "a8378574610e7554039e4b2d3cc3d66c0b43b11da33bcb25a8c96629914830b7",
+  "graph_sha256": {
+    "artifacts/models/prep/policy_fp32.onnx": "a27088e94f581de472f9610183e3979987cf59a1b272816a339bb9757d00a17a",
+    "artifacts/models/prep/vision_fp32.onnx": "bac14fd2d539b10eabd966b462d0dcba4fcaab6b96bc49cfc4a8703f7450531c"
+  },
+  "source_sha256": {
+    "isaac_eval/evidence.py": "00a38b56c9f813821674dfcf65b1d9f5b1db679c67e851d191f06a55540ac23f",
+    "isaac_eval/parity_cases.py": "2cf546e6853783384b79f22cad10245342c41b14744abdbd1e15f7db8f86e9c7",
+    "isaac_lab_fsop/cases.py": "df8df74af698794a594314e36c14d8dc481f9063fd16dce66d03ca595d22cdc4",
+    "src/fsop/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/baselines/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/baselines/yolo.py": "a5207b9b74c941f7445199f2bb45c47574f2629068f6966176bbef3da6867ed8",
+    "src/fsop/bench.py": "d3781cfc06127a92aaf201285ada0499159700b4cd6f189b6992d3bb113ac696",
+    "src/fsop/cli.py": "862430338c18cb6e62fe395bea854db74f65aa38a62dcdbd7c5c9d6658a0bc4d",
+    "src/fsop/config.py": "2de820cc65e9a8266b7163df51c4bbb052921cc6192e8ce76c47e2eeaf1b3a6b",
+    "src/fsop/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/data/feature_cache.py": "7ea4da7c8ece7b11766fe93e23cd3aa5a8ecf9486bad89664db22877181bc3de",
+    "src/fsop/data/fsoco.py": "7dda2a26d525da64cdf63f9058b2a58b85b20f16c3e844a9c56715a6abf95eaa",
+    "src/fsop/data/native_replay.py": "483e089b37f8782ade87cc8f16eaf8a2447efa1e25ee9a6b79f5ac5eac9cb30b",
+    "src/fsop/data/sim_dataset.py": "7753c0deae1f3aad51a747346f4ff7acab72c0f50860685196847845107affe3",
+    "src/fsop/data/targets.py": "a923bbe800bbe2d1bd25a50701edb7d077980d7d8481990ebd4baf6ca8652467",
+    "src/fsop/eval/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/eval/bev_metrics.py": "74729836f20c21d836e2a30efe586eb1b578a9ae00b97613fb1bff7a08bf4af4",
+    "src/fsop/eval/closed_loop.py": "10e369fdc77b541754696bb153fb756e5bc16ec4ff02316583674a16828fcfb8",
+    "src/fsop/eval/controller.py": "5f73f920e3b0594fa035147ff86d6181a994dd15b8e6c6c7685224e17670e229",
+    "src/fsop/eval/dagger.py": "7fc0c290541eaa945db52a262fe38a2639df5bec93304ca67955336f8600cba4",
+    "src/fsop/eval/det_metrics.py": "3c99d790e0777184065c4e35195babe9ade02d82aacbd78f63a8b0544b0103d2",
+    "src/fsop/eval/geometric.py": "e0ad7c4aa9157a04f1a83c242f83113acb84a25fb9152533fccb58e76cde9c02",
+    "src/fsop/eval/img_to_bev.py": "bcf10ece06c575512c45ea773335a1024fbc7ab95d20426a91ff18bd71d2d2d1",
+    "src/fsop/eval/open_loop.py": "3e402060bb9f73a1e59cf6ad8ff94eb99d3e07f82e9adde6e8fed52c02c86f52",
+    "src/fsop/eval/real_clip.py": "d62206e397e988111b00b75c9796a773ed87740b44fcff7f726184ca7afcceef",
+    "src/fsop/geometry/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/geometry/camera.py": "98b8bc7f7b98cddc4e756d4b92103604f4462baea2b161f0410a943f30c207a3",
+    "src/fsop/geometry/op_frames.py": "f09cea8cba5b74bf81e02df04487e3b34012e91dde4c3751525bf50e3520301f",
+    "src/fsop/geometry/warp.py": "a81bc405c769e46b3e9355bf53f2fd9fce83cfcc1d3c654ac389938546f97756",
+    "src/fsop/geometry/yuv.py": "9a3651b22194b666ad3200fb799bc22e90259ac650b2dff140b5c62a8ab66ee5",
+    "src/fsop/model/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/model/build.py": "b24c64216ebe82e77ad69972686badb2534348301565b9b4ff47f28295559fd3",
+    "src/fsop/model/convert.py": "3a5531d927d8d68b557f841530c679258ccd6208d818ea3ff475f6ae4e15bc2c",
+    "src/fsop/model/export.py": "1675c5456212ba3ddfdb1406a49d84339c1935758d1e2585fed6c219fc555cba",
+    "src/fsop/model/fetch.py": "e1d15dc11ca309e5a2b655fd28afdd83fcf17811030edb7f8443106534454992",
+    "src/fsop/model/heads/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/model/heads/cone_bev.py": "9fe44a7e2152d4906389142b0f4405f8d192e19ffdeea25db5698451e2a0c9ee",
+    "src/fsop/model/heads/cone_img.py": "cdf84bb4bcc25b2a05172b45f1d7d35dcaf17abca1bfe10370c1906c2ff3f42a",
+    "src/fsop/model/onnx_prep.py": "b6b7c3607078dfaf45249451d757247cc8deea4085a7f70e69f15f531e14a5f6",
+    "src/fsop/model/op_converters.py": "59f20f80b4a646870b108cc7f165e8bd48a2630f54b44b07eddf791052629d5f",
+    "src/fsop/model/static_shapes.py": "34668feafdb9e18ea6c91f53b51fb645e96191fe608abe9631c0f0ce25661a16",
+    "src/fsop/model/supercombo.py": "1128d2dc461466d9235ec3dc3386bce82c44222e127cbd6d8cf4ee0307eb5a3d",
+    "src/fsop/model/temporal.py": "3b7ef159ae6a0f3f39dd950ae3943fb5f59f164af0d8e9ab329f6f5de876b8c7",
+    "src/fsop/model/verify.py": "aa1cb5bb89869cbec5470fead1bb46eea285c27b2146c20c3fba7d91eedf0957",
+    "src/fsop/profile.py": "2c8968ba76880a1f167480e474f68301fedd8cd652be2df2670498d4230b19d0",
+    "src/fsop/runtime.py": "09543bbcb87af99118de19593a53ed4a29f6d128b4de76fbec2655d9e1842ad2",
+    "src/fsop/sim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/sim/batch_record.py": "42d54ca374ba2a05255c06d50e2cefe825292a68137dbaa7e1a69760ed75831e",
+    "src/fsop/sim/drive.py": "e7e8072c3375e0de9d89d6fadcbfac897fa21f47a7d084eee1e2d0dffe047bc1",
+    "src/fsop/sim/env.py": "43e4bc7b07fcb5f963a9ce022952d6d7d8d16cf34ef2cf66af648959e31a2026",
+    "src/fsop/sim/expert.py": "7f1c3fb9083b4edd04e61a33719a88b4b65bea85fb6490ea2ef191e66d35986e",
+    "src/fsop/sim/randomization.py": "25b492a84b289a3febf9d726e1a43ef59f4657986282d28d551f5bd49cccff04",
+    "src/fsop/sim/recorder.py": "d90ec0db290ca21d419a04ae4ceb609b7d5f8927ede25786ab727f71e390f7bf",
+    "src/fsop/sim/referee.py": "c0dacad0659a9cd806e25b2405e0e4a4aadd58897858d14a717a42c0132391e2",
+    "src/fsop/sim/render/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/sim/render/assets.py": "c790b7c47113c6a86c792059bc7ca1b23764111f870b6ae67d5b88fe5b9f6051",
+    "src/fsop/sim/render/panda3d_backend.py": "e06a3ad9e675a27d5875f553ab7f442bf0a450380dcaca08611e530e0e1e5519",
+    "src/fsop/sim/render/venue.py": "98a7ac4b041c0c3a149a52f21cce1b461d0d992601e240241e460fe0fd5339ca",
+    "src/fsop/sim/route_commands.py": "31def8ff21c2d86824fdd7783c9131928a12fa2ac1e9d5d427063e640f40b149",
+    "src/fsop/sim/skidpad.py": "a6169eec33804ce14b01cbd383a74b7474f77cf69b1baf072a805a1fcd8dc6a2",
+    "src/fsop/sim/vehicle.py": "55643a3d4f43c1a7605b8da3641517a8c0380bc92ba7526a5e555e0f7cd3ae39",
+    "src/fsop/track/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/track/batch.py": "71ed04273b4da5bf340d8abb3269448481d694ad2499330fceb616a13cc681c3",
+    "src/fsop/track/centerline.py": "de45a95eba2e8fa0419a7407ced66718bc6f49099dff8b00c7663f2bf7ac5887",
+    "src/fsop/track/cones.py": "45c784e93b40cb032e6641362b547bce8f5a79d5eb02e23d0a37db038728da93",
+    "src/fsop/track/fixed_layouts.py": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+    "src/fsop/track/generate.py": "6a971d82e14b154ef24eb3a87f212f567a08182701783a806110755b2d661264",
+    "src/fsop/track/io.py": "86a833f72d920882c55c1dee89de841a8d4b67d8cbaa0658ddb17a614bc8af4c",
+    "src/fsop/track/rules.py": "4c2c989ef7b401ed47e57744eae6a3219759629e09e412b4ee5d68de8764006d",
+    "src/fsop/track/schema.py": "f2f760bee7826c82f34e3f704a0b5807bcd0f6b043e856a781d8fe727ac1c04c",
+    "src/fsop/track/validate.py": "5a08f94b27f75a77ee69431f58493a0ead9bbc6154b6749b7d11d223080664a8",
+    "src/fsop/train/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/train/device.py": "cb2ec8fba9eb6959f11753ac93625090ea131f86f4476e8accb8d0151b1df483",
+    "src/fsop/train/lab_train.py": "f2c792edb42e900b8a538ae4d35e533f0bdc15d7d280f76fcf546d1653d44eb5",
+    "src/fsop/train/losses.py": "b1f35b2102cbe6dd1776776d7e051889de9456b80f2adc59aa6d16309f3bc2ac",
+    "src/fsop/train/trainer.py": "3a016bb5c4cf6556bca3d797d6653a2943e9918b4e6f2a69bb3c97fb3ffb30e7",
+    "src/fsop/viz/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/viz/inspect.py": "5cd19a506dcc688a2f6f8d536cfaa1ae310847324cd71c0dc96bd07d566730cd",
+    "src/fsop/viz/real_video.py": "1979fcb3d70e7d739b84c406b6ab7482708ec7f8aa93541d14ab3f91a866c381",
+    "src/fsop/viz/rr_log.py": "b1b0020705be517293fc413ff224e68c55d51c14ed9b9ec291ab2b3b0a7213ae",
+    "src/fsop/viz/track_preview.py": "5ace5f5cf0b9ab48e8e011edc280164a996f9eac7ce586a3ca5767c59e2683bc",
+    "src/fsop/viz/video.py": "94013abd1f1e78a2869101f12aa3f53ab3c6accd86819069b78234ea9b696cd9"
+  },
+  "verifier_sha256": "6d2a4a2640a0a5fbbac7e24849e3eb7d0905d99e8575b95e07f8ba2a92cd6f14",
+  "realization_sha256": "0860d3ef9361e0a189099424a7aade574a49371ae500be2a912cb98f52ec9fb6",
+  "evidence_sha256": {
+    "metadata.json": "3773917665ba7f819f914faba691b0ad1215979fc96d987780b5cf2ce40e6110",
+    "manifest.jsonl": "31e8a60d8f23fb508765f758b20aae97330a67e88d5a18838dc65757a68a9746",
+    "completion.json": "edd725286c43caa2808fb365b54e2d5d9aadc31bab81310266c8b8eb8b478077",
+    "frame_000000.npz": "a3672756fc00a8f567306e5af1a4aea87e9dfd1d262072e260f47856c1e34a68",
+    "frame_000001.npz": "ab91017682ea484b1edf0e8e7eef124444ccc0b10ef9838d25b8a722b68b11cf",
+    "frame_000002.npz": "04722b331cd424f81ebb3a556d081d35eafdc343d7aef947e1e7c92fedff4451",
+    "frame_000003.npz": "756930fba9412e118cad3b5deeb52001d00720c0c19d25e417cb38e0048981d5",
+    "frame_000004.npz": "0d268726837cf14b906376e3c6eb698bbc26273ac0bf9e2b3948f9d3ff623934",
+    "frame_000005.npz": "3c9761f1a36637ea794a80b64b730f387d5b55a1742b96d8fd915c25880e7c86",
+    "frame_000006.npz": "468813bb22aa7959eaf15268859c43182fc34c59197757e57cf619cc6e3fba1d",
+    "frame_000007.npz": "d275b6b247521f26ff673b3df503f1ef76497072d0ab96d9d4d785f81db83ed4",
+    "frame_000008.npz": "e8a6bdeaf96559911f4bbb4e929e40aaf058de8948050b1327188e02b9de2a56",
+    "frame_000009.npz": "531c6b9f6bf88e1399a7ba733ae309058598fb75502e2dfe6a71241a2bc4d86c",
+    "frame_000010.npz": "5b65eb8f4b4e9bb0bdb8f5badb74edc99d215118218afd9b08d9652f91936ca8",
+    "frame_000011.npz": "ee0546d414ebe134103ab17e6daf42115e942a9356239e4aa6053ad457f1d180",
+    "frame_000012.npz": "368d1bff2d516222b845b5856b4ade7f7805193035d347a81cab8cb9c374de0f",
+    "frame_000013.npz": "b72a60a6786c25559aa2ecad1252e586e1c7d05c2c62c646f9b1c07012446209",
+    "frame_000014.npz": "ff3af02d3c4679837be5ee176237af4256b126d0727d8c380e94636decf081f2",
+    "frame_000015.npz": "9464836a4786d717d51afb42d7827a0964f1ce8d7f952ab70520b2af72dc59e2",
+    "frame_000016.npz": "aac890fef19b0290c9c58979b79d24ccec1cd74102cd34e13023ee95f9f5dc63",
+    "frame_000017.npz": "cb0b0b05bd941e5ed34304c2e123333918166b81c507f373e9edf58f1eacabef",
+    "frame_000018.npz": "8cf71455a9a44e0b994cbe44153d6db74cef532d8ab07622d2996132f93ef9b6",
+    "frame_000019.npz": "f653bdd6669c17ee44172c46ddf6e9c8dc57bc1487963f33ab7548dfd7e8b4ca",
+    "frame_000020.npz": "023d44566418c1149c3973c7818c7f73856c176817b3da016c04ed0757935fc5",
+    "frame_000021.npz": "2605393ad62a914ddde4e323436cfd3c9e02a39ae0a7044227afa29306a1dd1c",
+    "frame_000022.npz": "9e8a5e4dc9a610d13b7c64cf71291c5cec4f8ac6096e434c099d01accdb2719d",
+    "frame_000023.npz": "bf199d108864002660178eee6b685cdcc74533627a2d66258e553c9eda1f52b9",
+    "frame_000024.npz": "3b3d36571cf3d2169600b8beb9243ade46bf9fd8c26c9a22b86653e8238a37a9",
+    "frame_000025.npz": "784242935a32b7af9759f635002046eac840cf3d65ee290f5b129bcbbe9565b6",
+    "frame_000026.npz": "c72bb6f173aed9bbc7a77c1a56cac96d2ba152ea0418ec1ec8ebb001d0a94260",
+    "frame_000027.npz": "7f9f8914f5502dc23707021012edb8d65fcedc2a4a8b2cc0d64e1a03661b455e",
+    "frame_000028.npz": "b50eb4a444a3e8c745646d60484c36bdc649af93a45a656cf8219ddb04e91597",
+    "frame_000029.npz": "c94af7de86d28a57e4b67930d6f073202aaf9c31bea59ad309210d5b6fe00b9c",
+    "frame_000030.npz": "7beaeb7f0907a2e6984c548262d89f1a99158f7e62cf35cf12f2d57fa43f0f97",
+    "frame_000031.npz": "cc410bcc8c38a8ee1451cdcd3028cab50492084dcef12ec4cf36c9c0e4fbf701",
+    "frame_000032.npz": "56074008731a071fa296368ba76f3d30469147b72ebed2c244b26ac20b34da74",
+    "frame_000033.npz": "35b70519ebf56513d26c46097971fdd0437b680434791dc553d83b5229e4d4c1",
+    "frame_000034.npz": "e7b78b04f4704e30123fa62995f1e5eff933918d226d1c4e1f15af37c671ca73",
+    "frame_000035.npz": "001e06c91e07e5e6f426fad13a60a73cc2f7fba6e71b17366f1d08736eab5edb",
+    "frame_000036.npz": "b01ba55c9dc2b570e59d3e3170d7c50543db950ae0d736b818401d87b23df4c5",
+    "frame_000037.npz": "0bc200616d2b3f23b2ae6a87e70aea87bf120927c88dbf61fbdf96ee3f5665fa",
+    "frame_000038.npz": "97b06c31b3e8a7232a56bf25c8ff0d93e6311db336a83bdb1c17ff25f760981c",
+    "frame_000039.npz": "5b558cc69cbb3e0c2360ef686171ed2672c6497d43083bc084d6def03b639ab5",
+    "frame_000040.npz": "1957b4689800e6082f3fb7f46cf4a6dff5b2f9679cca19249ce3a0536a9c0ebe",
+    "frame_000041.npz": "d323f2742ef20deec309ae63b72676bd79d4e6537564bb29f78c9dbb39fea279",
+    "frame_000042.npz": "70cf26083202d228dbf186bc2cdf58b4e2d529f7acbbdce2074f014651710e98",
+    "frame_000043.npz": "22daf76eebaeefb3afd5e9f9f37ad787ec39ddb8336a75197df09bb8501bc80a",
+    "frame_000044.npz": "4e6df8f269068b681f7c0f7c020d07bc96fd4a276e683c9f9fd62cd59fa55f7b",
+    "frame_000045.npz": "35e69cedbb0096e6c434e7c418cc3683fedd60fbb700d5fa8de91a0a9bf377d6",
+    "frame_000046.npz": "22ee6c249bdbbe1197b0286b0ac8b29337ee20b6e710ca63a49d77d74f832184",
+    "frame_000047.npz": "610e8b2852358bdc1c33a5a152e918bb77f50ae92f4d51f9574a4cd61bb177e9",
+    "frame_000048.npz": "4c2c18e7e50b0de28f58ccc4c40a358ed177c85a31c82ae59d5b933e6ff446fa",
+    "frame_000049.npz": "4c39c46c189b04dab7294c62b158bed416f9ab737b8f4579abf453bb6c5a168c",
+    "frame_000050.npz": "09e4c2c69376f75a6839d3768a28ac9504143b1fbd88399bfb03b38c4f2eacad",
+    "frame_000051.npz": "97a7769cf76704bff2cd9309b3e85b111a1e4c3beec9ead3f0971287859a3410",
+    "frame_000052.npz": "ec6dba589c7cc3b5c5b3697975c4df17226f9b947503baf94f4752f1f55f027a",
+    "frame_000053.npz": "3c4dc5d1c3339b0adabb357696c5c85480cca57c44b982ec719bd5866656a2b7",
+    "frame_000054.npz": "4e3aac7cb475098b27f3ff0293ec77fa31e053ce10c636d86c4f848f5329220c",
+    "frame_000055.npz": "58ec12caeeb9a368eb629f99c3aed160770b4dbf90212923d2f9b3dc56aea356",
+    "frame_000056.npz": "4a918aae8bb2de0044a142989621b4a796a13ef821b0485da197b4a64f14ba80",
+    "frame_000057.npz": "a7e8e68aa65ec5f9cab9fdd3090fe2b0ccf0d6a84409e08c7efa8a2a2a79d290",
+    "frame_000058.npz": "e6476b280e97b21c3319da303dfab296dc0aa96014f4b821f655cb7097879c81",
+    "frame_000059.npz": "0f1880d873241f4aa98425abb3740018ddc8e78ff19b4fa3991ec330363ad0ec",
+    "frame_000060.npz": "82df126f2b96c655bf2d0c2367159614fd0a39702114929754414396b25e8a25",
+    "frame_000061.npz": "333dde9613e0e1b96205f627b39822b59b244140c9260ab974434efdc8b58724",
+    "frame_000062.npz": "e2ede2576bc8925aa2c79bc6bb456ac90fda18caecb74350254ab607ed538b0c",
+    "frame_000063.npz": "bcd39847bc3991f37f3f3f427ca7ee7eeb4119b7dc64a5730ffca8beb8cc66c7",
+    "frame_000064.npz": "04a1634f8225f827f339dc2dbe6e31ffa73f91d0b5c36c2a151f9a51013639a7",
+    "frame_000065.npz": "8b341a7628916da6519fe3dd3b9b229b88fe174ac2a7b6393d0fd1ede0c518b4",
+    "frame_000066.npz": "c21698ff5693229728231c5af3297e80c105564e362f823356333f411bd28bdf",
+    "frame_000067.npz": "c6192af234563c99c8253fd69526b430e13a7deee6779fa98a9f4703fab6ac42",
+    "frame_000068.npz": "fb9f624350c83da889710e705a531731e1694e4760a3fad1042f95c4e734ba6b",
+    "frame_000069.npz": "004b3ac411488bc17f43951566dc13ce9daac281dcb399a05d3cc49a21afbd16",
+    "frame_000070.npz": "cae7c185d854b61826287bd465708aa0f6322a8439646cdcbf1f1d403102337d",
+    "frame_000071.npz": "594f7a6bbbe79fe8de4b18b675ffa0969da6521b76b4b9c93a499d1875390b9b",
+    "frame_000072.npz": "362e67a7bec64da309c9a196b398de2b6926e3e3a4a2b6a86116af8e8e2df084",
+    "frame_000073.npz": "026a71ff20ea6266c86da73c3fb3e1d90d38ac0866a2af95a7af569718374052",
+    "frame_000074.npz": "1b616fb83d0493dfb83f9e7f5d5d3fea46b777ff2ed959645249aff883884201",
+    "frame_000075.npz": "8dcf5a43014dd26a8675d690d43b201185b5dc06195ddff3c872760bdcd24fcc",
+    "frame_000076.npz": "d978cbb543128215034510eba3e341a4c439778b241d81ccef2efdf3ee7a8692",
+    "frame_000077.npz": "16ccd7697f182ff9aca379b54d20c774fbcab63024468a9b7ec4c4f692ad1236",
+    "frame_000078.npz": "a86fe630ea6a90b233e9691432391a180b406517fec38d5586cc2d335543c2ad",
+    "frame_000079.npz": "006f6d46aa605848571cf0b2401ac05d97310cd428e4b3e960e5d29482ee4070",
+    "frame_000080.npz": "5a3faf1087b9334903094c687208d00f40472bb07cbd362cff283f4e2fa6a9c2",
+    "frame_000081.npz": "e4d9ac9c5a12b2b3db541262067cfea1b3ae14c7a6c882801a17568084c148ea",
+    "frame_000082.npz": "c452b0e56eafb57cab5abd6f6c1f0ed18ab095595a031eafbeec0ef5a4d3910e",
+    "frame_000083.npz": "44aa0a678689575f92ff3528ac34143b776c3a295c0829cee0f64e4ae7c024ff",
+    "frame_000084.npz": "d543642333bb7341197f265468cf6b90d5460613b0dc8062b7374b606154e220",
+    "frame_000085.npz": "80e4bd82da3de0a70827e6d92ad93d9d94d9bdda88fe1e6344accd564c3ff76f",
+    "frame_000086.npz": "8324eeb7367903734f31c734be400fc612496f3b5b7d974f523165df62f31de5",
+    "frame_000087.npz": "6cb22dc87e3131acda4feb5d212803175e8f2d26e386fa2b3b9dec93f25da5ca",
+    "frame_000088.npz": "910e73e5d747b90731c566dbfd4d20ba62dacad69363b41637ec1719b83298f7",
+    "frame_000089.npz": "50f81559eb9722acac3ab7a102f0483bc29d14f23c120ce8517fa5ad3f474893",
+    "frame_000090.npz": "72f0ba4cd193639b76c31feb9738c8a693a76e3cbd84167c10b1761d1cd46e1f",
+    "frame_000091.npz": "5174b760686912f992f511913fa86b6c24e46602276b2abd7e020eaddee4c66e",
+    "frame_000092.npz": "5af92c21e4dd015849e1b03d67dbb1ec9e7ccf8542aa4f847a199406996bbfa0",
+    "frame_000093.npz": "a7617ee5e1c16bbbc05b607ac3dd68e5fcbac9037d69b5f4468768bd1287aefd",
+    "frame_000094.npz": "d1059dbc6e9af1bbba3361fe83f72ae22bcbf43c4aa87ee98cfe4406eedb80fa",
+    "frame_000095.npz": "8185fff3f58df08d16724c0937552f1a546431f9793499b6715056cc8ccd761c",
+    "frame_000096.npz": "83b929e867a39ab98ce8f6eefca7fde08a3f04417f2a1988797d41a846a4958c",
+    "frame_000097.npz": "e5780369ae64628e8a3a9bb69d384e917a1094813cea166907952f9c75414949",
+    "frame_000098.npz": "aeb8486334facc134c086ac15424308f077bbf536454f1df373ed2b0bfcfff1d",
+    "frame_000099.npz": "4ff72ce77cb7de8466ab6522f00914157549798cf7492d1d2b5b6ce7824675dd",
+    "frame_000100.npz": "173879f7e31c59dc7e4cc568f1c504b9318bbf883d32b9ac42de8eb2efdda44b",
+    "frame_000101.npz": "7392d7115e8d5041a1aae9f403d11eb7aee865cd02ff380119e40210eb5b1a97",
+    "frame_000102.npz": "df94c5d9139d511d9b3b8b0d139d04c5ea82ed475b4b78b5bbd5ffa6bb565054",
+    "frame_000103.npz": "08ed23b0d707cc5bf32d2579e472d6fd7ace80e347c11a3866ced80435b0e939",
+    "frame_000104.npz": "c1fb61144a8ca52bb73ea97d7acf8369fd20576d845c324e61f7dc655ae887b5",
+    "frame_000105.npz": "a4279217b8a4527cbda90b0324aec22a6826976b4be23bdab515aff1c47e95b9",
+    "frame_000106.npz": "5ee23f9894aa20ea2ca07d3ccba92129a30f1c3437c995ef8512f28a63ddc146",
+    "frame_000107.npz": "2f5f5a256003a0ef2b955347a61cd521e42116f5dc03d9f8785b23b16f45c833",
+    "frame_000108.npz": "c4e50507dff97e067d62d25f8c184c5d548a055a3cdb61bcb843a7351c703fd3",
+    "frame_000109.npz": "ea61373a1c04032beb4899f63a42a49610991ec908e3e9574e953e949b5a0886",
+    "frame_000110.npz": "60a4c986ca28e77c4a1c5f45cd731ee0f8d681f351c314f3d056d2367a2fb839",
+    "frame_000111.npz": "fbd5cb13f67fb00b81670712eff966c456e109a4704296675249e7db33cef2af",
+    "frame_000112.npz": "7c693b28afa0254d88682ecfd5a1e6055422c0e0a3a3c6d74a6fd470ad97544c",
+    "frame_000113.npz": "06a2fc70032f8a72eee34a08bb8f1fde824b4b75634cf2f827edf1d60f520552",
+    "frame_000114.npz": "8bb7aa87243871f21f1a86b19dc9750027e48bc74a9e1b49b64b8632ff008f26",
+    "frame_000115.npz": "ee6c15936ad57de841df52cc7014c883bc10ff6808decae46374d5b626d78e97",
+    "frame_000116.npz": "95e780177ba832e7887e83adf2770bef6441317b4a71a8c6e38413042c406ad4",
+    "frame_000117.npz": "375ab03d38478d09fa9065719514a02b05e447f45fbc820e7edb6dfcdbc1ee22",
+    "frame_000118.npz": "bd92fdc4271cfc393166951f58b7890acc066855546880d29ceb2a514502bc74",
+    "frame_000119.npz": "1207bbf8985ea15f2dd8e9aca2d55949dac83a0634117e401b0e4451f051d420"
+  },
+  "summary_sha256": "25ba479708e8e3920f341ab674575b2277a58fc7eb76b1f35de608483a93502f",
+  "frozen_unchanged": true,
+  "rtol": 1e-05,
+  "atol": 1e-05,
+  "saved_vs_replay": {
+    "saved.action[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.action[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.road.heat": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.road.off": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.road.wh": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.wide.heat": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.wide.off": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.wide.wh": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.policy_raw[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.policy_raw[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.cones_cls": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.cones_score": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.cones_xy": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.plan": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.plan_std": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    }
+  },
+  "hook_enabled_vs_disabled": {
+    "hook.action[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.action[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.cones_cls": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.cones_score": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.cones_xy": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.plan": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.plan_std": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    }
+  },
+  "black_image_diagnostic": {
+    "description": "Open-loop black RGB input, not a driving score",
+    "plan_changed_above_tolerance": true,
+    "differences": {
+      "black.action[0]": {
+        "max_abs": 0.20017135208315912,
+        "mismatches": 120
+      },
+      "black.action[1]": {
+        "max_abs": 5.873039958477022,
+        "mismatches": 120
+      },
+      "black.prediction.cones_cls": {
+        "max_abs": 0.0,
+        "mismatches": 120
+      },
+      "black.prediction.cones_score": {
+        "max_abs": 0.0,
+        "mismatches": 120
+      },
+      "black.prediction.cones_xy": {
+        "max_abs": 0.0,
+        "mismatches": 120
+      },
+      "black.prediction.plan": {
+        "max_abs": 62.06507730484009,
+        "mismatches": 120
+      },
+      "black.prediction.plan_std": {
+        "max_abs": 30.25998878479004,
+        "mismatches": 120
+      }
+    }
+  },
+  "verification_limits": [
+    "Only the 120 saved pilot inputs are replayed; no physical simulation or scoring is rerun.",
+    "Black RGB is an input-sensitivity control, not evidence of robustness."
+  ]
+}

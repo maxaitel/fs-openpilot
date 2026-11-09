@@ -1,0 +1,12 @@
+{
+  "id": "test-skidpad-86000-matched",
+  "split": "test",
+  "discipline": "skidpad",
+  "seed": 86000,
+  "dr": "light",
+  "variant": "matched",
+  "track_seed": null,
+  "frozen_case": null,
+  "lateral_start": 0.0,
+  "yaw_start": 0.0
+}

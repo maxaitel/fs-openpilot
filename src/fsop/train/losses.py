@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import numpy as np
 import torch
 import torch.nn.functional as F
 
@@ -86,3 +87,30 @@ def img_loss(out: dict, b: dict, cams=("road", "wide")) -> dict[str, torch.Tenso
     res[f"img_{c}_wh"] = 0.1 * masked_l1(o["wh"], b[f"{c}_wh"], b[f"{c}_pos"])
     res[f"img_{c}_off"] = masked_l1(torch.sigmoid(o["off"]), b[f"{c}_off"], b[f"{c}_pos"])
   return res
+
+
+def op_tangent_actions_from_op_plan(mu, vx, vy, wheelbase, max_brake, max_accel):
+  """FP32 differentiable equivalent of OpenpilotTangentFollower before mission braking."""
+  mu, vx, vy, wheelbase, max_brake, max_accel = (
+    x.float() for x in (mu, vx, vy, wheelbase, max_brake, max_accel))
+  times = torch.as_tensor(T_IDXS, dtype=mu.dtype, device=mu.device)
+
+  def interpolate(values, t):
+    hi = int(np.searchsorted(T_IDXS, t))
+    weight = (t - times[hi - 1]) / (times[hi] - times[hi - 1])
+    return values[:, hi - 1] * (1 - weight) + values[:, hi] * weight
+
+  # OP coordinates have opposite yaw and yaw-rate signs to the ego frame.
+  speed_for_steer = vx.clamp_min(1.0)
+  yaw = -interpolate(mu[:, :, 11], 0.2)
+  yaw_rate = -mu[:, 0, 14]
+  curvature = 2 * yaw / (speed_for_steer * 0.2) - yaw_rate / speed_for_steer
+  steer = torch.atan(wheelbase * curvature)
+  velocity, acceleration = mu[:, :, 3:5], mu[:, :, 6:8]
+  knot_speed = torch.linalg.vector_norm(velocity, dim=-1)
+  tangent = (velocity * acceleration).sum(dim=-1) / knot_speed.clamp_min(0.001)
+  target_speed = interpolate(knot_speed, 0.3)
+  target_accel = interpolate(tangent, 0.3)
+  current_speed = torch.linalg.vector_norm(torch.stack((vx, vy), dim=-1), dim=-1)
+  raw = 1.5 * (target_speed - current_speed) + 0.5 * target_accel
+  return steer, torch.maximum(torch.minimum(raw, max_accel), -max_brake)

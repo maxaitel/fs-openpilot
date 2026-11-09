@@ -1,0 +1,12 @@
+{
+  "id": "val-skidpad-84001-visual_stress_v1",
+  "split": "val",
+  "discipline": "skidpad",
+  "seed": 84001,
+  "dr": "heavy",
+  "variant": "visual_stress_v1",
+  "track_seed": null,
+  "frozen_case": null,
+  "lateral_start": 0.0,
+  "yaw_start": 0.0
+}

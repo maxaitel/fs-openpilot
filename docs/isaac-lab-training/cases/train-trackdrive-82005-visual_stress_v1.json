@@ -1,0 +1,12 @@
+{
+  "id": "train-trackdrive-82005-visual_stress_v1",
+  "split": "train",
+  "discipline": "trackdrive",
+  "seed": 82005,
+  "dr": "heavy",
+  "variant": "visual_stress_v1",
+  "track_seed": 81005,
+  "frozen_case": null,
+  "lateral_start": 0.0,
+  "yaw_start": 0.0
+}

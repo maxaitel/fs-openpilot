@@ -1,0 +1,12 @@
+{
+  "id": "test-skidpad-86002-visual_stress_v1",
+  "split": "test",
+  "discipline": "skidpad",
+  "seed": 86002,
+  "dr": "light",
+  "variant": "visual_stress_v1",
+  "track_seed": null,
+  "frozen_case": null,
+  "lateral_start": 0.0,
+  "yaw_start": 0.0
+}

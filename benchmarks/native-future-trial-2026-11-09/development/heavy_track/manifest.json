@@ -1,0 +1,88 @@
+{
+  "complete": true,
+  "episodes": {
+    "baseline/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1": {
+      "command": [
+        "/isaac-sim/kit/python/bin/python3",
+        "-m",
+        "isaac_lab_fsop.evaluate",
+        "--case",
+        "/work/runs/development_native_future_trial1/heavy_track/cases/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1.json",
+        "--checkpoint",
+        "/frozen/model.pt",
+        "--expected-sha",
+        "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+        "--out",
+        "/work/runs/development_native_future_trial1/heavy_track/baseline/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1",
+        "--async-evidence",
+        "--controller",
+        "pp"
+      ],
+      "log": "logs/baseline/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1.log",
+      "receipt": {
+        "completion_sha256": "3d46736de60fe6a2b7afdccb9105dc2ca0fcc901b9d5b89df2ac656107b5bf68",
+        "frame_count": 2400,
+        "frames_sha256": "234cb5b82f4f6d448f4240bf38f638f02922185ce94ad1422bb3b35463b19297",
+        "result": "timeout",
+        "summary_sha256": "db7ffd2ec9b79647dcf8dfbde5f9a7556494f76de1cd5effaae44e1be74dc20f"
+      },
+      "status": "complete"
+    },
+    "candidate/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1": {
+      "command": [
+        "/isaac-sim/kit/python/bin/python3",
+        "-m",
+        "isaac_lab_fsop.evaluate",
+        "--case",
+        "/work/runs/development_native_future_trial1/heavy_track/cases/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1.json",
+        "--checkpoint",
+        "/work/runs/lab_v4/native_future_trial1/step_000500.pt",
+        "--expected-sha",
+        "c121faa268d8c98bdac537974a9c21d3523a7b57cdab7f480351cbb2f98f89ac",
+        "--out",
+        "/work/runs/development_native_future_trial1/heavy_track/candidate/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1",
+        "--async-evidence",
+        "--controller",
+        "op_tangent_v1"
+      ],
+      "log": "logs/candidate/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1.log",
+      "receipt": {
+        "completion_sha256": "37776944254b0a7f62c314e8a0899404a8720856fe709369f0cffee1daab27b5",
+        "frame_count": 1139,
+        "frames_sha256": "6cf83af19b545459fc0b5166a40cfe72a56817f8cf763b99692e1be7191ba43f",
+        "result": "finished",
+        "summary_sha256": "b7a621691d0528ea08e02166462daebf8ce5b00ef964b6ca245bbffc8c479c4a"
+      },
+      "status": "complete"
+    },
+    "initializer/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1": {
+      "command": [
+        "/isaac-sim/kit/python/bin/python3",
+        "-m",
+        "isaac_lab_fsop.evaluate",
+        "--case",
+        "/work/runs/development_native_future_trial1/heavy_track/cases/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1.json",
+        "--checkpoint",
+        "/work/runs/lab_v4/native_future_calibration1/step_000000.pt",
+        "--expected-sha",
+        "ca708a509e24f1bf8d089fffca1b40da1b63ea47661eb865991b701432bbdbf8",
+        "--out",
+        "/work/runs/development_native_future_trial1/heavy_track/initializer/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1",
+        "--async-evidence",
+        "--controller",
+        "op_tangent_v1"
+      ],
+      "log": "logs/initializer/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1.log",
+      "receipt": {
+        "completion_sha256": "126e14b886fdcced63cdbd0b094002124b7a7798281aa9450dcb2c2d957f971a",
+        "frame_count": 1131,
+        "frames_sha256": "ce9c832b975bba1e7c6adadb17bcb809ca38fa83eaba8b40caccb2bf307bb42f",
+        "result": "finished",
+        "summary_sha256": "11ce479ba8cec2f36ce95d7b570a70d82ee99d92dbd0956685f8cd526e47d1b3"
+      },
+      "status": "complete"
+    }
+  },
+  "lock_sha256": "5af1d738348c5dda92423851d14301c3a7d2586c175f60880950795185b9f6ca",
+  "version": 1
+}

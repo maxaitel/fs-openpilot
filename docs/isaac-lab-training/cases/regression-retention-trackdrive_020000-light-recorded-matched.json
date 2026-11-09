@@ -1,0 +1,12 @@
+{
+  "id": "regression-retention-trackdrive_020000-light-recorded-matched",
+  "split": "regression",
+  "discipline": "trackdrive",
+  "seed": 0,
+  "dr": "light",
+  "variant": "matched",
+  "track_seed": null,
+  "frozen_case": "retention-trackdrive_020000-light-recorded",
+  "lateral_start": 0.0,
+  "yaw_start": 0.0
+}

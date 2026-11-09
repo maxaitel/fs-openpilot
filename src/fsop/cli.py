@@ -217,13 +217,32 @@ def data_cache(dataset: Path = typer.Option(...), ckpt: Path | None = None, batc
 
 # ---------------------------------------------------------------------------------------------- train / eval
 @app.command("train")
-def train(cfg: Path = typer.Option(...), override: list[str] = typer.Option([], "-o")):
-  """Train (stage set in the config)."""
+def train(cfg: Path = typer.Option(Path("configs/train/spark_isaac_lab.yaml")),
+          override: list[str] = typer.Option([], "-o")):
+  """Train on native Isaac Lab replay, or use an explicit legacy configuration."""
+  from omegaconf import OmegaConf
+
+  raw = OmegaConf.merge(OmegaConf.load(cfg), OmegaConf.from_dotlist(override))
+  if raw.get("backend") == "isaac_lab":
+    from fsop.train.lab_train import main
+
+    values = OmegaConf.to_container(raw, resolve=True)
+    values.pop("backend")
+    arguments = []
+    for key, value in values.items():
+      if value is None or value is False:
+        continue
+      arguments.append("--" + key.replace("_", "-"))
+      if value is not True:
+        arguments.append(str(value))
+    main(arguments)
+    return
+  if raw.get("backend") is not None:
+    raise typer.BadParameter("Unknown training backend")
   from fsop.config import load_config
   from fsop.train.trainer import TrainCfg, Trainer
 
-  c = load_config(TrainCfg, cfg, override)
-  Trainer(c).fit()
+  Trainer(load_config(TrainCfg, cfg, override)).fit()
 
 
 @eval_app.command("open-loop")

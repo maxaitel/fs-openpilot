@@ -91,11 +91,15 @@ class TorchEngine:
 class FSDriver:
   def __init__(self, model: str | Path, profile=None, controller: str = "pp", min_score: float = 0.3,
                providers: list[str] | None = None):
-    from fsop.eval.controller import make_controller
+    from fsop.eval.controller import make_controller, validate_checkpoint_controller
     from fsop.profile import TeamProfile, load_profile
 
+    if controller == "op_tangent_v1":
+      raise ValueError("FSDriver does not support measured body vy required by op_tangent_v1")
     self.profile = profile if isinstance(profile, TeamProfile) else load_profile(profile)
     self.engine = OnnxEngine(model, providers) if str(model).endswith(".onnx") else TorchEngine(model)
+    if isinstance(self.engine, TorchEngine):
+      validate_checkpoint_controller(getattr(self.engine.m.m, "controller_contract", None), controller)
     self.warper = ModelFrameWarper(self.profile)
     self.ts = TemporalState()
     self.ctrl = make_controller(controller, self.profile.vehicle)

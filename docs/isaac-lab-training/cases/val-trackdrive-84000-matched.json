@@ -1,0 +1,12 @@
+{
+  "id": "val-trackdrive-84000-matched",
+  "split": "val",
+  "discipline": "trackdrive",
+  "seed": 84000,
+  "dr": "light",
+  "variant": "matched",
+  "track_seed": 83000,
+  "frozen_case": null,
+  "lateral_start": 0.0,
+  "yaw_start": 0.0
+}

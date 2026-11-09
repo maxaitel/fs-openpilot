@@ -53,4 +53,82 @@ class OpenpilotFollower:
 
 
 def make_controller(name: str, vp: VehicleParams):
-  return {"pp": PlanPurePursuit, "op": OpenpilotFollower}[name](vp)
+  controller_contract(name)
+  return {"pp": PlanPurePursuit, "op": OpenpilotFollower, "op_tangent_v1": OpenpilotTangentFollower}[name](vp)
+
+# Explicit contract: the old "pp" and "op" modes retain their original semantics.
+OP_TANGENT_V1 = {
+  "version": 1,
+  "mode": "op_tangent_v1",
+  "steering": "openpilot_follower_body_vx",
+  "steering_action_time_s": 0.2,
+  "steering_min_speed_mps": 1.0,
+  "steering_delay_floor_s": 0.05,
+  "longitudinal": "knotwise_planar_tangent",
+  "action_time_s": 0.3,
+  "speed_gain": 1.5,
+  "accel_feedforward": 0.5,
+  "speed_floor_mps": 0.001,
+  "current_velocity": "measured_body_vx_vy",
+  "mission_layer": "mission_brake_after_follower",
+  "mission_brake_decel_mps2": 3.5,
+  "mission_launch_accel_mps2": 2.0,
+}
+
+
+def controller_contract(name: str) -> dict:
+  if name == "op_tangent_v1":
+    return dict(OP_TANGENT_V1)
+  if name in ("pp", "op"):
+    return {"version": 1, "mode": name, "mission_layer": "mission_brake_after_follower"}
+  raise ValueError(f"Unknown controller mode: {name}")
+
+
+def validate_checkpoint_controller(checkpoint_contract, mode: str) -> None:
+  """Legacy weights can be explicitly tested with a new mode; bound weights cannot change modes."""
+  controller_contract(mode)
+  if checkpoint_contract is not None:
+    expected = controller_contract(checkpoint_contract.get("mode")) if isinstance(checkpoint_contract, dict) else None
+    if checkpoint_contract != expected:
+      raise ValueError("Invalid checkpoint controller contract")
+    if checkpoint_contract["mode"] != mode:
+      raise ValueError("Checkpoint controller contract does not match requested controller")
+
+
+def validate_checkpoint_payload(payload, requested_mode: str) -> None:
+  """Verify a checkpoint's declared mode before loading or evaluating its weights."""
+  if not isinstance(payload, dict):
+    raise ValueError("Checkpoint must be a mapping")
+  config = payload.get("config") or {}
+  if not isinstance(config, dict):
+    raise ValueError("Checkpoint config must be a mapping")
+  trained_mode = config.get("controller_mode", "pp")
+  contract = payload.get("controller_contract")
+  if trained_mode != "pp" and contract is None:
+    raise ValueError("Checkpoint controller contract is missing")
+  if contract is not None:
+    validate_checkpoint_controller(contract, trained_mode)
+  validate_checkpoint_controller(contract, requested_mode)
+
+
+class OpenpilotTangentFollower:
+  """OP steering with experimental tangent-based speed and acceleration feedback."""
+
+  def __init__(self, vp: VehicleParams):
+    self.vp = vp
+    self.steering = OpenpilotFollower(vp)
+
+  def __call__(self, plan: np.ndarray, vx: float, vy: float | None = None) -> tuple[float, float]:
+    if vy is None or not np.isfinite([vx, vy]).all():
+      raise ValueError("op_tangent_v1 requires finite measured body vx and vy")
+    plan = np.asarray(plan)
+    if plan.shape != (len(T_IDXS), 15) or not np.isfinite(plan).all():
+      raise ValueError("op_tangent_v1 requires a finite 33 by 15 plan")
+    steer, _ = self.steering(plan, vx)
+    velocity, acceleration = plan[:, 3:5], plan[:, 6:8]
+    speed = np.linalg.norm(velocity, axis=1)
+    tangent = np.einsum("ij,ij->i", velocity, acceleration) / np.maximum(speed, 0.001)
+    v_target = np.interp(0.3, T_IDXS, speed)
+    a_target = np.interp(0.3, T_IDXS, tangent)
+    accel = 1.5 * (v_target - np.hypot(vx, vy)) + 0.5 * a_target
+    return steer, float(np.clip(accel, -self.vp.max_brake, self.vp.max_accel))

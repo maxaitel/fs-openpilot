@@ -1,0 +1,9 @@
+{
+  "anchors": {
+    "straight": 326,
+    "steady_turn": 164,
+    "recovery": 84
+  },
+  "probe_sha256": "5cb354f56a70dd2623a902fb2b1b9d34087494816015a9144e7f28ca0505aaaf",
+  "protocol_sha256": "65c0e022d10d092eae07f667617c0ac536a77ab1cfb97d50661e30aeb9bdac3b"
+}

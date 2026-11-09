@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-11-09T12:50:30.979447+00:00",
+  "purpose": "Test steering loss balance after recovery sampling failed physical evaluation. No driving improvement is claimed.",
+  "config": "configs/train/spark_isaac_lab_steering.yaml",
+  "config_sha256": "2a4eae8209b3ebd9b1346be817423335ec7616eab47e3f652f04b2c6ac9c6641",
+  "comparison_run": "runs/lab_v4/recovery_trial1",
+  "init_checkpoint": "runs/lab_v2/action_trial1/step_000500.pt",
+  "init_sha256": "1ac2e3ba949db39ab445c636f841360973e2add8c86edab689a3a872f040ce55",
+  "manifest_sha256": "a8b32953dcbeb66c26e9a77a343786aba81590c22062e03d08932f7a0eeaaa38",
+  "dataset_verification_sha256": "cbac903244925aaf27badfce54b6a8a332e73507bc3096c6e516a1d0197af293",
+  "recovery_recipe_sha256": "05ca009f60d525b6f6c32c8dbc043b7e7e1e59eef74f2a20ce544ded6298236f",
+  "intervention": {
+    "only_training_hyperparameter_changed": "w_steer",
+    "previous": 3.281158240898283,
+    "multiplier": 30,
+    "new": 98.43474722694849,
+    "steps": 500,
+    "seed": 0
+  },
+  "basis": {
+    "probe_path": ".work/lab/recovery_mixed_gradient_checkpoint_comparison.json",
+    "probe_sha256": "46c2cdab6df236478ab531fa6f3ecd0947d53db3abe83815989d33bd97941f63",
+    "batches": 4,
+    "checkpoint_states": 2,
+    "tested_multipliers": [
+      10,
+      30,
+      60,
+      100
+    ],
+    "choice": "Smallest tested multiplier giving positive steering alignment in all eight fixed-state batch measurements.",
+    "limits": "A local gradient-direction probe does not predict AdamW updates or physical driving."
+  },
+  "selection": {
+    "script": "scripts/select_lab_action.py",
+    "baseline_training": "runs/lab_v2/vision_trial1",
+    "parent_training": "runs/lab_v2/action_trial1",
+    "rules": "Existing offline retention and checkpoint selection rules remain unchanged."
+  },
+  "additional_imitation_gate": {
+    "anchors": "First stored qualified recovery anchor in each of the eight frozen training episodes; zero to 0.15 seconds after handoff.",
+    "comparison": "Actual requested PlanPurePursuit steering versus recorded native teacher request.",
+    "case_count": 8,
+    "device": "CPU FP32 with the same native temporal inputs used by the recorded diagnostic.",
+    "scope": "Seen-anchor learning check only, not a safety or generalization claim.",
+    "failure_action": "Reject this candidate without physical promotion. Do not relax these limits.",
+    "maximum_mean_absolute_error_rad": 0.04,
+    "maximum_individual_absolute_error_rad": 0.08
+  },
+  "physical_evaluation": "Only after offline selection, the additional imitation check, and saved-input inference checks pass. Exposed track and skidpad comparisons precede all frozen fresh tests."
+}

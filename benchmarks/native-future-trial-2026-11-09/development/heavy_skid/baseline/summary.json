@@ -1,0 +1,327 @@
+{
+  "discipline": "skidpad",
+  "result": "finished",
+  "laps": [
+    9.39820290006515,
+    9.95414393567815,
+    9.641023168960707,
+    9.796231144896772
+  ],
+  "n_laps": 4,
+  "doo": 4,
+  "oc": 0,
+  "max_speed": 8.382546071516618,
+  "route": {
+    "expected_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "accepted_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "laps": [
+      {
+        "circle": "right",
+        "start_time": 3.295484713306596,
+        "finish_time": 12.693687613371747,
+        "duration": 9.39820290006515,
+        "winding_right": -6.283185307179594,
+        "winding_left": 2.498001805406602e-16
+      },
+      {
+        "circle": "right",
+        "start_time": 12.693687613371747,
+        "finish_time": 22.647831549049897,
+        "duration": 9.95414393567815,
+        "winding_right": -6.283185307179583,
+        "winding_left": 5.551115123125783e-17
+      },
+      {
+        "circle": "left",
+        "start_time": 22.647831549049897,
+        "finish_time": 32.288854718010604,
+        "duration": 9.641023168960707,
+        "winding_right": -6.938893903907228e-17,
+        "winding_left": 6.283185307179588
+      },
+      {
+        "circle": "left",
+        "start_time": 32.288854718010604,
+        "finish_time": 42.08508586290738,
+        "duration": 9.796231144896772,
+        "winding_right": 2.3592239273284576e-16,
+        "winding_left": 6.283185307179586
+      }
+    ],
+    "crossings": [
+      3.295484713306596,
+      12.693687613371747,
+      22.647831549049897,
+      32.288854718010604,
+      42.08508586290738
+    ],
+    "complete": true,
+    "exited": true,
+    "stopped_in_zone": true,
+    "valid": true,
+    "violation": null,
+    "reverse_crossings": 0,
+    "termination": "finished"
+  },
+  "raw_time": 9.875187540287461,
+  "penalty": 0.8,
+  "time": 10.675187540287462,
+  "dq": false,
+  "complete": true,
+  "pass": true,
+  "final_state": {
+    "x": 23.099647521972656,
+    "y": -0.06403487175703049,
+    "yaw": -0.013714912464237302,
+    "vx": 2.9590731971975453e-06,
+    "vy": -6.206648225068185e-07,
+    "r": -4.2046824355601586e-11,
+    "steer": 1.880003895839933e-05,
+    "accel": -1.0057840158305402,
+    "t": 46.35,
+    "extra": {}
+  },
+  "physical_cone_hits": 6,
+  "contact_events": [
+    {
+      "t": 17.95,
+      "control_frame": 359,
+      "cone": "/World/Cones/c0012",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 22.6,
+      "control_frame": 452,
+      "cone": "/World/Cones/c0030",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 22.6,
+      "control_frame": 452,
+      "cone": "/World/Cones/c0083",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 23.85,
+      "control_frame": 477,
+      "cone": "/World/Cones/c0032",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 24.1,
+      "control_frame": 482,
+      "cone": "/World/Cones/c0033",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 24.65,
+      "control_frame": 493,
+      "cone": "/World/Cones/c0017",
+      "time_convention": "start of the control interval containing first contact"
+    }
+  ],
+  "progress": 1.0017453223692292,
+  "rms_lat": 0.2802560946937619,
+  "case": {
+    "id": "regression-skidpad-72000-heavy-recorded-visual_stress_v1",
+    "split": "regression",
+    "discipline": "skidpad",
+    "seed": 72000,
+    "dr": "heavy",
+    "variant": "visual_stress_v1",
+    "track_seed": null,
+    "frozen_case": "skidpad-72000-heavy-recorded",
+    "lateral_start": 0.0,
+    "yaw_start": 0.0
+  },
+  "pilot_only": false,
+  "events": [
+    {
+      "t": 3.295484713306596,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    },
+    {
+      "t": 12.693687613371747,
+      "kind": "line_cross",
+      "data": {
+        "n": 2
+      }
+    },
+    {
+      "t": 12.693687613371747,
+      "kind": "lap",
+      "data": {
+        "circle": "right",
+        "start_time": 3.295484713306596,
+        "finish_time": 12.693687613371747,
+        "duration": 9.39820290006515,
+        "winding_right": -6.283185307179594,
+        "winding_left": 2.498001805406602e-16
+      }
+    },
+    {
+      "t": 18.0,
+      "kind": "doo",
+      "data": {
+        "cone": 12,
+        "dir": 3.017713533306544
+      }
+    },
+    {
+      "t": 22.55,
+      "kind": "doo",
+      "data": {
+        "cone": 30,
+        "dir": 0.1905976048392148
+      }
+    },
+    {
+      "t": 22.647831549049897,
+      "kind": "line_cross",
+      "data": {
+        "n": 3
+      }
+    },
+    {
+      "t": 22.647831549049897,
+      "kind": "lap",
+      "data": {
+        "circle": "right",
+        "start_time": 12.693687613371747,
+        "finish_time": 22.647831549049897,
+        "duration": 9.95414393567815,
+        "winding_right": -6.283185307179583,
+        "winding_left": 5.551115123125783e-17
+      }
+    },
+    {
+      "t": 24.15,
+      "kind": "doo",
+      "data": {
+        "cone": 33,
+        "dir": 1.0621190539391674
+      }
+    },
+    {
+      "t": 24.75,
+      "kind": "doo",
+      "data": {
+        "cone": 17,
+        "dir": 1.4317106174867047
+      }
+    },
+    {
+      "t": 32.288854718010604,
+      "kind": "line_cross",
+      "data": {
+        "n": 4
+      }
+    },
+    {
+      "t": 32.288854718010604,
+      "kind": "lap",
+      "data": {
+        "circle": "left",
+        "start_time": 22.647831549049897,
+        "finish_time": 32.288854718010604,
+        "duration": 9.641023168960707,
+        "winding_right": -6.938893903907228e-17,
+        "winding_left": 6.283185307179588
+      }
+    },
+    {
+      "t": 42.08508586290738,
+      "kind": "line_cross",
+      "data": {
+        "n": 5
+      }
+    },
+    {
+      "t": 42.08508586290738,
+      "kind": "lap",
+      "data": {
+        "circle": "left",
+        "start_time": 32.288854718010604,
+        "finish_time": 42.08508586290738,
+        "duration": 9.796231144896772,
+        "winding_right": 2.3592239273284576e-16,
+        "winding_left": 6.283185307179586
+      }
+    },
+    {
+      "t": 46.35,
+      "kind": "stopped",
+      "data": {
+        "in_stop_zone": true
+      }
+    },
+    {
+      "t": 46.35,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "pending_events": [
+    {
+      "t": 46.35,
+      "kind": "stopped",
+      "data": {
+        "in_stop_zone": true
+      }
+    },
+    {
+      "t": 46.35,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "recorded_frames": 927,
+  "wall_seconds": 225.53801857901271,
+  "startup_seconds": 15.537515389965847,
+  "evidence_seconds": 55.33160242321901,
+  "seconds_simulated": 46.35,
+  "real_time_factor": 0.20550858915949113,
+  "controller_contract": {
+    "version": 1,
+    "mode": "pp",
+    "mission_layer": "mission_brake_after_follower"
+  },
+  "checkpoint_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+  "checkpoint_sha256_after": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+  "state_sha256": "1921a60567422c86df551cd2a89a69170af38cc5c390bdd3d4cd049be8a9c50a",
+  "state_sha256_after": "1921a60567422c86df551cd2a89a69170af38cc5c390bdd3d4cd049be8a9c50a",
+  "frozen_unchanged": true,
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "b3963886d3ef1bc35601a743d9190f3cc621b920c10bb8d5d44c6e21cc4127b2",
+  "torch_peak_allocated_gib": 0.13738584518432617,
+  "torch_peak_reserved_gib": 0.150390625,
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130"
+  }
+}

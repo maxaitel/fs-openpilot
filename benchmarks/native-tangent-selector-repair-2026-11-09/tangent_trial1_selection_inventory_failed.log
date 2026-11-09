@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/work/scripts/select_lab_tangent.py", line 517, in <module>
+    main()
+  File "/work/scripts/select_lab_tangent.py", line 509, in main
+    result = select(args.training, args.calibration, args.protocol)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/scripts/select_lab_tangent.py", line 370, in select
+    raise ValueError("invalid complete model or trainable tensor inventory")
+ValueError: invalid complete model or trainable tensor inventory
+There was an error running python

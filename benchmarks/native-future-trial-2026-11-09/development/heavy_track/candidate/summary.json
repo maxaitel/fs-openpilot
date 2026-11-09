@@ -1,0 +1,162 @@
+{
+  "discipline": "trackdrive",
+  "result": "finished",
+  "laps": [
+    52.199999999999996
+  ],
+  "n_laps": 1,
+  "doo": 2,
+  "oc": 1,
+  "max_speed": 8.005731735755765,
+  "avg_speed_first3": null,
+  "raw_time": 52.199999999999996,
+  "penalty": 14.0,
+  "time": 66.19999999999999,
+  "dq": false,
+  "complete": true,
+  "pass": true,
+  "final_state": {
+    "x": -17.52701187133789,
+    "y": 100.37872314453125,
+    "yaw": -2.9917059500849295,
+    "vx": 2.714699923923234e-06,
+    "vy": 6.61708724502886e-08,
+    "r": 1.1579397163341554e-10,
+    "steer": -0.0002144927413928581,
+    "accel": -1.0059785360230067,
+    "t": 56.95,
+    "extra": {}
+  },
+  "physical_cone_hits": 2,
+  "contact_events": [
+    {
+      "t": 40.7,
+      "control_frame": 814,
+      "cone": "/World/Cones/c0165",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 41.7,
+      "control_frame": 834,
+      "cone": "/World/Cones/c0133",
+      "time_convention": "start of the control interval containing first contact"
+    }
+  ],
+  "progress": 1.0011193618308902,
+  "rms_lat": 0.8461155372586522,
+  "case": {
+    "id": "regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1",
+    "split": "regression",
+    "discipline": "trackdrive",
+    "seed": 0,
+    "dr": "heavy",
+    "variant": "visual_stress_v1",
+    "track_seed": null,
+    "frozen_case": "retention-trackdrive_020000-heavy-recorded",
+    "lateral_start": 0.0,
+    "yaw_start": 0.0
+  },
+  "pilot_only": false,
+  "events": [
+    {
+      "t": 2.1,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    },
+    {
+      "t": 40.55,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 40.75,
+      "kind": "doo",
+      "data": {
+        "cone": 165,
+        "dir": 1.6116541279042509
+      }
+    },
+    {
+      "t": 41.65,
+      "kind": "doo",
+      "data": {
+        "cone": 133,
+        "dir": 1.7626675826443834
+      }
+    },
+    {
+      "t": 41.8,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 54.3,
+      "kind": "line_cross",
+      "data": {
+        "n": 2
+      }
+    },
+    {
+      "t": 56.95,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "pending_events": [
+    {
+      "t": 56.95,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "recorded_frames": 1139,
+  "wall_seconds": 280.9911740879761,
+  "startup_seconds": 22.137101355940104,
+  "evidence_seconds": 88.7732073678635,
+  "seconds_simulated": 56.95,
+  "real_time_factor": 0.20267540496545777,
+  "controller_contract": {
+    "version": 1,
+    "mode": "op_tangent_v1",
+    "steering": "openpilot_follower_body_vx",
+    "steering_action_time_s": 0.2,
+    "steering_min_speed_mps": 1.0,
+    "steering_delay_floor_s": 0.05,
+    "longitudinal": "knotwise_planar_tangent",
+    "action_time_s": 0.3,
+    "speed_gain": 1.5,
+    "accel_feedforward": 0.5,
+    "speed_floor_mps": 0.001,
+    "current_velocity": "measured_body_vx_vy",
+    "mission_layer": "mission_brake_after_follower",
+    "mission_brake_decel_mps2": 3.5,
+    "mission_launch_accel_mps2": 2.0
+  },
+  "checkpoint_sha256": "c121faa268d8c98bdac537974a9c21d3523a7b57cdab7f480351cbb2f98f89ac",
+  "checkpoint_sha256_after": "c121faa268d8c98bdac537974a9c21d3523a7b57cdab7f480351cbb2f98f89ac",
+  "state_sha256": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+  "state_sha256_after": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+  "frozen_unchanged": true,
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "925dfc6fd77287955334523a1ef93f5bd53d247a5cabd856fac108546deaeccc",
+  "torch_peak_allocated_gib": 0.13738584518432617,
+  "torch_peak_reserved_gib": 0.150390625,
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130"
+  }
+}

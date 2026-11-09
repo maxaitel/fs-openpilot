@@ -1,0 +1,12 @@
+{
+  "id": "legacy-skidpad-72001-light-recorded",
+  "split": "regression",
+  "discipline": "skidpad",
+  "seed": 72001,
+  "dr": "light",
+  "variant": "matched",
+  "track_seed": null,
+  "frozen_case": "skidpad-72001-light-recorded",
+  "lateral_start": 0.0,
+  "yaw_start": 0.0
+}

@@ -1,0 +1,645 @@
+{
+  "schema_version": 1,
+  "scope": "Deterministic local saved-output ablation on all existing 256 validation anchors. No model inference, optimizer, GPU, Spark, new scene, or physics execution.",
+  "data_shape": {
+    "plans": "[256,33,15] in OP coordinates",
+    "observed": "[256,3] measured ego vx, vy, world-Z angular rate"
+  },
+  "checkpoint_sha256": "c121faa268d8c98bdac537974a9c21d3523a7b57cdab7f480351cbb2f98f89ac",
+  "checkpoint_eligible": false,
+  "input_sha256": {
+    ".work/lab/measured_yaw_validation_ablation.py": "91da7b2ebe14607b9692d31f494fba72b694a51b44c4aa9353759448b07ba073",
+    ".work/lab/native_future_residual1/report.json": "080a5efcdea6adfbb314e9bae7cb22f2a02d34a6a62fd387748e2a45266991fd",
+    ".work/lab/native_future_residual1/arrays.npz": "e432a932ba399ece5d7ad3028bbe2b21641484d9e71c842bee3f7fb55d3e397e",
+    ".work/lab/native_future_residual1/anchors.json": "807ea448bd97388ce1b7eada6b6bd0daaa1dca8a4bc361b4b49486df1d305914",
+    ".work/lab/native_future_steering_readout2.json": "5884f2790ce7867a13c5d5af07fe4769f3130c999d5e9d4c399dd42ceee227cc",
+    ".work/lab/native_future_steering_readout2.py": "be829627b1c30737ed400d2fdd479de96278c4ac00f0396da198d8b571a6c3e4",
+    "src/fsop/eval/controller.py": "5f73f920e3b0594fa035147ff86d6181a994dd15b8e6c6c7685224e17670e229",
+    "src/fsop/train/losses.py": "b1f35b2102cbe6dd1776776d7e051889de9456b80f2adc59aa6d16309f3bc2ac",
+    "src/fsop/sim/expert.py": "7f1c3fb9083b4edd04e61a33719a88b4b65bea85fb6490ea2ef191e66d35986e",
+    "src/fsop/data/native_replay.py": "483e089b37f8782ade87cc8f16eaf8a2447efa1e25ee9a6b79f5ac5eac9cb30b",
+    "isaac_lab_fsop/env.py": "faa1557c4da72dcae56a7589b38e58edb0ab6cccf306cba1c83bfc23504df728",
+    "isaac_lab_fsop/evaluate.py": "fd36afd3694c3a9b1028d7523f9dde8c62110453fe7ee0a84fa45311a4f5c9ce"
+  },
+  "runtime": {
+    "python": "3.14.0",
+    "numpy": "2.3.5"
+  },
+  "contract": {
+    "action_time_s": 0.2,
+    "speed_floor_mps": 1.0,
+    "smooth_l1_beta": 0.05,
+    "coordinates": "Negate OP plan yaw and yaw-rate columns to obtain ego convention.",
+    "intervention": "Replace only predicted initial yaw rate with recorded observed world-Z angular rate. Keep every learned plan output, velocity input, vehicle parameter and target fixed.",
+    "action_scope": "Steering before mission layer and physical actuator clipping.",
+    "target": "Unchanged detached native-future plan through the original op_tangent_v1 mapping.",
+    "reconstruction_atol": 1e-07,
+    "reconstruction_rtol": 1e-06
+  },
+  "native_target_invariance": {
+    "exact": true,
+    "saved_action_max_error_rad": 4.4250031139281276e-08
+  },
+  "models": {
+    "step0": {
+      "groups": {
+        "all": {
+          "anchors": 256,
+          "original_smooth_l1": 0.001276342364095722,
+          "substituted_smooth_l1": 0.0015172625477780986,
+          "smooth_l1_delta": 0.00024092018368237662,
+          "original_absolute_error_rad": {
+            "mean": 0.007339305406754641,
+            "p95": 0.022318605206069972,
+            "max": 0.050005958588954624
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.006652620935750695,
+            "p95": 0.02479640433243333,
+            "max": 0.08753761828624299
+          },
+          "worse_anchors": 125,
+          "better_anchors": 131,
+          "equal_anchors": 0
+        },
+        "trackdrive": {
+          "anchors": 128,
+          "original_smooth_l1": 0.0024136534248550183,
+          "substituted_smooth_l1": 0.0026755124343103434,
+          "smooth_l1_delta": 0.0002618590094553251,
+          "original_absolute_error_rad": {
+            "mean": 0.012440091486888745,
+            "p95": 0.02849064961793949,
+            "max": 0.050005958588954624
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.010077483538236169,
+            "p95": 0.035765403457840704,
+            "max": 0.08753761828624299
+          },
+          "worse_anchors": 43,
+          "better_anchors": 85,
+          "equal_anchors": 0
+        },
+        "skidpad": {
+          "anchors": 128,
+          "original_smooth_l1": 0.00013903130333642574,
+          "substituted_smooth_l1": 0.0003590126612458539,
+          "smooth_l1_delta": 0.00021998135790942812,
+          "original_absolute_error_rad": {
+            "mean": 0.0022385193266205375,
+            "p95": 0.007393774799923171,
+            "max": 0.018849238215464054
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.003227758333265221,
+            "p95": 0.011023783977881976,
+            "max": 0.03514775931907653
+          },
+          "worse_anchors": 82,
+          "better_anchors": 46,
+          "equal_anchors": 0
+        },
+        "val-skidpad-84000-matched": {
+          "anchors": 32,
+          "original_smooth_l1": 0.00010519883904580886,
+          "substituted_smooth_l1": 0.0003079405505596377,
+          "smooth_l1_delta": 0.00020274171151382886,
+          "original_absolute_error_rad": {
+            "mean": 0.0019655211327026115,
+            "p95": 0.006074883008949036,
+            "max": 0.012812088775892558
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.0029054263186518757,
+            "p95": 0.00723690802297904,
+            "max": 0.026973290914265896
+          },
+          "worse_anchors": 23,
+          "better_anchors": 9,
+          "equal_anchors": 0
+        },
+        "val-skidpad-84001-visual_stress_v1": {
+          "anchors": 32,
+          "original_smooth_l1": 0.0001091248683524575,
+          "substituted_smooth_l1": 0.0002903840246787263,
+          "smooth_l1_delta": 0.0001812591563262688,
+          "original_absolute_error_rad": {
+            "mean": 0.0021419921318468916,
+            "p95": 0.00685140220547387,
+            "max": 0.012226034527156399
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.003172312166923082,
+            "p95": 0.010096638568362378,
+            "max": 0.0228942049861858
+          },
+          "worse_anchors": 20,
+          "better_anchors": 12,
+          "equal_anchors": 0
+        },
+        "val-skidpad-84002-visual_stress_v1": {
+          "anchors": 32,
+          "original_smooth_l1": 0.00010069856623387191,
+          "substituted_smooth_l1": 6.79593291851922e-05,
+          "smooth_l1_delta": -3.2739237048679716e-05,
+          "original_absolute_error_rad": {
+            "mean": 0.002005300798326263,
+            "p95": 0.007202874475511061,
+            "max": 0.010814428655271019
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.001760123578962099,
+            "p95": 0.005030020719595855,
+            "max": 0.009652078462465019
+          },
+          "worse_anchors": 15,
+          "better_anchors": 17,
+          "equal_anchors": 0
+        },
+        "val-skidpad-84003-visual_stress_v1": {
+          "anchors": 32,
+          "original_smooth_l1": 0.00024110293971356468,
+          "substituted_smooth_l1": 0.0007697667405598593,
+          "smooth_l1_delta": 0.0005286638008462946,
+          "original_absolute_error_rad": {
+            "mean": 0.002841263243606382,
+            "p95": 0.010594344346356682,
+            "max": 0.018849238215464054
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.005073171268523825,
+            "p95": 0.019279859545873815,
+            "max": 0.03514775931907653
+          },
+          "worse_anchors": 24,
+          "better_anchors": 8,
+          "equal_anchors": 0
+        },
+        "val-trackdrive-84000-matched": {
+          "anchors": 32,
+          "original_smooth_l1": 0.001567951621691233,
+          "substituted_smooth_l1": 0.0024236534689885845,
+          "smooth_l1_delta": 0.0008557018472973518,
+          "original_absolute_error_rad": {
+            "mean": 0.007560667950529711,
+            "p95": 0.022751094476748147,
+            "max": 0.050005958588954624
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.010774947053336129,
+            "p95": 0.03304219060252401,
+            "max": 0.043493869386275835
+          },
+          "worse_anchors": 22,
+          "better_anchors": 10,
+          "equal_anchors": 0
+        },
+        "val-trackdrive-84001-visual_stress_v1": {
+          "anchors": 32,
+          "original_smooth_l1": 0.0034817773184870203,
+          "substituted_smooth_l1": 0.0035776516456624274,
+          "smooth_l1_delta": 9.587432717540723e-05,
+          "original_absolute_error_rad": {
+            "mean": 0.01587982972638938,
+            "p95": 0.03350347004609181,
+            "max": 0.04191906746296188
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.01266252151820277,
+            "p95": 0.026610332299788358,
+            "max": 0.08753761828624299
+          },
+          "worse_anchors": 9,
+          "better_anchors": 23,
+          "equal_anchors": 0
+        },
+        "val-trackdrive-84002-visual_stress_v1": {
+          "anchors": 32,
+          "original_smooth_l1": 0.00269451205861659,
+          "substituted_smooth_l1": 0.003945864801786362,
+          "smooth_l1_delta": 0.0012513527431697714,
+          "original_absolute_error_rad": {
+            "mean": 0.013814727007946644,
+            "p95": 0.02446021376592118,
+            "max": 0.037073111622796556
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.010785849862678401,
+            "p95": 0.04700559611266446,
+            "max": 0.07193970949482836
+          },
+          "worse_anchors": 10,
+          "better_anchors": 22,
+          "equal_anchors": 0
+        },
+        "val-trackdrive-84003-visual_stress_v1": {
+          "anchors": 32,
+          "original_smooth_l1": 0.0019103727006252304,
+          "substituted_smooth_l1": 0.0007548798208040004,
+          "smooth_l1_delta": -0.0011554928798212303,
+          "original_absolute_error_rad": {
+            "mean": 0.012505141262689246,
+            "p95": 0.022047303499517175,
+            "max": 0.032464499477573225
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.006086615718727385,
+            "p95": 0.01445566073374843,
+            "max": 0.03456465851931567
+          },
+          "worse_anchors": 2,
+          "better_anchors": 30,
+          "equal_anchors": 0
+        }
+      },
+      "episodes_worsened": 6,
+      "episodes_total": 8,
+      "original_reconstruction_max_error_rad": 5.528767910156773e-08,
+      "largest_loss_increases": [
+        {
+          "index": 47,
+          "case": "val-trackdrive-84001-visual_stress_v1",
+          "frame": 166,
+          "original_steer_rad": 0.023104816714246065,
+          "substituted_steer_rad": -0.022513734109035042,
+          "native_target_steer_rad": 0.06502388417720795,
+          "smooth_l1_delta": 0.044965536116599494
+        },
+        {
+          "index": 72,
+          "case": "val-trackdrive-84002-visual_stress_v1",
+          "frame": 53,
+          "original_steer_rad": -0.2120084178355775,
+          "substituted_steer_rad": -0.16725901990103803,
+          "native_target_steer_rad": -0.2391987293958664,
+          "smooth_l1_delta": 0.039546579067372564
+        },
+        {
+          "index": 73,
+          "case": "val-trackdrive-84002-visual_stress_v1",
+          "frame": 60,
+          "original_steer_rad": 0.00028564875520051497,
+          "substituted_steer_rad": -0.05032791204451903,
+          "native_target_steer_rad": 0.00011614803224802017,
+          "smooth_l1_delta": 0.025443772771816236
+        },
+        {
+          "index": 71,
+          "case": "val-trackdrive-84002-visual_stress_v1",
+          "frame": 46,
+          "original_steer_rad": -0.2382864816268044,
+          "substituted_steer_rad": -0.2101793654539663,
+          "native_target_steer_rad": -0.25437167286872864,
+          "smooth_l1_delta": 0.01694226657351583
+        },
+        {
+          "index": 16,
+          "case": "val-trackdrive-84000-matched",
+          "frame": 145,
+          "original_steer_rad": -0.14645176138036828,
+          "substituted_steer_rad": -0.12567642083913905,
+          "native_target_steer_rad": -0.16208837926387787,
+          "smooth_l1_delta": 0.010813268974900165
+        }
+      ]
+    },
+    "step500": {
+      "groups": {
+        "all": {
+          "anchors": 256,
+          "original_smooth_l1": 0.0012560104422576792,
+          "substituted_smooth_l1": 0.0015264365041410873,
+          "smooth_l1_delta": 0.00027042606188340827,
+          "original_absolute_error_rad": {
+            "mean": 0.007559869414628838,
+            "p95": 0.022436627382212415,
+            "max": 0.04333165572275591
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.006913728183130102,
+            "p95": 0.027103981043148005,
+            "max": 0.07382508286500511
+          },
+          "worse_anchors": 114,
+          "better_anchors": 142,
+          "equal_anchors": 0
+        },
+        "trackdrive": {
+          "anchors": 128,
+          "original_smooth_l1": 0.002353346947369594,
+          "substituted_smooth_l1": 0.0027063304183593275,
+          "smooth_l1_delta": 0.00035298347098973356,
+          "original_absolute_error_rad": {
+            "mean": 0.012516499156617332,
+            "p95": 0.02773913061911198,
+            "max": 0.04333165572275591
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.010413581529594346,
+            "p95": 0.034918111833095566,
+            "max": 0.07382508286500511
+          },
+          "worse_anchors": 50,
+          "better_anchors": 78,
+          "equal_anchors": 0
+        },
+        "skidpad": {
+          "anchors": 128,
+          "original_smooth_l1": 0.00015867393714576427,
+          "substituted_smooth_l1": 0.0003465425899228472,
+          "smooth_l1_delta": 0.00018786865277708298,
+          "original_absolute_error_rad": {
+            "mean": 0.002603239672640343,
+            "p95": 0.008845981769611627,
+            "max": 0.021716512877483482
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.003413874836665859,
+            "p95": 0.011854635072162615,
+            "max": 0.03443994572483941
+          },
+          "worse_anchors": 64,
+          "better_anchors": 64,
+          "equal_anchors": 0
+        },
+        "val-skidpad-84000-matched": {
+          "anchors": 32,
+          "original_smooth_l1": 0.00011289193253961625,
+          "substituted_smooth_l1": 0.00024978044197415195,
+          "smooth_l1_delta": 0.00013688850943453567,
+          "original_absolute_error_rad": {
+            "mean": 0.0022858642211877095,
+            "p95": 0.007357418711966268,
+            "max": 0.010553442350006437
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.0031375192618744727,
+            "p95": 0.0112592989862435,
+            "max": 0.019191189334540296
+          },
+          "worse_anchors": 17,
+          "better_anchors": 15,
+          "equal_anchors": 0
+        },
+        "val-skidpad-84001-visual_stress_v1": {
+          "anchors": 32,
+          "original_smooth_l1": 0.00011070553904731532,
+          "substituted_smooth_l1": 0.0002781322259111641,
+          "smooth_l1_delta": 0.00016742668686384882,
+          "original_absolute_error_rad": {
+            "mean": 0.0025534499502287604,
+            "p95": 0.005839556593579906,
+            "max": 0.00966490762981323
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.0034653302403290813,
+            "p95": 0.012301661779608914,
+            "max": 0.015759271572111433
+          },
+          "worse_anchors": 16,
+          "better_anchors": 16,
+          "equal_anchors": 0
+        },
+        "val-skidpad-84002-visual_stress_v1": {
+          "anchors": 32,
+          "original_smooth_l1": 0.00012889839134198682,
+          "substituted_smooth_l1": 0.00012747755586102808,
+          "smooth_l1_delta": -1.4208354809587574e-06,
+          "original_absolute_error_rad": {
+            "mean": 0.0022032424883555255,
+            "p95": 0.00876494213831338,
+            "max": 0.01222631529413068
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.0022566964442590188,
+            "p95": 0.007871938249375078,
+            "max": 0.011302706708693544
+          },
+          "worse_anchors": 12,
+          "better_anchors": 20,
+          "equal_anchors": 0
+        },
+        "val-skidpad-84003-visual_stress_v1": {
+          "anchors": 32,
+          "original_smooth_l1": 0.0002821998856541386,
+          "substituted_smooth_l1": 0.0007307801359450448,
+          "smooth_l1_delta": 0.00044858025029090613,
+          "original_absolute_error_rad": {
+            "mean": 0.003370402030789376,
+            "p95": 0.008586302542912736,
+            "max": 0.021716512877483482
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.004795953400200864,
+            "p95": 0.019078740014465193,
+            "max": 0.03443994572483941
+          },
+          "worse_anchors": 19,
+          "better_anchors": 13,
+          "equal_anchors": 0
+        },
+        "val-trackdrive-84000-matched": {
+          "anchors": 32,
+          "original_smooth_l1": 0.0013391317176032588,
+          "substituted_smooth_l1": 0.002538566669469112,
+          "smooth_l1_delta": 0.0011994349518658532,
+          "original_absolute_error_rad": {
+            "mean": 0.007283208128178292,
+            "p95": 0.019439345067936268,
+            "max": 0.04333165572275591
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.011251000887387322,
+            "p95": 0.033611392905794193,
+            "max": 0.03882714148032826
+          },
+          "worse_anchors": 25,
+          "better_anchors": 7,
+          "equal_anchors": 0
+        },
+        "val-trackdrive-84001-visual_stress_v1": {
+          "anchors": 32,
+          "original_smooth_l1": 0.00293091751004179,
+          "substituted_smooth_l1": 0.0030142823909842325,
+          "smooth_l1_delta": 8.336488094244253e-05,
+          "original_absolute_error_rad": {
+            "mean": 0.014603569575110864,
+            "p95": 0.030696851312681312,
+            "max": 0.034357499803244596
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.012522587300533804,
+            "p95": 0.02819342654411894,
+            "max": 0.063167038416234
+          },
+          "worse_anchors": 12,
+          "better_anchors": 20,
+          "equal_anchors": 0
+        },
+        "val-trackdrive-84002-visual_stress_v1": {
+          "anchors": 32,
+          "original_smooth_l1": 0.0030272742454168747,
+          "substituted_smooth_l1": 0.004413639220144679,
+          "smooth_l1_delta": 0.001386364974727804,
+          "original_absolute_error_rad": {
+            "mean": 0.014872148577655798,
+            "p95": 0.028452675791786813,
+            "max": 0.03756312748748131
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.010990585504046316,
+            "p95": 0.05133479422449994,
+            "max": 0.07382508286500511
+          },
+          "worse_anchors": 10,
+          "better_anchors": 22,
+          "equal_anchors": 0
+        },
+        "val-trackdrive-84003-visual_stress_v1": {
+          "anchors": 32,
+          "original_smooth_l1": 0.002116064316416452,
+          "substituted_smooth_l1": 0.0008588333928392874,
+          "smooth_l1_delta": -0.001257230923577165,
+          "original_absolute_error_rad": {
+            "mean": 0.013307070345524375,
+            "p95": 0.0246706557603668,
+            "max": 0.02778640358609767
+          },
+          "substituted_absolute_error_rad": {
+            "mean": 0.006890152426409942,
+            "p95": 0.018810278595773697,
+            "max": 0.02946429173713748
+          },
+          "worse_anchors": 3,
+          "better_anchors": 29,
+          "equal_anchors": 0
+        }
+      },
+      "episodes_worsened": 6,
+      "episodes_total": 8,
+      "original_reconstruction_max_error_rad": 6.140786962260947e-08,
+      "largest_loss_increases": [
+        {
+          "index": 72,
+          "case": "val-trackdrive-84002-visual_stress_v1",
+          "frame": 53,
+          "original_steer_rad": -0.21154739142972784,
+          "substituted_steer_rad": -0.16537364653086128,
+          "native_target_steer_rad": -0.2391987293958664,
+          "smooth_l1_delta": 0.04117911795182895
+        },
+        {
+          "index": 73,
+          "case": "val-trackdrive-84002-visual_stress_v1",
+          "frame": 60,
+          "original_steer_rad": -0.004632712996884283,
+          "substituted_steer_rad": -0.05621706945751341,
+          "native_target_steer_rad": 0.00011614803224802017,
+          "smooth_l1_delta": 0.031107700679021313
+        },
+        {
+          "index": 47,
+          "case": "val-trackdrive-84001-visual_stress_v1",
+          "frame": 166,
+          "original_steer_rad": 0.03783279575310036,
+          "substituted_steer_rad": 0.001856845760973941,
+          "native_target_steer_rad": 0.06502388417720795,
+          "smooth_l1_delta": 0.030773485519357623
+        },
+        {
+          "index": 71,
+          "case": "val-trackdrive-84002-visual_stress_v1",
+          "frame": 46,
+          "original_steer_rad": -0.2354178712485008,
+          "substituted_steer_rad": -0.20712649767944263,
+          "native_target_steer_rad": -0.25437167286872864,
+          "smooth_l1_delta": 0.018728599828073747
+        },
+        {
+          "index": 16,
+          "case": "val-trackdrive-84000-matched",
+          "frame": 145,
+          "original_steer_rad": -0.1440135906513222,
+          "substituted_steer_rad": -0.12326123778354961,
+          "native_target_steer_rad": -0.16208837926387787,
+          "smooth_l1_delta": 0.011808489321448547
+        }
+      ]
+    }
+  },
+  "physical_signal_audit": {
+    "sampled_frames": 90,
+    "finite_difference_frames": 89,
+    "exact_minus_world_z_absolute_radps": {
+      "mean": 2.2730026398752746e-05,
+      "p95": 3.6613130276730264e-05,
+      "max": 0.0008258499603076563
+    },
+    "central_slope_minus_exact_absolute_radps": {
+      "mean": 0.030184333268889866,
+      "p95": 0.08376439844092479,
+      "max": 0.09395910123755924
+    },
+    "examples": [
+      {
+        "frame": 4,
+        "t": 0.2,
+        "actual_yaw_rate": -0.012065590359270573,
+        "exact_heading_derivative": -0.012065497169309644,
+        "central_heading_slope_01s": 0.001662050303594369,
+        "predicted_initial_yaw_rate": 0.0006524819764308631
+      },
+      {
+        "frame": 40,
+        "t": 2.0,
+        "actual_yaw_rate": 0.03493383526802063,
+        "exact_heading_derivative": 0.03493398329928002,
+        "central_heading_slope_01s": -0.00744822452663526,
+        "predicted_initial_yaw_rate": 0.0009152606944553554
+      },
+      {
+        "frame": 80,
+        "t": 4.0,
+        "actual_yaw_rate": -0.6287866234779358,
+        "exact_heading_derivative": -0.6287897403217367,
+        "central_heading_slope_01s": -0.6547394667680517,
+        "predicted_initial_yaw_rate": -0.5893457531929016
+      },
+      {
+        "frame": 480,
+        "t": 24.0,
+        "actual_yaw_rate": 0.7362575531005859,
+        "exact_heading_derivative": 0.7362767335251047,
+        "central_heading_slope_01s": 0.7078631075678921,
+        "predicted_initial_yaw_rate": 0.6519349217414856
+      },
+      {
+        "frame": 520,
+        "t": 26.0,
+        "actual_yaw_rate": 0.7137603163719177,
+        "exact_heading_derivative": 0.7137455239057046,
+        "central_heading_slope_01s": 0.6299289823405196,
+        "predicted_initial_yaw_rate": 0.6232290267944336
+      }
+    ],
+    "producer_input_sha256": {
+      "runs/development_native_future_trial1/heavy_skid/candidate/regression-skidpad-72000-heavy-recorded-visual_stress_v1/summary.json": "b6b9ee3d1bc8806e185ef710b9ea5976c14b6c2892eeb9d72c38cc03b64e0904",
+      "runs/development_native_future_trial1/heavy_skid/candidate/regression-skidpad-72000-heavy-recorded-visual_stress_v1/frames.json": "300ec195553b0d9f1229b90526248f5a559162f431f113f7f32969f4b4ff61b9",
+      "runs/development_native_future_trial1/heavy_skid/candidate/regression-skidpad-72000-heavy-recorded-visual_stress_v1/realization.json": "1040d71d007960346c29a9dc8d5419fb261d0990a8b846d48c61018ee3a4db45",
+      "runs/development_native_future_trial1/heavy_skid/candidate/regression-skidpad-72000-heavy-recorded-visual_stress_v1/lab_artifact_audit.json": "3a8f7d3fcf1d75d30f074ad9621a09d8adbe5a41559d0455a788021924e2f611",
+      "runs/development_native_future_trial1/heavy_skid/candidate/regression-skidpad-72000-heavy-recorded-visual_stress_v1/evidence/completion.json": "f69f2aa0b015586fd818f596c2765d7775cfac2d755c605da8230c3d7d8a5527",
+      "runs/development_native_future_trial1/heavy_skid/candidate/regression-skidpad-72000-heavy-recorded-visual_stress_v1/evidence/manifest.jsonl": "cc00ffc6986f6d0dcdb8fd2b56a774c94f4bea4457306ef4d4d97b42848821b7"
+    },
+    "producer_script_sha256": "be829627b1c30737ed400d2fdd479de96278c4ac00f0396da198d8b571a6c3e4",
+    "verification": "Recomputed retained body-vector formula and heading slopes; checked local media and manifest hashes. Raw frame NPZ files were not available locally and were not reopened.",
+    "interpretation": "The 3D projection difference does not explain the large instantaneous-versus-0.1-second-average discrepancy in these samples. Averaging, phase and dynamics remain unresolved. A central finite difference is not an instantaneous-rate measurement."
+  },
+  "decision": "Negative evidence against an unconditional raw measured-rate fix. Do not change the controller or justify a seventh optimizer run from this ablation.",
+  "limitations": [
+    "One deterministic replay has no repeatability or population uncertainty estimate. Anchors and visual variants are correlated.",
+    "This substitution does not reproduce closed-loop feedback, changed images, changed temporal history, contacts or mission completion.",
+    "Lower overall mean absolute error and higher SmoothL1 loss are both reported. No metric, eligibility threshold or loss was relaxed.",
+    "Full model checkpoint bytes and original body NPZ records were not reloaded locally. Their producer receipts and retained artifacts remain the provenance boundary."
+  ]
+}

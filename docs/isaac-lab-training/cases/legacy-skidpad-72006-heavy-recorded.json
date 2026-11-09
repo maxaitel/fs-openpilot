@@ -1,0 +1,12 @@
+{
+  "id": "legacy-skidpad-72006-heavy-recorded",
+  "split": "regression",
+  "discipline": "skidpad",
+  "seed": 72006,
+  "dr": "heavy",
+  "variant": "matched",
+  "track_seed": null,
+  "frozen_case": "skidpad-72006-heavy-recorded",
+  "lateral_start": 0.0,
+  "yaw_start": 0.0
+}
