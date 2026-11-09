@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "declared_at": "2026-11-09T13:16:54.486425+00:00",
+  "scope": "Additional selection-only experiment after the original selected step300 failed imitation. No further weights are trained. No physical outcome or fresh case from this run has been inspected.",
+  "original_selection": "runs/lab_v4/steering_trial1/selection.json",
+  "original_selection_sha256": "7820f66cd7f20e1bb3909ff2e149a20a84eb3263c8c56767d3903c09f998cfda",
+  "original_selected_step": 300,
+  "original_imitation_failure": ".work/lab/steering_trial1_imitation_gate.json",
+  "original_imitation_failure_sha256": "3986d02d3094111b55ebafe8063b2e3dd86021073e4624e33af3371fa49dade1",
+  "imitation_protocol": "docs/isaac-lab-training/steering_recipe.json",
+  "imitation_protocol_sha256": "017ff1811711b495bcec373122f8d851bba1e8c69fbfa74059a7148471cda275",
+  "gate_script_sha256": "76eb69c48d909dfac29645311e5494f3d84b71316f4e877e958ee2fba9312019",
+  "candidate_set": [
+    {
+      "step": 0,
+      "checkpoint": "/work/runs/lab_v4/steering_trial1/step_000000.pt",
+      "sha256": "f48b767ed8fadfbc5656c63b5805a9f27633ca601849cd61f6f0019f2a3c7b50",
+      "validation_steer": 0.0012264982815395342,
+      "improves_incumbent": false
+    },
+    {
+      "step": 100,
+      "checkpoint": "/work/runs/lab_v4/steering_trial1/step_000100.pt",
+      "sha256": "92bc9e78f52a99f94f9d2b956c073ed4ac649b2236addcc76e5f18f3d97ce970",
+      "validation_steer": 0.0009288719083997421,
+      "improves_incumbent": true
+    },
+    {
+      "step": 200,
+      "checkpoint": "/work/runs/lab_v4/steering_trial1/step_000200.pt",
+      "sha256": "13860bed062a373c8906d41ce12c8606965e0bc6d13ad6b6fee235a9d154f920",
+      "validation_steer": 0.0009199015639751451,
+      "improves_incumbent": true
+    },
+    {
+      "step": 300,
+      "checkpoint": "/work/runs/lab_v4/steering_trial1/step_000300.pt",
+      "sha256": "7907f34c63891443434af912e675d809beeffa0fdae255b1531b82178640d855",
+      "validation_steer": 0.0008879902197804768,
+      "improves_incumbent": true
+    },
+    {
+      "step": 400,
+      "checkpoint": "/work/runs/lab_v4/steering_trial1/step_000400.pt",
+      "sha256": "51e23400325b18f4a4709b4206820b9748cda4131beff7aea19e6e52cc3b58da",
+      "validation_steer": 0.0009808548602450173,
+      "improves_incumbent": true
+    },
+    {
+      "step": 500,
+      "checkpoint": "/work/runs/lab_v4/steering_trial1/step_000500.pt",
+      "sha256": "96dfd7d450a1a1a07309ec1d70dca208373dfd92313565dd776feefe46131408",
+      "validation_steer": 0.0010008186727645807,
+      "improves_incumbent": true
+    }
+  ],
+  "rules": [
+    "Evaluate the unchanged imitation gate on every originally eligible checkpoint.",
+    "Preserve every pass and failure. Do not lower either imitation limit or any original validation limit.",
+    "Among nonzero originally eligible checkpoints that improve the incumbent and pass imitation, choose lowest validation steering loss, then earliest step.",
+    "If none passes, return no candidate.",
+    "Only a selected joint-pass checkpoint may proceed to saved-input inference and physical development."
+  ],
+  "limitation": "This revises the order of eligibility filtering after a failed selection. It is not the original preregistered selection result. All imitation checks use seen training data; fresh tests remain unopened."
+}
