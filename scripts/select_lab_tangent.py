@@ -17,15 +17,20 @@ Protocol JSON (all numeric placeholders must be replaced before training):
 }
 All bounds are absolute, inclusive ceilings. Nulls are deliberately invalid.
 The protocol and calibration must be frozen before the first optimization update.
+For native-future targets, schema_version 2 additionally requires
+action_target_contract and training_args.action_target_mode=native_future_v1.
+The action bounds then apply to those targets, not to teacher-command diagnostics.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 from pathlib import Path
 
+from fsop.train.action_target import LEGACY_ACTION_TARGET, NATIVE_FUTURE_ACTION_TARGET, NATIVE_FUTURE_CONTRACT
 from scripts.freeze_lab_selection import checkpoint_info
 from scripts.lab_training_provenance import MEMBERSHIP, dataset_paths, run_checkpoint, validation_identity
 from scripts.select_lab_action import frozen_state, number, read, sha, source_check, validation
@@ -85,7 +90,8 @@ CASE_IDS = frozenset(c["id"] for c in read(MEMBERSHIP)["cases"] if c["split"] ==
 def protocol_check(p):
     from fsop.eval.controller import controller_contract
 
-    if set(p) != {
+    version = p.get("schema_version")
+    fields = {
         "schema_version",
         "kind",
         "calibration_sha256",
@@ -96,22 +102,29 @@ def protocol_check(p):
         "checkpoint_steps",
         "training_args",
         "bounds",
-    }:
+    }
+    if version == 2:
+        fields.add("action_target_contract")
+    if set(p) != fields:
         raise ValueError("protocol fields mismatch")
     if (
-        p["schema_version"] != 1
+        version not in (1, 2)
         or p["kind"] != "op_tangent_v1_selection"
         or p["initializer_sha256"] != INITIALIZER
         or p["expected_steps"] != 500
         or p["checkpoint_steps"] != STEPS
         or p["controller_contract"] != controller_contract("op_tangent_v1")
+        or (version == 2 and p.get("action_target_contract") != NATIVE_FUTURE_CONTRACT)
     ):
         raise ValueError("protocol identity mismatch")
     for key in ("calibration_sha256", "manifest_sha256"):
         if not isinstance(p[key], str) or not re.fullmatch("[0-9a-f]{64}", p[key]):
             raise ValueError(f"invalid protocol {key}")
-    if not isinstance(p["training_args"], dict) or set(p["training_args"]) != set(TRAINING_ARGS):
+    training_fields = set(TRAINING_ARGS) | ({"action_target_mode"} if version == 2 else set())
+    if not isinstance(p["training_args"], dict) or set(p["training_args"]) != training_fields:
         raise ValueError("incomplete frozen training arguments")
+    if version == 2 and p["training_args"]["action_target_mode"] != NATIVE_FUTURE_ACTION_TARGET:
+        raise ValueError("action target mode mismatch")
     if any(value is None for value in p["training_args"].values()):
         raise ValueError("missing frozen training argument value")
     b = p["bounds"]
@@ -214,6 +227,14 @@ def select(training, calibration, protocol):
     if sha(calibration / "calibration.json") != p["calibration_sha256"] or read(trained_cal_path) != cal:
         raise ValueError("calibration identity or metrics differ from frozen calibration")
     run, cal_run = read(bind(training / "run.json")), read(bind(calibration / "run.json"))
+    target_contract = NATIVE_FUTURE_CONTRACT if p["schema_version"] == 2 else None
+    target_mode = NATIVE_FUTURE_ACTION_TARGET if target_contract else LEGACY_ACTION_TARGET
+    for record in (run, cal_run):
+        if (record.get("action_target_contract") != target_contract or
+                record["args"].get("action_target_mode", LEGACY_ACTION_TARGET) != target_mode):
+            raise ValueError("run action target contract mismatch")
+    if cal.get("identity", {}).get("action_target_contract") != target_contract:
+        raise ValueError("calibration action target contract mismatch")
     binding = run.get("selection_protocol", {})
     protocol_sha = inputs[str(protocol)]
     if (
@@ -284,7 +305,7 @@ def select(training, calibration, protocol):
     ):
         raise ValueError("calibration validation identity mismatch")
     args = run["args"]
-    if {key: args.get(key) for key in TRAINING_ARGS} != p["training_args"]:
+    if {key: args.get(key) for key in p["training_args"]} != p["training_args"]:
         raise ValueError("training arguments differ from frozen protocol")
     if (
         args.get("steps") != 500
@@ -351,6 +372,8 @@ def select(training, calibration, protocol):
     if {row["step"] for row in history if "validation" in row} != {1, 100, 200, 300, 400, 500}:
         raise ValueError("validation schedule mismatch")
     for row in history:
+        if row.get("action_target_contract") != target_contract:
+            raise ValueError("history action target contract mismatch")
         if (
             row.get("selection_protocol_sha256") != protocol_sha
             or row.get("calibration_sha256") != p["calibration_sha256"]
@@ -396,6 +419,7 @@ def select(training, calibration, protocol):
         or frozen_state(cal_ckpt, 0, cal_run["args"]) != cal_run["baseline_state_sha256"]
         or cal_payload.get("controller_contract") != p["controller_contract"]
         or cal_payload.get("recovery_provenance") != cal_run["recovery_sampling"]
+        or cal_payload.get("action_target_contract") != target_contract
     ):
         raise ValueError("calibration step-zero checkpoint or metrics mismatch")
     reference = run["baseline_state_sha256"]
@@ -440,6 +464,7 @@ def select(training, calibration, protocol):
             or info["signature"] != init_info["signature"]
             or payload.get("config") != args
             or payload.get("controller_contract") != p["controller_contract"]
+            or payload.get("action_target_contract") != target_contract
             or payload.get("selection_protocol_sha256") != protocol_sha
             or payload.get("calibration_sha256") != p["calibration_sha256"]
             or payload.get("recovery_provenance") != run["recovery_sampling"]
@@ -455,6 +480,8 @@ def select(training, calibration, protocol):
             raise ValueError("step zero differs from initializer model")
         changed = info["groups"]["policy"]["state_sha256"] != init_info["groups"]["policy"]["state_sha256"]
         current_validation = row["validation"]
+        if current_validation.get("action_target_contract") != target_contract:
+            raise ValueError(f"validation action target contract mismatch at step {step}")
         expected_targets = {r["path"]: r["target_coherence"] for r in cal["validation"]["episodes"]}
         actual_targets = {r["path"]: r.get("target_coherence") for r in current_validation["episodes"]}
         if (current_validation.get("target_coherence") != cal["validation"]["target_coherence"]
@@ -463,6 +490,14 @@ def select(training, calibration, protocol):
         gates = assess(
             current_validation, p["bounds"], run["validation_selection"], identities[training]["path_to_case"]
         )
+        if target_contract is not None:
+            for metric in ("teacher_steer", "teacher_longitudinal"):
+                groups = [current_validation["aggregate"], *current_validation["episodes"]]
+                for group in groups:
+                    number(group.get(metric), metric)
+                if not math.isclose(groups[0][metric], sum(g[metric] for g in groups[1:]) / len(groups[1:]),
+                                    rel_tol=1e-7, abs_tol=1e-12):
+                    raise ValueError(f"inconsistent aggregate {metric}")
         gates.append({"metric": "policy_changed", "actual": changed, "limit": True, "passed": step == 0 or changed})
         candidate = {
             "step": step,
@@ -490,10 +525,11 @@ def select(training, calibration, protocol):
         if sha(path) != expected:
             raise ValueError(f"input changed during selection: {path}")
     return {
-        "schema_version": 1,
+        "schema_version": p["schema_version"],
         "kind": "op_tangent_v1_selection",
         "status": "trained_candidate_selected" if improved else "retain_step_zero",
         "controller_contract": p["controller_contract"],
+        **({"action_target_contract": target_contract} if target_contract is not None else {}),
         "protocol": p,
         "input_sha256": inputs,
         "validation_fingerprint": identities[training]["fingerprint"],

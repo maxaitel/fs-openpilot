@@ -20,6 +20,7 @@ from fsop.data.native_replay import NativeReplay, episode_paths, history_indices
 from fsop.eval.controller import controller_contract, validate_checkpoint_controller
 from fsop.model.build import PREP, load_fs
 from fsop.sim.expert import T_IDXS
+from fsop.train.action_target import LEGACY_ACTION_TARGET, NATIVE_FUTURE_ACTION_TARGET, action_target_contract
 from fsop.train.device import autocast_ctx, pick_device
 from fsop.train.losses import op_tangent_actions_from_op_plan, plan_l1, plan_nll, pp_steer_from_op_plan
 
@@ -301,7 +302,9 @@ def vision_l2sp(model, reference, weight):
 
 
 def batch_loss(model, dataset, indices, device, w_steer, w_long, chunk_size, amp=False, channels_last=False,
-               history_context=24, w_plan=1.0, cache=None, return_outputs=False, controller_mode="pp"):
+               history_context=24, w_plan=1.0, cache=None, return_outputs=False, controller_mode="pp",
+               action_target_mode=LEGACY_ACTION_TARGET):
+  action_target_contract(action_target_mode, controller_mode)
   if cache is not None and amp:
     raise ValueError('feature cache requires FP32')
   batch = collate([dataset[int(i)] for i in indices])
@@ -336,11 +339,20 @@ def batch_loss(model, dataset, indices, device, w_steer, w_long, chunk_size, amp
     long = pp_accel_from_op_plan(mu, b['speed'], b['vehicle_max_brake'], b['vehicle_max_accel'])
   else:
     raise ValueError('unsupported native training controller')
-  steer_loss = F.smooth_l1_loss(steer, b['steer_target'], beta=0.05)
-  long_loss = F.smooth_l1_loss(long, b['accel_target'], beta=0.05)
+  steer_target, long_target = b['steer_target'], b['accel_target']
+  if action_target_mode == NATIVE_FUTURE_ACTION_TARGET:
+    with torch.no_grad():
+      steer_target, long_target = op_tangent_actions_from_op_plan(
+        b['plan'], b['speed'], b['lateral_speed'], b['vehicle_wheelbase'],
+        b['vehicle_max_brake'], b['vehicle_max_accel'])
+  steer_loss = F.smooth_l1_loss(steer, steer_target, beta=0.05)
+  long_loss = F.smooth_l1_loss(long, long_target, beta=0.05)
   total = w_plan * plan + w_steer * steer_loss + w_long * long_loss
   components = {'plan_nll': plan, 'plan_l1': plan_l1(mu, b['plan']),
                 'steer': steer_loss, 'longitudinal': long_loss}
+  if action_target_mode == NATIVE_FUTURE_ACTION_TARGET:
+    components.update(teacher_steer=F.smooth_l1_loss(steer, b['steer_target'], beta=0.05),
+                      teacher_longitudinal=F.smooth_l1_loss(long, b['accel_target'], beta=0.05))
   if return_outputs and controller_mode == 'op_tangent_v1':
     out['coherence_targets'] = b['plan']
     out['coherence_observed'] = torch.stack((b['speed'], b['lateral_speed'], b['yaw_rate']), dim=-1)
@@ -359,6 +371,10 @@ def frozen_cache_gate(model, dataset, indices, device, args, cache):
                                      args.history_chunk_size, amp=False, channels_last=args.channels_last,
                                      history_context=args.history_context, w_plan=args.w_plan,
                                      cache=candidate, return_outputs=True,
+                                     **({'action_target_mode': args.action_target_mode}
+                                        if (getattr(args, 'action_target_mode', LEGACY_ACTION_TARGET)
+                                            != LEGACY_ACTION_TARGET)
+                                        else {}),
                                      **({'controller_mode': args.controller_mode}
                                         if getattr(args, 'controller_mode', 'pp') != 'pp' else {}))
     grads = torch.autograd.grad(loss, [p for _, p in parameters], allow_unused=True)
@@ -632,10 +648,14 @@ def validate(model, dataset, selected, device, args, cache=None):
   episodes = []
   coherence_rows, target_coherence_rows = [], []
   mode = getattr(args, 'controller_mode', 'pp')
+  target_mode = getattr(args, 'action_target_mode', LEGACY_ACTION_TARGET)
+  action_target_contract(target_mode, mode)
   with torch.no_grad():
     for ei, indices in selected.items():
       episode_coherence, episode_target = [], []
       totals = {'loss': 0., 'plan_nll': 0., 'plan_l1': 0., 'steer': 0., 'longitudinal': 0.}
+      if target_mode == NATIVE_FUTURE_ACTION_TARGET:
+        totals.update(teacher_steer=0., teacher_longitudinal=0.)
       for start in range(0, len(indices), args.batch_size):
         block = indices[start:start + args.batch_size]
         kwargs = {'cache': cache} if cache is not None else {}
@@ -643,7 +663,9 @@ def validate(model, dataset, selected, device, args, cache=None):
           loss, components, output = batch_loss(model, dataset, block, device, args.w_steer, args.w_long,
                                               args.history_chunk_size, amp=False, channels_last=args.channels_last,
                                               history_context=args.history_context, w_plan=args.w_plan,
-                                              return_outputs=True, controller_mode=mode, **kwargs)
+                                              return_outputs=True, controller_mode=mode,
+                                              **({'action_target_mode': target_mode}
+                                                 if target_mode != LEGACY_ACTION_TARGET else {}), **kwargs)
           observed = output['coherence_observed'].detach().cpu().numpy()
           examples = [dict(speed=row[0], lateral_speed=row[1], yaw_rate=row[2]) for row in observed]
           episode_coherence.extend(plan_coherence(output['plan_mu'].detach().cpu().numpy(), examples))
@@ -665,10 +687,11 @@ def validate(model, dataset, selected, device, args, cache=None):
         target_coherence_rows.extend(episode_target)
       episodes.append(episode)
   # Equal episode weighting keeps a short valid episode from being overwhelmed by a long one.
-  aggregate = {name: float(np.mean([ep[name] for ep in episodes]))
-               for name in ('loss', 'plan_nll', 'plan_l1', 'steer', 'longitudinal')}
+  aggregate = {name: float(np.mean([ep[name] for ep in episodes])) for name in totals}
   result = {'precision': 'float32', 'aggregation': 'equal_episode', 'count': sum(e['count'] for e in episodes),
             'aggregate': aggregate, 'episodes': episodes}
+  if target_mode == NATIVE_FUTURE_ACTION_TARGET:
+    result['action_target_contract'] = action_target_contract(target_mode, mode)
   if coherence_rows:
     result['coherence'] = summarize_coherence(coherence_rows)
     result['target_coherence'] = summarize_coherence(target_coherence_rows)
@@ -756,10 +779,18 @@ def selection_protocol_binding(args, mode, manifest_sha):
   if hashlib.sha256(raw).hexdigest() != expected_sha:
     raise ValueError('selection protocol SHA-256 mismatch')
   doc = json.loads(raw)
-  if not isinstance(doc, dict) or doc.get('schema_version') != 1 or doc.get('kind') != 'op_tangent_v1_selection':
+  target_mode = getattr(args, 'action_target_mode', LEGACY_ACTION_TARGET)
+  contract = action_target_contract(target_mode, mode)
+  version = 2 if contract is not None else 1
+  if (not isinstance(doc, dict) or doc.get('schema_version') != version or
+      doc.get('kind') != 'op_tangent_v1_selection' or
+      (version == 2 and doc.get('action_target_contract') != contract) or
+      (version == 1 and 'action_target_contract' in doc)):
     raise ValueError('invalid selection protocol schema')
   actual_args = {key: getattr(args, key, False if key == 'cache_frozen_features' else None)
                  for key in SELECTION_TRAINING_FIELDS}
+  if version == 2:
+    actual_args['action_target_mode'] = target_mode
   eligible = [0] + list(range(args.val_every, args.steps + 1, args.val_every))
   if eligible[-1] != args.steps:
     eligible.append(args.steps)
@@ -793,6 +824,9 @@ def run(args):
   mode = getattr(args, 'controller_mode', 'pp')
   if mode not in ('pp', 'op_tangent_v1'):
     raise ValueError('unsupported native training controller')
+  target_mode = getattr(args, 'action_target_mode', LEGACY_ACTION_TARGET)
+  target_contract = action_target_contract(target_mode, mode)
+  target_metadata = {'action_target_contract': target_contract} if target_contract is not None else {}
   cache_enabled = getattr(args, 'cache_frozen_features', False)
   parity_only = getattr(args, 'cache_parity_only', False)
   if parity_only and getattr(args, 'calibration_only', False):
@@ -863,7 +897,7 @@ def run(args):
   out = Path(args.out)
   out.mkdir(parents=True, exist_ok=True)
   names = [name for name, p in model.named_parameters() if p.requires_grad]
-  info = {'args': vars(args), 'calibration_only': getattr(args, 'calibration_only', False),
+  info = {'args': vars(args), 'calibration_only': getattr(args, 'calibration_only', False), **target_metadata,
           'controller_contract': controller_contract(mode), 'device': str(device),
           'baseline_state_sha256': frozen_reference,
           'numeric_precision': 'CUDA autocast bfloat16; history outputs and losses float32' if args.amp else 'float32',
@@ -914,6 +948,7 @@ def run(args):
   start = time.monotonic()
   baseline = validate(model, val, validation_selection, device, args, **({'cache': cache} if cache else {}))
   calibration_identity = {
+    **target_metadata,
     'version': 1, 'controller_contract': controller_contract(mode), 'init_sha256': sha256(args.init),
     'manifest_sha256': manifest_sha, 'dataset_verification_sha256': verification.get('sha256'),
     'episodes': info['episodes'], 'validation_selection': info['validation_selection'],
@@ -938,6 +973,7 @@ def run(args):
                          'calibration_sha256': selection_binding['calibration_sha256']}
                         if selection_binding is not None else {})
   baseline_state = {'model': model.state_dict(), 'step': 0, **selection_metadata,
+                    **target_metadata,
                     **({'controller_contract': controller_contract(mode)} if mode != 'pp' else {}),
                     'optimizer': optimizer.state_dict(), 'config': vars(args),
                     **({'recovery_provenance': sampler.protocol()} if sampler is not None else {})}
@@ -962,6 +998,8 @@ def run(args):
       loss, components = batch_loss(model, train, idx, device, args.w_steer, args.w_long, args.history_chunk_size,
                                     amp=args.amp, channels_last=args.channels_last,
                                     history_context=args.history_context, w_plan=args.w_plan,
+                                    **({'action_target_mode': target_mode}
+                                       if target_mode != LEGACY_ACTION_TARGET else {}),
                                     **({'cache': cache} if cache else {}),
                                     **({'controller_mode': mode} if mode != 'pp' else {}))
       retention = vision_l2sp(model, reference, args.l2sp)
@@ -972,7 +1010,7 @@ def run(args):
       norms = grad_norms(model)
       torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.requires_grad], args.grad_clip)
       optimizer.step()
-      row = {'step': step, 'controller_contract': controller_contract(mode), **selection_metadata,
+      row = {'step': step, 'controller_contract': controller_contract(mode), **selection_metadata, **target_metadata,
              **({'recovery_provenance': {'provenance_mode': sampler.provenance_mode,
                                          'collection_policy_checkpoint_sha': sampler.collection_policy_checkpoint_sha,
                                          'optimization_init_sha256': sampler.optimization_init_sha256}}
@@ -999,7 +1037,7 @@ def run(args):
         ckpt = out / f'step_{step:06d}.pt'
         recheck_selection_binding(selection_binding, out / 'selection_protocol.json')
         state = {'model': model.state_dict(), 'step': step, 'optimizer': optimizer.state_dict(), 'config': vars(args),
-                 **selection_metadata,
+                 **selection_metadata, **target_metadata,
                  **({'controller_contract': controller_contract(mode)} if mode != 'pp' else {}),
                  **({'recovery_provenance': sampler.protocol()} if sampler is not None else {})}
         row['state_sha256'] = save_checkpoint(state, ckpt, frozen_reference, args.freeze_vision, names)
@@ -1047,6 +1085,8 @@ def main(argv=None):
   p.add_argument('--cache-parity-only', action='store_true',
                  help='write a fixed-batch numerical parity receipt and exit')
   p.add_argument('--controller-mode', choices=('pp', 'op_tangent_v1'), default='pp')
+  p.add_argument('--action-target-mode', choices=(LEGACY_ACTION_TARGET, NATIVE_FUTURE_ACTION_TARGET),
+                 default=LEGACY_ACTION_TARGET)
   p.add_argument('--w-plan', type=float, default=1.0)
   p.add_argument('--w-steer', type=float, default=3.281158240898283)
   p.add_argument('--w-long', type=float, default=1.0)

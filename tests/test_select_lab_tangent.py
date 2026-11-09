@@ -19,7 +19,7 @@ def coherence(value=0.1):
     return {k: {stat: value for stat in s.STATS} for k in s.COHERENCE_METRICS}
 
 
-def fixture(tmp_path, monkeypatch, recipe_arg=None):
+def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False):
     training, calibration = tmp_path / "training", tmp_path / "calibration"
     training.mkdir()
     calibration.mkdir()
@@ -44,7 +44,7 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None):
             }
             for path in paths
         ]
-        return {
+        result = {
             "precision": "float32",
             "aggregation": "equal_episode",
             "count": 256,
@@ -53,6 +53,11 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None):
             "coherence": coherence(),
             "target_coherence": coherence(),
         }
+        if native_future:
+            result["action_target_contract"] = s.NATIVE_FUTURE_CONTRACT
+            for group in [result["aggregate"], *rows]:
+                group.update(teacher_steer=0.3, teacher_longitudinal=0.4)
+        return result
 
     contract = controller_contract("op_tangent_v1")
     ref = {str(i): {"sha256": "a"} for i in range(347)}
@@ -101,6 +106,8 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None):
         "recovery_cases": recipe_arg or str(recipe),
         "expected_calibration": str(calibration / "calibration.json"),
     }
+    if native_future:
+        args["action_target_mode"] = s.NATIVE_FUTURE_ACTION_TARGET
     manifest = "b" * 64
     episodes = [{"path": path} for path in paths]
     names = [f"base.policy.weight{i}" for i in range(50)]
@@ -146,6 +153,9 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None):
         "weights": {"plan": 1.0, "steer": args["w_steer"], "longitudinal": 1.0},
         "recovery_sampling": sampler,
     }
+    if native_future:
+        run["action_target_contract"] = s.NATIVE_FUTURE_CONTRACT
+        ci["action_target_contract"] = s.NATIVE_FUTURE_CONTRACT
     cal = {"version": 1, "identity": ci, "validation": metrics(0.2)}
     for root in (training, calibration):
         dump(root / "calibration.json", cal)
@@ -188,6 +198,10 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None):
             "episode_coherence": {case: limits() for case in cases},
         },
     }
+    if native_future:
+        protocol["schema_version"] = 2
+        protocol["action_target_contract"] = s.NATIVE_FUTURE_CONTRACT
+        protocol["training_args"]["action_target_mode"] = s.NATIVE_FUTURE_ACTION_TARGET
     protocol_path = tmp_path / "protocol.json"
     dump(protocol_path, protocol)
     protocol_sha = s.sha(protocol_path)
@@ -227,6 +241,8 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None):
             "selection_protocol_sha256": protocol_sha,
             "calibration_sha256": protocol["calibration_sha256"],
         }
+        if native_future:
+            row["action_target_contract"] = s.NATIVE_FUTURE_CONTRACT
         if step in [1, *s.STEPS[1:]]:
             counts_path = training / f"sampling_counts_{step:06d}.json"
             dump(
@@ -276,7 +292,7 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None):
         checkpoint_model = dict(model)
         if step:
             checkpoint_model[names[0]] = torch.tensor([float(step)])
-        return {
+        payload = {
             "model": checkpoint_model,
             "config": cal_run["args"] if path.parent == calibration else args,
             "controller_contract": contract,
@@ -284,6 +300,9 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None):
             "selection_protocol_sha256": protocol_sha,
             "calibration_sha256": protocol["calibration_sha256"],
         }
+        if native_future:
+            payload["action_target_contract"] = s.NATIVE_FUTURE_CONTRACT
+        return payload
 
     monkeypatch.setattr("torch.load", load)
     return training, calibration, protocol_path, protocol, history
@@ -296,6 +315,59 @@ def test_select_and_exclude_step_one(tmp_path, monkeypatch):
     assert result["excluded_step_one"]["step"] == 1
     assert len(result["candidates"]) == 6
     assert result["trained_candidate"]
+
+
+def test_native_future_protocol_selects_and_binds_contract(tmp_path, monkeypatch):
+    training, cal, protocol, _, history = fixture(tmp_path, monkeypatch, native_future=True)
+    result = s.select(training, cal, protocol)
+    assert result["schema_version"] == 2
+    assert result["action_target_contract"] == s.NATIVE_FUTURE_CONTRACT
+    assert result["selected"]["step"] == 100
+    del history[10]["action_target_contract"]
+    (training / "history.jsonl").write_text("".join(json.dumps(r) + "\n" for r in history))
+    with pytest.raises(ValueError, match="history action target contract mismatch"):
+        s.select(training, cal, protocol)
+
+
+@pytest.mark.parametrize('location', ['run', 'calibration_run', 'checkpoint', 'calibration_checkpoint', 'validation'])
+def test_native_future_selector_rejects_unbound_artifact(tmp_path, monkeypatch, location):
+    training, cal, protocol, _, history = fixture(tmp_path, monkeypatch, native_future=True)
+    if location in ('run', 'calibration_run'):
+        path = (training if location == 'run' else cal) / 'run.json'
+        record = json.loads(path.read_text())
+        del record['action_target_contract']
+        dump(path, record)
+    elif location in ('checkpoint', 'calibration_checkpoint'):
+        original_load = torch.load
+        def unbound(path, **kwargs):
+            payload = original_load(path, **kwargs)
+            if (Path(path).parent == (training if location == 'checkpoint' else cal)
+                    and Path(path).name == 'step_000000.pt'):
+                payload.pop('action_target_contract')
+            return payload
+        monkeypatch.setattr('torch.load', unbound)
+    else:
+        history[99]['validation']['action_target_contract'] = {'version': 99}
+        (training / 'history.jsonl').write_text(''.join(json.dumps(r) + '\n' for r in history))
+    with pytest.raises(ValueError, match='contract|checkpoint or metrics mismatch'):
+        s.select(training, cal, protocol)
+
+
+@pytest.mark.parametrize("mutation", ["missing_contract", "wrong_contract", "wrong_mode", "missing_metric"])
+def test_native_future_protocol_rejects_missing_or_wrong_contract(tmp_path, monkeypatch, mutation):
+    training, cal, protocol_path, protocol, history = fixture(tmp_path, monkeypatch, native_future=True)
+    if mutation == "missing_contract":
+        del protocol["action_target_contract"]
+    elif mutation == "wrong_contract":
+        protocol["action_target_contract"] = {"version": 99}
+    elif mutation == "wrong_mode":
+        protocol["training_args"]["action_target_mode"] = s.LEGACY_ACTION_TARGET
+    else:
+        del history[99]["validation"]["aggregate"]["teacher_steer"]
+        (training / "history.jsonl").write_text("".join(json.dumps(r) + "\n" for r in history))
+    dump(protocol_path, protocol)
+    with pytest.raises((ValueError, KeyError)):
+        s.select(training, cal, protocol_path)
 
 
 def test_missing_history_and_controller_tampering(tmp_path, monkeypatch):

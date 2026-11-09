@@ -181,6 +181,60 @@ def test_native_batch_loss_uses_measured_lateral_velocity(monkeypatch):
     assert output['coherence_observed'].tolist() == [[3, 4, 0]]
 
 
+def test_native_future_action_targets_match_plan_and_detach(monkeypatch):
+    from fsop.train import lab_train
+
+    plan = torch.zeros((33, 15), requires_grad=True)
+    with torch.no_grad():
+        plan[:, 3] = 6
+        plan[:, 7] = 1
+
+    class Dataset:
+        episodes = []
+        teacher = 0.
+        def __getitem__(self, index):
+            return {'episode': 0, 'frame': 0, 'img': np.zeros((1,), np.float32),
+                    'big_img': np.zeros((1,), np.float32), 'plan': plan, 'speed': np.float32(3),
+                    'lateral_speed': np.float32(4), 'yaw_rate': np.float32(0),
+                    'vehicle_wheelbase': np.float32(1.6), 'vehicle_lr': np.float32(.8),
+                    'vehicle_max_brake': np.float32(8), 'vehicle_max_accel': np.float32(5),
+                    'steer_target': np.float32(self.teacher), 'accel_target': np.float32(self.teacher)}
+
+    class Model:
+        offset = 0.
+        def forward_images(self, batch, heads):
+            mu = batch['plan'].detach().clone()
+            mu[:, :, 3] += self.offset
+            return {'plan_mu': mu.requires_grad_(), 'plan_logstd': torch.zeros_like(mu)}
+
+    monkeypatch.setattr(lab_train, 'fresh_history', lambda *args, **kwargs: torch.zeros((1, 24, 512)))
+    model, dataset = Model(), Dataset()
+    def evaluate(mode):
+        return lab_train.batch_loss(model, dataset, [0], torch.device('cpu'), 1, 1, 1, w_plan=0,
+                                    controller_mode='op_tangent_v1', action_target_mode=mode)
+
+    loss, parts = evaluate('native_future_v1')
+    assert parts['steer'].item() == 0
+    assert parts['longitudinal'].item() == 0
+    assert parts['teacher_longitudinal'].item() > 0
+    dataset.teacher = -2.
+    _, changed_teacher = evaluate('native_future_v1')
+    assert changed_teacher['steer'].item() == 0
+    assert changed_teacher['longitudinal'].item() == 0
+    assert changed_teacher['teacher_longitudinal'].item() != parts['teacher_longitudinal'].item()
+    _, legacy = evaluate('teacher_command_v1')
+    assert legacy['longitudinal'].item() == pytest.approx(changed_teacher['teacher_longitudinal'].item())
+    assert 'teacher_longitudinal' not in legacy
+    model.offset = 1.
+    loss, parts = evaluate('native_future_v1')
+    assert parts['longitudinal'].item() > 0
+    loss.backward()
+    assert plan.grad is None or torch.count_nonzero(plan.grad) == 0
+    with pytest.raises(ValueError, match='unsupported action target'):
+        lab_train.batch_loss(model, dataset, [0], torch.device('cpu'), 1, 1, 1,
+                             action_target_mode='native_future_v1')
+
+
 def test_frozen_selection_protocol_is_required_and_rechecked(tmp_path):
     import hashlib
     import json
@@ -233,6 +287,22 @@ def test_frozen_selection_protocol_is_required_and_rechecked(tmp_path):
     copied = tmp_path / 'copied.json'
     copied.write_bytes(bound['bytes'])
     recheck_selection_binding(bound, copied)
+    from fsop.train.action_target import NATIVE_FUTURE_CONTRACT
+    args.action_target_mode = 'native_future_v1'
+    with pytest.raises(ValueError, match='schema'):
+        selection_protocol_binding(args, 'op_tangent_v1', sha(manifest))
+    protocol['schema_version'] = 2
+    protocol['action_target_contract'] = NATIVE_FUTURE_CONTRACT
+    protocol['training_args']['action_target_mode'] = args.action_target_mode
+    path.write_text(json.dumps(protocol))
+    args.selection_protocol_sha = sha(path)
+    assert selection_protocol_binding(args, 'op_tangent_v1', sha(manifest))['sha256'] == sha(path)
+    protocol['action_target_contract'] = {'version': 99}
+    path.write_text(json.dumps(protocol))
+    args.selection_protocol_sha = sha(path)
+    with pytest.raises(ValueError, match='schema'):
+        selection_protocol_binding(args, 'op_tangent_v1', sha(manifest))
+    protocol['action_target_contract'] = NATIVE_FUTURE_CONTRACT
     protocol['bounds']['coherence']['initial_yaw_rad']['max'] = None
     path.write_text(json.dumps(protocol))
     args.selection_protocol_sha = sha(path)
@@ -240,6 +310,7 @@ def test_frozen_selection_protocol_is_required_and_rechecked(tmp_path):
         selection_protocol_binding(args, 'op_tangent_v1', sha(manifest))
     path.write_bytes(bound['bytes'])
     args.selection_protocol_sha = sha(path)
+    args.action_target_mode = 'teacher_command_v1'
     args.batch_size += 1
     with pytest.raises(ValueError, match='configuration mismatch'):
         selection_protocol_binding(args, 'op_tangent_v1', sha(manifest))
