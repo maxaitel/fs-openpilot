@@ -50,9 +50,13 @@ def parse_args():
     p.add_argument("--frame", type=int, required=True, help="Anchor frame, at least 100")
     p.add_argument("--checkpoint", type=Path, required=True)
     p.add_argument("--out", type=Path, required=True)
+    p.add_argument("--settle-captures", type=int, default=1,
+                   help="Diagnostic-only captures at each fixed pose before reading RGB (1 to 8)")
     args = p.parse_args()
     if args.frame < 100:
         p.error("--frame must be at least 100 for a complete 25-slot history")
+    if not 1 <= args.settle_captures <= 8:
+        p.error("--settle-captures must be between 1 and 8")
     return args
 
 
@@ -225,6 +229,12 @@ def main():
         prims = {key: drive.stage.GetPrimAtPath(path) for key, path in branches.items()}
         if any(not p for p in prims.values()):
             raise ValueError("Stress overlay branches are missing")
+        # Child mesh authoring leaves two grouping ancestors untyped. A Scope
+        # supplies inherited visibility without introducing a transform.
+        for key, prim in prims.items():
+            if not UsdGeom.Imageable(prim):
+                prims[key] = UsdGeom.Scope.Define(drive.stage, prim.GetPath()).GetPrim()
+        assert_appearance_only(physical_before, drive.stage)
         repairs = drive.stage.GetPrimAtPath("/World/Appearance/Repairs")
         patches = [p for p in repairs.GetChildren() if p.GetName().startswith("Patch")] if repairs else []
         if len(patches) != 14:
@@ -296,7 +306,9 @@ def main():
                         raise ValueError(f"Rebuilt camera pose differs from evidence at {frame}")
                     if not np.allclose(projection, record["T_plan_ego_camera"], atol=1e-6, rtol=0):
                         raise ValueError(f"Rebuilt camera projection differs from evidence at {frame}")
-                    time_before, time_after = capture_without_advance(drive.sim, capture, replay_time)
+                    capture_times = [capture_without_advance(drive.sim, capture, replay_time)
+                                     for _ in range(args.settle_captures)]
+                    time_before, time_after = capture_times[0][0], capture_times[-1][1]
                     raw = {
                         cam: drive.cameras[cam].get_rgba()[:, :, :3].astype(np.uint8).copy() for cam in ("road", "wide")
                     }
@@ -307,6 +319,7 @@ def main():
                             "projection": projection.tolist(),
                             "sim_time_before": time_before,
                             "sim_time_after": time_after,
+                            "capture_times": capture_times,
                         }
                     )
                 # The random draws depend on camera dimensions, not image pixels or yaw rate.
@@ -409,6 +422,8 @@ def main():
             "source_sha256_end": source_end_hashes,
             "source_archive_sha256": source_archive_sha,
             "simulation_time_after_reset": replay_time,
+            "capture_calls_per_pose": args.settle_captures,
+            "capture_scope": "Diagnostic settling only; scored evaluation keeps the unchanged 16-subframe profile.",
             "no_simulation_advance_after_reset": all(
                 camera["sim_time_before"] == replay_time == camera["sim_time_after"]
                 for result in results.values()

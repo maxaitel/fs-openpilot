@@ -1,0 +1,431 @@
+{
+  "date_utc": "2026-11-09T09:41:35.991256+00:00",
+  "scope": "20 optimizer updates per cell; warm timing uses steps5..20; includes actual full vision/policy gradients and current historical encodes. Benchmark checkpoints are not candidates. End-to-end timing includes fixed costs.",
+  "manifest_sha256": "df238ccad932d5704f7091cbff1872f580c7d8dce4951468c532e66fb8b85e37",
+  "init_sha256": "cf3a8d253dfd5a417e1967d2d6dc8cdd0263e3d16d3f1f02f15495f490a83b7e",
+  "numeric": {
+    "checkpoint_role": "fixed_input_comparison_not_candidate",
+    "thresholds": {
+      "fp32_channels_last": {
+        "plan_max_abs": 0.001,
+        "steer_max_abs": 0.0001,
+        "accel_max_abs": 0.001
+      },
+      "bf16_channels_last": {
+        "near_xy_max_abs": 0.1,
+        "steer_max_abs": 0.01,
+        "accel_max_abs": 0.1
+      }
+    },
+    "gate_scope": "fixed-weight numeric parity only; no closed-loop quality claim",
+    "modes": {
+      "fp32_contiguous": {
+        "finite": {
+          "history": true,
+          "hidden": true,
+          "plan_mu": true,
+          "plan_logstd": true,
+          "desire_state": true,
+          "steer": true,
+          "accel": true,
+          "plan_nll": true,
+          "steer_loss": true,
+          "longitudinal_loss": true,
+          "total_loss": true
+        },
+        "all_finite": true,
+        "losses": {
+          "plan_nll": 0.12901410460472107,
+          "steer_loss": 0.0007285927422344685,
+          "longitudinal_loss": 0.7211673259735107,
+          "total_loss": 0.8525720834732056
+        }
+      },
+      "fp32_channels_last": {
+        "finite": {
+          "history": true,
+          "hidden": true,
+          "plan_mu": true,
+          "plan_logstd": true,
+          "desire_state": true,
+          "steer": true,
+          "accel": true,
+          "plan_nll": true,
+          "steer_loss": true,
+          "longitudinal_loss": true,
+          "total_loss": true
+        },
+        "all_finite": true,
+        "losses": {
+          "plan_nll": 0.1290147751569748,
+          "steer_loss": 0.0007285920437425375,
+          "longitudinal_loss": 0.7211675643920898,
+          "total_loss": 0.8525729775428772
+        },
+        "errors": {
+          "history_max_abs": 2.384185791015625e-07,
+          "hidden_max_abs": 2.0116567611694336e-07,
+          "plan_mu_max_abs": 3.814697265625e-05,
+          "plan_logstd_max_abs": 4.76837158203125e-06,
+          "desire_state_max_abs": 4.76837158203125e-06,
+          "steer_max_abs": 5.960464477539063e-08,
+          "accel_max_abs": 1.6093254089355469e-06,
+          "plan_nll_max_abs": 6.705522537231445e-07,
+          "steer_loss_max_abs": 6.984919309616089e-10,
+          "longitudinal_loss_max_abs": 2.384185791015625e-07,
+          "total_loss_max_abs": 8.940696716308594e-07,
+          "near_xy_max_abs": 3.84438408218557e-06,
+          "near_xy_max_coordinate_abs": 3.814697265625e-06,
+          "plan_max_abs": 3.814697265625e-05
+        },
+        "passed": true
+      },
+      "bf16_channels_last": {
+        "finite": {
+          "history": true,
+          "hidden": true,
+          "plan_mu": true,
+          "plan_logstd": true,
+          "desire_state": true,
+          "steer": true,
+          "accel": true,
+          "plan_nll": true,
+          "steer_loss": true,
+          "longitudinal_loss": true,
+          "total_loss": true
+        },
+        "all_finite": true,
+        "losses": {
+          "plan_nll": 0.12210124731063843,
+          "steer_loss": 0.0008419480873271823,
+          "longitudinal_loss": 0.6999474763870239,
+          "total_loss": 0.8248112797737122
+        },
+        "errors": {
+          "history_max_abs": 0.009926975704729557,
+          "hidden_max_abs": 0.007606150582432747,
+          "plan_mu_max_abs": 4.604806900024414,
+          "plan_logstd_max_abs": 0.09173107147216797,
+          "desire_state_max_abs": 0.26210784912109375,
+          "steer_max_abs": 0.005712233483791351,
+          "accel_max_abs": 0.15192365646362305,
+          "plan_nll_max_abs": 0.006912857294082642,
+          "steer_loss_max_abs": 0.00011335534509271383,
+          "longitudinal_loss_max_abs": 0.021219849586486816,
+          "total_loss_max_abs": 0.027760803699493408,
+          "near_xy_max_abs": 0.33914914727211,
+          "near_xy_max_coordinate_abs": 0.3122587203979492,
+          "plan_max_abs": 4.604806900024414
+        },
+        "passed": false
+      }
+    },
+    "runtime": {
+      "torch": "2.9.0+cu130",
+      "cuda": "13.0",
+      "gpu": "NVIDIA GB10",
+      "matmul_allow_tf32": false,
+      "cudnn_allow_tf32": false,
+      "float32_matmul_precision": "highest"
+    },
+    "samples": [
+      {
+        "episode": "/work/data/native/lab_v2/val-trackdrive-84000-matched",
+        "frame": 141
+      },
+      {
+        "episode": "/work/data/native/lab_v2/val-trackdrive-84001-visual_stress_v1",
+        "frame": 173
+      },
+      {
+        "episode": "/work/data/native/lab_v2/val-trackdrive-84002-visual_stress_v1",
+        "frame": 104
+      },
+      {
+        "episode": "/work/data/native/lab_v2/val-trackdrive-84003-visual_stress_v1",
+        "frame": 150
+      },
+      {
+        "episode": "/work/data/native/lab_v2/val-skidpad-84000-matched",
+        "frame": 116
+      },
+      {
+        "episode": "/work/data/native/lab_v2/val-skidpad-84001-visual_stress_v1",
+        "frame": 116
+      },
+      {
+        "episode": "/work/data/native/lab_v2/val-skidpad-84002-visual_stress_v1",
+        "frame": 116
+      },
+      {
+        "episode": "/work/data/native/lab_v2/val-skidpad-84003-visual_stress_v1",
+        "frame": 116
+      }
+    ],
+    "context8": {
+      "tolerance": 1e-05,
+      "active_features_bitwise_equal": true,
+      "inactive_features_zero": true,
+      "comparisons": {
+        "pruned8": {
+          "max_abs": {
+            "hidden": 0.0,
+            "plan_mu": 0.0,
+            "plan_logstd": 0.0,
+            "desire_state": 0.0,
+            "steer": 0.0,
+            "accel": 0.0,
+            "plan_nll": 0.0,
+            "steer_loss": 0.0,
+            "longitudinal_loss": 0.0,
+            "loss": 0.0
+          },
+          "gradient_max_abs": 1.9073486328125e-06,
+          "gradient_none_mismatches": [],
+          "all_finite": true,
+          "passed": true
+        },
+        "perturbed_early16": {
+          "max_abs": {
+            "hidden": 0.0,
+            "plan_mu": 0.0,
+            "plan_logstd": 0.0,
+            "desire_state": 0.0,
+            "steer": 0.0,
+            "accel": 0.0,
+            "plan_nll": 0.0,
+            "steer_loss": 0.0,
+            "longitudinal_loss": 0.0,
+            "loss": 0.0
+          },
+          "gradient_max_abs": 1.9073486328125e-06,
+          "gradient_none_mismatches": [],
+          "all_finite": true,
+          "passed": true
+        }
+      },
+      "passed": true,
+      "proof": {
+        "policy_sha256": "a27088e94f581de472f9610183e3979987cf59a1b272816a339bb9757d00a17a",
+        "feature_slots": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "transpose": [
+          1,
+          0,
+          2
+        ],
+        "gather_indices": [
+          -9,
+          -8,
+          -7,
+          -6,
+          -5,
+          -4,
+          -3,
+          -2,
+          -1
+        ],
+        "fx_gather_buffer": "initializers.onnx_initializer_0"
+      }
+    },
+    "passed": false,
+    "returncode": 1,
+    "command": [
+      "/isaac-sim/kit/python/bin/python3",
+      "/work/scripts/benchmark_lab_training.py",
+      "--manifest",
+      "/work/data/native/lab_v2/manifest.json",
+      "--init",
+      "/frozen/model.pt",
+      "--out",
+      "/work/runs/benchmarks_v2",
+      "--seed",
+      "0",
+      "--threads",
+      "4",
+      "--numeric-worker",
+      "--worker-output",
+      "/work/runs/benchmarks_v2/numeric.json"
+    ],
+    "log": "/work/runs/benchmarks_v2/numeric.log",
+    "init_hash_matches": true,
+    "manifest_hash_matches": true
+  },
+  "throughput": [
+    {
+      "name": "fp32_contiguous_b8",
+      "batch_size": 8,
+      "history_context": 24,
+      "amp": false,
+      "channels_last": false,
+      "warm_step_seconds_median": 0.2204583629500121,
+      "warm_step_seconds_p95": 0.22943359226337634,
+      "warm_examples_per_second": 36.829911763759526,
+      "end_to_end_seconds": 12.696968274074607,
+      "torch_peak_allocated_bytes": 1082876928,
+      "gpu_pct_median": 2.0,
+      "power_w_median": 15.372,
+      "host_ram_gib_peak_sampled": 7.593498229980469,
+      "returncode": 0,
+      "checkpoint_role": "benchmark_only_not_candidate"
+    },
+    {
+      "name": "fp32_contiguous_b16",
+      "batch_size": 16,
+      "history_context": 24,
+      "amp": false,
+      "channels_last": false,
+      "warm_step_seconds_median": 0.38955028902273625,
+      "warm_step_seconds_p95": 0.41541384006268345,
+      "warm_examples_per_second": 41.35301430876238,
+      "end_to_end_seconds": 15.64458928804379,
+      "torch_peak_allocated_bytes": 1184766976,
+      "gpu_pct_median": 72.5,
+      "power_w_median": 26.737499999999997,
+      "host_ram_gib_peak_sampled": 7.586116790771484,
+      "returncode": 0,
+      "checkpoint_role": "benchmark_only_not_candidate"
+    },
+    {
+      "name": "fp32_contiguous_b32",
+      "batch_size": 32,
+      "history_context": 24,
+      "amp": false,
+      "channels_last": false,
+      "warm_step_seconds_median": 0.6894947559922002,
+      "warm_step_seconds_p95": 0.7285927235498093,
+      "warm_examples_per_second": 46.32183667390947,
+      "end_to_end_seconds": 21.71156304096803,
+      "torch_peak_allocated_bytes": 1766251008,
+      "gpu_pct_median": 79.5,
+      "power_w_median": 42.8625,
+      "host_ram_gib_peak_sampled": 8.011581420898438,
+      "returncode": 0,
+      "checkpoint_role": "benchmark_only_not_candidate"
+    },
+    {
+      "name": "fp32_channels_last_b32",
+      "batch_size": 32,
+      "history_context": 24,
+      "amp": false,
+      "channels_last": true,
+      "warm_step_seconds_median": 1.7404907449963503,
+      "warm_step_seconds_p95": 1.8544860469992273,
+      "warm_examples_per_second": 20.898486537668358,
+      "end_to_end_seconds": 43.18604563490953,
+      "torch_peak_allocated_bytes": 1768348160,
+      "gpu_pct_median": 81.0,
+      "power_w_median": 25.335,
+      "host_ram_gib_peak_sampled": 8.872886657714844,
+      "returncode": 0,
+      "checkpoint_role": "benchmark_only_not_candidate"
+    },
+    {
+      "name": "bf16_channels_last_b32",
+      "batch_size": 32,
+      "history_context": 24,
+      "amp": true,
+      "channels_last": true,
+      "warm_step_seconds_median": 1.061650475487113,
+      "warm_step_seconds_p95": 1.1653825797548052,
+      "warm_examples_per_second": 36.357148275371195,
+      "end_to_end_seconds": 32.775282338960096,
+      "torch_peak_allocated_bytes": 1266765312,
+      "gpu_pct_median": 3.0,
+      "power_w_median": 20.887,
+      "host_ram_gib_peak_sampled": 9.337169647216797,
+      "returncode": 0,
+      "checkpoint_role": "benchmark_only_not_candidate"
+    },
+    {
+      "name": "fp32_contiguous_b32_context8",
+      "batch_size": 32,
+      "history_context": 8,
+      "amp": false,
+      "channels_last": false,
+      "warm_step_seconds_median": 0.32038340001599863,
+      "warm_step_seconds_p95": 0.32511991998762824,
+      "warm_examples_per_second": 100.15800110807146,
+      "end_to_end_seconds": 14.301169620943256,
+      "torch_peak_allocated_bytes": 1765245440,
+      "gpu_pct_median": 67.0,
+      "power_w_median": 19.666,
+      "host_ram_gib_peak_sampled": 7.975883483886719,
+      "returncode": 0,
+      "checkpoint_role": "benchmark_only_not_candidate"
+    },
+    {
+      "name": "fp32_contiguous_b64_context8",
+      "batch_size": 64,
+      "history_context": 8,
+      "amp": null,
+      "channels_last": null,
+      "warm_step_seconds_median": 0.5869123775046319,
+      "warm_step_seconds_p95": 0.6003346072684508,
+      "warm_examples_per_second": 109.36714974293895,
+      "end_to_end_seconds": 19.66127875202801,
+      "torch_peak_allocated_bytes": 3051335168,
+      "gpu_pct_median": 76.0,
+      "power_w_median": 42.0495,
+      "host_ram_gib_peak_sampled": 9.18985366821289,
+      "returncode": 0,
+      "checkpoint_role": "benchmark_only_not_candidate"
+    },
+    {
+      "name": "fp32_contiguous_b128_context8",
+      "batch_size": 128,
+      "history_context": 8,
+      "amp": null,
+      "channels_last": null,
+      "warm_step_seconds_median": 1.1028047024738044,
+      "warm_step_seconds_p95": 1.1278320977580734,
+      "warm_examples_per_second": 116.14285811495854,
+      "end_to_end_seconds": 30.932250932906754,
+      "torch_peak_allocated_bytes": 5625742336,
+      "gpu_pct_median": 86.0,
+      "power_w_median": 44.967,
+      "host_ram_gib_peak_sampled": 11.74661636352539,
+      "returncode": 0,
+      "checkpoint_role": "benchmark_only_not_candidate"
+    },
+    {
+      "name": "fp32_contiguous_b256_context8",
+      "batch_size": 256,
+      "history_context": 8,
+      "amp": null,
+      "channels_last": null,
+      "warm_step_seconds_median": 2.0381784725468606,
+      "warm_step_seconds_p95": 2.07188935027807,
+      "warm_examples_per_second": 125.61611246422672,
+      "end_to_end_seconds": 49.95832763402723,
+      "torch_peak_allocated_bytes": 10770329600,
+      "gpu_pct_median": 87.0,
+      "power_w_median": 47.845,
+      "host_ram_gib_peak_sampled": 17.854938507080078,
+      "returncode": 0,
+      "checkpoint_role": "benchmark_only_not_candidate"
+    }
+  ],
+  "choice": {
+    "precision": "FP32 contiguous",
+    "batch_size": 128,
+    "history_context": 8,
+    "steps": 1200,
+    "sampled_examples": 153600,
+    "reason": "92.5 percent of measured batch256 examples/s with twice as many optimizer updates at equal exposure; historical pruning passes actual output/gradient parity; BF16 fails predeclared parity, channels-last is slower."
+  },
+  "limits": [
+    "Short timing cells; full training telemetry will be reported separately.",
+    "GPU utilization is whole-device busy time, not SM occupancy or Tensor Core utilization.",
+    "Earlier pilot timings were confounded by stale task-owned processes and are excluded from this recipe decision."
+  ]
+}
