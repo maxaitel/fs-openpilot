@@ -1,0 +1,10 @@
+{
+  "remote": "/scratch/fsop/head_trial_work/runs/cone_set_conditioning_probe_v1",
+  "local": "/Users/maxaitel/Documents/ChatGPT/fs-openpilot-skidpad-correction/runs/cone_set_conditioning_probe_v1",
+  "verified_files": 4,
+  "verified_bytes": 1213112,
+  "remote_inventory_sha256": "98989196f5ec59e97ce44c92effd003ceb3031ed58ab94d55b2a851e3a384d2e",
+  "remote_before_after_identical": true,
+  "local_inventory_exact": true,
+  "source_deleted": false
+}

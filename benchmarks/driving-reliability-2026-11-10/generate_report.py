@@ -41,6 +41,18 @@ def figure(name):
     return '<img alt="' + html.escape(name) + '" src="data:image/png;base64,' + base64.b64encode(path.read_bytes()).decode() + '">'
 
 
+def zero_contact_mission(result):
+    if (result.get('pilot_only') or result.get('result') != 'finished' or result.get('complete') is not True
+            or result.get('physical_cone_hits') != 0 or result.get('oc') != 0
+            or not 0 < result.get('seconds_simulated', float('inf')) <= 120):
+        return False
+    if result.get('discipline') == 'skidpad':
+        route = result.get('route') or {}
+        return (route.get('accepted_route') == ['right', 'right', 'left', 'left']
+                and all(route.get(k) is True for k in ('complete', 'valid', 'exited', 'stopped_in_zone')))
+    return result.get('discipline') == 'trackdrive' and result.get('n_laps', 0) >= 1
+
+
 def main():
     global OUT
     ap = argparse.ArgumentParser(description=__doc__)
@@ -117,7 +129,8 @@ def main():
 
     diagnosis_images = []
     for filename, label, output in [('result.json', 'First direct-head trial3', 'first_error.png'),
-                                    ('result_recovery2.json', 'Recovery-data trial', 'first_error_recovery.png')]:
+                                    ('result_recovery2.json', 'Recovery-data trial', 'first_error_recovery.png'),
+                                    ('result_joint1.json', 'Joint policy suffix trial', 'first_error_joint.png')]:
         path = BENCH / 'direct_command_diagnosis' / filename
         if not path.is_file():
             continue
@@ -233,11 +246,11 @@ def main():
             route = result.get('route') or {}
             values = [str(directory.relative_to(ROOT)), result.get('result'), result.get('recorded_frames'),
                       result.get('seconds_simulated'), result.get('physical_cone_hits'), result.get('oc'),
-                      ','.join(route.get('accepted_route', [])) or 'none', result.get('pass')]
+                      ','.join(route.get('accepted_route', [])) or 'none', zero_contact_mission(result)]
             outcome_rows.append('<tr>' + ''.join('<td>' + html.escape(str(v)) + '</td>' for v in values) + '</tr>')
         training_html += '<h3>' + html.escape(str(directory)) + '</h3><p>Available episode artifacts: ' + (', '.join(local(p) for p in files) if files else 'none found') + '. Inspect the receipts for validity and outcome.</p>'
     if outcome_rows:
-        training_html += '<h3>Recorded driving outcomes</h3><p>Each row is one exposed diagnostic rollout. These rejected-checkpoint runs are not final acceptance samples. Missing video audits remain unverified.</p><table><thead><tr>' + ''.join('<th>' + label + '</th>' for label in ['Episode', 'Result', 'Frames', 'Simulated seconds', 'Physical contacts', 'Off-course', 'Accepted skidpad route', 'Pass']) + '</tr></thead><tbody>' + ''.join(outcome_rows) + '</tbody></table>'
+        training_html += '<h3>Recorded driving outcomes</h3><p>Each row is one exposed diagnostic rollout. These rejected-checkpoint runs are not final acceptance samples. The last column checks the recorded zero-contact full-mission predicate, including valid RRLL exit and stop. It does not use the legacy pass flag and does not replace source, replay, artifact or video qualification. Missing audits remain unverified.</p><table><thead><tr>' + ''.join('<th>' + label + '</th>' for label in ['Episode', 'Result', 'Frames', 'Simulated seconds', 'Physical contacts', 'Off-course', 'Accepted skidpad route', 'Zero-contact mission predicate']) + '</tr></thead><tbody>' + ''.join(outcome_rows) + '</tbody></table>'
 
     videos = sorted((ROOT / 'runs/pi_correction_media/development_head_trial1').rglob('*.mp4'))
     video_links = '<ul>' + ''.join('<li>' + local(p) + '</li>' for p in videos) + '</ul>'

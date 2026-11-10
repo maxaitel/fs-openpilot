@@ -1,0 +1,20 @@
+{
+  "published_at": "2026-11-10T10:56:21.106964+00:00",
+  "source_index_sha256": "658eada605e4bd612d4548fa77bfea944d3298c9cd9dc12b2fcf90ed41463c20",
+  "copied_files": 16,
+  "copied_bytes": 3600965,
+  "source_before_after_and_published_identical": true,
+  "originals_preserved": true,
+  "verification": {
+    "freeze_sha256": "e4161c11813a38e88dc6b3bace8725e97127a1107e8bcd597f74123940e56b3a",
+    "frozen_files_verified": 9,
+    "failed_receipts_verified": 5,
+    "ordered_anchor_input_hashes_verified": 32,
+    "completion_chain_verified": true,
+    "remote_copy_receipt_matches_local_inventory": true,
+    "negative_decision_preserved": true
+  },
+  "no_probe_rerun": true,
+  "no_commit": true,
+  "authored_report_sha256": "49eee1dedf866dc7895a2dc1ddfa1fbb25d7557cdba8ccc6d370eb9423969f22"
+}

@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "source": "runs/driving_reliability_report_joint1_complete/first_error_joint.png",
+      "destination": "first_error_joint.png",
+      "sha256": "62561227c7fb658365fa827263e4f14bac9a1b7c4087db1882403908dc859442",
+      "bytes": 117140
+    },
+    {
+      "source": "runs/driving_reliability_report_joint1_complete/training_loss.png",
+      "destination": "training_loss.png",
+      "sha256": "10552effd1ce01baadd4bdf8be01abfb451d91161f2eadf5d9d3b06722f137bf",
+      "bytes": 38810
+    },
+    {
+      "source": "runs/driving_reliability_report_joint1_complete/validation.png",
+      "destination": "validation.png",
+      "sha256": "5c510fd0f943bcc6d7ef1a78218a544c873a2f527856cb7fb044e5979a327ee1",
+      "bytes": 79044
+    },
+    {
+      "source": "runs/driving_reliability_report_joint1_complete/hardware.png",
+      "destination": "hardware.png",
+      "sha256": "74bece4fd21b761cbc6740dcfe0a9929f0da6b7339d8f1677c5af690717a89d2",
+      "bytes": 136432
+    }
+  ],
+  "report_summary_sha256": "93010917e9ecce82833ac9b400b9c4057808dd93c2c7b490917a592816c557fc"
+}

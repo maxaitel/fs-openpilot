@@ -1,0 +1,16 @@
+{
+  "kind": "cone_set_conditioning_probe_v1",
+  "frozen_at": "2026-11-10T10:26:37.539124+00:00",
+  "no_inference_or_fit_executed": true,
+  "files": {
+    "bindings.json": "e39604f24a8aa28881ad5b1cfd20ba4a337859abd248d470e7f275f94bb7dae9",
+    "existing_failure_summary.json": "0952b0af2388b5c060ae91be6db9ae3629930a12768a3cd5337eb3ac76fd9320",
+    "probe.py": "1ca53d02fb61510457e08dd6d03e735e4e4c0f93b44e3b7324b52eb82230eaaa",
+    "protocol.md": "123236974c6db1c3c3eafd4b7495710c9212fbd9db43c323222eb00fc72e77ca",
+    "receipts/audit.json": "0e1d493d3b4d8067b2ebb32e6ef6a07fb556756b734db63603df978042444823",
+    "receipts/collisions.json": "b2ab0887e77d44eac8c7340c3711f5841f39911bbdf7e798e65d569744fdc9f5",
+    "receipts/condition.json": "79bef197860abf08d0dd10cfef607cf86e360d7b69aef225ae3935c63eafbb7d",
+    "receipts/overfit.json": "ff69fce7322bea777b74abad485cd4e62f63eb2de12d03024d04af4ef8d6002b",
+    "receipts/overfit_failure.json": "d84bd21d651c5c81da9290ce01eccde77ac9aed08b60a204fda9d3a4b40d31f5"
+  }
+}

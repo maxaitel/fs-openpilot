@@ -1,0 +1,153 @@
+{
+  "kind": "vision_cone_set_actuator_v1",
+  "manifest": "data/native/lab_v7/manifest.json",
+  "manifest_sha256": "db7150b60fdf50e861c6ca003ae844b90ff398fd7b244c9201b7de9d3af5b309",
+  "base_checkpoint": "probes/pi_models/latest_pi_train.pt",
+  "base_checkpoint_sha256": "48db741c8a686b2e635ae7a81b4e4c08d79fbfbd9f4dc4c163260da6f93f0cfb",
+  "recovery_recipe": "/work/docs/isaac-lab-training/phase_recovery_recipe4.json",
+  "recovery_gates": "data/native/lab_v7/recovery_gates",
+  "recovery_provenance_mode": "per_case_v2",
+  "seed": 0,
+  "batch_size": 128,
+  "recovery_draws": 16,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0,
+  "gradient_clip": 1.0,
+  "overfit_anchors": 32,
+  "overfit_updates_max": 200,
+  "overfit_mae": [
+    0.002,
+    0.05
+  ],
+  "updates": 500,
+  "evaluation_steps": [
+    0,
+    100,
+    200,
+    300,
+    400,
+    500
+  ],
+  "loss_scales": [
+    0.02,
+    0.5
+  ],
+  "validation_mae": [
+    0.01,
+    0.25
+  ],
+  "validation_p95": [
+    0.03,
+    0.75
+  ],
+  "history_context": 8,
+  "history_chunk_size": 64,
+  "min_free_bytes": 26843545600,
+  "artifact_budget_bytes": 1073741824,
+  "visual_gate": {
+    "dynamic_anchor_count": 32,
+    "minimum_vx_mps": 2.0,
+    "minimum_frame": 8,
+    "seed": 0,
+    "blank": "black RGB converted with rgb_to_model in both cameras for current and every valid historical frame",
+    "minimum_relative_loss_increase": 0.1,
+    "minimum_repeat_noise_multiple": 5.0
+  },
+  "trial_version": "cone_set_actuator_trial_v1",
+  "new_membership": ".work/lab/direct_command_recovery/membership.json",
+  "original_membership": "docs/isaac-lab-training/membership.json",
+  "collection_checkpoint": "runs/direct_command_trial3/step_500.pt",
+  "collection_checkpoint_sha256": "9112e138d4856fbbdc383d8f63dfbaeb92fb62449c4b66b5eb6f30b91ef22ba7",
+  "new_cases": {
+    "skidpad": {
+      "episode": "runs/direct_recovery_v1/skidpad",
+      "receipt": "runs/direct_recovery_v1/skidpad-receipt-v2.json",
+      "id": "train-skidpad-82000-matched-direct-recovery-v1"
+    },
+    "trackdrive": {
+      "episode": "runs/direct_recovery_v1/trackdrive",
+      "receipt": "runs/direct_recovery_v1/trackdrive-receipt-v2.json",
+      "id": "train-trackdrive-82000-matched-direct-recovery-v1"
+    }
+  },
+  "old_recovery_draws": 16,
+  "new_recovery_draws": 16,
+  "ordinary_draws": 96,
+  "source_recipe_sha256": "958ef9d41c777f9ad8b5b4f993413886bdab3c297f13182a15357d09679bf34f",
+  "training_scope": {
+    "token1.weight": [
+      64,
+      8
+    ],
+    "token1.bias": [
+      64
+    ],
+    "token2.weight": [
+      64,
+      64
+    ],
+    "token2.bias": [
+      64
+    ],
+    "linear1.weight": [
+      128,
+      332
+    ],
+    "linear1.bias": [
+      128
+    ],
+    "linear2.weight": [
+      2,
+      128
+    ],
+    "linear2.bias": [
+      2
+    ]
+  },
+  "deployment": {
+    "device": "cpu",
+    "dtype": "torch.float32",
+    "threads": 4
+  },
+  "conditioning_updates": 1,
+  "condition_indices": "same fixed 32 TRAIN anchors as disposable wiring",
+  "precision": {
+    "amp": false,
+    "tf32": false,
+    "channels_last": false,
+    "feature_cache": false
+  },
+  "end_dataset_verification": "fresh process after closing the only original episode pool",
+  "runtime_preflight": {
+    "source": "both independently verified new TRAIN recovery prefixes",
+    "maximum_frames_per_prefix": 120,
+    "temporal_phases": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "cpu_replay_rtol": 1e-05,
+    "cpu_replay_atol": 1e-05
+  },
+  "legacy_recipe": ".work/lab/joint_command_trial/recipe.json",
+  "legacy_recipe_sha256": "495e3a10a41070e74ddc445f9cbce33781e8351a32db32f9bd42436996f73648",
+  "inherited_audit": "runs/joint_command_trial1/audit.json",
+  "inherited_audit_sha256": "de5c27dd4af484705d27ff55e20e0f9dc56986b3d6cddc47553eef2cdb6f95e6",
+  "probe_cases": [
+    "train-skidpad-82000-matched",
+    "train-trackdrive-82000-matched"
+  ],
+  "probe_frames": 573,
+  "cpu_validation": {
+    "anchors": 2067,
+    "selection": "single selected GPU-eligible package; failure rejects without replacement"
+  },
+  "decoder": "stock CPU decoder on freshly transferred raw image-head tensors; no revised tie ordering",
+  "base_model_digest": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+  "command_image_context_seconds": 0.2,
+  "command_history_features": 0,
+  "history_context_role": "inherited diagnostic model and canonical data recipe only",
+  "visual_gate_inherited_history_role": "legacy metadata; cone-head ablation blanks both current-pair images only; prior diagnostic features are not action inputs",
+  "stage_completion": "exclusive final marker after stage return, pool closure and final source/prerequisite checks; matching report and attempt hashes required"
+}

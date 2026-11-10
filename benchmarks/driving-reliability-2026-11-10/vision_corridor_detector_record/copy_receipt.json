@@ -1,0 +1,109 @@
+{
+  "files": [
+    {
+      "remote": "/scratch/fsop/head_trial_work/.work/lab/vision_corridor_probe_v1/results_clean_v1/receipt.json",
+      "local": "runs/vision_corridor_probe_v1/receipt.json",
+      "bytes": 29389,
+      "sha256": "abccd3e1668ecbb42a278d1355a6ab55949417d3e94776734caaf65a9ce02513"
+    },
+    {
+      "remote": "/scratch/fsop/head_trial_work/.work/lab/vision_corridor_probe_v1/results_clean_v1/references.json",
+      "local": "runs/vision_corridor_probe_v1/references.json",
+      "bytes": 4034,
+      "sha256": "f7c75de4a03c4697cb8aeca5338da8110ae28e0f9b30c5cbea7893f53966f268"
+    },
+    {
+      "remote": "/scratch/fsop/head_trial_work/.work/lab/vision_corridor_probe_v1/results_clean_v1/frames.jsonl",
+      "local": "runs/vision_corridor_probe_v1/frames.jsonl",
+      "bytes": 1427073,
+      "sha256": "4cedbb447ba306ec849eec38cdeb701997e47b39ac23914d038580c225e489fd"
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-skidpad-82000-matched/meta.json",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/meta.json",
+      "bytes": 53324,
+      "sha256": "77c4cb56b517329fe4dda6f996fefcc950b86f40b9b06c348a067bf1f519f9a3"
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-skidpad-82000-matched/states.npy",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/states.npy",
+      "bytes": 82496,
+      "sha256": "3955dcee36bfbfc0f8c840b67bb108127c28aefd97f99b7a479f2a24119002e2"
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-skidpad-82000-matched/cones.npy",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/cones.npy",
+      "bytes": 2192,
+      "sha256": "e6b365d7eb9376b3d8b4888a1e1001e5560ab9ef51bb3638793ee025774242e4"
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-skidpad-82000-matched/controls.npy",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/controls.npy",
+      "bytes": 18416,
+      "sha256": "56febb4545715888ff693dc95ffb03db97ba9d67259ca7c13ae6ef364787153d"
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-skidpad-82000-matched/ticks.npy",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/ticks.npy",
+      "bytes": 2416,
+      "sha256": "e4fa7d666bfdb0eb19e782f2a05f160dfc9ac86c715358f28eba96094832dec2"
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-skidpad-82000-matched/desires.npy",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/desires.npy",
+      "bytes": 228928,
+      "sha256": "453838ecdb8824af669273742ef22a67741f72e1fcb91148a28f6a4c5d90ec40"
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-skidpad-82000-matched/contacts.npy",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/contacts.npy",
+      "bytes": 9280,
+      "sha256": "8bbd0af451ed40fe71c5aa04d432e8c42689af7d347939eb3f6bcf0508791f30"
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-trackdrive-82000-matched/meta.json",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/meta.json",
+      "bytes": 36252,
+      "sha256": "730d5b359c11a02215b2fd646b6edc09b78787c08a39eeb09e6070d191144b2c"
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-trackdrive-82000-matched/states.npy",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/states.npy",
+      "bytes": 82640,
+      "sha256": "1e74936e48049c68ac9f3626089a2b8fea177ba7cc89cc69248ed9486e5477c3"
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-trackdrive-82000-matched/cones.npy",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/cones.npy",
+      "bytes": 3296,
+      "sha256": "8f49ae641c7f1db0c216389a1c9170d255f5aab4ec061e9b34d11ca1810c1a1e"
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-trackdrive-82000-matched/controls.npy",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/controls.npy",
+      "bytes": 18448,
+      "sha256": "57f87883c6ca3b053b9a3c39b1c0b17937af55f4e273b12ae1d3f28af2dcdae3"
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-trackdrive-82000-matched/ticks.npy",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/ticks.npy",
+      "bytes": 2424,
+      "sha256": "4d2ab1484f3618ee3c820e8c87a2c33ebea9a1b1ee305bffc5a4ea826ce885c9"
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-trackdrive-82000-matched/desires.npy",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/desires.npy",
+      "bytes": 229728,
+      "sha256": "faa1c568775577760e941eecc144ab8cef155c885796ccf8fb2bcfbe69e5e15d"
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-trackdrive-82000-matched/contacts.npy",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/contacts.npy",
+      "bytes": 9296,
+      "sha256": "bb6e6b3fd97a796254645da1096d6241b560032bb55286158845b9a433d1d8e2"
+    }
+  ],
+  "all_passed": true,
+  "source_deleted": false,
+  "limit": "Full camera arrays stay on Spark; this copy contains exact decoder output and compact scoring references."
+}

@@ -1,0 +1,5 @@
+{
+  "stage": "overfit",
+  "error": "fixed 32-anchor wiring gate failed; main run prohibited",
+  "traceback": "Traceback (most recent call last):\n  File \"/scratch/fsop/head_trial_work/.work/lab/cone_set_actuator_trial/train_set.py\", line 970, in main\n    STAGES[args.stage](args.out, recipe, device)\n  File \"/scratch/fsop/head_trial_work/.work/lab/cone_set_actuator_trial/train_set.py\", line 670, in overfit_run\n    raise ValueError('fixed 32-anchor wiring gate failed; main run prohibited')\nValueError: fixed 32-anchor wiring gate failed; main run prohibited\n"
+}

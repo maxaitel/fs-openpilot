@@ -1,0 +1,12 @@
+{
+  "process_id": 924012,
+  "freeze_sha256": "e4161c11813a38e88dc6b3bace8725e97127a1107e8bcd597f74123940e56b3a",
+  "failed_receipts": {
+    "audit.json": "0e1d493d3b4d8067b2ebb32e6ef6a07fb556756b734db63603df978042444823",
+    "collisions.json": "b2ab0887e77d44eac8c7340c3711f5841f39911bbdf7e798e65d569744fdc9f5",
+    "condition.json": "79bef197860abf08d0dd10cfef607cf86e360d7b69aef225ae3935c63eafbb7d",
+    "overfit.json": "ff69fce7322bea777b74abad485cd4e62f63eb2de12d03024d04af4ef8d6002b",
+    "overfit_failure.json": "d84bd21d651c5c81da9290ce01eccde77ac9aed08b60a204fda9d3a4b40d31f5"
+  },
+  "mode": "zero-update TRAIN diagnostic"
+}

@@ -1,0 +1,162 @@
+[
+  {
+    "contacts_path": "/work/data/native/lab_v7/train-skidpad-82000-matched/contacts.npy",
+    "episode_path": "/work/data/native/lab_v7/train-skidpad-82000-matched",
+    "ground_truth_cones_path": "/work/data/native/lab_v7/train-skidpad-82000-matched/cones.npy",
+    "id": "train-skidpad-82000-matched",
+    "input_arrays": {
+      "desires": {
+        "dtype": "float32",
+        "path": "/work/data/native/lab_v7/train-skidpad-82000-matched/desires.npy",
+        "shape": [
+          286,
+          25,
+          8
+        ]
+      },
+      "road": {
+        "dtype": "uint8",
+        "path": "/work/data/native/lab_v7/train-skidpad-82000-matched/road.npy",
+        "shape": [
+          286,
+          6,
+          128,
+          256
+        ]
+      },
+      "states": {
+        "dtype": "float64",
+        "path": "/work/data/native/lab_v7/train-skidpad-82000-matched/states.npy",
+        "shape": [
+          1144,
+          9
+        ]
+      },
+      "ticks": {
+        "dtype": "int64",
+        "path": "/work/data/native/lab_v7/train-skidpad-82000-matched/ticks.npy",
+        "shape": [
+          286
+        ]
+      },
+      "wide": {
+        "dtype": "uint8",
+        "path": "/work/data/native/lab_v7/train-skidpad-82000-matched/wide.npy",
+        "shape": [
+          286,
+          6,
+          128,
+          256
+        ]
+      }
+    },
+    "metadata_path": "/work/data/native/lab_v7/train-skidpad-82000-matched/meta.json",
+    "runtime_T_ego_cam": [
+      [
+        0.9999693707012897,
+        0.0002307965311187723,
+        0.007823323604976324,
+        0.0
+      ],
+      [
+        -0.000271905435552955,
+        0.999986160661141,
+        0.005254003580605072,
+        0.0
+      ],
+      [
+        -0.00782200272954906,
+        -0.005255969858372259,
+        0.9999555945411511,
+        1.0177302415089489
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "state_path": "/work/data/native/lab_v7/train-skidpad-82000-matched/states.npy"
+  },
+  {
+    "contacts_path": "/work/data/native/lab_v7/train-trackdrive-82000-matched/contacts.npy",
+    "episode_path": "/work/data/native/lab_v7/train-trackdrive-82000-matched",
+    "ground_truth_cones_path": "/work/data/native/lab_v7/train-trackdrive-82000-matched/cones.npy",
+    "id": "train-trackdrive-82000-matched",
+    "input_arrays": {
+      "desires": {
+        "dtype": "float32",
+        "path": "/work/data/native/lab_v7/train-trackdrive-82000-matched/desires.npy",
+        "shape": [
+          287,
+          25,
+          8
+        ]
+      },
+      "road": {
+        "dtype": "uint8",
+        "path": "/work/data/native/lab_v7/train-trackdrive-82000-matched/road.npy",
+        "shape": [
+          287,
+          6,
+          128,
+          256
+        ]
+      },
+      "states": {
+        "dtype": "float64",
+        "path": "/work/data/native/lab_v7/train-trackdrive-82000-matched/states.npy",
+        "shape": [
+          1146,
+          9
+        ]
+      },
+      "ticks": {
+        "dtype": "int64",
+        "path": "/work/data/native/lab_v7/train-trackdrive-82000-matched/ticks.npy",
+        "shape": [
+          287
+        ]
+      },
+      "wide": {
+        "dtype": "uint8",
+        "path": "/work/data/native/lab_v7/train-trackdrive-82000-matched/wide.npy",
+        "shape": [
+          287,
+          6,
+          128,
+          256
+        ]
+      }
+    },
+    "metadata_path": "/work/data/native/lab_v7/train-trackdrive-82000-matched/meta.json",
+    "runtime_T_ego_cam": [
+      [
+        0.9999693707012897,
+        0.0002307965311187723,
+        0.007823323604976324,
+        0.0
+      ],
+      [
+        -0.000271905435552955,
+        0.999986160661141,
+        0.005254003580605072,
+        0.0
+      ],
+      [
+        -0.00782200272954906,
+        -0.005255969858372259,
+        0.9999555945411511,
+        1.0177302415089489
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "state_path": "/work/data/native/lab_v7/train-trackdrive-82000-matched/states.npy"
+  }
+]

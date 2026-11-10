@@ -1,0 +1,474 @@
+{
+  "failed_run": "runs/cone_set_actuator_trial1",
+  "failed_receipts": {
+    "audit.json": "0e1d493d3b4d8067b2ebb32e6ef6a07fb556756b734db63603df978042444823",
+    "collisions.json": "b2ab0887e77d44eac8c7340c3711f5841f39911bbdf7e798e65d569744fdc9f5",
+    "condition.json": "79bef197860abf08d0dd10cfef607cf86e360d7b69aef225ae3935c63eafbb7d",
+    "overfit.json": "ff69fce7322bea777b74abad485cd4e62f63eb2de12d03024d04af4ef8d6002b",
+    "overfit_failure.json": "d84bd21d651c5c81da9290ce01eccde77ac9aed08b60a204fda9d3a4b40d31f5"
+  },
+  "prelaunch_freeze_sha256": "5b5c21be226c288ff5f2b8737a963577950b55a2a5d0a8174a73fcc8c07a9839",
+  "prelaunch_source_archive_sha256": "ed81aab2154a032d5a9c8b857b5d6b54709367e39626f174c9740d23e8444975",
+  "audit_source_archive_sha256": "74b0a79176e90f3cbf6beedf3a9452077423ac5cac2c7068237a37c5ea85eff7",
+  "recipe_sha256": "5378430dda676cd4c4641111df935ad2fcd214501d4a290ca8a0a2bf3b626cac",
+  "indices": [
+    2168,
+    4482,
+    3573,
+    303,
+    5132,
+    4280,
+    5707,
+    6398,
+    5958,
+    550,
+    6802,
+    1905,
+    3526,
+    124,
+    1252,
+    4574,
+    7008,
+    7009,
+    7015,
+    7012,
+    7013,
+    7006,
+    7010,
+    7011,
+    7226,
+    7232,
+    7227,
+    7230,
+    7228,
+    7229,
+    7234,
+    7233
+  ],
+  "anchors": [
+    {
+      "index": 2168,
+      "anchor": {
+        "case": "train-trackdrive-82009-visual_stress_v1",
+        "frame": 93,
+        "tick": 372
+      },
+      "input_sha256": "ab1cb700d855827382f177370e8df18e6c8603631df33e9b1d3ed7b2b82ff1d5",
+      "target": [
+        -0.01975408010184765,
+        0.07185481488704681
+      ]
+    },
+    {
+      "index": 4482,
+      "anchor": {
+        "case": "train-skidpad-82004-matched",
+        "frame": 36,
+        "tick": 144
+      },
+      "input_sha256": "984bd0968be75f7e1cb92c41e786df29ed588bd180a5d733f443c0cc61531661",
+      "target": [
+        -0.1679016649723053,
+        0.23747669160366058
+      ]
+    },
+    {
+      "index": 3573,
+      "anchor": {
+        "case": "train-trackdrive-82015-visual_stress_v1",
+        "frame": 217,
+        "tick": 868
+      },
+      "input_sha256": "f9edb64b3c43ba515fbd853406cfda795e5adaad2253cf67a325c4518e5974a9",
+      "target": [
+        -0.028292523697018623,
+        0.07702532410621643
+      ]
+    },
+    {
+      "index": 303,
+      "anchor": {
+        "case": "train-trackdrive-82001-visual_stress_v1",
+        "frame": 102,
+        "tick": 408
+      },
+      "input_sha256": "75f3a95c8dc88003bbd99ed69272c9086f5eb589e95c50875f78a391df59c09d",
+      "target": [
+        -0.10109326243400574,
+        0.20379512012004852
+      ]
+    },
+    {
+      "index": 5132,
+      "anchor": {
+        "case": "train-skidpad-82006-visual_stress_v1",
+        "frame": 220,
+        "tick": 880
+      },
+      "input_sha256": "a0208f6ab7bd8c2f6a39533b24752c7d4b54a0c6ed95e561494df82614e75571",
+      "target": [
+        0.0014427094720304012,
+        -2.8968722820281982
+      ]
+    },
+    {
+      "index": 4280,
+      "anchor": {
+        "case": "train-skidpad-82003-visual_stress_v1",
+        "frame": 65,
+        "tick": 260
+      },
+      "input_sha256": "c6e0137314c7ed44caba6566145be44d5608a631454c4aba58856248202018c6",
+      "target": [
+        -0.16997526586055756,
+        0.24005524814128876
+      ]
+    },
+    {
+      "index": 5707,
+      "anchor": {
+        "case": "train-skidpad-82010-visual_stress_v1",
+        "frame": 96,
+        "tick": 384
+      },
+      "input_sha256": "112830cfc03fdceaa89fa151a27b991952f2e5abfd68fed780d1ec88f6fc8480",
+      "target": [
+        -0.16936162114143372,
+        0.23872137069702148
+      ]
+    },
+    {
+      "index": 6398,
+      "anchor": {
+        "case": "train-skidpad-82013-visual_stress_v1",
+        "frame": 91,
+        "tick": 364
+      },
+      "input_sha256": "dd9419c31aa34fd569aec87b8be8ecc3d4a6db1af43bd124d3133aecf0aabf9b",
+      "target": [
+        -0.16774283349514008,
+        0.23686155676841736
+      ]
+    },
+    {
+      "index": 5958,
+      "anchor": {
+        "case": "train-skidpad-82011-visual_stress_v1",
+        "frame": 115,
+        "tick": 460
+      },
+      "input_sha256": "be7ef977eda5e34d90d03f77aa86f4beb72646edc43cd75ff223821393b67679",
+      "target": [
+        0.16375328600406647,
+        0.11246871948242188
+      ]
+    },
+    {
+      "index": 550,
+      "anchor": {
+        "case": "train-trackdrive-82002-visual_stress_v1",
+        "frame": 174,
+        "tick": 696
+      },
+      "input_sha256": "356b705a0c492fdf5c07ebe6efccc3480c7435f4174614678f7aec8023aa5de8",
+      "target": [
+        -0.07602997869253159,
+        0.1370813250541687
+      ]
+    },
+    {
+      "index": 6802,
+      "anchor": {
+        "case": "train-skidpad-82015-visual_stress_v1",
+        "frame": 28,
+        "tick": 112
+      },
+      "input_sha256": "b2679ba589bd9b33bbaf66a4486d203aef62ce2d60d75a86f890812689a7008d",
+      "target": [
+        -0.16881176829338074,
+        0.23777350783348083
+      ]
+    },
+    {
+      "index": 1905,
+      "anchor": {
+        "case": "train-trackdrive-82008-matched",
+        "frame": 54,
+        "tick": 216
+      },
+      "input_sha256": "b7fc296270b02019f3dad56501b26cc185a2a5dd58f6eedecce264733a338310",
+      "target": [
+        0.029577890411019325,
+        0.09318532049655914
+      ]
+    },
+    {
+      "index": 3526,
+      "anchor": {
+        "case": "train-trackdrive-82015-visual_stress_v1",
+        "frame": 170,
+        "tick": 680
+      },
+      "input_sha256": "84a19c9887ebad23ae687716603b5a1fb6fab8b6495ee7111d43b8798c8255a5",
+      "target": [
+        -0.050690505653619766,
+        0.10790479183197021
+      ]
+    },
+    {
+      "index": 124,
+      "anchor": {
+        "case": "train-trackdrive-82000-matched",
+        "frame": 141,
+        "tick": 564
+      },
+      "input_sha256": "84904c7717158b54b38173d5f44967d68fdb6b8abc8043bbfc8a90bbc01ad3b5",
+      "target": [
+        -0.045947253704071045,
+        0.0840892642736435
+      ]
+    },
+    {
+      "index": 1252,
+      "anchor": {
+        "case": "train-trackdrive-82005-visual_stress_v1",
+        "frame": 111,
+        "tick": 444
+      },
+      "input_sha256": "5e3cc033cbda1ddc4806460cf279d314eeadd68d41522fa3b53aa05517100f75",
+      "target": [
+        0.07739140093326569,
+        -2.0184755325317383
+      ]
+    },
+    {
+      "index": 4574,
+      "anchor": {
+        "case": "train-skidpad-82004-matched",
+        "frame": 128,
+        "tick": 512
+      },
+      "input_sha256": "4cb91a665e9e5d8f590bf9d217cbf3e63eca50069fdefa18d38a72fcdac3ba3a",
+      "target": [
+        0.16431200504302979,
+        0.2299259454011917
+      ]
+    },
+    {
+      "index": 7008,
+      "anchor": {
+        "case": "train-skidpad-82000-matched-direct-recovery-v1",
+        "frame": 18,
+        "tick": 72
+      },
+      "input_sha256": "cbca5627ff0182e3a3f0b95f9a73d3c7faba4130cfa90c994f8529684e7c8e8e",
+      "target": [
+        -0.2168784886598587,
+        -0.45144301652908325
+      ]
+    },
+    {
+      "index": 7009,
+      "anchor": {
+        "case": "train-skidpad-82000-matched-direct-recovery-v1",
+        "frame": 19,
+        "tick": 76
+      },
+      "input_sha256": "982e88ae76b2e43f907e12b0575a90df2f84f9f3514963106acebb97b47a1298",
+      "target": [
+        -0.18857286870479584,
+        -0.09544087946414948
+      ]
+    },
+    {
+      "index": 7015,
+      "anchor": {
+        "case": "train-skidpad-82000-matched-direct-recovery-v1",
+        "frame": 25,
+        "tick": 100
+      },
+      "input_sha256": "fe294808c289923bf8453e495c2547d01390432fb464ac153f3c43e9062c9b74",
+      "target": [
+        -0.15599268674850464,
+        0.20335131883621216
+      ]
+    },
+    {
+      "index": 7012,
+      "anchor": {
+        "case": "train-skidpad-82000-matched-direct-recovery-v1",
+        "frame": 22,
+        "tick": 88
+      },
+      "input_sha256": "3e4e9b5ec272a276a01dff7e8732f67e46d8bd78741d35872f6d13d10a3f9581",
+      "target": [
+        -0.14846785366535187,
+        0.1802893579006195
+      ]
+    },
+    {
+      "index": 7013,
+      "anchor": {
+        "case": "train-skidpad-82000-matched-direct-recovery-v1",
+        "frame": 23,
+        "tick": 92
+      },
+      "input_sha256": "413224ffc0799d5e8914d95b621682674b88fd764e18f30c24aef6ade49582cc",
+      "target": [
+        -0.1483403593301773,
+        0.19020983576774597
+      ]
+    },
+    {
+      "index": 7006,
+      "anchor": {
+        "case": "train-skidpad-82000-matched-direct-recovery-v1",
+        "frame": 16,
+        "tick": 64
+      },
+      "input_sha256": "9eb46bde3a673ab26463ebd00aea28be5eec38952ddb26ff91b1dfc796653988",
+      "target": [
+        -0.2496938854455948,
+        -2.320572853088379
+      ]
+    },
+    {
+      "index": 7010,
+      "anchor": {
+        "case": "train-skidpad-82000-matched-direct-recovery-v1",
+        "frame": 20,
+        "tick": 80
+      },
+      "input_sha256": "e040dde8df2548203e126e5f1d291c00ebf4fec8ae82992615e0d0012251c355",
+      "target": [
+        -0.16752131283283234,
+        0.07654225081205368
+      ]
+    },
+    {
+      "index": 7011,
+      "anchor": {
+        "case": "train-skidpad-82000-matched-direct-recovery-v1",
+        "frame": 21,
+        "tick": 84
+      },
+      "input_sha256": "066e218c65c20131068a51e45bb235c3c7d37d3f5dfc02bd1cc338b40ce7a541",
+      "target": [
+        -0.1543695032596588,
+        0.15192930400371552
+      ]
+    },
+    {
+      "index": 7226,
+      "anchor": {
+        "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+        "frame": 42,
+        "tick": 168
+      },
+      "input_sha256": "e9d471b63ddf9bc099693debdd94ff954233c5312329de01681cc768591af08b",
+      "target": [
+        0.05664822459220886,
+        5.0
+      ]
+    },
+    {
+      "index": 7232,
+      "anchor": {
+        "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+        "frame": 48,
+        "tick": 192
+      },
+      "input_sha256": "6fb49dcc0fb5575dd49cadd5e46c7011a7cf4d636d67b2b10c25678908a16930",
+      "target": [
+        -0.08861537277698517,
+        1.0363610982894897
+      ]
+    },
+    {
+      "index": 7227,
+      "anchor": {
+        "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+        "frame": 43,
+        "tick": 172
+      },
+      "input_sha256": "8e2f3977fd9751e55c72b5b6c9f185daa50a7b483a238fe0f7ec54fbb189c4ba",
+      "target": [
+        0.00929121021181345,
+        5.0
+      ]
+    },
+    {
+      "index": 7230,
+      "anchor": {
+        "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+        "frame": 46,
+        "tick": 184
+      },
+      "input_sha256": "d8b7ad9c53815444281750657ad9f6f8ed28cbd03bc06b22e0ac280df825880c",
+      "target": [
+        -0.07017365097999573,
+        3.8629236221313477
+      ]
+    },
+    {
+      "index": 7228,
+      "anchor": {
+        "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+        "frame": 44,
+        "tick": 176
+      },
+      "input_sha256": "d461854477ac274072bfc0aefa962d77fc6f73fbe98255beb41a95d569c536d5",
+      "target": [
+        -0.02783166617155075,
+        5.0
+      ]
+    },
+    {
+      "index": 7229,
+      "anchor": {
+        "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+        "frame": 45,
+        "tick": 180
+      },
+      "input_sha256": "2ac169453a0a5eb03d4f14c3fce0299ef7fc0c31a84e0a5d0b3103e72e5375ad",
+      "target": [
+        -0.053614936769008636,
+        5.0
+      ]
+    },
+    {
+      "index": 7234,
+      "anchor": {
+        "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+        "frame": 50,
+        "tick": 200
+      },
+      "input_sha256": "fa9bd349f3d19e0c15c2534749ed42e83cde8fb5d876a3dc7d35bcb8e1b99d7f",
+      "target": [
+        -0.10378528386354446,
+        -0.28063181042671204
+      ]
+    },
+    {
+      "index": 7233,
+      "anchor": {
+        "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+        "frame": 49,
+        "tick": 196
+      },
+      "input_sha256": "106bffb3fb6de300bcbe1244a851f68e6d52716ea7a2f4cebdf4d588b5c74ebd",
+      "target": [
+        -0.0963202714920044,
+        0.2708057463169098
+      ]
+    }
+  ],
+  "thresholds": {
+    "geometry_gain_min": 3.0,
+    "readout_condition_gain_min": 10.0,
+    "motion_median_retention_min": 0.9,
+    "motion_anchor_retention_min": 0.9,
+    "geometry_anchor_retention_min": 0.9,
+    "pair_collapse_relative": 1e-06
+  }
+}

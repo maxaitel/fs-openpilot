@@ -1,0 +1,15 @@
+{
+  "frozen_at": "2026-11-10T08:49:09.577674+00:00",
+  "files": {
+    ".work/lab/vision_corridor_probe_v1/record_detector.py": "d3c2895d1a090e494fc7ed1fcdf29f9932e547c6f4039a304773c3433248860a",
+    ".work/lab/vision_corridor_probe_v1/protocol.md": "596ade0d31a2f9a57fda78c993d1ea127d6b194a84d25d8c6682de63e9b99f68"
+  },
+  "output": ".work/lab/vision_corridor_probe_v1/results_clean_v1",
+  "episodes": [
+    "train-skidpad-82000-matched",
+    "train-trackdrive-82000-matched"
+  ],
+  "device": "CPU FP32, CUDA disabled, four threads",
+  "timing_context": "Existing joint native exposed diagnostic may overlap. No isolated latency, utilization or speedup claim.",
+  "purpose": "Read-only saved TRAIN detector outputs, no simulation, training, or final-case access"
+}

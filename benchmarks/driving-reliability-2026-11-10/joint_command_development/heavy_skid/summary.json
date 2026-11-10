@@ -1,0 +1,537 @@
+{
+  "discipline": "skidpad",
+  "result": "finished",
+  "laps": [
+    10.386737027304184,
+    10.969446143121292,
+    11.167862198977772,
+    10.762396216291762
+  ],
+  "n_laps": 4,
+  "doo": 9,
+  "oc": 0,
+  "max_speed": 8.162726352277007,
+  "route": {
+    "expected_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "accepted_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "laps": [
+      {
+        "circle": "right",
+        "start_time": 3.01267482750866,
+        "finish_time": 13.399411854812843,
+        "duration": 10.386737027304184,
+        "winding_right": -6.283185307179586,
+        "winding_left": -5.48172618408671e-16
+      },
+      {
+        "circle": "right",
+        "start_time": 13.399411854812843,
+        "finish_time": 24.368857997934136,
+        "duration": 10.969446143121292,
+        "winding_right": -6.283185307179586,
+        "winding_left": 1.1622647289044608e-16
+      },
+      {
+        "circle": "left",
+        "start_time": 24.368857997934136,
+        "finish_time": 35.53672019691191,
+        "duration": 11.167862198977772,
+        "winding_right": -1.6306400674181987e-16,
+        "winding_left": 6.283185307179587
+      },
+      {
+        "circle": "left",
+        "start_time": 35.53672019691191,
+        "finish_time": 46.29911641320367,
+        "duration": 10.762396216291762,
+        "winding_right": -1.8041124150158794e-16,
+        "winding_left": 6.283185307179587
+      }
+    ],
+    "crossings": [
+      3.01267482750866,
+      13.399411854812843,
+      24.368857997934136,
+      35.53672019691191,
+      46.29911641320367
+    ],
+    "complete": true,
+    "exited": true,
+    "stopped_in_zone": true,
+    "valid": true,
+    "violation": null,
+    "reverse_crossings": 0,
+    "termination": "finished"
+  },
+  "raw_time": 10.865921179706527,
+  "penalty": 1.8,
+  "time": 12.665921179706528,
+  "dq": false,
+  "complete": true,
+  "pass": true,
+  "final_state": {
+    "x": 19.019418716430664,
+    "y": -0.0017889715963974595,
+    "yaw": 0.015530558081611986,
+    "vx": 2.6255537587120206e-06,
+    "vy": -2.0353747477805483e-09,
+    "r": 6.625233001100739e-11,
+    "steer": 0.003339243981397543,
+    "accel": -2.1480162290986904,
+    "t": 50.3,
+    "extra": {}
+  },
+  "physical_cone_hits": 9,
+  "contact_events": [
+    {
+      "t": 4.2,
+      "control_frame": 84,
+      "cone": "/World/Cones/c0046",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 4.7,
+      "control_frame": 94,
+      "cone": "/World/Cones/c0045",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 5.5,
+      "control_frame": 110,
+      "cone": "/World/Cones/c0044",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 8.4,
+      "control_frame": 168,
+      "cone": "/World/Cones/c0012",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 13.3,
+      "control_frame": 266,
+      "cone": "/World/Cones/c0030",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 24.3,
+      "control_frame": 486,
+      "cone": "/World/Cones/c0083",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 27.7,
+      "control_frame": 554,
+      "cone": "/World/Cones/c0050",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 29.15,
+      "control_frame": 583,
+      "cone": "/World/Cones/c0052",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 29.8,
+      "control_frame": 596,
+      "cone": "/World/Cones/c0053",
+      "time_convention": "start of the control interval containing first contact"
+    }
+  ],
+  "progress": 0.9867419477044056,
+  "rms_lat": 0.32384624415017166,
+  "case": {
+    "id": "regression-skidpad-72000-heavy-recorded-visual_stress_v1",
+    "split": "regression",
+    "discipline": "skidpad",
+    "seed": 72000,
+    "dr": "heavy",
+    "variant": "visual_stress_v1",
+    "track_seed": null,
+    "frozen_case": "skidpad-72000-heavy-recorded",
+    "lateral_start": 0.0,
+    "yaw_start": 0.0
+  },
+  "pilot_only": false,
+  "events": [
+    {
+      "t": 3.01267482750866,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    },
+    {
+      "t": 4.15,
+      "kind": "doo",
+      "data": {
+        "cone": 46,
+        "dir": -0.6758231007649973
+      }
+    },
+    {
+      "t": 4.75,
+      "kind": "doo",
+      "data": {
+        "cone": 45,
+        "dir": -1.0874164235517796
+      }
+    },
+    {
+      "t": 5.4,
+      "kind": "doo",
+      "data": {
+        "cone": 44,
+        "dir": -1.5161092534461629
+      }
+    },
+    {
+      "t": 13.25,
+      "kind": "doo",
+      "data": {
+        "cone": 30,
+        "dir": 0.1067800032730234
+      }
+    },
+    {
+      "t": 13.399411854812843,
+      "kind": "line_cross",
+      "data": {
+        "n": 2
+      }
+    },
+    {
+      "t": 13.399411854812843,
+      "kind": "lap",
+      "data": {
+        "circle": "right",
+        "start_time": 3.01267482750866,
+        "finish_time": 13.399411854812843,
+        "duration": 10.386737027304184,
+        "winding_right": -6.283185307179586,
+        "winding_left": -5.48172618408671e-16
+      }
+    },
+    {
+      "t": 24.2,
+      "kind": "doo",
+      "data": {
+        "cone": 83,
+        "dir": 0.14195000927194426
+      }
+    },
+    {
+      "t": 24.368857997934136,
+      "kind": "line_cross",
+      "data": {
+        "n": 3
+      }
+    },
+    {
+      "t": 24.368857997934136,
+      "kind": "lap",
+      "data": {
+        "circle": "right",
+        "start_time": 13.399411854812843,
+        "finish_time": 24.368857997934136,
+        "duration": 10.969446143121292,
+        "winding_right": -6.283185307179586,
+        "winding_left": 1.1622647289044608e-16
+      }
+    },
+    {
+      "t": 27.0,
+      "kind": "doo",
+      "data": {
+        "cone": 49,
+        "dir": 1.427941220244541
+      }
+    },
+    {
+      "t": 27.65,
+      "kind": "doo",
+      "data": {
+        "cone": 50,
+        "dir": 1.792850342991596
+      }
+    },
+    {
+      "t": 29.05,
+      "kind": "doo",
+      "data": {
+        "cone": 52,
+        "dir": 2.569771632053123
+      }
+    },
+    {
+      "t": 29.7,
+      "kind": "doo",
+      "data": {
+        "cone": 53,
+        "dir": 2.936860782560035
+      }
+    },
+    {
+      "t": 35.53672019691191,
+      "kind": "line_cross",
+      "data": {
+        "n": 4
+      }
+    },
+    {
+      "t": 35.53672019691191,
+      "kind": "lap",
+      "data": {
+        "circle": "left",
+        "start_time": 24.368857997934136,
+        "finish_time": 35.53672019691191,
+        "duration": 11.167862198977772,
+        "winding_right": -1.6306400674181987e-16,
+        "winding_left": 6.283185307179587
+      }
+    },
+    {
+      "t": 46.29911641320367,
+      "kind": "line_cross",
+      "data": {
+        "n": 5
+      }
+    },
+    {
+      "t": 46.29911641320367,
+      "kind": "lap",
+      "data": {
+        "circle": "left",
+        "start_time": 35.53672019691191,
+        "finish_time": 46.29911641320367,
+        "duration": 10.762396216291762,
+        "winding_right": -1.8041124150158794e-16,
+        "winding_left": 6.283185307179587
+      }
+    },
+    {
+      "t": 50.3,
+      "kind": "stopped",
+      "data": {
+        "in_stop_zone": true
+      }
+    },
+    {
+      "t": 50.3,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "pending_events": [
+    {
+      "t": 50.3,
+      "kind": "stopped",
+      "data": {
+        "in_stop_zone": true
+      }
+    },
+    {
+      "t": 50.3,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "recorded_frames": 1006,
+  "wall_seconds": 414.3073453929974,
+  "startup_seconds": 15.5040876789717,
+  "evidence_seconds": 53.30451096512843,
+  "seconds_simulated": 50.3,
+  "real_time_factor": 0.12140745405391543,
+  "command_contract": {
+    "kind": "direct_native_actuator_joint_suffix_v1",
+    "version": 1,
+    "latent_module": "base.policy.p_node_linear_20",
+    "latent_shape": [
+      "B",
+      256
+    ],
+    "latent_normalization": {
+      "kind": "layer_norm",
+      "eps": 1e-05,
+      "affine": false
+    },
+    "proprio_order": [
+      "vx_mps",
+      "vy_mps",
+      "yaw_rate_radps"
+    ],
+    "proprio_scales": [
+      10.0,
+      2.0,
+      1.0
+    ],
+    "output_order": [
+      "steer_rad",
+      "accel_mps2"
+    ],
+    "output_scales": [
+      0.1,
+      2.0
+    ],
+    "target": "qualified native teacher controls at the observation tick",
+    "history": "phase-zero 5 Hz, eight past features and current feature, full desire queue",
+    "mission": "bound raw request, apply mission_brake_with_override, bound again",
+    "base_parameters": 31154802,
+    "head_parameters": 33538,
+    "training_scope": {
+      "base.policy.p_node_linear_14.weight": [
+        256,
+        512
+      ],
+      "base.policy.p_node_linear_14.bias": [
+        256
+      ],
+      "base.policy.p_node_linear_16.weight": [
+        256,
+        256
+      ],
+      "base.policy.p_node_linear_16.bias": [
+        256
+      ],
+      "base.policy.p_node_linear_17.weight": [
+        256,
+        256
+      ],
+      "base.policy.p_node_linear_17.bias": [
+        256
+      ]
+    },
+    "suffix_parameters": 262912,
+    "optimized_parameters": 296450,
+    "frozen_base_state_tensors": 411,
+    "plan_semantics": "updated plan and inherited controller are diagnostics only",
+    "deployment": {
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "threads": 4
+    }
+  },
+  "controller_contract": {
+    "mode": "direct_native_actuator_joint_suffix_v1",
+    "command_contract": {
+      "kind": "direct_native_actuator_joint_suffix_v1",
+      "version": 1,
+      "latent_module": "base.policy.p_node_linear_20",
+      "latent_shape": [
+        "B",
+        256
+      ],
+      "latent_normalization": {
+        "kind": "layer_norm",
+        "eps": 1e-05,
+        "affine": false
+      },
+      "proprio_order": [
+        "vx_mps",
+        "vy_mps",
+        "yaw_rate_radps"
+      ],
+      "proprio_scales": [
+        10.0,
+        2.0,
+        1.0
+      ],
+      "output_order": [
+        "steer_rad",
+        "accel_mps2"
+      ],
+      "output_scales": [
+        0.1,
+        2.0
+      ],
+      "target": "qualified native teacher controls at the observation tick",
+      "history": "phase-zero 5 Hz, eight past features and current feature, full desire queue",
+      "mission": "bound raw request, apply mission_brake_with_override, bound again",
+      "base_parameters": 31154802,
+      "head_parameters": 33538,
+      "training_scope": {
+        "base.policy.p_node_linear_14.weight": [
+          256,
+          512
+        ],
+        "base.policy.p_node_linear_14.bias": [
+          256
+        ],
+        "base.policy.p_node_linear_16.weight": [
+          256,
+          256
+        ],
+        "base.policy.p_node_linear_16.bias": [
+          256
+        ],
+        "base.policy.p_node_linear_17.weight": [
+          256,
+          256
+        ],
+        "base.policy.p_node_linear_17.bias": [
+          256
+        ]
+      },
+      "suffix_parameters": 262912,
+      "optimized_parameters": 296450,
+      "frozen_base_state_tensors": 411,
+      "plan_semantics": "updated plan and inherited controller are diagnostics only",
+      "deployment": {
+        "device": "cpu",
+        "dtype": "torch.float32",
+        "threads": 4
+      }
+    }
+  },
+  "controller_name": "direct_native_actuator_joint_suffix_v1",
+  "policy_device": "cpu",
+  "package_kind": "direct_native_actuator_joint_suffix_v1",
+  "torch_num_threads": 4,
+  "head_state_sha256": "eed34fbd302328712cb677587e0a37c96c546997c751e7805179ea45f9157e40",
+  "head_state_sha256_after": "eed34fbd302328712cb677587e0a37c96c546997c751e7805179ea45f9157e40",
+  "base_parameter_count": 31154802,
+  "head_parameter_count": 33538,
+  "total_parameter_count": 31188340,
+  "checkpoint_sha256": "3cb08122c7d21656c23d3786c059b5a59bb904a8bb3fd617ec38020308de7b35",
+  "checkpoint_sha256_after": "3cb08122c7d21656c23d3786c059b5a59bb904a8bb3fd617ec38020308de7b35",
+  "state_sha256": "10b4a1a84f1955aca51e7859fcd69bd5d9ef52b18b9c6803a70b36704db2f753",
+  "state_sha256_after": "10b4a1a84f1955aca51e7859fcd69bd5d9ef52b18b9c6803a70b36704db2f753",
+  "frozen_unchanged": true,
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "b3963886d3ef1bc35601a743d9190f3cc621b920c10bb8d5d44c6e21cc4127b2",
+  "torch_peak_allocated_gib": 0.0,
+  "torch_peak_reserved_gib": 0.0,
+  "runtime": {
+    "python": "3.11.13",
+    "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+    "processor": "aarch64",
+    "torch": "2.9.0+cu130",
+    "numpy": "1.26.0",
+    "inference_device": "cpu",
+    "inference_dtype": "torch.float32",
+    "torch_num_threads": 4,
+    "torch_num_interop_threads": 20
+  }
+}

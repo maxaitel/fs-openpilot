@@ -1,0 +1,6852 @@
+[
+  {
+    "id": "train-trackdrive-82000-matched",
+    "path": "/work/data/native/lab_v2/train-trackdrive-82000-matched",
+    "meta_sha256": "b5b953c7a7880bb89b38d685114c6d3d533d3251b9bc21a7dd9ed7d63b26aafd",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "554c080e4859a998c1f537d44baea669ebcb0df90302b67bef5dd09702ae5e21",
+      "states.npy": "35cf1b89cc285ffc19aff5f4367ff74d4778622ecd62a90b1579749b662ffb7f",
+      "controls.npy": "96afa424f48c2e12e206060aa44a40f5c6f07e24cca41751bf94c7ca759a9f20",
+      "teacher.npy": "1c96790e00a6766b5da2de58d1fd6bd4dc36fc73bded6b926da6a9715747013f",
+      "desires.npy": "759236539331fa77f75eb2c9324f4ab7d5826226c7f8d3e85ddd06c9530ad5b2",
+      "cones.npy": "8f49ae641c7f1db0c216389a1c9170d255f5aab4ec061e9b34d11ca1810c1a1e",
+      "contacts.npy": "e8ed553c9c7b04e8fd9dd38e875a755628dc14c62a31dff607398c03185395db"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82000-matched/road.npy",
+        "shape": [
+          285,
+          6,
+          128,
+          256
+        ],
+        "bytes": 56033408,
+        "recorded_sha256_unverified": "f9c58a82da9ec7f71f80c1962b16a52eaed684ae8a46bcdd720838c89f1c173d"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82000-matched/wide.npy",
+        "shape": [
+          285,
+          6,
+          128,
+          256
+        ],
+        "bytes": 56033408,
+        "recorded_sha256_unverified": "72c0d09f327d1da8602162f46fd1c65345f5fe145ebdbab630263b2caef3993b"
+      }
+    },
+    "summary": {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        41.95
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.972013038142406,
+      "avg_speed_first3": null,
+      "raw_time": 41.95,
+      "penalty": 0.0,
+      "time": 41.95,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 19.188228607177734,
+        "y": 35.34600067138672,
+        "yaw": -0.4569156895660336,
+        "vx": 2.532644829315765e-06,
+        "vy": 1.1075109476549998e-07,
+        "r": 1.1311784842149564e-10,
+        "steer": -0.0032084210580979903,
+        "accel": -1.99896927415646,
+        "t": 46.85,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0014421401403697,
+      "rms_lat": 0.09186525793500587
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1137,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 235,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 285,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 940,
+        "earliest_time_s": 47.0,
+        "earliest_vx": 3.763305706232176e-07,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 235,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": true
+  },
+  {
+    "id": "train-trackdrive-82001-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-trackdrive-82001-visual_stress_v1",
+    "meta_sha256": "77f816b9e0ae2d1ffb584cc14e4ee0cd9cef16e459d845e82e4f9448cd7a8d0c",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "98e685c889a670813a639dd01a1ab1f952eb7a3d93d17a50ea479f99d6b3def7",
+      "states.npy": "e27fed2826bf399547c268239ba1a74728e2b299042d6626c7584be9f70fa6e0",
+      "controls.npy": "3d73ad6c4062b179855328c295f25f1c412f95dbe7b47678697d5db753c7b6cb",
+      "teacher.npy": "7fca2a0d20b575d8cd344c50ba060ee6466bf54dc057622e7f991ca03ddb19dc",
+      "desires.npy": "f63bca9d64ff0f5df94f9fe7dbc3bd6db1d1688840afdc0ac7ab236aa8db7d84",
+      "cones.npy": "8f30ec75c30f40c3a0e653a6aafe1e1d7615715cc21bfad83c48852a93e144b2",
+      "contacts.npy": "72025aee9aee9d791bc7303b7be336148f6af31d1d32b58cbf2846d1a2b0abdc"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82001-visual_stress_v1/road.npy",
+        "shape": [
+          254,
+          6,
+          128,
+          256
+        ],
+        "bytes": 49938560,
+        "recorded_sha256_unverified": "e9114df8e68259cb4380839a0db761b02f179a862cabbf94c82a019d48259e72"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82001-visual_stress_v1/wide.npy",
+        "shape": [
+          254,
+          6,
+          128,
+          256
+        ],
+        "bytes": 49938560,
+        "recorded_sha256_unverified": "ed6990f5e061061286041fedcf3cf867d0b1fbaef200d67a783e6c1ad3f08dbb"
+      }
+    },
+    "summary": {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        35.75
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.971526513738399,
+      "avg_speed_first3": null,
+      "raw_time": 35.75,
+      "penalty": 0.0,
+      "time": 35.75,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": -43.43620300292969,
+        "y": 21.928466796875,
+        "yaw": 1.348076738858304,
+        "vx": 2.0602439678513635e-06,
+        "vy": 3.130166397342819e-07,
+        "r": 2.984476554779292e-10,
+        "steer": -0.049621023462857294,
+        "accel": -1.999793085296171,
+        "t": 40.7,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0016009522911906,
+      "rms_lat": 0.10003413123534932
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1014,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 204,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 254,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 816,
+        "earliest_time_s": 40.8,
+        "earliest_vx": 5.702160008303659e-07,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 204,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": true
+  },
+  {
+    "id": "train-trackdrive-82002-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-trackdrive-82002-visual_stress_v1",
+    "meta_sha256": "01475dac8926469c3473b8ab4e9231be2e82f2369dc08afac99976f7206fa8d4",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "0a6c93b49bf88966ec0faaf64adf22b6aee73d8647c5524f6cc34725744baf83",
+      "states.npy": "ce5a3b48b20f7635f795b61987cce60c09926b32eec76cd60f78af0d14b5d93c",
+      "controls.npy": "9d06cdde431aee89d3a5c8818d1c8b1f0ce0d0897c19fe8825db4882bdc1543a",
+      "teacher.npy": "975c5498ba4cc3a5776f7871ed4340ea99215c20929c1e32ccd86c49899cb5cf",
+      "desires.npy": "2d6e98adac1114381e7efaa072057f09caa6297e13d98156749a113b34c424b2",
+      "cones.npy": "2c68eb6cbc72ccfb695f5c5f6d8de8c487780e418704c09e57c13bb53611895f",
+      "contacts.npy": "fd2a27842e81c5720a0bcd9c9202b74dc9e75afe2154f471e6425d461e58ad32"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82002-visual_stress_v1/road.npy",
+        "shape": [
+          284,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55836800,
+        "recorded_sha256_unverified": "139510dfcb53f3c235e60f55c148137ecac8dc291b1300ae66c6d9d7c3533a0c"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82002-visual_stress_v1/wide.npy",
+        "shape": [
+          284,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55836800,
+        "recorded_sha256_unverified": "c430be05f9d0eec03d80bfc4303e807c058913d2ae551dd077c7b1671d3b4883"
+      }
+    },
+    "summary": {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        41.85
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.971529911334349,
+      "avg_speed_first3": null,
+      "raw_time": 41.85,
+      "penalty": 0.0,
+      "time": 41.85,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 0.3737212121486664,
+        "y": -43.97627258300781,
+        "yaw": -2.890399398803958,
+        "vx": 2.670802179220048e-06,
+        "vy": 7.776225900230371e-08,
+        "r": 5.111256556888932e-11,
+        "steer": 0.00198014181050398,
+        "accel": -1.9992730758203778,
+        "t": 46.75,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0014592806343343,
+      "rms_lat": 0.06163822929771657
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1135,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 234,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 284,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 936,
+        "earliest_time_s": 46.8,
+        "earliest_vx": 1.6969786249449923e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 234,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": true
+  },
+  {
+    "id": "train-trackdrive-82003-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-trackdrive-82003-visual_stress_v1",
+    "meta_sha256": "559a9ead3bda4e868aafdb97668d787ca023c37550cb884fd73c3cb6c2e163c7",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "7bf6a32447108d5446f8b4df9b10bcd7cadeca54bdf1a5a1205ebe016c24e1b0",
+      "states.npy": "23cc2904e9efa522cb2cf5165144ec56bec7d0100d3fb7b46e12b1ee1c631a22",
+      "controls.npy": "1b05eb8cc8eba4a62b5661b8c5b0214e1b0396cc636e5f8597504cc35b01d346",
+      "teacher.npy": "b4caa335bf9071a99e6da6833be43169246007f8f260085ce36e3d613c7c1f58",
+      "desires.npy": "fdb221bd6b250916f3fa441b6664c2014827b4c7a22044af45bfb73eacd6fd23",
+      "cones.npy": "3bf1e170eceecb52e1255cad6a142b8eede0c803120d63df5ff2d0d7279d745f",
+      "contacts.npy": "3e4abdce0aee3609f251350f9b8a4a9de2c93a71bf6eae49302d3bc3511753a0"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82003-visual_stress_v1/road.npy",
+        "shape": [
+          351,
+          6,
+          128,
+          256
+        ],
+        "bytes": 69009536,
+        "recorded_sha256_unverified": "6e401de735f51957417a9fdb7d7e47770ac5a593c185e71fd831fbc9666cf206"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82003-visual_stress_v1/wide.npy",
+        "shape": [
+          351,
+          6,
+          128,
+          256
+        ],
+        "bytes": 69009536,
+        "recorded_sha256_unverified": "6a89de2644765d0c724858501aef0d46cbac2e58b9b00c8266441c98b3f77084"
+      }
+    },
+    "summary": {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        55.1
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.9721731506800495,
+      "avg_speed_first3": null,
+      "raw_time": 55.1,
+      "penalty": 0.0,
+      "time": 55.1,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": -11.666933059692383,
+        "y": -59.873382568359375,
+        "yaw": -3.137155114756292,
+        "vx": 2.3739683399855907e-06,
+        "vy": 2.1573487132038818e-07,
+        "r": 1.7837216426119795e-10,
+        "steer": -0.014574238152098051,
+        "accel": -1.9986741517122206,
+        "t": 60.05,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0010891417862073,
+      "rms_lat": 0.04798238564942947
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1401,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 301,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 351,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 1204,
+        "earliest_time_s": 60.2,
+        "earliest_vx": 3.7315009902357813e-07,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 301,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": true
+  },
+  {
+    "id": "train-trackdrive-82004-matched",
+    "path": "/work/data/native/lab_v2/train-trackdrive-82004-matched",
+    "meta_sha256": "69ad96735938822757ab2d7fbf3eeca53a922cfba9139e7e3cd5f50a46863a89",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "409c26cd02942baa5084020caba5f9d75d8f69711632f939d2ce6cae1432635c",
+      "states.npy": "a74e95bee6a9d373ed5421452e8663dfdbfe797783dbe9d823bd2131fea262d0",
+      "controls.npy": "22fb29967588d6873bb4110ac5a88926d98db0e578c9bdc0bb606c3f7414b806",
+      "teacher.npy": "b81bfcabee3d3f673be0125fdee5f2da9ead201c4847ebe84b6028a986536486",
+      "desires.npy": "348d2bda91bbcad517cb8216aa1f88132c43b752dcc9c55c2ae78562dcace351",
+      "cones.npy": "a0c6667f526d1965ddcc1b0e21d6550e02e59e218f84a3ada4e3c934a07488df",
+      "contacts.npy": "3d34d17767479419ad266736669d33f5933267c89125147ba0105f2ad796ad2d"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82004-matched/road.npy",
+        "shape": [
+          318,
+          6,
+          128,
+          256
+        ],
+        "bytes": 62521472,
+        "recorded_sha256_unverified": "c9d337acf18bda1fd62616a7c3ec0460073c8546eec3a6a0907502137cd1105d"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82004-matched/wide.npy",
+        "shape": [
+          318,
+          6,
+          128,
+          256
+        ],
+        "bytes": 62521472,
+        "recorded_sha256_unverified": "6ec619952d2941e2013017905aeffb91a75ac9ad463a2133a12787d1a464c812"
+      }
+    },
+    "summary": {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        48.6
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.971697881079956,
+      "avg_speed_first3": null,
+      "raw_time": 48.6,
+      "penalty": 0.0,
+      "time": 48.6,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 46.4692268371582,
+        "y": 107.20415496826172,
+        "yaw": -0.5703436895638098,
+        "vx": 2.410260115684735e-06,
+        "vy": 8.53390563152176e-08,
+        "r": 1.6096800281584223e-10,
+        "steer": -0.01304358829779493,
+        "accel": -1.9987343612706594,
+        "t": 53.5,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.001251787009101,
+      "rms_lat": 0.12327919346443356
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1270,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 268,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 318,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 1072,
+        "earliest_time_s": 53.6,
+        "earliest_vx": 7.644417446490832e-07,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 268,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-trackdrive-82005-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-trackdrive-82005-visual_stress_v1",
+    "meta_sha256": "1b660ddeec4db9b3970c7c7d285190449a13479880db161d1afc861bcacf291c",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "46614a1f26d9e162dc6e1cf17501c5c9f3ec376308fdbe0c8d88e6365049cc3a",
+      "states.npy": "48f0cf575e57b95a977f93d9adb5aaf53df0429343773effa6a99c1b486a1a45",
+      "controls.npy": "551cc0ca67f2f6ac1d3ca10f2d5102aae3fb11a55bd5969b970ccc991cafdc5c",
+      "teacher.npy": "8d93e6093bf7cb5899eb06240c866791fdc065d28c9871c21fbfdd5e30227a5e",
+      "desires.npy": "3dd89246d8c102c55b454d13295a1ea104f0d50b35dbc92063ddad7a76af1f69",
+      "cones.npy": "841b35705edc2087a45c323be0e668e614bfb0390c03c982e4bc2bda15f6f179",
+      "contacts.npy": "0e1314c669edc35a21bcfefc3eb2032cc0e930524cab09e0731de89aa0952a8d"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82005-visual_stress_v1/road.npy",
+        "shape": [
+          241,
+          6,
+          128,
+          256
+        ],
+        "bytes": 47382656,
+        "recorded_sha256_unverified": "b56fca7cbcabb2ba9dc5041f30b774474b653f24c1361c4bc25d590b58c5351a"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82005-visual_stress_v1/wide.npy",
+        "shape": [
+          241,
+          6,
+          128,
+          256
+        ],
+        "bytes": 47382656,
+        "recorded_sha256_unverified": "789a0d9365dc0439e89c6bc5a22a3cfc949d71b96b3cd8af143ec9e029ab7569"
+      }
+    },
+    "summary": {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        33.2
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.970816887846452,
+      "avg_speed_first3": null,
+      "raw_time": 33.2,
+      "penalty": 0.0,
+      "time": 33.2,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 33.66391372680664,
+        "y": 22.13018226623535,
+        "yaw": 0.8845240985092463,
+        "vx": 2.4003694048977494e-06,
+        "vy": 2.2904568966789203e-07,
+        "r": 2.466188087080212e-10,
+        "steer": -0.010854010169374753,
+        "accel": -1.9988278076501322,
+        "t": 38.1,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0017965653668406,
+      "rms_lat": 0.10997165086484738
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 962,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 191,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 241,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 764,
+        "earliest_time_s": 38.2,
+        "earliest_vx": 7.470469699014376e-07,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 191,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-trackdrive-82006-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-trackdrive-82006-visual_stress_v1",
+    "meta_sha256": "eeb490ef6c4233deeeededbd1437bbb45c0178c8125641fcc4d26b60c0a7a458",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "86d20f876c0e1b0f8fc1cff5ce836b5d316821dc88e2998a9cc0eb06d533b7ac",
+      "states.npy": "8097f054bc1cec7764fabe4bf07b9bad97d35ac7da519f3c2cb8408821ecd58c",
+      "controls.npy": "f7a0325a29896071866f8a21582afc2ad8871b7a2bf92db636687d292f62fa56",
+      "teacher.npy": "d33997de45cbf8892e3c99eee2127143d72e8ad6d57e96ec3ce3d7f2e0c6965c",
+      "desires.npy": "a8e85ea7beb17ab27a9a0da0335b90efe2b60e32261c2bf46a52734f7115f392",
+      "cones.npy": "9c3bb7bee105a8a335a4eaf7cbd8880c50d3771f8d556046c39db9dc65a5f5b8",
+      "contacts.npy": "ac838e7a3459928e2b4cdbe56a6f91abbd6459ba6b4ce955285a4d6a674f79f4"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82006-visual_stress_v1/road.npy",
+        "shape": [
+          367,
+          6,
+          128,
+          256
+        ],
+        "bytes": 72155264,
+        "recorded_sha256_unverified": "86329ab697e6e888141739e41e355468dd0d4b03bab6deb51bc485f23fc44998"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82006-visual_stress_v1/wide.npy",
+        "shape": [
+          367,
+          6,
+          128,
+          256
+        ],
+        "bytes": 72155264,
+        "recorded_sha256_unverified": "8e5b42b549f69b274eac2c2097e444570f4db8b15ade3d87b4a7b238c3d451b8"
+      }
+    },
+    "summary": {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        58.35
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.971194993320298,
+      "avg_speed_first3": null,
+      "raw_time": 58.35,
+      "penalty": 0.0,
+      "time": 58.35,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 26.145904541015625,
+        "y": -57.412017822265625,
+        "yaw": 0.23638786237095127,
+        "vx": 2.050603647163873e-06,
+        "vy": -4.319091461752541e-08,
+        "r": 1.0017690149632941e-10,
+        "steer": 0.006406465308313158,
+        "accel": -1.9997430031222103,
+        "t": 63.3,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0009956783018714,
+      "rms_lat": 0.0373143778476009
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1466,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 317,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 367,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 1268,
+        "earliest_time_s": 63.4,
+        "earliest_vx": 5.978097391863302e-07,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 317,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-trackdrive-82007-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-trackdrive-82007-visual_stress_v1",
+    "meta_sha256": "813cf282884635eff3edc7c0eaedf81fc217f1df09468f308dd9daa320f007b2",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "47fd2413a20d6eff9d479ca67503361cfffbdd7972c5142b9a1c4d32762cd0a5",
+      "states.npy": "ad9b5262e97f71a776f892bfd84ab925f98356f89fadfcc8f62827eafdb04bd5",
+      "controls.npy": "8603d13000f5e20cda82ad953942c1f1019857bd032778279b00f3c8a7935fdd",
+      "teacher.npy": "f24854342a8e9cecefa723d10237da1ef60629ded0f190d2510574f3e49234b5",
+      "desires.npy": "e831df22bab48a3eca03d14583909a209f91c7406ed4bf317b888bc9958ec9e4",
+      "cones.npy": "aa41b00a0978eb289c01eccc3525349832f4d248dbe8ee620a6af49f4d49b8c1",
+      "contacts.npy": "be932072298a8cf5460f3d8b22858243e35f22b109ed2cf95b88686ecbf1c167"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82007-visual_stress_v1/road.npy",
+        "shape": [
+          252,
+          6,
+          128,
+          256
+        ],
+        "bytes": 49545344,
+        "recorded_sha256_unverified": "ba2e556960b80effe21b3082c5f16106c598c293052ed3b6c8be1d9b4c12a1e6"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82007-visual_stress_v1/wide.npy",
+        "shape": [
+          252,
+          6,
+          128,
+          256
+        ],
+        "bytes": 49545344,
+        "recorded_sha256_unverified": "5f334190c9ca590564b141a98e5e466e15b97c2f66d5de593a86133f3ee8b192"
+      }
+    },
+    "summary": {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        35.4
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.9719371351342145,
+      "avg_speed_first3": null,
+      "raw_time": 35.4,
+      "penalty": 0.0,
+      "time": 35.4,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": -11.921255111694336,
+        "y": -24.694583892822266,
+        "yaw": -3.1207071538855713,
+        "vx": 2.1125546575557786e-06,
+        "vy": 4.2192246797412113e-08,
+        "r": 3.2183457288059714e-11,
+        "steer": -0.0012622404854853646,
+        "accel": -1.9999187018927738,
+        "t": 40.35,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.001759525240167,
+      "rms_lat": 0.07605049414736836
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1007,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 202,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 252,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 808,
+        "earliest_time_s": 40.4,
+        "earliest_vx": 1.2003144644057774e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 202,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-trackdrive-82008-matched",
+    "path": "/work/data/native/lab_v2/train-trackdrive-82008-matched",
+    "meta_sha256": "f48accca343e5d5bf0529161322340873b0b4368a5d2cef8a18f9727221fc6ab",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "f722829f72b8ca0e376229663400f98265035f9df5bba6c7859f2f31d8e94545",
+      "states.npy": "ce9a316b288007e2ff5d5dc0401049d67a5ea1440adfc4334d32065bf586df00",
+      "controls.npy": "112548c0a2c45e9917c7d88badc66a73616ae761aeefe763a29c08cd06e0f211",
+      "teacher.npy": "96671fb5f859cb5fd263fd0c444a2eea114dbea0925e1622f56d91c15f1c8550",
+      "desires.npy": "947b5592d80a8f359e2c7bd43a550d4414d075fe2efe5e1f389761461705eb4b",
+      "cones.npy": "9bb3038fb1cd1e18f45a2e7495a8dfe07d9033cc5e70dbbb74a3d47824ee57cf",
+      "contacts.npy": "6b6d14318cd4edd14c1f748c3c5868ba29c1678df472350b3c695f8060959a1d"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82008-matched/road.npy",
+        "shape": [
+          274,
+          6,
+          128,
+          256
+        ],
+        "bytes": 53870720,
+        "recorded_sha256_unverified": "63f758df73edb820f8219a2d1572dbf0706ea9fe8895e5c4df817de9d6492e68"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82008-matched/wide.npy",
+        "shape": [
+          274,
+          6,
+          128,
+          256
+        ],
+        "bytes": 53870720,
+        "recorded_sha256_unverified": "2f4a4f7451a454589341330d62fab41698f2dda85a9f61b564930e4689f9c8b4"
+      }
+    },
+    "summary": {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        39.85
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.971726040114382,
+      "avg_speed_first3": null,
+      "raw_time": 39.85,
+      "penalty": 0.0,
+      "time": 39.85,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 15.973615646362305,
+        "y": 59.73468780517578,
+        "yaw": 1.2683880856753886,
+        "vx": 2.541958146856949e-06,
+        "vy": -3.6834953591885885e-08,
+        "r": 1.8146545377462076e-10,
+        "steer": 0.008759036196688793,
+        "accel": -1.9992129869075124,
+        "t": 44.75,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.00149911916693,
+      "rms_lat": 0.10734922174084381
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1095,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 224,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 274,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 896,
+        "earliest_time_s": 44.8,
+        "earliest_vx": 1.7204801019338329e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 224,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-trackdrive-82009-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-trackdrive-82009-visual_stress_v1",
+    "meta_sha256": "0d8f67cc65fc74899eadfdd1f223aae48dc8e4e747f85ea6296c66e953fab785",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "819c03f636c95feb86845d469e59db3767d9f637da060120bfbcbdf341663054",
+      "states.npy": "aed7e876a29b26d50766590bb43e9fd61e645dbc865c326ab12e3b0aafb6407b",
+      "controls.npy": "e4a72915351c25b1c27b8d06c5e1e4e85d70e5e5f5a03ad76b0c23b43356cbbb",
+      "teacher.npy": "db86ced57916779535e3affc2cba456957ea48f0517b2595e22930210d592a31",
+      "desires.npy": "d18e8d049fc48211e83f07451fb5d4fe17f553840cad57063e9342684e484b17",
+      "cones.npy": "de22ee0757e4c0b9fe7ee5eb7cdb2311a8db0bd134b093a5b8777fd04abf41d4",
+      "contacts.npy": "330676ddb88e40f53b54bcb521fa8c9ae01061c981fb7be4d713cd819c918f3d"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82009-visual_stress_v1/road.npy",
+        "shape": [
+          242,
+          6,
+          128,
+          256
+        ],
+        "bytes": 47579264,
+        "recorded_sha256_unverified": "99a11e8467ec112aac8e28f3547e89df645008221121bc5ee5d49a889ae59efc"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82009-visual_stress_v1/wide.npy",
+        "shape": [
+          242,
+          6,
+          128,
+          256
+        ],
+        "bytes": 47579264,
+        "recorded_sha256_unverified": "54f8f7acee63e3258b87f3618dfd98272582c244e4ade96c789ca7fbc88cd1cd"
+      }
+    },
+    "summary": {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        33.45
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.971749504682476,
+      "avg_speed_first3": null,
+      "raw_time": 33.45,
+      "penalty": 0.0,
+      "time": 33.45,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": -11.126070976257324,
+        "y": -25.19574546813965,
+        "yaw": 3.00349941937782,
+        "vx": 2.305223394370351e-06,
+        "vy": 5.5502471236266855e-08,
+        "r": 1.9602701406551404e-10,
+        "steer": -0.02582073390576078,
+        "accel": -1.9983982421279027,
+        "t": 38.35,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0019344887159414,
+      "rms_lat": 0.09711636482234273
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 967,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 192,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 242,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 768,
+        "earliest_time_s": 38.4,
+        "earliest_vx": 1.30114380117187e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 192,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-trackdrive-82010-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-trackdrive-82010-visual_stress_v1",
+    "meta_sha256": "15b985b539a417c27aaf3618a8a3cb7ff538cb23664ebda655a57d0e51fcfc8c",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "cc2c312b04e4a24b03677c206a30afa412f57d95a1d177f628f6f657e8dff26f",
+      "states.npy": "b4e9e47c47a179f4fdfcf858625df45c95ebec534132e3c8af38e920b73564e9",
+      "controls.npy": "40559dc86ada260a70545f935c0475905da528467dc5809047efd5f863e5afbc",
+      "teacher.npy": "7fff052776d14b469cd7cac700e1322ff7b47f94d3195f7f295e98d76fda0446",
+      "desires.npy": "ac5af7f1b724fea1dc142b2b5aeea5cb517648000e80b60f3a1347cef3320e21",
+      "cones.npy": "78bf460be290485841e47d2fb88c2b29b1c985f6508a81c222f90e6f731519de",
+      "contacts.npy": "c73a62c80c04ce8f3a07de2a08fa27ce525c730d2ad7ebb90fe62362d7b271d3"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82010-visual_stress_v1/road.npy",
+        "shape": [
+          267,
+          6,
+          128,
+          256
+        ],
+        "bytes": 52494464,
+        "recorded_sha256_unverified": "4e008fc5c6403722cb7aa1a5b267194a02f9a96339e55750b79ab8869fc222ad"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82010-visual_stress_v1/wide.npy",
+        "shape": [
+          267,
+          6,
+          128,
+          256
+        ],
+        "bytes": 52494464,
+        "recorded_sha256_unverified": "4c142d669be720bb34a1923ad80dd5b91de378c85f1475c8d4473bf768523912"
+      }
+    },
+    "summary": {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        38.4
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.971952845544471,
+      "avg_speed_first3": null,
+      "raw_time": 38.4,
+      "penalty": 0.0,
+      "time": 38.4,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": -5.327669143676758,
+        "y": 24.21167755126953,
+        "yaw": -3.1068469745706104,
+        "vx": 1.9644128673932486e-06,
+        "vy": 1.598716152370731e-07,
+        "r": 2.0689348845248645e-10,
+        "steer": 0.007388483478024996,
+        "accel": -1.999725083087505,
+        "t": 43.35,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0015586667728429,
+      "rms_lat": 0.07307461899405546
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1067,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 217,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 267,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 868,
+        "earliest_time_s": 43.4,
+        "earliest_vx": 1.0691104251608178e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 217,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-trackdrive-82011-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-trackdrive-82011-visual_stress_v1",
+    "meta_sha256": "05e55b577f8183857cb20166d8fdda27ab25c371460b792d992b6b10f4c1a51e",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "f1181ef46a4cac45f004914720fd1bf1a143663c55ab3d86fba83b00255c10ec",
+      "states.npy": "dbe6b1eeefc0cbb5d9f33e9a367df926db43ab462bf5d64e85bf1d9e273af22f",
+      "controls.npy": "c13217e7c8c4067f0d82172df68174875d35b0a1d53b8f35bccf09d6bf14ad3f",
+      "teacher.npy": "8451742c915a01f40795abf7a33c6fcf078ee8a695ca21ef66e2caa3ddda04d2",
+      "desires.npy": "96e3bcd3e95ce5319d6d507252bea99d5e66ebdb508eef21aca01afeccaa6d4f",
+      "cones.npy": "e602fd350df83a3d89009b5afcfd3b8aeecbde3c7371a437439c43c77615b07c",
+      "contacts.npy": "721e12ecaf2b74ef54a714cb43a853b029db64e693dbd594263e584279cfcf75"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82011-visual_stress_v1/road.npy",
+        "shape": [
+          231,
+          6,
+          128,
+          256
+        ],
+        "bytes": 45416576,
+        "recorded_sha256_unverified": "7636b90b801a3637df622922907c3a8537cb51354478e3cf5763b6eb402d5522"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82011-visual_stress_v1/wide.npy",
+        "shape": [
+          231,
+          6,
+          128,
+          256
+        ],
+        "bytes": 45416576,
+        "recorded_sha256_unverified": "bb9b07facc974517d8841c0bffb9a08b32d0e159d7a7c948fdb1893a339bfeaf"
+      }
+    },
+    "summary": {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        31.1
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.971913923430299,
+      "avg_speed_first3": null,
+      "raw_time": 31.1,
+      "penalty": 0.0,
+      "time": 31.1,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": -11.465546607971191,
+        "y": 34.81743240356445,
+        "yaw": -0.9062110998934534,
+        "vx": 2.46946408056337e-06,
+        "vy": 5.030560104165985e-08,
+        "r": 9.467043815547527e-11,
+        "steer": -0.0043766270295551,
+        "accel": -1.9989584200686126,
+        "t": 36.05,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0021044127494918,
+      "rms_lat": 0.1163583480025656
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 921,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 181,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 231,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 724,
+        "earliest_time_s": 36.2,
+        "earliest_vx": 3.8240267656122233e-07,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 181,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-trackdrive-82012-matched",
+    "path": "/work/data/native/lab_v2/train-trackdrive-82012-matched",
+    "meta_sha256": "13e37fdb57c7b7c956f465b299a4ce82252ee28d1627d314886950fc5f29940f",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "979b231693515d9564ac67d166486add33d35f704f4ebd4b44d53b11abd0ac5a",
+      "states.npy": "c32d83b258c4ece9561fdbb0018490234636e347e26af353901859f28ddf5f6d",
+      "controls.npy": "a085b798270262a4e128055c4e6ad47a0ac143e573daea95e2a24d018251f3f8",
+      "teacher.npy": "96f69a80fce1ffec91915a6ea0b2ea514867216575bf274b059684bcfdca68bb",
+      "desires.npy": "723aedbb4583f6a6d9306498727942f51efb4178288bd4d99ebd9b4ffa1dd4c3",
+      "cones.npy": "94e79a0f48e1bf6831fce6df9cc88e29bf75596fb0258e34ab704d2ce0eba4e6",
+      "contacts.npy": "589208aa36b61591be7dafaeb9bdf9b5e903a44f6b9ff5c2ca583b102ee9d215"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82012-matched/road.npy",
+        "shape": [
+          237,
+          6,
+          128,
+          256
+        ],
+        "bytes": 46596224,
+        "recorded_sha256_unverified": "3f97c1df9b48b2d90e14bf3143f06a697891b9ec16230ad98316720db60cf4f1"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82012-matched/wide.npy",
+        "shape": [
+          237,
+          6,
+          128,
+          256
+        ],
+        "bytes": 46596224,
+        "recorded_sha256_unverified": "1677393659ec04de1be2975aaada5d54e12c1983e91628bed7519b962695312c"
+      }
+    },
+    "summary": {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        32.5
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.971361575046121,
+      "avg_speed_first3": null,
+      "raw_time": 32.5,
+      "penalty": 0.0,
+      "time": 32.5,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": -16.638206481933594,
+        "y": 42.38290786743164,
+        "yaw": -1.9926993006064617,
+        "vx": 2.4967635693177427e-06,
+        "vy": -7.862080216730139e-07,
+        "r": -9.426601166317994e-11,
+        "steer": 0.05430212327590399,
+        "accel": -1.9990115727135458,
+        "t": 37.4,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0019791119827042,
+      "rms_lat": 0.13615518361593038
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 948,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 188,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 14,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 237,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 57,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 14,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 49,
+        "earliest_tick": 752,
+        "earliest_time_s": 37.6,
+        "earliest_vx": 1.260135614205707e-07,
+        "t_lt_3s": 0,
+        "vx_lt_2": 49,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 188,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 14,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-trackdrive-82013-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-trackdrive-82013-visual_stress_v1",
+    "meta_sha256": "f73b558eea6d6f2fb6cd2e9f8cbf7ca5c73b48a4057e20b678ff91f897ceaa5c",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "814377dfb264837dedbb98cd07194f2d88008f2d501513a8ef3e5da2a3e8e2d4",
+      "states.npy": "eeed4b5d99e429b0342ac3eff9a9f74bcf4245d99059d43640025180e9dddb83",
+      "controls.npy": "1886af9dc4911bd2b2d43cd8f95e53ba8f48b33a5010b601f7c9d712bd7d892a",
+      "teacher.npy": "e96300c958224fa031b3e70790786c6a712b5c11bdd2200b37a327a07cfe3931",
+      "desires.npy": "ea695e6230de79d33cfd344a22683b0e672567fa7a27862ea4edc67a49387b68",
+      "cones.npy": "2f4eef0a72dd8dad2cad9616d3abab4e3d4ae9005b60b39cd8fb6ac664ad38b0",
+      "contacts.npy": "3b6182a09ed82ea238ab18324ecf6db28ff192d63bab7373be46477ebabf03f0"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82013-visual_stress_v1/road.npy",
+        "shape": [
+          244,
+          6,
+          128,
+          256
+        ],
+        "bytes": 47972480,
+        "recorded_sha256_unverified": "d710b3050409a39485bec025147d0da7d34049314fc03ad9ff6216e1a4dc0eaa"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82013-visual_stress_v1/wide.npy",
+        "shape": [
+          244,
+          6,
+          128,
+          256
+        ],
+        "bytes": 47972480,
+        "recorded_sha256_unverified": "1e12144f6a73c81920aad15e7ce9af0a88c0f46866e9b6d8b8fcb0dca68ae338"
+      }
+    },
+    "summary": {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        33.800000000000004
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.970484348762362,
+      "avg_speed_first3": null,
+      "raw_time": 33.800000000000004,
+      "penalty": 0.0,
+      "time": 33.800000000000004,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": -14.7454195022583,
+        "y": 53.13851547241211,
+        "yaw": 0.18104077633984922,
+        "vx": 2.409916943883349e-06,
+        "vy": 4.838979455195591e-07,
+        "r": 1.896043461124819e-10,
+        "steer": -0.03922645405565193,
+        "accel": -1.9987457192530886,
+        "t": 38.75,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.001868493193208,
+      "rms_lat": 0.11386033195591216
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 975,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 194,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 244,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 776,
+        "earliest_time_s": 38.8,
+        "earliest_vx": 1.5037792971897132e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 194,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-trackdrive-82014-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-trackdrive-82014-visual_stress_v1",
+    "meta_sha256": "ffebdad730cb9d5ae4c54de960c50bce8cb47ba0b0ba87ba206c137c0f2ce154",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "7fcd380761db852f11a3e9e2a8fba4a3067bcd7902214b93feb104d45e7a1086",
+      "states.npy": "f432dbf5a28dd9cb0dbf5f97d94358a4106ca43d980276cbf91ea96a33395c0c",
+      "controls.npy": "de1e0391f2512b2d61bed30ce4c6f56bcc64e9415dc95bc5666ecacd35a83974",
+      "teacher.npy": "a4efe7dd0cc2a55fe48c2dbf1d2b9f3de9e16a0031e27b19c683188bcaf15666",
+      "desires.npy": "b422c17948cd0c1ed0158ccf3c0a3d09945274935f6abfcaf276f21fc1244b4a",
+      "cones.npy": "39350d40df80240e64af9789188d64b73b8cbec86893b843f5674d74053f7127",
+      "contacts.npy": "53beb69d37a995249c5837e42b7f909c16d73c211eb8a0667059febd960b516f"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82014-visual_stress_v1/road.npy",
+        "shape": [
+          359,
+          6,
+          128,
+          256
+        ],
+        "bytes": 70582400,
+        "recorded_sha256_unverified": "86f88cc5af7858c548a31263aa212a370059228951cfb767e2372c76d4bf3bec"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82014-visual_stress_v1/wide.npy",
+        "shape": [
+          359,
+          6,
+          128,
+          256
+        ],
+        "bytes": 70582400,
+        "recorded_sha256_unverified": "d65163afa0cdddaba5648fd3e265b3e782d2453c62678b14292103fa742fcc3c"
+      }
+    },
+    "summary": {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        56.75
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.971619884796966,
+      "avg_speed_first3": null,
+      "raw_time": 56.75,
+      "penalty": 0.0,
+      "time": 56.75,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": -109.66653442382812,
+        "y": -8.36928939819336,
+        "yaw": 2.273564384022399,
+        "vx": 2.0381900950933955e-06,
+        "vy": -5.672346047164967e-07,
+        "r": -9.664779393459e-12,
+        "steer": 0.039888911856865196,
+        "accel": -1.9997677409099395,
+        "t": 61.7,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.001083654836224,
+      "rms_lat": 0.11387482160103743
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1434,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 309,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 359,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 1236,
+        "earliest_time_s": 61.8,
+        "earliest_vx": 5.0640787691729e-07,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 309,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-trackdrive-82015-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-trackdrive-82015-visual_stress_v1",
+    "meta_sha256": "e72470d9060ae45f62e30d3fbc4fbe58e25644ead22535521011c2356d025198",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "03e2ce85a4f0677528a8e278fe3baa67d10b1dc50b6d78c2f9ad1b3dafa4c768",
+      "states.npy": "d5aefc38df660b00594971a48a32219c42d275a65c34286a30372b2b389fb3e7",
+      "controls.npy": "bb0a7ae8cb45479f3b2bec0a67cea4f2354410a771b769728934e52faa696a6a",
+      "teacher.npy": "4b4a94c046bce411d69a3a226f9020ddaa9aa23bed56d16f39113001310466e2",
+      "desires.npy": "2263849500706f358ace5636bd2df2787117a820cfe0c8fc379c4c027ee84208",
+      "cones.npy": "ce2f2fd6cfa4d4a753e17df7ca869b42cac429883c109989e68a2fab1cac9d93",
+      "contacts.npy": "0514f79f50d8f2014358d986f9295cc2d2799c398fbfe6da79832a40e3dde360"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82015-visual_stress_v1/road.npy",
+        "shape": [
+          327,
+          6,
+          128,
+          256
+        ],
+        "bytes": 64290944,
+        "recorded_sha256_unverified": "44e5bab6071b3a2e6b99d66af52e896f6ec8ba917c2ecb21051168b8d63a2b1d"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-trackdrive-82015-visual_stress_v1/wide.npy",
+        "shape": [
+          327,
+          6,
+          128,
+          256
+        ],
+        "bytes": 64290944,
+        "recorded_sha256_unverified": "ad77349d2fc97897b9cb3cd95049feef21f670837d22378d64dff0db774938dd"
+      }
+    },
+    "summary": {
+      "discipline": "trackdrive",
+      "result": "finished",
+      "laps": [
+        50.35
+      ],
+      "n_laps": 1,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.971150340720181,
+      "avg_speed_first3": null,
+      "raw_time": 50.35,
+      "penalty": 0.0,
+      "time": 50.35,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": -15.709521293640137,
+        "y": 62.73186492919922,
+        "yaw": -3.0440969146034624,
+        "vx": 2.474176806762527e-06,
+        "vy": 3.762236873544018e-07,
+        "r": 1.0904527975030831e-10,
+        "steer": -0.024736959440873764,
+        "accel": -1.998931444689264,
+        "t": 55.3,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.001287021072166,
+      "rms_lat": 0.12313145553252018
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1306,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 277,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 327,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 1108,
+        "earliest_time_s": 55.4,
+        "earliest_vx": 8.251225349269673e-07,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 277,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 15,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-skidpad-82000-matched",
+    "path": "/work/data/native/lab_v2/train-skidpad-82000-matched",
+    "meta_sha256": "4c48f7642162245cc4ea5dd3ce09cf23ef7faccfa144c95a812e3ea0becb4077",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "4023efe3ab3f51c4beb9526d9986b62186eab88e7dfa5b89e9387c83f2d7933d",
+      "states.npy": "62b3cfb263e136ad38a0802182ad94c5bf1ab0429b2a1fa75c63e75100672950",
+      "controls.npy": "1e463f1b914e869b45eb86472d2dfa994893dd09bf48072ecbb34cee82973243",
+      "teacher.npy": "45e93fce5774079fc8437047b2a5ee177c156cace3c51c7a7b1e781a5cd11a0d",
+      "desires.npy": "f680935a134aebce60e6d87d244214a9f26e24917c77c82d9eecf012bb4e82de",
+      "cones.npy": "e6b365d7eb9376b3d8b4888a1e1001e5560ab9ef51bb3638793ee025774242e4",
+      "contacts.npy": "40f178e740d4e2f016719f49529c56b4076be6fb0b38446e14259003b6f4766c"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82000-matched/road.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "cb9a9c26738290dc895969b104d0dce281c53a6847104290fbd027cf494ca2ed"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82000-matched/wide.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "b9b93aab927e36deda4460510ecf001eb8ac25463a998f9065325baccbddb0e6"
+      }
+    },
+    "summary": {
+      "discipline": "skidpad",
+      "result": "finished",
+      "laps": [
+        9.670128149180774,
+        9.759616051658377,
+        9.722654714509165,
+        9.743442695370142
+      ],
+      "n_laps": 4,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.948062371937304,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "start_time": 3.030967790823729,
+            "finish_time": 12.701095940004503,
+            "duration": 9.670128149180774,
+            "winding_right": -6.283185307179586,
+            "winding_left": 4.889751797909625e-17
+          },
+          {
+            "circle": "right",
+            "start_time": 12.701095940004503,
+            "finish_time": 22.46071199166288,
+            "duration": 9.759616051658377,
+            "winding_right": -6.283185307179586,
+            "winding_left": 2.1076890233118206e-16
+          },
+          {
+            "circle": "left",
+            "start_time": 22.46071199166288,
+            "finish_time": 32.183366706172045,
+            "duration": 9.722654714509165,
+            "winding_right": -7.632783294297951e-17,
+            "winding_left": 6.2831853071795845
+          },
+          {
+            "circle": "left",
+            "start_time": 32.183366706172045,
+            "finish_time": 41.92680940154219,
+            "duration": 9.743442695370142,
+            "winding_right": -3.2959746043559335e-16,
+            "winding_left": 6.283185307179586
+          }
+        ],
+        "crossings": [
+          3.030967790823729,
+          12.701095940004503,
+          22.46071199166288,
+          32.183366706172045,
+          41.92680940154219
+        ],
+        "complete": true,
+        "exited": true,
+        "stopped_in_zone": true,
+        "valid": true,
+        "violation": null,
+        "reverse_crossings": 0,
+        "termination": "finished"
+      },
+      "raw_time": 9.75152937351426,
+      "penalty": 0.0,
+      "time": 9.75152937351426,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 23.147504806518555,
+        "y": -0.0015322521794587374,
+        "yaw": 0.004659413424751771,
+        "vx": 2.500448401388628e-06,
+        "vy": 3.628687245386779e-07,
+        "r": 2.121367803642471e-10,
+        "steer": -0.003267876635078565,
+        "accel": -1.999000006245703,
+        "t": 46.35,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0019212979835153,
+      "rms_lat": 0.19036561237880092
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1127,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 282,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 928,
+        "earliest_time_s": 46.4,
+        "earliest_vx": 1.677180175879773e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": true
+  },
+  {
+    "id": "train-skidpad-82001-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-skidpad-82001-visual_stress_v1",
+    "meta_sha256": "fab81bcf8bcb0bf75231f2b78bd354bf12cac0a62540892b52259c249f45d435",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "4023efe3ab3f51c4beb9526d9986b62186eab88e7dfa5b89e9387c83f2d7933d",
+      "states.npy": "ae5caa139ad9290d02ae2f95b071e7a6c19e72b38645c86811e9b36e222a6ead",
+      "controls.npy": "8afc27a202824deac915001d4e2c8c8240132b4cd4a332679db306d280a23a69",
+      "teacher.npy": "45e93fce5774079fc8437047b2a5ee177c156cace3c51c7a7b1e781a5cd11a0d",
+      "desires.npy": "f680935a134aebce60e6d87d244214a9f26e24917c77c82d9eecf012bb4e82de",
+      "cones.npy": "fe7ad8d3ac589297548febd57330f5e706a1d2bd016417efd674ac1807289ce1",
+      "contacts.npy": "40f178e740d4e2f016719f49529c56b4076be6fb0b38446e14259003b6f4766c"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82001-visual_stress_v1/road.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "69af719ed310bce461c5b6c5603c7f74af2a271241d6b781cf9dc1fcca241b2a"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82001-visual_stress_v1/wide.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "8563d4a506582a822ad12789749607d9d6933dbe20d86f4e6b6ef4c8b6cd5b2c"
+      }
+    },
+    "summary": {
+      "discipline": "skidpad",
+      "result": "finished",
+      "laps": [
+        9.670121195637993,
+        9.75960569567545,
+        9.722647613960472,
+        9.743432297095602
+      ],
+      "n_laps": 4,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.948080749088915,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "start_time": 3.0308004897500678,
+            "finish_time": 12.70092168538806,
+            "duration": 9.670121195637993,
+            "winding_right": -6.283185307179584,
+            "winding_left": 2.0816681711721685e-17
+          },
+          {
+            "circle": "right",
+            "start_time": 12.70092168538806,
+            "finish_time": 22.46052738106351,
+            "duration": 9.75960569567545,
+            "winding_right": -6.283185307179584,
+            "winding_left": -3.642919299551295e-17
+          },
+          {
+            "circle": "left",
+            "start_time": 22.46052738106351,
+            "finish_time": 32.18317499502398,
+            "duration": 9.722647613960472,
+            "winding_right": -5.898059818321144e-17,
+            "winding_left": 6.283185307179583
+          },
+          {
+            "circle": "left",
+            "start_time": 32.18317499502398,
+            "finish_time": 41.926607292119584,
+            "duration": 9.743432297095602,
+            "winding_right": 3.0878077872387166e-16,
+            "winding_left": 6.283185307179586
+          }
+        ],
+        "crossings": [
+          3.0308004897500678,
+          12.70092168538806,
+          22.46052738106351,
+          32.18317499502398,
+          41.926607292119584
+        ],
+        "complete": true,
+        "exited": true,
+        "stopped_in_zone": true,
+        "valid": true,
+        "violation": null,
+        "reverse_crossings": 0,
+        "termination": "finished"
+      },
+      "raw_time": 9.751518996385526,
+      "penalty": 0.0,
+      "time": 9.751518996385526,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 23.133148193359375,
+        "y": -0.0016206195577979088,
+        "yaw": 9.45877545203958e-05,
+        "vx": 2.460667194856626e-06,
+        "vy": -6.797354181922333e-08,
+        "r": 1.7436282973015693e-10,
+        "steer": 0.0006914435870330197,
+        "accel": -1.9989446507103157,
+        "t": 46.35,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.001868507403278,
+      "rms_lat": 0.19036335007701877
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1127,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 282,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 928,
+        "earliest_time_s": 46.4,
+        "earliest_vx": 1.5970510802695256e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": true
+  },
+  {
+    "id": "train-skidpad-82002-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-skidpad-82002-visual_stress_v1",
+    "meta_sha256": "23f7fbfff0e98beba9674f1c1f99ef64a9fdf498794038af27c7dea3a9a146f2",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "4023efe3ab3f51c4beb9526d9986b62186eab88e7dfa5b89e9387c83f2d7933d",
+      "states.npy": "62b3cfb263e136ad38a0802182ad94c5bf1ab0429b2a1fa75c63e75100672950",
+      "controls.npy": "1e463f1b914e869b45eb86472d2dfa994893dd09bf48072ecbb34cee82973243",
+      "teacher.npy": "45e93fce5774079fc8437047b2a5ee177c156cace3c51c7a7b1e781a5cd11a0d",
+      "desires.npy": "f680935a134aebce60e6d87d244214a9f26e24917c77c82d9eecf012bb4e82de",
+      "cones.npy": "29080b0834cdbdc5d82a0136f63a7077c4880375a153d475e2fb52e08805266f",
+      "contacts.npy": "40f178e740d4e2f016719f49529c56b4076be6fb0b38446e14259003b6f4766c"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82002-visual_stress_v1/road.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "ece44c89ed7d71277e9320097d6edaec0b809f5b50406b833205cc07a99cf8a8"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82002-visual_stress_v1/wide.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "a7d0902f94f7e537e48d85feac1978a6c27f3a7d60eef61e50a6a7aa8b25a3b6"
+      }
+    },
+    "summary": {
+      "discipline": "skidpad",
+      "result": "finished",
+      "laps": [
+        9.670128149180774,
+        9.759616051658377,
+        9.722654714509165,
+        9.743442695370142
+      ],
+      "n_laps": 4,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.948062371937304,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "start_time": 3.030967790823729,
+            "finish_time": 12.701095940004503,
+            "duration": 9.670128149180774,
+            "winding_right": -6.283185307179586,
+            "winding_left": 4.889751797909625e-17
+          },
+          {
+            "circle": "right",
+            "start_time": 12.701095940004503,
+            "finish_time": 22.46071199166288,
+            "duration": 9.759616051658377,
+            "winding_right": -6.283185307179586,
+            "winding_left": 2.1076890233118206e-16
+          },
+          {
+            "circle": "left",
+            "start_time": 22.46071199166288,
+            "finish_time": 32.183366706172045,
+            "duration": 9.722654714509165,
+            "winding_right": -7.632783294297951e-17,
+            "winding_left": 6.2831853071795845
+          },
+          {
+            "circle": "left",
+            "start_time": 32.183366706172045,
+            "finish_time": 41.92680940154219,
+            "duration": 9.743442695370142,
+            "winding_right": -3.2959746043559335e-16,
+            "winding_left": 6.283185307179586
+          }
+        ],
+        "crossings": [
+          3.030967790823729,
+          12.701095940004503,
+          22.46071199166288,
+          32.183366706172045,
+          41.92680940154219
+        ],
+        "complete": true,
+        "exited": true,
+        "stopped_in_zone": true,
+        "valid": true,
+        "violation": null,
+        "reverse_crossings": 0,
+        "termination": "finished"
+      },
+      "raw_time": 9.75152937351426,
+      "penalty": 0.0,
+      "time": 9.75152937351426,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 23.147504806518555,
+        "y": -0.0015322521794587374,
+        "yaw": 0.004659413424751771,
+        "vx": 2.500448401388628e-06,
+        "vy": 3.628687245386779e-07,
+        "r": 2.121367803642471e-10,
+        "steer": -0.003267876635078565,
+        "accel": -1.999000006245703,
+        "t": 46.35,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0019212979835153,
+      "rms_lat": 0.19036561237880092
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1127,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 282,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 928,
+        "earliest_time_s": 46.4,
+        "earliest_vx": 1.677180175879773e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-skidpad-82003-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-skidpad-82003-visual_stress_v1",
+    "meta_sha256": "ca1529e7b9864c6d5373b7ab562551a7ccbfc79110b138620321834c6b0a13bf",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "4023efe3ab3f51c4beb9526d9986b62186eab88e7dfa5b89e9387c83f2d7933d",
+      "states.npy": "48d4fe9b404c27e6be143f4c7e8d04ecf47c2ca00042e542be8f94fd243b8980",
+      "controls.npy": "2c80a1cb63c031e3342c194ce214b5b4963a102f7ad4098abb745025b605a2f3",
+      "teacher.npy": "1bb8ae017be7329d4b6d8ccc170dfc06023fd4d52bd36a53957e7381973a547a",
+      "desires.npy": "11053bc4a0f81bd7cd337be43a469c675f9376531330e9e93fb05b8c43eee010",
+      "cones.npy": "9c598912c10c97d781119a97cf620962cbf84a567d88928a1a52e2754f26933f",
+      "contacts.npy": "6fa8bac2f39a7082e6b4eb7403a34af275ddbc24263f657b49cc4581f02ffbbc"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82003-visual_stress_v1/road.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "ee42ebcf44a0d842ffb5764baea1497171db04e0a4d1318522002558c34a6fa1"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82003-visual_stress_v1/wide.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "a606ee3f2d36b5761c5a20287a966a1d2e0a3a68fe32ba0a6a2c28046197ea82"
+      }
+    },
+    "summary": {
+      "discipline": "skidpad",
+      "result": "finished",
+      "laps": [
+        9.647402878182543,
+        9.72643491178479,
+        9.704914374066533,
+        9.710603908913633
+      ],
+      "n_laps": 4,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.948401833968271,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "start_time": 3.0308269477564167,
+            "finish_time": 12.67822982593896,
+            "duration": 9.647402878182543,
+            "winding_right": -6.283185307179585,
+            "winding_left": 6.140921104957897e-16
+          },
+          {
+            "circle": "right",
+            "start_time": 12.67822982593896,
+            "finish_time": 22.40466473772375,
+            "duration": 9.72643491178479,
+            "winding_right": -6.283185307179589,
+            "winding_left": 3.673276960380889e-16
+          },
+          {
+            "circle": "left",
+            "start_time": 22.40466473772375,
+            "finish_time": 32.10957911179028,
+            "duration": 9.704914374066533,
+            "winding_right": -3.7643499428696714e-16,
+            "winding_left": 6.283185307179581
+          },
+          {
+            "circle": "left",
+            "start_time": 32.10957911179028,
+            "finish_time": 41.820183020703915,
+            "duration": 9.710603908913633,
+            "winding_right": 4.215378046623641e-16,
+            "winding_left": 6.283185307179587
+          }
+        ],
+        "crossings": [
+          3.0308269477564167,
+          12.67822982593896,
+          22.40466473772375,
+          32.10957911179028,
+          41.820183020703915
+        ],
+        "complete": true,
+        "exited": true,
+        "stopped_in_zone": true,
+        "valid": true,
+        "violation": null,
+        "reverse_crossings": 0,
+        "termination": "finished"
+      },
+      "raw_time": 9.718519410349211,
+      "penalty": 0.0,
+      "time": 9.718519410349211,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 23.1396427154541,
+        "y": -0.00038880042848177254,
+        "yaw": 0.0028124715381853253,
+        "vx": 2.264652220123275e-06,
+        "vy": 4.983308961525671e-08,
+        "r": 2.1680511552713e-10,
+        "steer": -0.0022281079951343295,
+        "accel": -1.9985420156817792,
+        "t": 46.25,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0018923883552786,
+      "rms_lat": 0.15901347883892697
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1125,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 282,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 928,
+        "earliest_time_s": 46.4,
+        "earliest_vx": 2.8067025759343845e-07,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": true
+  },
+  {
+    "id": "train-skidpad-82004-matched",
+    "path": "/work/data/native/lab_v2/train-skidpad-82004-matched",
+    "meta_sha256": "fcb3b87ac9ee263d03f9c813d15861228184005602aa25fc17afc0813ba449bc",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "0a6c93b49bf88966ec0faaf64adf22b6aee73d8647c5524f6cc34725744baf83",
+      "states.npy": "7adb25978a76afbd60c3556d34cc6f48757bb0eaf8d1832aa46ca212b02452ae",
+      "controls.npy": "43f0baee05136bbab52b22d2cf96aa3e195456961f5458ea4f191d2020360035",
+      "teacher.npy": "975c5498ba4cc3a5776f7871ed4340ea99215c20929c1e32ccd86c49899cb5cf",
+      "desires.npy": "69e2e69919a7cc8fb7e33fdf2aa863b183ac9ea5659dd6ac2caf9a17270f20a5",
+      "cones.npy": "2caeddc3e5110ac82d85376ec75b7d38869e3f4fbc383c08cd4f56cb968f3c37",
+      "contacts.npy": "fd2a27842e81c5720a0bcd9c9202b74dc9e75afe2154f471e6425d461e58ad32"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82004-matched/road.npy",
+        "shape": [
+          284,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55836800,
+        "recorded_sha256_unverified": "ac96d4e446decfdeefda693c0412c13b48da653b5d9f0836ee61299b60884188"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82004-matched/wide.npy",
+        "shape": [
+          284,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55836800,
+        "recorded_sha256_unverified": "18f0b4eeb376f0fc89f969a47993fa581fbb19903a731a4ae8d25d916c2c8ac1"
+      }
+    },
+    "summary": {
+      "discipline": "skidpad",
+      "result": "finished",
+      "laps": [
+        9.764726582573317,
+        9.852541446050699,
+        9.815495204027208,
+        9.835016090808253
+      ],
+      "n_laps": 4,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.950192186942059,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "start_time": 3.040951020205619,
+            "finish_time": 12.805677602778937,
+            "duration": 9.764726582573317,
+            "winding_right": -6.283185307179585,
+            "winding_left": -1.457167719820518e-16
+          },
+          {
+            "circle": "right",
+            "start_time": 12.805677602778937,
+            "finish_time": 22.658219048829636,
+            "duration": 9.852541446050699,
+            "winding_right": -6.283185307179587,
+            "winding_left": 1.7694179454963432e-16
+          },
+          {
+            "circle": "left",
+            "start_time": 22.658219048829636,
+            "finish_time": 32.473714252856844,
+            "duration": 9.815495204027208,
+            "winding_right": 1.6653345369377348e-16,
+            "winding_left": 6.283185307179583
+          },
+          {
+            "circle": "left",
+            "start_time": 32.473714252856844,
+            "finish_time": 42.3087303436651,
+            "duration": 9.835016090808253,
+            "winding_right": -4.336808689942018e-17,
+            "winding_left": 6.283185307179587
+          }
+        ],
+        "crossings": [
+          3.040951020205619,
+          12.805677602778937,
+          22.658219048829636,
+          32.473714252856844,
+          42.3087303436651
+        ],
+        "complete": true,
+        "exited": true,
+        "stopped_in_zone": true,
+        "valid": true,
+        "violation": null,
+        "reverse_crossings": 0,
+        "termination": "finished"
+      },
+      "raw_time": 9.843778768429477,
+      "penalty": 0.0,
+      "time": 9.843778768429477,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 23.131025314331055,
+        "y": -0.0013222594279795885,
+        "yaw": -0.002638332984096267,
+        "vx": 2.4672827451076524e-06,
+        "vy": -8.52762217109645e-08,
+        "r": 1.9687926289257973e-10,
+        "steer": 0.0028943989469634953,
+        "accel": -1.9989462109694773,
+        "t": 46.75,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0018607013828444,
+      "rms_lat": 0.1862452114796406
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1135,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 234,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 284,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 936,
+        "earliest_time_s": 46.8,
+        "earliest_vx": 1.5419792484381402e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 234,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-skidpad-82005-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-skidpad-82005-visual_stress_v1",
+    "meta_sha256": "3d2f0556566f2f81b239edeb2de46e626b18fa8d4eaa9ffdbaf9ba0a43c20696",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "4023efe3ab3f51c4beb9526d9986b62186eab88e7dfa5b89e9387c83f2d7933d",
+      "states.npy": "62b3cfb263e136ad38a0802182ad94c5bf1ab0429b2a1fa75c63e75100672950",
+      "controls.npy": "1e463f1b914e869b45eb86472d2dfa994893dd09bf48072ecbb34cee82973243",
+      "teacher.npy": "45e93fce5774079fc8437047b2a5ee177c156cace3c51c7a7b1e781a5cd11a0d",
+      "desires.npy": "f680935a134aebce60e6d87d244214a9f26e24917c77c82d9eecf012bb4e82de",
+      "cones.npy": "4729f5d3af5bdf4be797412efe82ea8d4fdc98b1ada0a2debf2411cb4a345cd3",
+      "contacts.npy": "40f178e740d4e2f016719f49529c56b4076be6fb0b38446e14259003b6f4766c"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82005-visual_stress_v1/road.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "2fe17e68709402273cc77b2e676b32e3b7f224d45c11056a094ebc30e0d359fc"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82005-visual_stress_v1/wide.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "7bb159f966b1fd5eddb35828e4ee12d692e49d91e05ef43df5750dcee21b091e"
+      }
+    },
+    "summary": {
+      "discipline": "skidpad",
+      "result": "finished",
+      "laps": [
+        9.670128149180774,
+        9.759616051658377,
+        9.722654714509165,
+        9.743442695370142
+      ],
+      "n_laps": 4,
+      "doo": 1,
+      "oc": 0,
+      "max_speed": 7.948062371937304,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "start_time": 3.030967790823729,
+            "finish_time": 12.701095940004503,
+            "duration": 9.670128149180774,
+            "winding_right": -6.283185307179586,
+            "winding_left": 4.889751797909625e-17
+          },
+          {
+            "circle": "right",
+            "start_time": 12.701095940004503,
+            "finish_time": 22.46071199166288,
+            "duration": 9.759616051658377,
+            "winding_right": -6.283185307179586,
+            "winding_left": 2.1076890233118206e-16
+          },
+          {
+            "circle": "left",
+            "start_time": 22.46071199166288,
+            "finish_time": 32.183366706172045,
+            "duration": 9.722654714509165,
+            "winding_right": -7.632783294297951e-17,
+            "winding_left": 6.2831853071795845
+          },
+          {
+            "circle": "left",
+            "start_time": 32.183366706172045,
+            "finish_time": 41.92680940154219,
+            "duration": 9.743442695370142,
+            "winding_right": -3.2959746043559335e-16,
+            "winding_left": 6.283185307179586
+          }
+        ],
+        "crossings": [
+          3.030967790823729,
+          12.701095940004503,
+          22.46071199166288,
+          32.183366706172045,
+          41.92680940154219
+        ],
+        "complete": true,
+        "exited": true,
+        "stopped_in_zone": true,
+        "valid": true,
+        "violation": null,
+        "reverse_crossings": 0,
+        "termination": "finished"
+      },
+      "raw_time": 9.75152937351426,
+      "penalty": 0.2,
+      "time": 9.951529373514258,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 23.147504806518555,
+        "y": -0.0015322521794587374,
+        "yaw": 0.004659413424751771,
+        "vx": 2.500448401388628e-06,
+        "vy": 3.628687245386779e-07,
+        "r": 2.121367803642471e-10,
+        "steer": -0.003267876635078565,
+        "accel": -1.999000006245703,
+        "t": 46.35,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0019212979835153,
+      "rms_lat": 0.19036561237880092
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1127,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 282,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 928,
+        "earliest_time_s": 46.4,
+        "earliest_vx": 1.677180175879773e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-skidpad-82006-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-skidpad-82006-visual_stress_v1",
+    "meta_sha256": "7f49c461f262011a550699fcc16c9ac35cff7b85fc42a98d2510fecf857bdbe1",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "4023efe3ab3f51c4beb9526d9986b62186eab88e7dfa5b89e9387c83f2d7933d",
+      "states.npy": "62b3cfb263e136ad38a0802182ad94c5bf1ab0429b2a1fa75c63e75100672950",
+      "controls.npy": "1e463f1b914e869b45eb86472d2dfa994893dd09bf48072ecbb34cee82973243",
+      "teacher.npy": "45e93fce5774079fc8437047b2a5ee177c156cace3c51c7a7b1e781a5cd11a0d",
+      "desires.npy": "f680935a134aebce60e6d87d244214a9f26e24917c77c82d9eecf012bb4e82de",
+      "cones.npy": "8368327d8cfc5f1a86f07ad6392e52f462e8fcc31b617cfac3d89e5e842e70ba",
+      "contacts.npy": "40f178e740d4e2f016719f49529c56b4076be6fb0b38446e14259003b6f4766c"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82006-visual_stress_v1/road.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "07e2bf5efa12f0785210995663f63c569daf18b6f0626d0d825311b218a902d9"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82006-visual_stress_v1/wide.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "0ca639e050b8c647632d2cc753cb8a759faf9fa4181a3d3d7e0a841c47023930"
+      }
+    },
+    "summary": {
+      "discipline": "skidpad",
+      "result": "finished",
+      "laps": [
+        9.670128149180774,
+        9.759616051658377,
+        9.722654714509165,
+        9.743442695370142
+      ],
+      "n_laps": 4,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.948062371937304,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "start_time": 3.030967790823729,
+            "finish_time": 12.701095940004503,
+            "duration": 9.670128149180774,
+            "winding_right": -6.283185307179586,
+            "winding_left": 4.889751797909625e-17
+          },
+          {
+            "circle": "right",
+            "start_time": 12.701095940004503,
+            "finish_time": 22.46071199166288,
+            "duration": 9.759616051658377,
+            "winding_right": -6.283185307179586,
+            "winding_left": 2.1076890233118206e-16
+          },
+          {
+            "circle": "left",
+            "start_time": 22.46071199166288,
+            "finish_time": 32.183366706172045,
+            "duration": 9.722654714509165,
+            "winding_right": -7.632783294297951e-17,
+            "winding_left": 6.2831853071795845
+          },
+          {
+            "circle": "left",
+            "start_time": 32.183366706172045,
+            "finish_time": 41.92680940154219,
+            "duration": 9.743442695370142,
+            "winding_right": -3.2959746043559335e-16,
+            "winding_left": 6.283185307179586
+          }
+        ],
+        "crossings": [
+          3.030967790823729,
+          12.701095940004503,
+          22.46071199166288,
+          32.183366706172045,
+          41.92680940154219
+        ],
+        "complete": true,
+        "exited": true,
+        "stopped_in_zone": true,
+        "valid": true,
+        "violation": null,
+        "reverse_crossings": 0,
+        "termination": "finished"
+      },
+      "raw_time": 9.75152937351426,
+      "penalty": 0.0,
+      "time": 9.75152937351426,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 23.147504806518555,
+        "y": -0.0015322521794587374,
+        "yaw": 0.004659413424751771,
+        "vx": 2.500448401388628e-06,
+        "vy": 3.628687245386779e-07,
+        "r": 2.121367803642471e-10,
+        "steer": -0.003267876635078565,
+        "accel": -1.999000006245703,
+        "t": 46.35,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0019212979835153,
+      "rms_lat": 0.19036561237880092
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1127,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 282,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 928,
+        "earliest_time_s": 46.4,
+        "earliest_vx": 1.677180175879773e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-skidpad-82008-matched",
+    "path": "/work/data/native/lab_v2/train-skidpad-82008-matched",
+    "meta_sha256": "05f250b3da9930e0faf599f23aa362de5d75d91fb8742467172877710d71e246",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "0a6c93b49bf88966ec0faaf64adf22b6aee73d8647c5524f6cc34725744baf83",
+      "states.npy": "968353fe837b57fee19e7a0490db234b28cc268618758a744925b97946911c04",
+      "controls.npy": "5983e9fa51e473c23cd094da9c1b053785fcc910c26060d5e3ba5b7c7635598c",
+      "teacher.npy": "2204141b74e9b8d464fda03833f350b4f97e7eb566e6eab9057e25944ec3da8c",
+      "desires.npy": "69e2e69919a7cc8fb7e33fdf2aa863b183ac9ea5659dd6ac2caf9a17270f20a5",
+      "cones.npy": "b6c0ad802243ca73d0783349c61fc086bc72000c06c8267dd14906c6a3f72b99",
+      "contacts.npy": "41b427f51a46b899c50a7464f914b28a910cdbb178693ccd8e4c38db735e7b22"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82008-matched/road.npy",
+        "shape": [
+          284,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55836800,
+        "recorded_sha256_unverified": "ca8d520c33b67b5b13e5f15a28613a5abad4fd2808f2be5036fce6a32128fcbb"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82008-matched/wide.npy",
+        "shape": [
+          284,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55836800,
+        "recorded_sha256_unverified": "02a8439c0b9e8408a84a1ca96d22ba86340734d0fc7c1d642578ac60bef32fd6"
+      }
+    },
+    "summary": {
+      "discipline": "skidpad",
+      "result": "finished",
+      "laps": [
+        9.770971971325437,
+        9.85973791653548,
+        9.822882931173972,
+        9.842159639499208
+      ],
+      "n_laps": 4,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.949728771722817,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "start_time": 3.0405188362402304,
+            "finish_time": 12.811490807565669,
+            "duration": 9.770971971325437,
+            "winding_right": -6.283185307179589,
+            "winding_left": 7.546047120499111e-17
+          },
+          {
+            "circle": "right",
+            "start_time": 12.811490807565669,
+            "finish_time": 22.671228724101148,
+            "duration": 9.85973791653548,
+            "winding_right": -6.283185307179592,
+            "winding_left": 8.847089727481716e-17
+          },
+          {
+            "circle": "left",
+            "start_time": 22.671228724101148,
+            "finish_time": 32.49411165527512,
+            "duration": 9.822882931173972,
+            "winding_right": 1.6306400674181987e-16,
+            "winding_left": 6.2831853071795845
+          },
+          {
+            "circle": "left",
+            "start_time": 32.49411165527512,
+            "finish_time": 42.33627129477433,
+            "duration": 9.842159639499208,
+            "winding_right": 1.734723475976807e-16,
+            "winding_left": 6.283185307179589
+          }
+        ],
+        "crossings": [
+          3.0405188362402304,
+          12.811490807565669,
+          22.671228724101148,
+          32.49411165527512,
+          42.33627129477433
+        ],
+        "complete": true,
+        "exited": true,
+        "stopped_in_zone": true,
+        "valid": true,
+        "violation": null,
+        "reverse_crossings": 0,
+        "termination": "finished"
+      },
+      "raw_time": 9.850948778017344,
+      "penalty": 0.0,
+      "time": 9.850948778017344,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 23.16802406311035,
+        "y": -0.0009621770004741848,
+        "yaw": 4.722523953657447e-05,
+        "vx": 2.4969569616539145e-06,
+        "vy": -7.639284154869764e-10,
+        "r": 1.4293985439728374e-10,
+        "steer": 0.00041818221300814933,
+        "accel": -1.9989993491598281,
+        "t": 46.8,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.001996749167545,
+      "rms_lat": 0.18595188947340618
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1136,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 235,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 284,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 57,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 49,
+        "earliest_tick": 940,
+        "earliest_time_s": 47.0,
+        "earliest_vx": 1.3862937020776186e-07,
+        "t_lt_3s": 0,
+        "vx_lt_2": 49,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 235,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-skidpad-82009-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-skidpad-82009-visual_stress_v1",
+    "meta_sha256": "ce945b03534e57f61478957844783ee4d63c701e8bd3ef24bd9eba24feb3ce97",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "4023efe3ab3f51c4beb9526d9986b62186eab88e7dfa5b89e9387c83f2d7933d",
+      "states.npy": "62b3cfb263e136ad38a0802182ad94c5bf1ab0429b2a1fa75c63e75100672950",
+      "controls.npy": "1e463f1b914e869b45eb86472d2dfa994893dd09bf48072ecbb34cee82973243",
+      "teacher.npy": "45e93fce5774079fc8437047b2a5ee177c156cace3c51c7a7b1e781a5cd11a0d",
+      "desires.npy": "f680935a134aebce60e6d87d244214a9f26e24917c77c82d9eecf012bb4e82de",
+      "cones.npy": "7497c0fb6e6eeeca0a45bedda1819cf46636f4d3e6a498162c958c441db43221",
+      "contacts.npy": "40f178e740d4e2f016719f49529c56b4076be6fb0b38446e14259003b6f4766c"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82009-visual_stress_v1/road.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "70cce13aeca079b904e905d91abc646659c7d66f4162eb47937668f8848956e9"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82009-visual_stress_v1/wide.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "83271e00395c0aa1f1def7674bdbfd2df5859f95d3e3b835a282931d92b7eca6"
+      }
+    },
+    "summary": {
+      "discipline": "skidpad",
+      "result": "finished",
+      "laps": [
+        9.670128149180774,
+        9.759616051658377,
+        9.722654714509165,
+        9.743442695370142
+      ],
+      "n_laps": 4,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.948062371937304,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "start_time": 3.030967790823729,
+            "finish_time": 12.701095940004503,
+            "duration": 9.670128149180774,
+            "winding_right": -6.283185307179586,
+            "winding_left": 4.889751797909625e-17
+          },
+          {
+            "circle": "right",
+            "start_time": 12.701095940004503,
+            "finish_time": 22.46071199166288,
+            "duration": 9.759616051658377,
+            "winding_right": -6.283185307179586,
+            "winding_left": 2.1076890233118206e-16
+          },
+          {
+            "circle": "left",
+            "start_time": 22.46071199166288,
+            "finish_time": 32.183366706172045,
+            "duration": 9.722654714509165,
+            "winding_right": -7.632783294297951e-17,
+            "winding_left": 6.2831853071795845
+          },
+          {
+            "circle": "left",
+            "start_time": 32.183366706172045,
+            "finish_time": 41.92680940154219,
+            "duration": 9.743442695370142,
+            "winding_right": -3.2959746043559335e-16,
+            "winding_left": 6.283185307179586
+          }
+        ],
+        "crossings": [
+          3.030967790823729,
+          12.701095940004503,
+          22.46071199166288,
+          32.183366706172045,
+          41.92680940154219
+        ],
+        "complete": true,
+        "exited": true,
+        "stopped_in_zone": true,
+        "valid": true,
+        "violation": null,
+        "reverse_crossings": 0,
+        "termination": "finished"
+      },
+      "raw_time": 9.75152937351426,
+      "penalty": 0.0,
+      "time": 9.75152937351426,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 23.147504806518555,
+        "y": -0.0015322521794587374,
+        "yaw": 0.004659413424751771,
+        "vx": 2.500448401388628e-06,
+        "vy": 3.628687245386779e-07,
+        "r": 2.121367803642471e-10,
+        "steer": -0.003267876635078565,
+        "accel": -1.999000006245703,
+        "t": 46.35,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0019212979835153,
+      "rms_lat": 0.19036561237880092
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1127,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 282,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 928,
+        "earliest_time_s": 46.4,
+        "earliest_vx": 1.677180175879773e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-skidpad-82010-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-skidpad-82010-visual_stress_v1",
+    "meta_sha256": "956444bae503b4d25961988b7e17a128d196601d1852c06c9d0a45af61c9f32a",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "4023efe3ab3f51c4beb9526d9986b62186eab88e7dfa5b89e9387c83f2d7933d",
+      "states.npy": "8a23a7156cf7bf222cfb335457cdeef9fd8af8d3402b99b6d894877a9c001a5b",
+      "controls.npy": "bf15b28bc909eb28428f57afc0253df6f70d7c8ad3da5a53c23c58dc3bca8503",
+      "teacher.npy": "45e93fce5774079fc8437047b2a5ee177c156cace3c51c7a7b1e781a5cd11a0d",
+      "desires.npy": "f680935a134aebce60e6d87d244214a9f26e24917c77c82d9eecf012bb4e82de",
+      "cones.npy": "6e7e9bd904517adceafe6202def34c47336cf675d9fdf25dad915946a1ef3c25",
+      "contacts.npy": "40f178e740d4e2f016719f49529c56b4076be6fb0b38446e14259003b6f4766c"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82010-visual_stress_v1/road.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "87391c07093ef1247e127089ed595fec066af1d8db84bd240c3a3662b8f3f79b"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82010-visual_stress_v1/wide.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "774de91f67c3e79d1d6cd1e0529c0a6ed9a02bdaf40244cea3346f50fbb36c16"
+      }
+    },
+    "summary": {
+      "discipline": "skidpad",
+      "result": "finished",
+      "laps": [
+        9.670114024135957,
+        9.759611338408838,
+        9.722644611633022,
+        9.743436511549582
+      ],
+      "n_laps": 4,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.948087327912059,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "start_time": 3.030621303106278,
+            "finish_time": 12.700735327242235,
+            "duration": 9.670114024135957,
+            "winding_right": -6.283185307179587,
+            "winding_left": 7.090682208055199e-17
+          },
+          {
+            "circle": "right",
+            "start_time": 12.700735327242235,
+            "finish_time": 22.460346665651073,
+            "duration": 9.759611338408838,
+            "winding_right": -6.283185307179589,
+            "winding_left": -1.9949319973733282e-17
+          },
+          {
+            "circle": "left",
+            "start_time": 22.460346665651073,
+            "finish_time": 32.182991277284096,
+            "duration": 9.722644611633022,
+            "winding_right": 2.8796409701215e-16,
+            "winding_left": 6.283185307179586
+          },
+          {
+            "circle": "left",
+            "start_time": 32.182991277284096,
+            "finish_time": 41.92642778883368,
+            "duration": 9.743436511549582,
+            "winding_right": -3.122502256758253e-17,
+            "winding_left": 6.283185307179586
+          }
+        ],
+        "crossings": [
+          3.030621303106278,
+          12.700735327242235,
+          22.460346665651073,
+          32.182991277284096,
+          41.92642778883368
+        ],
+        "complete": true,
+        "exited": true,
+        "stopped_in_zone": true,
+        "valid": true,
+        "violation": null,
+        "reverse_crossings": 0,
+        "termination": "finished"
+      },
+      "raw_time": 9.75152392497921,
+      "penalty": 0.0,
+      "time": 9.75152392497921,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 23.149629592895508,
+        "y": -0.0021101869642734528,
+        "yaw": 0.0001151703180461745,
+        "vx": 2.4859894467892924e-06,
+        "vy": -1.3542129173028087e-08,
+        "r": 1.3417676691940272e-10,
+        "steer": 0.0009071773045056294,
+        "accel": -1.9990461605739063,
+        "t": 46.35,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0019291110174444,
+      "rms_lat": 0.19036471684243286
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1127,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 282,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 928,
+        "earliest_time_s": 46.4,
+        "earliest_vx": 1.6374017541495767e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-skidpad-82011-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-skidpad-82011-visual_stress_v1",
+    "meta_sha256": "028f5217eb7b1292c8b198c6a274c59611f0f796647eea823b38c063dc06282c",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "4023efe3ab3f51c4beb9526d9986b62186eab88e7dfa5b89e9387c83f2d7933d",
+      "states.npy": "62b3cfb263e136ad38a0802182ad94c5bf1ab0429b2a1fa75c63e75100672950",
+      "controls.npy": "1e463f1b914e869b45eb86472d2dfa994893dd09bf48072ecbb34cee82973243",
+      "teacher.npy": "45e93fce5774079fc8437047b2a5ee177c156cace3c51c7a7b1e781a5cd11a0d",
+      "desires.npy": "f680935a134aebce60e6d87d244214a9f26e24917c77c82d9eecf012bb4e82de",
+      "cones.npy": "f42e8e4bc71f7eafebca9c5c687e55e7ce4aaebac475c6f6dcbffd87d945b967",
+      "contacts.npy": "40f178e740d4e2f016719f49529c56b4076be6fb0b38446e14259003b6f4766c"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82011-visual_stress_v1/road.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "9927a96b09a35a3914fff1854e2db79ab76cf9986ea4a49d43cae208f962e392"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82011-visual_stress_v1/wide.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "aa021a050f1589a6b1e7e810e2c004c33a8d76e5a7ed5b7fc91581439d1aa867"
+      }
+    },
+    "summary": {
+      "discipline": "skidpad",
+      "result": "finished",
+      "laps": [
+        9.670128149180774,
+        9.759616051658377,
+        9.722654714509165,
+        9.743442695370142
+      ],
+      "n_laps": 4,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.948062371937304,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "start_time": 3.030967790823729,
+            "finish_time": 12.701095940004503,
+            "duration": 9.670128149180774,
+            "winding_right": -6.283185307179586,
+            "winding_left": 4.889751797909625e-17
+          },
+          {
+            "circle": "right",
+            "start_time": 12.701095940004503,
+            "finish_time": 22.46071199166288,
+            "duration": 9.759616051658377,
+            "winding_right": -6.283185307179586,
+            "winding_left": 2.1076890233118206e-16
+          },
+          {
+            "circle": "left",
+            "start_time": 22.46071199166288,
+            "finish_time": 32.183366706172045,
+            "duration": 9.722654714509165,
+            "winding_right": -7.632783294297951e-17,
+            "winding_left": 6.2831853071795845
+          },
+          {
+            "circle": "left",
+            "start_time": 32.183366706172045,
+            "finish_time": 41.92680940154219,
+            "duration": 9.743442695370142,
+            "winding_right": -3.2959746043559335e-16,
+            "winding_left": 6.283185307179586
+          }
+        ],
+        "crossings": [
+          3.030967790823729,
+          12.701095940004503,
+          22.46071199166288,
+          32.183366706172045,
+          41.92680940154219
+        ],
+        "complete": true,
+        "exited": true,
+        "stopped_in_zone": true,
+        "valid": true,
+        "violation": null,
+        "reverse_crossings": 0,
+        "termination": "finished"
+      },
+      "raw_time": 9.75152937351426,
+      "penalty": 0.0,
+      "time": 9.75152937351426,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 23.147504806518555,
+        "y": -0.0015322521794587374,
+        "yaw": 0.004659413424751771,
+        "vx": 2.500448401388628e-06,
+        "vy": 3.628687245386779e-07,
+        "r": 2.121367803642471e-10,
+        "steer": -0.003267876635078565,
+        "accel": -1.999000006245703,
+        "t": 46.35,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0019212979835153,
+      "rms_lat": 0.19036561237880092
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1127,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 282,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 928,
+        "earliest_time_s": 46.4,
+        "earliest_vx": 1.677180175879773e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-skidpad-82012-matched",
+    "path": "/work/data/native/lab_v2/train-skidpad-82012-matched",
+    "meta_sha256": "b41a18ebe7c16b11e569aff3c2dc9a6cb30c4a811492dcc3a3fbb7da8df23307",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "4023efe3ab3f51c4beb9526d9986b62186eab88e7dfa5b89e9387c83f2d7933d",
+      "states.npy": "dbf383f8f1cabf5be91ecded0d8a77078a06cda7d337d4c19e16cc913d8b924b",
+      "controls.npy": "a8afbcd803941d44610a46aa48e079451878d7ad21f4b71607fc76698cb87252",
+      "teacher.npy": "45e93fce5774079fc8437047b2a5ee177c156cace3c51c7a7b1e781a5cd11a0d",
+      "desires.npy": "f680935a134aebce60e6d87d244214a9f26e24917c77c82d9eecf012bb4e82de",
+      "cones.npy": "1e5779fed9b2c4447689d8534271f5346a49b1f3a802a123ccf7170edddb400a",
+      "contacts.npy": "40f178e740d4e2f016719f49529c56b4076be6fb0b38446e14259003b6f4766c"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82012-matched/road.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "2cdfd8c58d3f11762ac54c9be9a0eae727c155ee057960338ae8904b33c3ce67"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82012-matched/wide.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "73efbe2cabacfdcd0ec146b156c5ea57f2b990d1cd024a1881a8f8300a87d39e"
+      }
+    },
+    "summary": {
+      "discipline": "skidpad",
+      "result": "finished",
+      "laps": [
+        9.670114899683815,
+        9.75961478321154,
+        9.722641733984702,
+        9.743440652999034
+      ],
+      "n_laps": 4,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.948102696219857,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "start_time": 3.030646494333285,
+            "finish_time": 12.7007613940171,
+            "duration": 9.670114899683815,
+            "winding_right": -6.283185307179587,
+            "winding_left": 3.262364337008883e-16
+          },
+          {
+            "circle": "right",
+            "start_time": 12.7007613940171,
+            "finish_time": 22.46037617722864,
+            "duration": 9.75961478321154,
+            "winding_right": -6.283185307179583,
+            "winding_left": -1.9949319973733282e-17
+          },
+          {
+            "circle": "left",
+            "start_time": 22.46037617722864,
+            "finish_time": 32.18301791121334,
+            "duration": 9.722641733984702,
+            "winding_right": 8.326672684688674e-17,
+            "winding_left": 6.283185307179583
+          },
+          {
+            "circle": "left",
+            "start_time": 32.18301791121334,
+            "finish_time": 41.926458564212375,
+            "duration": 9.743440652999034,
+            "winding_right": -1.6653345369377348e-16,
+            "winding_left": 6.283185307179589
+          }
+        ],
+        "crossings": [
+          3.030646494333285,
+          12.7007613940171,
+          22.46037617722864,
+          32.18301791121334,
+          41.926458564212375
+        ],
+        "complete": true,
+        "exited": true,
+        "stopped_in_zone": true,
+        "valid": true,
+        "violation": null,
+        "reverse_crossings": 0,
+        "termination": "finished"
+      },
+      "raw_time": 9.751527718105287,
+      "penalty": 0.0,
+      "time": 9.751527718105287,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 23.14002227783203,
+        "y": -0.0022598158102482557,
+        "yaw": -4.874838486495771e-05,
+        "vx": 2.4836542432392133e-06,
+        "vy": -8.704795690237555e-09,
+        "r": 1.676645766668372e-10,
+        "steer": 0.0011191746847903094,
+        "accel": -1.9989852064364908,
+        "t": 46.35,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0018937840408728,
+      "rms_lat": 0.19036610393669542
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1127,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 282,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 928,
+        "earliest_time_s": 46.4,
+        "earliest_vx": 1.5978909920334192e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-skidpad-82013-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-skidpad-82013-visual_stress_v1",
+    "meta_sha256": "47cfabf3b8dc325d7bcc0a20863feb4daeae4301d9cb162818a8d1ed11827e62",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "0a6c93b49bf88966ec0faaf64adf22b6aee73d8647c5524f6cc34725744baf83",
+      "states.npy": "b4ed964366eebc873f95b707dda06589c088fbdcacc9223bce29f4d3a8a8dd8c",
+      "controls.npy": "5d602fa988a43d4e1fcad3dde533bc8f2e60502be8566af0453854dc4d6063f3",
+      "teacher.npy": "2204141b74e9b8d464fda03833f350b4f97e7eb566e6eab9057e25944ec3da8c",
+      "desires.npy": "69e2e69919a7cc8fb7e33fdf2aa863b183ac9ea5659dd6ac2caf9a17270f20a5",
+      "cones.npy": "dbc9fdec28da34d576735eeb11be4762393742c4c82bf9f35889353b6ec86cb6",
+      "contacts.npy": "41b427f51a46b899c50a7464f914b28a910cdbb178693ccd8e4c38db735e7b22"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82013-visual_stress_v1/road.npy",
+        "shape": [
+          284,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55836800,
+        "recorded_sha256_unverified": "7cae775bb41228667806675eca5de35d344865de8c685f5a5bce1d94af6ed233"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82013-visual_stress_v1/wide.npy",
+        "shape": [
+          284,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55836800,
+        "recorded_sha256_unverified": "cafd47b0aab3ae5ce48ae68691a26c860763dcb94c075aeeddc78e3579a17468"
+      }
+    },
+    "summary": {
+      "discipline": "skidpad",
+      "result": "finished",
+      "laps": [
+        9.770968362725878,
+        9.85975505466384,
+        9.822854643608043,
+        9.842160354648165
+      ],
+      "n_laps": 4,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.949796018583607,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "start_time": 3.0415524115507138,
+            "finish_time": 12.812520774276592,
+            "duration": 9.770968362725878,
+            "winding_right": -6.283185307179587,
+            "winding_left": -3.365363543395006e-16
+          },
+          {
+            "circle": "right",
+            "start_time": 12.812520774276592,
+            "finish_time": 22.672275828940432,
+            "duration": 9.85975505466384,
+            "winding_right": -6.283185307179587,
+            "winding_left": -2.706168622523819e-16
+          },
+          {
+            "circle": "left",
+            "start_time": 22.672275828940432,
+            "finish_time": 32.495130472548475,
+            "duration": 9.822854643608043,
+            "winding_right": -5.551115123125783e-16,
+            "winding_left": 6.2831853071795845
+          },
+          {
+            "circle": "left",
+            "start_time": 32.495130472548475,
+            "finish_time": 42.33729082719664,
+            "duration": 9.842160354648165,
+            "winding_right": -2.671474153004283e-16,
+            "winding_left": 6.28318530717959
+          }
+        ],
+        "crossings": [
+          3.0415524115507138,
+          12.812520774276592,
+          22.672275828940432,
+          32.495130472548475,
+          42.33729082719664
+        ],
+        "complete": true,
+        "exited": true,
+        "stopped_in_zone": true,
+        "valid": true,
+        "violation": null,
+        "reverse_crossings": 0,
+        "termination": "finished"
+      },
+      "raw_time": 9.850957704656002,
+      "penalty": 0.0,
+      "time": 9.850957704656002,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 23.142192840576172,
+        "y": -0.0013358709402382374,
+        "yaw": -0.0029524777534172915,
+        "vx": 2.215339323821321e-06,
+        "vy": -2.2186309039973133e-07,
+        "r": 1.98309008103692e-10,
+        "steer": 0.0031704568129149154,
+        "accel": -1.998414871824151,
+        "t": 46.8,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0019017653986926,
+      "rms_lat": 0.18595559343033438
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1136,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 235,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 284,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 57,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 49,
+        "earliest_tick": 940,
+        "earliest_time_s": 47.0,
+        "earliest_vx": 1.3026842211443614e-07,
+        "t_lt_3s": 0,
+        "vx_lt_2": 49,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 235,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-skidpad-82014-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-skidpad-82014-visual_stress_v1",
+    "meta_sha256": "9649f6e667d4556a89349c52b6ead08e59d4cb17ea401488da6ab0da7bfb20c2",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "4023efe3ab3f51c4beb9526d9986b62186eab88e7dfa5b89e9387c83f2d7933d",
+      "states.npy": "65c2753492dc351198cbeab4478e6fd03985486aed47d6df24d6de5b21ac82e2",
+      "controls.npy": "5d81fef252931d043a1fdfdeba63a9260c06000f911371f57987138d7afb2681",
+      "teacher.npy": "45e93fce5774079fc8437047b2a5ee177c156cace3c51c7a7b1e781a5cd11a0d",
+      "desires.npy": "f680935a134aebce60e6d87d244214a9f26e24917c77c82d9eecf012bb4e82de",
+      "cones.npy": "787aa65a758e8701bf0193312033bb97be93bdb5f5dc1d262670d7cdbf802347",
+      "contacts.npy": "40f178e740d4e2f016719f49529c56b4076be6fb0b38446e14259003b6f4766c"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82014-visual_stress_v1/road.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "9273f414798a30bd234066920380e52ddf72bda5b98ca3e1cc3a489d37b839a0"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82014-visual_stress_v1/wide.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "6c50a37037dd40042f8bf82871ca82be0d23bc97881d8f16482ce82a6d5a080a"
+      }
+    },
+    "summary": {
+      "discipline": "skidpad",
+      "result": "finished",
+      "laps": [
+        9.670173736363136,
+        9.759615878166047,
+        9.722711639070937,
+        9.743427676728146
+      ],
+      "n_laps": 4,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.948029093277102,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "start_time": 3.032237047681812,
+            "finish_time": 12.702410784044948,
+            "duration": 9.670173736363136,
+            "winding_right": -6.283185307179586,
+            "winding_left": 9.75781955236954e-18
+          },
+          {
+            "circle": "right",
+            "start_time": 12.702410784044948,
+            "finish_time": 22.462026662210995,
+            "duration": 9.759615878166047,
+            "winding_right": -6.283185307179586,
+            "winding_left": -7.806255641895632e-17
+          },
+          {
+            "circle": "left",
+            "start_time": 22.462026662210995,
+            "finish_time": 32.18473830128193,
+            "duration": 9.722711639070937,
+            "winding_right": 7.945033519973776e-16,
+            "winding_left": 6.28318530717959
+          },
+          {
+            "circle": "left",
+            "start_time": 32.18473830128193,
+            "finish_time": 41.92816597801008,
+            "duration": 9.743427676728146,
+            "winding_right": -1.214306433183765e-16,
+            "winding_left": 6.28318530717959
+          }
+        ],
+        "crossings": [
+          3.032237047681812,
+          12.702410784044948,
+          22.462026662210995,
+          32.18473830128193,
+          41.92816597801008
+        ],
+        "complete": true,
+        "exited": true,
+        "stopped_in_zone": true,
+        "valid": true,
+        "violation": null,
+        "reverse_crossings": 0,
+        "termination": "finished"
+      },
+      "raw_time": 9.751521777447095,
+      "penalty": 0.0,
+      "time": 9.751521777447095,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 23.132965087890625,
+        "y": -0.002192289335653186,
+        "yaw": -0.0008694885734557709,
+        "vx": 2.4118463703314086e-06,
+        "vy": -7.230675519072041e-08,
+        "r": 1.454464881867068e-10,
+        "steer": 0.001791283374953363,
+        "accel": -1.9988850752587544,
+        "t": 46.35,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0018678341077152,
+      "rms_lat": 0.19036434394569327
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1127,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 282,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 928,
+        "earliest_time_s": 46.4,
+        "earliest_vx": 1.5389349803908668e-06,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  },
+  {
+    "id": "train-skidpad-82015-visual_stress_v1",
+    "path": "/work/data/native/lab_v2/train-skidpad-82015-visual_stress_v1",
+    "meta_sha256": "7d3326cf5c88ceb1dfa29637d370218c83b943adab680b626b6cf105ad1831c3",
+    "small_arrays_verified_sha256": {
+      "ticks.npy": "4023efe3ab3f51c4beb9526d9986b62186eab88e7dfa5b89e9387c83f2d7933d",
+      "states.npy": "2a406e7b8e09078cec71630809fcf3a47ecdd4b346d1f95f0a0ffe378c0bc497",
+      "controls.npy": "560430065fe68a9c6d208dae3499bf7cdd619aaceb3f38a0e33b1f528b6ed252",
+      "teacher.npy": "1bb8ae017be7329d4b6d8ccc170dfc06023fd4d52bd36a53957e7381973a547a",
+      "desires.npy": "11053bc4a0f81bd7cd337be43a469c675f9376531330e9e93fb05b8c43eee010",
+      "cones.npy": "ebc40335e4b48f3eb2c9c677b993fab698510c051766d89dbf7771743bef06a4",
+      "contacts.npy": "6fa8bac2f39a7082e6b4eb7403a34af275ddbc24263f657b49cc4581f02ffbbc"
+    },
+    "camera_headers_only": {
+      "road.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82015-visual_stress_v1/road.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "ff60efeb056620dabf14996f3ddf8db7b618a988457a9bf8e90d40a9865afea7"
+      },
+      "wide.npy": {
+        "path": "/work/data/native/lab_v2/train-skidpad-82015-visual_stress_v1/wide.npy",
+        "shape": [
+          282,
+          6,
+          128,
+          256
+        ],
+        "bytes": 55443584,
+        "recorded_sha256_unverified": "1ff00d0f9d8d6f338b81da13f41cea6a66dab9de2f97ef759e0bcb17be86ba53"
+      }
+    },
+    "summary": {
+      "discipline": "skidpad",
+      "result": "finished",
+      "laps": [
+        9.647406866263509,
+        9.726434861878385,
+        9.704916147631288,
+        9.710607661654926
+      ],
+      "n_laps": 4,
+      "doo": 0,
+      "oc": 0,
+      "max_speed": 7.948371898157456,
+      "route": {
+        "expected_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "accepted_route": [
+          "right",
+          "right",
+          "left",
+          "left"
+        ],
+        "laps": [
+          {
+            "circle": "right",
+            "start_time": 3.0307771980908,
+            "finish_time": 12.678184064354308,
+            "duration": 9.647406866263509,
+            "winding_right": -6.28318530717959,
+            "winding_left": -1.734723475976807e-17
+          },
+          {
+            "circle": "right",
+            "start_time": 12.678184064354308,
+            "finish_time": 22.404618926232693,
+            "duration": 9.726434861878385,
+            "winding_right": -6.283185307179589,
+            "winding_left": 2.962040335230398e-16
+          },
+          {
+            "circle": "left",
+            "start_time": 22.404618926232693,
+            "finish_time": 32.10953507386398,
+            "duration": 9.704916147631288,
+            "winding_right": 1.734723475976807e-18,
+            "winding_left": 6.283185307179589
+          },
+          {
+            "circle": "left",
+            "start_time": 32.10953507386398,
+            "finish_time": 41.82014273551891,
+            "duration": 9.710607661654926,
+            "winding_right": 2.220446049250313e-16,
+            "winding_left": 6.283185307179588
+          }
+        ],
+        "crossings": [
+          3.0307771980908,
+          12.678184064354308,
+          22.404618926232693,
+          32.10953507386398,
+          41.82014273551891
+        ],
+        "complete": true,
+        "exited": true,
+        "stopped_in_zone": true,
+        "valid": true,
+        "violation": null,
+        "reverse_crossings": 0,
+        "termination": "finished"
+      },
+      "raw_time": 9.718521261766655,
+      "penalty": 0.0,
+      "time": 9.718521261766655,
+      "dq": false,
+      "complete": true,
+      "pass": true,
+      "final_state": {
+        "x": 23.141197204589844,
+        "y": -0.000647379900328815,
+        "yaw": -0.00304622871321245,
+        "vx": 2.312396896795833e-06,
+        "vy": -8.448765380163372e-08,
+        "r": 1.4690480776291537e-10,
+        "steer": 0.0029226844296669796,
+        "accel": -1.9985896365704339,
+        "t": 46.25,
+        "extra": {}
+      },
+      "physical_cone_hits": 0,
+      "contact_events": [],
+      "progress": 1.0018981043540687,
+      "rms_lat": 0.15901555625385044
+    },
+    "teacher_runs": [
+      {
+        "start_tick": 0,
+        "end_tick_exclusive": 1125,
+        "teacher": true
+      }
+    ],
+    "coverage": {
+      "eligible": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_teacher": {
+        "count": 282,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 58,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "same_tick_excluded": {
+        "count": 50,
+        "earliest_tick": 928,
+        "earliest_time_s": 46.4,
+        "earliest_vx": 3.3965107986590616e-07,
+        "t_lt_3s": 0,
+        "vx_lt_2": 50,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      },
+      "ordinary": {
+        "count": 232,
+        "earliest_tick": 0,
+        "earliest_time_s": 0.0,
+        "earliest_vx": 0.0,
+        "t_lt_3s": 15,
+        "vx_lt_2": 8,
+        "t_lt_3s_and_vx_lt_2": 3,
+        "t_lt_3s_and_positive_accel": 12,
+        "vx_lt_2_and_positive_accel": 3,
+        "early_ticks": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56
+        ]
+      },
+      "recovery": {
+        "count": 0,
+        "earliest_tick": null,
+        "earliest_time_s": null,
+        "earliest_vx": null,
+        "t_lt_3s": 0,
+        "vx_lt_2": 0,
+        "t_lt_3s_and_vx_lt_2": 0,
+        "t_lt_3s_and_positive_accel": 0,
+        "vx_lt_2_and_positive_accel": 0,
+        "early_ticks": []
+      }
+    },
+    "restores_absent_v7_launch": false
+  }
+]

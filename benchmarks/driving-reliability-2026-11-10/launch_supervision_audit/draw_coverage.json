@@ -1,0 +1,316 @@
+{
+  "total_draws": 64000,
+  "early_draws": 2349,
+  "early_unique_seen": 359,
+  "early_low_vx_draws": 480,
+  "standing_tick0_draws": 143,
+  "early_low_vx_unique_seen": 72,
+  "episodes": [
+    {
+      "id": "train-trackdrive-82000-matched",
+      "early_unique_available": 0,
+      "early_draws": 0,
+      "early_unique_seen": 0,
+      "early_low_vx_draws": 0,
+      "standing_tick0_draws": 0,
+      "early_low_vx_unique_seen": 0
+    },
+    {
+      "id": "train-trackdrive-82001-visual_stress_v1",
+      "early_unique_available": 0,
+      "early_draws": 0,
+      "early_unique_seen": 0,
+      "early_low_vx_draws": 0,
+      "standing_tick0_draws": 0,
+      "early_low_vx_unique_seen": 0
+    },
+    {
+      "id": "train-trackdrive-82002-visual_stress_v1",
+      "early_unique_available": 0,
+      "early_draws": 0,
+      "early_unique_seen": 0,
+      "early_low_vx_draws": 0,
+      "standing_tick0_draws": 0,
+      "early_low_vx_unique_seen": 0
+    },
+    {
+      "id": "train-trackdrive-82003-visual_stress_v1",
+      "early_unique_available": 0,
+      "early_draws": 0,
+      "early_unique_seen": 0,
+      "early_low_vx_draws": 0,
+      "standing_tick0_draws": 0,
+      "early_low_vx_unique_seen": 0
+    },
+    {
+      "id": "train-trackdrive-82004-matched",
+      "early_unique_available": 15,
+      "early_draws": 108,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 26,
+      "standing_tick0_draws": 8,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-trackdrive-82005-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 90,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 24,
+      "standing_tick0_draws": 10,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-trackdrive-82006-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 80,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 16,
+      "standing_tick0_draws": 5,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-trackdrive-82007-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 111,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 21,
+      "standing_tick0_draws": 5,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-trackdrive-82008-matched",
+      "early_unique_available": 15,
+      "early_draws": 126,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 16,
+      "standing_tick0_draws": 4,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-trackdrive-82009-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 93,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 15,
+      "standing_tick0_draws": 7,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-trackdrive-82010-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 105,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 23,
+      "standing_tick0_draws": 9,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-trackdrive-82011-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 108,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 30,
+      "standing_tick0_draws": 8,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-trackdrive-82012-matched",
+      "early_unique_available": 15,
+      "early_draws": 93,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 13,
+      "standing_tick0_draws": 4,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-trackdrive-82013-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 85,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 13,
+      "standing_tick0_draws": 3,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-trackdrive-82014-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 93,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 24,
+      "standing_tick0_draws": 12,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-trackdrive-82015-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 91,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 17,
+      "standing_tick0_draws": 5,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-skidpad-82000-matched",
+      "early_unique_available": 0,
+      "early_draws": 0,
+      "early_unique_seen": 0,
+      "early_low_vx_draws": 0,
+      "standing_tick0_draws": 0,
+      "early_low_vx_unique_seen": 0
+    },
+    {
+      "id": "train-skidpad-82001-visual_stress_v1",
+      "early_unique_available": 0,
+      "early_draws": 0,
+      "early_unique_seen": 0,
+      "early_low_vx_draws": 0,
+      "standing_tick0_draws": 0,
+      "early_low_vx_unique_seen": 0
+    },
+    {
+      "id": "train-skidpad-82002-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 104,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 28,
+      "standing_tick0_draws": 5,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-skidpad-82003-visual_stress_v1",
+      "early_unique_available": 0,
+      "early_draws": 0,
+      "early_unique_seen": 0,
+      "early_low_vx_draws": 0,
+      "standing_tick0_draws": 0,
+      "early_low_vx_unique_seen": 0
+    },
+    {
+      "id": "train-skidpad-82004-matched",
+      "early_unique_available": 15,
+      "early_draws": 94,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 21,
+      "standing_tick0_draws": 4,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-skidpad-82005-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 101,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 14,
+      "standing_tick0_draws": 3,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-skidpad-82006-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 103,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 22,
+      "standing_tick0_draws": 7,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-skidpad-82007-visual_stress_v1",
+      "early_unique_available": 0,
+      "early_draws": 0,
+      "early_unique_seen": 0,
+      "early_low_vx_draws": 0,
+      "standing_tick0_draws": 0,
+      "early_low_vx_unique_seen": 0
+    },
+    {
+      "id": "train-skidpad-82008-matched",
+      "early_unique_available": 15,
+      "early_draws": 116,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 14,
+      "standing_tick0_draws": 2,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-skidpad-82009-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 90,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 18,
+      "standing_tick0_draws": 3,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-skidpad-82010-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 94,
+      "early_unique_seen": 14,
+      "early_low_vx_draws": 21,
+      "standing_tick0_draws": 7,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-skidpad-82011-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 86,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 20,
+      "standing_tick0_draws": 5,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-skidpad-82012-matched",
+      "early_unique_available": 15,
+      "early_draws": 92,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 26,
+      "standing_tick0_draws": 11,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-skidpad-82013-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 100,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 14,
+      "standing_tick0_draws": 5,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-skidpad-82014-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 91,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 21,
+      "standing_tick0_draws": 5,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-skidpad-82015-visual_stress_v1",
+      "early_unique_available": 15,
+      "early_draws": 95,
+      "early_unique_seen": 15,
+      "early_low_vx_draws": 23,
+      "standing_tick0_draws": 6,
+      "early_low_vx_unique_seen": 3
+    },
+    {
+      "id": "train-skidpad-82000-matched-direct-recovery-v1",
+      "early_unique_available": 0,
+      "early_draws": 0,
+      "early_unique_seen": 0,
+      "early_low_vx_draws": 0,
+      "standing_tick0_draws": 0,
+      "early_low_vx_unique_seen": 0
+    },
+    {
+      "id": "train-trackdrive-82000-matched-direct-recovery-v1",
+      "early_unique_available": 0,
+      "early_draws": 0,
+      "early_unique_seen": 0,
+      "early_low_vx_draws": 0,
+      "standing_tick0_draws": 0,
+      "early_low_vx_unique_seen": 0
+    }
+  ]
+}

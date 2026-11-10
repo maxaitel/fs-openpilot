@@ -1,0 +1,40 @@
+{
+  "publication": "native_plant_forecast_probe",
+  "entries": [
+    {
+      "role": "frozen_source",
+      "original_path": ".work/lab/native_plant_forecast_probe_v1/probe.py",
+      "published_path": "probe.py",
+      "sha256": "aa1e1476833368c9fa2926672511b13a0ed510bd42079f646761ae91dfd72be2",
+      "bytes": 3197
+    },
+    {
+      "role": "frozen_protocol",
+      "original_path": ".work/lab/native_plant_forecast_probe_v1/protocol.md",
+      "published_path": "protocol.md",
+      "sha256": "33672bb949fe4736390acee873d6470c7e71cf9a5d51f5f2a0137d85e44fba7e",
+      "bytes": 1943
+    },
+    {
+      "role": "original_report",
+      "original_path": ".work/lab/native_plant_forecast_probe_v1/report.md",
+      "published_path": "report.md",
+      "sha256": "58d74f4e08d64d372cce31923dc89251ed914a9afce1442e4edc878b0863b3b1",
+      "bytes": 4483
+    },
+    {
+      "role": "probe_result",
+      "original_path": ".work/lab/native_plant_forecast_probe_v1/result.json",
+      "published_path": "result.json",
+      "sha256": "5e3c091d89e74eda15779c847c86a39c6be98aa86837d4ccdc9e4066ab741372",
+      "bytes": 16421
+    }
+  ],
+  "notes": [
+    "The four copied files retain their original bytes and relative report links. The source index distinguishes source and protocol from the original report and measured result.",
+    "The result binds the probe script, protocol, and nine evidence metadata, manifest, and completion files. It does not record hashes for imported vehicle or evidence implementation modules.",
+    "The executable retains ROOT=.work/lab/native_plant_forecast_probe_v1 and is archived without relocation edits.",
+    "The saved-action replay uses future recorded controls and correlated overlapping starts. It is not a causal controller forecast or safety bound.",
+    "No original file was modified and no replay, simulator, fit, or final case was run for publication."
+  ]
+}

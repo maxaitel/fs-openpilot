@@ -1,0 +1,37 @@
+{
+  "files": [
+    {
+      "remote": "/work/data/native/lab_v7/train-skidpad-82000-matched/teacher.npy",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/teacher.npy",
+      "sha256": "c3e987359ac6da24ac6a415fac663b6474a1ffda063b50a78a569e74a7752f87",
+      "original_recorder_bound": true
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-skidpad-82000-matched/track.json",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/track.json",
+      "sha256": "4f95e3c40f6d2a93cdcf26bb94facab2e38a4fb3f7a89487bb5cf114f2940d22",
+      "original_recorder_bound": false
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-trackdrive-82000-matched/teacher.npy",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/teacher.npy",
+      "sha256": "b1d396cf0a8ae82491b2b5a8b2466cc3b817a8a39a873814d6f17cd841df0dde",
+      "original_recorder_bound": true
+    },
+    {
+      "remote": "/work/data/native/lab_v7/train-trackdrive-82000-matched/track.json",
+      "local": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/track.json",
+      "sha256": "cb5379fa719dddc1be0fcc41a515b8ccd724c03f94d60f9d890936fb061a7158",
+      "original_recorder_bound": false
+    },
+    {
+      "remote": "data/native_tracks/trackdrive_081000.json",
+      "local": "runs/vision_corridor_probe_v1/canonical_tracks/trackdrive_081000.json",
+      "sha256": "2b5310156af116570ca2bcc34e8bf86f67cb92ae3a656ec99a5b5e9ddfbb99fb",
+      "original_recorder_bound": false,
+      "verified_prior_known_cache_sha256": true
+    }
+  ],
+  "source_deleted": false,
+  "limitation": "Serialized track geometry can differ from original native unrounded first-generation geometry. Independently reconstruct teacher-state labels before calling teacher errors verified."
+}

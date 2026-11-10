@@ -1,0 +1,132 @@
+{
+  "files": [
+    {
+      "source": ".work/lab/cone_set_actuator_trial/cone_core.py",
+      "destination": "cone_set_actuator_trial/cone_core.py",
+      "sha256": "7e73e45ba42443fc1fb028d886677e2345393ea4b8b8c5f3f79bd8ba7b1251fb"
+    },
+    {
+      "source": ".work/lab/cone_set_actuator_trial/train_set.py",
+      "destination": "cone_set_actuator_trial/train_set.py",
+      "sha256": "d319e7858bbead5fe6b4b5adb231cba05d469c9247b09835433322f445c95996"
+    },
+    {
+      "source": ".work/lab/cone_set_actuator_trial/recipe.json",
+      "destination": "cone_set_actuator_trial/recipe.json",
+      "sha256": "5378430dda676cd4c4641111df935ad2fcd214501d4a290ca8a0a2bf3b626cac"
+    },
+    {
+      "source": ".work/lab/cone_set_actuator_trial/protocol.md",
+      "destination": "cone_set_actuator_trial/protocol.md",
+      "sha256": "86ec78729f62a6b66960ee282842c4ae3f6bdbea9106cdfae09dd45b6b8a4eb7"
+    },
+    {
+      "source": ".work/lab/cone_set_actuator_trial/evaluate.py",
+      "destination": "cone_set_actuator_trial/evaluate.py",
+      "sha256": "82f9b90d52da591713d44ed30976ccdbf32a5fe3a81b6ee86d9064ecb63070a4"
+    },
+    {
+      "source": ".work/lab/cone_set_actuator_trial/verify_command_episode.py",
+      "destination": "cone_set_actuator_trial/verify_command_episode.py",
+      "sha256": "61641da1db7d38fda51da7ce4fefc6d339926568589b1c3ae41185308ff88220"
+    },
+    {
+      "source": ".work/lab/cone_set_actuator_trial/process.py",
+      "destination": "cone_set_actuator_trial/process.py",
+      "sha256": "6b041343fd502cc31e3c662073a2751c42581739d47e1023746ff5994641a9b3"
+    },
+    {
+      "source": ".work/lab/cone_set_actuator_trial/export_audited_command.py",
+      "destination": "cone_set_actuator_trial/export_audited_command.py",
+      "sha256": "fdcca66b463494ad08ec251987569c14665d865403875da6a36438fdeeb7a43f"
+    },
+    {
+      "source": ".work/lab/cone_set_actuator_trial/encode_portable.py",
+      "destination": "cone_set_actuator_trial/encode_portable.py",
+      "sha256": "81ae1c0885db7c493de7dbc70b4b7c6570147c4e4d757656e23a4335cb3e82a8"
+    },
+    {
+      "source": ".work/lab/cone_set_actuator_trial/runtime_preflight.py",
+      "destination": "cone_set_actuator_trial/runtime_preflight.py",
+      "sha256": "4739bb3d5771331b274bc5623cd8d4e01edf7169eeb6cb79498ace9377d68b36"
+    },
+    {
+      "source": ".work/lab/cone_set_actuator_trial/pipeline_notes.md",
+      "destination": "cone_set_actuator_trial/pipeline_notes.md",
+      "sha256": "56e4a54acdc270a3ea82271a74d49964c1dd80cca3467142e47b6d840e580869"
+    },
+    {
+      "source": ".work/lab/cone_set_actuator_trial/test_core.py",
+      "destination": "cone_set_actuator_trial/test_core.py",
+      "sha256": "153fc4b0e0eea691877b4a62309f355b6e037e9f0a125e9b1f9121968e3830ae"
+    },
+    {
+      "source": ".work/lab/cone_set_actuator_trial/test_training.py",
+      "destination": "cone_set_actuator_trial/test_training.py",
+      "sha256": "fdd59d59282200d419ef66ec1654578fbf66c66a88f3453fb27115db842c0ef0"
+    },
+    {
+      "source": ".work/lab/cone_set_actuator_trial/test_pipeline.py",
+      "destination": "cone_set_actuator_trial/test_pipeline.py",
+      "sha256": "f0b6cc8059ddec0a865103b56afc1fed652e7460747468fda49bec3065255884"
+    },
+    {
+      "source": ".work/lab/next_strategy/cone_set_synthesis_v1.md",
+      "destination": "next_strategy/cone_set_synthesis_v1.md",
+      "sha256": "4812acd4f64dcc08c96ebfd9a28afbca396116914e7e8060837fa83df5a3d74e"
+    },
+    {
+      "source": ".work/lab/next_strategy/cone_set_interface_v1.md",
+      "destination": "next_strategy/cone_set_interface_v1.md",
+      "sha256": "bccb01f1f520d59ad9ff23d055944debfeaeb81d7bae2e99d6f1e7713d7494cd"
+    },
+    {
+      "source": ".work/lab/next_strategy/cone_set_actuator_design_v1.md",
+      "destination": "next_strategy/cone_set_actuator_design_v1.md",
+      "sha256": "a86c9df7ebd9bbe433779e193500ac05ac5a51fbea7ef87eaafe37789931bb3d"
+    },
+    {
+      "source": ".work/lab/cone_set_actuator_trial/prelaunch_freeze1.json",
+      "destination": "cone_set_actuator_trial/prelaunch_freeze1.json",
+      "sha256": "5b5c21be226c288ff5f2b8737a963577950b55a2a5d0a8174a73fcc8c07a9839"
+    },
+    {
+      "source": ".work/lab/cone_set_actuator_trial/prelaunch_source1.zip",
+      "destination": "cone_set_actuator_trial/prelaunch_source1.zip",
+      "sha256": "ed81aab2154a032d5a9c8b857b5d6b54709367e39626f174c9740d23e8444975"
+    },
+    {
+      "source": ".work/lab/cone_set_actuator_trial/remote_source_ready1.json",
+      "destination": "cone_set_actuator_trial/remote_source_ready1.json",
+      "sha256": "ad1faa6991d379eb70030995b63833a89ad0cad32f71b0568470b3a78544c20d"
+    },
+    {
+      "source": ".work/lab/cone_set_core_review1.md",
+      "destination": "cone_set_core_review1.md",
+      "sha256": "3137ce92471055fa7f3990b263ec30e02d34d692df4d91b8c230b9900168c3e8"
+    },
+    {
+      "source": ".work/lab/cone_set_pipeline_review1.md",
+      "destination": "cone_set_pipeline_review1.md",
+      "sha256": "8fee4a5e7e15c18ca8723cfa281cf11ef375cc5b5adbab43e742ff3e6df0a811"
+    },
+    {
+      "source": ".work/lab/cone_set_review_fix_verification1.md",
+      "destination": "cone_set_review_fix_verification1.md",
+      "sha256": "35021740f44b8d6737701502091b99a6283f4b6e07714e846792076b6d8f1794"
+    },
+    {
+      "source": ".work/lab/cone_set_final_verification1.md",
+      "destination": "cone_set_final_verification1.md",
+      "sha256": "56cf468ac0fdc33e0c5c8e9283344a26ff6e81d82e72059bb344836ff5693e78"
+    },
+    {
+      "source": ".work/lab/cone_set_comment_audit1.md",
+      "destination": "cone_set_comment_audit1.md",
+      "sha256": "08e2ac3405be32160834999a46e84c79c16782aaa39d465a373f5ec72cffe061"
+    }
+  ],
+  "copied_at": "2026-11-10T10:22:27.190537+00:00",
+  "restore": "Restore original .work/lab paths from this map or the explicitly mapped prelaunch source archive. Frozen v1 is rejected at disposable wiring, not resumed.",
+  "source_deleted": false
+}
