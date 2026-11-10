@@ -7,8 +7,11 @@ from pathlib import Path
 import pytest
 import torch
 
+import fsop.data.native_replay as native_replay
+import fsop.train.lab_train as lab_train
 from fsop.eval.controller import controller_contract
 from scripts import select_lab_tangent as s
+from scripts import verify_lab_recovery
 
 
 def dump(path, obj):
@@ -19,7 +22,7 @@ def coherence(value=0.1):
     return {k: {stat: value for stat in s.STATS} for k in s.COHERENCE_METRICS}
 
 
-def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False):
+def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False, pi=False):
     training, calibration = tmp_path / "training", tmp_path / "calibration"
     training.mkdir()
     calibration.mkdir()
@@ -31,11 +34,12 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False):
     anchors = [{"path": path, "frames": list(range(32))} for path in paths]
 
     def metrics(steer):
+        plan = steer if pi else 0.1
         rows = [
             {
                 "path": path,
                 "count": 32,
-                "plan_l1": 0.1,
+                "plan_l1": plan,
                 "steer": steer,
                 "longitudinal": 0.1,
                 "plan_nll": 0.0,
@@ -48,7 +52,7 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False):
             "precision": "float32",
             "aggregation": "equal_episode",
             "count": 256,
-            "aggregate": {"plan_l1": 0.1, "steer": steer, "longitudinal": 0.1, "plan_nll": 0.0},
+            "aggregate": {"plan_l1": plan, "steer": steer, "longitudinal": 0.1, "plan_nll": 0.0},
             "episodes": rows,
             "coherence": coherence(),
             "target_coherence": coherence(),
@@ -57,9 +61,13 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False):
             result["action_target_contract"] = s.NATIVE_FUTURE_CONTRACT
             for group in [result["aggregate"], *rows]:
                 group.update(teacher_steer=0.3, teacher_longitudinal=0.4)
+        if pi:
+            result["action_target_contract"] = s.DESIRED_MOTION_CONTRACT
+            for group in [result["aggregate"], *rows]:
+                group["native_relative_acceleration"] = 0.25
         return result
 
-    contract = controller_contract("op_tangent_v1")
+    contract = controller_contract("op_tangent_pi_v1" if pi else "op_tangent_v1")
     ref = {str(i): {"sha256": "a"} for i in range(347)}
     recipe = tmp_path / "recipe.json"
     recipe.write_text("recipe")
@@ -108,6 +116,12 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False):
     }
     if native_future:
         args["action_target_mode"] = s.NATIVE_FUTURE_ACTION_TARGET
+    if pi:
+        sampler.update(provenance_mode="per_case_v2", collection_policy_checkpoint_sha=None)
+        args.update(controller_mode="op_tangent_pi_v1", action_target_mode=s.DESIRED_MOTION_TARGET,
+                    w_steer=0.0, w_long=0.0, w_consistency=0.2,
+                    recovery_provenance_mode="per_case_v2", collection_policy_checkpoint_sha=None)
+        monkeypatch.setattr(s, "verify_per_case_sampling", lambda *args: None)
     manifest = "b" * 64
     episodes = [{"path": path} for path in paths]
     names = [f"base.policy.weight{i}" for i in range(50)]
@@ -125,7 +139,9 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False):
         "validation_selection": anchors,
         "episodes": episodes,
         "dataset_verification": {"sha256": "c" * 64},
-        "source": {"files_sha256": {"source": "d" * 64}},
+        "source": {"files_sha256": ({name: s.sha(Path(s.__file__).resolve().parents[1] / name)
+                    for name in ("scripts/select_lab_tangent.py", "scripts/verify_lab_recovery.py",
+                                 "isaac_lab_fsop/recovery_schedule.py")} if pi else {"source": "d" * 64})},
         "history_context_proof": {"ok": True},
         "validation_precision": "float32",
         "device": "cuda",
@@ -156,6 +172,10 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False):
     if native_future:
         run["action_target_contract"] = s.NATIVE_FUTURE_CONTRACT
         ci["action_target_contract"] = s.NATIVE_FUTURE_CONTRACT
+    if pi:
+        run["action_target_contract"] = s.DESIRED_MOTION_CONTRACT
+        ci["action_target_contract"] = s.DESIRED_MOTION_CONTRACT
+        ci["weights"].update(longitudinal=0.0, consistency=0.2)
     cal = {"version": 1, "identity": ci, "validation": metrics(0.2)}
     for root in (training, calibration):
         dump(root / "calibration.json", cal)
@@ -202,6 +222,10 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False):
         protocol["schema_version"] = 2
         protocol["action_target_contract"] = s.NATIVE_FUTURE_CONTRACT
         protocol["training_args"]["action_target_mode"] = s.NATIVE_FUTURE_ACTION_TARGET
+    if pi:
+        protocol.update(schema_version=3, kind="op_tangent_pi_v1_selection",
+                        action_target_contract=s.DESIRED_MOTION_CONTRACT, ranking=copy.deepcopy(s.PI_RANKING))
+        protocol["training_args"].update(action_target_mode=s.DESIRED_MOTION_TARGET, w_consistency=0.2)
     protocol_path = tmp_path / "protocol.json"
     dump(protocol_path, protocol)
     protocol_sha = s.sha(protocol_path)
@@ -243,6 +267,8 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False):
         }
         if native_future:
             row["action_target_contract"] = s.NATIVE_FUTURE_CONTRACT
+        if pi:
+            row["action_target_contract"] = s.DESIRED_MOTION_CONTRACT
         if step in [1, *s.STEPS[1:]]:
             counts_path = training / f"sampling_counts_{step:06d}.json"
             dump(
@@ -302,6 +328,8 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False):
         }
         if native_future:
             payload["action_target_contract"] = s.NATIVE_FUTURE_CONTRACT
+        if pi:
+            payload["action_target_contract"] = s.DESIRED_MOTION_CONTRACT
         return payload
 
     monkeypatch.setattr("torch.load", load)
@@ -476,4 +504,146 @@ def test_trainable_inventory_must_match_loaded_graph(tmp_path, monkeypatch):
     training, cal, protocol, _, _ = fixture(tmp_path, monkeypatch)
     monkeypatch.setattr(s, "policy_trainable_names", lambda checkpoint: ["base.policy.unexpected"])
     with pytest.raises(ValueError, match="trainable tensor inventory"):
+        s.select(training, cal, protocol)
+
+
+def test_pi_selects_plan_improvement_and_keeps_coherence_gates(tmp_path, monkeypatch):
+    training, cal, protocol, _, history = fixture(tmp_path, monkeypatch, pi=True)
+    for step, plan, steer in ((100, 0.15, 0.01), (200, 0.08, 0.19), (300, 0.03, 0.19)):
+        validation = history[step - 1]["validation"]
+        for row in [validation["aggregate"], *validation["episodes"]]:
+            row.update(plan_l1=plan, steer=steer)
+    history[299]["validation"]["coherence"]["position_interval_m"]["max"] = 2.0
+    (training / "history.jsonl").write_text("".join(json.dumps(r) + "\n" for r in history))
+    result = s.select(training, cal, protocol)
+    assert result["kind"] == "op_tangent_pi_v1_selection"
+    assert result["selected"]["step"] == 200
+    assert not result["candidates"][3]["eligible"]
+    assert result["excluded_step_one"]["step"] == 1
+
+
+@pytest.mark.parametrize("change", ["ranking", "target", "zero_weight", "nan_weight", "missing_weight", "initializer"])
+def test_pi_protocol_rejects_tampering(tmp_path, monkeypatch, change):
+    _, _, _, protocol, _ = fixture(tmp_path, monkeypatch, pi=True)
+    if change == "ranking":
+        protocol["ranking"]["metric"] = "aggregate.steer"
+    elif change == "target":
+        protocol["action_target_contract"] = s.NATIVE_FUTURE_CONTRACT
+    elif change == "zero_weight":
+        protocol["training_args"]["w_consistency"] = 0
+    elif change == "nan_weight":
+        protocol["training_args"]["w_consistency"] = float("nan")
+    elif change == "missing_weight":
+        del protocol["training_args"]["w_consistency"]
+    else:
+        protocol["initializer_sha256"] = "not-a-digest"
+    with pytest.raises(ValueError):
+        s.protocol_check(protocol)
+
+
+def test_pi_history_consistency_diagnostic_is_bound(tmp_path, monkeypatch):
+    training, cal, protocol, _, history = fixture(tmp_path, monkeypatch, pi=True)
+    history[99]["validation"]["episodes"][0]["native_relative_acceleration"] = 0.5
+    (training / "history.jsonl").write_text("".join(json.dumps(r) + "\n" for r in history))
+    with pytest.raises(ValueError, match="inconsistent aggregate native_relative_acceleration"):
+        s.select(training, cal, protocol)
+
+
+def test_pi_initializer_is_frozen_by_protocol(tmp_path, monkeypatch):
+    training, cal, protocol_path, protocol, _ = fixture(tmp_path, monkeypatch, pi=True)
+    protocol["initializer_sha256"] = "f" * 64
+    assert s.protocol_check(protocol)["initializer_sha256"] == "f" * 64
+    dump(protocol_path, protocol)
+    with pytest.raises(ValueError, match="training selection protocol receipt mismatch"):
+        s.select(training, cal, protocol_path)
+
+
+def test_pi_ranking_uses_earliest_step_for_equal_plan_l1(tmp_path, monkeypatch):
+    training, cal, protocol, _, _ = fixture(tmp_path, monkeypatch, pi=True)
+    assert s.select(training, cal, protocol)["selected"]["step"] == 100
+
+
+def test_pi_requires_strict_plan_improvement(tmp_path, monkeypatch):
+    training, cal, protocol, _, history = fixture(tmp_path, monkeypatch, pi=True)
+    for row in history:
+        if "validation" in row:
+            for group in [row["validation"]["aggregate"], *row["validation"]["episodes"]]:
+                group["plan_l1"] = 0.2
+    (training / "history.jsonl").write_text("".join(json.dumps(r) + "\n" for r in history))
+    assert s.select(training, cal, protocol)["selected"]["step"] == 0
+
+
+def test_pi_recovery_sampler_rechecks_receipt_and_complete_sampling(tmp_path, monkeypatch):
+    case = "case1"
+    (tmp_path / "cases").mkdir()
+    dump(tmp_path / "membership.json", {})
+    dump(tmp_path / "cases" / f"{case}.json", {})
+    episode = tmp_path / "episode"
+    episode.mkdir()
+    dump(episode / "meta.json", {"id": case, "arrays_sha256": {"array.npy": "a"}})
+    for name in ("array.npy", "source.zip", "track.json"):
+        (episode / name).write_text(name)
+    record = {"checkpoint_sha256": "a" * 64, "collection": {"mode": "phase_recovery_v1"}}
+    recipe = tmp_path / "recipe.json"
+    dump(recipe, {"schema_version": 2, "recovery_case_ids": [case], "collection_by_case": {case: record},
+                  "membership": "membership.json"})
+    gate = tmp_path / "gate.json"
+    receipt = {"passed": True, "case_id": case, "takeover_tick": 10, "terminal_start_tick": 30,
+               "recovery_frame_indices": [10, 11], "recovery_ticks": [10, 11]}
+    dump(gate, receipt)
+    sampler = {"optimization_init_sha256": "b" * 64,
+               "recovery_episodes": [{"case_id": case, "episode": 0, "gate_path": str(gate),
+                                      "collection_contract": record, "collection_checkpoint_sha256": "a" * 64,
+                                      "takeover_tick": 10, "terminal_start_tick": 30,
+                                      "frames": [10, 11], "ticks": [10, 11], "indices": [0, 1]}]}
+    monkeypatch.setattr(native_replay, "episode_paths", lambda **kwargs: [episode])
+    monkeypatch.setattr(native_replay, "load_episodes", lambda paths: paths)
+    monkeypatch.setattr(native_replay, "NativeReplay", lambda paths, split: paths)
+    monkeypatch.setattr(verify_lab_recovery, "verify", lambda *args: receipt)
+    class Sampler:
+        def __init__(self, *args, **kwargs):
+            pass
+        def protocol(self):
+            return copy.deepcopy(sampler)
+    monkeypatch.setattr(lab_train, "RecoverySampler", Sampler)
+    bound = set()
+    def bind(path):
+        path = Path(path).resolve()
+        s.sha(path)
+        bound.add(path)
+        return path
+    args = {"recovery_gates": str(tmp_path)}
+    s.verify_per_case_sampling(sampler, tmp_path / "manifest.json", recipe, args, bind)
+    assert {recipe, gate, episode / "meta.json", episode / "array.npy", episode / "source.zip",
+            episode / "track.json", tmp_path / "membership.json", tmp_path / "cases" / f"{case}.json"} <= bound
+    altered = copy.deepcopy(sampler)
+    altered["recovery_episodes"][0]["collection_checkpoint_sha256"] = "c" * 64
+    with pytest.raises(ValueError, match="collection identity"):
+        s.verify_per_case_sampling(altered, tmp_path / "manifest.json", recipe, args, bind)
+    altered = copy.deepcopy(sampler)
+    altered["recovery_episodes"][0]["indices"] = [9, 10]
+    with pytest.raises(ValueError, match="sampling differs"):
+        s.verify_per_case_sampling(altered, tmp_path / "manifest.json", recipe, args, bind)
+    dump(gate, {**receipt, "passed": False})
+    with pytest.raises(ValueError, match="gate mismatch"):
+        s.verify_per_case_sampling(sampler, tmp_path / "manifest.json", recipe, args, bind)
+
+
+@pytest.mark.parametrize('field,value', [('w_steer', 1.0), ('w_long', 1.0), ('batch_size', 64),
+                                        ('history_context', 24), ('recovery_provenance_mode', 'off_policy_v1')])
+def test_pi_unselectable_configuration_rejected_before_training(tmp_path, monkeypatch, field, value):
+    _, _, protocol, _, _ = fixture(tmp_path, monkeypatch, pi=True)
+    document = json.loads(protocol.read_text())
+    document['training_args'][field] = value
+    with pytest.raises(ValueError, match='PI training configuration mismatch'):
+        s.protocol_check(document)
+
+
+def test_pi_rejects_missing_runtime_dependency_archive(tmp_path, monkeypatch):
+    training, cal, protocol, _, _ = fixture(tmp_path, monkeypatch, pi=True)
+    path = training / 'run.json'
+    run = json.loads(path.read_text())
+    del run['source']['files_sha256']['scripts/verify_lab_recovery.py']
+    path.write_text(json.dumps(run))
+    with pytest.raises(ValueError, match='dependency archive mismatch'):
         s.select(training, cal, protocol)

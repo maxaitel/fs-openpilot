@@ -149,14 +149,14 @@ def verify(episode, checkpoint, output, max_frames=PILOT_FRAMES):
     torch.backends.cudnn.allow_tf32 = False
     from fsop.eval.controller import controller_contract
     schema = metadata.get("schema_version", 1)
-    if (schema not in (1, 2) or
-            (schema == 2 and ("controller_contract" not in metadata or "controller_contract" not in summary))):
+    if (schema not in (1, 2, 3) or
+            (schema in (2, 3) and ("controller_contract" not in metadata or "controller_contract" not in summary))):
         raise ValueError("Invalid evidence schema or missing controller contract")
     contract = metadata.get("controller_contract", controller_contract("pp"))
-    if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1")
+    if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1", "op_tangent_pi_v1")
             or contract != controller_contract(contract["mode"])):
         raise ValueError("Invalid evidence controller contract")
-    if (schema == 2) != (contract["mode"] == "op_tangent_v1"):
+    if schema != {"pp": 1, "op_tangent_v1": 2, "op_tangent_pi_v1": 3}[contract["mode"]]:
         raise ValueError("Evidence schema does not match controller contract")
     if summary.get("controller_contract", controller_contract("pp")) != contract:
         raise ValueError("Controller contract differs between evidence and summary")

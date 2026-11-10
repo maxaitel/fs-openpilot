@@ -753,10 +753,11 @@ def test_final_report_rejects_noncomparable_pairs(tmp_path):
     assert any("noncomparable" in failure for failure in report["final_gate"]["failures"])
 
 
-def test_explicit_v2_package_comparison_binds_contract_and_keeps_all_other_conditions():
+@pytest.mark.parametrize(("mode", "schema"), [("op_tangent_v1", 2), ("op_tangent_pi_v1", 3)])
+def test_explicit_v2_package_comparison_binds_contract_and_keeps_all_other_conditions(mode, schema):
     from fsop.eval.controller import controller_contract
     from scripts.report_lab_training import paired_comparisons
-    contracts = [controller_contract('pp'), controller_contract('op_tangent_v1')]
+    contracts = [controller_contract('pp'), controller_contract(mode)]
     conditions = {key: 'same' for key in FIELDS}
     conditions.update(asset_dependencies={}, coordinator_sha256='coord', timeout_seconds=7200)
     rows = []
@@ -768,7 +769,7 @@ def test_explicit_v2_package_comparison_binds_contract_and_keeps_all_other_condi
                      'locked_plan_version': 2, 'locked_controller_contract': contract,
                      'planned_controller_contract': contract, 'audited_controller_contract': contract,
                      'comparison_conditions': {**conditions, 'controller_contract': contract,
-                                               'schema_version': 1 if model == 'baseline' else 2}})
+                                               'schema_version': 1 if model == 'baseline' else schema}})
     coverage = {'paired': {'case'}, 'legacy': set()}
     legacy = paired_comparisons(rows, coverage, True)
     assert legacy['measured_pairs'] == 0
@@ -778,10 +779,10 @@ def test_explicit_v2_package_comparison_binds_contract_and_keeps_all_other_condi
     assert result['cases'][0]['baseline_controller_contract'] == contracts[0]
     assert result['cases'][0]['candidate_controller_contract'] == contracts[1]
     assert result['cases'][0]['baseline_evidence_schema_version'] == 1
-    assert result['cases'][0]['candidate_evidence_schema_version'] == 2
+    assert result['cases'][0]['candidate_evidence_schema_version'] == schema
     rows[1]['comparison_conditions']['schema_version'] = 1
     assert paired_comparisons(rows, coverage, True, 'controller_model_package')['measured_pairs'] == 0
-    rows[1]['comparison_conditions']['schema_version'] = 2
+    rows[1]['comparison_conditions']['schema_version'] = schema
     rows[1]['audited_controller_contract'] = contracts[0]
     assert paired_comparisons(rows, coverage, True, 'controller_model_package')['measured_pairs'] == 0
     rows[1]['audited_controller_contract'] = contracts[1]

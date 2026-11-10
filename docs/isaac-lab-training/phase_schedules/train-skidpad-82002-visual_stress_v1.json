@@ -1,0 +1,7 @@
+{
+  "mode": "phase_recovery_v1",
+  "phase": "left_transition",
+  "lateral_threshold_m": 0.35,
+  "learner_window_seconds": 6,
+  "transition_lead_m": 12
+}

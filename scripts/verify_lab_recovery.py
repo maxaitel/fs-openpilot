@@ -13,6 +13,11 @@ import numpy as np
 
 from fsop.data.native_replay import NativeEpisode
 from fsop.sim.expert import ExpertParams, Mission
+from fsop.eval.controller import controller_contract
+from fsop.sim.skidpad import SkidpadRoute
+from fsop.sim.vehicle import VehicleParams, VehicleState
+from fsop.sim.referee import Referee
+from isaac_lab_fsop.recovery_schedule import PhaseSchedule, first_left_decision
 from fsop.track.fixed_layouts import skidpad
 from fsop.track.generate import TrackGenCfg, generate_track
 from fsop.track.io import load_json
@@ -26,6 +31,12 @@ def digest(path):
 def require(condition, message):
     if not condition:
         raise ValueError(message)
+
+
+def require_clean_left_prefix(route, contacts, off_course):
+    require(route["valid"] and route["accepted_route"] == ["right"]
+            and not np.any(contacts) and off_course == 0,
+            "Left activation has nonclean or wrong-lap prefix")
 
 
 def route_states(mission, states):
@@ -53,7 +64,9 @@ def verify(episode_path, recipe_path):
     try:
         report["hashes"]["recipe_sha256"] = digest(recipe_path)
         recipe = json.loads(recipe_path.read_text())
-        require(recipe.get("schema_version") == 1, "Invalid recipe schema")
+        version = recipe.get("schema_version")
+        require(version in (1, 2), "Invalid recipe schema")
+        report["schema_version"] = version
         collection = recipe.get("collection")
         allowed_collections = [
             {"takeover_seconds": 8, "lateral_threshold_m": 0.6, "capture_hz": 20, "image_hz": 5},
@@ -70,7 +83,7 @@ def verify(episode_path, recipe_path):
             "settled_seconds": 0.5,
         }
         require(
-            collection in allowed_collections and recipe.get("gate") == gate,
+            (version == 2 or collection in allowed_collections) and recipe.get("gate") == gate,
             "Recipe collection or gate differs from the frozen protocol",
         )
         ids = recipe.get("recovery_case_ids")
@@ -81,6 +94,9 @@ def verify(episode_path, recipe_path):
             and all(isinstance(x, str) and x for x in ids),
             "Invalid recovery case IDs",
         )
+        if version == 2:
+            records = recipe.get("collection_by_case")
+            require(isinstance(records, dict) and set(records) == set(ids), "Invalid per-case collection records")
         membership_path = (recipe_path.parent / recipe["membership"]).resolve()
         report["hashes"]["membership_sha256"] = digest(membership_path)
         require(
@@ -112,8 +128,47 @@ def verify(episode_path, recipe_path):
             and json.loads(case_path.read_text()) == cases[0],
             "Case file differs from frozen recipe or membership",
         )
+        record = records[m["id"]] if version == 2 else None
+        if version == 2:
+            require(isinstance(record, dict), "Invalid per-case collection record")
+            collection = record.get("collection")
+            require(isinstance(collection, dict), "Invalid per-case collection")
+            contract = record.get("controller_contract")
+            require(isinstance(contract, dict) and contract == controller_contract(contract.get("mode")),
+                    "Invalid controller contract")
+            phase_mode = collection.get("mode") == "phase_recovery_v1"
+            if phase_mode:
+                PhaseSchedule.from_dict(collection)
+                require(m.get("controller_contract") == contract, "Learner controller contract differs from recipe")
+            else:
+                require(collection.get("mode") == "legacy_learner_prefix_v1"
+                        and {k: v for k, v in collection.items() if k != "mode"} in allowed_collections
+                        and contract == controller_contract("pp"), "Invalid legacy collection contract")
+                if "controller_contract" in m:
+                    require(m["controller_contract"] == contract, "Legacy learner controller contract differs from recipe")
+                legacy = record.get("legacy_receipt")
+                require(isinstance(legacy, dict), "Missing legacy source-bound receipt")
+                legacy_path = (recipe_path.parent / legacy["path"]).resolve()
+                legacy_recipe = (recipe_path.parent / legacy["recipe"]).resolve()
+                require(digest(legacy_path) == legacy["sha256"] and digest(legacy_recipe) == legacy["recipe_sha256"],
+                        "Legacy receipt or recipe digest differs")
+                receipt = json.loads(legacy_path.read_text())
+                require(receipt.get("passed") is True and receipt.get("case_id") == m["id"]
+                        and receipt.get("hashes", {}).get("recipe_sha256") == legacy["recipe_sha256"]
+                        and receipt.get("hashes", {}).get("meta_sha256") == digest(episode_path / "meta.json")
+                        and receipt.get("hashes", {}).get("source_archive_sha256") == digest(episode_path / "source.zip"),
+                        "Legacy receipt is not bound to this episode and source")
+                require(json.loads(legacy_recipe.read_text()).get("schema_version") == 1,
+                        "Legacy recipe must use schema 1")
+                prior = verify(episode_path, legacy_recipe)
+                require(prior["passed"] and prior["schema_version"] == 1, "Legacy recipe re-verification failed")
+        else:
+            phase_mode = False
+        if not phase_mode and "controller_contract" in m:
+            require(m["controller_contract"] == controller_contract("pp"),
+                    "Legacy learner controller contract is not pp")
         require(
-            m.get("checkpoint_sha256") == recipe.get("checkpoint_sha256")
+            m.get("checkpoint_sha256") == (record.get("checkpoint_sha256") if version == 2 else recipe.get("checkpoint_sha256"))
             and isinstance(m.get("checkpoint_sha256"), str)
             and len(m["checkpoint_sha256"]) == 64,
             "Learner checkpoint digest differs from recipe",
@@ -131,6 +186,9 @@ def verify(episode_path, recipe_path):
                 isinstance(inventory, dict) and bool(inventory) and sorted(archive.namelist()) == sorted(inventory),
                 "Source archive inventory differs",
             )
+            if phase_mode:
+                source_digest = hashlib.sha256(json.dumps(inventory, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+                require(source_digest == record.get("source_inventory_sha256"), "Producer source inventory differs from recipe")
             for name, expected in inventory.items():
                 require(hashlib.sha256(archive.read(name)).hexdigest() == expected, f"Source digest differs for {name}")
         track_path = episode_path / "track.json"
@@ -152,19 +210,28 @@ def verify(episode_path, recipe_path):
         )
         policy = m.get("collection_policy", {})
         takeover = policy.get("actual_takeover_tick")
-        require(
-            policy.get("mode") == "learner_prefix"
-            and policy.get("requested_takeover_s") == collection["takeover_seconds"]
-            and policy.get("lateral_takeover_threshold_m") == collection["lateral_threshold_m"]
-            and type(takeover) is int
-            and 0 < takeover < len(ep.teacher),
-            "Invalid learner-prefix policy or takeover tick",
-        )
+        if phase_mode:
+            activation = policy.get("actual_activation_tick")
+            require(policy.get("mode") == "phase_recovery_v1" and policy.get("schedule") == collection
+                    and type(activation) is int and type(takeover) is int
+                    and 0 <= activation < takeover < len(ep.teacher), "Invalid phase activation or takeover tick")
+            require(np.all(ep.teacher[:activation]) and not np.any(ep.teacher[activation:takeover])
+                    and np.all(ep.teacher[takeover:]), "Teacher flags contradict phase handoffs")
+            require(policy.get("controller_state_during_teacher") == record.get("controller_state_during_teacher")
+                    == "reset_after_each_discarded_proposal", "Teacher controller state contract differs from recipe")
+            require(policy.get("policy_observation_ticks") == list(range(len(ep.teacher))),
+                    "Policy observation history is not continuous")
+        else:
+            require(
+                policy.get("mode") == "learner_prefix"
+                and policy.get("requested_takeover_s") == collection["takeover_seconds"]
+                and policy.get("lateral_takeover_threshold_m") == collection["lateral_threshold_m"]
+                and type(takeover) is int and 0 < takeover < len(ep.teacher),
+                "Invalid learner-prefix policy or takeover tick",
+            )
+            require(not np.any(ep.teacher[:takeover]) and np.all(ep.teacher[takeover:]),
+                    "Teacher flags contradict a single learner-to-teacher handoff")
         report["takeover_tick"] = takeover
-        require(
-            not np.any(ep.teacher[:takeover]) and np.all(ep.teacher[takeover:]),
-            "Teacher flags contradict a single learner-to-teacher handoff",
-        )
         summary = m["summary"]
         require(
             summary.get("result") == "finished"
@@ -190,24 +257,70 @@ def verify(episode_path, recipe_path):
         end = min(terminal_tick, takeover + 81)
         report["route_slice"] = route[takeover:end]
         report["takeover"] = route[takeover]
-        first = next(
-            (
-                r["tick"]
-                for r in route[: takeover + 1]
-                if ep.states[r["tick"], 8] >= collection["takeover_seconds"]
-                or abs(r["lateral_m"]) >= collection["lateral_threshold_m"]
-            ),
-            None,
-        )
-        report["first_trigger_tick"] = first
-        require(first == takeover, "Takeover does not match the first time or lateral trigger")
-        reason = policy.get("takeover_reason")
-        expected_reason = (
-            "lateral_threshold"
-            if abs(route[takeover]["lateral_m"]) >= collection["lateral_threshold_m"]
-            else "time_limit"
-        )
-        require(reason == expected_reason, "Recorded takeover reason differs from observed trigger")
+        if phase_mode:
+            require(case["discipline"] == "skidpad", "Phase collection requires skidpad")
+            threshold = first_left_decision(track, mission) - collection["transition_lead_m"]
+            first_activation = 0 if collection["phase"] == "entry" else next(
+                (r["tick"] for r in route if r["progress_m"] >= threshold), None)
+            require(activation == first_activation, "Activation differs from first phase boundary")
+            expected_activation_reason = "reset" if collection["phase"] == "entry" else "first_left_decision_lead"
+            require(policy.get("activation_reason") == expected_activation_reason
+                    and math.isclose(policy.get("activation_progress_m", float("nan")), threshold, abs_tol=1e-4),
+                    "Activation metadata differs from schedule")
+            referee = SkidpadRoute(track)
+            independent = Referee(track, np.array([[c.x, c.y] for c in track.cones]),
+                                  [c.color for c in track.cones], VehicleParams(**m["vehicle"]))
+            prefix = referee.report() if activation == 0 else None
+            takeover_route = None
+            for tick, values in enumerate(ep.states[1:terminal_tick + 1], start=1):
+                state = VehicleState(*map(float, values[:9]))
+                referee.advance(state)
+                independent.update(state)
+                if tick == activation:
+                    prefix = referee.report()
+                    require(independent.n_oc == 0, "Off-course event before activation")
+                if tick == takeover:
+                    takeover_route = referee.report()
+            if collection["phase"] == "left_transition":
+                require_clean_left_prefix(prefix, ep.contacts[:activation + 1], 0)
+            require(independent.n_oc == 0, "Off-course event in recorded states")
+            final_route = referee.report()
+            require(final_route["valid"] and final_route["accepted_route"] == ["right", "right", "left", "left"]
+                    and final_route["complete"] and final_route["exited"] and final_route["stopped_in_zone"],
+                    "Recorded states do not establish a complete clean skidpad route")
+            snapshot = policy.get("activation") or {}
+            require(snapshot.get("route", {}).get("accepted_route") == prefix["accepted_route"]
+                    and snapshot.get("route", {}).get("valid") == prefix["valid"]
+                    and snapshot.get("contacts") == 0 and snapshot.get("off_course") == 0
+                    and np.allclose(snapshot.get("state", []), ep.states[activation], rtol=0, atol=1e-9)
+                    and math.isclose(snapshot.get("progress_m", float("nan")), route[activation]["progress_m"], abs_tol=1e-4)
+                    and math.isclose(snapshot.get("lateral_m", float("nan")), route[activation]["lateral_m"], abs_tol=1e-4),
+                    "Activation snapshot differs from recorded state or referee")
+            snapshot = policy.get("takeover") or {}
+            require(snapshot.get("route", {}).get("accepted_route") == takeover_route["accepted_route"]
+                    and snapshot.get("route", {}).get("valid") == takeover_route["valid"]
+                    and snapshot.get("contacts") == 0 and snapshot.get("off_course") == 0
+                    and np.allclose(snapshot.get("state", []), ep.states[takeover], rtol=0, atol=1e-9)
+                    and math.isclose(snapshot.get("progress_m", float("nan")), route[takeover]["progress_m"], abs_tol=1e-4)
+                    and math.isclose(snapshot.get("lateral_m", float("nan")), route[takeover]["lateral_m"], abs_tol=1e-4),
+                    "Takeover snapshot differs from recorded state or referee")
+            first = next((r["tick"] for r in route[activation:takeover + 1]
+                          if abs(r["lateral_m"]) >= collection["lateral_threshold_m"]), None)
+            report["first_trigger_tick"] = first
+            require(first == takeover and takeover - activation <= collection["learner_window_seconds"] * 20
+                    and policy.get("takeover_reason") == "lateral_threshold",
+                    "Takeover is not the first qualifying lateral trigger within the learner window")
+            report["activation_tick"] = activation
+        else:
+            first = next(
+                (r["tick"] for r in route[: takeover + 1]
+                 if ep.states[r["tick"], 8] >= collection["takeover_seconds"]
+                 or abs(r["lateral_m"]) >= collection["lateral_threshold_m"]), None)
+            report["first_trigger_tick"] = first
+            require(first == takeover, "Takeover does not match the first time or lateral trigger")
+            expected_reason = ("lateral_threshold" if abs(route[takeover]["lateral_m"]) >= collection["lateral_threshold_m"]
+                               else "time_limit")
+            require(policy.get("takeover_reason") == expected_reason, "Recorded takeover reason differs from observed trigger")
         recovery_frames = [
             int(k)
             for k in ep.anchors

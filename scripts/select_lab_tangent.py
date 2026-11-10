@@ -20,6 +20,10 @@ The protocol and calibration must be frozen before the first optimization update
 For native-future targets, schema_version 2 additionally requires
 action_target_contract and training_args.action_target_mode=native_future_v1.
 The action bounds then apply to those targets, not to teacher-command diagnostics.
+For PI and desired-motion targets, schema_version 3 uses
+kind=op_tangent_pi_v1_selection, the desired-motion contract, a positive frozen
+w_consistency, and ranking=PI_RANKING. It selects a strict aggregate plan L1
+improvement over step zero, subject to the same absolute coherence gates.
 """
 
 from __future__ import annotations
@@ -30,7 +34,10 @@ import math
 import re
 from pathlib import Path
 
-from fsop.train.action_target import LEGACY_ACTION_TARGET, NATIVE_FUTURE_ACTION_TARGET, NATIVE_FUTURE_CONTRACT
+from fsop.train.action_target import (
+    DESIRED_MOTION_CONTRACT, DESIRED_MOTION_TARGET, LEGACY_ACTION_TARGET,
+    NATIVE_FUTURE_ACTION_TARGET, NATIVE_FUTURE_CONTRACT,
+)
 from scripts.freeze_lab_selection import checkpoint_info
 from scripts.lab_training_provenance import MEMBERSHIP, dataset_paths, run_checkpoint, validation_identity
 from scripts.select_lab_action import frozen_state, number, read, sha, source_check, validation
@@ -83,6 +90,7 @@ TRAINING_ARGS = (
     "recovery_provenance_mode",
     "collection_policy_checkpoint_sha",
 )
+PI_RANKING = {"metric": "aggregate.plan_l1", "improvement": "strict_step_zero", "tie_break": "lowest_step"}
 STATS = ("mean", "p95", "max")
 CASE_IDS = frozenset(c["id"] for c in read(MEMBERSHIP)["cases"] if c["split"] == "val")
 
@@ -103,30 +111,49 @@ def protocol_check(p):
         "training_args",
         "bounds",
     }
-    if version == 2:
+    if version in (2, 3):
         fields.add("action_target_contract")
+    if version == 3:
+        fields.add("ranking")
     if set(p) != fields:
         raise ValueError("protocol fields mismatch")
     if (
-        version not in (1, 2)
-        or p["kind"] != "op_tangent_v1_selection"
-        or p["initializer_sha256"] != INITIALIZER
+        version not in (1, 2, 3)
+        or p["kind"] != ("op_tangent_pi_v1_selection" if version == 3 else "op_tangent_v1_selection")
+        or (version != 3 and p["initializer_sha256"] != INITIALIZER)
         or p["expected_steps"] != 500
         or p["checkpoint_steps"] != STEPS
-        or p["controller_contract"] != controller_contract("op_tangent_v1")
+        or p["controller_contract"] != controller_contract("op_tangent_pi_v1" if version == 3 else "op_tangent_v1")
         or (version == 2 and p.get("action_target_contract") != NATIVE_FUTURE_CONTRACT)
+        or (version == 3 and (p.get("action_target_contract") != DESIRED_MOTION_CONTRACT
+                              or p.get("ranking") != PI_RANKING))
     ):
         raise ValueError("protocol identity mismatch")
-    for key in ("calibration_sha256", "manifest_sha256"):
+    for key in ("calibration_sha256", "manifest_sha256", "initializer_sha256"):
         if not isinstance(p[key], str) or not re.fullmatch("[0-9a-f]{64}", p[key]):
             raise ValueError(f"invalid protocol {key}")
-    training_fields = set(TRAINING_ARGS) | ({"action_target_mode"} if version == 2 else set())
+    training_fields = set(TRAINING_ARGS) | ({"action_target_mode"} if version >= 2 else set())
+    if version == 3:
+        training_fields.add("w_consistency")
     if not isinstance(p["training_args"], dict) or set(p["training_args"]) != training_fields:
         raise ValueError("incomplete frozen training arguments")
     if version == 2 and p["training_args"]["action_target_mode"] != NATIVE_FUTURE_ACTION_TARGET:
         raise ValueError("action target mode mismatch")
-    if any(value is None for value in p["training_args"].values()):
+    if version == 3 and (p["training_args"]["action_target_mode"] != DESIRED_MOTION_TARGET
+                         or type(p["training_args"]["w_consistency"]) not in (float, int)
+                         or not math.isfinite(p["training_args"]["w_consistency"])
+                         or p["training_args"]["w_consistency"] <= 0):
+        raise ValueError("invalid desired motion target or consistency weight")
+    if any(value is None for key, value in p["training_args"].items()
+           if not (version == 3 and key == "collection_policy_checkpoint_sha")):
         raise ValueError("missing frozen training argument value")
+    if version == 3:
+        fixed = {"steps": 500, "val_every": 100, "freeze_vision": True, "w_plan": 1.0,
+                 "w_steer": 0.0, "w_long": 0.0, "history_context": 8, "l2sp": 0.0,
+                 "batch_size": 128, "val_samples": 256, "recovery_draws": 16,
+                 "recovery_provenance_mode": "per_case_v2", "collection_policy_checkpoint_sha": None}
+        if any(p["training_args"].get(key) != value for key, value in fixed.items()):
+            raise ValueError("PI training configuration mismatch")
     b = p["bounds"]
     if not isinstance(b, dict) or set(b) != {"aggregate", "episode", "coherence", "episode_coherence"}:
         raise ValueError("incomplete bound inventory")
@@ -210,6 +237,67 @@ def policy_trainable_names(checkpoint):
     return ["base.policy." + name for name, tensor in model.base.policy.named_parameters() if tensor.requires_grad]
 
 
+def verify_per_case_sampling(sampler, dataset, recipe_path, args, bind):
+    from fsop.data.native_replay import NativeReplay, episode_paths, load_episodes
+    from fsop.train.lab_train import RecoverySampler
+    from scripts.verify_lab_recovery import verify
+
+    recipe = read(recipe_path)
+    ids, records = recipe.get("recovery_case_ids"), recipe.get("collection_by_case")
+    episodes = sampler["recovery_episodes"]
+    if (recipe.get("schema_version") != 2 or not isinstance(ids, list) or not ids
+            or len(set(ids)) != len(ids) or not isinstance(records, dict) or set(records) != set(ids)
+            or [row.get("case_id") for row in episodes] != ids):
+        raise ValueError("per-case recovery inventory mismatch")
+
+    def bind_recipe_inputs(path, case_id, seen=None):
+        seen = set() if seen is None else seen
+        if path in seen:
+            raise ValueError("cyclic recovery recipe")
+        seen.add(path)
+        doc = read(bind(path))
+        bind(path.parent / doc["membership"])
+        bind(path.parent / "cases" / (case_id + ".json"))
+        legacy = doc.get("collection_by_case", {}).get(case_id, {}).get("legacy_receipt")
+        if legacy:
+            bind(path.parent / legacy["path"])
+            bind_recipe_inputs((path.parent / legacy["recipe"]).resolve(), case_id, seen)
+
+    paths = episode_paths(manifest=dataset)
+    for row in episodes:
+        case_id = row["case_id"]
+        record = records[case_id]
+        index = row.get("episode")
+        if (not isinstance(record, dict) or type(index) is not int or not 0 <= index < len(paths)
+                or row.get("collection_contract") != record
+                or row.get("collection_checkpoint_sha256") != record.get("checkpoint_sha256")
+                or not isinstance(record.get("checkpoint_sha256"), str)
+                or not re.fullmatch(r"[0-9a-f]{64}", record["checkpoint_sha256"])):
+            raise ValueError("per-case collection identity mismatch")
+        path = Path(paths[index]).resolve()
+        meta = read(bind(path / "meta.json"))
+        if meta.get("id") != case_id:
+            raise ValueError("per-case episode identity mismatch")
+        for name in meta["arrays_sha256"]:
+            bind(path / name)
+        bind(path / "source.zip")
+        bind(path / "track.json")
+        bind_recipe_inputs(recipe_path, case_id)
+        receipt = read(bind(row["gate_path"]))
+        if (verify(path, recipe_path) != receipt or receipt.get("passed") is not True
+                or receipt.get("case_id") != case_id
+                or receipt.get("takeover_tick") != row.get("takeover_tick")
+                or receipt.get("terminal_start_tick") != row.get("terminal_start_tick")
+                or receipt.get("recovery_frame_indices") != row.get("frames")
+                or receipt.get("recovery_ticks") != row.get("ticks")):
+            raise ValueError("per-case recovery gate mismatch")
+    replay = NativeReplay(load_episodes(paths), "train")
+    actual = RecoverySampler(replay, recipe_path, args["recovery_gates"], 128, 16, sampler["optimization_init_sha256"],
+                             provenance_mode="per_case_v2", collection_policy_checkpoint_sha=None).protocol()
+    if actual != sampler:
+        raise ValueError("per-case recovery sampling differs from verified dataset")
+
+
 def select(training, calibration, protocol):
     training, calibration, protocol = map(lambda x: Path(x).resolve(), (training, calibration, protocol))
     if training == calibration:
@@ -227,8 +315,12 @@ def select(training, calibration, protocol):
     if sha(calibration / "calibration.json") != p["calibration_sha256"] or read(trained_cal_path) != cal:
         raise ValueError("calibration identity or metrics differ from frozen calibration")
     run, cal_run = read(bind(training / "run.json")), read(bind(calibration / "run.json"))
-    target_contract = NATIVE_FUTURE_CONTRACT if p["schema_version"] == 2 else None
-    target_mode = NATIVE_FUTURE_ACTION_TARGET if target_contract else LEGACY_ACTION_TARGET
+    version = p["schema_version"]
+    initializer = p["initializer_sha256"]
+    target_contract = {1: None, 2: NATIVE_FUTURE_CONTRACT, 3: DESIRED_MOTION_CONTRACT}[version]
+    target_mode = {1: LEGACY_ACTION_TARGET, 2: NATIVE_FUTURE_ACTION_TARGET, 3: DESIRED_MOTION_TARGET}[version]
+    provenance_mode = "per_case_v2" if version == 3 else "off_policy_v1"
+    collection_sha = None if version == 3 else COLLECTION
     for record in (run, cal_run):
         if (record.get("action_target_contract") != target_contract or
                 record["args"].get("action_target_mode", LEGACY_ACTION_TARGET) != target_mode):
@@ -255,6 +347,12 @@ def select(training, calibration, protocol):
     identities = {}
     for root, record in ((training, run), (calibration, cal_run)):
         source_check(root, record)
+        if version == 3:
+            repository = Path(__file__).resolve().parents[1]
+            for name in ("scripts/select_lab_tangent.py", "scripts/verify_lab_recovery.py",
+                         "isaac_lab_fsop/recovery_schedule.py"):
+                if record["source"]["files_sha256"].get(name) != sha(repository / name):
+                    raise ValueError("PI native training dependency archive mismatch")
         bind(root / "source.zip")
         dataset, receipt = dataset_paths(record)
         identity = validation_identity(record, dataset, receipt, MEMBERSHIP)
@@ -266,7 +364,7 @@ def select(training, calibration, protocol):
             raise ValueError("manifest differs from protocol")
         if record.get("controller_contract") != p["controller_contract"]:
             raise ValueError("controller contract mismatch")
-        if record.get("init_sha256") != INITIALIZER or sha(bind(record["args"]["init"])) != INITIALIZER:
+        if record.get("init_sha256") != initializer or sha(bind(record["args"]["init"])) != initializer:
             raise ValueError("initializer mismatch")
         if record["baseline_state_sha256"] != run["baseline_state_sha256"]:
             raise ValueError("frozen initialization state mismatch")
@@ -274,9 +372,9 @@ def select(training, calibration, protocol):
             raise ValueError("expected 347 frozen tensors")
         sampler = record.get("recovery_sampling", {})
         if (
-            sampler.get("provenance_mode") != "off_policy_v1"
-            or sampler.get("collection_policy_checkpoint_sha") != COLLECTION
-            or sampler.get("optimization_init_sha256") != INITIALIZER
+            sampler.get("provenance_mode") != provenance_mode
+            or sampler.get("collection_policy_checkpoint_sha") != collection_sha
+            or sampler.get("optimization_init_sha256") != initializer
             or sampler.get("recovery_draws_per_batch") != 16
             or sampler.get("other_draws_per_batch") != 112
         ):
@@ -289,7 +387,9 @@ def select(training, calibration, protocol):
         for episode in sampler["recovery_episodes"]:
             if sha(bind(episode["gate_path"])) != episode["gate_sha256"]:
                 raise ValueError("recovery gate hash mismatch")
-        if record["args"].get("controller_mode") != "op_tangent_v1":
+        if version == 3:
+            verify_per_case_sampling(sampler, dataset, recipe_path, record["args"], bind)
+        if record["args"].get("controller_mode") != ("op_tangent_pi_v1" if version == 3 else "op_tangent_v1"):
             raise ValueError("training controller mode mismatch")
     if (
         cal_run["source"]["files_sha256"] != run["source"]["files_sha256"]
@@ -312,15 +412,15 @@ def select(training, calibration, protocol):
         or args.get("val_every") != 100
         or args.get("freeze_vision") is not True
         or args.get("w_plan") != 1.0
-        or args.get("w_steer") != 3.281158240898283
-        or args.get("w_long") != 1.0
+        or args.get("w_steer") != (0.0 if version == 3 else 3.281158240898283)
+        or args.get("w_long") != (0.0 if version == 3 else 1.0)
         or args.get("history_context") != 8
         or args.get("l2sp") != 0.0
         or args.get("batch_size") != 128
         or args.get("val_samples") != 256
         or args.get("recovery_draws") != 16
-        or args.get("recovery_provenance_mode") != "off_policy_v1"
-        or args.get("collection_policy_checkpoint_sha") != COLLECTION
+        or args.get("recovery_provenance_mode") != provenance_mode
+        or args.get("collection_policy_checkpoint_sha") != collection_sha
         or not args.get("recovery_cases")
         or Path(args["recovery_cases"]).resolve() != Path(run["recovery_sampling"]["recipe_path"]).resolve()
     ):
@@ -330,7 +430,7 @@ def select(training, calibration, protocol):
     if cal.get("version") != 1 or cal.get("identity", {}).get("controller_contract") != p["controller_contract"]:
         raise ValueError("calibration controller identity mismatch")
     if (
-        cal["identity"].get("init_sha256") != INITIALIZER
+        cal["identity"].get("init_sha256") != initializer
         or cal["identity"].get("manifest_sha256") != p["manifest_sha256"]
         or cal["identity"].get("validation_selection") != run["validation_selection"]
         or cal["identity"].get("episodes") != run["episodes"]
@@ -353,6 +453,8 @@ def select(training, calibration, protocol):
         "tf32": run["tf32"],
         "weights": {"plan": args.get("w_plan"), "steer": args.get("w_steer"), "longitudinal": args.get("w_long")},
     }
+    if version == 3:
+        expected_identity["weights"]["consistency"] = args["w_consistency"]
     if any(ci.get(k) != v for k, v in expected_identity.items()):
         raise ValueError("calibration numerical configuration mismatch")
     zero = read(bind(training / "baseline_validation.json"))
@@ -380,9 +482,9 @@ def select(training, calibration, protocol):
         ):
             raise ValueError("history protocol or calibration mismatch")
         if row.get("controller_contract") != p["controller_contract"] or row.get("recovery_provenance") != {
-            "provenance_mode": "off_policy_v1",
-            "collection_policy_checkpoint_sha": COLLECTION,
-            "optimization_init_sha256": INITIALIZER,
+            "provenance_mode": provenance_mode,
+            "collection_policy_checkpoint_sha": collection_sha,
+            "optimization_init_sha256": initializer,
         }:
             raise ValueError("history controller or sampler mismatch")
     init_info = checkpoint_info(args["init"])
@@ -490,8 +592,9 @@ def select(training, calibration, protocol):
         gates = assess(
             current_validation, p["bounds"], run["validation_selection"], identities[training]["path_to_case"]
         )
-        if target_contract is not None:
-            for metric in ("teacher_steer", "teacher_longitudinal"):
+        if version >= 2:
+            metrics = ("teacher_steer", "teacher_longitudinal") if version == 2 else ("native_relative_acceleration",)
+            for metric in metrics:
                 groups = [current_validation["aggregate"], *current_validation["episodes"]]
                 for group in groups:
                     number(group.get(metric), metric)
@@ -514,19 +617,20 @@ def select(training, calibration, protocol):
             excluded_step_one = candidate
         else:
             candidates.append(candidate)
-    baseline_steer = candidates[0]["validation"]["aggregate"]["steer"]
+    ranking_metric = "plan_l1" if version == 3 else "steer"
+    baseline_metric = candidates[0]["validation"]["aggregate"][ranking_metric]
     for c in candidates:
-        c["improves_step_zero"] = c["step"] != 0 and c["validation"]["aggregate"]["steer"] < baseline_steer
+        c["improves_step_zero"] = c["step"] != 0 and c["validation"]["aggregate"][ranking_metric] < baseline_metric
     improved = [c for c in candidates if c["eligible"] and c["improves_step_zero"]]
     chosen = (
-        min(improved, key=lambda c: (c["validation"]["aggregate"]["steer"], c["step"])) if improved else candidates[0]
+        min(improved, key=lambda c: (c["validation"]["aggregate"][ranking_metric], c["step"])) if improved else candidates[0]
     )
     for path, expected in inputs.items():
         if sha(path) != expected:
             raise ValueError(f"input changed during selection: {path}")
     return {
         "schema_version": p["schema_version"],
-        "kind": "op_tangent_v1_selection",
+        "kind": p["kind"],
         "status": "trained_candidate_selected" if improved else "retain_step_zero",
         "controller_contract": p["controller_contract"],
         **({"action_target_contract": target_contract} if target_contract is not None else {}),

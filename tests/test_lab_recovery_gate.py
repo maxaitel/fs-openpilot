@@ -9,6 +9,7 @@ import numpy as np
 import pytest
 
 from fsop.sim.expert import ExpertParams, Mission
+from fsop.eval.controller import controller_contract
 from fsop.track import centerline
 from fsop.track.fixed_layouts import skidpad
 from fsop.track.generate import TrackGenCfg, generate_track
@@ -283,3 +284,18 @@ def test_time_trigger_uses_saved_timestamps(episode):
     result = verify(episode, RECIPE)
     assert result["passed"], result["reasons"]
     assert result["first_trigger_tick"] == 159
+
+
+@pytest.mark.parametrize("contract, passes", [
+    (controller_contract("pp"), True),
+    (controller_contract("op_tangent_pi_v1"), False),
+    (None, False),
+])
+def test_legacy_explicit_controller_must_be_pp(episode, contract, passes):
+    meta = json.loads((episode / "meta.json").read_text())
+    meta["controller_contract"] = contract
+    write_meta(episode, meta)
+    result = verify(episode, RECIPE)
+    assert result["passed"] is passes, result["reasons"]
+    if not passes:
+        assert any("controller contract" in reason for reason in result["reasons"])

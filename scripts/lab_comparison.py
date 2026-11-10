@@ -75,9 +75,13 @@ def comparison_conditions(folder, metadata):
             raise ValueError("Scene asset digest mismatch or path escape")
     from fsop.eval.controller import controller_contract
     contract = metadata.get("controller_contract", controller_contract("pp"))
-    if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1")
+    if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1", "op_tangent_pi_v1")
             or contract != controller_contract(contract["mode"])):
         raise ValueError("Invalid comparison controller contract")
+    if (metadata["schema_version"] == 3 or contract["mode"] == "op_tangent_pi_v1") and (
+        metadata["schema_version"] != 3 or contract["mode"] != "op_tangent_pi_v1"
+    ):
+        raise ValueError("Evidence schema does not match controller contract")
     return {**{key: metadata[key] for key in FIELDS}, "asset_dependencies": hashes, "controller_contract": contract}
 
 

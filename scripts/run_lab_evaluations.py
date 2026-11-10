@@ -119,7 +119,7 @@ def load_plan(path, repo=REPO):
             from fsop.eval.controller import controller_contract, validate_checkpoint_payload
 
             contract = entry["controller_contract"]
-            if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1")
+            if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1", "op_tangent_pi_v1")
             or contract != controller_contract(contract["mode"])):
                 raise ValueError("Invalid controller contract")
             payload = torch.load(checkpoint, map_location="cpu", weights_only=False)
@@ -225,8 +225,10 @@ def validate_episode(directory, case, model, lock):
         raise ValueError("Checkpoint or model-state identity mismatch")
     from fsop.eval.controller import controller_contract
     expected_contract = model.get("controller_contract", controller_contract("pp"))
-    if expected_contract["mode"] == "op_tangent_v1" and metadata.get("schema_version") != 2:
-        raise ValueError("Tangent episode requires evidence schema 2")
+    if expected_contract["mode"] in ("op_tangent_v1", "op_tangent_pi_v1"):
+        expected_schema = {"op_tangent_v1": 2, "op_tangent_pi_v1": 3}[expected_contract["mode"]]
+        if metadata.get("schema_version") != expected_schema:
+            raise ValueError(f"Controller episode requires evidence schema {expected_schema}")
     for artifact in (metadata, summary):
         actual_contract = artifact.get("controller_contract")
         if actual_contract != expected_contract and (lock.get("version", 1) != 1 or actual_contract is not None):

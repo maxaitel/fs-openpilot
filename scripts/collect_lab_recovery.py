@@ -46,7 +46,17 @@ def command_for(case_id, recipe, recipe_path, checkpoint, destination):
         k_lookahead=teacher["k_lookahead"],
     )
     require(asdict(params) == teacher, f"Collector cannot reproduce teacher parameters for {case_id}")
-    collection = recipe["collection"]
+    record = recipe.get("collection_by_case", {}).get(case_id)
+    collection = record["collection"] if record else recipe["collection"]
+    if record:
+        checkpoint = Path(record.get("checkpoint", checkpoint)).resolve()
+        require(digest(checkpoint) == record["checkpoint_sha256"], f"Collection checkpoint differs for {case_id}")
+        schedule = recipe_path.parent / "phase_schedules" / (case_id + ".json")
+        require(json.loads(schedule.read_text()) == collection, f"Phase schedule differs for {case_id}")
+        learner = ["--phase-schedule", str(schedule), "--learner-controller", record["controller_contract"]["mode"]]
+    else:
+        learner = ["--takeover", str(collection["takeover_seconds"]),
+                   "--lateral-takeover", str(collection["lateral_threshold_m"])]
     return [
         sys.executable,
         "-m",
@@ -59,10 +69,7 @@ def command_for(case_id, recipe, recipe_path, checkpoint, destination):
         str(destination),
         "--checkpoint",
         str(checkpoint),
-        "--takeover",
-        str(collection["takeover_seconds"]),
-        "--lateral-takeover",
-        str(collection["lateral_threshold_m"]),
+        *learner,
         "--speed",
         str(teacher["v_cap"]),
         "--alat",
@@ -121,13 +128,14 @@ def collect(args):
     membership_path = (recipe_path.parent / recipe["membership"]).resolve()
     membership = json.loads(membership_path.read_text())
     checkpoint = (args.checkpoint or Path(recipe["checkpoint"])).resolve()
+    phase_mode = recipe.get("schema_version") == 2
     require(
         math.isfinite(args.timeout) and 0 < args.timeout <= 1200, "Timeout must be positive and at most 1200 seconds"
     )
     require(
-        recipe.get("schema_version") == 1
+        (phase_mode or (recipe.get("schema_version") == 1
         and recipe.get("collection")
-        == {"takeover_seconds": 120, "lateral_threshold_m": 0.4, "capture_hz": 20, "image_hz": 5}
+        == {"takeover_seconds": 120, "lateral_threshold_m": 0.4, "capture_hz": 20, "image_hz": 5}))
         and recipe.get("gate")
         == {
             "min_lateral_m": 0.3,
@@ -141,14 +149,25 @@ def collect(args):
         },
         "Coordinator requires the frozen event recovery protocol",
     )
-    ids, pilots = recipe["recovery_case_ids"], recipe["pilot_case_ids"]
+    all_ids, pilots = recipe["recovery_case_ids"], recipe["pilot_case_ids"]
+    ids = recipe["replacement_case_ids"] if phase_mode else all_ids
+    if phase_mode:
+        records = recipe["collection_by_case"]
+        require(len(all_ids) == 8 and len(set(all_ids)) == 8 and set(records) == set(all_ids)
+                and len(ids) == 4 and len(set(ids)) == 4 and set(ids) <= set(all_ids)
+                and len(pilots) == 2 and set(pilots) <= set(ids), "Invalid phase recovery inventory")
+        require(all(records[key]["collection"]["mode"] == "phase_recovery_v1" for key in ids)
+                and all(records[key]["collection"]["mode"] == "legacy_learner_prefix_v1"
+                        for key in set(all_ids) - set(ids)), "Invalid replacement collection modes")
+        require({records[key]["collection"]["phase"] for key in pilots} == {"entry", "left_transition"},
+                "Pilots must cover both phases")
+        for key in ids:
+            path = Path(records[key].get("checkpoint", checkpoint)).resolve()
+            require(digest(path) == records[key]["checkpoint_sha256"], f"Replacement checkpoint differs for {key}")
     cases = {row["id"]: row for row in membership["cases"] if row["split"] in ("train", "val")}
     require(
         len(cases) == 40
-        and len(ids) == 8
-        and len(set(ids)) == 8
-        and len(pilots) == 4
-        and pilots == ids[:4]
+        and (phase_mode or (len(ids) == 8 and len(set(ids)) == 8 and len(pilots) == 4 and pilots == ids[:4]))
         and set(ids) <= set(cases)
         and all(cases[key]["split"] == "train" for key in ids),
         "Invalid frozen membership or recovery cases",
@@ -163,7 +182,7 @@ def collect(args):
         command_for(key, recipe, recipe_path, checkpoint, out / key)
     require(digest(checkpoint) == recipe["checkpoint_sha256"], "Checkpoint digest differs")
     manifest = source / "manifest.json"
-    require(digest(manifest) == SOURCE_MANIFEST, "Source manifest digest differs from frozen lab_v2")
+    require(digest(manifest) == (recipe["source_manifest_sha256"] if phase_mode else SOURCE_MANIFEST), "Source manifest digest differs from frozen lab_v2")
     source_report = verify_dataset(manifest, membership_path)
     require(
         json.loads(receipt_path.read_text()) == source_report,
@@ -172,7 +191,7 @@ def collect(args):
     manifest_doc = json.loads(manifest.read_text())
     retained = [row for row in manifest_doc["episodes"] if row["path"] not in ids]
     require(
-        len(retained) == 32 and {row["path"] for row in manifest_doc["episodes"]} == set(cases),
+        len(retained) == 40 - len(ids) and {row["path"] for row in manifest_doc["episodes"]} == set(cases),
         "Source manifest does not contain exact membership",
     )
     require(not out.is_relative_to(source) and not source.is_relative_to(out), "Source and output must be separate")
@@ -187,6 +206,9 @@ def collect(args):
         "recipe_sha256": digest(recipe_path),
         "checkpoint": str(checkpoint),
         "checkpoint_sha256": digest(checkpoint),
+        "collection_checkpoints": ({key: {"path": str(Path(records[key].get("checkpoint", checkpoint)).resolve()),
+                                           "sha256": records[key]["checkpoint_sha256"]} for key in ids}
+                                    if phase_mode else {}),
         "source": str(source),
         "source_manifest_sha256": digest(manifest),
         "source_receipt": str(receipt_path),
@@ -224,7 +246,7 @@ def collect(args):
             ("recovery_gates", ".json"),
             ("seals", ".json"),
         ):
-            allowed = {key + suffix for key in ids}
+            allowed = {key + suffix for key in (all_ids if directory == "recovery_gates" else ids)}
             require(
                 all(p.is_file() and p.name in allowed for p in (out / directory).iterdir()),
                 f"Output contains unrelated entries in {directory}",
@@ -243,6 +265,7 @@ def collect(args):
                 and digest(Path(__file__).with_name("verify_lab_dataset.py")) == identity["dataset_verifier_sha256"]
                 and digest(recipe_path) == identity["recipe_sha256"]
                 and digest(checkpoint) == identity["checkpoint_sha256"]
+                and all(digest(row["path"]) == row["sha256"] for row in identity["collection_checkpoints"].values())
                 and digest(manifest) == identity["source_manifest_sha256"]
                 and digest(receipt_path) == identity["source_receipt_sha256"]
                 and digest(membership_path) == identity["membership_sha256"],
@@ -281,7 +304,7 @@ def collect(args):
         if args.phase == "remaining":
             for key in pilots:
                 check_prior(key)
-        selected = pilots if args.phase == "pilot" else ids[4:]
+        selected = pilots if args.phase == "pilot" else [key for key in ids if key not in pilots]
         for key in selected:
             check_stable()
             if (out / "attempts" / (key + ".json")).exists():
@@ -305,6 +328,15 @@ def collect(args):
         if args.phase == "remaining":
             for key in ids:
                 check_prior(key)
+            if phase_mode:
+                for key in set(all_ids) - set(ids):
+                    gate = verify_recovery(out / key, recipe_path)
+                    require(gate["passed"], f"Retained recovery gate failed for {key}")
+                    path = out / "recovery_gates" / (key + ".json")
+                    if path.exists():
+                        require(json.loads(path.read_text()) == gate, f"Retained recovery receipt changed for {key}")
+                    else:
+                        write_new(path, gate)
             rows = []
             for source_row in manifest_doc["episodes"]:
                 key = source_row["path"]

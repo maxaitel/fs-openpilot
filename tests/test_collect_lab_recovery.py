@@ -186,3 +186,65 @@ def test_gpu_guard_allows_only_sunshine(monkeypatch):
     )
     with pytest.raises(ValueError, match="another compute process"):
         coordinator.require_idle_gpu()
+
+
+def test_phase_replaces_only_four_cases_and_preserves_legacy_gates(setup, monkeypatch):
+    args, runs, recipe = setup
+    from fsop.eval.controller import controller_contract
+
+    replaced = recipe['recovery_case_ids'][4:]
+    recipe.update(schema_version=2, replacement_case_ids=replaced,
+                  pilot_case_ids=[replaced[0], replaced[2]],
+                  source_manifest_sha256=coordinator.digest(args.source / 'manifest.json'))
+    recipe['collection_by_case'] = {}
+    for key in recipe['recovery_case_ids']:
+        if key in replaced:
+            phase = 'entry' if key in replaced[:2] else 'left_transition'
+            collection = {'mode': 'phase_recovery_v1', 'phase': phase, 'lateral_threshold_m': .35,
+                          'learner_window_seconds': 6, 'transition_lead_m': 12}
+            write(args.recipe.parent / 'phase_schedules' / (key + '.json'), collection)
+            contract = controller_contract('op_tangent_pi_v1')
+        else:
+            collection = {'mode': 'legacy_learner_prefix_v1', **recipe['collection']}
+            contract = controller_contract('pp')
+        recipe['collection_by_case'][key] = {'collection': collection, 'controller_contract': contract,
+                                            'checkpoint_sha256': recipe['checkpoint_sha256']}
+    write(args.recipe, recipe)
+
+    class Episode:
+        def __init__(self, path):
+            self.anchors = [1, 2]
+            self.rejections = {}
+            self.meta = {'wall_seconds': 3, 'summary': {'result': 'finished'}}
+
+    monkeypatch.setattr(coordinator, 'NativeEpisode', Episode)
+    coordinator.collect(args)
+    assert runs == recipe['pilot_case_ids']
+    args.phase = 'remaining'
+    coordinator.collect(args)
+    assert set(runs) == set(replaced) and len(runs) == 4
+    for key in recipe['recovery_case_ids'][:4]:
+        assert os.path.samefile(args.source / key / 'original', args.out / key / 'original')
+        assert (args.out / 'recovery_gates' / (key + '.json')).is_file()
+    coordinator.collect(args)
+    assert len(runs) == 4
+    command = coordinator.command_for(replaced[0], recipe, args.recipe, Path(recipe['checkpoint']), args.out / replaced[0])
+    assert '--phase-schedule' in command and 'op_tangent_pi_v1' in command and '--takeover' not in command
+
+
+def test_phase_command_binds_the_case_checkpoint(setup):
+    args, _, recipe = setup
+    key = recipe['recovery_case_ids'][0]
+    checkpoint = args.recipe.parent / 'phase_model.pt'
+    checkpoint.write_bytes(b'case-specific checkpoint')
+    schedule = {'mode': 'phase_recovery_v1', 'phase': 'left_transition', 'lateral_threshold_m': .35,
+                'learner_window_seconds': 6, 'transition_lead_m': 12}
+    write(args.recipe.parent / 'phase_schedules' / (key + '.json'), schedule)
+    recipe['collection_by_case'] = {key: {'checkpoint': str(checkpoint),
+        'checkpoint_sha256': coordinator.digest(checkpoint), 'collection': schedule,
+        'controller_contract': {'mode': 'op_tangent_pi_v1'}}}
+    command = coordinator.command_for(key, recipe, args.recipe, Path(recipe['checkpoint']), args.out / key)
+    assert command[command.index('--checkpoint') + 1] == str(checkpoint)
+    checkpoint.write_bytes(b'changed')
+    with pytest.raises(ValueError, match='checkpoint differs'):
+        coordinator.command_for(key, recipe, args.recipe, Path(recipe['checkpoint']), args.out / key)

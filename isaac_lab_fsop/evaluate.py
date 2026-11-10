@@ -20,7 +20,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--case", type=Path, required=True)
     parser.add_argument("--checkpoint", type=Path, required=True)
-    parser.add_argument("--controller", choices=("pp", "op_tangent_v1"), default="pp")
+    parser.add_argument("--controller", choices=("pp", "op_tangent_v1", "op_tangent_pi_v1"), default="pp")
     parser.add_argument("--expected-sha", help="Optional expected complete checkpoint SHA-256")
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--pilot-steps", type=int, default=0)
@@ -135,7 +135,7 @@ def main():
         writer_type = AsyncEvidenceWriter if args.async_evidence else EvidenceWriter
         metadata = {
             "evidence_writer": writer_type.__name__,
-            "schema_version": 2 if args.controller == "op_tangent_v1" else 1,
+            "schema_version": {"pp": 1, "op_tangent_v1": 2, "op_tangent_pi_v1": 3}[args.controller],
             "fps": 20,
             "backend": "Isaac Lab PhysX",
             "case": asdict(case),

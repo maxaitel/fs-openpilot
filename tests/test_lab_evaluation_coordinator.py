@@ -216,6 +216,29 @@ class CoordinatorTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "controller contract"):
             coordinator.validate_episode(d, case, model, episode_lock)
 
+    def test_pi_plan_requires_exact_contract_and_schema_3(self):
+        from fsop.eval.controller import controller_contract
+        import torch
+        repo, plan_path, _, checkpoint = self.make_plan()
+        contract = controller_contract("op_tangent_pi_v1")
+        torch.save({"model": {}, "config": {"controller_mode": contract["mode"]},
+                    "controller_contract": contract}, checkpoint)
+        plan = json.loads(plan_path.read_text())
+        plan["version"] = 2
+        plan["models"][0].update(sha256=coordinator.digest(checkpoint), controller_contract=contract)
+        plan_path.write_text(json.dumps(plan))
+        lock = coordinator.load_plan(plan_path, repo)
+        self.assertEqual(lock["models"][0]["controller_contract"], contract)
+        plan["models"][0]["controller_contract"] = {**contract, "integral_gain": 9}
+        plan_path.write_text(json.dumps(plan))
+        with self.assertRaisesRegex(ValueError, "controller contract"):
+            coordinator.load_plan(plan_path, repo)
+        d, case, model, episode_lock = self.make_episode()
+        episode_lock["version"] = 2
+        model["controller_contract"] = contract
+        with self.assertRaisesRegex(ValueError, "schema 3"):
+            coordinator.validate_episode(d, case, model, episode_lock)
+
     def test_invalid_names_are_rejected(self):
         for name in ("../escape", "/absolute", "", "x/y"):
             with self.subTest(name=name), self.assertRaises(ValueError):

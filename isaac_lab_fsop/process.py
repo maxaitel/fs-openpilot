@@ -43,22 +43,27 @@ def audit_episode(directory):
         metadata = json.loads((evidence / "metadata.json").read_text())
         from fsop.eval.controller import controller_contract
         schema = metadata.get("schema_version", 1)
-        if (schema not in (1, 2) or
-            (schema == 2 and ("controller_contract" not in metadata or "controller_contract" not in summary))):
+        if (schema not in (1, 2, 3) or
+            (schema in (2, 3) and ("controller_contract" not in metadata or "controller_contract" not in summary))):
             raise ValueError("Invalid evidence schema or missing controller contract")
         contract = metadata.get("controller_contract", controller_contract("pp"))
-        if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1")
+        if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1", "op_tangent_pi_v1")
             or contract != controller_contract(contract["mode"])):
             raise ValueError("Invalid evidence controller contract")
-        if (schema == 2) != (contract["mode"] == "op_tangent_v1"):
+        if schema != {"pp": 1, "op_tangent_v1": 2, "op_tangent_pi_v1": 3}[contract["mode"]]:
             raise ValueError("Evidence schema does not match controller contract")
         if summary.get("controller_contract", controller_contract("pp")) != contract:
             raise ValueError("Controller contract differs between evidence and summary")
-        if contract["mode"] == "op_tangent_v1":
+        if contract["mode"] in ("op_tangent_v1", "op_tangent_pi_v1"):
             for name in ("src/fsop/eval/controller.py", "src/fsop/eval/closed_loop.py"):
                 if sha256_file(name) != metadata.get("source_sha256", {}).get(name):
                     raise ValueError("Controller audit source differs from sealed evidence")
         report["controller_contract"] = contract
+        if schema == 3:
+            auditor_sha = sha256_file(__file__)
+            if auditor_sha != metadata.get("source_sha256", {}).get("isaac_lab_fsop/process.py"):
+                raise ValueError("Controller auditor source differs from sealed evidence")
+            report["auditor_sha256"] = auditor_sha
         case = Case(**metadata["case"])
         env = environment(case)
         expected_realization = realized_environment(env)
@@ -112,6 +117,10 @@ def audit_episode(directory):
         env.hint, env.s = env.mission.init_progress(initial["x"], initial["y"])
         env.route_commands = RouteCommands.for_mission(env.track, env.mission, env.cfg.fps)
         count, sum_sq = 0, 0.0
+        controller = None
+        if contract["mode"] == "op_tangent_pi_v1":
+            from fsop.eval.controller import make_controller
+            controller = make_controller(contract["mode"], env.vp)
         for _, record, _entry in read_evidence(evidence):
             frame = count
             checks.compare("frame", frame, record["frame"], frame)
@@ -195,6 +204,15 @@ def audit_episode(directory):
                 steer, accel = make_controller(contract["mode"], env.vp)(plan, env.state.vx, env.state.vy)
                 accel = mission_brake(accel, SimpleNamespace(state=env.state, s=env.s), env)
                 checks.compare("controller.action", np.array([steer, accel]), action, frame)
+            elif contract["mode"] == "op_tangent_pi_v1":
+                from fsop.eval.closed_loop import mission_brake_with_override
+                obs = SimpleNamespace(state=env.state, s=env.s)
+                steer, accel, diagnostics = controller.step(
+                    plan, env.state.vx, env.state.vy, env.state.t,
+                    lambda command: mission_brake_with_override(command, obs, env),
+                )
+                checks.compare("controller.action", np.array([steer, accel]), action, frame)
+                checks.compare("controller.diagnostics", diagnostics, record["prediction"]["controller"], frame)
             body = record["body"]
             rot, velocity = np.asarray(body["rotation"]), np.asarray(body["velocity_world"])
             a = np.arctan2(rot[1, 0], rot[0, 0])
