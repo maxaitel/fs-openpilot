@@ -743,6 +743,7 @@ def training_graphs(history, out):
                 ("loss", "train total"),
                 ("val_loss", "validation"),
                 ("plan_nll", "train plan NLL"),
+                ("native_relative_acceleration", "train consistency (unweighted)"),
                 ("steer", "train steer"),
                 ("longitudinal", "train longitudinal"),
                 ("l2sp", "train L2-SP"),
