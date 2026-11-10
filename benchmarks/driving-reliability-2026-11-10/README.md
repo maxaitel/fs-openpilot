@@ -55,13 +55,13 @@ The frozen development protocol allows only step 500 of an unqualified run to un
 
 Full CUDA replay of all 120 pilot frames passed at the original 1e-5 numerical tolerances. CPU replay failed on unchanged image and plan diagnostics, while the learned command checks matched. The CPU failure remains retained and does not qualify the model. The producer artifact audit reconstructs the declared float32 proprio inputs with no tolerance change. Both actual debug and research videos passed full 160-frame decoding. Their banner distinguishes frozen plan diagnostics from learned executed commands. [The video audit](direct_command_pilot/lab_video_audit.json) binds producer rendering and portable encoding.
 
-The full exposed skidpad diagnostic timed out after 120 simulated seconds with 14 physical contacts, seven off-course events and no accepted laps. The exposed track diagnostic also timed out at 120 seconds with three contacts, two off-course events and no completed lap. Its legacy `raw_time=0` and penalty-derived `time=26` do not represent a completion time. These are rejected-model failure diagnostics, not final acceptance samples. The next targeted change is independently verified on-policy TRAIN recovery data from the missed entry state. Collection, fitting and native evaluation remain separate gates.
+The full exposed skidpad diagnostic timed out after 120 simulated seconds with 14 physical contacts, seven off-course events and no accepted laps. The exposed track diagnostic also timed out at 120 seconds with three contacts, two off-course events and no completed lap. Its legacy `raw_time=0` and penalty-derived `time=26` do not represent a completion time. These are rejected-model failure diagnostics, not final acceptance samples. The next experiment added independently verified on-policy TRAIN recovery data from the missed entry state. Its results appear below.
 
 ## Reproduction and retained artifacts
 
 [The source copy receipt](direct_command_source/published_copy_receipt.json) binds exact experiment-source copies and training receipts. Restore the files in `direct_command_source` to `.work/lab/direct_command_trial` from the repository root to preserve their bound paths. The training source archive also retains the exact original runtime sources and explicitly mapped external dependencies. Full checkpoint packages remain under the ignored local `runs/direct_command_trial3_archive` directory, with all six hashes verified in its published copy receipt. No failed checkpoint was removed.
 
-The current local report is `runs/driving_reliability_report/index.html`. It includes native traces, command and appearance probes, actual training and validation curves, hardware samples, first-error plots, and links to all eight inherited videos and both new failed-pilot views. Its evidence inventory hashes every consumed artifact. Full exposed episodes will be added only after replay, producer audit and video verification complete.
+The local report is `runs/driving_reliability_report/index.html`. It includes native traces, command and appearance probes, actual training and validation curves, hardware samples, first-error plots, and all 20 encoded views from the inherited paired comparison and the first two direct-command trials. Its evidence inventory hashes every consumed artifact. Each new episode is added after saved-input replay, producer audit and video verification complete.
 
 The [work plan](../../docs/isaac-lab-training/reliability_work_plan.md) and append-only [decision log](../../docs/isaac-lab-training/decisions.tsv) record continuation state. New diagnostics use the existing RAM-backed workspace. The running container, unrelated CFD processes and inherited evidence are preserved.
 
@@ -71,4 +71,58 @@ The first new episode switches the frozen rejected learner to the teacher at tic
 
 The [first verifier receipt](direct_command_recovery_data/skidpad/failed_receipt_v1.json) failed because JSON writes a vehicle parameter tuple as a list. The scalar values, mount, camera and scene matched. A separately versioned [derived verifier](direct_command_recovery_source/verify_v2.py) applies the producer's JSON serialization to the expected vehicle dataclass. The original collector, verifier, protocol, failed receipt and source archive remain intact. No numerical or physical gate changes. The track recovery also passes independent verification. It switches at tick 164, settles from tick 178, completes with zero contacts and zero off-course events, and supplies 205 qualified anchors. All 165 prefix frames replay on CUDA. [Its receipt](direct_command_recovery_data/trackdrive/receipt_v2.json) binds the cached track geometry and actual camera history.
 
-The [prepared data-only training trial](direct_command_recovery_trial_source/protocol_v2.md) draws 16 old recovery, 16 new recovery and 96 ordinary anchors per batch. A fresh head uses the original 500-update optimizer and validation limits. Both new data receipts must pass before its audit or optimization can start. The independent source review found no blocker, and three CPU sampler and receipt-rejection tests pass. The real Spark audit is running. Optimization has not started.
+The [prepared data-only training trial](direct_command_recovery_trial_source/protocol_v2.md) draws 16 old recovery, 16 new recovery and 96 ordinary anchors per batch. A fresh head uses the original 500-update optimizer and validation limits. Both new data receipts must pass before its audit or optimization can start. The independent source review found no blocker, and three CPU sampler and receipt-rejection tests pass. The audit passed and the discarded wiring head reached its unchanged thresholds at update 196. The main fit completed all 500 updates. Every scheduled checkpoint failed validation, so none was selected. See the results below.
+
+## Recovery-data fit and measured driving
+
+The data-only fit completed all 500 updates and all six validation snapshots. Step500 aggregate MAE was 0.00622419 rad and 0.19858789 m/s². Its p95 was 0.02445922 rad and 0.82706383 m/s². Every snapshot fails the unchanged limits, including the same three track episodes and low-speed steering. [The validation record](direct_command_recovery_training/validation_500.json) remains a rejected-model result.
+
+The original training process then exhausted its 1024-descriptor limit while reopening data for its final audit. [Its failed receipt](direct_command_recovery_training/train_failure.json) and all six full checkpoints remain retained. A separate fresh-process [read-only postflight](direct_command_recovery_training/read_only_postflight.json) verifies all 417 unchanged base tensors in all six packages, the complete data and source identities, and an exactly matching recomputation of all 2067 final validation anchors. It resumes no optimizer updates and selects no checkpoint. It reconstructs sampler counts from the frozen seed and labels them as reconstructed.
+
+The telemetry wrapper recorded 469.14 seconds and 469 samples, with return code 1. Median whole-device utilization was 81%, median power 49.733 W, median whole-host CPU use 6.0%, and peak sampled whole-host RAM 9.21 GiB. A source-preserving archive copy overlapped this job. These figures are not an isolated speed comparison, and the failed postflight means the durations do not cover equivalent work to the previous successful bookkeeping run. Process-level peak PyTorch allocation was not saved by the failed stage. [All hardware samples](direct_command_recovery_training/hardware_measurement.json) remain available.
+
+![Recovery-data optimization loss](plots/recovery_data_trial/training_loss.png)
+
+![Recovery-data validation against the same limits](plots/recovery_data_trial/validation.png)
+
+![Recovery-data hardware samples](plots/recovery_data_trial/hardware.png)
+
+| Diagnostic | Frames | Simulated seconds | Physical contacts | Off-course events | Result |
+|---|---:|---:|---:|---:|---|
+| TRAIN pilot | 60 | 3.0 | 2 | 0 | Invalid initial entry |
+| Exposed heavy skidpad | 60 | 3.0 | 2 | 0 | Invalid initial entry |
+| Exposed heavy track | 2400 | 120.0 | 10 | 13 | Timeout, incomplete |
+
+These are one run per case. The shorter skidpad failure is not an improvement in contact count. The pilot cannot pass the required 120-frame integration gate. [The new first-error diagnosis](direct_command_diagnosis/result_recovery2.json) finds premature steering. At tick50 the head requests -0.21527 rad while a privileged teacher query at the actual state requests +0.13544 rad. Setting yaw rate to zero at that fixed latent changes the request to -0.16232 rad, accounting for only part of the discrepancy. Raw head replay differs by at most 3.34e-6. Those interventions are diagnostic predictions, not driving outcomes.
+
+![Premature turn-in in the new failed pilot](plots/recovery_data_trial/first_error_recovery.png)
+
+Both recovery-data views for each diagnostic passed producer audits and complete video decoding. The [compact pilot evidence](direct_command_recovery_pilot/) and [full exposed pair evidence](direct_command_recovery_development/) preserve the actual CUDA replay identity and all original tolerances. A replay verifies saved inputs and outputs; it does not rerun physical simulation.
+
+## Joint policy suffix
+
+The [frozen joint experiment](joint_command_source/joint_command_trial/protocol.md) trains the final three policy affine modules and the same command head. It optimizes 296450 values in ten tensors and keeps the other 411 base state tensors unchanged during training. Every full package contains all 417 updated base states and four head states. Every deployed tensor must match that saved package. Raw command targets and all existing validation, visual, driving, and final gates remain unchanged.
+
+Independent review found verifier-ownership and failed-stage transition gaps before launch. Both were fixed and rechecked before source freeze. The real Spark audit passed. One disposable update improved its fixed-batch loss and changed every intended tensor, with the 411-state complement unchanged and exact updated-package roundtrip. Fresh disposable wiring passed at update56. All conditioning and wiring weights were discarded before the main run.
+
+The main run completed 500 updates and its independent fresh-process postflight passed. All six checkpoints failed the unchanged command validation gates. Step500 aggregate MAE was 0.00652104 rad and 0.17697710 m/s²; p95 was 0.02349217 rad and 0.78139103 m/s². Three track scenes and low-speed steering also failed. No checkpoint was selected. [The training receipts](joint_command_training/train.json) and [archive receipt](joint_command_training/local_copy_receipt.json) bind all six full packages. The 27-file local archive is byte-exact with the preserved Spark source.
+
+![Joint optimization loss](plots/joint_trial/training_loss.png)
+
+![Joint validation against unchanged ceilings](plots/joint_trial/validation.png)
+
+![Joint hardware samples](plots/joint_trial/hardware.png)
+
+The job recorded 446.84 seconds internally and 482.25 seconds in its external wrapper. The wrapper sampled 482 times, with median whole-device GPU utilization 86%, power 50.1875 W, whole-host CPU use 5.3%, and peak sampled host RAM 9.95 GiB. Peak PyTorch allocation was 1361847808 bytes. These are achieved job measurements, not an isolated speed comparison or FLOPS efficiency.
+
+The fixed step500 [CPU runtime diagnostic](joint_command_training/runtime.json) passed repeated commands and head reconstruction over 184 saved TRAIN frames at the original 1e-5 tolerances. Mean forward time was 0.13018 seconds and p95 was 0.13652 seconds, excluding physics, rendering and evidence writes. This backend does not establish a real-time 20 Hz rate. The rejected checkpoint's [six-second TRAIN pilot](joint_command_pilot/summary.json) recorded three physical contacts and zero off-course events. All 120 saved frames replay on CPU, the producer artifact audit passes, and both video views fully decode at 160 frames. Only the predeclared one-run exposed pair may follow this rejected model. The final acceptance suite remains unopened.
+
+## Testing the shared premise
+
+[The fixed-input teacher analysis](corridor_design/premise_diagnostic_v1.md) finds correct same-tick alignment in the inspected data builder. Three TRAIN teachers use a different steering lookahead. Changing only that setting at saved precontact states changes steering by up to 0.06334 rad, with no acceleration change. This material difference cannot explain the full observed command error or establish that the unchanged validation gates are impossible. Hidden-future acceleration ambiguity remains unproved.
+
+The first two direct heads have precontact steering MAE of 0.05340 and 0.05851 rad at their own states, against privileged teacher queries. Their offline aggregate MAEs near 0.006 rad describe a different state distribution. These correlated prefixes share one TRAIN scene. No reliability estimate follows from those tick counts.
+
+[The cone audit](corridor_design/geometric_option_probe/cone_quality.py) checks saved predictions in those same precontact prefixes. At 5–10 m, 354 of 360 blue/yellow predictions associate with a same-color actual cone within 0.75 m. Matched-error p95 is about 0.25 m in each prefix. Nearer and farther detections are less reliable. This matching threshold is not a safety bound, and frustum visibility does not account for occlusion.
+
+Two independent sketches compare a [deterministic route-aware planner](corridor_design/geometric_option_v1.md) with a [learned local corridor](corridor_design/learned_corridor_candidate_v1.md) on identical vision-cone inputs. The next bounded prototype tests the deterministic planner first, with full TRAIN detector coverage required before a physical candidate. Its measured-state history may receive external route commands and the disclosed existing AS mission layer. Ground truth stays in labels and scorers. Any geometry qualification remains distinct from the failed raw-command imitation contract. All physical, validation-driving and final acceptance gates stay unchanged.

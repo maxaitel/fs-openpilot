@@ -1,0 +1,10 @@
+{
+  "remote": "/scratch/fsop/head_trial_work/runs/joint_command_trial1",
+  "local": "/Users/maxaitel/Documents/ChatGPT/fs-openpilot-skidpad-correction/runs/joint_command_trial1_archive",
+  "verified_files": 27,
+  "verified_bytes": 752715818,
+  "remote_inventory_sha256": "5a34b2570b007e6cbda6d886216e4e6b6846a0244467661f4782aee150a2f4fc",
+  "remote_before_after_identical": true,
+  "local_inventory_exact": true,
+  "source_deleted": false
+}

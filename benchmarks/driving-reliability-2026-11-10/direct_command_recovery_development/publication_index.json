@@ -1,0 +1,13 @@
+{
+  "cases": [
+    "../direct_command_recovery_pilot/publication_index.json",
+    "heavy_skid/publication_index.json",
+    "heavy_track/publication_index.json"
+  ],
+  "full_video_decode_audit": "full_video_decode_audit.json",
+  "video_count": 20,
+  "source_report_video_hashes_checked": 14,
+  "source_report_video_hash_mismatches": [],
+  "recovery_video_hashes_and_frame_counts_match_original_audits": true,
+  "limits": "These development and pilot episodes failed driving outcomes. Saved-input replay does not rerun physics or scoring, and decoding videos does not qualify the model."
+}

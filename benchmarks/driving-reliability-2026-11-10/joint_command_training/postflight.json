@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "audit_sha256": "de5c27dd4af484705d27ff55e20e0f9dc56986b3d6cddc47553eef2cdb6f95e6",
+  "fresh_process": true,
+  "process_id": 500210,
+  "training_process_id": 499940,
+  "packages": [
+    {
+      "step": 0,
+      "sha256": "061ed5f45076cb06e6ca745009629b4175e9b82c719de63beaadc97671425f9d",
+      "base_model_digest": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+      "all_417_saved_hashes_verified": true,
+      "head_4_saved_hashes_verified": true,
+      "frozen_complement_411_unchanged": true
+    },
+    {
+      "step": 100,
+      "sha256": "f596d47ff6e5560294e84ead221cc28fd599cca3c1abac1c2ccb8705361891a4",
+      "base_model_digest": "0646ef1271cc2ae1763f2f0aa718acb79bf7bb87fa03b8f0577664e9e7effbdc",
+      "all_417_saved_hashes_verified": true,
+      "head_4_saved_hashes_verified": true,
+      "frozen_complement_411_unchanged": true
+    },
+    {
+      "step": 200,
+      "sha256": "9dcfb096bca549fb6e2ce7c53c5820ada4c385fc45c1c59c8ee5a3f9f09f8b9f",
+      "base_model_digest": "2a9d62776cb196a411596b72c40858d569a0a22d772daf7a308495b1d2437bfd",
+      "all_417_saved_hashes_verified": true,
+      "head_4_saved_hashes_verified": true,
+      "frozen_complement_411_unchanged": true
+    },
+    {
+      "step": 300,
+      "sha256": "de56a3ec5e098f4c8d637dea49fd8ddf347cf8344b0dea02328b6e7c6c8e6176",
+      "base_model_digest": "0b478fece29132a6cdfc8240bb1c07f2b837da45dc5569e5803f04534a885998",
+      "all_417_saved_hashes_verified": true,
+      "head_4_saved_hashes_verified": true,
+      "frozen_complement_411_unchanged": true
+    },
+    {
+      "step": 400,
+      "sha256": "8779f87d3e2b533afc1b4f8a31f979269dd5d52593f4c8328af05c2c37a0e9f4",
+      "base_model_digest": "15547639031e48cede53e0e55cf01f0b1b50691abdf3d8be6801ad28845fe150",
+      "all_417_saved_hashes_verified": true,
+      "head_4_saved_hashes_verified": true,
+      "frozen_complement_411_unchanged": true
+    },
+    {
+      "step": 500,
+      "sha256": "3cb08122c7d21656c23d3786c059b5a59bb904a8bb3fd617ec38020308de7b35",
+      "base_model_digest": "10b4a1a84f1955aca51e7859fcd69bd5d9ef52b18b9c6803a70b36704db2f753",
+      "all_417_saved_hashes_verified": true,
+      "head_4_saved_hashes_verified": true,
+      "frozen_complement_411_unchanged": true
+    }
+  ],
+  "final_validation_exact": true,
+  "verification_exact": true,
+  "source_archive_exact": true
+}

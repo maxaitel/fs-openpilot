@@ -1,0 +1,43 @@
+{
+  "method": "SHA-256 of current source and copy bytes",
+  "files": [
+    {
+      "source": "runs/driving_reliability_report/first_error_recovery.png",
+      "copy": "benchmarks/driving-reliability-2026-11-10/plots/recovery_data_trial/first_error_recovery.png",
+      "sha256": "47be8c9bf173ba4ff55ac91351dc0af0177f16456a6d143adbd7a3e9ceb79740",
+      "bytes": 101960
+    },
+    {
+      "source": "runs/driving_reliability_report/hardware.png",
+      "copy": "benchmarks/driving-reliability-2026-11-10/plots/recovery_data_trial/hardware.png",
+      "sha256": "4395e3a8544596ca1cb2153c1d0dedbc2c42d7fbe6baaecb92d6ad4b6508dbca",
+      "bytes": 128607
+    },
+    {
+      "source": "runs/driving_reliability_report/recovery_paths.png",
+      "copy": "benchmarks/driving-reliability-2026-11-10/plots/recovery_data_trial/recovery_paths.png",
+      "sha256": "6ca515727757e81afc59ca9ff48c019907f44888c2762f602900520960790ad2",
+      "bytes": 125414
+    },
+    {
+      "source": "runs/driving_reliability_report/training_loss.png",
+      "copy": "benchmarks/driving-reliability-2026-11-10/plots/recovery_data_trial/training_loss.png",
+      "sha256": "9150146131c6939e28ca2474aa7a5655fd29a82c99f95844e3821fe8a2c0a4cb",
+      "bytes": 46771
+    },
+    {
+      "source": "runs/driving_reliability_report/validation.png",
+      "copy": "benchmarks/driving-reliability-2026-11-10/plots/recovery_data_trial/validation.png",
+      "sha256": "9e9e39a2ec42744e80abe49b6603bbf8f4552324237fe506060a4895d070bab7",
+      "bytes": 87695
+    }
+  ],
+  "source_report_summary": {
+    "copy": "benchmarks/driving-reliability-2026-11-10/plots/recovery_data_trial/source_report_summary.json",
+    "copy_sha256": "401ea5125aac5840d3f2ec6e2e3d5c37b1d082ef018fc7736ca39246549a03f5",
+    "current_report_summary": "runs/driving_reliability_report/summary.json",
+    "current_report_summary_sha256": "68e1591fe11d476ded6c49dbda927010308bfca172e2ee7fed45b6de3919a01c",
+    "identical": false,
+    "note": "The report summary currently differs from the retained copy. Its historical source bytes are not established here."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "source": "runs/driving_reliability_report_joint1/training_loss.png",
+      "destination": "training_loss.png",
+      "sha256": "9d1c5ab0929caf33039bca472788400d9fa7bf8e0e9103942137e7e4b6023366"
+    },
+    {
+      "source": "runs/driving_reliability_report_joint1/validation.png",
+      "destination": "validation.png",
+      "sha256": "ab1088a47d3cfe9671b680cabdf32422f8c8aa63de4e2137ed8b7b65f6cdda7f"
+    },
+    {
+      "source": "runs/driving_reliability_report_joint1/hardware.png",
+      "destination": "hardware.png",
+      "sha256": "34c15cb8a47275692eb31a0e419de975135662845e4acb1eef86629a1eca2fbf"
+    }
+  ],
+  "report_summary_sha256": "5ad937cb97a898bef84e927389e69aaa1b43cd4b11cff3885d64ff8338a1fbbd"
+}

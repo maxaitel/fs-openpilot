@@ -1,0 +1,8 @@
+{
+  "frozen_at": "2026-11-10T07:19:00.224519+00:00",
+  "source_sha256": {
+    ".work/lab/direct_command_recovery_trial/read_only_postflight.py": "d97e745e4537ffde71ebb1dffc854a581675d5d329ff61cd1d42f5b96317e92b",
+    ".work/lab/direct_command_recovery_trial/read_only_postflight.md": "a4efb63211c026ec3d7ef570151eb5bc07639e96a188d39fde2bcf5c83de7d74"
+  },
+  "purpose": "Fresh-process read-only artifact verification after postflight descriptor failure. No optimizer updates or candidate qualification."
+}

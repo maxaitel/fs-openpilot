@@ -1,0 +1,126 @@
+{
+  "files": [
+    {
+      "source": "runs/joint_command_trial1_archive/audit.json",
+      "destination": "audit.json",
+      "sha256": "de5c27dd4af484705d27ff55e20e0f9dc56986b3d6cddc47553eef2cdb6f95e6"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/audit_attempt.json",
+      "destination": "audit_attempt.json",
+      "sha256": "e5561d307019178c59a6bfa27a659b17236960ca5e14252567c0499b463a12b0"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/condition.json",
+      "destination": "condition.json",
+      "sha256": "40c60802e74f9c132a7f14cbd61dbfb85fb984c9571f98d4cde970a57922fce7"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/condition_attempt.json",
+      "destination": "condition_attempt.json",
+      "sha256": "e58ff7a2065fa8706ca26c51fe5241c25b2a6b00bb0afb65e8306d0bc575e1e3"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/overfit.json",
+      "destination": "overfit.json",
+      "sha256": "45cf34e346d7b8be6379361846b9332be7f60765199d2ad540af7adc94ee61dc"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/overfit_attempt.json",
+      "destination": "overfit_attempt.json",
+      "sha256": "ed12a0b43f4b3de15a73c6fb57598f1b567211d0f20309c92f6c35abf7efddfe"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/postflight.json",
+      "destination": "postflight.json",
+      "sha256": "9694add06ef03a6d23215482102eed5755ceae7e4408d162a6a53ff0b7d468a5"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/postflight_attempt.json",
+      "destination": "postflight_attempt.json",
+      "sha256": "cf48e75fe2b71cfbfc105b1d675a70ead187c1250561f4aeaf9944b51f9c143b"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/runtime.json",
+      "destination": "runtime.json",
+      "sha256": "1c5913427ad7aeeec70315321157528fe1c9e919a6a156b9eacf2ed8a7f785f2"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/runtime_attempt.json",
+      "destination": "runtime_attempt.json",
+      "sha256": "ceb1c93c5754e4434dfadca3b0f1bc1f98ee2bbc8676b4a7075c3de526d477e4"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/source.zip",
+      "destination": "source.zip",
+      "sha256": "8b2d7dfb52e7e74491491eedbf104b329fc84d429b8016d64ae29be5eef126d1"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/steps.jsonl",
+      "destination": "steps.jsonl",
+      "sha256": "c804126d0a84d9092c1bf6f8e38c1b7819b8cf3cdcf7f8cc43d6503186c7c66a"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/train.json",
+      "destination": "train.json",
+      "sha256": "b39aad9dcac7421dcf8d27ea71ed0dc104e81600c1cf5384a758c27dc05a4afb"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/train_attempt.json",
+      "destination": "train_attempt.json",
+      "sha256": "ed07a9cf7a8f48e4c8dbce5a3726827858bfa2e6fdd83049ff03857f7dffd8f1"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/training_updates.json",
+      "destination": "training_updates.json",
+      "sha256": "e3b1aaba8eeaa48fd846a64af93dd75a91f7abfecaa3045c11fbf2aa8d3bee44"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/validation_000.json",
+      "destination": "validation_000.json",
+      "sha256": "01cf8129ca4136db5ed16c55d9d53ade903e764e51fb4a5de2c85b6d48689d22"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/validation_100.json",
+      "destination": "validation_100.json",
+      "sha256": "a43ecd4ad4c12d3f9bf20c359d4798cbfab24a2182845fca8a8f6d2bb6ea4e31"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/validation_200.json",
+      "destination": "validation_200.json",
+      "sha256": "aac65996585dca337003c8912e4c5476a02dcea66045889505336d7d4cbbc58f"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/validation_300.json",
+      "destination": "validation_300.json",
+      "sha256": "65f9d2de2c462ca3378c431e6ebee946847e6087f25d7b70e47011ddc709474b"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/validation_400.json",
+      "destination": "validation_400.json",
+      "sha256": "e40f5606a72a16e91c8b2dc9bebba5c2294ab6a03c66af7ab6b472410b7d9a46"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive/validation_500.json",
+      "destination": "validation_500.json",
+      "sha256": "7725db25e274045fb07235021a0e1cd15e18260411a212acf7212067091f70a3"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive.measure.json",
+      "destination": "hardware_measurement.json",
+      "sha256": "25f8fd6135a1cad7ca54bba148e8b5058d22d0144289236f1b3924319d6315d4"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive.copy_receipt.json",
+      "destination": "local_copy_receipt.json",
+      "sha256": "c97d8e9cff3276c24fd692618e2b7cd863fe26c86aa54ec53c659a633d4a3442"
+    },
+    {
+      "source": "runs/joint_command_trial1_archive.remote_inventory.json",
+      "destination": "local_remote_inventory.json",
+      "sha256": "5a34b2570b007e6cbda6d886216e4e6b6846a0244467661f4782aee150a2f4fc"
+    }
+  ],
+  "full_packages": "Retained in runs/joint_command_trial1_archive and untouched Spark source. Archive inventory binds exact package hashes.",
+  "source_deleted": false
+}

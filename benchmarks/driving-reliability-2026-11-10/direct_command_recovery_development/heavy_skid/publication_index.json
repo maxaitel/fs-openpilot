@@ -1,0 +1,79 @@
+{
+  "source_directory": "runs/direct_command_recovery_development2_archive/heavy_skid",
+  "producer_prefix": "runs/direct_command_recovery_development2/heavy_skid",
+  "copied_receipts": [
+    {
+      "source": "runs/direct_command_recovery_development2_archive/heavy_skid/summary.json",
+      "copy": "benchmarks/driving-reliability-2026-11-10/direct_command_recovery_development/heavy_skid/summary.json",
+      "sha256": "e0fd15633127f96cbf832891b6224fb2705a27fbf25b3cb6d447f012eedf30a0",
+      "bytes": 5726
+    },
+    {
+      "source": "runs/direct_command_recovery_development2_archive/heavy_skid/replay-cuda.json",
+      "copy": "benchmarks/driving-reliability-2026-11-10/direct_command_recovery_development/heavy_skid/replay-cuda.json",
+      "sha256": "c37353af68874194b2c2c3eef76dc8c9d7ce68ff20c4b0004c3b48e7217a6877",
+      "bytes": 90238
+    },
+    {
+      "source": "runs/direct_command_recovery_development2_archive/heavy_skid/lab_artifact_audit.json",
+      "copy": "benchmarks/driving-reliability-2026-11-10/direct_command_recovery_development/heavy_skid/lab_artifact_audit.json",
+      "sha256": "a8982c19270c505726ea2897c5e31db4add64f4cdc430b414be74910728a3485",
+      "bytes": 64382
+    },
+    {
+      "source": "runs/direct_command_recovery_development2_archive/heavy_skid/lab_video_audit.json",
+      "copy": "benchmarks/driving-reliability-2026-11-10/direct_command_recovery_development/heavy_skid/lab_video_audit.json",
+      "sha256": "d2919a28e8bdfd1b04c7ccd97625612b8450be6744d93c1ecdbd26c0c0071312",
+      "bytes": 18395
+    },
+    {
+      "source": "runs/direct_command_recovery_development2_archive/heavy_skid/producer_render_receipt.json",
+      "copy": "benchmarks/driving-reliability-2026-11-10/direct_command_recovery_development/heavy_skid/producer_render_receipt.json",
+      "sha256": "2dd0fb3a0b315c98eeaedbf5198a4bdf56da9749cc9dcd6251b05ed888a2d645",
+      "bytes": 2153
+    },
+    {
+      "source": "runs/direct_command_recovery_development2_archive/heavy_skid/evidence/completion.json",
+      "copy": "benchmarks/driving-reliability-2026-11-10/direct_command_recovery_development/heavy_skid/evidence/completion.json",
+      "sha256": "adc5d14ebcc1a29f97ebb38638f9e75abd968e02415e2d1ce6f131e9f1911b70",
+      "bytes": 343
+    },
+    {
+      "source": "runs/direct_command_recovery_development2_archive/heavy_skid/evidence/metadata.json",
+      "copy": "benchmarks/driving-reliability-2026-11-10/direct_command_recovery_development/heavy_skid/evidence/metadata.json",
+      "sha256": "715b818c7668a2249e6598b17b9c1191591d0384c73debbc8cb2cd3d54553c65",
+      "bytes": 132421
+    },
+    {
+      "source": "runs/direct_command_recovery_development2_archive/heavy_skid/evidence/manifest.jsonl",
+      "copy": "benchmarks/driving-reliability-2026-11-10/direct_command_recovery_development/heavy_skid/evidence/manifest.jsonl",
+      "sha256": "438deb999fea436f64b8e4e3946dbda28e9c16e2a633ffa2c70f6b69c40a6dec",
+      "bytes": 17450
+    }
+  ],
+  "replay_bound_files_checked": 95,
+  "replay_bound_file_issues": [],
+  "producer_device": "cuda",
+  "replay_device": "cuda",
+  "replay_passed": true,
+  "artifact_audit_passed": true,
+  "result": "invalid_route",
+  "route_violation": "invalid_entry",
+  "recorded_frames": 60,
+  "seconds_simulated": 3.0,
+  "physical_cone_hits": 2,
+  "oc": 0,
+  "video_audit_scope": "Transport encoding only; no physics, inference, or renderer rerun; no model qualification.",
+  "limitations": {
+    "replay": [
+      "Saved inputs only; physical simulation and scoring are not rerun.",
+      "Cross-device numerical differences are not exempted from the original 1e-5 tolerance."
+    ],
+    "artifact": [
+      "Mission, commands and referee are replayed from saved states; physics and inference are not rerun.",
+      "Physical contacts are unique recorded native contact events, not independently simulated.",
+      "Checkpoint and model hashes bind producer identities but do not independently inspect weights.",
+      "Final full body pose is not recorded; a terminal rollover override cannot be independently verified."
+    ]
+  }
+}

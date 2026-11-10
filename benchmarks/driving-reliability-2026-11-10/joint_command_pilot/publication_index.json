@@ -1,0 +1,56 @@
+{
+  "files": [
+    {
+      "source": "runs/joint_command_pilot1/summary.json",
+      "destination": "summary.json",
+      "sha256": "e78601a725e5a08cd5ec45e471feaca86494d2bc045c55c369cb3351e8886cdd"
+    },
+    {
+      "source": "runs/joint_command_pilot1/replay_cpu.json",
+      "destination": "replay_cpu.json",
+      "sha256": "0aa865fd974a550d6d512432c1d00466d9e0e8a15f749934633132dad2fca934"
+    },
+    {
+      "source": "runs/joint_command_pilot1/lab_artifact_audit.json",
+      "destination": "lab_artifact_audit.json",
+      "sha256": "91ec35fe2b3354f4b4405352e6806ee44e1c9749dbc4d23d526e4d621b5f14ee"
+    },
+    {
+      "source": "runs/joint_command_pilot1/producer_render_receipt.json",
+      "destination": "producer_render_receipt.json",
+      "sha256": "3e3c5bc362decc9b588734e06761ceb954de819b0aabff3669f91e29a632d159"
+    },
+    {
+      "source": "runs/joint_command_pilot1/lab_video_audit.json",
+      "destination": "lab_video_audit.json",
+      "sha256": "0e8082625439f1987597b850e15e78ebb603ad92ed3e5045b6645a34afa54608"
+    },
+    {
+      "source": "runs/joint_command_pilot1/evidence/metadata.json",
+      "destination": "evidence/metadata.json",
+      "sha256": "627df0556dd1eb93261e600203a16a81a7d69e50f26f839f5c66a568a5077ee7"
+    },
+    {
+      "source": "runs/joint_command_pilot1/evidence/completion.json",
+      "destination": "evidence/completion.json",
+      "sha256": "9fbdc11b5dc4aed0d8f6c184d6c87b9632537fba05729e199832e85d52e260be"
+    },
+    {
+      "source": "runs/joint_command_pilot1/evidence/manifest.jsonl",
+      "destination": "evidence/manifest.jsonl",
+      "sha256": "e410b71b52881e78b65477cecd3e66573a05807f488e3164bddf7f6ee323897a"
+    }
+  ],
+  "views": [
+    {
+      "path": "runs/joint_command_pilot1/debug.mp4",
+      "sha256": "7827b4600ed29bb228d9cb16a101894709b0f406b606098a71ec4d8404dd3c60"
+    },
+    {
+      "path": "runs/joint_command_pilot1/research.mp4",
+      "sha256": "8b1583eec36fccef19128c7c1f81ddc9b78b00a7de4bb52d310bc7bb957b2905"
+    }
+  ],
+  "limits": "Rejected fixed step500 diagnostic. CPU saved-input replay is not a new physical simulation. Full source episode and native artifacts retained locally and on Spark.",
+  "source_deleted": false
+}
