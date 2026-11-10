@@ -1,0 +1,12 @@
+{
+  "all_frozen_sources_unchanged": true,
+  "canonical_teacher_max_abs": {
+    "direct_command_pilot3": 3.597122599785507e-13,
+    "direct_command_recovery_pilot2": 6.938893903907228e-18
+  },
+  "freeze_sha256": "1ee0f8fca1c0de7e72bed01d1d51f8682476adeca1e0d5dae45fc9acab5d0f6b",
+  "repeat_used_preserve_exact_output_checks": true,
+  "result_sha256": "5178985cde389e87bf0c7cd4159ec8a1737427e1ba32fe62bf7c14b5328a653a",
+  "rows_sha256": "38fc1a38d2c522401804d6021f038b126dfa109e4bc02d13d5376f542c9c29ea",
+  "stdout_identical": true
+}

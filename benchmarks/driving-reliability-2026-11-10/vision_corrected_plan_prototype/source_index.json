@@ -1,0 +1,375 @@
+{
+  "exclusions": [
+    {
+      "path": "__pycache__",
+      "reason": "Generated Python bytecode cache, not source or an experiment output."
+    }
+  ],
+  "execution_note": "Frozen scripts retain their original scratch-relative path assumptions. Publication copies are archival. The source mappings identify every restoration path; do not modify frozen scripts to run them from this layout.",
+  "files": [
+    {
+      "byte_identical": true,
+      "category": "frozen_source",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/config.json",
+      "sha256": "1bb5e3df9aaec0c2fae4251c9ac8a53bbf5fc4151df02138ffd1ce2b40c78d82",
+      "size_bytes": 2087,
+      "source": ".work/lab/vision_corrected_plan_proto_v1/config.json"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_source",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/controller.py",
+      "sha256": "d1c1cc2d111f436ebb2deb6b8eda8ba7f8c9f898e03b53de1c7cf43dcdfc39e6",
+      "size_bytes": 10726,
+      "source": ".work/lab/vision_corrected_plan_proto_v1/controller.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_source",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/protocol.md",
+      "sha256": "377abd83d2a4e8cf81c7eac1d655533cd084d194a07c85d31f2171f06f2edb0b",
+      "size_bytes": 7715,
+      "source": ".work/lab/vision_corrected_plan_proto_v1/protocol.md"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_source",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/replay.py",
+      "sha256": "25572566fbf181f772fb7f435cf4181897c696b72d6ddca6d651dbf7d1f75c44",
+      "size_bytes": 11163,
+      "source": ".work/lab/vision_corrected_plan_proto_v1/replay.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_source",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/test_controller.py",
+      "sha256": "55ebdb133f9fec89da3bd9820e61aa2c82504daeb108ced1a35eef4848772499",
+      "size_bytes": 2626,
+      "source": ".work/lab/vision_corrected_plan_proto_v1/test_controller.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_outputs",
+      "frozen_before_first_replay": false,
+      "published": "frozen_outputs/first_stdout.json",
+      "sha256": "4bcb06c9b7e8d5e62f751371175302340dd40a5179a6772f6d7d0396be0cd074",
+      "size_bytes": 16520,
+      "source": ".work/lab/vision_corrected_plan_proto_v1/first_stdout.json"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_outputs",
+      "frozen_before_first_replay": false,
+      "published": "frozen_outputs/freeze.json",
+      "sha256": "1ee0f8fca1c0de7e72bed01d1d51f8682476adeca1e0d5dae45fc9acab5d0f6b",
+      "size_bytes": 3953,
+      "source": ".work/lab/vision_corrected_plan_proto_v1/freeze.json"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_outputs",
+      "frozen_before_first_replay": false,
+      "published": "frozen_outputs/repeat_receipt.json",
+      "sha256": "12920d7673590e6330ef135353dcb1fb9df1b74feceab21117c75a46a12e0796",
+      "size_bytes": 532,
+      "source": ".work/lab/vision_corrected_plan_proto_v1/repeat_receipt.json"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_outputs",
+      "frozen_before_first_replay": false,
+      "published": "frozen_outputs/repeat_stdout.json",
+      "sha256": "4bcb06c9b7e8d5e62f751371175302340dd40a5179a6772f6d7d0396be0cd074",
+      "size_bytes": 16520,
+      "source": ".work/lab/vision_corrected_plan_proto_v1/repeat_stdout.json"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_outputs",
+      "frozen_before_first_replay": false,
+      "published": "frozen_outputs/report.md",
+      "sha256": "f6a86afba84f0849c972a9d1f70285f35f9463c156ccf6d3e9dd50492543f227",
+      "size_bytes": 11559,
+      "source": ".work/lab/vision_corrected_plan_proto_v1/report.md"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_outputs",
+      "frozen_before_first_replay": false,
+      "published": "frozen_outputs/result.json",
+      "sha256": "5178985cde389e87bf0c7cd4159ec8a1737427e1ba32fe62bf7c14b5328a653a",
+      "size_bytes": 67587,
+      "source": ".work/lab/vision_corrected_plan_proto_v1/result.json"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_outputs",
+      "frozen_before_first_replay": false,
+      "published": "frozen_outputs/rows.json",
+      "sha256": "38fc1a38d2c522401804d6021f038b126dfa109e4bc02d13d5376f542c9c29ea",
+      "size_bytes": 3282233,
+      "source": ".work/lab/vision_corrected_plan_proto_v1/rows.json"
+    },
+    {
+      "byte_identical": true,
+      "category": "post_result_diagnosis",
+      "frozen_before_first_replay": false,
+      "published": "post_result_diagnosis/attribution.json",
+      "sha256": "00921511872f9ebb9bae42c4550c11c6ddf3282f27e1dd587c182f4a5a56f459",
+      "size_bytes": 108033,
+      "source": ".work/lab/vision_corrected_plan_proto_v1/attribution.json"
+    },
+    {
+      "byte_identical": true,
+      "category": "post_result_diagnosis",
+      "frozen_before_first_replay": false,
+      "published": "post_result_diagnosis/attribution_stdout.json",
+      "sha256": "acdef1dda496c0d616bce0bf294ba460f577d88a9f2a1e0f54121bd989ce8247",
+      "size_bytes": 6314,
+      "source": ".work/lab/vision_corrected_plan_proto_v1/attribution_stdout.json"
+    },
+    {
+      "byte_identical": true,
+      "category": "post_result_diagnosis",
+      "frozen_before_first_replay": false,
+      "published": "post_result_diagnosis/diagnose.py",
+      "sha256": "5504879a0b6df456f2d64884ad2e1fcab793efb3c67a61593d801fd8855146df",
+      "size_bytes": 7878,
+      "source": ".work/lab/vision_corrected_plan_proto_v1/diagnose.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_dependency",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/dependencies/scratch/lab/vision_corridor_proto_v1/inputs.py",
+      "sha256": "9a65d53647aa50868cee94999f8d064c863b645a20fc1adae446ab76b06ecb6b",
+      "size_bytes": 1811,
+      "source": ".work/lab/vision_corridor_proto_v1/inputs.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_dependency",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/dependencies/scratch/lab/vision_corridor_proto_v1/planner.py",
+      "sha256": "79899cb521d4537b636fc8662b5e48c5c5ca00b3b09781a8ee3b3e1805510b0b",
+      "size_bytes": 23702,
+      "source": ".work/lab/vision_corridor_proto_v1/planner.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_dependency",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/dependencies/scratch/lab/vision_corridor_proto_v1/replay.py",
+      "sha256": "574c34c9141120493a2b7905a375ac123133a03b9acdce5900a68d504b7d7bb5",
+      "size_bytes": 16303,
+      "source": ".work/lab/vision_corridor_proto_v1/replay.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_dependency",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/dependencies/scratch/lab/vision_corridor_proto_v1/scorer.py",
+      "sha256": "483c08ed855cb9227b3f3fa09dfc0279d997e3fa4da8102ea51566c5955c4037",
+      "size_bytes": 9885,
+      "source": ".work/lab/vision_corridor_proto_v1/scorer.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_dependency",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/dependencies/scratch/lab/vision_corridor_proto_v1/test_planner.py",
+      "sha256": "ebd337616379c52e5750a72793d1ccbea7937bd7446601f066f7ea874ae43d2c",
+      "size_bytes": 5663,
+      "source": ".work/lab/vision_corridor_proto_v1/test_planner.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_dependency",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/dependencies/isaac_eval/evidence.py",
+      "sha256": "00a38b56c9f813821674dfcf65b1d9f5b1db679c67e851d191f06a55540ac23f",
+      "size_bytes": 8287,
+      "source": "isaac_eval/evidence.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_dependency",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/dependencies/src/fsop/eval/geometric.py",
+      "sha256": "e0ad7c4aa9157a04f1a83c242f83113acb84a25fb9152533fccb58e76cde9c02",
+      "size_bytes": 2994,
+      "source": "src/fsop/eval/geometric.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_dependency",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/dependencies/src/fsop/sim/expert.py",
+      "sha256": "7f1c3fb9083b4edd04e61a33719a88b4b65bea85fb6490ea2ef191e66d35986e",
+      "size_bytes": 10499,
+      "source": "src/fsop/sim/expert.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_dependency",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/dependencies/src/fsop/sim/vehicle.py",
+      "sha256": "55643a3d4f43c1a7605b8da3641517a8c0380bc92ba7526a5e555e0f7cd3ae39",
+      "size_bytes": 4453,
+      "source": "src/fsop/sim/vehicle.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_dependency",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/dependencies/src/fsop/track/centerline.py",
+      "sha256": "de45a95eba2e8fa0419a7407ced66718bc6f49099dff8b00c7663f2bf7ac5887",
+      "size_bytes": 4058,
+      "source": "src/fsop/track/centerline.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_dependency",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/dependencies/src/fsop/track/fixed_layouts.py",
+      "sha256": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+      "size_bytes": 6697,
+      "source": "src/fsop/track/fixed_layouts.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_dependency",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/dependencies/src/fsop/track/io.py",
+      "sha256": "86a833f72d920882c55c1dee89de841a8d4b67d8cbaa0658ddb17a614bc8af4c",
+      "size_bytes": 3851,
+      "source": "src/fsop/track/io.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_dependency",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/dependencies/src/fsop/track/rules.py",
+      "sha256": "4c2c989ef7b401ed47e57744eae6a3219759629e09e412b4ee5d68de8764006d",
+      "size_bytes": 4021,
+      "source": "src/fsop/track/rules.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_dependency",
+      "frozen_before_first_replay": true,
+      "published": "frozen_source/dependencies/src/fsop/track/schema.py",
+      "sha256": "f2f760bee7826c82f34e3f704a0b5807bcd0f6b043e856a781d8fe727ac1c04c",
+      "size_bytes": 5460,
+      "source": "src/fsop/track/schema.py"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_evidence_binding",
+      "frozen_before_first_replay": false,
+      "published": "evidence_bindings/benchmarks/driving-reliability-2026-11-10/direct_command_diagnosis/result.json",
+      "sha256": "6f367f2acbfe81665b967b3c61780a83fcd538fc2b844af34b3d1dde598dec3d",
+      "size_bytes": 341356,
+      "source": "benchmarks/driving-reliability-2026-11-10/direct_command_diagnosis/result.json"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_evidence_binding",
+      "frozen_before_first_replay": false,
+      "published": "evidence_bindings/benchmarks/driving-reliability-2026-11-10/direct_command_diagnosis/result_recovery2.json",
+      "sha256": "b662fe22c28addc86bcc6120a2c7192921fd033b67ec41d82ab3a747eff2c4ed",
+      "size_bytes": 171446,
+      "source": "benchmarks/driving-reliability-2026-11-10/direct_command_diagnosis/result_recovery2.json"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_evidence_binding",
+      "frozen_before_first_replay": false,
+      "published": "evidence_bindings/runs/direct_command_pilot3/evidence/completion.json",
+      "sha256": "6a1c303aaf28b99a128e66b3a9785669338cb909b6f665376555c62ac3fd8efb",
+      "size_bytes": 344,
+      "source": "runs/direct_command_pilot3/evidence/completion.json"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_evidence_binding",
+      "frozen_before_first_replay": false,
+      "published": "evidence_bindings/runs/direct_command_pilot3/evidence/manifest.jsonl",
+      "sha256": "a15313776d7b264ea46b2f77e25164030fddc0f8bd72c11ebf130234abcb332e",
+      "size_bytes": 34930,
+      "source": "runs/direct_command_pilot3/evidence/manifest.jsonl"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_evidence_binding",
+      "frozen_before_first_replay": false,
+      "published": "evidence_bindings/runs/direct_command_pilot3/evidence/metadata.json",
+      "sha256": "cefc9c5e41493fc75534183fead05fcd1225bd04c23354bcd3e12d7fef81dcc4",
+      "size_bytes": 129695,
+      "source": "runs/direct_command_pilot3/evidence/metadata.json"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_evidence_binding",
+      "frozen_before_first_replay": false,
+      "published": "evidence_bindings/runs/direct_command_recovery_pilot2/evidence/completion.json",
+      "sha256": "5d7d336d6635cb95e6bf12b220dc18f8dbe840f2dc7913196adc59dac0c7a680",
+      "size_bytes": 343,
+      "source": "runs/direct_command_recovery_pilot2/evidence/completion.json"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_evidence_binding",
+      "frozen_before_first_replay": false,
+      "published": "evidence_bindings/runs/direct_command_recovery_pilot2/evidence/manifest.jsonl",
+      "sha256": "cc78d7170172dde653cc82399f26752d0211530c9fce8f251d72d2e4e4c2cb71",
+      "size_bytes": 17450,
+      "source": "runs/direct_command_recovery_pilot2/evidence/manifest.jsonl"
+    },
+    {
+      "byte_identical": true,
+      "category": "frozen_evidence_binding",
+      "frozen_before_first_replay": false,
+      "published": "evidence_bindings/runs/direct_command_recovery_pilot2/evidence/metadata.json",
+      "sha256": "a5f2426d810f061985cd38273e519dcb42bbff78899e3fa1f4a168dad31a0aab",
+      "size_bytes": 130317,
+      "source": "runs/direct_command_recovery_pilot2/evidence/metadata.json"
+    }
+  ],
+  "freeze_sha256": "1ee0f8fca1c0de7e72bed01d1d51f8682476adeca1e0d5dae45fc9acab5d0f6b",
+  "layout": {
+    "REPORT.md": "Reader copy of the original report with only relative Markdown link destinations changed for this layout.",
+    "evidence_bindings": "Exact files named by the frozen input hash manifest. Selected RGB frames remain at their original evidence paths.",
+    "frozen_outputs": "Exact original freeze, result, row output, first and repeat stdout, repeat receipt, and report.",
+    "frozen_source": "Exact pre-replay source plus every dependency named by freeze.json.",
+    "post_result_diagnosis": "Exact later diagnostic source and outputs. These were not part of the preregistered controller.",
+    "verification": "New publication-time run of the five unchanged behavior checks."
+  },
+  "original_scratch_directory": ".work/lab/vision_corrected_plan_proto_v1",
+  "publication_directory": "benchmarks/driving-reliability-2026-11-10/vision_corrected_plan_prototype",
+  "scratch_dependency_directory_note": "The published dependencies/scratch directory maps to original .work paths through each source field. This avoids the repository .work ignore rule without changing any source bytes.",
+  "selection": {
+    "all_phases_modulo_4": true,
+    "case_id": "train-skidpad-82000-matched",
+    "cases": [
+      {
+        "diagnostic": "result.json",
+        "first_contact_frame": 80,
+        "path": "runs/direct_command_pilot3"
+      },
+      {
+        "diagnostic": "result_recovery2.json",
+        "first_contact_frame": 53,
+        "path": "runs/direct_command_recovery_pilot2"
+      }
+    ],
+    "original_state_sha256": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+    "split": "train"
+  },
+  "version": 1
+}

@@ -1,0 +1,529 @@
+{
+  "advance": false,
+  "total": {
+    "frames": 133,
+    "supported_frames": 97,
+    "phase_modulo_4_counts": {
+      "0": 34,
+      "1": 33,
+      "2": 33,
+      "3": 33
+    },
+    "route_phase_counts": {
+      "entry": 113,
+      "right_1": 20
+    },
+    "reason_counts": {
+      "boundary_offset": 97,
+      "no_boundary_support": 36
+    },
+    "offset_m": {
+      "n": 133,
+      "mae": 0.2724082878424896,
+      "p95": 0.75,
+      "max_abs": 0.75
+    },
+    "variants": {
+      "uncorrected_pp": {
+        "all_candidate_lateral_error_m": {
+          "n": 133,
+          "mae": 0.30535419179611184,
+          "p95": 1.5235677842887128,
+          "max_abs": 2.278264593313707
+        },
+        "supported_lateral_error_m": {
+          "n": 97,
+          "mae": 0.41490506779712105,
+          "p95": 1.615586368316612,
+          "max_abs": 2.278264593313707
+        },
+        "all_candidate_heading_error_rad": {
+          "n": 133,
+          "mae": 0.08069136959693773,
+          "p95": 0.26176872620606834,
+          "max_abs": 0.699726668980256
+        },
+        "all_row_requested_steer_error_rad": {
+          "n": 133,
+          "mae": 0.048695675966625614,
+          "p95": 0.23354715637549844,
+          "max_abs": 0.36336504544572257
+        },
+        "all_row_geometric_pp_steer_error_rad": {
+          "n": 133,
+          "mae": 0.048844985050495775,
+          "p95": 0.23354715637549844,
+          "max_abs": 0.36336504544572257
+        },
+        "all_row_acceleration_error_mps2_diagnostic_only": {
+          "n": 133,
+          "mae": 4.50769610845114,
+          "p95": 8.0,
+          "max_abs": 8.0
+        },
+        "teacher_correction_direction": {
+          "eligible": 41,
+          "agree": 35
+        },
+        "supported_wrong_branch_proxy_count": 4,
+        "all_candidate_wrong_branch_proxy_count": 4,
+        "supported_gt_footprint_conflict_count": 43,
+        "all_candidate_gt_footprint_conflict_count": 43,
+        "minimum_gt_margin_m": -1.0473544006707645,
+        "first_hit_cone_margin_m": {
+          "n": 133,
+          "mae": 3.0656283949798033,
+          "p95": 10.923907692699336,
+          "max_abs": 11.11696492260898
+        },
+        "predicted_conflict_frames": 40,
+        "positive_accel_frames": 9,
+        "braking_frames": 124,
+        "unknown_rows_with_nonnegative_accel": 0,
+        "stop_distance_shortfall_frames": 120
+      },
+      "corrected_pp": {
+        "all_candidate_lateral_error_m": {
+          "n": 133,
+          "mae": 0.4030792450190137,
+          "p95": 1.3656741737190936,
+          "max_abs": 2.359767404446264
+        },
+        "supported_lateral_error_m": {
+          "n": 97,
+          "mae": 0.548899212937801,
+          "p95": 1.8098088283172225,
+          "max_abs": 2.359767404446264
+        },
+        "all_candidate_heading_error_rad": {
+          "n": 133,
+          "mae": 0.07752270200846514,
+          "p95": 0.2634133335235974,
+          "max_abs": 0.6699652421135605
+        },
+        "all_row_requested_steer_error_rad": {
+          "n": 133,
+          "mae": 0.0761825724556394,
+          "p95": 0.31782800076790096,
+          "max_abs": 0.3901563484834207
+        },
+        "all_row_geometric_pp_steer_error_rad": {
+          "n": 133,
+          "mae": 0.07633188153950957,
+          "p95": 0.31782800076790096,
+          "max_abs": 0.3901563484834207
+        },
+        "all_row_acceleration_error_mps2_diagnostic_only": {
+          "n": 133,
+          "mae": 4.810347538063608,
+          "p95": 8.0,
+          "max_abs": 8.0
+        },
+        "teacher_correction_direction": {
+          "eligible": 41,
+          "agree": 27
+        },
+        "supported_wrong_branch_proxy_count": 3,
+        "all_candidate_wrong_branch_proxy_count": 3,
+        "supported_gt_footprint_conflict_count": 65,
+        "all_candidate_gt_footprint_conflict_count": 65,
+        "minimum_gt_margin_m": -1.0480648666442858,
+        "first_hit_cone_margin_m": {
+          "n": 133,
+          "mae": 3.076251183512878,
+          "p95": 10.923907692699336,
+          "max_abs": 11.263386762382495
+        },
+        "predicted_conflict_frames": 57,
+        "positive_accel_frames": 1,
+        "braking_frames": 132,
+        "unknown_rows_with_nonnegative_accel": 0,
+        "stop_distance_shortfall_frames": 120
+      }
+    },
+    "support_fraction": 0.7293233082706767,
+    "raw_old_actuator_head": {
+      "steer_error_rad": {
+        "n": 133,
+        "mae": 0.05543720485499882,
+        "p95": 0.20897174729968068,
+        "max_abs": 0.4477250716402675
+      },
+      "acceleration_error_mps2_diagnostic_only": {
+        "n": 133,
+        "mae": 0.4943642898220861,
+        "p95": 1.213661331109241,
+        "max_abs": 2.047697729972901
+      },
+      "teacher_correction_direction": {
+        "eligible": 41,
+        "agree": 34
+      }
+    },
+    "correction_delta_direction_toward_teacher": {
+      "eligible": 41,
+      "agree": 29
+    },
+    "frozen_geometry_screen_components": {
+      "support": false,
+      "all_candidate_geometry": false,
+      "supported_geometry": false,
+      "lateral_improvement": false,
+      "direction_no_regression": false,
+      "no_supported_wrong_branch_proxy": false,
+      "no_supported_gt_footprint_conflict": false
+    },
+    "frozen_geometry_screen_pass": false
+  },
+  "episodes": {
+    "direct_command_pilot3": {
+      "frames": 80,
+      "supported_frames": 62,
+      "phase_modulo_4_counts": {
+        "0": 20,
+        "1": 20,
+        "2": 20,
+        "3": 20
+      },
+      "route_phase_counts": {
+        "entry": 60,
+        "right_1": 20
+      },
+      "reason_counts": {
+        "boundary_offset": 62,
+        "no_boundary_support": 18
+      },
+      "offset_m": {
+        "n": 80,
+        "mae": 0.25795444778288223,
+        "p95": 0.75,
+        "max_abs": 0.75
+      },
+      "variants": {
+        "uncorrected_pp": {
+          "all_candidate_lateral_error_m": {
+            "n": 80,
+            "mae": 0.33503489691194943,
+            "p95": 1.5114349499414317,
+            "max_abs": 1.6736620111858032
+          },
+          "supported_lateral_error_m": {
+            "n": 62,
+            "mae": 0.43192056993895445,
+            "p95": 1.5426336668344407,
+            "max_abs": 1.6736620111858032
+          },
+          "all_candidate_heading_error_rad": {
+            "n": 80,
+            "mae": 0.07580928440902683,
+            "p95": 0.24635620591971263,
+            "max_abs": 0.26402008207215455
+          },
+          "all_row_requested_steer_error_rad": {
+            "n": 80,
+            "mae": 0.05310267786442876,
+            "p95": 0.23151065495625175,
+            "max_abs": 0.2443586081198658
+          },
+          "all_row_geometric_pp_steer_error_rad": {
+            "n": 80,
+            "mae": 0.053110182739410386,
+            "p95": 0.23151065495625175,
+            "max_abs": 0.2443586081198658
+          },
+          "all_row_acceleration_error_mps2_diagnostic_only": {
+            "n": 80,
+            "mae": 3.876088344191585,
+            "p95": 8.0,
+            "max_abs": 8.0
+          },
+          "teacher_correction_direction": {
+            "eligible": 26,
+            "agree": 26
+          },
+          "supported_wrong_branch_proxy_count": 0,
+          "all_candidate_wrong_branch_proxy_count": 0,
+          "supported_gt_footprint_conflict_count": 31,
+          "all_candidate_gt_footprint_conflict_count": 31,
+          "minimum_gt_margin_m": -1.0473544006707645,
+          "first_hit_cone_margin_m": {
+            "n": 80,
+            "mae": 4.5769889455246835,
+            "p95": 11.05241747400359,
+            "max_abs": 11.11696492260898
+          },
+          "predicted_conflict_frames": 28,
+          "positive_accel_frames": 4,
+          "braking_frames": 76,
+          "unknown_rows_with_nonnegative_accel": 0,
+          "stop_distance_shortfall_frames": 74
+        },
+        "corrected_pp": {
+          "all_candidate_lateral_error_m": {
+            "n": 80,
+            "mae": 0.4464352517751079,
+            "p95": 1.8676974489641793,
+            "max_abs": 2.359767404446264
+          },
+          "supported_lateral_error_m": {
+            "n": 62,
+            "mae": 0.5756629633107719,
+            "p95": 1.9216252778799183,
+            "max_abs": 2.359767404446264
+          },
+          "all_candidate_heading_error_rad": {
+            "n": 80,
+            "mae": 0.0729114841786094,
+            "p95": 0.24725453284357085,
+            "max_abs": 0.2648978227430854
+          },
+          "all_row_requested_steer_error_rad": {
+            "n": 80,
+            "mae": 0.08146614377193472,
+            "p95": 0.335007105243391,
+            "max_abs": 0.3901563484834207
+          },
+          "all_row_geometric_pp_steer_error_rad": {
+            "n": 80,
+            "mae": 0.08147364864691634,
+            "p95": 0.335007105243391,
+            "max_abs": 0.3901563484834207
+          },
+          "all_row_acceleration_error_mps2_diagnostic_only": {
+            "n": 80,
+            "mae": 4.127223974900472,
+            "p95": 8.0,
+            "max_abs": 8.0
+          },
+          "teacher_correction_direction": {
+            "eligible": 26,
+            "agree": 20
+          },
+          "supported_wrong_branch_proxy_count": 0,
+          "all_candidate_wrong_branch_proxy_count": 0,
+          "supported_gt_footprint_conflict_count": 43,
+          "all_candidate_gt_footprint_conflict_count": 43,
+          "minimum_gt_margin_m": -1.0480648666442858,
+          "first_hit_cone_margin_m": {
+            "n": 80,
+            "mae": 4.48247115101198,
+            "p95": 11.05241747400359,
+            "max_abs": 11.263386762382495
+          },
+          "predicted_conflict_frames": 38,
+          "positive_accel_frames": 0,
+          "braking_frames": 80,
+          "unknown_rows_with_nonnegative_accel": 0,
+          "stop_distance_shortfall_frames": 74
+        }
+      },
+      "support_fraction": 0.775,
+      "raw_old_actuator_head": {
+        "steer_error_rad": {
+          "n": 80,
+          "mae": 0.05339909497547207,
+          "p95": 0.20139991081410144,
+          "max_abs": 0.21436860737688346
+        },
+        "acceleration_error_mps2_diagnostic_only": {
+          "n": 80,
+          "mae": 0.634311968434406,
+          "p95": 1.386791288694806,
+          "max_abs": 2.047697729972901
+        },
+        "teacher_correction_direction": {
+          "eligible": 26,
+          "agree": 25
+        }
+      },
+      "correction_delta_direction_toward_teacher": {
+        "eligible": 26,
+        "agree": 18
+      },
+      "frozen_geometry_screen_components": {
+        "support": false,
+        "all_candidate_geometry": false,
+        "supported_geometry": false,
+        "lateral_improvement": false,
+        "direction_no_regression": false,
+        "no_supported_wrong_branch_proxy": true,
+        "no_supported_gt_footprint_conflict": false
+      },
+      "frozen_geometry_screen_pass": false
+    },
+    "direct_command_recovery_pilot2": {
+      "frames": 53,
+      "supported_frames": 35,
+      "phase_modulo_4_counts": {
+        "0": 14,
+        "1": 13,
+        "2": 13,
+        "3": 13
+      },
+      "route_phase_counts": {
+        "entry": 53
+      },
+      "reason_counts": {
+        "boundary_offset": 35,
+        "no_boundary_support": 18
+      },
+      "offset_m": {
+        "n": 53,
+        "mae": 0.2942254049135951,
+        "p95": 0.75,
+        "max_abs": 0.75
+      },
+      "variants": {
+        "uncorrected_pp": {
+          "all_candidate_lateral_error_m": {
+            "n": 53,
+            "mae": 0.2605531274703193,
+            "p95": 1.5825666815770583,
+            "max_abs": 2.278264593313707
+          },
+          "supported_lateral_error_m": {
+            "n": 35,
+            "mae": 0.3847633211458733,
+            "p95": 1.7921722144180958,
+            "max_abs": 2.278264593313707
+          },
+          "all_candidate_heading_error_rad": {
+            "n": 53,
+            "mae": 0.08806055478623721,
+            "p95": 0.6216419770022431,
+            "max_abs": 0.699726668980256
+          },
+          "all_row_requested_steer_error_rad": {
+            "n": 53,
+            "mae": 0.04204359763031897,
+            "p95": 0.24989882593253662,
+            "max_abs": 0.36336504544572257
+          },
+          "all_row_geometric_pp_steer_error_rad": {
+            "n": 53,
+            "mae": 0.04240695080307749,
+            "p95": 0.24989882593253662,
+            "max_abs": 0.36336504544572257
+          },
+          "all_row_acceleration_error_mps2_diagnostic_only": {
+            "n": 53,
+            "mae": 5.46106631865424,
+            "p95": 8.0,
+            "max_abs": 8.0
+          },
+          "teacher_correction_direction": {
+            "eligible": 15,
+            "agree": 9
+          },
+          "supported_wrong_branch_proxy_count": 4,
+          "all_candidate_wrong_branch_proxy_count": 4,
+          "supported_gt_footprint_conflict_count": 12,
+          "all_candidate_gt_footprint_conflict_count": 12,
+          "minimum_gt_margin_m": -1.0070860571888414,
+          "first_hit_cone_margin_m": {
+            "n": 53,
+            "mae": 0.7843294507611167,
+            "p95": 1.0216999832447176,
+            "max_abs": 1.0458354371048735
+          },
+          "predicted_conflict_frames": 12,
+          "positive_accel_frames": 5,
+          "braking_frames": 48,
+          "unknown_rows_with_nonnegative_accel": 0,
+          "stop_distance_shortfall_frames": 46
+        },
+        "corrected_pp": {
+          "all_candidate_lateral_error_m": {
+            "n": 53,
+            "mae": 0.33763621595321097,
+            "p95": 0.9075442988623678,
+            "max_abs": 1.6093225443215904
+          },
+          "supported_lateral_error_m": {
+            "n": 35,
+            "mae": 0.501489140848538,
+            "p95": 1.0258986912464259,
+            "max_abs": 1.6093225443215904
+          },
+          "all_candidate_heading_error_rad": {
+            "n": 53,
+            "mae": 0.08448303080824734,
+            "p95": 0.5880511345235132,
+            "max_abs": 0.6699652421135605
+          },
+          "all_row_requested_steer_error_rad": {
+            "n": 53,
+            "mae": 0.0682073704687786,
+            "p95": 0.27445948041046614,
+            "max_abs": 0.31788273195696976
+          },
+          "all_row_geometric_pp_steer_error_rad": {
+            "n": 53,
+            "mae": 0.06857072364153713,
+            "p95": 0.27445948041046614,
+            "max_abs": 0.31788273195696976
+          },
+          "all_row_acceleration_error_mps2_diagnostic_only": {
+            "n": 53,
+            "mae": 5.841477444724945,
+            "p95": 8.0,
+            "max_abs": 8.0
+          },
+          "teacher_correction_direction": {
+            "eligible": 15,
+            "agree": 7
+          },
+          "supported_wrong_branch_proxy_count": 3,
+          "all_candidate_wrong_branch_proxy_count": 3,
+          "supported_gt_footprint_conflict_count": 22,
+          "all_candidate_gt_footprint_conflict_count": 22,
+          "minimum_gt_margin_m": -1.0251564206085861,
+          "first_hit_cone_margin_m": {
+            "n": 53,
+            "mae": 0.9536550061557407,
+            "p95": 1.6894728843816682,
+            "max_abs": 1.7108607476650517
+          },
+          "predicted_conflict_frames": 19,
+          "positive_accel_frames": 1,
+          "braking_frames": 52,
+          "unknown_rows_with_nonnegative_accel": 0,
+          "stop_distance_shortfall_frames": 46
+        }
+      },
+      "support_fraction": 0.660377358490566,
+      "raw_old_actuator_head": {
+        "steer_error_rad": {
+          "n": 53,
+          "mae": 0.05851359712598259,
+          "p95": 0.32219996677854557,
+          "max_abs": 0.4477250716402675
+        },
+        "acceleration_error_mps2_diagnostic_only": {
+          "n": 53,
+          "mae": 0.2831225107846219,
+          "p95": 1.0390214982338093,
+          "max_abs": 1.191927438880986
+        },
+        "teacher_correction_direction": {
+          "eligible": 15,
+          "agree": 9
+        }
+      },
+      "correction_delta_direction_toward_teacher": {
+        "eligible": 15,
+        "agree": 11
+      },
+      "frozen_geometry_screen_components": {
+        "support": false,
+        "all_candidate_geometry": false,
+        "supported_geometry": false,
+        "lateral_improvement": false,
+        "direction_no_regression": false,
+        "no_supported_wrong_branch_proxy": false,
+        "no_supported_gt_footprint_conflict": false
+      },
+      "frozen_geometry_screen_pass": false
+    }
+  }
+}

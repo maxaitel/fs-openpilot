@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "freeze_sha256": "e0d769ff99c95586c4989a29dfcd5bbeb846b27cec558290d01c2809709de38c",
+  "selected_files": 200,
+  "source_bytes": 216842820,
+  "archive_bytes": 216073880,
+  "archive_to_source_ratio": 0.9964539291639908,
+  "archive_sha256": "e5711c77178deb14f2fee00ead501773a3ea6cdd61a70d207754d6be454cb231",
+  "compression_seconds": 0.7719502090476453,
+  "verification_seconds": 0.46902750013396144,
+  "all_members_exact": true,
+  "source_unchanged": true,
+  "source_deleted": false,
+  "limitation": "First200correlatedskidframes, not a worst-case budget or storage transport proof."
+}

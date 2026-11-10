@@ -151,3 +151,12 @@ The separately frozen [conditioning diagnostic](cone_set_conditioning_probe/repo
 The [vehicle forecast diagnostic](native_plant_forecast_probe/report.md) replays known future applied controls only for scoring. At one second the joint pilot exceeds the proposed 0.20 m front-effect proxy in 3 of 62 overlapping starts, with maximum 0.240 m. This proxy is not an exact conservative footprint bound, and these correlated windows are not reliability samples. The result rejects assuming that margin protects a one-second optimizer forecast.
 
 The next bounded prototype uses the original neural path as a route prior and predicted cones to estimate a local lateral correction, then tracks it with measured body motion. It must establish support and reference accuracy on recorded TRAIN prefixes before any native launch. Ground-truth pose, cones, progress and centerline stay in scoring. No model qualifies, and the final suite remains unopened.
+
+
+## Rejected neural-path correction
+
+The [frozen constant-offset prototype](vision_corrected_plan_prototype/README.md) uses original neural plans, predicted cones and measured body motion on 133 strict precontact TRAIN frames. It returns supported geometry on 97 frames. Corrected lateral MAE is 0.4031 m versus 0.3054 m for identical uncorrected inputs. Teacher steering-direction agreement falls from 35/41 to 27/41. Supported static sampled footprint conflicts rise from 43 to 65. Both frozen episode screens fail. Five behavior checks pass and two replay processes produce identical outputs. No native rollout follows.
+
+![Rejected path correction on identical recorded inputs](plots/vision_corrected_plan_v1/geometry.png)
+
+The post-result attribution isolates cone-position error from boundary membership. All 97 median support detections associate with an actual cone within 0.40 m. Yet some accurate cones belong to a nearby different boundary. At direct frame21, a yellow cone about 3.05 m from the entry center is treated as a 1.5 m boundary, shifting an accurate target by about 0.75 m. A constant translation also cannot repair a badly oriented neural trajectory. These observations motivate testing explicit boundary membership and geometry. They do not prove a complete perception solution or any successful controller.

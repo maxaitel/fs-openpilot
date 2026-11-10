@@ -1,0 +1,17 @@
+{
+  "source": "/Users/maxaitel/Documents/ChatGPT/fs-openpilot-skidpad-correction/benchmarks/driving-reliability-2026-11-10/vision_corrected_plan_prototype/frozen_outputs/rows.json",
+  "source_sha256": "38fc1a38d2c522401804d6021f038b126dfa109e4bc02d13d5376f542c9c29ea",
+  "script_sha256": "5e9691ce4588d7014e81157e34b99264681b9cf251dbb7250232f6d5e3b558a5",
+  "output_sha256": "c8a9cf293b6c24e46b0a8980445e8846df341c3c0c172e72908c109cf7d61342",
+  "frames": 133,
+  "episodes": [
+    "direct_command_pilot3",
+    "direct_command_recovery_pilot2"
+  ],
+  "limits": [
+    "Two correlated prefixes of one TRAIN scene.",
+    "Static sampled path margins are not actual contacts or reachable trajectories.",
+    "All selected rows shown, including unsupported proposals.",
+    "Zero is the conflict boundary after the frozen heuristic pad, not a guaranteed safety bound."
+  ]
+}

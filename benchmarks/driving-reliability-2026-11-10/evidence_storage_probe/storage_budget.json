@@ -1,0 +1,28 @@
+{
+  "compressed_probe": {
+    "passed": true,
+    "freeze_sha256": "e0d769ff99c95586c4989a29dfcd5bbeb846b27cec558290d01c2809709de38c",
+    "selected_files": 200,
+    "source_bytes": 216842820,
+    "archive_bytes": 216073880,
+    "archive_to_source_ratio": 0.9964539291639908,
+    "archive_sha256": "e5711c77178deb14f2fee00ead501773a3ea6cdd61a70d207754d6be454cb231",
+    "compression_seconds": 0.7719502090476453,
+    "verification_seconds": 0.46902750013396144,
+    "all_members_exact": true,
+    "source_unchanged": true,
+    "source_deleted": false,
+    "limitation": "First200correlatedskidframes, not a worst-case budget or storage transport proof."
+  },
+  "final_max_frames": 192000,
+  "measured_npz_bytes_per_frame": 1081923.8499005963,
+  "frame_only_planning_bytes": 207729379180.9145,
+  "notes": [
+    "The 250GB storage planning estimate includes observed-size frame data plus scenes/media; it is not a strict worst-case bound.",
+    "The observed NPZ mean is from one rejected joint skidpad, not final scenes.",
+    "300GB extra free capacity is a planning request; 500GB is preferable for maximum-length runs and further development.",
+    "All future launches still require actual capacity checks and preservation of every output; no final case is open.",
+    "Nested zstd saved only0.355percent in the frozen200frame probe.",
+    "Version1 failed strict inventory due to Mac AppleDouble entries; its archive and failure remain."
+  ]
+}
