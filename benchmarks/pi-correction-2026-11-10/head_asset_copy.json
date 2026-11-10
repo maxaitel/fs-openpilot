@@ -1,0 +1,190 @@
+{
+  "source": "/work/isaac_eval/assets",
+  "target": "/scratch/fsop/head_trial_work/isaac_eval/assets",
+  "all_inventory_entries_equal": true,
+  "source_preserved": true,
+  "previous_symlink_preserved": "isaac_eval/assets_original_link",
+  "files": 28,
+  "bytes": 196752353,
+  "inventory": {
+    "asphalt_02": {
+      "type": "directory"
+    },
+    "asphalt_track": {
+      "type": "directory"
+    },
+    "concrete_floor_01": {
+      "type": "directory"
+    },
+    "derelict_airfield_01": {
+      "type": "directory"
+    },
+    "gravel_floor_04": {
+      "type": "directory"
+    },
+    "mall_parking_lot": {
+      "type": "directory"
+    },
+    "manifest.json": {
+      "type": "file",
+      "size": 7464,
+      "sha256": "805219022e7de93a0c1acde5b9de6b33c7cea5cb8ad48ad434e84c6f0be65d00"
+    },
+    "stress_people": {
+      "type": "directory"
+    },
+    "concrete_floor_01/diffuse.jpg": {
+      "type": "file",
+      "size": 2967720,
+      "sha256": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017"
+    },
+    "concrete_floor_01/normal_gl.jpg": {
+      "type": "file",
+      "size": 3261423,
+      "sha256": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01"
+    },
+    "concrete_floor_01/roughness.jpg": {
+      "type": "file",
+      "size": 1488360,
+      "sha256": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774"
+    },
+    "gravel_floor_04/diffuse.jpg": {
+      "type": "file",
+      "size": 3971898,
+      "sha256": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd"
+    },
+    "gravel_floor_04/normal_gl.jpg": {
+      "type": "file",
+      "size": 5737956,
+      "sha256": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e"
+    },
+    "gravel_floor_04/roughness.jpg": {
+      "type": "file",
+      "size": 1214552,
+      "sha256": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3"
+    },
+    "asphalt_track/diffuse.jpg": {
+      "type": "file",
+      "size": 3779263,
+      "sha256": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c"
+    },
+    "asphalt_track/normal_gl.jpg": {
+      "type": "file",
+      "size": 3694762,
+      "sha256": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd"
+    },
+    "asphalt_track/roughness.jpg": {
+      "type": "file",
+      "size": 2182047,
+      "sha256": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e"
+    },
+    "mall_parking_lot/hdri.hdr": {
+      "type": "file",
+      "size": 24959595,
+      "sha256": "40397d614da627423de75eff73bbd32a8cc4dd6751c253f59b8df0e5f191fae1"
+    },
+    "stress_people/F_Business_02": {
+      "type": "directory"
+    },
+    "stress_people/female_adult_police_02": {
+      "type": "directory"
+    },
+    "stress_people/male_adult_construction_03": {
+      "type": "directory"
+    },
+    "stress_people/manifest.json": {
+      "type": "file",
+      "size": 8942,
+      "sha256": "9be579c904d0b23974cd9740a0f153a792631bdd08ca4ee1fd3c48ed75d03b06"
+    },
+    "stress_people/female_adult_police_02/person.usd": {
+      "type": "file",
+      "size": 2064222,
+      "sha256": "d02ae6424c7af17f97dd8b8c3b7a752e084846044dd1af1a0aec1849e39d599b"
+    },
+    "stress_people/female_adult_police_02/textures": {
+      "type": "directory"
+    },
+    "stress_people/female_adult_police_02/textures/female_adult_police_02_BaseColor.png": {
+      "type": "file",
+      "size": 8828274,
+      "sha256": "438ecc21b9a980ce0eaa00c330fd3eafe99eaea0671e8bdfd3dfcf5bf5fe8635"
+    },
+    "stress_people/female_adult_police_02/textures/female_adult_police_02_Normal.png": {
+      "type": "file",
+      "size": 17989419,
+      "sha256": "f92deb073fa211aa4b701c23786283dafdf779e0405481e32951f1733a3f16ee"
+    },
+    "stress_people/female_adult_police_02/textures/female_adult_police_02_ORM.png": {
+      "type": "file",
+      "size": 10521440,
+      "sha256": "86c278bd7ef9488cd2504e9d5108e334624468057d63a13fcac448207fff2266"
+    },
+    "stress_people/male_adult_construction_03/person.usd": {
+      "type": "file",
+      "size": 2062106,
+      "sha256": "bc5585c85fde47831cee86d0691783c5f34ac0857df92d5d87911aec68955c4f"
+    },
+    "stress_people/male_adult_construction_03/textures": {
+      "type": "directory"
+    },
+    "stress_people/male_adult_construction_03/textures/male_adult_construction_03_BaseColor.png": {
+      "type": "file",
+      "size": 8087506,
+      "sha256": "1d4fb88081020c553490731afd987a0c3a975f18f277e1fb49896905c5ce913b"
+    },
+    "stress_people/male_adult_construction_03/textures/male_adult_construction_03_Normal.png": {
+      "type": "file",
+      "size": 13006513,
+      "sha256": "3f3c2115bdffc5e7645b488f210a045ecaa8a1657ed0eb06af4762493af005ac"
+    },
+    "stress_people/male_adult_construction_03/textures/male_adult_construction_03_ORM.png": {
+      "type": "file",
+      "size": 9496137,
+      "sha256": "68e02450beb4d75b7c930627df88335e8e286a2517bb3f1aa1eb44bf04b475b7"
+    },
+    "stress_people/F_Business_02/person.usd": {
+      "type": "file",
+      "size": 1760972,
+      "sha256": "a8039fe2adc0b24efe7af3a7ec07c192948935ca2eb0803819f9757572cdce7c"
+    },
+    "stress_people/F_Business_02/textures": {
+      "type": "directory"
+    },
+    "stress_people/F_Business_02/textures/female_adult_business_02_BaseColor.png": {
+      "type": "file",
+      "size": 9544662,
+      "sha256": "630dda3dbae04d00ff6a78cbf77d9098e78d08642c9035bcfbb7a073ef961695"
+    },
+    "stress_people/F_Business_02/textures/female_adult_business_02_Normal.png": {
+      "type": "file",
+      "size": 15569859,
+      "sha256": "c5b8667dfedf6f29f6323755fd8a9378d7ec9e677568731f01c6c7951262eda0"
+    },
+    "stress_people/F_Business_02/textures/female_adult_business_02_ORM.png": {
+      "type": "file",
+      "size": 10994424,
+      "sha256": "e66c02515206e50e7248c7b058fe03d30d8544cdfc50a6e9c8d2166962c85b98"
+    },
+    "asphalt_02/diffuse.jpg": {
+      "type": "file",
+      "size": 3075676,
+      "sha256": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c"
+    },
+    "asphalt_02/normal_gl.jpg": {
+      "type": "file",
+      "size": 4943950,
+      "sha256": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21"
+    },
+    "asphalt_02/roughness.jpg": {
+      "type": "file",
+      "size": 2230457,
+      "sha256": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c"
+    },
+    "derelict_airfield_01/hdri.hdr": {
+      "type": "file",
+      "size": 23302754,
+      "sha256": "57eb0fd4bd5d9fe2fc7d23da31933ffccb2ab3bb371e7ac17734488bb901bfe0"
+    }
+  }
+}

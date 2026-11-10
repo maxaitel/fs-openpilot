@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "fit_batches": 4,
+  "monitor_anchors": 16,
+  "atol": 1e-07,
+  "rtol": 1e-06,
+  "compared": "all saved before arrays, fit objectives, and component losses"
+}

@@ -1,0 +1,86 @@
+{
+  "scope": "Zero optimizer updates. Repeated same-model forwards with alternating requires_grad scopes. Data/model load order is the only process-level alternative. Original failed head experiment is not reclassified.",
+  "order": "data_first",
+  "model_digest": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+  "weights_unchanged": true,
+  "rows": [
+    {
+      "label": "full1",
+      "control_max_abs": 0.0,
+      "control_strict_mismatches": 0,
+      "within_existing_inference_tolerance": true,
+      "losses": {
+        "plan_nll": -1.9942269325256348,
+        "plan_l1": 0.3837691843509674,
+        "steer": 0.011312450282275677,
+        "longitudinal": 0.05950915440917015,
+        "native_relative_acceleration": 0.02391439490020275
+      }
+    },
+    {
+      "label": "head1",
+      "control_max_abs": 1.2874603271484375e-05,
+      "control_strict_mismatches": 174,
+      "within_existing_inference_tolerance": true,
+      "losses": {
+        "plan_nll": -1.9942258596420288,
+        "plan_l1": 0.3837691843509674,
+        "steer": 0.011312450282275677,
+        "longitudinal": 0.0595088005065918,
+        "native_relative_acceleration": 0.023914523422718048
+      }
+    },
+    {
+      "label": "full2",
+      "control_max_abs": 0.0,
+      "control_strict_mismatches": 0,
+      "within_existing_inference_tolerance": true,
+      "losses": {
+        "plan_nll": -1.9942269325256348,
+        "plan_l1": 0.3837691843509674,
+        "steer": 0.011312450282275677,
+        "longitudinal": 0.05950915440917015,
+        "native_relative_acceleration": 0.02391439490020275
+      }
+    },
+    {
+      "label": "head2",
+      "control_max_abs": 1.2874603271484375e-05,
+      "control_strict_mismatches": 174,
+      "within_existing_inference_tolerance": true,
+      "losses": {
+        "plan_nll": -1.9942258596420288,
+        "plan_l1": 0.3837691843509674,
+        "steer": 0.011312450282275677,
+        "longitudinal": 0.0595088005065918,
+        "native_relative_acceleration": 0.023914523422718048
+      }
+    }
+  ],
+  "pairs": {
+    "full1_full2": {
+      "mu": 0.0,
+      "logstd": 0.0,
+      "hidden": 0.0
+    },
+    "head1_head2": {
+      "mu": 0.0,
+      "logstd": 0.0,
+      "hidden": 0.0
+    },
+    "full1_head1": {
+      "mu": 1.2874603271484375e-05,
+      "logstd": 3.814697265625e-06,
+      "hidden": 0.0
+    },
+    "full2_head2": {
+      "mu": 1.2874603271484375e-05,
+      "logstd": 3.814697265625e-06,
+      "hidden": 0.0
+    }
+  },
+  "script_sha256": "e37d825a93b37f127f7b97326ca5cc9c24fa627ea4fff7731984e4669482220c",
+  "head_protocol_sha256": "41b89f8c33efffa3cac8686a38198066ac1942e9e6aba169d42ba3da58a982ce",
+  "control_protocol_sha256": "fe1da7e49165a3a26d6ea94c49b08fce1606e6050e06a961255f885aa3f74cd0",
+  "arrays_sha256": "4102fecb5cbe12eaed3281c1840e110d65246f054118f34eae0f4080dad65b47"
+}

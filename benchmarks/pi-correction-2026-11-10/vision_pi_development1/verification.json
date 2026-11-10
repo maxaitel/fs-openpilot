@@ -1,0 +1,34 @@
+{
+  "diagnostic_only": true,
+  "remote_root": "/scratch/fsop/vision_pi_development1",
+  "local_root": "/Users/maxaitel/Documents/ChatGPT/fs-openpilot-skidpad-correction/runs/vision_pi_development1",
+  "remote_inventory_sha256": "3473a7b5efed8be6faa0c184882c20f6eb796ad35590c4f6dba96e9ff14201cd",
+  "inventory_files": 2446,
+  "inference_frame_npz_files": 2400,
+  "inventory_comparison": {
+    "missing": 0,
+    "extra": 0,
+    "mismatched": 0,
+    "scope": "Remote producer tree after render, before local encoding."
+  },
+  "completion_sha256": "7112e555b8c1c8943040b87775636bf14c8b3f9eb54afaafbce11d5dfea418c6",
+  "artifact_audit_sha256": "c64616510e73b1b92058ef90eec4e85e123f187e833b199e51a8aedf100db2ed",
+  "producer_receipt_sha256": "dc1cd9da5f6123e2e09ff2ad939435f905fc9ecbb337bfe6136ba543b78d6214",
+  "video_audit_sha256": "b806e12e228f03717f81ebdb59a80a0c49cd400cea5b90d9e53b3434782c4d67",
+  "videos": {
+    "debug": {
+      "sha256": "63ece57ba1ca3ffead08c266964f5518775e340a9ca992ef97968bcc7100091e",
+      "fps": 20.0,
+      "decoded_frames": 2440
+    },
+    "research": {
+      "sha256": "f3a33573f4685d3a39454516b3adc58d856000e991514ad3efa39d20959205bd",
+      "fps": 20.0,
+      "decoded_frames": 2440
+    }
+  },
+  "visual_inspection": "Frame 200 decoded and visually inspected in both videos. Debug shows camera, detections, map and trajectory. Research shows camera detections and matching frame metadata.",
+  "transfer_observation": "Two simultaneous streams were observed at approximately 0.1 MiB/s each. Archive alone advanced 387740 KiB in approximately 31 seconds, around 12.2 MiB/s. These observations are not a controlled general speedup comparison. No network configuration was changed.",
+  "source_deleted": false,
+  "stopped_transfer_processes_remaining": false
+}

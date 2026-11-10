@@ -1,0 +1,16 @@
+{
+  "source_verified_read_only": true,
+  "native_process_launched": false,
+  "protocol_frozen": false,
+  "freeze_blocker": "25 GiB free-space reserve. Observed 23.372177124023438 GiB.",
+  "states": 1128,
+  "teacher_controls": 1127,
+  "rebase_residual": 2.1538326677728037e-14,
+  "rebase_ticks": [
+    255,
+    440,
+    650,
+    926
+  ],
+  "syntax_valid": true
+}

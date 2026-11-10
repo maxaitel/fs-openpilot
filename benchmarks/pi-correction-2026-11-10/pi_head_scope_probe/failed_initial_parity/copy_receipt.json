@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "copied_files": {
+    "protocol.json": {
+      "sha256": "41b89f8c33efffa3cac8686a38198066ac1942e9e6aba169d42ba3da58a982ce",
+      "bytes": 357351
+    },
+    "probe.py": {
+      "sha256": "526420d03ba965f8c12d97dcedcfb1d8c10c381b55200e94064dade7a2d25ed9",
+      "bytes": 15848
+    },
+    "verify.py": {
+      "sha256": "76087e92d2f68b86b954ec885f60fa2fc7c83996380654ed49a08bf4fe3aced5",
+      "bytes": 11045
+    },
+    "float64_math.py": {
+      "sha256": "f8e42a94aa488e39090c3a6fdbee7623ca35bfa57e22e3ebe0222f457fdd9f1e",
+      "bytes": 2551
+    },
+    "run.sh": {
+      "sha256": "d7ccc37fa2445060bd88dc819b65a645ab2ae943a6f5bf58e8aeefdee8670854",
+      "bytes": 580
+    },
+    "preparation_receipt.json": {
+      "sha256": "448f53a4fdf7dc550c4b5f7042c93db89453b0424f97172ea767bea819e60b85",
+      "bytes": 1509
+    },
+    "frozen_state.json": {
+      "sha256": "cacd12880626257ad3f824d45239184a9ea590eabe105f24d2768a5ddff0b622",
+      "bytes": 81464
+    },
+    "run.log": {
+      "sha256": "aa37f39c3fa6cf3783e3c62ae046f5252240a522613101d0b65d9f47c5826547",
+      "bytes": 2561
+    },
+    "exit_code.txt": {
+      "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "bytes": 2
+    }
+  },
+  "bytes": 472911,
+  "optimizer_updates": 0,
+  "run_exit_code": 1,
+  "reason": "Pre-update monitor plan means failed fixed baseline comparison. 174 of 7920 values exceeded atol 1e-7 plus rtol 1e-6. Maximum absolute difference was 1.2874603e-5. No inference about restricted-head training follows."
+}

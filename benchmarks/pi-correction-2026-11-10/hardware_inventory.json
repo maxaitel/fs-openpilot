@@ -1,0 +1,9 @@
+{
+  "captured_at": "2026-11-10T00:49:43.328823+00:00",
+  "hostname": "max-spark",
+  "machine": "aarch64",
+  "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+  "logical_cpu_count": 20,
+  "gpu_query": "NVIDIA GB10, 580.178.04, [N/A]",
+  "memory_total_kib": "127598764"
+}

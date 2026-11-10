@@ -1,0 +1,12 @@
+{
+  "discipline": "trackdrive",
+  "dr": "heavy",
+  "frozen_case": "retention-trackdrive_020000-heavy-recorded",
+  "id": "regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1",
+  "lateral_start": 0.0,
+  "seed": 0,
+  "split": "regression",
+  "track_seed": null,
+  "variant": "visual_stress_v1",
+  "yaw_start": 0.0
+}

@@ -1,0 +1,512 @@
+{
+  "passed": true,
+  "run_pid_closed": 8612,
+  "exit_code": 0,
+  "updates": 12,
+  "before_arrays_match_control": true,
+  "independent_numpy_motion_and_phase_metrics_match": true,
+  "source_and_model_hashes_match": true,
+  "configured_tensors": 50,
+  "tensors_with_gradient_and_optimizer_state": 42,
+  "protocol_sha256": "a3a034bbd7d0fc0c280e0e4b4c6c696e5ff09eadacd11e9f6b39ba38c3e7f5ac",
+  "report_sha256": "5882f917e49b84ac93ee3ca5f8818a37afde8909904b12460918ec5285601e9b",
+  "verifier_sha256": "c022c3c57b64a8f3f149c46399b273d0f817c140acd48cca358c07875555eaca",
+  "classification": {
+    "3e-06": {
+      "fit_decreases_all_four": true,
+      "fit_decreases_by_batch": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "fit_decrease_margins": [
+        0.036015987396240234,
+        0.022410869598388672,
+        0.016939163208007812,
+        0.026096820831298828
+      ],
+      "reference_tolerances": [
+        2.3837340831756588e-06,
+        2.222798442840576e-06,
+        2.2930301189422607e-06,
+        2.3529919147491454e-06
+      ],
+      "all_margins_exceed_reference_tolerance": true,
+      "all_three_monitor_maes_decrease_in_all_four": false,
+      "monitor_by_batch": [
+        {
+          "batch": 0,
+          "aggregate": {
+            "steer_rad": 0.020284533500671387,
+            "raw_accel_mps2": 0.07917220890522003,
+            "target_speed_mps": 0.04640725255012512,
+            "tangent_accel_mps2": 0.08080989867448807
+          },
+          "phases": {
+            "steady_right": {
+              "steer_rad": 0.003808550536632538,
+              "raw_accel_mps2": 0.03730372339487076,
+              "target_speed_mps": 0.025437235832214355,
+              "tangent_accel_mps2": 0.015096846967935562
+            },
+            "right_to_left": {
+              "steer_rad": 0.005459378473460674,
+              "raw_accel_mps2": 0.13368816673755646,
+              "target_speed_mps": 0.05868875980377197,
+              "tangent_accel_mps2": 0.09131041914224625
+            },
+            "steady_left": {
+              "steer_rad": 0.0022869259119033813,
+              "raw_accel_mps2": 0.031007438898086548,
+              "target_speed_mps": 0.018398284912109375,
+              "tangent_accel_mps2": 0.007048777770251036
+            },
+            "recovery": {
+              "steer_rad": 0.06958327442407608,
+              "raw_accel_mps2": 0.11468948423862457,
+              "target_speed_mps": 0.08310472965240479,
+              "tangent_accel_mps2": 0.20978352427482605
+            }
+          }
+        },
+        {
+          "batch": 1,
+          "aggregate": {
+            "steer_rad": 0.02022033929824829,
+            "raw_accel_mps2": 0.08055313676595688,
+            "target_speed_mps": 0.04702872037887573,
+            "tangent_accel_mps2": 0.08036601543426514
+          },
+          "phases": {
+            "steady_right": {
+              "steer_rad": 0.003783188760280609,
+              "raw_accel_mps2": 0.037775129079818726,
+              "target_speed_mps": 0.025757193565368652,
+              "tangent_accel_mps2": 0.013819868676364422
+            },
+            "right_to_left": {
+              "steer_rad": 0.0052955057471990585,
+              "raw_accel_mps2": 0.1382688283920288,
+              "target_speed_mps": 0.061848998069763184,
+              "tangent_accel_mps2": 0.09099031239748001
+            },
+            "steady_left": {
+              "steer_rad": 0.0022806189954280853,
+              "raw_accel_mps2": 0.0310940220952034,
+              "target_speed_mps": 0.018454313278198242,
+              "tangent_accel_mps2": 0.006825821008533239
+            },
+            "recovery": {
+              "steer_rad": 0.06952204555273056,
+              "raw_accel_mps2": 0.11507456004619598,
+              "target_speed_mps": 0.08205437660217285,
+              "tangent_accel_mps2": 0.20982804894447327
+            }
+          }
+        },
+        {
+          "batch": 2,
+          "aggregate": {
+            "steer_rad": 0.020330755040049553,
+            "raw_accel_mps2": 0.07844604551792145,
+            "target_speed_mps": 0.04596254229545593,
+            "tangent_accel_mps2": 0.08100621402263641
+          },
+          "phases": {
+            "steady_right": {
+              "steer_rad": 0.0037797018885612488,
+              "raw_accel_mps2": 0.03782324492931366,
+              "target_speed_mps": 0.025762319564819336,
+              "tangent_accel_mps2": 0.015513146296143532
+            },
+            "right_to_left": {
+              "steer_rad": 0.005617623217403889,
+              "raw_accel_mps2": 0.1302768588066101,
+              "target_speed_mps": 0.05629086494445801,
+              "tangent_accel_mps2": 0.09168076515197754
+            },
+            "steady_left": {
+              "steer_rad": 0.002275567501783371,
+              "raw_accel_mps2": 0.03118523210287094,
+              "target_speed_mps": 0.018490314483642578,
+              "tangent_accel_mps2": 0.006899523548781872
+            },
+            "recovery": {
+              "steer_rad": 0.06965012848377228,
+              "raw_accel_mps2": 0.11449882388114929,
+              "target_speed_mps": 0.08330667018890381,
+              "tangent_accel_mps2": 0.209931418299675
+            }
+          }
+        },
+        {
+          "batch": 3,
+          "aggregate": {
+            "steer_rad": 0.020306337624788284,
+            "raw_accel_mps2": 0.07828456908464432,
+            "target_speed_mps": 0.0460352897644043,
+            "tangent_accel_mps2": 0.08085481077432632
+          },
+          "phases": {
+            "steady_right": {
+              "steer_rad": 0.0037877559661865234,
+              "raw_accel_mps2": 0.0375240258872509,
+              "target_speed_mps": 0.02561664581298828,
+              "tangent_accel_mps2": 0.014451947994530201
+            },
+            "right_to_left": {
+              "steer_rad": 0.005562506150454283,
+              "raw_accel_mps2": 0.1309189349412918,
+              "target_speed_mps": 0.05647730827331543,
+              "tangent_accel_mps2": 0.09240591526031494
+            },
+            "steady_left": {
+              "steer_rad": 0.002284891903400421,
+              "raw_accel_mps2": 0.03104407712817192,
+              "target_speed_mps": 0.01841890811920166,
+              "tangent_accel_mps2": 0.006831791251897812
+            },
+            "recovery": {
+              "steer_rad": 0.06959018856287003,
+              "raw_accel_mps2": 0.11365123093128204,
+              "target_speed_mps": 0.08362829685211182,
+              "tangent_accel_mps2": 0.20972956717014313
+            }
+          }
+        }
+      ]
+    },
+    "3e-07": {
+      "fit_decreases_all_four": true,
+      "fit_decreases_by_batch": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "fit_decrease_margins": [
+        0.005112171173095703,
+        0.0032634735107421875,
+        0.0034372806549072266,
+        0.004492759704589844
+      ],
+      "reference_tolerances": [
+        2.3837340831756588e-06,
+        2.222798442840576e-06,
+        2.2930301189422607e-06,
+        2.3529919147491454e-06
+      ],
+      "all_margins_exceed_reference_tolerance": true,
+      "all_three_monitor_maes_decrease_in_all_four": false,
+      "monitor_by_batch": [
+        {
+          "batch": 0,
+          "aggregate": {
+            "steer_rad": 0.020163841545581818,
+            "raw_accel_mps2": 0.08058527112007141,
+            "target_speed_mps": 0.04788997769355774,
+            "tangent_accel_mps2": 0.08071904629468918
+          },
+          "phases": {
+            "steady_right": {
+              "steer_rad": 0.00380118191242218,
+              "raw_accel_mps2": 0.03739739954471588,
+              "target_speed_mps": 0.027873873710632324,
+              "tangent_accel_mps2": 0.016130032017827034
+            },
+            "right_to_left": {
+              "steer_rad": 0.005322373006492853,
+              "raw_accel_mps2": 0.13712000846862793,
+              "target_speed_mps": 0.061492085456848145,
+              "tangent_accel_mps2": 0.08976340293884277
+            },
+            "steady_left": {
+              "steer_rad": 0.0022708550095558167,
+              "raw_accel_mps2": 0.030969813466072083,
+              "target_speed_mps": 0.018306612968444824,
+              "tangent_accel_mps2": 0.0070205023512244225
+            },
+            "recovery": {
+              "steer_rad": 0.06926094740629196,
+              "raw_accel_mps2": 0.11685386300086975,
+              "target_speed_mps": 0.08388733863830566,
+              "tangent_accel_mps2": 0.20996223390102386
+            }
+          }
+        },
+        {
+          "batch": 1,
+          "aggregate": {
+            "steer_rad": 0.020157819613814354,
+            "raw_accel_mps2": 0.08072174340486526,
+            "target_speed_mps": 0.04792103171348572,
+            "tangent_accel_mps2": 0.08067915588617325
+          },
+          "phases": {
+            "steady_right": {
+              "steer_rad": 0.0037997663021087646,
+              "raw_accel_mps2": 0.03744511306285858,
+              "target_speed_mps": 0.027777910232543945,
+              "tangent_accel_mps2": 0.016002703458070755
+            },
+            "right_to_left": {
+              "steer_rad": 0.005305995233356953,
+              "raw_accel_mps2": 0.1375785768032074,
+              "target_speed_mps": 0.06180846691131592,
+              "tangent_accel_mps2": 0.08973139524459839
+            },
+            "steady_left": {
+              "steer_rad": 0.002270285040140152,
+              "raw_accel_mps2": 0.030978713184595108,
+              "target_speed_mps": 0.01831221580505371,
+              "tangent_accel_mps2": 0.007020778022706509
+            },
+            "recovery": {
+              "steer_rad": 0.06925523281097412,
+              "raw_accel_mps2": 0.11688458174467087,
+              "target_speed_mps": 0.0837855339050293,
+              "tangent_accel_mps2": 0.20996177196502686
+            }
+          }
+        },
+        {
+          "batch": 2,
+          "aggregate": {
+            "steer_rad": 0.02016868256032467,
+            "raw_accel_mps2": 0.08051377534866333,
+            "target_speed_mps": 0.04783084988594055,
+            "tangent_accel_mps2": 0.08074434101581573
+          },
+          "phases": {
+            "steady_right": {
+              "steer_rad": 0.003799211233854294,
+              "raw_accel_mps2": 0.03744968771934509,
+              "target_speed_mps": 0.02784442901611328,
+              "tangent_accel_mps2": 0.016171770170331
+            },
+            "right_to_left": {
+              "steer_rad": 0.005338134244084358,
+              "raw_accel_mps2": 0.13677920401096344,
+              "target_speed_mps": 0.06125283241271973,
+              "tangent_accel_mps2": 0.08980026841163635
+            },
+            "steady_left": {
+              "steer_rad": 0.0022697634994983673,
+              "raw_accel_mps2": 0.030991069972515106,
+              "target_speed_mps": 0.0183182954788208,
+              "tangent_accel_mps2": 0.00702761672437191
+            },
+            "recovery": {
+              "steer_rad": 0.0692676231265068,
+              "raw_accel_mps2": 0.11683512479066849,
+              "target_speed_mps": 0.0839078426361084,
+              "tangent_accel_mps2": 0.20997770130634308
+            }
+          }
+        },
+        {
+          "batch": 3,
+          "aggregate": {
+            "steer_rad": 0.02016630955040455,
+            "raw_accel_mps2": 0.08049654960632324,
+            "target_speed_mps": 0.047851234674453735,
+            "tangent_accel_mps2": 0.08072921633720398
+          },
+          "phases": {
+            "steady_right": {
+              "steer_rad": 0.0038002468645572662,
+              "raw_accel_mps2": 0.037419624626636505,
+              "target_speed_mps": 0.027885794639587402,
+              "tangent_accel_mps2": 0.016065768897533417
+            },
+            "right_to_left": {
+              "steer_rad": 0.005332653876394033,
+              "raw_accel_mps2": 0.1368429958820343,
+              "target_speed_mps": 0.06127119064331055,
+              "tangent_accel_mps2": 0.08987276256084442
+            },
+            "steady_left": {
+              "steer_rad": 0.0022706910967826843,
+              "raw_accel_mps2": 0.03097396157681942,
+              "target_speed_mps": 0.01830899715423584,
+              "tangent_accel_mps2": 0.007021648809313774
+            },
+            "recovery": {
+              "steer_rad": 0.06926165521144867,
+              "raw_accel_mps2": 0.11674962937831879,
+              "target_speed_mps": 0.08393895626068115,
+              "tangent_accel_mps2": 0.20995669066905975
+            }
+          }
+        }
+      ]
+    },
+    "3e-08": {
+      "fit_decreases_all_four": true,
+      "fit_decreases_by_batch": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "fit_decrease_margins": [
+        0.0005218982696533203,
+        0.0003337860107421875,
+        0.00036334991455078125,
+        0.00046539306640625
+      ],
+      "reference_tolerances": [
+        2.3837340831756588e-06,
+        2.222798442840576e-06,
+        2.2930301189422607e-06,
+        2.3529919147491454e-06
+      ],
+      "all_margins_exceed_reference_tolerance": true,
+      "all_three_monitor_maes_decrease_in_all_four": false,
+      "monitor_by_batch": [
+        {
+          "batch": 0,
+          "aggregate": {
+            "steer_rad": 0.020152060315012932,
+            "raw_accel_mps2": 0.0807274878025055,
+            "target_speed_mps": 0.04806762933731079,
+            "tangent_accel_mps2": 0.08071547001600266
+          },
+          "phases": {
+            "steady_right": {
+              "steer_rad": 0.003801558166742325,
+              "raw_accel_mps2": 0.03740711137652397,
+              "target_speed_mps": 0.028232336044311523,
+              "tangent_accel_mps2": 0.0162334106862545
+            },
+            "right_to_left": {
+              "steer_rad": 0.00530866626650095,
+              "raw_accel_mps2": 0.13746248185634613,
+              "target_speed_mps": 0.06177222728729248,
+              "tangent_accel_mps2": 0.08960861712694168
+            },
+            "steady_left": {
+              "steer_rad": 0.0022692829370498657,
+              "raw_accel_mps2": 0.030970120802521706,
+              "target_speed_mps": 0.018300294876098633,
+              "tangent_accel_mps2": 0.007039718795567751
+            },
+            "recovery": {
+              "steer_rad": 0.06922873854637146,
+              "raw_accel_mps2": 0.11707021296024323,
+              "target_speed_mps": 0.08396565914154053,
+              "tangent_accel_mps2": 0.20998015999794006
+            }
+          }
+        },
+        {
+          "batch": 1,
+          "aggregate": {
+            "steer_rad": 0.02015148475766182,
+            "raw_accel_mps2": 0.08074111491441727,
+            "target_speed_mps": 0.0480707585811615,
+            "tangent_accel_mps2": 0.08071152865886688
+          },
+          "phases": {
+            "steady_right": {
+              "steer_rad": 0.003801438957452774,
+              "raw_accel_mps2": 0.037411659955978394,
+              "target_speed_mps": 0.02822279930114746,
+              "tangent_accel_mps2": 0.016220910474658012
+            },
+            "right_to_left": {
+              "steer_rad": 0.005307063460350037,
+              "raw_accel_mps2": 0.13750851154327393,
+              "target_speed_mps": 0.06180381774902344,
+              "tangent_accel_mps2": 0.08960554748773575
+            },
+            "steady_left": {
+              "steer_rad": 0.002269245684146881,
+              "raw_accel_mps2": 0.0309703778475523,
+              "target_speed_mps": 0.018300652503967285,
+              "tangent_accel_mps2": 0.007039512973278761
+            },
+            "recovery": {
+              "steer_rad": 0.06922818720340729,
+              "raw_accel_mps2": 0.1170739233493805,
+              "target_speed_mps": 0.08395576477050781,
+              "tangent_accel_mps2": 0.20998011529445648
+            }
+          }
+        },
+        {
+          "batch": 2,
+          "aggregate": {
+            "steer_rad": 0.020152559503912926,
+            "raw_accel_mps2": 0.0807199627161026,
+            "target_speed_mps": 0.04806160926818848,
+            "tangent_accel_mps2": 0.0807180106639862
+          },
+          "phases": {
+            "steady_right": {
+              "steer_rad": 0.003801383078098297,
+              "raw_accel_mps2": 0.03741177171468735,
+              "target_speed_mps": 0.028229355812072754,
+              "tangent_accel_mps2": 0.016237562522292137
+            },
+            "right_to_left": {
+              "steer_rad": 0.0053102606907486916,
+              "raw_accel_mps2": 0.13742874562740326,
+              "target_speed_mps": 0.061748385429382324,
+              "tangent_accel_mps2": 0.08961232751607895
+            },
+            "steady_left": {
+              "steer_rad": 0.002269178628921509,
+              "raw_accel_mps2": 0.030971527099609375,
+              "target_speed_mps": 0.01830112934112549,
+              "tangent_accel_mps2": 0.007040381897240877
+            },
+            "recovery": {
+              "steer_rad": 0.06922941654920578,
+              "raw_accel_mps2": 0.11706782132387161,
+              "target_speed_mps": 0.08396756649017334,
+              "tangent_accel_mps2": 0.209981769323349
+            }
+          }
+        },
+        {
+          "batch": 3,
+          "aggregate": {
+            "steer_rad": 0.02015230990946293,
+            "raw_accel_mps2": 0.08071878552436829,
+            "target_speed_mps": 0.04806375503540039,
+            "tangent_accel_mps2": 0.08071647584438324
+          },
+          "phases": {
+            "steady_right": {
+              "steer_rad": 0.0038014426827430725,
+              "raw_accel_mps2": 0.037409618496894836,
+              "target_speed_mps": 0.02823352813720703,
+              "tangent_accel_mps2": 0.01622707210481167
+            },
+            "right_to_left": {
+              "steer_rad": 0.005309711676090956,
+              "raw_accel_mps2": 0.1374359279870987,
+              "target_speed_mps": 0.06175065040588379,
+              "tangent_accel_mps2": 0.08961953967809677
+            },
+            "steady_left": {
+              "steer_rad": 0.0022692829370498657,
+              "raw_accel_mps2": 0.03097010776400566,
+              "target_speed_mps": 0.018300294876098633,
+              "tangent_accel_mps2": 0.007039688527584076
+            },
+            "recovery": {
+              "steer_rad": 0.06922880560159683,
+              "raw_accel_mps2": 0.11705951392650604,
+              "target_speed_mps": 0.08397054672241211,
+              "tangent_accel_mps2": 0.2099795937538147
+            }
+          }
+        }
+      ]
+    }
+  },
+  "limitations": "Optimizer execution and frozen tensor equality are asserted by the run process. Before objective and component losses are matched there against the retained v2 rows. Monitor anchors may share episodes and history or future windows with fit data. No closed-loop result follows."
+}

@@ -1,0 +1,89 @@
+{
+  "protocol_sha256": "a3a034bbd7d0fc0c280e0e4b4c6c696e5ff09eadacd11e9f6b39ba38c3e7f5ac",
+  "script_sha256": "178a48be25347f6b1b42801be4b2c7e7b9a11a32eff3af29890eb80123e27917",
+  "rows_sha256": "f425b2e2bd81b1a6aed92f6f889e1ef11be3f121c82131020aa01f4760bc9cd9",
+  "arrays_sha256": "90f1268685838d14941d5a5f0c98a68a8534fb7acb3efccac5c8a9bbfc1ad1b2",
+  "baseline_receipt_sha256": "e9b5f5f645100a34f63737efadcb7726230eec4bfd400e1a253d8dd5bcabc00d",
+  "updates": 12,
+  "initial_digest": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+  "context": {
+    "policy_sha256": "a27088e94f581de472f9610183e3979987cf59a1b272816a339bb9757d00a17a",
+    "feature_slots": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "transpose": [
+      1,
+      0,
+      2
+    ],
+    "gather_indices": [
+      -9,
+      -8,
+      -7,
+      -6,
+      -5,
+      -4,
+      -3,
+      -2,
+      -1
+    ],
+    "fx_gather_buffer": "initializers.onnx_initializer_0"
+  },
+  "runtime": {
+    "python": "3.11",
+    "numpy": "1.26.0",
+    "scipy": "1.15.3",
+    "torch": "2.9.0+cu130"
+  },
+  "monitor_before": {
+    "losses": {
+      "plan_nll": -1.9942269325256348,
+      "plan_l1": 0.3837691843509674,
+      "steer": 0.011312450282275677,
+      "longitudinal": 0.05950915440917015,
+      "native_relative_acceleration": 0.02391439490020275
+    },
+    "action_mae": {
+      "steer_rad": 0.02015075273811817,
+      "raw_accel_mps2": 0.08074341714382172,
+      "target_speed_mps": 0.048087358474731445,
+      "tangent_accel_mps2": 0.0807151272892952
+    },
+    "phases": {
+      "steady_right": {
+        "steer_rad": 0.003801599144935608,
+        "raw_accel_mps2": 0.03740774840116501,
+        "target_speed_mps": 0.02827167510986328,
+        "tangent_accel_mps2": 0.016245143488049507
+      },
+      "right_to_left": {
+        "steer_rad": 0.0053071528673172,
+        "raw_accel_mps2": 0.13750088214874268,
+        "target_speed_mps": 0.061803460121154785,
+        "tangent_accel_mps2": 0.0895913764834404
+      },
+      "steady_left": {
+        "steer_rad": 0.0022690966725349426,
+        "raw_accel_mps2": 0.030970273539423943,
+        "target_speed_mps": 0.01829969882965088,
+        "tangent_accel_mps2": 0.007041809149086475
+      },
+      "recovery": {
+        "steer_rad": 0.06922516971826553,
+        "raw_accel_mps2": 0.11709477007389069,
+        "target_speed_mps": 0.08397459983825684,
+        "tangent_accel_mps2": 0.20998218655586243
+      }
+    }
+  },
+  "elapsed_seconds": 42.75855438399594,
+  "all_source_files_unchanged": true
+}

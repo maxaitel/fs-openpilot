@@ -1,0 +1,168 @@
+{
+  "discipline": "trackdrive",
+  "result": "finished",
+  "laps": [
+    51.550000000000004
+  ],
+  "n_laps": 1,
+  "doo": 2,
+  "oc": 1,
+  "max_speed": 8.355728122900032,
+  "avg_speed_first3": null,
+  "raw_time": 51.550000000000004,
+  "penalty": 14.0,
+  "time": 65.55000000000001,
+  "dq": false,
+  "complete": true,
+  "pass": true,
+  "final_state": {
+    "x": -17.51653289794922,
+    "y": 100.34636688232422,
+    "yaw": -2.9949736610315068,
+    "vx": 2.910461061209736e-06,
+    "vy": 5.121338658805593e-08,
+    "r": 3.1880009743190385e-10,
+    "steer": -0.0001249502552550459,
+    "accel": -1.0060454098112963,
+    "t": 56.25,
+    "extra": {}
+  },
+  "physical_cone_hits": 2,
+  "contact_events": [
+    {
+      "t": 40.1,
+      "control_frame": 802,
+      "cone": "/World/Cones/c0165",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 41.1,
+      "control_frame": 822,
+      "cone": "/World/Cones/c0133",
+      "time_convention": "start of the control interval containing first contact"
+    }
+  ],
+  "progress": 1.0011083991635776,
+  "rms_lat": 0.8591385015958344,
+  "case": {
+    "id": "regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1",
+    "split": "regression",
+    "discipline": "trackdrive",
+    "seed": 0,
+    "dr": "heavy",
+    "variant": "visual_stress_v1",
+    "track_seed": null,
+    "frozen_case": "retention-trackdrive_020000-heavy-recorded",
+    "lateral_start": 0.0,
+    "yaw_start": 0.0
+  },
+  "pilot_only": false,
+  "events": [
+    {
+      "t": 2.05,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    },
+    {
+      "t": 39.95,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 40.15,
+      "kind": "doo",
+      "data": {
+        "cone": 165,
+        "dir": 1.6163639803823235
+      }
+    },
+    {
+      "t": 41.1,
+      "kind": "doo",
+      "data": {
+        "cone": 133,
+        "dir": 1.7856778620311815
+      }
+    },
+    {
+      "t": 41.25,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 53.6,
+      "kind": "line_cross",
+      "data": {
+        "n": 2
+      }
+    },
+    {
+      "t": 56.25,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "pending_events": [
+    {
+      "t": 56.25,
+      "kind": "finish",
+      "data": {
+        "in_stop_zone": true
+      }
+    }
+  ],
+  "recorded_frames": 1125,
+  "wall_seconds": 489.7577934390865,
+  "startup_seconds": 47.112354869022965,
+  "evidence_seconds": 147.9238471732242,
+  "seconds_simulated": 56.25,
+  "real_time_factor": 0.11485268994906984,
+  "controller_contract": {
+    "version": 1,
+    "mode": "op_tangent_pi_v1",
+    "steering": "openpilot_follower_body_vx",
+    "steering_action_time_s": 0.2,
+    "steering_min_speed_mps": 1.0,
+    "steering_delay_floor_s": 0.05,
+    "longitudinal": "knotwise_planar_tangent_pi",
+    "action_time_s": 0.3,
+    "speed_gain": 1.5,
+    "accel_feedforward": 0.5,
+    "speed_floor_mps": 0.001,
+    "current_velocity": "measured_body_vx_vy",
+    "mission_layer": "mission_brake_then_vehicle_limits_with_feedback",
+    "mission_brake_decel_mps2": 3.5,
+    "mission_launch_accel_mps2": 2.0,
+    "integral_gain": 0.5,
+    "integral_limit_mps2": 2.0,
+    "control_period_s": 0.05,
+    "integral_reset": "policy_reset_or_before_command_on_mission_override_or_target_speed_at_most_0.001_mps",
+    "anti_windup": "block_delta_when_raw_minus_applied_times_delta_positive",
+    "timestamp_tolerance_s": 1e-06
+  },
+  "checkpoint_sha256": "48db741c8a686b2e635ae7a81b4e4c08d79fbfbd9f4dc4c163260da6f93f0cfb",
+  "checkpoint_sha256_after": "48db741c8a686b2e635ae7a81b4e4c08d79fbfbd9f4dc4c163260da6f93f0cfb",
+  "state_sha256": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+  "state_sha256_after": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+  "frozen_unchanged": true,
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "925dfc6fd77287955334523a1ef93f5bd53d247a5cabd856fac108546deaeccc",
+  "torch_peak_allocated_gib": 0.13738584518432617,
+  "torch_peak_reserved_gib": 0.150390625,
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130"
+  }
+}

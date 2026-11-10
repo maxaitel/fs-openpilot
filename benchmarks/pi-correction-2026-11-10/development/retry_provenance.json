@@ -1,0 +1,15 @@
+{
+  "reason": "Retain the completed baseline and rerun only the disk-interrupted candidate in a new batch.",
+  "prior_manifest_sha256": "e9783d50e7921f352a36736729a0f0c973ae220a36efc0dc57286e01109e9d37",
+  "prior_plan_sha256": "43efbb9316dd6063d0d9e0a0649f4406488d89cf354d139077eca816dd111157",
+  "imported_episode": "/work/runs/development_pi_trial1/baseline/heavy_skid",
+  "imported_receipt": {
+    "frame_count": 926,
+    "result": "invalid_route",
+    "completion_sha256": "83bc8ea9a56079e7b81b11dc4655f9f966d0ede2c8547ac70693677d2ada2d03",
+    "summary_sha256": "cc943c25bee0d6a61da4fde4c0f7380660da76289ab640a4d9d807e04f7de8d7",
+    "frames_sha256": "bd711db2d6e1ab8d4b365185ba46b4826421591829417d3f7d8249cd40581a84"
+  },
+  "retained_failed_attempt": "/work/runs/development_pi_trial1/candidate/heavy_skid",
+  "shared_files": "immutable hardlinks"
+}

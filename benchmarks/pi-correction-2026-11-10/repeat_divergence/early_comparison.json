@@ -1,0 +1,2365 @@
+{
+  "names": [
+    "pi_latest_heavy1",
+    "development_pi_trial1/baseline/heavy_skid"
+  ],
+  "manifest_entries": [
+    1596,
+    926
+  ],
+  "same_input_hash_early100": 0,
+  "frames": [
+    {
+      "frame": 0,
+      "states": [
+        {
+          "accel": 0.0,
+          "extra": {},
+          "r": 0.0,
+          "steer": 0.0,
+          "t": 0.0,
+          "vx": 0.0,
+          "vy": 0.0,
+          "x": -16.600000381469727,
+          "y": -2.0923389334230006e-16,
+          "yaw": -1.082589421754882e-12
+        },
+        {
+          "accel": 0.0,
+          "extra": {},
+          "r": 0.0,
+          "steer": 0.0,
+          "t": 0.0,
+          "vx": 0.0,
+          "vy": 0.0,
+          "x": -16.600000381469727,
+          "y": -2.0923389334230006e-16,
+          "yaw": -1.082589421754882e-12
+        }
+      ],
+      "actions": [
+        [
+          -0.0007916167768909906,
+          3.842014524936676
+        ],
+        [
+          -0.0005598402428222524,
+          3.894778347015381
+        ]
+      ],
+      "state_equal": true,
+      "progress": [
+        {
+          "hint": 13,
+          "lat": -2.0923389334230006e-16,
+          "s": 3.3999996185302734
+        },
+        {
+          "hint": 13,
+          "lat": -2.0923389334230006e-16,
+          "s": 3.3999996185302734
+        }
+      ],
+      "timings": [
+        {
+          "policy_with_capture_ms": 298.3188439393416,
+          "render_ms": 1.196174998767674
+        },
+        {
+          "policy_with_capture_ms": 326.78660401143134,
+          "render_ms": 1.2982080224901438
+        }
+      ],
+      "arrays": {
+        "raw_images.road": {
+          "equal": false,
+          "mae": 1.6659393310546875,
+          "max_abs": 59.0,
+          "different_fraction": 0.7632802327473959
+        },
+        "raw_images.wide": {
+          "equal": false,
+          "mae": 1.3016815185546875,
+          "max_abs": 40.0,
+          "different_fraction": 0.5547231038411459
+        },
+        "images.road": {
+          "equal": false,
+          "mae": 1.473950703938802,
+          "max_abs": 33.0,
+          "different_fraction": 0.733673095703125
+        },
+        "images.wide": {
+          "equal": false,
+          "mae": 1.2361195882161458,
+          "max_abs": 28.0,
+          "different_fraction": 0.5753936767578125
+        },
+        "body.angular_velocity_world": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "body.position": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "body.rotation": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "body.velocity_body": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "body.velocity_world": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "actual_cones_xyz": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "actual_cone_quaternions": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "T_plan_ego_camera": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "T_world_camera_body": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "nominal_detection_calibration": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "prediction.plan": {
+          "equal": false,
+          "mae": 0.008656789382331127,
+          "max_abs": 0.12083816528320312,
+          "different_fraction": 0.98989898989899
+        },
+        "policy_raw.0": {
+          "equal": false,
+          "mae": 0.01003529080663716,
+          "max_abs": 0.12083816528320312,
+          "different_fraction": 0.9949494949494949
+        }
+      },
+      "capture_state_body_position_max_abs": [
+        0.0,
+        0.0
+      ],
+      "capture_state_body_yaw_abs": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 1,
+      "states": [
+        {
+          "accel": 1.6008393853902818,
+          "extra": {},
+          "r": -3.0450672056758776e-05,
+          "steer": -0.0006596806474091589,
+          "t": 0.05,
+          "vx": 0.044280305522016186,
+          "vy": -1.714262220733352e-05,
+          "x": -16.598159790039062,
+          "y": -6.809362957937992e-07,
+          "yaw": -1.0030571313982256e-06
+        },
+        {
+          "accel": 1.6228243112564087,
+          "extra": {},
+          "r": -1.442706252419157e-05,
+          "steer": -0.0004665335356852103,
+          "t": 0.05,
+          "vx": 0.04439985007824536,
+          "vy": -1.2563890240197908e-05,
+          "x": -16.598155975341797,
+          "y": -4.870856287197967e-07,
+          "yaw": -6.176717044540519e-07
+        }
+      ],
+      "actions": [
+        [
+          -0.0008158163784161702,
+          3.914879754844862
+        ],
+        [
+          -0.00035585269580136247,
+          3.9376444615465074
+        ]
+      ],
+      "state_equal": false,
+      "progress": [
+        {
+          "hint": 13,
+          "lat": -6.809362957937992e-07,
+          "s": 3.4018402099609375
+        },
+        {
+          "hint": 13,
+          "lat": -4.870856287197967e-07,
+          "s": 3.401844024658203
+        }
+      ],
+      "timings": [
+        {
+          "policy_with_capture_ms": 9.020920027978718,
+          "render_ms": 211.84409398119897
+        },
+        {
+          "policy_with_capture_ms": 9.476304985582829,
+          "render_ms": 226.2281629955396
+        }
+      ],
+      "arrays": {
+        "raw_images.road": {
+          "equal": false,
+          "mae": 1.6404139200846355,
+          "max_abs": 52.0,
+          "different_fraction": 0.7571818033854166
+        },
+        "raw_images.wide": {
+          "equal": false,
+          "mae": 1.1374766031901042,
+          "max_abs": 42.0,
+          "different_fraction": 0.5225982666015625
+        },
+        "images.road": {
+          "equal": false,
+          "mae": 1.328338623046875,
+          "max_abs": 22.0,
+          "different_fraction": 0.6946055094401041
+        },
+        "images.wide": {
+          "equal": false,
+          "mae": 1.0757700602213542,
+          "max_abs": 28.0,
+          "different_fraction": 0.5200958251953125
+        },
+        "body.angular_velocity_world": {
+          "equal": false,
+          "mae": 1.0845682481885888e-05,
+          "max_abs": 1.6023609532567207e-05,
+          "different_fraction": 1.0
+        },
+        "body.position": {
+          "equal": false,
+          "mae": 1.3461167516955659e-06,
+          "max_abs": 3.814697265625e-06,
+          "different_fraction": 1.0
+        },
+        "body.rotation": {
+          "equal": false,
+          "mae": 1.618854582379675e-07,
+          "max_abs": 3.853941660955332e-07,
+          "different_fraction": 1.0
+        },
+        "body.velocity_body": {
+          "equal": false,
+          "mae": 4.152049522722238e-05,
+          "max_abs": 0.00011954442924601294,
+          "different_fraction": 1.0
+        },
+        "body.velocity_world": {
+          "equal": false,
+          "mae": 4.151376530595977e-05,
+          "max_abs": 0.00011954456567764282,
+          "different_fraction": 1.0
+        },
+        "actual_cones_xyz": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "actual_cone_quaternions": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "T_plan_ego_camera": {
+          "equal": false,
+          "mae": 6.032204502487302e-08,
+          "max_abs": 2.9972049118975885e-07,
+          "different_fraction": 0.75
+        },
+        "T_world_camera_body": {
+          "equal": false,
+          "mae": 3.2977919716414866e-07,
+          "max_abs": 3.620612933019629e-06,
+          "different_fraction": 0.75
+        },
+        "nominal_detection_calibration": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "prediction.plan": {
+          "equal": false,
+          "mae": 0.005880033961454819,
+          "max_abs": 0.10059738159179688,
+          "different_fraction": 0.98989898989899
+        },
+        "policy_raw.0": {
+          "equal": false,
+          "mae": 0.006431541842843518,
+          "max_abs": 0.10059738159179688,
+          "different_fraction": 0.9949494949494949
+        }
+      },
+      "capture_state_body_position_max_abs": [
+        0.0,
+        0.0
+      ],
+      "capture_state_body_yaw_abs": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 2,
+      "states": [
+        {
+          "accel": 2.5650228726630235,
+          "extra": {},
+          "r": -0.00026678983704186976,
+          "steer": -0.0007897937565816683,
+          "t": 0.1,
+          "vx": 0.18145850310404074,
+          "vy": -4.3768313903654316e-05,
+          "x": -16.591068267822266,
+          "y": -2.7519820378074655e-06,
+          "yaw": -2.1869249401219685e-06
+        },
+        {
+          "accel": 2.5873327072106163,
+          "extra": {},
+          "r": -0.00013419495371636003,
+          "steer": -0.0003742995024486704,
+          "t": 0.1,
+          "vx": 0.19712695501635197,
+          "vy": -4.6411762923821544e-05,
+          "x": -16.59080696105957,
+          "y": -2.0807358396268683e-06,
+          "yaw": -4.744555538920429e-06
+        }
+      ],
+      "actions": [
+        [
+          0.0002145856165232451,
+          3.9763853332246484
+        ],
+        [
+          -0.0003477327604383914,
+          3.807914901191365
+        ]
+      ],
+      "state_equal": false,
+      "progress": [
+        {
+          "hint": 13,
+          "lat": -2.7519820378074655e-06,
+          "s": 3.4089317321777344
+        },
+        {
+          "hint": 13,
+          "lat": -2.0807358396268683e-06,
+          "s": 3.4091930389404297
+        }
+      ],
+      "timings": [
+        {
+          "policy_with_capture_ms": 9.334646980278194,
+          "render_ms": 188.24110797140747
+        },
+        {
+          "policy_with_capture_ms": 9.318096097558737,
+          "render_ms": 207.06430601421744
+        }
+      ],
+      "arrays": {
+        "raw_images.road": {
+          "equal": false,
+          "mae": 2.004755655924479,
+          "max_abs": 51.0,
+          "different_fraction": 0.7875951131184896
+        },
+        "raw_images.wide": {
+          "equal": false,
+          "mae": 1.1196314493815105,
+          "max_abs": 42.0,
+          "different_fraction": 0.5690511067708334
+        },
+        "images.road": {
+          "equal": false,
+          "mae": 1.4481048583984375,
+          "max_abs": 24.0,
+          "different_fraction": 0.7130508422851562
+        },
+        "images.wide": {
+          "equal": false,
+          "mae": 1.142046610514323,
+          "max_abs": 24.0,
+          "different_fraction": 0.5789235432942709
+        },
+        "body.angular_velocity_world": {
+          "equal": false,
+          "mae": 0.0009447231626230254,
+          "max_abs": 0.0027000433765351772,
+          "different_fraction": 1.0
+        },
+        "body.position": {
+          "equal": false,
+          "mae": 8.734587117942283e-05,
+          "max_abs": 0.0002613067626953125,
+          "different_fraction": 1.0
+        },
+        "body.rotation": {
+          "equal": false,
+          "mae": 1.1434742901272288e-05,
+          "max_abs": 4.879523207953064e-05,
+          "different_fraction": 1.0
+        },
+        "body.velocity_body": {
+          "equal": false,
+          "mae": 0.00523551272782864,
+          "max_abs": 0.01566841863458998,
+          "different_fraction": 1.0
+        },
+        "body.velocity_world": {
+          "equal": false,
+          "mae": 0.0052289896993897855,
+          "max_abs": 0.01566845178604126,
+          "different_fraction": 1.0
+        },
+        "actual_cones_xyz": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "actual_cone_quaternions": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "T_plan_ego_camera": {
+          "equal": false,
+          "mae": 8.422393196397803e-06,
+          "max_abs": 4.875413973149528e-05,
+          "different_fraction": 0.75
+        },
+        "T_world_camera_body": {
+          "equal": false,
+          "mae": 2.1044177120242122e-05,
+          "max_abs": 0.00022967152279562697,
+          "different_fraction": 0.75
+        },
+        "nominal_detection_calibration": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "prediction.plan": {
+          "equal": false,
+          "mae": 0.023051382497613595,
+          "max_abs": 0.30872154235839844,
+          "different_fraction": 0.98989898989899
+        },
+        "policy_raw.0": {
+          "equal": false,
+          "mae": 0.024698692899245412,
+          "max_abs": 0.30872154235839844,
+          "different_fraction": 0.9949494949494949
+        }
+      },
+      "capture_state_body_position_max_abs": [
+        0.0,
+        0.0
+      ],
+      "capture_state_body_yaw_abs": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 3,
+      "states": [
+        {
+          "accel": 3.1530905645637004,
+          "extra": {},
+          "r": 0.0021949876099824905,
+          "steer": 4.71890543390929e-05,
+          "t": 0.15,
+          "vx": 0.35272693599675287,
+          "vy": 2.6360421636962522e-05,
+          "x": -16.576980590820312,
+          "y": -5.047091235610424e-06,
+          "yaw": -1.4426310694168222e-05
+        },
+        {
+          "accel": 3.0959086213692615,
+          "extra": {},
+          "r": 2.070893424388487e-05,
+          "steer": -0.00035216055077343794,
+          "t": 0.15,
+          "vx": 0.3289200668862215,
+          "vy": -6.324957797225853e-05,
+          "x": -16.576887130737305,
+          "y": -4.895296115137171e-06,
+          "yaw": -8.197842610860046e-06
+        }
+      ],
+      "actions": [
+        [
+          0.00235716804146068,
+          4.162978376380093
+        ],
+        [
+          0.0019130917423664552,
+          4.08101499400334
+        ]
+      ],
+      "state_equal": false,
+      "progress": [
+        {
+          "hint": 13,
+          "lat": -5.047091235610424e-06,
+          "s": 3.4230194091796875
+        },
+        {
+          "hint": 13,
+          "lat": -4.895296115137171e-06,
+          "s": 3.4231128692626953
+        }
+      ],
+      "timings": [
+        {
+          "policy_with_capture_ms": 9.225510992109776,
+          "render_ms": 191.38910504989326
+        },
+        {
+          "policy_with_capture_ms": 10.551824932917953,
+          "render_ms": 239.90002099890262
+        }
+      ],
+      "arrays": {
+        "raw_images.road": {
+          "equal": false,
+          "mae": 1.9202372233072917,
+          "max_abs": 57.0,
+          "different_fraction": 0.7757161458333334
+        },
+        "raw_images.wide": {
+          "equal": false,
+          "mae": 0.9578119913736979,
+          "max_abs": 44.0,
+          "different_fraction": 0.4970448811848958
+        },
+        "images.road": {
+          "equal": false,
+          "mae": 1.398114522298177,
+          "max_abs": 22.0,
+          "different_fraction": 0.7097193400065104
+        },
+        "images.wide": {
+          "equal": false,
+          "mae": 0.9617767333984375,
+          "max_abs": 21.0,
+          "different_fraction": 0.5018844604492188
+        },
+        "body.angular_velocity_world": {
+          "equal": false,
+          "mae": 0.002883194036636875,
+          "max_abs": 0.006445000413805246,
+          "different_fraction": 1.0
+        },
+        "body.position": {
+          "equal": false,
+          "mae": 3.128343223579577e-05,
+          "max_abs": 9.34600830078125e-05,
+          "different_fraction": 1.0
+        },
+        "body.rotation": {
+          "equal": false,
+          "mae": 2.933870477831046e-06,
+          "max_abs": 6.346727944967065e-06,
+          "different_fraction": 1.0
+        },
+        "body.velocity_body": {
+          "equal": false,
+          "mae": 0.00796709106729302,
+          "max_abs": 0.023806878095998907,
+          "different_fraction": 1.0
+        },
+        "body.velocity_world": {
+          "equal": false,
+          "mae": 0.00797309148038039,
+          "max_abs": 0.023806869983673096,
+          "different_fraction": 1.0
+        },
+        "actual_cones_xyz": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "actual_cone_quaternions": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "T_plan_ego_camera": {
+          "equal": false,
+          "mae": 1.2023697960209275e-06,
+          "max_abs": 6.350345217398523e-06,
+          "different_fraction": 0.75
+        },
+        "T_world_camera_body": {
+          "equal": false,
+          "mae": 7.843318363115419e-06,
+          "max_abs": 9.757483472938588e-05,
+          "different_fraction": 0.75
+        },
+        "nominal_detection_calibration": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "prediction.plan": {
+          "equal": false,
+          "mae": 0.013316573592083564,
+          "max_abs": 0.1666278839111328,
+          "different_fraction": 0.98989898989899
+        },
+        "policy_raw.0": {
+          "equal": false,
+          "mae": 0.020905907636495222,
+          "max_abs": 0.1666278839111328,
+          "different_fraction": 0.9949494949494949
+        }
+      },
+      "capture_state_body_position_max_abs": [
+        0.0,
+        0.0
+      ],
+      "capture_state_body_yaw_abs": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 4,
+      "states": [
+        {
+          "accel": 3.573877152820531,
+          "extra": {},
+          "r": 0.016133995726704597,
+          "steer": 0.0019721715436070825,
+          "t": 0.2,
+          "vx": 0.5166729169127507,
+          "vy": 0.0011531920660418605,
+          "x": -16.554853439331055,
+          "y": 2.2523712686961517e-05,
+          "yaw": 6.626485952238603e-06
+        },
+        {
+          "accel": 3.5063696099667943,
+          "extra": {},
+          "r": 0.0010472106514498591,
+          "steer": 0.0015355496935098064,
+          "t": 0.2,
+          "vx": 0.48715728470915076,
+          "vy": 0.0002763896677079522,
+          "x": -16.55545425415039,
+          "y": 1.8196028577222023e-06,
+          "yaw": -1.8276125727907008e-06
+        }
+      ],
+      "actions": [
+        [
+          -9.159051418117024e-05,
+          4.566371841466078
+        ],
+        [
+          -0.0006520045624845573,
+          4.474137574408197
+        ]
+      ],
+      "state_equal": false,
+      "progress": [
+        {
+          "hint": 13,
+          "lat": 2.2523712686961517e-05,
+          "s": 3.4451465606689453
+        },
+        {
+          "hint": 13,
+          "lat": 1.8196028577222023e-06,
+          "s": 3.4445457458496094
+        }
+      ],
+      "timings": [
+        {
+          "policy_with_capture_ms": 9.206200018525124,
+          "render_ms": 189.40993992146105
+        },
+        {
+          "policy_with_capture_ms": 9.53363289590925,
+          "render_ms": 225.91517202090472
+        }
+      ],
+      "arrays": {
+        "raw_images.road": {
+          "equal": false,
+          "mae": 2.1401570638020835,
+          "max_abs": 86.0,
+          "different_fraction": 0.7945912679036459
+        },
+        "raw_images.wide": {
+          "equal": false,
+          "mae": 1.0205408732096355,
+          "max_abs": 70.0,
+          "different_fraction": 0.5370737711588541
+        },
+        "images.road": {
+          "equal": false,
+          "mae": 1.482526143391927,
+          "max_abs": 35.0,
+          "different_fraction": 0.7109603881835938
+        },
+        "images.wide": {
+          "equal": false,
+          "mae": 0.9904836018880209,
+          "max_abs": 23.0,
+          "different_fraction": 0.5337473551432291
+        },
+        "body.angular_velocity_world": {
+          "equal": false,
+          "mae": 0.006633172165796471,
+          "max_abs": 0.015086785075254738,
+          "different_fraction": 1.0
+        },
+        "body.position": {
+          "equal": false,
+          "mae": 0.00020748093371973178,
+          "max_abs": 0.0006008148193359375,
+          "different_fraction": 1.0
+        },
+        "body.rotation": {
+          "equal": false,
+          "mae": 1.6849828695705686e-05,
+          "max_abs": 6.048645135243243e-05,
+          "different_fraction": 1.0
+        },
+        "body.velocity_body": {
+          "equal": false,
+          "mae": 0.010155436929017493,
+          "max_abs": 0.029515538628408555,
+          "different_fraction": 1.0
+        },
+        "body.velocity_world": {
+          "equal": false,
+          "mae": 0.010133058676728979,
+          "max_abs": 0.029515624046325684,
+          "different_fraction": 1.0
+        },
+        "actual_cones_xyz": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "actual_cone_quaternions": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "T_plan_ego_camera": {
+          "equal": false,
+          "mae": 1.1519238748742077e-05,
+          "max_abs": 6.05335523662931e-05,
+          "different_fraction": 0.75
+        },
+        "T_world_camera_body": {
+          "equal": false,
+          "mae": 4.593824264524261e-05,
+          "max_abs": 0.0005615998924746179,
+          "different_fraction": 0.75
+        },
+        "nominal_detection_calibration": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "prediction.plan": {
+          "equal": false,
+          "mae": 0.016675935328914992,
+          "max_abs": 0.2248992919921875,
+          "different_fraction": 0.98989898989899
+        },
+        "policy_raw.0": {
+          "equal": false,
+          "mae": 0.01692438841214416,
+          "max_abs": 0.2248992919921875,
+          "different_fraction": 0.9949494949494949
+        }
+      },
+      "capture_state_body_position_max_abs": [
+        0.0,
+        0.0
+      ],
+      "capture_state_body_yaw_abs": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 5,
+      "states": [
+        {
+          "accel": 3.9874166064228422,
+          "extra": {},
+          "r": 0.010709228925406933,
+          "steer": 0.00025236982878353844,
+          "t": 0.25,
+          "vx": 0.6999862275705586,
+          "vy": -0.0003943652743882931,
+          "x": -16.52332305908203,
+          "y": 5.704653449356556e-05,
+          "yaw": 0.0005519421267205423
+        },
+        {
+          "accel": 3.909606261817379,
+          "extra": {},
+          "r": 0.013954835012555122,
+          "steer": -0.00028741218648549666,
+          "t": 0.25,
+          "vx": 0.6758597950827696,
+          "vy": -0.0015133816736465186,
+          "x": -16.524492263793945,
+          "y": -2.0131694327574223e-05,
+          "yaw": 8.971171046751632e-05
+        }
+      ],
+      "actions": [
+        [
+          0.000799244299997774,
+          4.666336166789872
+        ],
+        [
+          9.401704878883752e-06,
+          4.632825884097993
+        ]
+      ],
+      "state_equal": false,
+      "progress": [
+        {
+          "hint": 13,
+          "lat": 5.704653449356556e-05,
+          "s": 3.4766769409179688
+        },
+        {
+          "hint": 13,
+          "lat": -2.0131694327574223e-05,
+          "s": 3.4755077362060547
+        }
+      ],
+      "timings": [
+        {
+          "policy_with_capture_ms": 9.185000089928508,
+          "render_ms": 199.19175503309816
+        },
+        {
+          "policy_with_capture_ms": 9.836209006607533,
+          "render_ms": 218.73963496182114
+        }
+      ],
+      "arrays": {
+        "raw_images.road": {
+          "equal": false,
+          "mae": 2.9684015909830728,
+          "max_abs": 122.0,
+          "different_fraction": 0.8246053059895834
+        },
+        "raw_images.wide": {
+          "equal": false,
+          "mae": 1.2928110758463542,
+          "max_abs": 70.0,
+          "different_fraction": 0.5541025797526041
+        },
+        "images.road": {
+          "equal": false,
+          "mae": 1.7827402750651042,
+          "max_abs": 38.0,
+          "different_fraction": 0.7322540283203125
+        },
+        "images.wide": {
+          "equal": false,
+          "mae": 1.1185506184895833,
+          "max_abs": 33.0,
+          "different_fraction": 0.5299352010091146
+        },
+        "body.angular_velocity_world": {
+          "equal": false,
+          "mae": 0.0023188577712668725,
+          "max_abs": 0.0032456060871481895,
+          "different_fraction": 1.0
+        },
+        "body.position": {
+          "equal": false,
+          "mae": 0.0004157987398987946,
+          "max_abs": 0.0011692047119140625,
+          "different_fraction": 1.0
+        },
+        "body.rotation": {
+          "equal": false,
+          "mae": 0.00011652836780013064,
+          "max_abs": 0.00046224727865999823,
+          "different_fraction": 1.0
+        },
+        "body.velocity_body": {
+          "equal": false,
+          "mae": 0.00843583065883507,
+          "max_abs": 0.024126346206669758,
+          "different_fraction": 1.0
+        },
+        "body.velocity_world": {
+          "equal": false,
+          "mae": 0.008530599327059463,
+          "max_abs": 0.024126410484313965,
+          "different_fraction": 1.0
+        },
+        "actual_cones_xyz": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "actual_cone_quaternions": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "T_plan_ego_camera": {
+          "equal": false,
+          "mae": 1.0525759791706572e-05,
+          "max_abs": 5.2689199114164254e-05,
+          "different_fraction": 0.75
+        },
+        "T_world_camera_body": {
+          "equal": false,
+          "mae": 0.00014112612114338037,
+          "max_abs": 0.0011350996413561631,
+          "different_fraction": 0.75
+        },
+        "nominal_detection_calibration": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "prediction.plan": {
+          "equal": false,
+          "mae": 0.04053135720651987,
+          "max_abs": 0.7629270553588867,
+          "different_fraction": 0.98989898989899
+        },
+        "policy_raw.0": {
+          "equal": false,
+          "mae": 0.03528772680218837,
+          "max_abs": 0.7629270553588867,
+          "different_fraction": 0.9949494949494949
+        }
+      },
+      "capture_state_body_position_max_abs": [
+        0.0,
+        0.0
+      ],
+      "capture_state_body_yaw_abs": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 6,
+      "states": [
+        {
+          "accel": 4.270299756575771,
+          "extra": {},
+          "r": 0.008903644047677517,
+          "steer": 0.0007080985547954013,
+          "t": 0.3,
+          "vx": 0.8990800429922339,
+          "vy": -0.0009841089658154298,
+          "x": -16.482107162475586,
+          "y": 7.347392238443717e-05,
+          "yaw": 0.0009691712782735242
+        },
+        {
+          "accel": 4.210947771100968,
+          "extra": {},
+          "r": 0.0007404849166050553,
+          "steer": -4.006727701517964e-05,
+          "t": 0.3,
+          "vx": 0.9125311538668274,
+          "vy": 5.759665895502439e-05,
+          "x": -16.483766555786133,
+          "y": -1.4830679901933763e-06,
+          "yaw": -0.0002629390490016304
+        }
+      ],
+      "actions": [
+        [
+          -0.0001745848693551249,
+          4.656006040698057
+        ],
+        [
+          0.00029477764046230697,
+          4.549635111184546
+        ]
+      ],
+      "state_equal": false,
+      "progress": [
+        {
+          "hint": 14,
+          "lat": 7.347392238443717e-05,
+          "s": 3.517892837524414
+        },
+        {
+          "hint": 14,
+          "lat": -1.4830679901933763e-06,
+          "s": 3.516233444213867
+        }
+      ],
+      "timings": [
+        {
+          "policy_with_capture_ms": 9.255014942027628,
+          "render_ms": 189.94443595875055
+        },
+        {
+          "policy_with_capture_ms": 10.904593043960631,
+          "render_ms": 211.969458963722
+        }
+      ],
+      "arrays": {
+        "raw_images.road": {
+          "equal": false,
+          "mae": 4.896809895833333,
+          "max_abs": 182.0,
+          "different_fraction": 0.8672154744466146
+        },
+        "raw_images.wide": {
+          "equal": false,
+          "mae": 2.1730244954427085,
+          "max_abs": 138.0,
+          "different_fraction": 0.5992279052734375
+        },
+        "images.road": {
+          "equal": false,
+          "mae": 2.5018183390299478,
+          "max_abs": 66.0,
+          "different_fraction": 0.7557322184244791
+        },
+        "images.wide": {
+          "equal": false,
+          "mae": 1.5805206298828125,
+          "max_abs": 56.0,
+          "different_fraction": 0.5640869140625
+        },
+        "body.angular_velocity_world": {
+          "equal": false,
+          "mae": 0.00500862707849592,
+          "max_abs": 0.008163159131072462,
+          "different_fraction": 1.0
+        },
+        "body.position": {
+          "equal": false,
+          "mae": 0.000578623406454426,
+          "max_abs": 0.001659393310546875,
+          "different_fraction": 1.0
+        },
+        "body.rotation": {
+          "equal": false,
+          "mae": 0.00028079891923774876,
+          "max_abs": 0.001232107203769862,
+          "different_fraction": 1.0
+        },
+        "body.velocity_body": {
+          "equal": false,
+          "mae": 0.004849611348738476,
+          "max_abs": 0.013451016399389837,
+          "different_fraction": 1.0
+        },
+        "body.velocity_world": {
+          "equal": false,
+          "mae": 0.004507272455763693,
+          "max_abs": 0.013450562953948975,
+          "different_fraction": 1.0
+        },
+        "actual_cones_xyz": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "actual_cone_quaternions": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "T_plan_ego_camera": {
+          "equal": false,
+          "mae": 5.608613831370652e-06,
+          "max_abs": 2.746815022105359e-05,
+          "different_fraction": 0.75
+        },
+        "T_world_camera_body": {
+          "equal": false,
+          "mae": 0.0002742116319350956,
+          "max_abs": 0.001677167750390396,
+          "different_fraction": 0.75
+        },
+        "nominal_detection_calibration": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "prediction.plan": {
+          "equal": false,
+          "mae": 0.051131167408674814,
+          "max_abs": 1.300088882446289,
+          "different_fraction": 0.98989898989899
+        },
+        "policy_raw.0": {
+          "equal": false,
+          "mae": 0.040839195276428736,
+          "max_abs": 1.300088882446289,
+          "different_fraction": 0.9949494949494949
+        }
+      },
+      "capture_state_body_position_max_abs": [
+        0.0,
+        0.0
+      ],
+      "capture_state_body_yaw_abs": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 7,
+      "states": [
+        {
+          "accel": 4.431010708293391,
+          "extra": {},
+          "r": 0.029097983613610268,
+          "steer": -2.7470965330037185e-05,
+          "t": 0.35,
+          "vx": 1.1284585682416566,
+          "vy": -0.0007715917004627547,
+          "x": -16.430788040161133,
+          "y": 0.00015625856758560985,
+          "yaw": 0.002046218592279359
+        },
+        {
+          "accel": 4.352067496135792,
+          "extra": {},
+          "r": -0.013607392087578773,
+          "steer": 0.00023897015421605922,
+          "t": 0.35,
+          "vx": 1.1125840185411415,
+          "vy": -0.0016973411066253112,
+          "x": -16.432558059692383,
+          "y": -9.347251034341753e-05,
+          "yaw": -0.00014730318609637144
+        }
+      ],
+      "actions": [
+        [
+          0.0033395595572048484,
+          4.821479389776523
+        ],
+        [
+          -0.0005893529413847157,
+          4.533102911802237
+        ]
+      ],
+      "state_equal": false,
+      "progress": [
+        {
+          "hint": 14,
+          "lat": 0.00015625856758560985,
+          "s": 3.569211959838867
+        },
+        {
+          "hint": 14,
+          "lat": -9.347251034341753e-05,
+          "s": 3.567441940307617
+        }
+      ],
+      "timings": [
+        {
+          "policy_with_capture_ms": 9.325079969130456,
+          "render_ms": 190.09240390732884
+        },
+        {
+          "policy_with_capture_ms": 10.295760934241116,
+          "render_ms": 241.429653018713
+        }
+      ],
+      "arrays": {
+        "raw_images.road": {
+          "equal": false,
+          "mae": 6.694694519042969,
+          "max_abs": 214.0,
+          "different_fraction": 0.8844960530598959
+        },
+        "raw_images.wide": {
+          "equal": false,
+          "mae": 3.3283564249674478,
+          "max_abs": 182.0,
+          "different_fraction": 0.6303965250651041
+        },
+        "images.road": {
+          "equal": false,
+          "mae": 3.4418767293294272,
+          "max_abs": 106.0,
+          "different_fraction": 0.7813161214192709
+        },
+        "images.wide": {
+          "equal": false,
+          "mae": 2.157928466796875,
+          "max_abs": 74.0,
+          "different_fraction": 0.6017913818359375
+        },
+        "body.angular_velocity_world": {
+          "equal": false,
+          "mae": 0.015513750190924233,
+          "max_abs": 0.04270537570118904,
+          "different_fraction": 1.0
+        },
+        "body.position": {
+          "equal": false,
+          "mae": 0.0006734588193163896,
+          "max_abs": 0.00177001953125,
+          "different_fraction": 1.0
+        },
+        "body.rotation": {
+          "equal": false,
+          "mae": 0.000504474599537268,
+          "max_abs": 0.002193569261222672,
+          "different_fraction": 1.0
+        },
+        "body.velocity_body": {
+          "equal": false,
+          "mae": 0.005620208545322616,
+          "max_abs": 0.015874745021439818,
+          "different_fraction": 1.0
+        },
+        "body.velocity_world": {
+          "equal": false,
+          "mae": 0.006437750271288678,
+          "max_abs": 0.015874028205871582,
+          "different_fraction": 1.0
+        },
+        "actual_cones_xyz": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "actual_cone_quaternions": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "T_plan_ego_camera": {
+          "equal": false,
+          "mae": 1.2357613537915057e-05,
+          "max_abs": 5.157063613539514e-05,
+          "different_fraction": 0.75
+        },
+        "T_world_camera_body": {
+          "equal": false,
+          "mae": 0.0004198193185037024,
+          "max_abs": 0.0021926101557739296,
+          "different_fraction": 0.75
+        },
+        "nominal_detection_calibration": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "prediction.plan": {
+          "equal": false,
+          "mae": 0.040268922051679,
+          "max_abs": 0.7129173278808594,
+          "different_fraction": 0.98989898989899
+        },
+        "policy_raw.0": {
+          "equal": false,
+          "mae": 0.053063830028641214,
+          "max_abs": 0.7129173278808594,
+          "different_fraction": 0.9949494949494949
+        }
+      },
+      "capture_state_body_position_max_abs": [
+        0.0,
+        0.0
+      ],
+      "capture_state_body_yaw_abs": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 8,
+      "states": [
+        {
+          "accel": 4.593705992244696,
+          "extra": {},
+          "r": 0.038731176406145096,
+          "steer": 0.002778387803449034,
+          "t": 0.4,
+          "vx": 1.334450691501882,
+          "vy": 0.0007148979061414838,
+          "x": -16.368518829345703,
+          "y": 0.00038198608672246337,
+          "yaw": 0.0035700609074078076
+        },
+        {
+          "accel": 4.427498919330144,
+          "extra": {},
+          "r": -0.007031454239040613,
+          "steer": -0.0004512990921179199,
+          "t": 0.4,
+          "vx": 1.312814689850777,
+          "vy": 0.0006351637941102414,
+          "x": -16.37155532836914,
+          "y": -0.00011468586308183149,
+          "yaw": -0.0006177190604301629
+        }
+      ],
+      "actions": [
+        [
+          0.006301621786975455,
+          4.976813718192426
+        ],
+        [
+          -0.0006793829756121876,
+          4.628283905018766
+        ]
+      ],
+      "state_equal": false,
+      "progress": [
+        {
+          "hint": 14,
+          "lat": 0.00038198608672246337,
+          "s": 3.631481170654297
+        },
+        {
+          "hint": 14,
+          "lat": -0.00011468586308183149,
+          "s": 3.6284446716308594
+        }
+      ],
+      "timings": [
+        {
+          "policy_with_capture_ms": 9.990902966819704,
+          "render_ms": 184.00564405601472
+        },
+        {
+          "policy_with_capture_ms": 10.490496992133558,
+          "render_ms": 229.68139697331935
+        }
+      ],
+      "arrays": {
+        "raw_images.road": {
+          "equal": false,
+          "mae": 8.599098205566406,
+          "max_abs": 219.0,
+          "different_fraction": 0.8906300862630209
+        },
+        "raw_images.wide": {
+          "equal": false,
+          "mae": 5.045661926269531,
+          "max_abs": 214.0,
+          "different_fraction": 0.6589838663736979
+        },
+        "images.road": {
+          "equal": false,
+          "mae": 5.058006286621094,
+          "max_abs": 146.0,
+          "different_fraction": 0.8051834106445312
+        },
+        "images.wide": {
+          "equal": false,
+          "mae": 3.2169291178385415,
+          "max_abs": 113.0,
+          "different_fraction": 0.6243616739908854
+        },
+        "body.angular_velocity_world": {
+          "equal": false,
+          "mae": 0.01578126055634736,
+          "max_abs": 0.04576263064518571,
+          "different_fraction": 1.0
+        },
+        "body.position": {
+          "equal": false,
+          "mae": 0.0011780117468636793,
+          "max_abs": 0.0030364990234375,
+          "different_fraction": 1.0
+        },
+        "body.rotation": {
+          "equal": false,
+          "mae": 0.0009596158091226384,
+          "max_abs": 0.004187832101226932,
+          "different_fraction": 1.0
+        },
+        "body.velocity_body": {
+          "equal": false,
+          "mae": 0.007324605724397072,
+          "max_abs": 0.021635421575930902,
+          "different_fraction": 1.0
+        },
+        "body.velocity_world": {
+          "equal": false,
+          "mae": 0.009119320300063313,
+          "max_abs": 0.02162480354309082,
+          "different_fraction": 1.0
+        },
+        "actual_cones_xyz": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "actual_cone_quaternions": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "T_plan_ego_camera": {
+          "equal": false,
+          "mae": 2.0277596922464768e-05,
+          "max_abs": 9.577223358709502e-05,
+          "different_fraction": 0.75
+        },
+        "T_world_camera_body": {
+          "equal": false,
+          "mae": 0.0007632674146865735,
+          "max_abs": 0.00418845152759216,
+          "different_fraction": 0.75
+        },
+        "nominal_detection_calibration": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "prediction.plan": {
+          "equal": false,
+          "mae": 0.06628875553412245,
+          "max_abs": 1.4193449020385742,
+          "different_fraction": 0.98989898989899
+        },
+        "policy_raw.0": {
+          "equal": false,
+          "mae": 0.0879463728306193,
+          "max_abs": 1.4193449020385742,
+          "different_fraction": 0.9949494949494949
+        }
+      },
+      "capture_state_body_position_max_abs": [
+        0.0,
+        0.0
+      ],
+      "capture_state_body_yaw_abs": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 9,
+      "states": [
+        {
+          "accel": 4.753334211389584,
+          "extra": {},
+          "r": 0.045743945986032486,
+          "steer": 0.005714416123054384,
+          "t": 0.45,
+          "vx": 1.5620346794853612,
+          "vy": 0.0012263306688542746,
+          "x": -16.295127868652344,
+          "y": 0.0007967401179485023,
+          "yaw": 0.005863967724811961
+        },
+        {
+          "accel": 4.5111593300337365,
+          "extra": {},
+          "r": -0.008409745991230011,
+          "steer": -0.0006413689950298096,
+          "t": 0.45,
+          "vx": 1.509252312501041,
+          "vy": 0.0008060351017795086,
+          "x": -16.300451278686523,
+          "y": -0.0001601311523700133,
+          "yaw": -0.001202474332055753
+        }
+      ],
+      "actions": [
+        [
+          0.0078888195316363,
+          4.899003838281157
+        ],
+        [
+          0.001158112758801539,
+          4.741758267605336
+        ]
+      ],
+      "state_equal": false,
+      "progress": [
+        {
+          "hint": 14,
+          "lat": 0.0007967401179485023,
+          "s": 3.7048721313476562
+        },
+        {
+          "hint": 14,
+          "lat": -0.0001601311523700133,
+          "s": 3.6995487213134766
+        }
+      ],
+      "timings": [
+        {
+          "policy_with_capture_ms": 9.330183966085315,
+          "render_ms": 190.13232691213489
+        },
+        {
+          "policy_with_capture_ms": 10.840449016541243,
+          "render_ms": 215.81730002071708
+        }
+      ],
+      "arrays": {
+        "raw_images.road": {
+          "equal": false,
+          "mae": 10.431983947753906,
+          "max_abs": 214.0,
+          "different_fraction": 0.8974253336588541
+        },
+        "raw_images.wide": {
+          "equal": false,
+          "mae": 6.5922698974609375,
+          "max_abs": 219.0,
+          "different_fraction": 0.6818288167317709
+        },
+        "images.road": {
+          "equal": false,
+          "mae": 6.484097798665364,
+          "max_abs": 159.0,
+          "different_fraction": 0.8310572306315104
+        },
+        "images.wide": {
+          "equal": false,
+          "mae": 4.47412109375,
+          "max_abs": 141.0,
+          "different_fraction": 0.6319147745768229
+        },
+        "body.angular_velocity_world": {
+          "equal": false,
+          "mae": 0.01865995616147605,
+          "max_abs": 0.0541536919772625,
+          "different_fraction": 1.0
+        },
+        "body.position": {
+          "equal": false,
+          "mae": 0.002094569523857596,
+          "max_abs": 0.0053234100341796875,
+          "different_fraction": 1.0
+        },
+        "body.rotation": {
+          "equal": false,
+          "mae": 0.001633833102263054,
+          "max_abs": 0.007066541047396655,
+          "different_fraction": 1.0
+        },
+        "body.velocity_body": {
+          "equal": false,
+          "mae": 0.01790481260347581,
+          "max_abs": 0.05278121968169969,
+          "different_fraction": 1.0
+        },
+        "body.velocity_world": {
+          "equal": false,
+          "mae": 0.02139961354563032,
+          "max_abs": 0.05274844169616699,
+          "different_fraction": 1.0
+        },
+        "actual_cones_xyz": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "actual_cone_quaternions": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "T_plan_ego_camera": {
+          "equal": false,
+          "mae": 4.440201082619652e-05,
+          "max_abs": 0.00021031800113168603,
+          "different_fraction": 0.75
+        },
+        "T_world_camera_body": {
+          "equal": false,
+          "mae": 0.0013123822027351494,
+          "max_abs": 0.00706847538989795,
+          "different_fraction": 0.75
+        },
+        "nominal_detection_calibration": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "prediction.plan": {
+          "equal": false,
+          "mae": 0.10269103050161978,
+          "max_abs": 1.8280019760131836,
+          "different_fraction": 0.98989898989899
+        },
+        "policy_raw.0": {
+          "equal": false,
+          "mae": 0.13429394423352817,
+          "max_abs": 1.8280019760131836,
+          "different_fraction": 0.9949494949494949
+        }
+      },
+      "capture_state_body_position_max_abs": [
+        0.0,
+        0.0
+      ],
+      "capture_state_body_yaw_abs": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 10,
+      "states": [
+        {
+          "accel": 4.8140298892610724,
+          "extra": {},
+          "r": 0.04815251752734184,
+          "steer": 0.0075264189635393134,
+          "t": 0.5,
+          "vx": 1.7908271678608885,
+          "vy": 0.0029220416256463357,
+          "x": -16.21035385131836,
+          "y": 0.001532301539555192,
+          "yaw": 0.008288009617536708
+        },
+        {
+          "accel": 4.60724222068857,
+          "extra": {},
+          "r": -0.008169155567884445,
+          "steer": 0.0008581991331629809,
+          "t": 0.5,
+          "vx": 1.72794244831116,
+          "vy": 0.002143217563846375,
+          "x": -16.218643188476562,
+          "y": -0.00018962955800816417,
+          "yaw": -0.0016108785905392495
+        }
+      ],
+      "actions": [
+        [
+          0.007295098695136142,
+          4.621364100353451
+        ],
+        [
+          0.0011879489204196492,
+          4.60232126561329
+        ]
+      ],
+      "state_equal": false,
+      "progress": [
+        {
+          "hint": 15,
+          "lat": 0.001532301539555192,
+          "s": 3.7896461486816406
+        },
+        {
+          "hint": 15,
+          "lat": -0.00018962955800816417,
+          "s": 3.7813568115234375
+        }
+      ],
+      "timings": [
+        {
+          "policy_with_capture_ms": 9.372471016831696,
+          "render_ms": 194.87421098165214
+        },
+        {
+          "policy_with_capture_ms": 10.777793009765446,
+          "render_ms": 218.77405198756605
+        }
+      ],
+      "arrays": {
+        "raw_images.road": {
+          "equal": false,
+          "mae": 11.361976623535156,
+          "max_abs": 205.0,
+          "different_fraction": 0.9020436604817709
+        },
+        "raw_images.wide": {
+          "equal": false,
+          "mae": 7.6051076253255205,
+          "max_abs": 214.0,
+          "different_fraction": 0.6997731526692709
+        },
+        "images.road": {
+          "equal": false,
+          "mae": 7.268269856770833,
+          "max_abs": 174.0,
+          "different_fraction": 0.8334274291992188
+        },
+        "images.wide": {
+          "equal": false,
+          "mae": 5.4410146077473955,
+          "max_abs": 160.0,
+          "different_fraction": 0.6650594075520834
+        },
+        "body.angular_velocity_world": {
+          "equal": false,
+          "mae": 0.01909221081632495,
+          "max_abs": 0.05632167309522629,
+          "different_fraction": 1.0
+        },
+        "body.position": {
+          "equal": false,
+          "mae": 0.0033388378215022385,
+          "max_abs": 0.008289337158203125,
+          "different_fraction": 1.0
+        },
+        "body.rotation": {
+          "equal": false,
+          "mae": 0.002275498015704953,
+          "max_abs": 0.009898996462989001,
+          "different_fraction": 1.0
+        },
+        "body.velocity_body": {
+          "equal": false,
+          "mae": 0.021411955520517528,
+          "max_abs": 0.06288341281882892,
+          "different_fraction": 1.0
+        },
+        "body.velocity_world": {
+          "equal": false,
+          "mae": 0.027073738474427955,
+          "max_abs": 0.06279778480529785,
+          "different_fraction": 1.0
+        },
+        "actual_cones_xyz": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "actual_cone_quaternions": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "T_plan_ego_camera": {
+          "equal": false,
+          "mae": 5.035458338304279e-05,
+          "max_abs": 0.00022145581948766063,
+          "different_fraction": 0.75
+        },
+        "T_world_camera_body": {
+          "equal": false,
+          "mae": 0.0019091130935202684,
+          "max_abs": 0.009900103747119209,
+          "different_fraction": 0.75
+        },
+        "nominal_detection_calibration": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "prediction.plan": {
+          "equal": false,
+          "mae": 0.10749927049976662,
+          "max_abs": 2.7822093963623047,
+          "different_fraction": 0.98989898989899
+        },
+        "policy_raw.0": {
+          "equal": false,
+          "mae": 0.14178111845394029,
+          "max_abs": 2.7822093963623047,
+          "different_fraction": 0.9949494949494949
+        }
+      },
+      "capture_state_body_position_max_abs": [
+        0.0,
+        0.0
+      ],
+      "capture_state_body_yaw_abs": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 20,
+      "states": [
+        {
+          "accel": 4.723996536744612,
+          "extra": {},
+          "r": -0.0034214924089610577,
+          "steer": 0.0005915081838299471,
+          "t": 1.0,
+          "vx": 3.9916715603802575,
+          "vy": 0.0005713376738334437,
+          "x": -14.755367279052734,
+          "y": 0.01904679462313652,
+          "yaw": 0.011890339087293528
+        },
+        {
+          "accel": 4.684297037199501,
+          "extra": {},
+          "r": 0.00024667801335453987,
+          "steer": 0.00010231525947674815,
+          "t": 1.0,
+          "vx": 3.8907868340258345,
+          "vy": 0.0001252017722600364,
+          "x": -14.798282623291016,
+          "y": -0.002815559972077608,
+          "yaw": -0.0020368086171168105
+        }
+      ],
+      "actions": [
+        [
+          0.00028699932737258116,
+          5.147984837705545
+        ],
+        [
+          -0.00030270939689109797,
+          4.804390832917168
+        ]
+      ],
+      "state_equal": false,
+      "progress": [
+        {
+          "hint": 20,
+          "lat": 0.01904679462313652,
+          "s": 5.244632720947266
+        },
+        {
+          "hint": 20,
+          "lat": -0.002815559972077608,
+          "s": 5.201717376708984
+        }
+      ],
+      "timings": [
+        {
+          "policy_with_capture_ms": 9.332104003988206,
+          "render_ms": 189.20073506888002
+        },
+        {
+          "policy_with_capture_ms": 10.768321109935641,
+          "render_ms": 200.89192397426814
+        }
+      ],
+      "arrays": {
+        "raw_images.road": {
+          "equal": false,
+          "mae": 11.804433186848959,
+          "max_abs": 208.0,
+          "different_fraction": 0.9068374633789062
+        },
+        "raw_images.wide": {
+          "equal": false,
+          "mae": 8.857439676920572,
+          "max_abs": 222.0,
+          "different_fraction": 0.7200724283854166
+        },
+        "images.road": {
+          "equal": false,
+          "mae": 7.7588246663411455,
+          "max_abs": 173.0,
+          "different_fraction": 0.8424072265625
+        },
+        "images.wide": {
+          "equal": false,
+          "mae": 6.5352783203125,
+          "max_abs": 189.0,
+          "different_fraction": 0.6912460327148438
+        },
+        "body.angular_velocity_world": {
+          "equal": false,
+          "mae": 0.0027590289379683477,
+          "max_abs": 0.004561209352687001,
+          "different_fraction": 1.0
+        },
+        "body.position": {
+          "equal": false,
+          "mae": 0.021592645750691492,
+          "max_abs": 0.04291534423828125,
+          "different_fraction": 1.0
+        },
+        "body.rotation": {
+          "equal": false,
+          "mae": 0.00312385121389327,
+          "max_abs": 0.013926891547107991,
+          "different_fraction": 1.0
+        },
+        "body.velocity_body": {
+          "equal": false,
+          "mae": 0.033906506289910474,
+          "max_abs": 0.10088403781019117,
+          "different_fraction": 1.0
+        },
+        "body.velocity_world": {
+          "equal": false,
+          "mae": 0.05215140510154015,
+          "max_abs": 0.10060358047485352,
+          "different_fraction": 1.0
+        },
+        "actual_cones_xyz": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "actual_cone_quaternions": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "T_plan_ego_camera": {
+          "equal": false,
+          "mae": 7.298063157874096e-06,
+          "max_abs": 3.36638935154801e-05,
+          "different_fraction": 0.75
+        },
+        "T_world_camera_body": {
+          "equal": false,
+          "mae": 0.005866039909771298,
+          "max_abs": 0.042893780264231296,
+          "different_fraction": 0.75
+        },
+        "nominal_detection_calibration": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "prediction.plan": {
+          "equal": false,
+          "mae": 0.11046320978849403,
+          "max_abs": 2.1578245162963867,
+          "different_fraction": 0.98989898989899
+        },
+        "policy_raw.0": {
+          "equal": false,
+          "mae": 0.09132845784173446,
+          "max_abs": 2.1578245162963867,
+          "different_fraction": 0.9949494949494949
+        }
+      },
+      "capture_state_body_position_max_abs": [
+        0.0,
+        0.0
+      ],
+      "capture_state_body_yaw_abs": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 50,
+      "states": [
+        {
+          "accel": 0.39222224403635775,
+          "extra": {},
+          "r": -0.031663138419389725,
+          "steer": 0.00205223269189959,
+          "t": 2.5,
+          "vx": 8.134269692022418,
+          "vy": 0.0019707438307916716,
+          "x": -4.698266983032227,
+          "y": 0.17177121341228485,
+          "yaw": 0.019225384375720262
+        },
+        {
+          "accel": 0.5995021683459026,
+          "extra": {},
+          "r": 0.014977879822254181,
+          "steer": 0.0032922472254122825,
+          "t": 2.5,
+          "vx": 8.133454419997083,
+          "vy": 0.00429320689679772,
+          "x": -4.860379219055176,
+          "y": -0.017535598948597908,
+          "yaw": 0.0006866712118318108
+        }
+      ],
+      "actions": [
+        [
+          -0.007249132481294853,
+          -0.4492901770709651
+        ],
+        [
+          0.004035251325344,
+          0.23747603415633378
+        ]
+      ],
+      "state_equal": false,
+      "progress": [
+        {
+          "hint": 61,
+          "lat": 0.17177121341228485,
+          "s": 15.301733016967773
+        },
+        {
+          "hint": 60,
+          "lat": -0.017535598948597908,
+          "s": 15.139620780944824
+        }
+      ],
+      "timings": [
+        {
+          "policy_with_capture_ms": 9.080905001610518,
+          "render_ms": 194.5727509446442
+        },
+        {
+          "policy_with_capture_ms": 9.445376927033067,
+          "render_ms": 220.64367507118732
+        }
+      ],
+      "arrays": {
+        "raw_images.road": {
+          "equal": false,
+          "mae": 17.639755249023438,
+          "max_abs": 210.0,
+          "different_fraction": 0.9180857340494791
+        },
+        "raw_images.wide": {
+          "equal": false,
+          "mae": 12.060201009114584,
+          "max_abs": 226.0,
+          "different_fraction": 0.7501958211263021
+        },
+        "images.road": {
+          "equal": false,
+          "mae": 12.864143371582031,
+          "max_abs": 161.0,
+          "different_fraction": 0.8936742146809896
+        },
+        "images.wide": {
+          "equal": false,
+          "mae": 9.14874521891276,
+          "max_abs": 187.0,
+          "different_fraction": 0.7537663777669271
+        },
+        "body.angular_velocity_world": {
+          "equal": false,
+          "mae": 0.01843855487337957,
+          "max_abs": 0.046641018241643906,
+          "different_fraction": 1.0
+        },
+        "body.position": {
+          "equal": false,
+          "mae": 0.11714095436036587,
+          "max_abs": 0.18930681236088276,
+          "different_fraction": 1.0
+        },
+        "body.rotation": {
+          "equal": false,
+          "mae": 0.0041851650681287355,
+          "max_abs": 0.018537527649948028,
+          "different_fraction": 1.0
+        },
+        "body.velocity_body": {
+          "equal": false,
+          "mae": 0.0013386446792540165,
+          "max_abs": 0.0023223520145243034,
+          "different_fraction": 1.0
+        },
+        "body.velocity_world": {
+          "equal": false,
+          "mae": 0.04973871376811682,
+          "max_abs": 0.14846699312329292,
+          "different_fraction": 1.0
+        },
+        "actual_cones_xyz": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "actual_cone_quaternions": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "T_plan_ego_camera": {
+          "equal": false,
+          "mae": 1.9631935582084558e-05,
+          "max_abs": 0.00010452903497709665,
+          "different_fraction": 0.75
+        },
+        "T_world_camera_body": {
+          "equal": false,
+          "mae": 0.024420215776168527,
+          "max_abs": 0.18930838664265423,
+          "different_fraction": 0.75
+        },
+        "nominal_detection_calibration": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "prediction.plan": {
+          "equal": false,
+          "mae": 0.18921535105992354,
+          "max_abs": 3.632227897644043,
+          "different_fraction": 0.98989898989899
+        },
+        "policy_raw.0": {
+          "equal": false,
+          "mae": 0.23876058315214962,
+          "max_abs": 3.632227897644043,
+          "different_fraction": 0.9949494949494949
+        }
+      },
+      "capture_state_body_position_max_abs": [
+        0.0,
+        0.0
+      ],
+      "capture_state_body_yaw_abs": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "frame": 99,
+      "states": [
+        {
+          "accel": 0.10817744668252804,
+          "extra": {},
+          "r": -0.7371707558631897,
+          "steer": -0.17244878654149504,
+          "t": 4.95,
+          "vx": 6.09520958005017,
+          "vy": -0.1742338253020173,
+          "x": 8.413301467895508,
+          "y": -7.511012077331543,
+          "yaw": -1.3487454298796526
+        },
+        {
+          "accel": 0.09797251560142119,
+          "extra": {},
+          "r": -0.7094582319259644,
+          "steer": -0.18076939245434487,
+          "t": 4.95,
+          "vx": 6.059872874265753,
+          "vy": -0.19182986438545263,
+          "x": 8.766365051269531,
+          "y": -7.32924747467041,
+          "yaw": -1.3111614130584148
+        }
+      ],
+      "actions": [
+        [
+          -0.17181494588196833,
+          0.13934962313996804
+        ],
+        [
+          -0.1799134662475323,
+          0.16290559675198302
+        ]
+      ],
+      "state_equal": false,
+      "progress": [
+        {
+          "hint": 130,
+          "lat": -0.5575071368499608,
+          "s": 32.60603191224465
+        },
+        {
+          "hint": 129,
+          "lat": -0.176241939747294,
+          "s": 32.48754450037787
+        }
+      ],
+      "timings": [
+        {
+          "policy_with_capture_ms": 8.268154924735427,
+          "render_ms": 198.2675010804087
+        },
+        {
+          "policy_with_capture_ms": 9.364912984892726,
+          "render_ms": 226.70749202370644
+        }
+      ],
+      "arrays": {
+        "raw_images.road": {
+          "equal": false,
+          "mae": 14.482826232910156,
+          "max_abs": 210.0,
+          "different_fraction": 0.8539555867513021
+        },
+        "raw_images.wide": {
+          "equal": false,
+          "mae": 11.100507100423178,
+          "max_abs": 209.0,
+          "different_fraction": 0.6756312052408854
+        },
+        "images.road": {
+          "equal": false,
+          "mae": 11.98083750406901,
+          "max_abs": 199.0,
+          "different_fraction": 0.8035990397135416
+        },
+        "images.wide": {
+          "equal": false,
+          "mae": 9.632405598958334,
+          "max_abs": 183.0,
+          "different_fraction": 0.685089111328125
+        },
+        "body.angular_velocity_world": {
+          "equal": false,
+          "mae": 0.013014012132771313,
+          "max_abs": 0.027712523937225342,
+          "different_fraction": 1.0
+        },
+        "body.position": {
+          "equal": false,
+          "mae": 0.178276260693868,
+          "max_abs": 0.35306358337402344,
+          "different_fraction": 1.0
+        },
+        "body.rotation": {
+          "equal": false,
+          "mae": 0.010153816401027187,
+          "max_abs": 0.03649708685220204,
+          "different_fraction": 1.0
+        },
+        "body.velocity_body": {
+          "equal": false,
+          "mae": 0.017743917496010148,
+          "max_abs": 0.0353367894621357,
+          "different_fraction": 1.0
+        },
+        "body.velocity_world": {
+          "equal": false,
+          "mae": 0.09196561326674176,
+          "max_abs": 0.19794106483459473,
+          "different_fraction": 1.0
+        },
+        "actual_cones_xyz": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "actual_cone_quaternions": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "T_plan_ego_camera": {
+          "equal": false,
+          "mae": 3.6301684485408325e-05,
+          "max_abs": 0.0001401069359346814,
+          "different_fraction": 0.75
+        },
+        "T_world_camera_body": {
+          "equal": false,
+          "mae": 0.03929828392443115,
+          "max_abs": 0.35314242162400156,
+          "different_fraction": 0.75
+        },
+        "nominal_detection_calibration": {
+          "equal": true,
+          "mae": 0.0,
+          "max_abs": 0.0,
+          "different_fraction": 0.0
+        },
+        "prediction.plan": {
+          "equal": false,
+          "mae": 0.029143157185582396,
+          "max_abs": 1.0051826238632202,
+          "different_fraction": 0.98989898989899
+        },
+        "policy_raw.0": {
+          "equal": false,
+          "mae": 0.08340012437449028,
+          "max_abs": 1.0051826238632202,
+          "different_fraction": 0.9949494949494949
+        }
+      },
+      "capture_state_body_position_max_abs": [
+        0.0,
+        0.0
+      ],
+      "capture_state_body_yaw_abs": [
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

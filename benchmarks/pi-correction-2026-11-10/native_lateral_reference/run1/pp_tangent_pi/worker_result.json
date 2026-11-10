@@ -1,0 +1,493 @@
+{
+  "arm": "pp_tangent_pi",
+  "worker_exception": null,
+  "prefix_gate": {
+    "passed": true,
+    "errors": {
+      "position_m": 0.0,
+      "yaw_rad": 0.0,
+      "velocity_mps": 0.0,
+      "yaw_rate_radps": 0.0,
+      "actuator_steer_rad": 0.0,
+      "actuator_accel_mps2": 0.0,
+      "time_s": 0.0
+    },
+    "tick": 255
+  },
+  "mission_summary": {
+    "discipline": "skidpad",
+    "result": "isaac_rollover",
+    "laps": [
+      9.670128149180774,
+      10.056817253628743,
+      10.017297986454434
+    ],
+    "n_laps": 3,
+    "doo": 20,
+    "oc": 0,
+    "max_speed": 7.892271995544434,
+    "route": {
+      "expected_route": [
+        "right",
+        "right",
+        "left",
+        "left"
+      ],
+      "accepted_route": [
+        "right",
+        "right",
+        "left"
+      ],
+      "laps": [
+        {
+          "circle": "right",
+          "start_time": 3.030967790823729,
+          "finish_time": 12.701095940004503,
+          "duration": 9.670128149180774,
+          "winding_right": -6.283185307179586,
+          "winding_left": 4.889751797909625e-17
+        },
+        {
+          "circle": "right",
+          "start_time": 12.701095940004503,
+          "finish_time": 22.757913193633247,
+          "duration": 10.056817253628743,
+          "winding_right": -6.283185307179588,
+          "winding_left": 1.8908485888147197e-16
+        },
+        {
+          "circle": "left",
+          "start_time": 22.757913193633247,
+          "finish_time": 32.77521118008768,
+          "duration": 10.017297986454434,
+          "winding_right": 1.6306400674181987e-16,
+          "winding_left": 6.2831853071795845
+        }
+      ],
+      "crossings": [
+        3.030967790823729,
+        12.701095940004503,
+        22.757913193633247,
+        32.77521118008768
+      ],
+      "complete": false,
+      "exited": false,
+      "stopped_in_zone": false,
+      "valid": true,
+      "violation": null,
+      "reverse_crossings": 0,
+      "termination": "isaac_rollover"
+    },
+    "raw_time": null,
+    "penalty": 4.0,
+    "time": null,
+    "dq": false,
+    "complete": false,
+    "pass": false,
+    "final_state": {
+      "x": 6.811697006225586,
+      "y": -3.9460601806640625,
+      "yaw": -0.8647018099275912,
+      "vx": 3.898231346585936,
+      "vy": 1.0218161001516004,
+      "r": -0.6877622008323669,
+      "steer": 0.18354860923641375,
+      "accel": 2.2816088910210475,
+      "t": 44.3,
+      "extra": {}
+    },
+    "physical_cone_hits": 22,
+    "contact_events": [
+      {
+        "t": 22.7,
+        "control_frame": 454,
+        "cone": "/World/Cones/c0030",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 22.7,
+        "control_frame": 454,
+        "cone": "/World/Cones/c0083",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 23.2,
+        "control_frame": 464,
+        "cone": "/World/Cones/c0031",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 24.6,
+        "control_frame": 492,
+        "cone": "/World/Cones/c0048",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 25.2,
+        "control_frame": 504,
+        "cone": "/World/Cones/c0049",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 25.7,
+        "control_frame": 514,
+        "cone": "/World/Cones/c0050",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 26.4,
+        "control_frame": 528,
+        "cone": "/World/Cones/c0051",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 27.0,
+        "control_frame": 540,
+        "cone": "/World/Cones/c0052",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 27.6,
+        "control_frame": 552,
+        "cone": "/World/Cones/c0053",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 28.2,
+        "control_frame": 564,
+        "cone": "/World/Cones/c0054",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 30.0,
+        "control_frame": 600,
+        "cone": "/World/Cones/c0057",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 30.6,
+        "control_frame": 612,
+        "cone": "/World/Cones/c0058",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 32.75,
+        "control_frame": 655,
+        "cone": "/World/Cones/c0004",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 34.05,
+        "control_frame": 681,
+        "cone": "/World/Cones/c0047",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 39.05,
+        "control_frame": 781,
+        "cone": "/World/Cones/c0055",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 39.65,
+        "control_frame": 793,
+        "cone": "/World/Cones/c0056",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 41.55,
+        "control_frame": 831,
+        "cone": "/World/Cones/c0059",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 42.5,
+        "control_frame": 850,
+        "cone": "/World/Cones/c0005",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 42.7,
+        "control_frame": 854,
+        "cone": "/World/Cones/c0084",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 42.85,
+        "control_frame": 857,
+        "cone": "/World/Cones/c0085",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 43.3,
+        "control_frame": 866,
+        "cone": "/World/Cones/c0003",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 43.75,
+        "control_frame": 875,
+        "cone": "/World/Cones/c0002",
+        "time_convention": "start of the control interval containing first contact"
+      }
+    ],
+    "progress": 0.9418530379517626,
+    "rms_lat": 0.7118392076640535
+  },
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130",
+    "numpy": "1.26.0",
+    "physics_dt": 0.008333333333333333,
+    "device": "cpu",
+    "use_fabric": true,
+    "scene_queries": true,
+    "physx": {
+      "solver_type": 1,
+      "min_position_iteration_count": 1,
+      "max_position_iteration_count": 255,
+      "min_velocity_iteration_count": 0,
+      "max_velocity_iteration_count": 255,
+      "enable_ccd": false,
+      "enable_stabilization": false,
+      "enable_enhanced_determinism": false,
+      "bounce_threshold_velocity": 0.5,
+      "friction_offset_threshold": 0.04,
+      "friction_correlation_distance": 0.025,
+      "gpu_max_rigid_contact_count": 8388608,
+      "gpu_max_rigid_patch_count": 163840,
+      "gpu_found_lost_pairs_capacity": 2097152,
+      "gpu_found_lost_aggregate_pairs_capacity": 33554432,
+      "gpu_total_aggregate_pairs_capacity": 2097152,
+      "gpu_collision_stack_size": 67108864,
+      "gpu_heap_capacity": 67108864,
+      "gpu_temp_buffer_capacity": 16777216,
+      "gpu_max_num_partitions": 8,
+      "gpu_max_soft_body_contacts": 1048576,
+      "gpu_max_particle_contacts": 1048576,
+      "solve_articulation_contact_last": false
+    }
+  },
+  "mission_done_tick": 886,
+  "final_summary": {
+    "discipline": "skidpad",
+    "result": "isaac_rollover",
+    "laps": [
+      9.670128149180774,
+      10.056817253628743,
+      10.017297986454434
+    ],
+    "n_laps": 3,
+    "doo": 20,
+    "oc": 0,
+    "max_speed": 7.892271995544434,
+    "route": {
+      "expected_route": [
+        "right",
+        "right",
+        "left",
+        "left"
+      ],
+      "accepted_route": [
+        "right",
+        "right",
+        "left"
+      ],
+      "laps": [
+        {
+          "circle": "right",
+          "start_time": 3.030967790823729,
+          "finish_time": 12.701095940004503,
+          "duration": 9.670128149180774,
+          "winding_right": -6.283185307179586,
+          "winding_left": 4.889751797909625e-17
+        },
+        {
+          "circle": "right",
+          "start_time": 12.701095940004503,
+          "finish_time": 22.757913193633247,
+          "duration": 10.056817253628743,
+          "winding_right": -6.283185307179588,
+          "winding_left": 1.8908485888147197e-16
+        },
+        {
+          "circle": "left",
+          "start_time": 22.757913193633247,
+          "finish_time": 32.77521118008768,
+          "duration": 10.017297986454434,
+          "winding_right": 1.6306400674181987e-16,
+          "winding_left": 6.2831853071795845
+        }
+      ],
+      "crossings": [
+        3.030967790823729,
+        12.701095940004503,
+        22.757913193633247,
+        32.77521118008768
+      ],
+      "complete": false,
+      "exited": false,
+      "stopped_in_zone": false,
+      "valid": true,
+      "violation": null,
+      "reverse_crossings": 0,
+      "termination": "isaac_rollover"
+    },
+    "raw_time": null,
+    "penalty": 4.0,
+    "time": null,
+    "dq": false,
+    "complete": false,
+    "pass": false,
+    "final_state": {
+      "x": 6.811697006225586,
+      "y": -3.9460601806640625,
+      "yaw": -0.8647018099275912,
+      "vx": 3.898231346585936,
+      "vy": 1.0218161001516004,
+      "r": -0.6877622008323669,
+      "steer": 0.18354860923641375,
+      "accel": 2.2816088910210475,
+      "t": 44.3,
+      "extra": {}
+    },
+    "physical_cone_hits": 22,
+    "contact_events": [
+      {
+        "t": 22.7,
+        "control_frame": 454,
+        "cone": "/World/Cones/c0030",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 22.7,
+        "control_frame": 454,
+        "cone": "/World/Cones/c0083",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 23.2,
+        "control_frame": 464,
+        "cone": "/World/Cones/c0031",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 24.6,
+        "control_frame": 492,
+        "cone": "/World/Cones/c0048",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 25.2,
+        "control_frame": 504,
+        "cone": "/World/Cones/c0049",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 25.7,
+        "control_frame": 514,
+        "cone": "/World/Cones/c0050",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 26.4,
+        "control_frame": 528,
+        "cone": "/World/Cones/c0051",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 27.0,
+        "control_frame": 540,
+        "cone": "/World/Cones/c0052",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 27.6,
+        "control_frame": 552,
+        "cone": "/World/Cones/c0053",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 28.2,
+        "control_frame": 564,
+        "cone": "/World/Cones/c0054",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 30.0,
+        "control_frame": 600,
+        "cone": "/World/Cones/c0057",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 30.6,
+        "control_frame": 612,
+        "cone": "/World/Cones/c0058",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 32.75,
+        "control_frame": 655,
+        "cone": "/World/Cones/c0004",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 34.05,
+        "control_frame": 681,
+        "cone": "/World/Cones/c0047",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 39.05,
+        "control_frame": 781,
+        "cone": "/World/Cones/c0055",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 39.65,
+        "control_frame": 793,
+        "cone": "/World/Cones/c0056",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 41.55,
+        "control_frame": 831,
+        "cone": "/World/Cones/c0059",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 42.5,
+        "control_frame": 850,
+        "cone": "/World/Cones/c0005",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 42.7,
+        "control_frame": 854,
+        "cone": "/World/Cones/c0084",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 42.85,
+        "control_frame": 857,
+        "cone": "/World/Cones/c0085",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 43.3,
+        "control_frame": 866,
+        "cone": "/World/Cones/c0003",
+        "time_convention": "start of the control interval containing first contact"
+      },
+      {
+        "t": 43.75,
+        "control_frame": 875,
+        "cone": "/World/Cones/c0002",
+        "time_convention": "start of the control interval containing first contact"
+      }
+    ],
+    "progress": 0.9418530379517626,
+    "rms_lat": 0.7118392076640535
+  },
+  "trace_sha256": "2c9540968ce3f19271d7469ca70cbd53356a2fe4299fc9d983c39f26a920bc43"
+}

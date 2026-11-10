@@ -1,0 +1,19 @@
+{
+  "remote_before_after_equal": true,
+  "local_exact": true,
+  "file_sha256": {
+    "development.log": "86477ee37ca54e0ceb92cccc1e11bb623158920bc070b6cd80aef8fc629f27bd",
+    "panorama_copy.json": "101d6d91db2a05ebf38d6011a21da5c21fea1b816d7d79289c5601b913960087",
+    "asset_copy.json": "282a34107a3f5d1af30cf4a9fb0a15be8c58f89957ae3d79cbdcbec0a181be09",
+    "selection.log": "1e1a4046ff21a660e5ea28831c1f916a7a7784958811329c13369ec334852d22",
+    "head_trial1.log": "a35c4d43d880cf6992e5dc1c3d2c54244f17b8521259246e0a28911dfa173014",
+    "head_calibration_direct2.log": "5ffe0044df9b06666ca0b08ee7df29c71b8c53a828d4fa1ff90bb8e8ff8b76ae",
+    "freeze_head_trial.py": "171a2b175dd8f08b638062abdba6a3d176466f41b83174ed613b28916b816243",
+    "._freeze_head_trial.py": "e3f7b06342786bb94cb0d7674a055864096d2b19a7c99e16c023ef404e4d7576",
+    "head_calibration_direct1.log": "024a739abafbdd905d4f29f8367fb5ff8875056b08a495c1e227f76a0572c61e",
+    "calibration.log": "47e94a1a970b3419ee5eebf2ab0717cfb7eaab96fabec451d52b09d82e94743f"
+  },
+  "local": "/Users/maxaitel/Documents/ChatGPT/fs-openpilot-skidpad-correction/runs/head_trial_archive/remote_execution_logs",
+  "source_deleted": false,
+  "copy_note": "macOS tar consumed one AppleDouble member; copied that member byte-for-byte separately, then verified exact full inventory."
+}

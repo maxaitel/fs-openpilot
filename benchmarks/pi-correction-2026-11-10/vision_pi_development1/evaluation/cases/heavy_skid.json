@@ -1,0 +1,12 @@
+{
+  "discipline": "skidpad",
+  "dr": "heavy",
+  "frozen_case": "skidpad-72000-heavy-recorded",
+  "id": "regression-skidpad-72000-heavy-recorded-visual_stress_v1",
+  "lateral_start": 0.0,
+  "seed": 72000,
+  "split": "regression",
+  "track_seed": null,
+  "variant": "visual_stress_v1",
+  "yaw_start": 0.0
+}

@@ -1,0 +1,56 @@
+--- pi_latest_heavy1
+
++++ development_pi_trial1/baseline/heavy_skid
+
+@@ -37,5 +37,5 @@
+
+                 bool omni:rtx:material:db:nonVisualMaterialCSV:enabled = 0
+                 bool omni:rtx:material:db:syncLoads = 1
+-                token omni:rtx:post:aa:op
++                token omni:rtx:post:aa:op = "none"
+                 token omni:rtx:post:dlss:execMode = "performance"
+                 bool omni:rtx:post:registeredCompositing:invertColorCorrection = 1
+@@ -64,5 +64,5 @@
+
+                 custom bool overrideClipRange = 0
+                 uniform int2 resolution = (1280, 720)
+-                custom uint64 viewPickingId = 2143336405553209619
++                custom uint64 viewPickingId = 7022998122314100797
+                 custom int viewportHandle = -1
+             }
+@@ -112,5 +112,5 @@
+
+                 custom bool overrideClipRange = 0
+                 uniform int2 resolution = (512, 256)
+-                custom uint64 viewPickingId = 13194728919436453996
++                custom uint64 viewPickingId = 16349789366002056198
+                 custom int viewportHandle = 1
+ 
+@@ -212,5 +212,5 @@
+
+                 custom bool overrideClipRange = 0
+                 uniform int2 resolution = (512, 256)
+-                custom uint64 viewPickingId = 9828955099156711455
++                custom uint64 viewPickingId = 5776539846066875305
+                 custom int viewportHandle = 2
+ 
+@@ -378,5 +378,5 @@
+
+                 custom int64 inputs:referenceTimeNumerator
+                 int64 inputs:referenceTimeNumerator.connect = </Render/PostProcess/SDGPipeline/PostProcessDispatcher.outputs:referenceTimeNumerator>
+-                custom int2[] inputs:simTimesToWrite = [(4, 3), (41, 30), (7, 5), (43, 30), (22, 15), (3, 2), (23, 15), (47, 30), (8, 5), (32, 15)]
++                custom int2[] inputs:simTimesToWrite = [(31, 30), (16, 15), (11, 10), (17, 15), (7, 6), (6, 5), (37, 30), (19, 15), (13, 10), (11, 6)]
+                 token node:type = "omni.replicator.core.OgnRefTimeGate"
+                 int node:typeVersion = 1
+DIFFERING METADATA KEYS ['checkpoint_sha256', 'checkpoint_size_bytes', 'evidence_writer', 'scene_sha256', 'source_archive_sha256', 'source_sha256']
+DIFFERING SOURCE KEYS ['src/fsop/train/lab_train.py']
+pi_latest_heavy1 isaac_lab_fsop/env.py faa1557c4da72dcae56a7589b38e58edb0ab6cccf306cba1c83bfc23504df728 metadata_verified True current_verified True
+pi_latest_heavy1 isaac_lab_fsop/evaluate.py 27485532594394859224a269d28df3b87b9c4008091b5229b337addf08a8a30a metadata_verified True current_verified True
+pi_latest_heavy1 isaac_lab_fsop/runtime.py e2d77ca0092b81562e00dee51825c5fed05dd4807e677cbc195052217da7ff3c metadata_verified True current_verified True
+pi_latest_heavy1 isaac_lab_fsop/evidence.py 441d43938915166b1de4d9e5155686018fbbd0e8b68e8d69df6283da0d9dc9aa metadata_verified True current_verified True
+pi_latest_heavy1 isaac_eval/rendering.py 7387b5952ab38f902a42786c9db8923ce649b1508feff6782c882cd9632c36c0 metadata_verified True current_verified True
+development_pi_trial1/baseline/heavy_skid isaac_lab_fsop/env.py faa1557c4da72dcae56a7589b38e58edb0ab6cccf306cba1c83bfc23504df728 metadata_verified True current_verified True
+development_pi_trial1/baseline/heavy_skid isaac_lab_fsop/evaluate.py 27485532594394859224a269d28df3b87b9c4008091b5229b337addf08a8a30a metadata_verified True current_verified True
+development_pi_trial1/baseline/heavy_skid isaac_lab_fsop/runtime.py e2d77ca0092b81562e00dee51825c5fed05dd4807e677cbc195052217da7ff3c metadata_verified True current_verified True
+development_pi_trial1/baseline/heavy_skid isaac_lab_fsop/evidence.py 441d43938915166b1de4d9e5155686018fbbd0e8b68e8d69df6283da0d9dc9aa metadata_verified True current_verified True
+development_pi_trial1/baseline/heavy_skid isaac_eval/rendering.py 7387b5952ab38f902a42786c9db8923ce649b1508feff6782c882cd9632c36c0 metadata_verified True current_verified True

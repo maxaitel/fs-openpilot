@@ -1,0 +1,1400 @@
+{
+  "pass": false,
+  "failures": [
+    "sync tick 0 capture timeline_seconds",
+    "sync tick 0 advance sim_seconds",
+    "sync tick 0 advance timeline_seconds",
+    "sync tick 1 capture timeline_seconds",
+    "sync tick 1 advance sim_seconds",
+    "sync tick 1 advance timeline_seconds",
+    "sync tick 2 capture timeline_seconds",
+    "sync tick 2 advance sim_seconds",
+    "sync tick 2 advance timeline_seconds",
+    "sync tick 3 capture timeline_seconds",
+    "sync tick 3 advance sim_seconds",
+    "sync tick 3 advance timeline_seconds",
+    "sync tick 4 capture timeline_seconds",
+    "sync tick 4 advance sim_seconds",
+    "sync tick 4 advance timeline_seconds",
+    "sync tick 5 capture timeline_seconds",
+    "sync tick 5 advance sim_seconds",
+    "sync tick 5 advance timeline_seconds",
+    "sync tick 6 capture timeline_seconds",
+    "sync tick 6 advance sim_seconds",
+    "sync tick 6 advance timeline_seconds",
+    "sync tick 7 capture timeline_seconds",
+    "sync tick 7 advance sim_seconds",
+    "sync tick 7 advance timeline_seconds",
+    "async tick 0 capture timeline_seconds",
+    "async tick 0 advance sim_seconds",
+    "async tick 0 advance timeline_seconds",
+    "async tick 1 capture timeline_seconds",
+    "async tick 1 advance sim_seconds",
+    "async tick 1 advance timeline_seconds",
+    "async tick 2 capture timeline_seconds",
+    "async tick 2 advance sim_seconds",
+    "async tick 2 advance timeline_seconds",
+    "async tick 3 capture timeline_seconds",
+    "async tick 3 advance sim_seconds",
+    "async tick 3 advance timeline_seconds",
+    "async tick 4 capture timeline_seconds",
+    "async tick 4 advance sim_seconds",
+    "async tick 4 advance timeline_seconds",
+    "async tick 5 capture timeline_seconds",
+    "async tick 5 advance sim_seconds",
+    "async tick 5 advance timeline_seconds",
+    "async tick 6 capture timeline_seconds",
+    "async tick 6 advance sim_seconds",
+    "async tick 6 advance timeline_seconds",
+    "async tick 7 capture timeline_seconds",
+    "async tick 7 advance sim_seconds",
+    "async tick 7 advance timeline_seconds"
+  ],
+  "runs": {
+    "sync": {
+      "operations": [
+        {
+          "tick": 0,
+          "operation": "capture",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.05000000074505806,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.1885502029908821
+        },
+        {
+          "tick": 0,
+          "operation": "append",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.029069510055705905
+        },
+        {
+          "tick": 0,
+          "operation": "idle",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.1502390089444816
+        },
+        {
+          "tick": 0,
+          "operation": "advance",
+          "sim_seconds": 0.05000000260770321,
+          "timeline_seconds": 0.0,
+          "steps": 6,
+          "pose_max_abs": 0.00110626220703125,
+          "velocity_max_abs": 0.04343221336603165,
+          "wall_seconds": 0.011553662945516407
+        },
+        {
+          "tick": 1,
+          "operation": "capture",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.05000000074505806,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.2169070850359276
+        },
+        {
+          "tick": 1,
+          "operation": "append",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.02950226399116218
+        },
+        {
+          "tick": 1,
+          "operation": "idle",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.15021049603819847
+        },
+        {
+          "tick": 1,
+          "operation": "advance",
+          "sim_seconds": 0.05000000260770321,
+          "timeline_seconds": 0.0,
+          "steps": 6,
+          "pose_max_abs": 0.0039005279541015625,
+          "velocity_max_abs": 0.07165154069662094,
+          "wall_seconds": 0.010775260045193136
+        },
+        {
+          "tick": 2,
+          "operation": "capture",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.05000000074505806,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.21261724398937076
+        },
+        {
+          "tick": 2,
+          "operation": "append",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.029090980999171734
+        },
+        {
+          "tick": 2,
+          "operation": "idle",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.15009913500398397
+        },
+        {
+          "tick": 2,
+          "operation": "advance",
+          "sim_seconds": 0.05000000260770321,
+          "timeline_seconds": 0.0,
+          "steps": 6,
+          "pose_max_abs": 0.0066890716552734375,
+          "velocity_max_abs": 0.06695401668548584,
+          "wall_seconds": 0.009187494055368006
+        },
+        {
+          "tick": 3,
+          "operation": "capture",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.05000000074505806,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.2032021980267018
+        },
+        {
+          "tick": 3,
+          "operation": "append",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.029809801024384797
+        },
+        {
+          "tick": 3,
+          "operation": "idle",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.1501207830151543
+        },
+        {
+          "tick": 3,
+          "operation": "advance",
+          "sim_seconds": 0.05000000260770321,
+          "timeline_seconds": 0.0,
+          "steps": 6,
+          "pose_max_abs": 0.010766983032226562,
+          "velocity_max_abs": 0.08764153718948364,
+          "wall_seconds": 0.011719390982761979
+        },
+        {
+          "tick": 4,
+          "operation": "capture",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.05000000074505806,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.22904910205397755
+        },
+        {
+          "tick": 4,
+          "operation": "append",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.029120724997483194
+        },
+        {
+          "tick": 4,
+          "operation": "idle",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.150207070983015
+        },
+        {
+          "tick": 4,
+          "operation": "advance",
+          "sim_seconds": 0.05000000260770321,
+          "timeline_seconds": 0.0,
+          "steps": 6,
+          "pose_max_abs": 0.015628814697265625,
+          "velocity_max_abs": 0.11514085531234741,
+          "wall_seconds": 0.009884951985441148
+        },
+        {
+          "tick": 5,
+          "operation": "capture",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.05000000074505806,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.21247105102520436
+        },
+        {
+          "tick": 5,
+          "operation": "append",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.030628860113210976
+        },
+        {
+          "tick": 5,
+          "operation": "idle",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.15011683106422424
+        },
+        {
+          "tick": 5,
+          "operation": "advance",
+          "sim_seconds": 0.05000000260770321,
+          "timeline_seconds": 0.0,
+          "steps": 6,
+          "pose_max_abs": 0.019962310791015625,
+          "velocity_max_abs": 0.07715368270874023,
+          "wall_seconds": 0.01113188499584794
+        },
+        {
+          "tick": 6,
+          "operation": "capture",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.05000000074505806,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.19671349902637303
+        },
+        {
+          "tick": 6,
+          "operation": "append",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.029248678009025753
+        },
+        {
+          "tick": 6,
+          "operation": "idle",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.15020484698470682
+        },
+        {
+          "tick": 6,
+          "operation": "advance",
+          "sim_seconds": 0.05000000260770321,
+          "timeline_seconds": 0.0,
+          "steps": 6,
+          "pose_max_abs": 0.024259567260742188,
+          "velocity_max_abs": 0.07089698314666748,
+          "wall_seconds": 0.010552890016697347
+        },
+        {
+          "tick": 7,
+          "operation": "capture",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.05000000074505806,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.19613287295214832
+        },
+        {
+          "tick": 7,
+          "operation": "append",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.02977538399863988
+        },
+        {
+          "tick": 7,
+          "operation": "idle",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.15022988698910922
+        },
+        {
+          "tick": 7,
+          "operation": "advance",
+          "sim_seconds": 0.05000000260770321,
+          "timeline_seconds": 0.0,
+          "steps": 6,
+          "pose_max_abs": 0.029083251953125,
+          "velocity_max_abs": 0.08079689741134644,
+          "wall_seconds": 0.010634331032633781
+        }
+      ],
+      "close": {
+        "sim_seconds": 0.0,
+        "timeline_seconds": 0.0,
+        "steps": 0,
+        "pose_max_abs": 0.0,
+        "velocity_max_abs": 0.0,
+        "wall_seconds": 3.0528055503964424e-05
+      },
+      "complete": {
+        "artifact_bytes": 4318491,
+        "completed_before_shutdown": true,
+        "free_bytes": 31341531136,
+        "source_unchanged": true,
+        "ticks": 8,
+        "trace_sha256": "2237f07d0e80bd3396adaa9385f550f207eb5863a1e878126c9b4557595739cd",
+        "writer_count": 8
+      }
+    },
+    "async": {
+      "operations": [
+        {
+          "tick": 0,
+          "operation": "capture",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.05000000074505806,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.19700107304379344
+        },
+        {
+          "tick": 0,
+          "operation": "append",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.00018633704166859388
+        },
+        {
+          "tick": 0,
+          "operation": "idle",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.1502006979426369
+        },
+        {
+          "tick": 0,
+          "operation": "advance",
+          "sim_seconds": 0.05000000260770321,
+          "timeline_seconds": 0.0,
+          "steps": 6,
+          "pose_max_abs": 0.00110626220703125,
+          "velocity_max_abs": 0.04343221336603165,
+          "wall_seconds": 0.010963673936203122
+        },
+        {
+          "tick": 1,
+          "operation": "capture",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.05000000074505806,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.20341553003527224
+        },
+        {
+          "tick": 1,
+          "operation": "append",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.00019169703591614962
+        },
+        {
+          "tick": 1,
+          "operation": "idle",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.15010759397409856
+        },
+        {
+          "tick": 1,
+          "operation": "advance",
+          "sim_seconds": 0.05000000260770321,
+          "timeline_seconds": 0.0,
+          "steps": 6,
+          "pose_max_abs": 0.0039005279541015625,
+          "velocity_max_abs": 0.07165154069662094,
+          "wall_seconds": 0.009808693896047771
+        },
+        {
+          "tick": 2,
+          "operation": "capture",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.05000000074505806,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.20908140798565
+        },
+        {
+          "tick": 2,
+          "operation": "append",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.00018883298616856337
+        },
+        {
+          "tick": 2,
+          "operation": "idle",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.15010921005159616
+        },
+        {
+          "tick": 2,
+          "operation": "advance",
+          "sim_seconds": 0.05000000260770321,
+          "timeline_seconds": 0.0,
+          "steps": 6,
+          "pose_max_abs": 0.0066890716552734375,
+          "velocity_max_abs": 0.06695401668548584,
+          "wall_seconds": 0.012926962925121188
+        },
+        {
+          "tick": 3,
+          "operation": "capture",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.05000000074505806,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.21062099700793624
+        },
+        {
+          "tick": 3,
+          "operation": "append",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.00018150510732084513
+        },
+        {
+          "tick": 3,
+          "operation": "idle",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.15022946591489017
+        },
+        {
+          "tick": 3,
+          "operation": "advance",
+          "sim_seconds": 0.05000000260770321,
+          "timeline_seconds": 0.0,
+          "steps": 6,
+          "pose_max_abs": 0.010766983032226562,
+          "velocity_max_abs": 0.08764153718948364,
+          "wall_seconds": 0.010164487990550697
+        },
+        {
+          "tick": 4,
+          "operation": "capture",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.05000000074505806,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.19698435196187347
+        },
+        {
+          "tick": 4,
+          "operation": "append",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.00015334400814026594
+        },
+        {
+          "tick": 4,
+          "operation": "idle",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.15014253708068281
+        },
+        {
+          "tick": 4,
+          "operation": "advance",
+          "sim_seconds": 0.05000000260770321,
+          "timeline_seconds": 0.0,
+          "steps": 6,
+          "pose_max_abs": 0.015628814697265625,
+          "velocity_max_abs": 0.11514085531234741,
+          "wall_seconds": 0.011631597997620702
+        },
+        {
+          "tick": 5,
+          "operation": "capture",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.05000000074505806,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.2250589249888435
+        },
+        {
+          "tick": 5,
+          "operation": "append",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.0001221930142492056
+        },
+        {
+          "tick": 5,
+          "operation": "idle",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.15022908197715878
+        },
+        {
+          "tick": 5,
+          "operation": "advance",
+          "sim_seconds": 0.05000000260770321,
+          "timeline_seconds": 0.0,
+          "steps": 6,
+          "pose_max_abs": 0.019962310791015625,
+          "velocity_max_abs": 0.07715368270874023,
+          "wall_seconds": 0.01090844301506877
+        },
+        {
+          "tick": 6,
+          "operation": "capture",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.05000000074505806,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.20931900793220848
+        },
+        {
+          "tick": 6,
+          "operation": "append",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.00010836799629032612
+        },
+        {
+          "tick": 6,
+          "operation": "idle",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.15022141695953906
+        },
+        {
+          "tick": 6,
+          "operation": "advance",
+          "sim_seconds": 0.05000000260770321,
+          "timeline_seconds": 0.0,
+          "steps": 6,
+          "pose_max_abs": 0.024259567260742188,
+          "velocity_max_abs": 0.07089698314666748,
+          "wall_seconds": 0.013936165953055024
+        },
+        {
+          "tick": 7,
+          "operation": "capture",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.05000000074505806,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.22723331698216498
+        },
+        {
+          "tick": 7,
+          "operation": "append",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.00010486494284123182
+        },
+        {
+          "tick": 7,
+          "operation": "idle",
+          "sim_seconds": 0.0,
+          "timeline_seconds": 0.0,
+          "steps": 0,
+          "pose_max_abs": 0.0,
+          "velocity_max_abs": 0.0,
+          "wall_seconds": 0.15050871402490884
+        },
+        {
+          "tick": 7,
+          "operation": "advance",
+          "sim_seconds": 0.05000000260770321,
+          "timeline_seconds": 0.0,
+          "steps": 6,
+          "pose_max_abs": 0.029083251953125,
+          "velocity_max_abs": 0.08079689741134644,
+          "wall_seconds": 0.011168299010023475
+        }
+      ],
+      "close": {
+        "sim_seconds": 0.0,
+        "timeline_seconds": 0.0,
+        "steps": 0,
+        "pose_max_abs": 0.0,
+        "velocity_max_abs": 0.0,
+        "wall_seconds": 0.00018846499733626842
+      },
+      "complete": {
+        "artifact_bytes": 4315190,
+        "completed_before_shutdown": true,
+        "free_bytes": 31341051904,
+        "source_unchanged": true,
+        "ticks": 8,
+        "trace_sha256": "76875345328cc8ea3668ce8e6f35f342b93bab942e9cee773de8c8f85fe736f1",
+        "writer_count": 8
+      }
+    }
+  },
+  "cross_process": [
+    {
+      "tick": 0,
+      "boundary": "before_capture",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.111840263940394
+    },
+    {
+      "tick": 0,
+      "boundary": "after_capture",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.120291133993305
+    },
+    {
+      "tick": 0,
+      "boundary": "before_append",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.12029230198823
+    },
+    {
+      "tick": 0,
+      "boundary": "after_append",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.09140912897419
+    },
+    {
+      "tick": 0,
+      "boundary": "before_idle",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.091352249030024
+    },
+    {
+      "tick": 0,
+      "boundary": "after_idle",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.09131393802818
+    },
+    {
+      "tick": 0,
+      "boundary": "before_advance",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.0913106109947
+    },
+    {
+      "tick": 0,
+      "boundary": "after_advance",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.09072062198538
+    },
+    {
+      "tick": 1,
+      "boundary": "before_capture",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.09073198202532
+    },
+    {
+      "tick": 1,
+      "boundary": "after_capture",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.07724042702466
+    },
+    {
+      "tick": 1,
+      "boundary": "before_append",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.07733474695124
+    },
+    {
+      "tick": 1,
+      "boundary": "after_append",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.04802417999599
+    },
+    {
+      "tick": 1,
+      "boundary": "before_idle",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.04825182899367
+    },
+    {
+      "tick": 1,
+      "boundary": "after_idle",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.04814892692957
+    },
+    {
+      "tick": 1,
+      "boundary": "before_advance",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.048144879052415
+    },
+    {
+      "tick": 1,
+      "boundary": "after_advance",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.04717831290327
+    },
+    {
+      "tick": 2,
+      "boundary": "before_capture",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.04716410499532
+    },
+    {
+      "tick": 2,
+      "boundary": "after_capture",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.0436282689916
+    },
+    {
+      "tick": 2,
+      "boundary": "before_append",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.04368094098754
+    },
+    {
+      "tick": 2,
+      "boundary": "after_append",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.01477879297454
+    },
+    {
+      "tick": 2,
+      "boundary": "before_idle",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.0148486639373
+    },
+    {
+      "tick": 2,
+      "boundary": "after_idle",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.01485873898491
+    },
+    {
+      "tick": 2,
+      "boundary": "before_advance",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.01487181102857
+    },
+    {
+      "tick": 2,
+      "boundary": "after_advance",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.01861127989832
+    },
+    {
+      "tick": 3,
+      "boundary": "before_capture",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.018709345022216
+    },
+    {
+      "tick": 3,
+      "boundary": "after_capture",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.02612814400345
+    },
+    {
+      "tick": 3,
+      "boundary": "before_append",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 62.02614486392122
+    },
+    {
+      "tick": 3,
+      "boundary": "after_append",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.996516568004154
+    },
+    {
+      "tick": 3,
+      "boundary": "before_idle",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.99644941603765
+    },
+    {
+      "tick": 3,
+      "boundary": "after_idle",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.996558098937385
+    },
+    {
+      "tick": 3,
+      "boundary": "before_advance",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.99654497799929
+    },
+    {
+      "tick": 3,
+      "boundary": "after_advance",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.99499007500708
+    },
+    {
+      "tick": 4,
+      "boundary": "before_capture",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.99499909905717
+    },
+    {
+      "tick": 4,
+      "boundary": "after_capture",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.962934348965064
+    },
+    {
+      "tick": 4,
+      "boundary": "before_append",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.96272428391967
+    },
+    {
+      "tick": 4,
+      "boundary": "after_append",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.93375690293033
+    },
+    {
+      "tick": 4,
+      "boundary": "before_idle",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.93408387992531
+    },
+    {
+      "tick": 4,
+      "boundary": "after_idle",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.93401934602298
+    },
+    {
+      "tick": 4,
+      "boundary": "before_advance",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.93401534599252
+    },
+    {
+      "tick": 4,
+      "boundary": "after_advance",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.9357619920047
+    },
+    {
+      "tick": 5,
+      "boundary": "before_capture",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.93574506405275
+    },
+    {
+      "tick": 5,
+      "boundary": "after_capture",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.94833293801639
+    },
+    {
+      "tick": 5,
+      "boundary": "before_append",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.948225785046816
+    },
+    {
+      "tick": 5,
+      "boundary": "after_append",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.917719117947854
+    },
+    {
+      "tick": 5,
+      "boundary": "before_idle",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.918335936032236
+    },
+    {
+      "tick": 5,
+      "boundary": "after_idle",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.91844818694517
+    },
+    {
+      "tick": 5,
+      "boundary": "before_advance",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.91845585091505
+    },
+    {
+      "tick": 5,
+      "boundary": "after_advance",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.91823240893427
+    },
+    {
+      "tick": 6,
+      "boundary": "before_capture",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.91826730500907
+    },
+    {
+      "tick": 6,
+      "boundary": "after_capture",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.9308728139149
+    },
+    {
+      "tick": 6,
+      "boundary": "before_append",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.93090969393961
+    },
+    {
+      "tick": 6,
+      "boundary": "after_append",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.901769383926876
+    },
+    {
+      "tick": 6,
+      "boundary": "before_idle",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.90170490404125
+    },
+    {
+      "tick": 6,
+      "boundary": "after_idle",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.901721474016085
+    },
+    {
+      "tick": 6,
+      "boundary": "before_advance",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.90172960201744
+    },
+    {
+      "tick": 6,
+      "boundary": "after_advance",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.9051128779538
+    },
+    {
+      "tick": 7,
+      "boundary": "before_capture",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.905224591027945
+    },
+    {
+      "tick": 7,
+      "boundary": "after_capture",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.93632503505796
+    },
+    {
+      "tick": 7,
+      "boundary": "before_append",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.936414715019055
+    },
+    {
+      "tick": 7,
+      "boundary": "after_append",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.906744195963256
+    },
+    {
+      "tick": 7,
+      "boundary": "before_idle",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.90704643703066
+    },
+    {
+      "tick": 7,
+      "boundary": "after_idle",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.90732526406646
+    },
+    {
+      "tick": 7,
+      "boundary": "before_advance",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.90731334395241
+    },
+    {
+      "tick": 7,
+      "boundary": "after_advance",
+      "sim_seconds": 0.0,
+      "timeline_seconds": 0.0,
+      "steps": 0,
+      "pose_max_abs": 0.0,
+      "velocity_max_abs": 0.0,
+      "wall_seconds": 61.9078473119298
+    }
+  ],
+  "initial_pixel_differences": {
+    "road": {
+      "mae": 0.7262420654296875,
+      "max_abs": 18.0,
+      "different_fraction": 0.5466028849283854
+    },
+    "wide": {
+      "mae": 0.4871978759765625,
+      "max_abs": 21.0,
+      "different_fraction": 0.3712717692057292
+    }
+  },
+  "settings_equal": {
+    "global": true,
+    "cameras": true,
+    "profile": true,
+    "sim_render_settings": true
+  },
+  "same_source_inventory": true,
+  "artifact_bytes": 8905006,
+  "limits": "Any excess physics steps/time or stationary pose change implicates scheduling and blocks learned comparison. Matching fixed-action traces support clock isolation for this short probe only. Raw-image differences are observations, never failures. Two runs do not establish learned-driving repeatability."
+}

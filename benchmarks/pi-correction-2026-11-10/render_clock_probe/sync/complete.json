@@ -1,0 +1,9 @@
+{
+  "artifact_bytes": 4318491,
+  "completed_before_shutdown": true,
+  "free_bytes": 31341531136,
+  "source_unchanged": true,
+  "ticks": 8,
+  "trace_sha256": "2237f07d0e80bd3396adaa9385f550f207eb5863a1e878126c9b4557595739cd",
+  "writer_count": 8
+}

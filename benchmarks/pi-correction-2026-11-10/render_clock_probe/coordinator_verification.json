@@ -1,0 +1,16 @@
+{
+  "verified_after_child_exit": true,
+  "child_exit_codes": {
+    "sync": 0,
+    "async": 0
+  },
+  "existing_read_evidence_validated_counts": {
+    "sync": 8,
+    "async": 8
+  },
+  "original_failure_count": 48,
+  "all_original_failures_are_documented_clock_assumptions": true,
+  "final_local_artifact_bytes": 8914569,
+  "protocol_sha256": "763c911e2a53474eb2ae37caea8fee796e970bad3c50f8cd753525cc79da700f",
+  "probe_sha256": "697e844e3f1f43f35f6dbbd1b25c2a24336cdb73cb02adcdf7da8251fdd1721d"
+}

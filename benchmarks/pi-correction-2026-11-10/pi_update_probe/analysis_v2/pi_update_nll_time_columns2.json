@@ -1,0 +1,226 @@
+{
+  "latest": {
+    "plan_consistency": {
+      "top_time_columns": [
+        {
+          "knot": 4,
+          "time_s": 0.15625,
+          "column": "pos_x",
+          "nll_delta": 0.037429035482354996
+        },
+        {
+          "knot": 3,
+          "time_s": 0.087890625,
+          "column": "pos_x",
+          "nll_delta": 0.03560345850970148
+        },
+        {
+          "knot": 5,
+          "time_s": 0.244140625,
+          "column": "pos_x",
+          "nll_delta": 0.03271273269675541
+        },
+        {
+          "knot": 2,
+          "time_s": 0.0390625,
+          "column": "pos_x",
+          "nll_delta": 0.0312592037874391
+        },
+        {
+          "knot": 6,
+          "time_s": 0.3515625,
+          "column": "pos_x",
+          "nll_delta": 0.030899501139233947
+        },
+        {
+          "knot": 7,
+          "time_s": 0.478515625,
+          "column": "pos_x",
+          "nll_delta": 0.027983243692745515
+        },
+        {
+          "knot": 8,
+          "time_s": 0.625,
+          "column": "pos_x",
+          "nll_delta": 0.02475820419213635
+        },
+        {
+          "knot": 16,
+          "time_s": 2.5,
+          "column": "pos_y",
+          "nll_delta": 0.021427646387325916
+        }
+      ],
+      "t0_nll_delta": 0.006693365809424049,
+      "total_nll_delta": 0.9043552276407802,
+      "t0_fraction": 0.007401257387415388
+    },
+    "plan": {
+      "top_time_columns": [
+        {
+          "knot": 4,
+          "time_s": 0.15625,
+          "column": "pos_x",
+          "nll_delta": 0.037372655943231387
+        },
+        {
+          "knot": 3,
+          "time_s": 0.087890625,
+          "column": "pos_x",
+          "nll_delta": 0.035576795638526795
+        },
+        {
+          "knot": 5,
+          "time_s": 0.244140625,
+          "column": "pos_x",
+          "nll_delta": 0.03265215883482742
+        },
+        {
+          "knot": 2,
+          "time_s": 0.0390625,
+          "column": "pos_x",
+          "nll_delta": 0.03130126455899006
+        },
+        {
+          "knot": 6,
+          "time_s": 0.3515625,
+          "column": "pos_x",
+          "nll_delta": 0.030739718549533585
+        },
+        {
+          "knot": 7,
+          "time_s": 0.478515625,
+          "column": "pos_x",
+          "nll_delta": 0.02786763636196308
+        },
+        {
+          "knot": 8,
+          "time_s": 0.625,
+          "column": "pos_x",
+          "nll_delta": 0.024624309222037892
+        },
+        {
+          "knot": 16,
+          "time_s": 2.5,
+          "column": "pos_y",
+          "nll_delta": 0.021445444406797957
+        }
+      ],
+      "t0_nll_delta": 0.008433285878903967,
+      "total_nll_delta": 0.9078023223847852,
+      "t0_fraction": 0.009289782225661014
+    }
+  },
+  "vision": {
+    "plan_consistency": {
+      "top_time_columns": [
+        {
+          "knot": 10,
+          "time_s": 0.9765625,
+          "column": "pos_x",
+          "nll_delta": 0.015204666100552074
+        },
+        {
+          "knot": 3,
+          "time_s": 0.087890625,
+          "column": "pos_x",
+          "nll_delta": 0.015117963875076267
+        },
+        {
+          "knot": 9,
+          "time_s": 0.791015625,
+          "column": "pos_x",
+          "nll_delta": 0.015044832728037909
+        },
+        {
+          "knot": 11,
+          "time_s": 1.181640625,
+          "column": "pos_x",
+          "nll_delta": 0.014857185047479633
+        },
+        {
+          "knot": 8,
+          "time_s": 0.625,
+          "column": "pos_x",
+          "nll_delta": 0.01417997763996704
+        },
+        {
+          "knot": 5,
+          "time_s": 0.244140625,
+          "column": "pos_x",
+          "nll_delta": 0.013490246520383397
+        },
+        {
+          "knot": 4,
+          "time_s": 0.15625,
+          "column": "pos_x",
+          "nll_delta": 0.012437454414615353
+        },
+        {
+          "knot": 12,
+          "time_s": 1.40625,
+          "column": "pos_x",
+          "nll_delta": 0.012356653180199033
+        }
+      ],
+      "t0_nll_delta": 0.002842588272762523,
+      "total_nll_delta": 0.34975096936393024,
+      "t0_fraction": 0.008127463600550291
+    },
+    "plan": {
+      "top_time_columns": [
+        {
+          "knot": 10,
+          "time_s": 0.9765625,
+          "column": "pos_x",
+          "nll_delta": 0.015330748338540744
+        },
+        {
+          "knot": 9,
+          "time_s": 0.791015625,
+          "column": "pos_x",
+          "nll_delta": 0.015137985192436657
+        },
+        {
+          "knot": 3,
+          "time_s": 0.087890625,
+          "column": "pos_x",
+          "nll_delta": 0.015131131383573977
+        },
+        {
+          "knot": 11,
+          "time_s": 1.181640625,
+          "column": "pos_x",
+          "nll_delta": 0.015024306552500317
+        },
+        {
+          "knot": 8,
+          "time_s": 0.625,
+          "column": "pos_x",
+          "nll_delta": 0.01425883013524686
+        },
+        {
+          "knot": 5,
+          "time_s": 0.244140625,
+          "column": "pos_x",
+          "nll_delta": 0.013513655974490127
+        },
+        {
+          "knot": 12,
+          "time_s": 1.40625,
+          "column": "pos_x",
+          "nll_delta": 0.012564869267581992
+        },
+        {
+          "knot": 4,
+          "time_s": 0.15625,
+          "column": "pos_x",
+          "nll_delta": 0.012445197236771885
+        }
+      ],
+      "t0_nll_delta": 0.002169216015834986,
+      "total_nll_delta": 0.3513420916377854,
+      "t0_fraction": 0.006174085221964608
+    }
+  }
+}

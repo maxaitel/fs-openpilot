@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "no_forward_or_optimizer": true,
+  "head": {
+    "trainable": {
+      "base.policy.p_node_linear_20.weight": [
+        990,
+        256
+      ],
+      "base.policy.p_node_linear_20.bias": [
+        990
+      ]
+    },
+    "parameters": 254430,
+    "scale_key": "base.policy.initializers.onnx_initializer_33",
+    "scale_sha256": "7f3651be42ffa139a56a6bcab7b37832f0bc8aa115ab9aa792e3bc1afe3ca7e5",
+    "steering_scale_values": {
+      "14": 0.03193480148911476,
+      "71": 0.010097937658429146,
+      "86": 0.011961156502366066
+    },
+    "chain": [
+      "p_node_linear_20",
+      "p_node_mul_1",
+      "output"
+    ],
+    "first_495_outputs": "means",
+    "last_495_outputs": "log_scales",
+    "all_output_rows_trainable": true
+  },
+  "context": {
+    "policy_sha256": "a27088e94f581de472f9610183e3979987cf59a1b272816a339bb9757d00a17a",
+    "feature_slots": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "transpose": [
+      1,
+      0,
+      2
+    ],
+    "gather_indices": [
+      -9,
+      -8,
+      -7,
+      -6,
+      -5,
+      -4,
+      -3,
+      -2,
+      -1
+    ],
+    "fx_gather_buffer": "initializers.onnx_initializer_0"
+  },
+  "frozen_tensor_count": 415,
+  "initial_digest": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+  "protocol_sha256": "0ddbf1d0ad795292347e427131b998e7695f3205174eb7e5d640cc101ce98e05",
+  "script_sha256": "75084ad1c4890133fecdb0fa2aff43f1c860034f3581301bf9229ac413e1b987"
+}

@@ -1,0 +1,89 @@
+{
+  "results": {
+    "baseline/heavy_skid": {
+      "completion_sha256": "83bc8ea9a56079e7b81b11dc4655f9f966d0ede2c8547ac70693677d2ada2d03",
+      "artifact_audit_sha256": "ae8df57e419fba9961a3e6f53b924cc22a7863b48283197accfbc80bb8059271",
+      "producer_receipt_sha256": "d7d99b1caa67ee66bcc9e94c244d591221013bcd921b3212d29c52b24fad083f",
+      "video_audit_sha256": "1f45685552044aebf462adc0f8a1d20fd566236b85d1076bc4bc5a8c41674be0",
+      "frames": 926,
+      "videos": {
+        "debug": {
+          "sha256": "70dba77ba471fdcaa74895e1b6b0a1c3d0f1cc6cf17e3ead782f5d0176972020",
+          "fps": 20.0,
+          "decoded_frames": 966
+        },
+        "research": {
+          "sha256": "bb963ef79394649b8d8eedafea606b56c4dc2822d452e81832ca0e47900b44a0",
+          "fps": 20.0,
+          "decoded_frames": 966
+        }
+      }
+    },
+    "baseline/heavy_track": {
+      "completion_sha256": "02af847ef57fc37206b2c3ae8a7dfd6a920131a59531134e9f23580d05b459ee",
+      "artifact_audit_sha256": "6102f15d60709b8b5cb1ac047506f9e2c4d4d7d43edd0a3aa225e5a96ce5ad26",
+      "producer_receipt_sha256": "2c0596d17f1c5e75093ab54a9f5244e7b8a57191e0f4e4296ed1a020db277481",
+      "video_audit_sha256": "a04ba880871c551f12a5471e56aa7047005b0703f348e889b3fd4bf2e6d2df1a",
+      "frames": 1131,
+      "videos": {
+        "debug": {
+          "sha256": "429a15c00f0c07044a2a268b374afdc6a362f0250fb924412aac13841403b656",
+          "fps": 20.0,
+          "decoded_frames": 1171
+        },
+        "research": {
+          "sha256": "a7b64431ddbc4afb52e415b15d4f25d19a04ca2af931a9da9491b35c0b08cfb8",
+          "fps": 20.0,
+          "decoded_frames": 1171
+        }
+      }
+    },
+    "candidate/heavy_skid": {
+      "completion_sha256": "b7e4738b67b0bfa351dfd2162679920b43b1c6043b4e991a54e0b177fe710c44",
+      "artifact_audit_sha256": "cf86ad55d83112fc5590ff96af15b21b3ce304545914aa1834b7d11c3de8239e",
+      "producer_receipt_sha256": "b75878409b3e5f01a4d992b89660ed49614bbd125bcf579d01c48f2fe55849cc",
+      "video_audit_sha256": "cbc6534c6d4fafd7478d418faa0be4d55356152a363957b9331229932bfa399a",
+      "frames": 641,
+      "videos": {
+        "debug": {
+          "sha256": "514278a3b4776e80df44f5df3d2cb96cc9914b0fc13312f3a505758e7a6ff268",
+          "fps": 20.0,
+          "decoded_frames": 681
+        },
+        "research": {
+          "sha256": "24eaad2c0624927579bdca275dcad5bf626d904b83fd596db8080b59bceb1920",
+          "fps": 20.0,
+          "decoded_frames": 681
+        }
+      }
+    },
+    "candidate/heavy_track": {
+      "completion_sha256": "4eae35d68ad030ba30cf5c4857d87d5e73b68cd65ea083639beab44dde70affb",
+      "artifact_audit_sha256": "4d50928f8fc66eb4971dc5fb000943b06ff1b53c916c1785b42098c5b6da5334",
+      "producer_receipt_sha256": "a3fc5f44993d283f98febb312c0c0c968976c5b45b88474cce45aee90d13dade",
+      "video_audit_sha256": "19b779786f24db19bd78718012af52c1b418557b692eee391fd1efefe64512f4",
+      "frames": 1150,
+      "videos": {
+        "debug": {
+          "sha256": "818cf888fa4162f16fa8192f76bf2e3e0fd3e57ed6be64210e3de3114d172adf",
+          "fps": 20.0,
+          "decoded_frames": 1190
+        },
+        "research": {
+          "sha256": "eb04c43f596fa4a64d1a4bbcd313f4efa2fa96e64fcaea03cf7f877b012712a1",
+          "fps": 20.0,
+          "decoded_frames": 1190
+        }
+      }
+    }
+  },
+  "checks": [
+    "completion binds metadata, manifest and summary",
+    "manifest enumerates each recorded inference frame",
+    "producer audit binds completion, frame and telemetry hashes",
+    "producer and video receipts bind audit, code and controller contract",
+    "video SHA-256, 20 fps and decoded frame count match audit",
+    "track encoded locally using original wrapper after Linux producer render",
+    "one frame in each new track video and both candidate skid videos visually inspected"
+  ]
+}

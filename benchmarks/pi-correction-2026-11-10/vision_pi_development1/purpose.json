@@ -1,0 +1,6 @@
+{
+  "purpose": "Full-mission exposed diagnostic of earlier vision-adapted weights under current PI, no optimizer updates.",
+  "premise": "Six-second initializer comparison may select weights that fail later skidpad phases.",
+  "acceptance": "Native valid R,R,L,L completion and stop with zero physical contacts and zero OC; report any failure without amendment.",
+  "limitations": "One exposed run. Initial RGB can vary between fresh processes; not a robust paired improvement estimate. Fresh tests remain sealed."
+}

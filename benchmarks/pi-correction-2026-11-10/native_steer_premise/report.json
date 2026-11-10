@@ -1,0 +1,4209 @@
+{
+  "description": "TRAIN source anchors only. OP native future versus recorded pre-mission teacher steering, rad. No inference or simulation.",
+  "cases": [
+    {
+      "case": "train-skidpad-82000-matched",
+      "meta_sha256": "77c4cb56b517329fe4dda6f996fefcc950b86f40b9b06c348a067bf1f519f9a3",
+      "input_hashes": {
+        "states": "3955dcee36bfbfc0f8c840b67bb108127c28aefd97f99b7a479f2a24119002e2",
+        "controls": "56febb4545715888ff693dc95ffb03db97ba9d67259ca7c13ae6ef364787153d",
+        "teacher": "c3e987359ac6da24ac6a415fac663b6474a1ffda063b50a78a569e74a7752f87",
+        "contacts": "8bbd0af451ed40fe71c5aa04d432e8c42689af7d347939eb3f6bcf0508791f30",
+        "ticks": "e4fa7d666bfdb0eb19e782f2a05f160dfc9ac86c715358f28eba96094832dec2"
+      },
+      "eligible_anchor_count": 218,
+      "max_follower_disagreement_rad": 5.225410598663771e-08,
+      "groups": {
+        "steady_right": {
+          "count": 90,
+          "time_range_s": [
+            4.4,
+            22.2
+          ],
+          "mean_signed_rad": -0.002610189698249985,
+          "mae_rad": 0.002848949957751319,
+          "max_abs_rad": 0.004632173750909713,
+          "op_mean_rad": -0.17198114097118378,
+          "teacher_mean_rad": -0.16937096236602042,
+          "measured_mean_rad": -0.1694561464694446,
+          "sample_rows": [
+            {
+              "tick": 88,
+              "time_s": 4.4,
+              "yaw_rate": -0.724632,
+              "speed": 5.97267,
+              "teacher_request": -0.201206,
+              "measured_steer": -0.198132,
+              "op_target": -0.205838,
+              "error": -0.004632
+            },
+            {
+              "tick": 268,
+              "time_s": 13.4,
+              "yaw_rate": -0.607265,
+              "speed": 5.94006,
+              "teacher_request": -0.167801,
+              "measured_steer": -0.167886,
+              "op_target": -0.17071,
+              "error": -0.002909
+            },
+            {
+              "tick": 444,
+              "time_s": 22.2,
+              "yaw_rate": -0.606953,
+              "speed": 5.9401,
+              "teacher_request": -0.1679,
+              "measured_steer": -0.167791,
+              "op_target": -0.170376,
+              "error": -0.002476
+            }
+          ]
+        },
+        "steady_left": {
+          "count": 94,
+          "time_range_s": [
+            23.8,
+            42.4
+          ],
+          "mean_signed_rad": -0.02002559952871129,
+          "mae_rad": 0.02002559952871129,
+          "max_abs_rad": 0.03172784998653741,
+          "op_mean_rad": 0.15008290112018585,
+          "teacher_mean_rad": 0.1701085049290179,
+          "measured_mean_rad": 0.17027142402397155,
+          "sample_rows": [
+            {
+              "tick": 476,
+              "time_s": 23.8,
+              "yaw_rate": 0.79252,
+              "speed": 5.93565,
+              "teacher_request": 0.202577,
+              "measured_steer": 0.198938,
+              "op_target": 0.185788,
+              "error": -0.016789
+            },
+            {
+              "tick": 664,
+              "time_s": 33.2,
+              "yaw_rate": 0.690262,
+              "speed": 5.93963,
+              "teacher_request": 0.16868,
+              "measured_steer": 0.168693,
+              "op_target": 0.149202,
+              "error": -0.019478
+            },
+            {
+              "tick": 848,
+              "time_s": 42.4,
+              "yaw_rate": 0.661758,
+              "speed": 6.0742,
+              "teacher_request": 0.151225,
+              "measured_steer": 0.158791,
+              "op_target": 0.119498,
+              "error": -0.031728
+            }
+          ]
+        },
+        "right_to_left_transition": {
+          "count": 4,
+          "time_range_s": [
+            22.8,
+            23.4
+          ],
+          "mean_signed_rad": 0.027070785996818277,
+          "mae_rad": 0.027070785996818277,
+          "max_abs_rad": 0.038838167385286046,
+          "op_mean_rad": 0.07653304934501648,
+          "teacher_mean_rad": 0.049462258691585326,
+          "measured_mean_rad": 0.02867134254553668,
+          "sample_rows": [
+            {
+              "tick": 456,
+              "time_s": 22.8,
+              "yaw_rate": -0.346247,
+              "speed": 5.9969,
+              "teacher_request": -0.064514,
+              "measured_steer": -0.086744,
+              "op_target": -0.025916,
+              "error": 0.038598
+            },
+            {
+              "tick": 464,
+              "time_s": 23.2,
+              "yaw_rate": 0.27394,
+              "speed": 6.04145,
+              "teacher_request": 0.094274,
+              "measured_steer": 0.07314,
+              "op_target": 0.118219,
+              "error": 0.023945
+            },
+            {
+              "tick": 468,
+              "time_s": 23.4,
+              "yaw_rate": 0.532719,
+              "speed": 6.00644,
+              "teacher_request": 0.150898,
+              "measured_steer": 0.136252,
+              "op_target": 0.1578,
+              "error": 0.006902
+            }
+          ]
+        }
+      },
+      "all_rows": [
+        {
+          "tick": 72,
+          "time_s": 3.6,
+          "yaw_rate": -0.543086,
+          "speed": 6.5107,
+          "teacher_request": -0.049521,
+          "measured_steer": -0.141419,
+          "op_target": -0.03388,
+          "error": 0.015641
+        },
+        {
+          "tick": 76,
+          "time_s": 3.8,
+          "yaw_rate": -0.273141,
+          "speed": 6.32181,
+          "teacher_request": -0.100284,
+          "measured_steer": -0.081765,
+          "op_target": -0.136411,
+          "error": -0.036126
+        },
+        {
+          "tick": 80,
+          "time_s": 4.0,
+          "yaw_rate": -0.478865,
+          "speed": 6.15797,
+          "teacher_request": -0.153448,
+          "measured_steer": -0.139403,
+          "op_target": -0.179335,
+          "error": -0.025887
+        },
+        {
+          "tick": 84,
+          "time_s": 4.2,
+          "yaw_rate": -0.639078,
+          "speed": 6.0449,
+          "teacher_request": -0.186311,
+          "measured_steer": -0.178314,
+          "op_target": -0.200686,
+          "error": -0.014375
+        },
+        {
+          "tick": 88,
+          "time_s": 4.4,
+          "yaw_rate": -0.724632,
+          "speed": 5.97267,
+          "teacher_request": -0.201206,
+          "measured_steer": -0.198132,
+          "op_target": -0.205838,
+          "error": -0.004632
+        },
+        {
+          "tick": 92,
+          "time_s": 4.6,
+          "yaw_rate": -0.748758,
+          "speed": 5.93331,
+          "teacher_request": -0.20412,
+          "measured_steer": -0.204187,
+          "op_target": -0.203397,
+          "error": 0.000723
+        },
+        {
+          "tick": 96,
+          "time_s": 4.8,
+          "yaw_rate": -0.739427,
+          "speed": 5.91648,
+          "teacher_request": -0.199897,
+          "measured_steer": -0.20159,
+          "op_target": -0.196975,
+          "error": 0.002922
+        },
+        {
+          "tick": 100,
+          "time_s": 5.0,
+          "yaw_rate": -0.713551,
+          "speed": 5.91322,
+          "teacher_request": -0.19204,
+          "measured_steer": -0.194609,
+          "op_target": -0.18876,
+          "error": 0.00328
+        },
+        {
+          "tick": 104,
+          "time_s": 5.2,
+          "yaw_rate": -0.681606,
+          "speed": 5.91707,
+          "teacher_request": -0.183799,
+          "measured_steer": -0.186286,
+          "op_target": -0.18115,
+          "error": 0.002649
+        },
+        {
+          "tick": 108,
+          "time_s": 5.4,
+          "yaw_rate": -0.650791,
+          "speed": 5.92366,
+          "teacher_request": -0.176104,
+          "measured_steer": -0.178213,
+          "op_target": -0.174933,
+          "error": 0.001171
+        },
+        {
+          "tick": 112,
+          "time_s": 5.6,
+          "yaw_rate": -0.626176,
+          "speed": 5.93026,
+          "teacher_request": -0.170436,
+          "measured_steer": -0.172026,
+          "op_target": -0.170485,
+          "error": -4.9e-05
+        },
+        {
+          "tick": 116,
+          "time_s": 5.8,
+          "yaw_rate": -0.607977,
+          "speed": 5.93579,
+          "teacher_request": -0.166606,
+          "measured_steer": -0.167504,
+          "op_target": -0.168054,
+          "error": -0.001448
+        },
+        {
+          "tick": 120,
+          "time_s": 6.0,
+          "yaw_rate": -0.597481,
+          "speed": 5.93965,
+          "teacher_request": -0.164413,
+          "measured_steer": -0.164965,
+          "op_target": -0.166851,
+          "error": -0.002438
+        },
+        {
+          "tick": 124,
+          "time_s": 6.2,
+          "yaw_rate": -0.59259,
+          "speed": 5.94198,
+          "teacher_request": -0.163869,
+          "measured_steer": -0.163943,
+          "op_target": -0.166923,
+          "error": -0.003055
+        },
+        {
+          "tick": 128,
+          "time_s": 6.4,
+          "yaw_rate": -0.591885,
+          "speed": 5.94305,
+          "teacher_request": -0.164032,
+          "measured_steer": -0.163823,
+          "op_target": -0.167579,
+          "error": -0.003547
+        },
+        {
+          "tick": 132,
+          "time_s": 6.6,
+          "yaw_rate": -0.594401,
+          "speed": 5.94314,
+          "teacher_request": -0.164854,
+          "measured_steer": -0.164638,
+          "op_target": -0.168395,
+          "error": -0.003541
+        },
+        {
+          "tick": 136,
+          "time_s": 6.8,
+          "yaw_rate": -0.597593,
+          "speed": 5.94274,
+          "teacher_request": -0.165865,
+          "measured_steer": -0.165519,
+          "op_target": -0.169414,
+          "error": -0.003549
+        },
+        {
+          "tick": 140,
+          "time_s": 7.0,
+          "yaw_rate": -0.601247,
+          "speed": 5.94204,
+          "teacher_request": -0.166583,
+          "measured_steer": -0.166423,
+          "op_target": -0.170093,
+          "error": -0.00351
+        },
+        {
+          "tick": 144,
+          "time_s": 7.2,
+          "yaw_rate": -0.604423,
+          "speed": 5.94128,
+          "teacher_request": -0.167477,
+          "measured_steer": -0.167296,
+          "op_target": -0.170656,
+          "error": -0.00318
+        },
+        {
+          "tick": 148,
+          "time_s": 7.4,
+          "yaw_rate": -0.606377,
+          "speed": 5.9407,
+          "teacher_request": -0.167962,
+          "measured_steer": -0.167728,
+          "op_target": -0.171097,
+          "error": -0.003134
+        },
+        {
+          "tick": 152,
+          "time_s": 7.6,
+          "yaw_rate": -0.608155,
+          "speed": 5.94019,
+          "teacher_request": -0.168158,
+          "measured_steer": -0.168172,
+          "op_target": -0.171129,
+          "error": -0.002971
+        },
+        {
+          "tick": 156,
+          "time_s": 7.8,
+          "yaw_rate": -0.608766,
+          "speed": 5.93988,
+          "teacher_request": -0.168389,
+          "measured_steer": -0.16835,
+          "op_target": -0.171222,
+          "error": -0.002833
+        },
+        {
+          "tick": 160,
+          "time_s": 8.0,
+          "yaw_rate": -0.608693,
+          "speed": 5.93977,
+          "teacher_request": -0.168266,
+          "measured_steer": -0.168231,
+          "op_target": -0.17118,
+          "error": -0.002914
+        },
+        {
+          "tick": 164,
+          "time_s": 8.2,
+          "yaw_rate": -0.608822,
+          "speed": 5.93968,
+          "teacher_request": -0.168247,
+          "measured_steer": -0.16832,
+          "op_target": -0.171003,
+          "error": -0.002756
+        },
+        {
+          "tick": 168,
+          "time_s": 8.4,
+          "yaw_rate": -0.608235,
+          "speed": 5.93977,
+          "teacher_request": -0.168191,
+          "measured_steer": -0.168164,
+          "op_target": -0.171,
+          "error": -0.002809
+        },
+        {
+          "tick": 172,
+          "time_s": 8.6,
+          "yaw_rate": -0.607953,
+          "speed": 5.93982,
+          "teacher_request": -0.167902,
+          "measured_steer": -0.168038,
+          "op_target": -0.170819,
+          "error": -0.002916
+        },
+        {
+          "tick": 176,
+          "time_s": 8.8,
+          "yaw_rate": -0.607678,
+          "speed": 5.9399,
+          "teacher_request": -0.16799,
+          "measured_steer": -0.168024,
+          "op_target": -0.170778,
+          "error": -0.002788
+        },
+        {
+          "tick": 180,
+          "time_s": 9.0,
+          "yaw_rate": -0.607086,
+          "speed": 5.94001,
+          "teacher_request": -0.167897,
+          "measured_steer": -0.167805,
+          "op_target": -0.170805,
+          "error": -0.002908
+        },
+        {
+          "tick": 184,
+          "time_s": 9.2,
+          "yaw_rate": -0.607213,
+          "speed": 5.94002,
+          "teacher_request": -0.167793,
+          "measured_steer": -0.167875,
+          "op_target": -0.170656,
+          "error": -0.002864
+        },
+        {
+          "tick": 188,
+          "time_s": 9.4,
+          "yaw_rate": -0.606994,
+          "speed": 5.94007,
+          "teacher_request": -0.167883,
+          "measured_steer": -0.167857,
+          "op_target": -0.170738,
+          "error": -0.002855
+        },
+        {
+          "tick": 192,
+          "time_s": 9.6,
+          "yaw_rate": -0.606849,
+          "speed": 5.94012,
+          "teacher_request": -0.167734,
+          "measured_steer": -0.167738,
+          "op_target": -0.170729,
+          "error": -0.002994
+        },
+        {
+          "tick": 196,
+          "time_s": 9.8,
+          "yaw_rate": -0.607116,
+          "speed": 5.94008,
+          "teacher_request": -0.167842,
+          "measured_steer": -0.167878,
+          "op_target": -0.170682,
+          "error": -0.002841
+        },
+        {
+          "tick": 200,
+          "time_s": 10.0,
+          "yaw_rate": -0.606897,
+          "speed": 5.94013,
+          "teacher_request": -0.167886,
+          "measured_steer": -0.167816,
+          "op_target": -0.170803,
+          "error": -0.002917
+        },
+        {
+          "tick": 204,
+          "time_s": 10.2,
+          "yaw_rate": -0.6071,
+          "speed": 5.94008,
+          "teacher_request": -0.167739,
+          "measured_steer": -0.167834,
+          "op_target": -0.170696,
+          "error": -0.002957
+        },
+        {
+          "tick": 208,
+          "time_s": 10.4,
+          "yaw_rate": -0.607189,
+          "speed": 5.94008,
+          "teacher_request": -0.167914,
+          "measured_steer": -0.167911,
+          "op_target": -0.170756,
+          "error": -0.002842
+        },
+        {
+          "tick": 212,
+          "time_s": 10.6,
+          "yaw_rate": -0.606927,
+          "speed": 5.9401,
+          "teacher_request": -0.167877,
+          "measured_steer": -0.167768,
+          "op_target": -0.17082,
+          "error": -0.002943
+        },
+        {
+          "tick": 216,
+          "time_s": 10.8,
+          "yaw_rate": -0.607277,
+          "speed": 5.94005,
+          "teacher_request": -0.167844,
+          "measured_steer": -0.167909,
+          "op_target": -0.170698,
+          "error": -0.002854
+        },
+        {
+          "tick": 220,
+          "time_s": 11.0,
+          "yaw_rate": -0.607133,
+          "speed": 5.94007,
+          "teacher_request": -0.167942,
+          "measured_steer": -0.167903,
+          "op_target": -0.170802,
+          "error": -0.00286
+        },
+        {
+          "tick": 224,
+          "time_s": 11.2,
+          "yaw_rate": -0.607096,
+          "speed": 5.94007,
+          "teacher_request": -0.167785,
+          "measured_steer": -0.167819,
+          "op_target": -0.170771,
+          "error": -0.002986
+        },
+        {
+          "tick": 228,
+          "time_s": 11.4,
+          "yaw_rate": -0.607356,
+          "speed": 5.94004,
+          "teacher_request": -0.167909,
+          "measured_steer": -0.167941,
+          "op_target": -0.170727,
+          "error": -0.002818
+        },
+        {
+          "tick": 232,
+          "time_s": 11.6,
+          "yaw_rate": -0.607039,
+          "speed": 5.94008,
+          "teacher_request": -0.167924,
+          "measured_steer": -0.167852,
+          "op_target": -0.17083,
+          "error": -0.002906
+        },
+        {
+          "tick": 236,
+          "time_s": 11.8,
+          "yaw_rate": -0.607249,
+          "speed": 5.94004,
+          "teacher_request": -0.167788,
+          "measured_steer": -0.167881,
+          "op_target": -0.170713,
+          "error": -0.002925
+        },
+        {
+          "tick": 240,
+          "time_s": 12.0,
+          "yaw_rate": -0.60725,
+          "speed": 5.94005,
+          "teacher_request": -0.167934,
+          "measured_steer": -0.167927,
+          "op_target": -0.170765,
+          "error": -0.002831
+        },
+        {
+          "tick": 244,
+          "time_s": 12.2,
+          "yaw_rate": -0.606934,
+          "speed": 5.9401,
+          "teacher_request": -0.167873,
+          "measured_steer": -0.167765,
+          "op_target": -0.170823,
+          "error": -0.00295
+        },
+        {
+          "tick": 248,
+          "time_s": 12.4,
+          "yaw_rate": -0.607299,
+          "speed": 5.94005,
+          "teacher_request": -0.167858,
+          "measured_steer": -0.167917,
+          "op_target": -0.170704,
+          "error": -0.002846
+        },
+        {
+          "tick": 252,
+          "time_s": 12.6,
+          "yaw_rate": -0.607092,
+          "speed": 5.94008,
+          "teacher_request": -0.167934,
+          "measured_steer": -0.167885,
+          "op_target": -0.170806,
+          "error": -0.002872
+        },
+        {
+          "tick": 256,
+          "time_s": 12.8,
+          "yaw_rate": -0.607106,
+          "speed": 5.94007,
+          "teacher_request": -0.16776,
+          "measured_steer": -0.167826,
+          "op_target": -0.17075,
+          "error": -0.00299
+        },
+        {
+          "tick": 260,
+          "time_s": 13.0,
+          "yaw_rate": -0.607306,
+          "speed": 5.94005,
+          "teacher_request": -0.167909,
+          "measured_steer": -0.167932,
+          "op_target": -0.170725,
+          "error": -0.002816
+        },
+        {
+          "tick": 264,
+          "time_s": 13.2,
+          "yaw_rate": -0.606954,
+          "speed": 5.9401,
+          "teacher_request": -0.16791,
+          "measured_steer": -0.167812,
+          "op_target": -0.170837,
+          "error": -0.002928
+        },
+        {
+          "tick": 268,
+          "time_s": 13.4,
+          "yaw_rate": -0.607265,
+          "speed": 5.94006,
+          "teacher_request": -0.167801,
+          "measured_steer": -0.167886,
+          "op_target": -0.17071,
+          "error": -0.002909
+        },
+        {
+          "tick": 272,
+          "time_s": 13.6,
+          "yaw_rate": -0.607218,
+          "speed": 5.94006,
+          "teacher_request": -0.167932,
+          "measured_steer": -0.167917,
+          "op_target": -0.170767,
+          "error": -0.002835
+        },
+        {
+          "tick": 276,
+          "time_s": 13.8,
+          "yaw_rate": -0.606935,
+          "speed": 5.9401,
+          "teacher_request": -0.167857,
+          "measured_steer": -0.16776,
+          "op_target": -0.170814,
+          "error": -0.002958
+        },
+        {
+          "tick": 280,
+          "time_s": 14.0,
+          "yaw_rate": -0.607304,
+          "speed": 5.94005,
+          "teacher_request": -0.167868,
+          "measured_steer": -0.16792,
+          "op_target": -0.170706,
+          "error": -0.002838
+        },
+        {
+          "tick": 284,
+          "time_s": 14.2,
+          "yaw_rate": -0.607071,
+          "speed": 5.94008,
+          "teacher_request": -0.167929,
+          "measured_steer": -0.167874,
+          "op_target": -0.17081,
+          "error": -0.002881
+        },
+        {
+          "tick": 288,
+          "time_s": 14.4,
+          "yaw_rate": -0.607147,
+          "speed": 5.94007,
+          "teacher_request": -0.167743,
+          "measured_steer": -0.167839,
+          "op_target": -0.17074,
+          "error": -0.002997
+        },
+        {
+          "tick": 292,
+          "time_s": 14.6,
+          "yaw_rate": -0.607308,
+          "speed": 5.94005,
+          "teacher_request": -0.167915,
+          "measured_steer": -0.167931,
+          "op_target": -0.170731,
+          "error": -0.002816
+        },
+        {
+          "tick": 296,
+          "time_s": 14.8,
+          "yaw_rate": -0.606921,
+          "speed": 5.94009,
+          "teacher_request": -0.1679,
+          "measured_steer": -0.16779,
+          "op_target": -0.170834,
+          "error": -0.002934
+        },
+        {
+          "tick": 300,
+          "time_s": 15.0,
+          "yaw_rate": -0.607287,
+          "speed": 5.94005,
+          "teacher_request": -0.167818,
+          "measured_steer": -0.167896,
+          "op_target": -0.170705,
+          "error": -0.002887
+        },
+        {
+          "tick": 304,
+          "time_s": 15.2,
+          "yaw_rate": -0.607179,
+          "speed": 5.94006,
+          "teacher_request": -0.167934,
+          "measured_steer": -0.167912,
+          "op_target": -0.170781,
+          "error": -0.002846
+        },
+        {
+          "tick": 308,
+          "time_s": 15.4,
+          "yaw_rate": -0.606984,
+          "speed": 5.94008,
+          "teacher_request": -0.1678,
+          "measured_steer": -0.16778,
+          "op_target": -0.170784,
+          "error": -0.002984
+        },
+        {
+          "tick": 312,
+          "time_s": 15.6,
+          "yaw_rate": -0.607303,
+          "speed": 5.94006,
+          "teacher_request": -0.167885,
+          "measured_steer": -0.167928,
+          "op_target": -0.170726,
+          "error": -0.002841
+        },
+        {
+          "tick": 316,
+          "time_s": 15.8,
+          "yaw_rate": -0.607078,
+          "speed": 5.94008,
+          "teacher_request": -0.167928,
+          "measured_steer": -0.167867,
+          "op_target": -0.170817,
+          "error": -0.002889
+        },
+        {
+          "tick": 320,
+          "time_s": 16.0,
+          "yaw_rate": -0.607198,
+          "speed": 5.94006,
+          "teacher_request": -0.16775,
+          "measured_steer": -0.167854,
+          "op_target": -0.170726,
+          "error": -0.002976
+        },
+        {
+          "tick": 324,
+          "time_s": 16.2,
+          "yaw_rate": -0.607278,
+          "speed": 5.94005,
+          "teacher_request": -0.16792,
+          "measured_steer": -0.167928,
+          "op_target": -0.170744,
+          "error": -0.002824
+        },
+        {
+          "tick": 328,
+          "time_s": 16.4,
+          "yaw_rate": -0.606948,
+          "speed": 5.9401,
+          "teacher_request": -0.167888,
+          "measured_steer": -0.167779,
+          "op_target": -0.17083,
+          "error": -0.002942
+        },
+        {
+          "tick": 332,
+          "time_s": 16.6,
+          "yaw_rate": -0.607298,
+          "speed": 5.94005,
+          "teacher_request": -0.167829,
+          "measured_steer": -0.167901,
+          "op_target": -0.170698,
+          "error": -0.002869
+        },
+        {
+          "tick": 336,
+          "time_s": 16.8,
+          "yaw_rate": -0.607155,
+          "speed": 5.94006,
+          "teacher_request": -0.167932,
+          "measured_steer": -0.167901,
+          "op_target": -0.170786,
+          "error": -0.002854
+        },
+        {
+          "tick": 340,
+          "time_s": 17.0,
+          "yaw_rate": -0.60703,
+          "speed": 5.94008,
+          "teacher_request": -0.167783,
+          "measured_steer": -0.167794,
+          "op_target": -0.170771,
+          "error": -0.002988
+        },
+        {
+          "tick": 344,
+          "time_s": 17.2,
+          "yaw_rate": -0.607312,
+          "speed": 5.94006,
+          "teacher_request": -0.16789,
+          "measured_steer": -0.167927,
+          "op_target": -0.17072,
+          "error": -0.00283
+        },
+        {
+          "tick": 348,
+          "time_s": 17.4,
+          "yaw_rate": -0.607026,
+          "speed": 5.94009,
+          "teacher_request": -0.167919,
+          "measured_steer": -0.167851,
+          "op_target": -0.170824,
+          "error": -0.002905
+        },
+        {
+          "tick": 352,
+          "time_s": 17.6,
+          "yaw_rate": -0.607208,
+          "speed": 5.94006,
+          "teacher_request": -0.167767,
+          "measured_steer": -0.167863,
+          "op_target": -0.170711,
+          "error": -0.002944
+        },
+        {
+          "tick": 356,
+          "time_s": 17.8,
+          "yaw_rate": -0.607238,
+          "speed": 5.94005,
+          "teacher_request": -0.167928,
+          "measured_steer": -0.167925,
+          "op_target": -0.170762,
+          "error": -0.002834
+        },
+        {
+          "tick": 360,
+          "time_s": 18.0,
+          "yaw_rate": -0.606944,
+          "speed": 5.9401,
+          "teacher_request": -0.16788,
+          "measured_steer": -0.167772,
+          "op_target": -0.170829,
+          "error": -0.002949
+        },
+        {
+          "tick": 364,
+          "time_s": 18.2,
+          "yaw_rate": -0.607314,
+          "speed": 5.94005,
+          "teacher_request": -0.167846,
+          "measured_steer": -0.167911,
+          "op_target": -0.170696,
+          "error": -0.00285
+        },
+        {
+          "tick": 368,
+          "time_s": 18.4,
+          "yaw_rate": -0.607125,
+          "speed": 5.94007,
+          "teacher_request": -0.167935,
+          "measured_steer": -0.167893,
+          "op_target": -0.170804,
+          "error": -0.00287
+        },
+        {
+          "tick": 372,
+          "time_s": 18.6,
+          "yaw_rate": -0.607084,
+          "speed": 5.94007,
+          "teacher_request": -0.16777,
+          "measured_steer": -0.167813,
+          "op_target": -0.17076,
+          "error": -0.00299
+        },
+        {
+          "tick": 376,
+          "time_s": 18.8,
+          "yaw_rate": -0.607288,
+          "speed": 5.94005,
+          "teacher_request": -0.1679,
+          "measured_steer": -0.167929,
+          "op_target": -0.170732,
+          "error": -0.002832
+        },
+        {
+          "tick": 380,
+          "time_s": 19.0,
+          "yaw_rate": -0.607021,
+          "speed": 5.94009,
+          "teacher_request": -0.167912,
+          "measured_steer": -0.16784,
+          "op_target": -0.17083,
+          "error": -0.002918
+        },
+        {
+          "tick": 384,
+          "time_s": 19.2,
+          "yaw_rate": -0.607243,
+          "speed": 5.94005,
+          "teacher_request": -0.167783,
+          "measured_steer": -0.167873,
+          "op_target": -0.170704,
+          "error": -0.002921
+        },
+        {
+          "tick": 388,
+          "time_s": 19.4,
+          "yaw_rate": -0.607204,
+          "speed": 5.94005,
+          "teacher_request": -0.167927,
+          "measured_steer": -0.167918,
+          "op_target": -0.170767,
+          "error": -0.00284
+        },
+        {
+          "tick": 392,
+          "time_s": 19.6,
+          "yaw_rate": -0.606917,
+          "speed": 5.9401,
+          "teacher_request": -0.167865,
+          "measured_steer": -0.167757,
+          "op_target": -0.170822,
+          "error": -0.002957
+        },
+        {
+          "tick": 396,
+          "time_s": 19.8,
+          "yaw_rate": -0.607297,
+          "speed": 5.94004,
+          "teacher_request": -0.167858,
+          "measured_steer": -0.167915,
+          "op_target": -0.170707,
+          "error": -0.002849
+        },
+        {
+          "tick": 400,
+          "time_s": 20.0,
+          "yaw_rate": -0.607095,
+          "speed": 5.94008,
+          "teacher_request": -0.167931,
+          "measured_steer": -0.167881,
+          "op_target": -0.170813,
+          "error": -0.002882
+        },
+        {
+          "tick": 404,
+          "time_s": 20.2,
+          "yaw_rate": -0.607124,
+          "speed": 5.94007,
+          "teacher_request": -0.167754,
+          "measured_steer": -0.167827,
+          "op_target": -0.170745,
+          "error": -0.002992
+        },
+        {
+          "tick": 408,
+          "time_s": 20.4,
+          "yaw_rate": -0.607283,
+          "speed": 5.94005,
+          "teacher_request": -0.167908,
+          "measured_steer": -0.167929,
+          "op_target": -0.170735,
+          "error": -0.002827
+        },
+        {
+          "tick": 412,
+          "time_s": 20.6,
+          "yaw_rate": -0.606951,
+          "speed": 5.9401,
+          "teacher_request": -0.167905,
+          "measured_steer": -0.167796,
+          "op_target": -0.170827,
+          "error": -0.002922
+        },
+        {
+          "tick": 416,
+          "time_s": 20.8,
+          "yaw_rate": -0.607239,
+          "speed": 5.94005,
+          "teacher_request": -0.167804,
+          "measured_steer": -0.167887,
+          "op_target": -0.170705,
+          "error": -0.002901
+        },
+        {
+          "tick": 420,
+          "time_s": 21.0,
+          "yaw_rate": -0.607201,
+          "speed": 5.94006,
+          "teacher_request": -0.167935,
+          "measured_steer": -0.167918,
+          "op_target": -0.170775,
+          "error": -0.00284
+        },
+        {
+          "tick": 424,
+          "time_s": 21.2,
+          "yaw_rate": -0.606954,
+          "speed": 5.94009,
+          "teacher_request": -0.167854,
+          "measured_steer": -0.167768,
+          "op_target": -0.170813,
+          "error": -0.002959
+        },
+        {
+          "tick": 428,
+          "time_s": 21.4,
+          "yaw_rate": -0.607321,
+          "speed": 5.94005,
+          "teacher_request": -0.167874,
+          "measured_steer": -0.167925,
+          "op_target": -0.170708,
+          "error": -0.002833
+        },
+        {
+          "tick": 432,
+          "time_s": 21.6,
+          "yaw_rate": -0.607054,
+          "speed": 5.94008,
+          "teacher_request": -0.167931,
+          "measured_steer": -0.167874,
+          "op_target": -0.17082,
+          "error": -0.002889
+        },
+        {
+          "tick": 436,
+          "time_s": 21.8,
+          "yaw_rate": -0.607156,
+          "speed": 5.94006,
+          "teacher_request": -0.16774,
+          "measured_steer": -0.167844,
+          "op_target": -0.17073,
+          "error": -0.002989
+        },
+        {
+          "tick": 440,
+          "time_s": 22.0,
+          "yaw_rate": -0.607271,
+          "speed": 5.94005,
+          "teacher_request": -0.167919,
+          "measured_steer": -0.167933,
+          "op_target": -0.170743,
+          "error": -0.002824
+        },
+        {
+          "tick": 444,
+          "time_s": 22.2,
+          "yaw_rate": -0.606953,
+          "speed": 5.9401,
+          "teacher_request": -0.1679,
+          "measured_steer": -0.167791,
+          "op_target": -0.170376,
+          "error": -0.002476
+        },
+        {
+          "tick": 448,
+          "time_s": 22.4,
+          "yaw_rate": -0.603083,
+          "speed": 5.95225,
+          "teacher_request": -0.166809,
+          "measured_steer": -0.167929,
+          "op_target": -0.160226,
+          "error": 0.006582
+        },
+        {
+          "tick": 452,
+          "time_s": 22.6,
+          "yaw_rate": -0.553244,
+          "speed": 5.97274,
+          "teacher_request": -0.132465,
+          "measured_steer": -0.147115,
+          "op_target": -0.104293,
+          "error": 0.028172
+        },
+        {
+          "tick": 456,
+          "time_s": 22.8,
+          "yaw_rate": -0.346247,
+          "speed": 5.9969,
+          "teacher_request": -0.064514,
+          "measured_steer": -0.086744,
+          "op_target": -0.025916,
+          "error": 0.038598
+        },
+        {
+          "tick": 460,
+          "time_s": 23.0,
+          "yaw_rate": -0.053258,
+          "speed": 6.04984,
+          "teacher_request": 0.017191,
+          "measured_steer": -0.007962,
+          "op_target": 0.056029,
+          "error": 0.038838
+        },
+        {
+          "tick": 464,
+          "time_s": 23.2,
+          "yaw_rate": 0.27394,
+          "speed": 6.04145,
+          "teacher_request": 0.094274,
+          "measured_steer": 0.07314,
+          "op_target": 0.118219,
+          "error": 0.023945
+        },
+        {
+          "tick": 468,
+          "time_s": 23.4,
+          "yaw_rate": 0.532719,
+          "speed": 6.00644,
+          "teacher_request": 0.150898,
+          "measured_steer": 0.136252,
+          "op_target": 0.1578,
+          "error": 0.006902
+        },
+        {
+          "tick": 472,
+          "time_s": 23.6,
+          "yaw_rate": 0.702646,
+          "speed": 5.9669,
+          "teacher_request": 0.185784,
+          "measured_steer": 0.177333,
+          "op_target": 0.178541,
+          "error": -0.007243
+        },
+        {
+          "tick": 476,
+          "time_s": 23.8,
+          "yaw_rate": 0.79252,
+          "speed": 5.93565,
+          "teacher_request": 0.202577,
+          "measured_steer": 0.198938,
+          "op_target": 0.185788,
+          "error": -0.016789
+        },
+        {
+          "tick": 480,
+          "time_s": 24.0,
+          "yaw_rate": 0.826399,
+          "speed": 5.91626,
+          "teacher_request": 0.206427,
+          "measured_steer": 0.206291,
+          "op_target": 0.183976,
+          "error": -0.022451
+        },
+        {
+          "tick": 484,
+          "time_s": 24.2,
+          "yaw_rate": 0.82327,
+          "speed": 5.9081,
+          "teacher_request": 0.202743,
+          "measured_steer": 0.204434,
+          "op_target": 0.177326,
+          "error": -0.025417
+        },
+        {
+          "tick": 488,
+          "time_s": 24.4,
+          "yaw_rate": 0.799237,
+          "speed": 5.90848,
+          "teacher_request": 0.195012,
+          "measured_steer": 0.19736,
+          "op_target": 0.168989,
+          "error": -0.026024
+        },
+        {
+          "tick": 492,
+          "time_s": 24.6,
+          "yaw_rate": 0.76828,
+          "speed": 5.91366,
+          "teacher_request": 0.186309,
+          "measured_steer": 0.18895,
+          "op_target": 0.160729,
+          "error": -0.02558
+        },
+        {
+          "tick": 496,
+          "time_s": 24.8,
+          "yaw_rate": 0.737084,
+          "speed": 5.92097,
+          "teacher_request": 0.178474,
+          "measured_steer": 0.180634,
+          "op_target": 0.154254,
+          "error": -0.024219
+        },
+        {
+          "tick": 500,
+          "time_s": 25.0,
+          "yaw_rate": 0.711699,
+          "speed": 5.92812,
+          "teacher_request": 0.172125,
+          "measured_steer": 0.173885,
+          "op_target": 0.14938,
+          "error": -0.022745
+        },
+        {
+          "tick": 504,
+          "time_s": 25.2,
+          "yaw_rate": 0.693046,
+          "speed": 5.93412,
+          "teacher_request": 0.16802,
+          "measured_steer": 0.169083,
+          "op_target": 0.146617,
+          "error": -0.021403
+        },
+        {
+          "tick": 508,
+          "time_s": 25.4,
+          "yaw_rate": 0.681394,
+          "speed": 5.9385,
+          "teacher_request": 0.165434,
+          "measured_steer": 0.166025,
+          "op_target": 0.145294,
+          "error": -0.02014
+        },
+        {
+          "tick": 512,
+          "time_s": 25.6,
+          "yaw_rate": 0.676135,
+          "speed": 5.94118,
+          "teacher_request": 0.164628,
+          "measured_steer": 0.164819,
+          "op_target": 0.14508,
+          "error": -0.019548
+        },
+        {
+          "tick": 516,
+          "time_s": 25.8,
+          "yaw_rate": 0.674763,
+          "speed": 5.94257,
+          "teacher_request": 0.164739,
+          "measured_steer": 0.164554,
+          "op_target": 0.145741,
+          "error": -0.018998
+        },
+        {
+          "tick": 520,
+          "time_s": 26.0,
+          "yaw_rate": 0.676878,
+          "speed": 5.94288,
+          "teacher_request": 0.165327,
+          "measured_steer": 0.165165,
+          "op_target": 0.1465,
+          "error": -0.018827
+        },
+        {
+          "tick": 524,
+          "time_s": 26.2,
+          "yaw_rate": 0.680061,
+          "speed": 5.94256,
+          "teacher_request": 0.166418,
+          "measured_steer": 0.166109,
+          "op_target": 0.147508,
+          "error": -0.01891
+        },
+        {
+          "tick": 528,
+          "time_s": 26.4,
+          "yaw_rate": 0.683371,
+          "speed": 5.94193,
+          "teacher_request": 0.167299,
+          "measured_steer": 0.166921,
+          "op_target": 0.148381,
+          "error": -0.018918
+        },
+        {
+          "tick": 532,
+          "time_s": 26.6,
+          "yaw_rate": 0.68697,
+          "speed": 5.94113,
+          "teacher_request": 0.168108,
+          "measured_steer": 0.167941,
+          "op_target": 0.148913,
+          "error": -0.019195
+        },
+        {
+          "tick": 536,
+          "time_s": 26.8,
+          "yaw_rate": 0.689231,
+          "speed": 5.94046,
+          "teacher_request": 0.168751,
+          "measured_steer": 0.168545,
+          "op_target": 0.149426,
+          "error": -0.019325
+        },
+        {
+          "tick": 540,
+          "time_s": 27.0,
+          "yaw_rate": 0.690946,
+          "speed": 5.9399,
+          "teacher_request": 0.168918,
+          "measured_steer": 0.16893,
+          "op_target": 0.149568,
+          "error": -0.01935
+        },
+        {
+          "tick": 544,
+          "time_s": 27.2,
+          "yaw_rate": 0.691975,
+          "speed": 5.93951,
+          "teacher_request": 0.16926,
+          "measured_steer": 0.169241,
+          "op_target": 0.149629,
+          "error": -0.019631
+        },
+        {
+          "tick": 548,
+          "time_s": 27.4,
+          "yaw_rate": 0.691919,
+          "speed": 5.93935,
+          "teacher_request": 0.169269,
+          "measured_steer": 0.169159,
+          "op_target": 0.149687,
+          "error": -0.019581
+        },
+        {
+          "tick": 552,
+          "time_s": 27.6,
+          "yaw_rate": 0.692159,
+          "speed": 5.93923,
+          "teacher_request": 0.169138,
+          "measured_steer": 0.169236,
+          "op_target": 0.149466,
+          "error": -0.019672
+        },
+        {
+          "tick": 556,
+          "time_s": 27.8,
+          "yaw_rate": 0.691727,
+          "speed": 5.93926,
+          "teacher_request": 0.169147,
+          "measured_steer": 0.169152,
+          "op_target": 0.149445,
+          "error": -0.019702
+        },
+        {
+          "tick": 560,
+          "time_s": 28.0,
+          "yaw_rate": 0.691201,
+          "speed": 5.93933,
+          "teacher_request": 0.168884,
+          "measured_steer": 0.16893,
+          "op_target": 0.149328,
+          "error": -0.019556
+        },
+        {
+          "tick": 564,
+          "time_s": 28.2,
+          "yaw_rate": 0.691079,
+          "speed": 5.93938,
+          "teacher_request": 0.168899,
+          "measured_steer": 0.168962,
+          "op_target": 0.149193,
+          "error": -0.019706
+        },
+        {
+          "tick": 568,
+          "time_s": 28.4,
+          "yaw_rate": 0.690451,
+          "speed": 5.9395,
+          "teacher_request": 0.168848,
+          "measured_steer": 0.168797,
+          "op_target": 0.149246,
+          "error": -0.019602
+        },
+        {
+          "tick": 572,
+          "time_s": 28.6,
+          "yaw_rate": 0.690441,
+          "speed": 5.93954,
+          "teacher_request": 0.168662,
+          "measured_steer": 0.168765,
+          "op_target": 0.149102,
+          "error": -0.019559
+        },
+        {
+          "tick": 576,
+          "time_s": 28.8,
+          "yaw_rate": 0.690334,
+          "speed": 5.93961,
+          "teacher_request": 0.168786,
+          "measured_steer": 0.168784,
+          "op_target": 0.149137,
+          "error": -0.019648
+        },
+        {
+          "tick": 580,
+          "time_s": 29.0,
+          "yaw_rate": 0.689985,
+          "speed": 5.93968,
+          "teacher_request": 0.168714,
+          "measured_steer": 0.168605,
+          "op_target": 0.149198,
+          "error": -0.019516
+        },
+        {
+          "tick": 584,
+          "time_s": 29.2,
+          "yaw_rate": 0.690355,
+          "speed": 5.93963,
+          "teacher_request": 0.168714,
+          "measured_steer": 0.168768,
+          "op_target": 0.149082,
+          "error": -0.019632
+        },
+        {
+          "tick": 588,
+          "time_s": 29.4,
+          "yaw_rate": 0.690134,
+          "speed": 5.93967,
+          "teacher_request": 0.168793,
+          "measured_steer": 0.168735,
+          "op_target": 0.149221,
+          "error": -0.019571
+        },
+        {
+          "tick": 592,
+          "time_s": 29.6,
+          "yaw_rate": 0.690289,
+          "speed": 5.93965,
+          "teacher_request": 0.168612,
+          "measured_steer": 0.168707,
+          "op_target": 0.149147,
+          "error": -0.019464
+        },
+        {
+          "tick": 596,
+          "time_s": 29.8,
+          "yaw_rate": 0.690433,
+          "speed": 5.93962,
+          "teacher_request": 0.168796,
+          "measured_steer": 0.168808,
+          "op_target": 0.149157,
+          "error": -0.019639
+        },
+        {
+          "tick": 600,
+          "time_s": 30.0,
+          "yaw_rate": 0.690121,
+          "speed": 5.93966,
+          "teacher_request": 0.168785,
+          "measured_steer": 0.16867,
+          "op_target": 0.149257,
+          "error": -0.019527
+        },
+        {
+          "tick": 604,
+          "time_s": 30.2,
+          "yaw_rate": 0.690508,
+          "speed": 5.93961,
+          "teacher_request": 0.168721,
+          "measured_steer": 0.168793,
+          "op_target": 0.149124,
+          "error": -0.019597
+        },
+        {
+          "tick": 608,
+          "time_s": 30.4,
+          "yaw_rate": 0.690401,
+          "speed": 5.93962,
+          "teacher_request": 0.168835,
+          "measured_steer": 0.168805,
+          "op_target": 0.149223,
+          "error": -0.019612
+        },
+        {
+          "tick": 612,
+          "time_s": 30.6,
+          "yaw_rate": 0.690298,
+          "speed": 5.93963,
+          "teacher_request": 0.168683,
+          "measured_steer": 0.168697,
+          "op_target": 0.149197,
+          "error": -0.019486
+        },
+        {
+          "tick": 616,
+          "time_s": 30.8,
+          "yaw_rate": 0.690547,
+          "speed": 5.93959,
+          "teacher_request": 0.168797,
+          "measured_steer": 0.168832,
+          "op_target": 0.149147,
+          "error": -0.019651
+        },
+        {
+          "tick": 620,
+          "time_s": 31.0,
+          "yaw_rate": 0.690273,
+          "speed": 5.93963,
+          "teacher_request": 0.168823,
+          "measured_steer": 0.168752,
+          "op_target": 0.149258,
+          "error": -0.019565
+        },
+        {
+          "tick": 624,
+          "time_s": 31.2,
+          "yaw_rate": 0.690501,
+          "speed": 5.9396,
+          "teacher_request": 0.168684,
+          "measured_steer": 0.168777,
+          "op_target": 0.149143,
+          "error": -0.019541
+        },
+        {
+          "tick": 628,
+          "time_s": 31.4,
+          "yaw_rate": 0.690472,
+          "speed": 5.9396,
+          "teacher_request": 0.16883,
+          "measured_steer": 0.168823,
+          "op_target": 0.149188,
+          "error": -0.019642
+        },
+        {
+          "tick": 632,
+          "time_s": 31.6,
+          "yaw_rate": 0.690155,
+          "speed": 5.93964,
+          "teacher_request": 0.168766,
+          "measured_steer": 0.168656,
+          "op_target": 0.149253,
+          "error": -0.019513
+        },
+        {
+          "tick": 636,
+          "time_s": 31.8,
+          "yaw_rate": 0.690564,
+          "speed": 5.93959,
+          "teacher_request": 0.168762,
+          "measured_steer": 0.168818,
+          "op_target": 0.14913,
+          "error": -0.019632
+        },
+        {
+          "tick": 640,
+          "time_s": 32.0,
+          "yaw_rate": 0.690319,
+          "speed": 5.93963,
+          "teacher_request": 0.168828,
+          "measured_steer": 0.168774,
+          "op_target": 0.149238,
+          "error": -0.01959
+        },
+        {
+          "tick": 644,
+          "time_s": 32.2,
+          "yaw_rate": 0.690381,
+          "speed": 5.93962,
+          "teacher_request": 0.168636,
+          "measured_steer": 0.168733,
+          "op_target": 0.14916,
+          "error": -0.019475
+        },
+        {
+          "tick": 648,
+          "time_s": 32.4,
+          "yaw_rate": 0.69052,
+          "speed": 5.9396,
+          "teacher_request": 0.168811,
+          "measured_steer": 0.168826,
+          "op_target": 0.149165,
+          "error": -0.019647
+        },
+        {
+          "tick": 652,
+          "time_s": 32.6,
+          "yaw_rate": 0.69018,
+          "speed": 5.93964,
+          "teacher_request": 0.168791,
+          "measured_steer": 0.168679,
+          "op_target": 0.149251,
+          "error": -0.01954
+        },
+        {
+          "tick": 656,
+          "time_s": 32.8,
+          "yaw_rate": 0.690509,
+          "speed": 5.9396,
+          "teacher_request": 0.16872,
+          "measured_steer": 0.168794,
+          "op_target": 0.149122,
+          "error": -0.019598
+        },
+        {
+          "tick": 660,
+          "time_s": 33.0,
+          "yaw_rate": 0.690408,
+          "speed": 5.93962,
+          "teacher_request": 0.168832,
+          "measured_steer": 0.168804,
+          "op_target": 0.14921,
+          "error": -0.019622
+        },
+        {
+          "tick": 664,
+          "time_s": 33.2,
+          "yaw_rate": 0.690262,
+          "speed": 5.93963,
+          "teacher_request": 0.16868,
+          "measured_steer": 0.168693,
+          "op_target": 0.149202,
+          "error": -0.019478
+        },
+        {
+          "tick": 668,
+          "time_s": 33.4,
+          "yaw_rate": 0.690538,
+          "speed": 5.93959,
+          "teacher_request": 0.168793,
+          "measured_steer": 0.168828,
+          "op_target": 0.149144,
+          "error": -0.019649
+        },
+        {
+          "tick": 672,
+          "time_s": 33.6,
+          "yaw_rate": 0.690259,
+          "speed": 5.93963,
+          "teacher_request": 0.168818,
+          "measured_steer": 0.168748,
+          "op_target": 0.149252,
+          "error": -0.019566
+        },
+        {
+          "tick": 676,
+          "time_s": 33.8,
+          "yaw_rate": 0.69046,
+          "speed": 5.9396,
+          "teacher_request": 0.16868,
+          "measured_steer": 0.168771,
+          "op_target": 0.149139,
+          "error": -0.01954
+        },
+        {
+          "tick": 680,
+          "time_s": 34.0,
+          "yaw_rate": 0.690467,
+          "speed": 5.9396,
+          "teacher_request": 0.168829,
+          "measured_steer": 0.168822,
+          "op_target": 0.149194,
+          "error": -0.019635
+        },
+        {
+          "tick": 684,
+          "time_s": 34.2,
+          "yaw_rate": 0.690182,
+          "speed": 5.93964,
+          "teacher_request": 0.168765,
+          "measured_steer": 0.168656,
+          "op_target": 0.149247,
+          "error": -0.019518
+        },
+        {
+          "tick": 688,
+          "time_s": 34.4,
+          "yaw_rate": 0.690559,
+          "speed": 5.93959,
+          "teacher_request": 0.16876,
+          "measured_steer": 0.168816,
+          "op_target": 0.149127,
+          "error": -0.019633
+        },
+        {
+          "tick": 692,
+          "time_s": 34.6,
+          "yaw_rate": 0.690319,
+          "speed": 5.93963,
+          "teacher_request": 0.168827,
+          "measured_steer": 0.168774,
+          "op_target": 0.14924,
+          "error": -0.019587
+        },
+        {
+          "tick": 696,
+          "time_s": 34.8,
+          "yaw_rate": 0.690389,
+          "speed": 5.93962,
+          "teacher_request": 0.168635,
+          "measured_steer": 0.168732,
+          "op_target": 0.149158,
+          "error": -0.019477
+        },
+        {
+          "tick": 700,
+          "time_s": 35.0,
+          "yaw_rate": 0.690525,
+          "speed": 5.9396,
+          "teacher_request": 0.16881,
+          "measured_steer": 0.168825,
+          "op_target": 0.149158,
+          "error": -0.019652
+        },
+        {
+          "tick": 704,
+          "time_s": 35.2,
+          "yaw_rate": 0.690155,
+          "speed": 5.93964,
+          "teacher_request": 0.168792,
+          "measured_steer": 0.168679,
+          "op_target": 0.149258,
+          "error": -0.019533
+        },
+        {
+          "tick": 708,
+          "time_s": 35.4,
+          "yaw_rate": 0.6905,
+          "speed": 5.93959,
+          "teacher_request": 0.168721,
+          "measured_steer": 0.168795,
+          "op_target": 0.149126,
+          "error": -0.019596
+        },
+        {
+          "tick": 712,
+          "time_s": 35.6,
+          "yaw_rate": 0.690401,
+          "speed": 5.93961,
+          "teacher_request": 0.168834,
+          "measured_steer": 0.168805,
+          "op_target": 0.14921,
+          "error": -0.019624
+        },
+        {
+          "tick": 716,
+          "time_s": 35.8,
+          "yaw_rate": 0.690268,
+          "speed": 5.93963,
+          "teacher_request": 0.168682,
+          "measured_steer": 0.168694,
+          "op_target": 0.149194,
+          "error": -0.019488
+        },
+        {
+          "tick": 720,
+          "time_s": 36.0,
+          "yaw_rate": 0.690522,
+          "speed": 5.93959,
+          "teacher_request": 0.168797,
+          "measured_steer": 0.168831,
+          "op_target": 0.14915,
+          "error": -0.019647
+        },
+        {
+          "tick": 724,
+          "time_s": 36.2,
+          "yaw_rate": 0.690254,
+          "speed": 5.93963,
+          "teacher_request": 0.168823,
+          "measured_steer": 0.168753,
+          "op_target": 0.149253,
+          "error": -0.01957
+        },
+        {
+          "tick": 728,
+          "time_s": 36.4,
+          "yaw_rate": 0.690446,
+          "speed": 5.93959,
+          "teacher_request": 0.168684,
+          "measured_steer": 0.168776,
+          "op_target": 0.149139,
+          "error": -0.019545
+        },
+        {
+          "tick": 732,
+          "time_s": 36.6,
+          "yaw_rate": 0.690487,
+          "speed": 5.93961,
+          "teacher_request": 0.168837,
+          "measured_steer": 0.168829,
+          "op_target": 0.149195,
+          "error": -0.019641
+        },
+        {
+          "tick": 736,
+          "time_s": 36.8,
+          "yaw_rate": 0.690196,
+          "speed": 5.93964,
+          "teacher_request": 0.168772,
+          "measured_steer": 0.168662,
+          "op_target": 0.14925,
+          "error": -0.019522
+        },
+        {
+          "tick": 740,
+          "time_s": 37.0,
+          "yaw_rate": 0.690554,
+          "speed": 5.93959,
+          "teacher_request": 0.168764,
+          "measured_steer": 0.16882,
+          "op_target": 0.149129,
+          "error": -0.019634
+        },
+        {
+          "tick": 744,
+          "time_s": 37.2,
+          "yaw_rate": 0.690315,
+          "speed": 5.93962,
+          "teacher_request": 0.168831,
+          "measured_steer": 0.168778,
+          "op_target": 0.14924,
+          "error": -0.019591
+        },
+        {
+          "tick": 748,
+          "time_s": 37.4,
+          "yaw_rate": 0.690382,
+          "speed": 5.93961,
+          "teacher_request": 0.168639,
+          "measured_steer": 0.168736,
+          "op_target": 0.14916,
+          "error": -0.019479
+        },
+        {
+          "tick": 752,
+          "time_s": 37.6,
+          "yaw_rate": 0.690499,
+          "speed": 5.93959,
+          "teacher_request": 0.168813,
+          "measured_steer": 0.168828,
+          "op_target": 0.149162,
+          "error": -0.019651
+        },
+        {
+          "tick": 756,
+          "time_s": 37.8,
+          "yaw_rate": 0.690155,
+          "speed": 5.93964,
+          "teacher_request": 0.168795,
+          "measured_steer": 0.168683,
+          "op_target": 0.149258,
+          "error": -0.019537
+        },
+        {
+          "tick": 760,
+          "time_s": 38.0,
+          "yaw_rate": 0.690511,
+          "speed": 5.9396,
+          "teacher_request": 0.168724,
+          "measured_steer": 0.168799,
+          "op_target": 0.149125,
+          "error": -0.019599
+        },
+        {
+          "tick": 764,
+          "time_s": 38.2,
+          "yaw_rate": 0.690407,
+          "speed": 5.93961,
+          "teacher_request": 0.168835,
+          "measured_steer": 0.168807,
+          "op_target": 0.149214,
+          "error": -0.019621
+        },
+        {
+          "tick": 768,
+          "time_s": 38.4,
+          "yaw_rate": 0.690277,
+          "speed": 5.93963,
+          "teacher_request": 0.168682,
+          "measured_steer": 0.168694,
+          "op_target": 0.149194,
+          "error": -0.019488
+        },
+        {
+          "tick": 772,
+          "time_s": 38.6,
+          "yaw_rate": 0.690522,
+          "speed": 5.93959,
+          "teacher_request": 0.168793,
+          "measured_steer": 0.168828,
+          "op_target": 0.149147,
+          "error": -0.019646
+        },
+        {
+          "tick": 776,
+          "time_s": 38.8,
+          "yaw_rate": 0.690263,
+          "speed": 5.93963,
+          "teacher_request": 0.16882,
+          "measured_steer": 0.16875,
+          "op_target": 0.149253,
+          "error": -0.019567
+        },
+        {
+          "tick": 780,
+          "time_s": 39.0,
+          "yaw_rate": 0.690478,
+          "speed": 5.93961,
+          "teacher_request": 0.168679,
+          "measured_steer": 0.168772,
+          "op_target": 0.149132,
+          "error": -0.019547
+        },
+        {
+          "tick": 784,
+          "time_s": 39.2,
+          "yaw_rate": 0.690464,
+          "speed": 5.9396,
+          "teacher_request": 0.16883,
+          "measured_steer": 0.168823,
+          "op_target": 0.149191,
+          "error": -0.019639
+        },
+        {
+          "tick": 788,
+          "time_s": 39.4,
+          "yaw_rate": 0.690174,
+          "speed": 5.93964,
+          "teacher_request": 0.168766,
+          "measured_steer": 0.168657,
+          "op_target": 0.14925,
+          "error": -0.019516
+        },
+        {
+          "tick": 792,
+          "time_s": 39.6,
+          "yaw_rate": 0.690552,
+          "speed": 5.93959,
+          "teacher_request": 0.168759,
+          "measured_steer": 0.168815,
+          "op_target": 0.149129,
+          "error": -0.01963
+        },
+        {
+          "tick": 796,
+          "time_s": 39.8,
+          "yaw_rate": 0.690316,
+          "speed": 5.93963,
+          "teacher_request": 0.168827,
+          "measured_steer": 0.168774,
+          "op_target": 0.149237,
+          "error": -0.019591
+        },
+        {
+          "tick": 800,
+          "time_s": 40.0,
+          "yaw_rate": 0.690379,
+          "speed": 5.93962,
+          "teacher_request": 0.168637,
+          "measured_steer": 0.168732,
+          "op_target": 0.149164,
+          "error": -0.019473
+        },
+        {
+          "tick": 804,
+          "time_s": 40.2,
+          "yaw_rate": 0.690515,
+          "speed": 5.9396,
+          "teacher_request": 0.16881,
+          "measured_steer": 0.168826,
+          "op_target": 0.149159,
+          "error": -0.019651
+        },
+        {
+          "tick": 808,
+          "time_s": 40.4,
+          "yaw_rate": 0.690157,
+          "speed": 5.93964,
+          "teacher_request": 0.168793,
+          "measured_steer": 0.16868,
+          "op_target": 0.149259,
+          "error": -0.019533
+        },
+        {
+          "tick": 812,
+          "time_s": 40.6,
+          "yaw_rate": 0.690498,
+          "speed": 5.93959,
+          "teacher_request": 0.168721,
+          "measured_steer": 0.168795,
+          "op_target": 0.149124,
+          "error": -0.019596
+        },
+        {
+          "tick": 816,
+          "time_s": 40.8,
+          "yaw_rate": 0.690409,
+          "speed": 5.93961,
+          "teacher_request": 0.168834,
+          "measured_steer": 0.168806,
+          "op_target": 0.149214,
+          "error": -0.01962
+        },
+        {
+          "tick": 820,
+          "time_s": 41.0,
+          "yaw_rate": 0.69028,
+          "speed": 5.93963,
+          "teacher_request": 0.168682,
+          "measured_steer": 0.168694,
+          "op_target": 0.149199,
+          "error": -0.019483
+        },
+        {
+          "tick": 824,
+          "time_s": 41.2,
+          "yaw_rate": 0.690542,
+          "speed": 5.9396,
+          "teacher_request": 0.168793,
+          "measured_steer": 0.168828,
+          "op_target": 0.149138,
+          "error": -0.019655
+        },
+        {
+          "tick": 828,
+          "time_s": 41.4,
+          "yaw_rate": 0.690246,
+          "speed": 5.93963,
+          "teacher_request": 0.168821,
+          "measured_steer": 0.16875,
+          "op_target": 0.149263,
+          "error": -0.019558
+        },
+        {
+          "tick": 832,
+          "time_s": 41.6,
+          "yaw_rate": 0.690473,
+          "speed": 5.9396,
+          "teacher_request": 0.168679,
+          "measured_steer": 0.168772,
+          "op_target": 0.149138,
+          "error": -0.01954
+        },
+        {
+          "tick": 836,
+          "time_s": 41.8,
+          "yaw_rate": 0.690465,
+          "speed": 5.93961,
+          "teacher_request": 0.168829,
+          "measured_steer": 0.168822,
+          "op_target": 0.149193,
+          "error": -0.019635
+        },
+        {
+          "tick": 840,
+          "time_s": 42.0,
+          "yaw_rate": 0.690177,
+          "speed": 5.93965,
+          "teacher_request": 0.168766,
+          "measured_steer": 0.168656,
+          "op_target": 0.148581,
+          "error": -0.020184
+        },
+        {
+          "tick": 844,
+          "time_s": 42.2,
+          "yaw_rate": 0.683655,
+          "speed": 5.95359,
+          "teacher_request": 0.168378,
+          "measured_steer": 0.168846,
+          "op_target": 0.144827,
+          "error": -0.023552
+        },
+        {
+          "tick": 848,
+          "time_s": 42.4,
+          "yaw_rate": 0.661758,
+          "speed": 6.0742,
+          "teacher_request": 0.151225,
+          "measured_steer": 0.158791,
+          "op_target": 0.119498,
+          "error": -0.031728
+        },
+        {
+          "tick": 852,
+          "time_s": 42.6,
+          "yaw_rate": 0.568954,
+          "speed": 6.31787,
+          "teacher_request": 0.115128,
+          "measured_steer": 0.1269,
+          "op_target": 0.07736,
+          "error": -0.037768
+        },
+        {
+          "tick": 856,
+          "time_s": 42.8,
+          "yaw_rate": 0.4225,
+          "speed": 6.68595,
+          "teacher_request": 0.072801,
+          "measured_steer": 0.085546,
+          "op_target": 0.035126,
+          "error": -0.037675
+        },
+        {
+          "tick": 860,
+          "time_s": 43.0,
+          "yaw_rate": 0.262292,
+          "speed": 7.14173,
+          "teacher_request": 0.034929,
+          "measured_steer": 0.045354,
+          "op_target": 0.003407,
+          "error": -0.031522
+        },
+        {
+          "tick": 864,
+          "time_s": 43.2,
+          "yaw_rate": 0.126611,
+          "speed": 7.51212,
+          "teacher_request": 0.008315,
+          "measured_steer": 0.01511,
+          "op_target": -0.014699,
+          "error": -0.023014
+        },
+        {
+          "tick": 868,
+          "time_s": 43.4,
+          "yaw_rate": 0.034946,
+          "speed": 7.73429,
+          "teacher_request": -0.006907,
+          "measured_steer": -0.003323,
+          "op_target": -0.022406,
+          "error": -0.015498
+        },
+        {
+          "tick": 872,
+          "time_s": 43.6,
+          "yaw_rate": -0.013051,
+          "speed": 7.85393,
+          "teacher_request": -0.013315,
+          "measured_steer": -0.012091,
+          "op_target": -0.02354,
+          "error": -0.010225
+        },
+        {
+          "tick": 876,
+          "time_s": 43.8,
+          "yaw_rate": -0.027347,
+          "speed": 7.91423,
+          "teacher_request": -0.013773,
+          "measured_steer": -0.014065,
+          "op_target": -0.020941,
+          "error": -0.007168
+        },
+        {
+          "tick": 880,
+          "time_s": 44.0,
+          "yaw_rate": -0.019551,
+          "speed": 7.94373,
+          "teacher_request": -0.010914,
+          "measured_steer": -0.011964,
+          "op_target": -0.016667,
+          "error": -0.005753
+        },
+        {
+          "tick": 884,
+          "time_s": 44.2,
+          "yaw_rate": -0.000215,
+          "speed": 7.94439,
+          "teacher_request": -0.006948,
+          "measured_steer": -0.008138,
+          "op_target": -0.012089,
+          "error": -0.00514
+        },
+        {
+          "tick": 888,
+          "time_s": 44.4,
+          "yaw_rate": 0.021074,
+          "speed": 7.8554,
+          "teacher_request": -0.003573,
+          "measured_steer": -0.004474,
+          "op_target": -0.009036,
+          "error": -0.005464
+        },
+        {
+          "tick": 892,
+          "time_s": 44.6,
+          "yaw_rate": 0.036079,
+          "speed": 7.67475,
+          "teacher_request": -0.001406,
+          "measured_steer": -0.001932,
+          "op_target": -0.007256,
+          "error": -0.00585
+        },
+        {
+          "tick": 896,
+          "time_s": 44.8,
+          "yaw_rate": 0.042223,
+          "speed": 7.32207,
+          "teacher_request": -0.000486,
+          "measured_steer": -0.000655,
+          "op_target": -0.006547,
+          "error": -0.00606
+        },
+        {
+          "tick": 900,
+          "time_s": 45.0,
+          "yaw_rate": 0.042702,
+          "speed": 6.78474,
+          "teacher_request": -0.00045,
+          "measured_steer": -0.000403,
+          "op_target": -0.008623,
+          "error": -0.008174
+        },
+        {
+          "tick": 904,
+          "time_s": 45.2,
+          "yaw_rate": -0.042189,
+          "speed": 6.13951,
+          "teacher_request": -0.000214,
+          "measured_steer": -0.000457,
+          "op_target": 0.010676,
+          "error": 0.01089
+        },
+        {
+          "tick": 908,
+          "time_s": 45.4,
+          "yaw_rate": -0.014423,
+          "speed": 5.36302,
+          "teacher_request": 0.000448,
+          "measured_steer": 0.000166,
+          "op_target": 0.005149,
+          "error": 0.004701
+        },
+        {
+          "tick": 912,
+          "time_s": 45.6,
+          "yaw_rate": 0.002556,
+          "speed": 4.541,
+          "teacher_request": 0.000687,
+          "measured_steer": 0.000639,
+          "op_target": 0.000383,
+          "error": -0.000304
+        },
+        {
+          "tick": 916,
+          "time_s": 45.8,
+          "yaw_rate": 0.001867,
+          "speed": 3.78052,
+          "teacher_request": 0.000791,
+          "measured_steer": 0.000772,
+          "op_target": 0.00063,
+          "error": -0.000161
+        },
+        {
+          "tick": 920,
+          "time_s": 46.0,
+          "yaw_rate": 0.001473,
+          "speed": 2.89714,
+          "teacher_request": 0.000812,
+          "measured_steer": 0.00081,
+          "op_target": 0.00409,
+          "error": 0.003278
+        },
+        {
+          "tick": 924,
+          "time_s": 46.2,
+          "yaw_rate": -0.00091,
+          "speed": 1.91016,
+          "teacher_request": 0.000387,
+          "measured_steer": 0.000554,
+          "op_target": 0.00501,
+          "error": 0.004623
+        },
+        {
+          "tick": 928,
+          "time_s": 46.4,
+          "yaw_rate": 0.008876,
+          "speed": 1.20869,
+          "teacher_request": -5e-05,
+          "measured_steer": 7.1e-05,
+          "op_target": 0.000497,
+          "error": 0.000547
+        },
+        {
+          "tick": 932,
+          "time_s": 46.6,
+          "yaw_rate": 3e-05,
+          "speed": 0.00644,
+          "teacher_request": -0.000746,
+          "measured_steer": -0.000549,
+          "op_target": -4.2e-05,
+          "error": 0.000704
+        },
+        {
+          "tick": 936,
+          "time_s": 46.8,
+          "yaw_rate": -0.0,
+          "speed": -0.00141,
+          "teacher_request": -0.000707,
+          "measured_steer": -0.000707,
+          "op_target": -0.0,
+          "error": 0.000707
+        },
+        {
+          "tick": 940,
+          "time_s": 47.0,
+          "yaw_rate": -0.0,
+          "speed": -3e-05,
+          "teacher_request": -0.000707,
+          "measured_steer": -0.000707,
+          "op_target": 0.0,
+          "error": 0.000707
+        }
+      ]
+    },
+    {
+      "case": "train-skidpad-82002-visual_stress_v1",
+      "meta_sha256": "f0631d6dd7f1ae00a8fe29e26495d59326d514a18f274088d7e0a2be532cf561",
+      "input_hashes": {
+        "states": "fd2dbd600b535fe5acc8c4d624e691771131e41396672ff340d1cc64ac444bc3",
+        "controls": "8c26957ec858ec5df9ea3732242b7e2de3cba4aae1fb809050d1e84f0f57c487",
+        "teacher": "d8e7bcf669858e98f50759164842533951753e6e5a94d5a40e4847709b9652c5",
+        "contacts": "40f178e740d4e2f016719f49529c56b4076be6fb0b38446e14259003b6f4766c",
+        "ticks": "4023efe3ab3f51c4beb9526d9986b62186eab88e7dfa5b89e9387c83f2d7933d"
+      },
+      "eligible_anchor_count": 172,
+      "max_follower_disagreement_rad": 6.712293015853632e-08,
+      "groups": {
+        "steady_right": {
+          "count": 35,
+          "time_range_s": [
+            3.6,
+            10.4
+          ],
+          "mean_signed_rad": -0.0035096862758350286,
+          "mae_rad": 0.0035096862758350286,
+          "max_abs_rad": 0.016922124785646864,
+          "op_mean_rad": -0.17423012852668762,
+          "teacher_mean_rad": -0.1707204533202866,
+          "measured_mean_rad": -0.17056260776412785,
+          "sample_rows": [
+            {
+              "tick": 72,
+              "time_s": 3.6,
+              "yaw_rate": -0.628914,
+              "speed": 6.18158,
+              "teacher_request": -0.164084,
+              "measured_steer": -0.158873,
+              "op_target": -0.181006,
+              "error": -0.016922
+            },
+            {
+              "tick": 140,
+              "time_s": 7.0,
+              "yaw_rate": -0.619474,
+              "speed": 5.9399,
+              "teacher_request": -0.169295,
+              "measured_steer": -0.169181,
+              "op_target": -0.172452,
+              "error": -0.003157
+            },
+            {
+              "tick": 208,
+              "time_s": 10.4,
+              "yaw_rate": -0.619915,
+              "speed": 5.93958,
+              "teacher_request": -0.169297,
+              "measured_steer": -0.169207,
+              "op_target": -0.172427,
+              "error": -0.00313
+            }
+          ]
+        },
+        "steady_left": {
+          "count": 91,
+          "time_range_s": [
+            23.6,
+            41.6
+          ],
+          "mean_signed_rad": 0.0023806036388340163,
+          "mae_rad": 0.0032178630949634196,
+          "max_abs_rad": 0.012288759726046677,
+          "op_mean_rad": 0.17329782247543335,
+          "teacher_mean_rad": 0.1709172083566618,
+          "measured_mean_rad": 0.17114216137266292,
+          "sample_rows": [
+            {
+              "tick": 472,
+              "time_s": 23.6,
+              "yaw_rate": 0.795161,
+              "speed": 5.90668,
+              "teacher_request": 0.220968,
+              "measured_steer": 0.22008,
+              "op_target": 0.221754,
+              "error": 0.000786
+            },
+            {
+              "tick": 652,
+              "time_s": 32.6,
+              "yaw_rate": 0.620091,
+              "speed": 5.93954,
+              "teacher_request": 0.169365,
+              "measured_steer": 0.169352,
+              "op_target": 0.172389,
+              "error": 0.003024
+            },
+            {
+              "tick": 832,
+              "time_s": 41.6,
+              "yaw_rate": 0.594917,
+              "speed": 6.04439,
+              "teacher_request": 0.15779,
+              "measured_steer": 0.163642,
+              "op_target": 0.145501,
+              "error": -0.012289
+            }
+          ]
+        },
+        "right_to_left_transition": {
+          "count": 2,
+          "time_range_s": [
+            22.6,
+            23.2
+          ],
+          "mean_signed_rad": 0.03897121949140797,
+          "mae_rad": 0.03897121949140797,
+          "max_abs_rad": 0.054385762655066915,
+          "op_mean_rad": 0.10195032507181168,
+          "teacher_mean_rad": 0.06297910464908113,
+          "measured_mean_rad": 0.04310056316911572,
+          "sample_rows": [
+            {
+              "tick": 452,
+              "time_s": 22.6,
+              "yaw_rate": -0.293297,
+              "speed": 5.95943,
+              "teacher_request": -0.059746,
+              "measured_steer": -0.085993,
+              "op_target": -0.00536,
+              "error": 0.054386
+            },
+            {
+              "tick": 464,
+              "time_s": 23.2,
+              "yaw_rate": 0.589538,
+              "speed": 5.9596,
+              "teacher_request": 0.185704,
+              "measured_steer": 0.172194,
+              "op_target": 0.209261,
+              "error": 0.023557
+            },
+            {
+              "tick": 464,
+              "time_s": 23.2,
+              "yaw_rate": 0.589538,
+              "speed": 5.9596,
+              "teacher_request": 0.185704,
+              "measured_steer": 0.172194,
+              "op_target": 0.209261,
+              "error": 0.023557
+            }
+          ]
+        }
+      },
+      "all_rows": [
+        {
+          "tick": 0,
+          "time_s": 0.0,
+          "yaw_rate": 0.0,
+          "speed": 0.0,
+          "teacher_request": 0.0,
+          "measured_steer": 0.0,
+          "op_target": -0.0,
+          "error": -0.0
+        },
+        {
+          "tick": 4,
+          "time_s": 0.2,
+          "yaw_rate": 0.0,
+          "speed": 0.64195,
+          "teacher_request": 0.0,
+          "measured_steer": 0.0,
+          "op_target": -0.0,
+          "error": -0.0
+        },
+        {
+          "tick": 8,
+          "time_s": 0.4,
+          "yaw_rate": -0.0,
+          "speed": 1.56022,
+          "teacher_request": 0.0,
+          "measured_steer": 0.0,
+          "op_target": -0.0,
+          "error": -0.0
+        },
+        {
+          "tick": 12,
+          "time_s": 0.6,
+          "yaw_rate": -0.0,
+          "speed": 2.54149,
+          "teacher_request": 0.0,
+          "measured_steer": 0.0,
+          "op_target": -0.0,
+          "error": -0.0
+        },
+        {
+          "tick": 16,
+          "time_s": 0.8,
+          "yaw_rate": -0.0,
+          "speed": 3.49126,
+          "teacher_request": 0.0,
+          "measured_steer": 0.0,
+          "op_target": -0.0,
+          "error": -0.0
+        },
+        {
+          "tick": 20,
+          "time_s": 1.0,
+          "yaw_rate": -0.0,
+          "speed": 4.43793,
+          "teacher_request": 0.0,
+          "measured_steer": 0.0,
+          "op_target": -0.0,
+          "error": -0.0
+        },
+        {
+          "tick": 24,
+          "time_s": 1.2,
+          "yaw_rate": -0.0,
+          "speed": 5.26573,
+          "teacher_request": 0.0,
+          "measured_steer": 0.0,
+          "op_target": 0.0,
+          "error": -0.0
+        },
+        {
+          "tick": 28,
+          "time_s": 1.4,
+          "yaw_rate": -0.0,
+          "speed": 6.22691,
+          "teacher_request": 0.0,
+          "measured_steer": 0.0,
+          "op_target": 0.0,
+          "error": -0.0
+        },
+        {
+          "tick": 32,
+          "time_s": 1.6,
+          "yaw_rate": -0.0,
+          "speed": 7.00926,
+          "teacher_request": 0.0,
+          "measured_steer": 0.0,
+          "op_target": 0.0,
+          "error": -0.0
+        },
+        {
+          "tick": 36,
+          "time_s": 1.8,
+          "yaw_rate": -0.0,
+          "speed": 7.46209,
+          "teacher_request": 0.0,
+          "measured_steer": 0.0,
+          "op_target": 0.0,
+          "error": -0.0
+        },
+        {
+          "tick": 40,
+          "time_s": 2.0,
+          "yaw_rate": -0.0,
+          "speed": 7.70867,
+          "teacher_request": 0.0,
+          "measured_steer": 0.0,
+          "op_target": 0.0,
+          "error": -0.0
+        },
+        {
+          "tick": 44,
+          "time_s": 2.2,
+          "yaw_rate": -0.0,
+          "speed": 7.84047,
+          "teacher_request": 0.0,
+          "measured_steer": 0.0,
+          "op_target": -0.0,
+          "error": -0.0
+        },
+        {
+          "tick": 48,
+          "time_s": 2.4,
+          "yaw_rate": -0.0,
+          "speed": 7.89227,
+          "teacher_request": 0.0,
+          "measured_steer": 0.0,
+          "op_target": -0.000179,
+          "error": -0.000179
+        },
+        {
+          "tick": 52,
+          "time_s": 2.6,
+          "yaw_rate": -0.000471,
+          "speed": 7.7734,
+          "teacher_request": -0.001917,
+          "measured_steer": -0.000158,
+          "op_target": -0.012967,
+          "error": -0.01105
+        },
+        {
+          "tick": 56,
+          "time_s": 2.8,
+          "yaw_rate": -0.070258,
+          "speed": 7.59221,
+          "teacher_request": -0.02947,
+          "measured_steer": -0.018715,
+          "op_target": -0.05691,
+          "error": -0.02744
+        },
+        {
+          "tick": 60,
+          "time_s": 3.0,
+          "yaw_rate": -0.247146,
+          "speed": 7.25436,
+          "teacher_request": -0.072184,
+          "measured_steer": -0.059216,
+          "op_target": -0.099605,
+          "error": -0.027421
+        },
+        {
+          "tick": 64,
+          "time_s": 3.2,
+          "yaw_rate": -0.406013,
+          "speed": 6.76917,
+          "teacher_request": -0.111861,
+          "measured_steer": -0.100496,
+          "op_target": -0.13621,
+          "error": -0.024349
+        },
+        {
+          "tick": 68,
+          "time_s": 3.4,
+          "yaw_rate": -0.53428,
+          "speed": 6.40745,
+          "teacher_request": -0.143308,
+          "measured_steer": -0.134777,
+          "op_target": -0.165013,
+          "error": -0.021705
+        },
+        {
+          "tick": 72,
+          "time_s": 3.6,
+          "yaw_rate": -0.628914,
+          "speed": 6.18158,
+          "teacher_request": -0.164084,
+          "measured_steer": -0.158873,
+          "op_target": -0.181006,
+          "error": -0.016922
+        },
+        {
+          "tick": 76,
+          "time_s": 3.8,
+          "yaw_rate": -0.673519,
+          "speed": 6.05195,
+          "teacher_request": -0.175105,
+          "measured_steer": -0.172498,
+          "op_target": -0.185445,
+          "error": -0.01034
+        },
+        {
+          "tick": 80,
+          "time_s": 4.0,
+          "yaw_rate": -0.679034,
+          "speed": 5.98256,
+          "teacher_request": -0.179745,
+          "measured_steer": -0.178774,
+          "op_target": -0.185158,
+          "error": -0.005413
+        },
+        {
+          "tick": 84,
+          "time_s": 4.2,
+          "yaw_rate": -0.673291,
+          "speed": 5.94927,
+          "teacher_request": -0.18117,
+          "measured_steer": -0.18107,
+          "op_target": -0.184044,
+          "error": -0.002874
+        },
+        {
+          "tick": 88,
+          "time_s": 4.4,
+          "yaw_rate": -0.66562,
+          "speed": 5.93548,
+          "teacher_request": -0.180413,
+          "measured_steer": -0.180778,
+          "op_target": -0.182073,
+          "error": -0.00166
+        },
+        {
+          "tick": 92,
+          "time_s": 4.6,
+          "yaw_rate": -0.656536,
+          "speed": 5.93124,
+          "teacher_request": -0.17825,
+          "measured_steer": -0.178861,
+          "op_target": -0.179537,
+          "error": -0.001287
+        },
+        {
+          "tick": 96,
+          "time_s": 4.8,
+          "yaw_rate": -0.647016,
+          "speed": 5.93123,
+          "teacher_request": -0.175621,
+          "measured_steer": -0.176488,
+          "op_target": -0.176822,
+          "error": -0.001201
+        },
+        {
+          "tick": 100,
+          "time_s": 5.0,
+          "yaw_rate": -0.637242,
+          "speed": 5.93294,
+          "teacher_request": -0.173183,
+          "measured_steer": -0.173891,
+          "op_target": -0.174649,
+          "error": -0.001465
+        },
+        {
+          "tick": 104,
+          "time_s": 5.2,
+          "yaw_rate": -0.628765,
+          "speed": 5.93514,
+          "teacher_request": -0.171016,
+          "measured_steer": -0.171473,
+          "op_target": -0.172981,
+          "error": -0.001965
+        },
+        {
+          "tick": 108,
+          "time_s": 5.4,
+          "yaw_rate": -0.622749,
+          "speed": 5.93707,
+          "teacher_request": -0.169427,
+          "measured_steer": -0.169908,
+          "op_target": -0.171757,
+          "error": -0.002329
+        },
+        {
+          "tick": 112,
+          "time_s": 5.6,
+          "yaw_rate": -0.618475,
+          "speed": 5.93862,
+          "teacher_request": -0.168597,
+          "measured_steer": -0.168813,
+          "op_target": -0.171249,
+          "error": -0.002652
+        },
+        {
+          "tick": 116,
+          "time_s": 5.8,
+          "yaw_rate": -0.616018,
+          "speed": 5.93972,
+          "teacher_request": -0.168124,
+          "measured_steer": -0.168098,
+          "op_target": -0.171134,
+          "error": -0.003011
+        },
+        {
+          "tick": 120,
+          "time_s": 6.0,
+          "yaw_rate": -0.615561,
+          "speed": 5.94027,
+          "teacher_request": -0.167949,
+          "measured_steer": -0.168037,
+          "op_target": -0.171155,
+          "error": -0.003206
+        },
+        {
+          "tick": 124,
+          "time_s": 6.2,
+          "yaw_rate": -0.615888,
+          "speed": 5.94051,
+          "teacher_request": -0.168245,
+          "measured_steer": -0.168188,
+          "op_target": -0.171426,
+          "error": -0.003181
+        },
+        {
+          "tick": 128,
+          "time_s": 6.4,
+          "yaw_rate": -0.616499,
+          "speed": 5.9405,
+          "teacher_request": -0.16852,
+          "measured_steer": -0.168353,
+          "op_target": -0.17181,
+          "error": -0.003289
+        },
+        {
+          "tick": 132,
+          "time_s": 6.6,
+          "yaw_rate": -0.617765,
+          "speed": 5.94034,
+          "teacher_request": -0.168644,
+          "measured_steer": -0.168668,
+          "op_target": -0.172013,
+          "error": -0.003368
+        },
+        {
+          "tick": 136,
+          "time_s": 6.8,
+          "yaw_rate": -0.6189,
+          "speed": 5.9401,
+          "teacher_request": -0.169062,
+          "measured_steer": -0.169022,
+          "op_target": -0.172222,
+          "error": -0.003159
+        },
+        {
+          "tick": 140,
+          "time_s": 7.0,
+          "yaw_rate": -0.619474,
+          "speed": 5.9399,
+          "teacher_request": -0.169295,
+          "measured_steer": -0.169181,
+          "op_target": -0.172452,
+          "error": -0.003157
+        },
+        {
+          "tick": 144,
+          "time_s": 7.2,
+          "yaw_rate": -0.620069,
+          "speed": 5.93972,
+          "teacher_request": -0.16928,
+          "measured_steer": -0.169276,
+          "op_target": -0.172511,
+          "error": -0.003231
+        },
+        {
+          "tick": 148,
+          "time_s": 7.4,
+          "yaw_rate": -0.620628,
+          "speed": 5.93955,
+          "teacher_request": -0.169429,
+          "measured_steer": -0.16947,
+          "op_target": -0.172476,
+          "error": -0.003048
+        },
+        {
+          "tick": 152,
+          "time_s": 7.6,
+          "yaw_rate": -0.620583,
+          "speed": 5.93949,
+          "teacher_request": -0.169516,
+          "measured_steer": -0.169474,
+          "op_target": -0.172542,
+          "error": -0.003026
+        },
+        {
+          "tick": 156,
+          "time_s": 7.8,
+          "yaw_rate": -0.620407,
+          "speed": 5.93947,
+          "teacher_request": -0.169436,
+          "measured_steer": -0.169342,
+          "op_target": -0.172547,
+          "error": -0.003111
+        },
+        {
+          "tick": 160,
+          "time_s": 8.0,
+          "yaw_rate": -0.620634,
+          "speed": 5.93941,
+          "teacher_request": -0.169372,
+          "measured_steer": -0.169459,
+          "op_target": -0.1724,
+          "error": -0.003027
+        },
+        {
+          "tick": 164,
+          "time_s": 8.2,
+          "yaw_rate": -0.620439,
+          "speed": 5.93945,
+          "teacher_request": -0.169443,
+          "measured_steer": -0.169438,
+          "op_target": -0.17245,
+          "error": -0.003007
+        },
+        {
+          "tick": 168,
+          "time_s": 8.4,
+          "yaw_rate": -0.620118,
+          "speed": 5.93952,
+          "teacher_request": -0.169372,
+          "measured_steer": -0.169268,
+          "op_target": -0.172469,
+          "error": -0.003097
+        },
+        {
+          "tick": 172,
+          "time_s": 8.6,
+          "yaw_rate": -0.620276,
+          "speed": 5.93949,
+          "teacher_request": -0.169236,
+          "measured_steer": -0.169341,
+          "op_target": -0.172333,
+          "error": -0.003097
+        },
+        {
+          "tick": 176,
+          "time_s": 8.8,
+          "yaw_rate": -0.620175,
+          "speed": 5.93951,
+          "teacher_request": -0.16935,
+          "measured_steer": -0.169363,
+          "op_target": -0.172343,
+          "error": -0.002993
+        },
+        {
+          "tick": 180,
+          "time_s": 9.0,
+          "yaw_rate": -0.619888,
+          "speed": 5.93956,
+          "teacher_request": -0.169341,
+          "measured_steer": -0.16926,
+          "op_target": -0.172424,
+          "error": -0.003083
+        },
+        {
+          "tick": 184,
+          "time_s": 9.2,
+          "yaw_rate": -0.620074,
+          "speed": 5.93955,
+          "teacher_request": -0.16916,
+          "measured_steer": -0.169277,
+          "op_target": -0.172335,
+          "error": -0.003176
+        },
+        {
+          "tick": 188,
+          "time_s": 9.4,
+          "yaw_rate": -0.620156,
+          "speed": 5.93955,
+          "teacher_request": -0.169321,
+          "measured_steer": -0.169352,
+          "op_target": -0.17235,
+          "error": -0.003029
+        },
+        {
+          "tick": 192,
+          "time_s": 9.6,
+          "yaw_rate": -0.619974,
+          "speed": 5.93958,
+          "teacher_request": -0.16935,
+          "measured_steer": -0.169288,
+          "op_target": -0.172416,
+          "error": -0.003066
+        },
+        {
+          "tick": 196,
+          "time_s": 9.8,
+          "yaw_rate": -0.620015,
+          "speed": 5.93957,
+          "teacher_request": -0.1692,
+          "measured_steer": -0.169238,
+          "op_target": -0.172368,
+          "error": -0.003168
+        },
+        {
+          "tick": 200,
+          "time_s": 10.0,
+          "yaw_rate": -0.620174,
+          "speed": 5.93953,
+          "teacher_request": -0.169295,
+          "measured_steer": -0.169346,
+          "op_target": -0.172323,
+          "error": -0.003028
+        },
+        {
+          "tick": 204,
+          "time_s": 10.2,
+          "yaw_rate": -0.620014,
+          "speed": 5.93956,
+          "teacher_request": -0.169366,
+          "measured_steer": -0.16932,
+          "op_target": -0.172408,
+          "error": -0.003042
+        },
+        {
+          "tick": 208,
+          "time_s": 10.4,
+          "yaw_rate": -0.619915,
+          "speed": 5.93958,
+          "teacher_request": -0.169297,
+          "measured_steer": -0.169207,
+          "op_target": -0.172427,
+          "error": -0.00313
+        },
+        {
+          "tick": 452,
+          "time_s": 22.6,
+          "yaw_rate": -0.293297,
+          "speed": 5.95943,
+          "teacher_request": -0.059746,
+          "measured_steer": -0.085993,
+          "op_target": -0.00536,
+          "error": 0.054386
+        },
+        {
+          "tick": 456,
+          "time_s": 22.8,
+          "yaw_rate": -0.007476,
+          "speed": 5.98427,
+          "teacher_request": 0.047311,
+          "measured_steer": 0.015724,
+          "op_target": 0.108638,
+          "error": 0.061327
+        },
+        {
+          "tick": 460,
+          "time_s": 23.0,
+          "yaw_rate": 0.341562,
+          "speed": 5.98285,
+          "teacher_request": 0.131838,
+          "measured_steer": 0.109003,
+          "op_target": 0.173896,
+          "error": 0.042058
+        },
+        {
+          "tick": 464,
+          "time_s": 23.2,
+          "yaw_rate": 0.589538,
+          "speed": 5.9596,
+          "teacher_request": 0.185704,
+          "measured_steer": 0.172194,
+          "op_target": 0.209261,
+          "error": 0.023557
+        },
+        {
+          "tick": 468,
+          "time_s": 23.4,
+          "yaw_rate": 0.734369,
+          "speed": 5.93022,
+          "teacher_request": 0.212897,
+          "measured_steer": 0.206992,
+          "op_target": 0.22271,
+          "error": 0.009813
+        },
+        {
+          "tick": 472,
+          "time_s": 23.6,
+          "yaw_rate": 0.795161,
+          "speed": 5.90668,
+          "teacher_request": 0.220968,
+          "measured_steer": 0.22008,
+          "op_target": 0.221754,
+          "error": 0.000786
+        },
+        {
+          "tick": 476,
+          "time_s": 23.8,
+          "yaw_rate": 0.79822,
+          "speed": 5.89458,
+          "teacher_request": 0.21703,
+          "measured_steer": 0.218985,
+          "op_target": 0.213095,
+          "error": -0.003934
+        },
+        {
+          "tick": 480,
+          "time_s": 24.0,
+          "yaw_rate": 0.769583,
+          "speed": 5.89369,
+          "teacher_request": 0.206819,
+          "measured_steer": 0.21022,
+          "op_target": 0.201449,
+          "error": -0.00537
+        },
+        {
+          "tick": 484,
+          "time_s": 24.2,
+          "yaw_rate": 0.72882,
+          "speed": 5.90037,
+          "teacher_request": 0.195175,
+          "measured_steer": 0.19878,
+          "op_target": 0.189971,
+          "error": -0.005204
+        },
+        {
+          "tick": 488,
+          "time_s": 24.4,
+          "yaw_rate": 0.687199,
+          "speed": 5.91064,
+          "teacher_request": 0.184142,
+          "measured_steer": 0.187229,
+          "op_target": 0.180508,
+          "error": -0.003634
+        },
+        {
+          "tick": 492,
+          "time_s": 24.6,
+          "yaw_rate": 0.652247,
+          "speed": 5.92111,
+          "teacher_request": 0.174992,
+          "measured_steer": 0.17754,
+          "op_target": 0.173304,
+          "error": -0.001688
+        },
+        {
+          "tick": 496,
+          "time_s": 24.8,
+          "yaw_rate": 0.626073,
+          "speed": 5.93006,
+          "teacher_request": 0.168846,
+          "measured_steer": 0.170487,
+          "op_target": 0.168907,
+          "error": 6.1e-05
+        },
+        {
+          "tick": 500,
+          "time_s": 25.0,
+          "yaw_rate": 0.60897,
+          "speed": 5.93674,
+          "teacher_request": 0.165097,
+          "measured_steer": 0.165853,
+          "op_target": 0.166835,
+          "error": 0.001738
+        },
+        {
+          "tick": 504,
+          "time_s": 25.2,
+          "yaw_rate": 0.600791,
+          "speed": 5.94098,
+          "teacher_request": 0.163398,
+          "measured_steer": 0.16379,
+          "op_target": 0.166312,
+          "error": 0.002914
+        },
+        {
+          "tick": 508,
+          "time_s": 25.4,
+          "yaw_rate": 0.598729,
+          "speed": 5.94327,
+          "teacher_request": 0.163522,
+          "measured_steer": 0.163418,
+          "op_target": 0.167073,
+          "error": 0.003551
+        },
+        {
+          "tick": 512,
+          "time_s": 25.6,
+          "yaw_rate": 0.600698,
+          "speed": 5.94406,
+          "teacher_request": 0.164445,
+          "measured_steer": 0.164031,
+          "op_target": 0.168413,
+          "error": 0.003968
+        },
+        {
+          "tick": 516,
+          "time_s": 25.8,
+          "yaw_rate": 0.605227,
+          "speed": 5.94379,
+          "teacher_request": 0.16562,
+          "measured_steer": 0.165301,
+          "op_target": 0.169749,
+          "error": 0.004128
+        },
+        {
+          "tick": 520,
+          "time_s": 26.0,
+          "yaw_rate": 0.61033,
+          "speed": 5.94294,
+          "teacher_request": 0.167136,
+          "measured_steer": 0.166772,
+          "op_target": 0.170999,
+          "error": 0.003863
+        },
+        {
+          "tick": 524,
+          "time_s": 26.2,
+          "yaw_rate": 0.614722,
+          "speed": 5.94193,
+          "teacher_request": 0.168346,
+          "measured_steer": 0.167966,
+          "op_target": 0.172041,
+          "error": 0.003696
+        },
+        {
+          "tick": 528,
+          "time_s": 26.4,
+          "yaw_rate": 0.618286,
+          "speed": 5.94093,
+          "teacher_request": 0.169071,
+          "measured_steer": 0.168848,
+          "op_target": 0.172646,
+          "error": 0.003575
+        },
+        {
+          "tick": 532,
+          "time_s": 26.6,
+          "yaw_rate": 0.620908,
+          "speed": 5.94009,
+          "teacher_request": 0.169666,
+          "measured_steer": 0.169597,
+          "op_target": 0.172927,
+          "error": 0.003261
+        },
+        {
+          "tick": 536,
+          "time_s": 26.8,
+          "yaw_rate": 0.622085,
+          "speed": 5.93951,
+          "teacher_request": 0.17,
+          "measured_steer": 0.16992,
+          "op_target": 0.173081,
+          "error": 0.00308
+        },
+        {
+          "tick": 540,
+          "time_s": 27.0,
+          "yaw_rate": 0.622329,
+          "speed": 5.93921,
+          "teacher_request": 0.169999,
+          "measured_steer": 0.169884,
+          "op_target": 0.173078,
+          "error": 0.003079
+        },
+        {
+          "tick": 544,
+          "time_s": 27.2,
+          "yaw_rate": 0.622538,
+          "speed": 5.93903,
+          "teacher_request": 0.169857,
+          "measured_steer": 0.169975,
+          "op_target": 0.172844,
+          "error": 0.002987
+        },
+        {
+          "tick": 548,
+          "time_s": 27.4,
+          "yaw_rate": 0.622025,
+          "speed": 5.93902,
+          "teacher_request": 0.169826,
+          "measured_steer": 0.169867,
+          "op_target": 0.172726,
+          "error": 0.0029
+        },
+        {
+          "tick": 552,
+          "time_s": 27.6,
+          "yaw_rate": 0.621219,
+          "speed": 5.93914,
+          "teacher_request": 0.169644,
+          "measured_steer": 0.169578,
+          "op_target": 0.172639,
+          "error": 0.002995
+        },
+        {
+          "tick": 556,
+          "time_s": 27.8,
+          "yaw_rate": 0.620906,
+          "speed": 5.93922,
+          "teacher_request": 0.169367,
+          "measured_steer": 0.169511,
+          "op_target": 0.172419,
+          "error": 0.003053
+        },
+        {
+          "tick": 560,
+          "time_s": 28.0,
+          "yaw_rate": 0.620489,
+          "speed": 5.93934,
+          "teacher_request": 0.1694,
+          "measured_steer": 0.169446,
+          "op_target": 0.172362,
+          "error": 0.002961
+        },
+        {
+          "tick": 564,
+          "time_s": 28.2,
+          "yaw_rate": 0.619998,
+          "speed": 5.93948,
+          "teacher_request": 0.169335,
+          "measured_steer": 0.169282,
+          "op_target": 0.172382,
+          "error": 0.003047
+        },
+        {
+          "tick": 568,
+          "time_s": 28.4,
+          "yaw_rate": 0.619922,
+          "speed": 5.93954,
+          "teacher_request": 0.169123,
+          "measured_steer": 0.169221,
+          "op_target": 0.172279,
+          "error": 0.003156
+        },
+        {
+          "tick": 572,
+          "time_s": 28.6,
+          "yaw_rate": 0.619932,
+          "speed": 5.93956,
+          "teacher_request": 0.169245,
+          "measured_steer": 0.169286,
+          "op_target": 0.172264,
+          "error": 0.003019
+        },
+        {
+          "tick": 576,
+          "time_s": 28.8,
+          "yaw_rate": 0.619712,
+          "speed": 5.93962,
+          "teacher_request": 0.169293,
+          "measured_steer": 0.169234,
+          "op_target": 0.172366,
+          "error": 0.003072
+        },
+        {
+          "tick": 580,
+          "time_s": 29.0,
+          "yaw_rate": 0.619784,
+          "speed": 5.93963,
+          "teacher_request": 0.169167,
+          "measured_steer": 0.169172,
+          "op_target": 0.17234,
+          "error": 0.003172
+        },
+        {
+          "tick": 584,
+          "time_s": 29.2,
+          "yaw_rate": 0.620063,
+          "speed": 5.9396,
+          "teacher_request": 0.169253,
+          "measured_steer": 0.169308,
+          "op_target": 0.172309,
+          "error": 0.003056
+        },
+        {
+          "tick": 588,
+          "time_s": 29.4,
+          "yaw_rate": 0.619995,
+          "speed": 5.93959,
+          "teacher_request": 0.169344,
+          "measured_steer": 0.16931,
+          "op_target": 0.17239,
+          "error": 0.003046
+        },
+        {
+          "tick": 592,
+          "time_s": 29.6,
+          "yaw_rate": 0.619848,
+          "speed": 5.93961,
+          "teacher_request": 0.169295,
+          "measured_steer": 0.169177,
+          "op_target": 0.172429,
+          "error": 0.003135
+        },
+        {
+          "tick": 596,
+          "time_s": 29.8,
+          "yaw_rate": 0.620189,
+          "speed": 5.93955,
+          "teacher_request": 0.169252,
+          "measured_steer": 0.169331,
+          "op_target": 0.172328,
+          "error": 0.003076
+        },
+        {
+          "tick": 600,
+          "time_s": 30.0,
+          "yaw_rate": 0.620147,
+          "speed": 5.93954,
+          "teacher_request": 0.169368,
+          "measured_steer": 0.169357,
+          "op_target": 0.172384,
+          "error": 0.003016
+        },
+        {
+          "tick": 604,
+          "time_s": 30.2,
+          "yaw_rate": 0.619937,
+          "speed": 5.93958,
+          "teacher_request": 0.169345,
+          "measured_steer": 0.16923,
+          "op_target": 0.17244,
+          "error": 0.003095
+        },
+        {
+          "tick": 608,
+          "time_s": 30.4,
+          "yaw_rate": 0.620187,
+          "speed": 5.93953,
+          "teacher_request": 0.169223,
+          "measured_steer": 0.169324,
+          "op_target": 0.17234,
+          "error": 0.003117
+        },
+        {
+          "tick": 612,
+          "time_s": 30.6,
+          "yaw_rate": 0.620161,
+          "speed": 5.93952,
+          "teacher_request": 0.169364,
+          "measured_steer": 0.169376,
+          "op_target": 0.172367,
+          "error": 0.003003
+        },
+        {
+          "tick": 616,
+          "time_s": 30.8,
+          "yaw_rate": 0.620005,
+          "speed": 5.93956,
+          "teacher_request": 0.169373,
+          "measured_steer": 0.169301,
+          "op_target": 0.172428,
+          "error": 0.003055
+        },
+        {
+          "tick": 620,
+          "time_s": 31.0,
+          "yaw_rate": 0.620097,
+          "speed": 5.93953,
+          "teacher_request": 0.169202,
+          "measured_steer": 0.169299,
+          "op_target": 0.172358,
+          "error": 0.003156
+        },
+        {
+          "tick": 624,
+          "time_s": 31.2,
+          "yaw_rate": 0.620222,
+          "speed": 5.93952,
+          "teacher_request": 0.169348,
+          "measured_steer": 0.169385,
+          "op_target": 0.172356,
+          "error": 0.003008
+        },
+        {
+          "tick": 628,
+          "time_s": 31.4,
+          "yaw_rate": 0.620049,
+          "speed": 5.93956,
+          "teacher_request": 0.169386,
+          "measured_steer": 0.169329,
+          "op_target": 0.172439,
+          "error": 0.003053
+        },
+        {
+          "tick": 632,
+          "time_s": 31.6,
+          "yaw_rate": 0.62005,
+          "speed": 5.93956,
+          "teacher_request": 0.169237,
+          "measured_steer": 0.169256,
+          "op_target": 0.1724,
+          "error": 0.003164
+        },
+        {
+          "tick": 636,
+          "time_s": 31.8,
+          "yaw_rate": 0.620288,
+          "speed": 5.93953,
+          "teacher_request": 0.169305,
+          "measured_steer": 0.169365,
+          "op_target": 0.172335,
+          "error": 0.00303
+        },
+        {
+          "tick": 640,
+          "time_s": 32.0,
+          "yaw_rate": 0.62009,
+          "speed": 5.93954,
+          "teacher_request": 0.16937,
+          "measured_steer": 0.169337,
+          "op_target": 0.172398,
+          "error": 0.003028
+        },
+        {
+          "tick": 644,
+          "time_s": 32.2,
+          "yaw_rate": 0.61989,
+          "speed": 5.93956,
+          "teacher_request": 0.169302,
+          "measured_steer": 0.169194,
+          "op_target": 0.17242,
+          "error": 0.003119
+        },
+        {
+          "tick": 648,
+          "time_s": 32.4,
+          "yaw_rate": 0.620179,
+          "speed": 5.93954,
+          "teacher_request": 0.169259,
+          "measured_steer": 0.169337,
+          "op_target": 0.172326,
+          "error": 0.003067
+        },
+        {
+          "tick": 652,
+          "time_s": 32.6,
+          "yaw_rate": 0.620091,
+          "speed": 5.93954,
+          "teacher_request": 0.169365,
+          "measured_steer": 0.169352,
+          "op_target": 0.172389,
+          "error": 0.003024
+        },
+        {
+          "tick": 656,
+          "time_s": 32.8,
+          "yaw_rate": 0.619896,
+          "speed": 5.93957,
+          "teacher_request": 0.169333,
+          "measured_steer": 0.16922,
+          "op_target": 0.172433,
+          "error": 0.003099
+        },
+        {
+          "tick": 660,
+          "time_s": 33.0,
+          "yaw_rate": 0.620144,
+          "speed": 5.93954,
+          "teacher_request": 0.169219,
+          "measured_steer": 0.169318,
+          "op_target": 0.172326,
+          "error": 0.003106
+        },
+        {
+          "tick": 664,
+          "time_s": 33.2,
+          "yaw_rate": 0.620143,
+          "speed": 5.93954,
+          "teacher_request": 0.16936,
+          "measured_steer": 0.169369,
+          "op_target": 0.172369,
+          "error": 0.003009
+        },
+        {
+          "tick": 668,
+          "time_s": 33.4,
+          "yaw_rate": 0.619971,
+          "speed": 5.93956,
+          "teacher_request": 0.169364,
+          "measured_steer": 0.169291,
+          "op_target": 0.172433,
+          "error": 0.003069
+        },
+        {
+          "tick": 672,
+          "time_s": 33.6,
+          "yaw_rate": 0.620135,
+          "speed": 5.93955,
+          "teacher_request": 0.16919,
+          "measured_steer": 0.169296,
+          "op_target": 0.172349,
+          "error": 0.003159
+        },
+        {
+          "tick": 676,
+          "time_s": 33.8,
+          "yaw_rate": 0.620232,
+          "speed": 5.93954,
+          "teacher_request": 0.169344,
+          "measured_steer": 0.169377,
+          "op_target": 0.172346,
+          "error": 0.003002
+        },
+        {
+          "tick": 680,
+          "time_s": 34.0,
+          "yaw_rate": 0.619996,
+          "speed": 5.93956,
+          "teacher_request": 0.169379,
+          "measured_steer": 0.169318,
+          "op_target": 0.172423,
+          "error": 0.003044
+        },
+        {
+          "tick": 684,
+          "time_s": 34.2,
+          "yaw_rate": 0.619988,
+          "speed": 5.93955,
+          "teacher_request": 0.169234,
+          "measured_steer": 0.16926,
+          "op_target": 0.172389,
+          "error": 0.003155
+        },
+        {
+          "tick": 688,
+          "time_s": 34.4,
+          "yaw_rate": 0.620238,
+          "speed": 5.93953,
+          "teacher_request": 0.169319,
+          "measured_steer": 0.169374,
+          "op_target": 0.172343,
+          "error": 0.003025
+        },
+        {
+          "tick": 692,
+          "time_s": 34.6,
+          "yaw_rate": 0.620089,
+          "speed": 5.93955,
+          "teacher_request": 0.169385,
+          "measured_steer": 0.169346,
+          "op_target": 0.172418,
+          "error": 0.003033
+        },
+        {
+          "tick": 696,
+          "time_s": 34.8,
+          "yaw_rate": 0.619953,
+          "speed": 5.93958,
+          "teacher_request": 0.169312,
+          "measured_steer": 0.169214,
+          "op_target": 0.172445,
+          "error": 0.003133
+        },
+        {
+          "tick": 700,
+          "time_s": 35.0,
+          "yaw_rate": 0.620289,
+          "speed": 5.93954,
+          "teacher_request": 0.169269,
+          "measured_steer": 0.169349,
+          "op_target": 0.172336,
+          "error": 0.003068
+        },
+        {
+          "tick": 704,
+          "time_s": 35.2,
+          "yaw_rate": 0.620148,
+          "speed": 5.93955,
+          "teacher_request": 0.16936,
+          "measured_steer": 0.169348,
+          "op_target": 0.172394,
+          "error": 0.003034
+        },
+        {
+          "tick": 708,
+          "time_s": 35.4,
+          "yaw_rate": 0.619892,
+          "speed": 5.93957,
+          "teacher_request": 0.169317,
+          "measured_steer": 0.169205,
+          "op_target": 0.172414,
+          "error": 0.003097
+        },
+        {
+          "tick": 712,
+          "time_s": 35.6,
+          "yaw_rate": 0.620109,
+          "speed": 5.93954,
+          "teacher_request": 0.169213,
+          "measured_steer": 0.169308,
+          "op_target": 0.172334,
+          "error": 0.003122
+        },
+        {
+          "tick": 716,
+          "time_s": 35.8,
+          "yaw_rate": 0.620166,
+          "speed": 5.93955,
+          "teacher_request": 0.169347,
+          "measured_steer": 0.169355,
+          "op_target": 0.172355,
+          "error": 0.003008
+        },
+        {
+          "tick": 720,
+          "time_s": 36.0,
+          "yaw_rate": 0.619946,
+          "speed": 5.93957,
+          "teacher_request": 0.169347,
+          "measured_steer": 0.169267,
+          "op_target": 0.172433,
+          "error": 0.003086
+        },
+        {
+          "tick": 724,
+          "time_s": 36.2,
+          "yaw_rate": 0.620142,
+          "speed": 5.93955,
+          "teacher_request": 0.16917,
+          "measured_steer": 0.169286,
+          "op_target": 0.172343,
+          "error": 0.003172
+        },
+        {
+          "tick": 728,
+          "time_s": 36.4,
+          "yaw_rate": 0.620207,
+          "speed": 5.93953,
+          "teacher_request": 0.169333,
+          "measured_steer": 0.169363,
+          "op_target": 0.17235,
+          "error": 0.003018
+        },
+        {
+          "tick": 732,
+          "time_s": 36.6,
+          "yaw_rate": 0.620007,
+          "speed": 5.93957,
+          "teacher_request": 0.169365,
+          "measured_steer": 0.169303,
+          "op_target": 0.172429,
+          "error": 0.003064
+        },
+        {
+          "tick": 736,
+          "time_s": 36.8,
+          "yaw_rate": 0.620044,
+          "speed": 5.93956,
+          "teacher_request": 0.169215,
+          "measured_steer": 0.169251,
+          "op_target": 0.172391,
+          "error": 0.003177
+        },
+        {
+          "tick": 740,
+          "time_s": 37.0,
+          "yaw_rate": 0.620245,
+          "speed": 5.93952,
+          "teacher_request": 0.169302,
+          "measured_steer": 0.169356,
+          "op_target": 0.172333,
+          "error": 0.00303
+        },
+        {
+          "tick": 744,
+          "time_s": 37.2,
+          "yaw_rate": 0.62004,
+          "speed": 5.93955,
+          "teacher_request": 0.169367,
+          "measured_steer": 0.169323,
+          "op_target": 0.172414,
+          "error": 0.003046
+        },
+        {
+          "tick": 748,
+          "time_s": 37.4,
+          "yaw_rate": 0.619931,
+          "speed": 5.93957,
+          "teacher_request": 0.169294,
+          "measured_steer": 0.169204,
+          "op_target": 0.172421,
+          "error": 0.003127
+        },
+        {
+          "tick": 752,
+          "time_s": 37.6,
+          "yaw_rate": 0.620193,
+          "speed": 5.93953,
+          "teacher_request": 0.169266,
+          "measured_steer": 0.16934,
+          "op_target": 0.172326,
+          "error": 0.00306
+        },
+        {
+          "tick": 756,
+          "time_s": 37.8,
+          "yaw_rate": 0.620111,
+          "speed": 5.93955,
+          "teacher_request": 0.169365,
+          "measured_steer": 0.169349,
+          "op_target": 0.172391,
+          "error": 0.003026
+        },
+        {
+          "tick": 760,
+          "time_s": 38.0,
+          "yaw_rate": 0.619873,
+          "speed": 5.93957,
+          "teacher_request": 0.169326,
+          "measured_steer": 0.169211,
+          "op_target": 0.172439,
+          "error": 0.003113
+        },
+        {
+          "tick": 764,
+          "time_s": 38.2,
+          "yaw_rate": 0.620197,
+          "speed": 5.93954,
+          "teacher_request": 0.169229,
+          "measured_steer": 0.169323,
+          "op_target": 0.17234,
+          "error": 0.003111
+        },
+        {
+          "tick": 768,
+          "time_s": 38.4,
+          "yaw_rate": 0.620176,
+          "speed": 5.93954,
+          "teacher_request": 0.169356,
+          "measured_steer": 0.169361,
+          "op_target": 0.172362,
+          "error": 0.003007
+        },
+        {
+          "tick": 772,
+          "time_s": 38.6,
+          "yaw_rate": 0.619939,
+          "speed": 5.93957,
+          "teacher_request": 0.169351,
+          "measured_steer": 0.169256,
+          "op_target": 0.172438,
+          "error": 0.003087
+        },
+        {
+          "tick": 776,
+          "time_s": 38.8,
+          "yaw_rate": 0.620145,
+          "speed": 5.93955,
+          "teacher_request": 0.169181,
+          "measured_steer": 0.169295,
+          "op_target": 0.172352,
+          "error": 0.003172
+        },
+        {
+          "tick": 780,
+          "time_s": 39.0,
+          "yaw_rate": 0.620243,
+          "speed": 5.93953,
+          "teacher_request": 0.169337,
+          "measured_steer": 0.169367,
+          "op_target": 0.17234,
+          "error": 0.003003
+        },
+        {
+          "tick": 784,
+          "time_s": 39.2,
+          "yaw_rate": 0.619974,
+          "speed": 5.93955,
+          "teacher_request": 0.169365,
+          "measured_steer": 0.1693,
+          "op_target": 0.172432,
+          "error": 0.003067
+        },
+        {
+          "tick": 788,
+          "time_s": 39.4,
+          "yaw_rate": 0.620087,
+          "speed": 5.93956,
+          "teacher_request": 0.169212,
+          "measured_steer": 0.169258,
+          "op_target": 0.172373,
+          "error": 0.003161
+        },
+        {
+          "tick": 792,
+          "time_s": 39.6,
+          "yaw_rate": 0.62021,
+          "speed": 5.93952,
+          "teacher_request": 0.169308,
+          "measured_steer": 0.169359,
+          "op_target": 0.172329,
+          "error": 0.00302
+        },
+        {
+          "tick": 796,
+          "time_s": 39.8,
+          "yaw_rate": 0.620024,
+          "speed": 5.93955,
+          "teacher_request": 0.169372,
+          "measured_steer": 0.169326,
+          "op_target": 0.172415,
+          "error": 0.003043
+        },
+        {
+          "tick": 800,
+          "time_s": 40.0,
+          "yaw_rate": 0.61995,
+          "speed": 5.93957,
+          "teacher_request": 0.169297,
+          "measured_steer": 0.169216,
+          "op_target": 0.172421,
+          "error": 0.003124
+        },
+        {
+          "tick": 804,
+          "time_s": 40.2,
+          "yaw_rate": 0.620234,
+          "speed": 5.93953,
+          "teacher_request": 0.169277,
+          "measured_steer": 0.169349,
+          "op_target": 0.172322,
+          "error": 0.003046
+        },
+        {
+          "tick": 808,
+          "time_s": 40.4,
+          "yaw_rate": 0.620091,
+          "speed": 5.93953,
+          "teacher_request": 0.169371,
+          "measured_steer": 0.169351,
+          "op_target": 0.172378,
+          "error": 0.003007
+        },
+        {
+          "tick": 812,
+          "time_s": 40.6,
+          "yaw_rate": 0.619856,
+          "speed": 5.93956,
+          "teacher_request": 0.169332,
+          "measured_steer": 0.169217,
+          "op_target": 0.172438,
+          "error": 0.003106
+        },
+        {
+          "tick": 816,
+          "time_s": 40.8,
+          "yaw_rate": 0.620194,
+          "speed": 5.93954,
+          "teacher_request": 0.169245,
+          "measured_steer": 0.169337,
+          "op_target": 0.172339,
+          "error": 0.003094
+        },
+        {
+          "tick": 820,
+          "time_s": 41.0,
+          "yaw_rate": 0.620195,
+          "speed": 5.93955,
+          "teacher_request": 0.16937,
+          "measured_steer": 0.169373,
+          "op_target": 0.17238,
+          "error": 0.00301
+        },
+        {
+          "tick": 824,
+          "time_s": 41.2,
+          "yaw_rate": 0.619942,
+          "speed": 5.93958,
+          "teacher_request": 0.169357,
+          "measured_steer": 0.169248,
+          "op_target": 0.171636,
+          "error": 0.002279
+        },
+        {
+          "tick": 828,
+          "time_s": 41.4,
+          "yaw_rate": 0.615196,
+          "speed": 5.94749,
+          "teacher_request": 0.169305,
+          "measured_steer": 0.169318,
+          "op_target": 0.163329,
+          "error": -0.005976
+        },
+        {
+          "tick": 832,
+          "time_s": 41.6,
+          "yaw_rate": 0.594917,
+          "speed": 6.04439,
+          "teacher_request": 0.15779,
+          "measured_steer": 0.163642,
+          "op_target": 0.145501,
+          "error": -0.012289
+        },
+        {
+          "tick": 836,
+          "time_s": 41.8,
+          "yaw_rate": 0.537398,
+          "speed": 6.27131,
+          "teacher_request": 0.124484,
+          "measured_steer": 0.136075,
+          "op_target": 0.103977,
+          "error": -0.020507
+        },
+        {
+          "tick": 840,
+          "time_s": 42.0,
+          "yaw_rate": 0.407924,
+          "speed": 6.62731,
+          "teacher_request": 0.080917,
+          "measured_steer": 0.094359,
+          "op_target": 0.056693,
+          "error": -0.024224
+        },
+        {
+          "tick": 844,
+          "time_s": 42.2,
+          "yaw_rate": 0.248354,
+          "speed": 7.07883,
+          "teacher_request": 0.039605,
+          "measured_steer": 0.05111,
+          "op_target": 0.018067,
+          "error": -0.021537
+        },
+        {
+          "tick": 848,
+          "time_s": 42.4,
+          "yaw_rate": 0.10038,
+          "speed": 7.46658,
+          "teacher_request": 0.009696,
+          "measured_steer": 0.017376,
+          "op_target": -0.004278,
+          "error": -0.013974
+        },
+        {
+          "tick": 852,
+          "time_s": 42.6,
+          "yaw_rate": -0.002426,
+          "speed": 7.70523,
+          "teacher_request": -0.007652,
+          "measured_steer": -0.003557,
+          "op_target": -0.014565,
+          "error": -0.006913
+        },
+        {
+          "tick": 856,
+          "time_s": 42.8,
+          "yaw_rate": -0.057425,
+          "speed": 7.83663,
+          "teacher_request": -0.014954,
+          "measured_steer": -0.013572,
+          "op_target": -0.016992,
+          "error": -0.002038
+        },
+        {
+          "tick": 860,
+          "time_s": 43.0,
+          "yaw_rate": -0.075051,
+          "speed": 7.90426,
+          "teacher_request": -0.015334,
+          "measured_steer": -0.015719,
+          "op_target": -0.014306,
+          "error": 0.001027
+        },
+        {
+          "tick": 864,
+          "time_s": 43.2,
+          "yaw_rate": -0.067039,
+          "speed": 7.93802,
+          "teacher_request": -0.011903,
+          "measured_steer": -0.013146,
+          "op_target": -0.009464,
+          "error": 0.002439
+        },
+        {
+          "tick": 868,
+          "time_s": 43.4,
+          "yaw_rate": -0.046977,
+          "speed": 7.94373,
+          "teacher_request": -0.007261,
+          "measured_steer": -0.008662,
+          "op_target": -0.004719,
+          "error": 0.002542
+        },
+        {
+          "tick": 872,
+          "time_s": 43.6,
+          "yaw_rate": -0.025232,
+          "speed": 7.86206,
+          "teacher_request": -0.003071,
+          "measured_steer": -0.004226,
+          "op_target": -0.000916,
+          "error": 0.002156
+        },
+        {
+          "tick": 876,
+          "time_s": 43.8,
+          "yaw_rate": -0.007171,
+          "speed": 7.68881,
+          "teacher_request": -0.000147,
+          "measured_steer": -0.000884,
+          "op_target": 0.0013,
+          "error": 0.001447
+        },
+        {
+          "tick": 880,
+          "time_s": 44.0,
+          "yaw_rate": 0.003765,
+          "speed": 7.34595,
+          "teacher_request": 0.001377,
+          "measured_steer": 0.001042,
+          "op_target": 0.001972,
+          "error": 0.000595
+        },
+        {
+          "tick": 884,
+          "time_s": 44.2,
+          "yaw_rate": 0.007595,
+          "speed": 6.80403,
+          "teacher_request": 0.001877,
+          "measured_steer": 0.001798,
+          "op_target": 0.002131,
+          "error": 0.000254
+        },
+        {
+          "tick": 888,
+          "time_s": 44.4,
+          "yaw_rate": -0.020171,
+          "speed": 6.21951,
+          "teacher_request": 0.00181,
+          "measured_steer": 0.001828,
+          "op_target": 0.009122,
+          "error": 0.007311
+        },
+        {
+          "tick": 892,
+          "time_s": 44.6,
+          "yaw_rate": -0.017331,
+          "speed": 5.41947,
+          "teacher_request": 0.001583,
+          "measured_steer": 0.001451,
+          "op_target": 0.007327,
+          "error": 0.005744
+        },
+        {
+          "tick": 896,
+          "time_s": 44.8,
+          "yaw_rate": 0.004532,
+          "speed": 4.57058,
+          "teacher_request": 0.00146,
+          "measured_steer": 0.001558,
+          "op_target": 0.000923,
+          "error": -0.000538
+        },
+        {
+          "tick": 900,
+          "time_s": 45.0,
+          "yaw_rate": 0.002972,
+          "speed": 3.80653,
+          "teacher_request": 0.001122,
+          "measured_steer": 0.001216,
+          "op_target": 0.000623,
+          "error": -0.000499
+        },
+        {
+          "tick": 904,
+          "time_s": 45.2,
+          "yaw_rate": 0.001769,
+          "speed": 2.89597,
+          "teacher_request": 0.00089,
+          "measured_steer": 0.000945,
+          "op_target": 0.000532,
+          "error": -0.000358
+        },
+        {
+          "tick": 908,
+          "time_s": 45.4,
+          "yaw_rate": -0.029973,
+          "speed": 1.90448,
+          "teacher_request": 0.000959,
+          "measured_steer": 0.000601,
+          "op_target": 0.03367,
+          "error": 0.032712
+        },
+        {
+          "tick": 912,
+          "time_s": 45.6,
+          "yaw_rate": -0.014331,
+          "speed": 1.19535,
+          "teacher_request": 0.000227,
+          "measured_steer": 4.6e-05,
+          "op_target": 0.021823,
+          "error": 0.021596
+        },
+        {
+          "tick": 916,
+          "time_s": 45.8,
+          "yaw_rate": 4e-06,
+          "speed": 0.00177,
+          "teacher_request": 4.2e-05,
+          "measured_steer": -7.7e-05,
+          "op_target": -4e-06,
+          "error": -4.6e-05
+        },
+        {
+          "tick": 920,
+          "time_s": 46.0,
+          "yaw_rate": -0.0,
+          "speed": -0.00116,
+          "teacher_request": 3.3e-05,
+          "measured_steer": 3.2e-05,
+          "op_target": -0.0,
+          "error": -3.3e-05
+        },
+        {
+          "tick": 924,
+          "time_s": 46.2,
+          "yaw_rate": -0.0,
+          "speed": -2e-05,
+          "teacher_request": 3.3e-05,
+          "measured_steer": 3.3e-05,
+          "op_target": 0.0,
+          "error": -3.3e-05
+        }
+      ]
+    }
+  ]
+}

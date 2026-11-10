@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/scratch/fsop/pi_head_scope_probe2/verify.py", line 140, in <module>
+    full_monitor = checked(control_arrays[rate], full_prefix+'_monitor_after', full['monitor_after'])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/fsop/pi_head_scope_probe2/verify.py", line 112, in checked
+    errors = np.abs(actual - [values[name] for name in NAMES])
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch/fsop/pi_head_scope_probe2/verify.py", line 112, in <listcomp>
+    errors = np.abs(actual - [values[name] for name in NAMES])
+                              ~~~~~~^^^^^^
+KeyError: 'steer_rad'
+There was an error running python

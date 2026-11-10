@@ -1,0 +1,2826 @@
+{
+  "passed": true,
+  "verification_limits": [
+    "Mission, commands and referee are replayed from saved states; physics and inference are not rerun.",
+    "Physical contacts are unique recorded native contact events, not independently simulated.",
+    "Checkpoint and model hashes bind producer identities but do not independently inspect weights.",
+    "Final full body pose is not recorded; a terminal rollover override cannot be independently verified."
+  ],
+  "controller_contract": {
+    "accel_feedforward": 0.5,
+    "action_time_s": 0.3,
+    "anti_windup": "block_delta_when_raw_minus_applied_times_delta_positive",
+    "control_period_s": 0.05,
+    "current_velocity": "measured_body_vx_vy",
+    "integral_gain": 0.5,
+    "integral_limit_mps2": 2.0,
+    "integral_reset": "policy_reset_or_before_command_on_mission_override_or_target_speed_at_most_0.001_mps",
+    "longitudinal": "knotwise_planar_tangent_pi",
+    "mission_brake_decel_mps2": 3.5,
+    "mission_launch_accel_mps2": 2.0,
+    "mission_layer": "mission_brake_then_vehicle_limits_with_feedback",
+    "mode": "op_tangent_pi_v1",
+    "speed_floor_mps": 0.001,
+    "speed_gain": 1.5,
+    "steering": "openpilot_follower_body_vx",
+    "steering_action_time_s": 0.2,
+    "steering_delay_floor_s": 0.05,
+    "steering_min_speed_mps": 1.0,
+    "timestamp_tolerance_s": 1e-06,
+    "version": 1
+  },
+  "auditor_sha256": "9768e74b281a85770ff0cb1ea0bef5ff41d12afeb4042cbd6b103224e904eb48",
+  "frame_count": 2400,
+  "terminal_condition_verified": true,
+  "recomputed_referee_summary": {
+    "discipline": "skidpad",
+    "result": "timeout",
+    "laps": [],
+    "n_laps": 0,
+    "doo": 16,
+    "oc": 6,
+    "max_speed": 8.669962362030345,
+    "route": {
+      "expected_route": [
+        "right",
+        "right",
+        "left",
+        "left"
+      ],
+      "accepted_route": [],
+      "laps": [],
+      "crossings": [
+        2.9146451024100726
+      ],
+      "complete": false,
+      "exited": false,
+      "stopped_in_zone": false,
+      "valid": true,
+      "violation": null,
+      "reverse_crossings": 0,
+      "termination": "timeout"
+    },
+    "raw_time": null,
+    "penalty": 3.2,
+    "time": null,
+    "dq": true,
+    "complete": false,
+    "pass": false
+  },
+  "completion_sha256": "7112e555b8c1c8943040b87775636bf14c8b3f9eb54afaafbce11d5dfea418c6",
+  "frames_sha256": "fdb3d68f82f5ab40192eade1719c69ba35aa60daa6e271233aba08ac5aa01a4a",
+  "telemetry_sha256": "6c0bbb5e727e8132d82b057e6ad2b0155e63e33908c2c5d73b51d588a52f1ad4",
+  "comparisons": {
+    "realization.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.keys[]": {
+      "comparisons": 22,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.frame_desire.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.frame_desire[]": {
+      "comparisons": 8,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.realization_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.T_ego_cam.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.T_ego_cam[].length": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.T_ego_cam[][]": {
+      "comparisons": 16,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.keys[]": {
+      "comparisons": 14,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.controller": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.stop_decel": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.lookahead_min": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.k_lat": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.stop_after_line": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.a_brk": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.k_lookahead": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.lookahead_max": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.a_lat_max": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.kp_speed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.k_head": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.t_preview": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.v_cap": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.expert_params.a_acc": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mount.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mount.keys[]": {
+      "comparisons": 6,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mount.roll": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mount.pitch": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mount.y": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mount.x": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mount.z": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mount.yaw": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.route_decisions.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.route_decisions[].length": {
+      "comparisons": 5,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.route_decisions[][]": {
+      "comparisons": 10,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.track_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.lat": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.keys[]": {
+      "comparisons": 12,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.render": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.cameras.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.cameras[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.random_start": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.venue_prob": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.start_speed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.randomize_expert": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.keys[]": {
+      "comparisons": 10,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.steer_sigma": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.steer_theta": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.offset_tau": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.on_time.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.on_time[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.offset_prob": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.enabled": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.off_time.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.off_time[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.offset_max": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.speed_scale.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.speed_scale[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.noise.offset_min": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.max_time": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.label_dt": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.substeps": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.fps": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.config.dr": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.seed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.keys[]": {
+      "comparisons": 38,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.noise_sigma": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.extra.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.exposure": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sun_color.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sun_color[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.resample": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sky_pano": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.ground_base": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sun_azimuth": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.cam_roll": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.ground_tint.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.ground_tint[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.cone_fade": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.haze": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.line_color.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.line_color[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sky_yaw": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.saturation": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.ground_contrast": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.cone_brightness_sigma": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.seed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.venue": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sun_intensity": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.shadow_alpha": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.cam_dz": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.ground_kind": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.jpeg_quality": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.blur": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.vignette": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.grass_ring": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.boundary_lines": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.line_gap_prob": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sun_elevation": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.cam_pitch": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.ambient": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.cone_lettering": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.fog_density": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.line_width": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.cam_yaw": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sky_color.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.sky_color[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.white_balance.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.scene.white_balance[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.keys[]": {
+      "comparisons": 20,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.max_steer": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.cf": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.max_brake": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.rear_overhang": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.mass": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.front_overhang": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.width": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.max_steer_rate": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.track": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.max_accel": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.iz": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.lf": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.mu": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.tau_accel": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.drag": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.tau_steer": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.lr": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.v_blend.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.v_blend[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.vehicle.cr": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.schema_version": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.s": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.keys[]": {
+      "comparisons": 14,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.cam_pitch_deg": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.cone_extra": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.level": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.cam_height_jitter": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.cam_yaw_deg": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.panorama_dir": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.exposure.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.exposure[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.venue_prob": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.image_noise": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.jpeg_prob": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.blur_prob": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.cone_missing": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.cam_roll_deg": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.dr_config.cone_jitter": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.noise_timer": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.frame": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.keys[]": {
+      "comparisons": 8,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.laps": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.kappa.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.kappa[]": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.closed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.s_end": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.L": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.ds": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.v_ref.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.v_ref[]": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.s_arr.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.mission.s_arr[]": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.keys[]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.has_uint32": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.uinteger": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.state.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.state.keys[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.state.inc": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.state.state": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.rng_state.bit_generator": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.keys[]": {
+      "comparisons": 10,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.extra.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.vy": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.vx": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.accel": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.steer": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.t": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.r": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.y": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.x": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.state.yaw": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.keys[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.source_indices.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.source_indices[]": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.xy.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.xy[].length": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.xy[][]": {
+      "comparisons": 172,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.colors.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.cones.colors[]": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.hint": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "realization.digest": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.keys[]": {
+      "comparisons": 17,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.route.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.route[]": {
+      "comparisons": 6,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.timekeeping_line.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.timekeeping_line[].length": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.timekeeping_line[][]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.laps": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.keys[]": {
+      "comparisons": 5,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.R_out": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.R_in": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.keys[]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.entry.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.entry[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.exit.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.exit[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.left.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.left[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.right.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.segments.right[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.center_distance": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.generator.R_drive": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.discipline": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.finish_line.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.finish_line[].length": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.finish_line[][]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.width_right.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.width_right[]": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stats.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stats.keys[]": {
+      "comparisons": 5,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stats.max_straight": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stats.min_width": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stats.min_radius": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stats.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stats.n_cones": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.seed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.closed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.width_left.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.width_left[]": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.cones.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.cones[].keys.length": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.cones[].keys[]": {
+      "comparisons": 430,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.cones[].color": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.cones[].y": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.cones[].role": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.cones[].x": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.cones[].id": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.start_pose.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.start_pose[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.id": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.schema_version": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.centerline.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.centerline[].length": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.centerline[][]": {
+      "comparisons": 2358,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stop_zone.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stop_zone[].length": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "track.stop_zone[][]": {
+      "comparisons": 8,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.keys[]": {
+      "comparisons": 10,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.lateral_start": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.discipline": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.track_seed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.variant": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.seed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.yaw_start": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.split": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.id": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.frozen_case": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.dr": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.summary.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.summary.keys[]": {
+      "comparisons": 10,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.summary.lateral_start": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.summary.discipline": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.summary.track_seed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.summary.variant": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.summary.seed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.summary.yaw_start": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.summary.split": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.summary.id": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.summary.frozen_case": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "case.summary.dr": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "backend": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "fps": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "schema_version": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.checkpoint_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.state_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "identity.pilot_only": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "checkpoint_sha256.valid": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "state_sha256.valid": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "model_unchanged": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "checkpoint_after": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "state_after": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "appearance_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "scene_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "export_sha256": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "appearance.physics": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.physics": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "asset.inventory.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "asset.inventory[]": {
+      "comparisons": 22,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "asset.hash": {
+      "comparisons": 22,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.keys[]": {
+      "comparisons": 17,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.route.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.route[]": {
+      "comparisons": 6,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.timekeeping_line.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.timekeeping_line[].length": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.timekeeping_line[][]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.laps": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.generator.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.generator.keys[]": {
+      "comparisons": 5,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.generator.R_out": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.generator.R_in": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.generator.segments.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.generator.segments.keys[]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.generator.segments.entry.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.generator.segments.entry[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.generator.segments.exit.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.generator.segments.exit[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.generator.segments.left.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.generator.segments.left[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.generator.segments.right.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.generator.segments.right[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.generator.center_distance": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.generator.R_drive": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.discipline": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.finish_line.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.finish_line[].length": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.finish_line[][]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.width_right.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.width_right[]": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.stats.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.stats.keys[]": {
+      "comparisons": 5,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.stats.max_straight": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.stats.min_width": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.stats.min_radius": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.stats.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.stats.n_cones": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.seed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.closed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.cones.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.cones[].keys.length": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.cones[].keys[]": {
+      "comparisons": 430,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.cones[].color": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.cones[].y": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.cones[].role": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.cones[].x": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.cones[].id": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.width_left.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.width_left[]": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.start_pose.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.start_pose[]": {
+      "comparisons": 3,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.id": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.schema_version": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.centerline.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.centerline[].length": {
+      "comparisons": 1179,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.centerline[][]": {
+      "comparisons": 2358,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.stop_zone.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.stop_zone[].length": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.track.stop_zone[][]": {
+      "comparisons": 8,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.expert.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.expert.keys[]": {
+      "comparisons": 14,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.expert.v_cap": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.expert.controller": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.expert.stop_decel": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.expert.lookahead_min": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.expert.k_lat": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.expert.stop_after_line": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.expert.a_brk": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.expert.k_lookahead": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.expert.k_head": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.expert.a_lat_max": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.expert.kp_speed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.expert.lookahead_max": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.expert.t_preview": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.expert.a_acc": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.keys[]": {
+      "comparisons": 20,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.max_steer": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.cf": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.max_brake": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.rear_overhang": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.mass": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.front_overhang": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.width": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.max_steer_rate": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.track": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.max_accel": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.iz": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.lf": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.mu": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.tau_accel": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.drag": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.tau_steer": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.lr": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.v_blend.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.v_blend[]": {
+      "comparisons": 2,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.vehicle.cr": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.cones": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.cone_colors.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "metadata.cone_colors[]": {
+      "comparisons": 86,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frame": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "state.time": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "running": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial.state.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial.state.keys[]": {
+      "comparisons": 10,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial.state.extra.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial.state.vy": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial.state.vx": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial.state.accel": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial.state.steer": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial.state.t": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial.state.r": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial.state.y": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial.state.x": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial.state.yaw": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial.position": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "initial.yaw": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "progress.keys.length": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "progress.keys[]": {
+      "comparisons": 7200,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "progress.hint": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "progress.lat": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "progress.s": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "commands.keys.length": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "commands.keys[]": {
+      "comparisons": 7200,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "commands.mode": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "commands.applied": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "commands.requested": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events.length": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "counters.keys.length": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "counters.keys[]": {
+      "comparisons": 14400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "counters.legacy_doo": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "counters.laps": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "counters.result": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "counters.total_laps": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "counters.physical_contacts": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "counters.off_course": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "temporal.keys.length": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "temporal.keys[]": {
+      "comparisons": 4800,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "temporal.current_image_frame": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "temporal.older_image_frame": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "calibration": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "images.valid": {
+      "comparisons": 4800,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "raw_images.valid": {
+      "comparisons": 4800,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "head.keys.length": {
+      "comparisons": 4800,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "head.keys[]": {
+      "comparisons": 14400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "head.finite": {
+      "comparisons": 14400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "actual_cones_xyz.valid": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "actual_cone_quaternions.valid": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "T_plan_ego_camera.valid": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "T_world_camera_body.valid": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "policy_raw.count": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "policy_raw.finite": {
+      "comparisons": 4800,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "plan.valid": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "action.valid": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "controller.action": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "controller.diagnostics.keys.length": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "controller.diagnostics.keys[]": {
+      "comparisons": 21600,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "controller.diagnostics.proposed": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "controller.diagnostics.target_speed": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "controller.diagnostics.applied": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "controller.diagnostics.integral_after": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "controller.diagnostics.raw": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "controller.diagnostics.integral_before": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "controller.diagnostics.mission_override": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "controller.diagnostics.tangent_accel": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "controller.diagnostics.speed_error": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "body.state.length": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "body.state[]": {
+      "comparisons": 14400,
+      "mismatches": 0,
+      "max_abs": 1.7763568394002505e-15
+    },
+    "body.velocity": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.keys.length": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.keys[]": {
+      "comparisons": 24000,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.legacy_doo": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.lat": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.t": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.y": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.x": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.speed": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.frame": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.physical_contacts": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.yaw": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frames.s": {
+      "comparisons": 2400,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].keys.length": {
+      "comparisons": 28,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].keys[]": {
+      "comparisons": 84,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].data.keys.length": {
+      "comparisons": 28,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].data.keys[]": {
+      "comparisons": 33,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].data.n": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].kind": {
+      "comparisons": 28,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].t": {
+      "comparisons": 28,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].data.cone": {
+      "comparisons": 16,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "events[].data.dir": {
+      "comparisons": 16,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "nonempty": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "bounded": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "frame_count": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "rows.count": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "receipt.count": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "terminal.time": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "finished_or_pilot": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.keys[]": {
+      "comparisons": 14,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.route.keys.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.route.keys[]": {
+      "comparisons": 11,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.route.crossings.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.route.crossings[]": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.route.valid": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.route.reverse_crossings": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.route.laps.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.route.expected_route.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.route.expected_route[]": {
+      "comparisons": 4,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.route.termination": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.route.accepted_route.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.route.violation": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.route.complete": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.route.exited": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.route.stopped_in_zone": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.pass": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.oc": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.laps.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.result": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.doo": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.discipline": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.penalty": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.n_laps": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.max_speed": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.raw_time": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.dq": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.complete": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.summary.time": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.events.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.events[].keys.length": {
+      "comparisons": 28,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.events[].keys[]": {
+      "comparisons": 84,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.events[].data.keys.length": {
+      "comparisons": 28,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.events[].data.keys[]": {
+      "comparisons": 33,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.events[].data.n": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.events[].kind": {
+      "comparisons": 28,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.events[].t": {
+      "comparisons": 28,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.events[].data.cone": {
+      "comparisons": 16,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "referee.events[].data.dir": {
+      "comparisons": 16,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "pending.events.length": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.progress": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "summary.rms_lat": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 2.842170943040401e-14
+    },
+    "contacts.count": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "contacts.unique": {
+      "comparisons": 1,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "contacts.frame": {
+      "comparisons": 17,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "contacts.time": {
+      "comparisons": 17,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "contacts.path": {
+      "comparisons": 17,
+      "mismatches": 0,
+      "max_abs": 0.0
+    },
+    "contacts.convention": {
+      "comparisons": 17,
+      "mismatches": 0,
+      "max_abs": 0.0
+    }
+  },
+  "mismatches": []
+}

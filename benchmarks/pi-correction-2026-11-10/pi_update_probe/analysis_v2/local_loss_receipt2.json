@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "measurement_groups": 192,
+  "method": "Independent local NumPy float64 reconstruction of plan NLL, weighted plan L1, native-relative consistency, and action SmoothL1 from saved arrays. No model execution or optimizer update.",
+  "maximum_absolute_loss_errors": {
+    "plan_nll": 2.414835589270581e-07,
+    "plan_l1": 8.364033399210768e-08,
+    "native_relative_acceleration": 3.5238949702698363e-08,
+    "steer": 1.22728920082249e-09,
+    "longitudinal": 6.935933938301275e-08
+  },
+  "tolerance": 2e-06,
+  "rows_sha256": "cad7d79f91555c62e83cdf273924cc3b0ca9d65e88b8a2ba5fa59eeccdc85441",
+  "arrays_sha256": "a652a871914f07fe28afc41d2b45bab170a4720431a5e3dbf14d7028a1a56f6f",
+  "excludes": "CPU parameter-space norms and cosines remain unqualified."
+}

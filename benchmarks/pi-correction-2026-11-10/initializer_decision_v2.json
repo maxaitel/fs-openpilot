@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "prior_proposal_sha256": "48f44d09a162b58df99b7d9d56ab48ae5030d24963265cc932bdfc8ab59c53d0",
+  "initializer_checkpoint": "/work/probes/pi_models/latest_pi.pt",
+  "initializer_sha256": "a6e08969bec5cf48170bb73decdbb345589c4f7f20c56d3f800458fc8ba6c122",
+  "parent_weights_sha256": "c121faa268d8c98bdac537974a9c21d3523a7b57cdab7f480351cbb2f98f89ac",
+  "change_before_optimization": true,
+  "optimizer_updates_so_far": 0,
+  "reason": "Exploratory revision after native TRAIN integration probes. Original and vision initializers each contacted two cones in six seconds, latest PI contacted zero. Retain latest vision and policy adaptation after fixing the execution boundary; do not attribute this short probe difference to generalization.",
+  "objective": "plan NLL + 1.0 * native-relative acceleration consistency; action auxiliary weights zero",
+  "dataset": "data/native/lab_v7/manifest.json",
+  "dataset_sha256": "db7150b60fdf50e861c6ca003ae844b90ff398fd7b244c9201b7de9d3af5b309",
+  "qualification": "Unchanged prior absolute bounds. Strict plan-L1 improvement. New targets and per-case provenance explicitly versioned.",
+  "training_wrapper": {
+    "checkpoint": "/work/probes/pi_models/latest_pi_train.pt",
+    "sha256": "48db741c8a686b2e635ae7a81b4e4c08d79fbfbd9f4dc4c163260da6f93f0cfb",
+    "reason": "Preserve the parent checkpoint step=500 required by selection tooling. All 417 model tensors are identical to the earlier inference-only PI wrapper."
+  }
+}

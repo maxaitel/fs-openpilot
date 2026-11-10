@@ -1,0 +1,8 @@
+{
+  "checkpoint_sha256": "dd1f7ffb078f5c00066a304d6f032f1d57f3204b9f02d7b81b4060080aa81fae",
+  "inference_passed": true,
+  "artifact_passed": true,
+  "frame_count": 120,
+  "physical_cone_hits": 0,
+  "scope": "integration pilot, not a completed mission"
+}

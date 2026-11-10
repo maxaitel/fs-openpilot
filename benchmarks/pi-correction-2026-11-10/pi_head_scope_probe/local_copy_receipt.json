@@ -1,0 +1,27 @@
+{
+  "files": {
+    "rows.jsonl": "432efa6425904149965e6105941a0826f955c4a9a0f6a89885b044cb21550e42",
+    "verify.log": "37d4d9b0f74621c1b28a90c7535e29716efbeb5c886857960fc92fb10181d69e",
+    "report.json": "2c960329e9bcbebeabf88f603762d45efbe728d2b22620b062d3c689dd051a41",
+    "preparation_receipt.json": "5d7cd5da9aba8ff9c9d7ab96170c87c1dfbc7f38a14bb10fd1d0c30ca6de3515",
+    "independent_receipt.json": "d8e6808c9b87ecfe943ff7d0e5b59e58c88072bcc3a765c889bfa5574622fbb3",
+    "arrays.npz": "8dba280b33e8dfce8b605526e3ed4569fadff3a0bb85132f61038d65498e1fd3",
+    "run.log": "cd406b0a709f769a6e420c0b12a367edd4b28e34ae85d7c63dfabaf18122cb7b",
+    "frozen_state.json": "cacd12880626257ad3f824d45239184a9ea590eabe105f24d2768a5ddff0b622",
+    "exit_code.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "verify_repaired.log": "7847cae5b7ff9da074ecea9e1dcfdbe35adce294c43130f8bd007bd1f646e9ec",
+    "run.sh": "7f617c20f38dd15b5e7ccfc5e83fa219e729bc1fbf98b4388dcb05865f36302d",
+    "independent_receipt_v2.json": "2732b44f3eddfadf6f4fd4cf81758c425731a7d366f4530331255c5911be1e15",
+    "._probe.py": "7e0dc3a13324b0670287ae76d49b3d6a86bf2066f88e0fed0f05f28b07270bf1",
+    "probe.py": "75084ad1c4890133fecdb0fa2aff43f1c860034f3581301bf9229ac413e1b987",
+    "protocol.json": "0ddbf1d0ad795292347e427131b998e7695f3205174eb7e5d640cc101ce98e05",
+    "verify_repaired_v2.log": "c0d43231d89a0e57fa68cf8c3139ec668bcb1fac76a551c9d5eb67aca65c58df",
+    "verify_repaired.py": "dd14c39e605fd958c2447ef9870b68429ebbbee9175603595a967650dd238f97",
+    "verify_repaired_v2.py": "31dbc5169044c8e70223d8cdc45c92ba1d33a8b10f0938d71dca67ac037e038c",
+    "baseline_receipt.json": "ca715ed6ce4c3afc92262b8d14127181f786123b067e211635089be8de8a8f69",
+    "verify.py": "2a70bc04e7308ad94f7a88bf9bce203b5351fe6707263ab51132adc11f8ad938",
+    "float64_math.py": "f8e42a94aa488e39090c3a6fdbee7623ca35bfa57e22e3ebe0222f457fdd9f1e"
+  },
+  "arrays_match_authoritative_receipt": true,
+  "remote": "fsop-pi-scratch:/scratch/fsop/pi_head_scope_probe2"
+}

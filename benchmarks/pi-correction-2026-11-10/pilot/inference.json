@@ -1,0 +1,501 @@
+{
+  "passed": true,
+  "frames": 120,
+  "expected_frames": 120,
+  "case": {
+    "discipline": "skidpad",
+    "dr": "light",
+    "frozen_case": null,
+    "id": "train-skidpad-82000-matched",
+    "lateral_start": 0.0,
+    "seed": 82000,
+    "split": "train",
+    "track_seed": null,
+    "variant": "matched",
+    "yaw_start": 0.0
+  },
+  "controller_contract": {
+    "accel_feedforward": 0.5,
+    "action_time_s": 0.3,
+    "anti_windup": "block_delta_when_raw_minus_applied_times_delta_positive",
+    "control_period_s": 0.05,
+    "current_velocity": "measured_body_vx_vy",
+    "integral_gain": 0.5,
+    "integral_limit_mps2": 2.0,
+    "integral_reset": "policy_reset_or_before_command_on_mission_override_or_target_speed_at_most_0.001_mps",
+    "longitudinal": "knotwise_planar_tangent_pi",
+    "mission_brake_decel_mps2": 3.5,
+    "mission_launch_accel_mps2": 2.0,
+    "mission_layer": "mission_brake_then_vehicle_limits_with_feedback",
+    "mode": "op_tangent_pi_v1",
+    "speed_floor_mps": 0.001,
+    "speed_gain": 1.5,
+    "steering": "openpilot_follower_body_vx",
+    "steering_action_time_s": 0.2,
+    "steering_delay_floor_s": 0.05,
+    "steering_min_speed_mps": 1.0,
+    "timestamp_tolerance_s": 1e-06,
+    "version": 1
+  },
+  "checkpoint_sha256": "dd1f7ffb078f5c00066a304d6f032f1d57f3204b9f02d7b81b4060080aa81fae",
+  "state_sha256": "a7dc325732d9f0247d04db5eb91fe86feb83921ac9a584f3c0249b20539b5061",
+  "state_sha256_after": "a7dc325732d9f0247d04db5eb91fe86feb83921ac9a584f3c0249b20539b5061",
+  "graph_sha256": {
+    "artifacts/models/prep/policy_fp32.onnx": "a27088e94f581de472f9610183e3979987cf59a1b272816a339bb9757d00a17a",
+    "artifacts/models/prep/vision_fp32.onnx": "bac14fd2d539b10eabd966b462d0dcba4fcaab6b96bc49cfc4a8703f7450531c"
+  },
+  "source_sha256": {
+    "isaac_eval/evidence.py": "00a38b56c9f813821674dfcf65b1d9f5b1db679c67e851d191f06a55540ac23f",
+    "isaac_eval/parity_cases.py": "2cf546e6853783384b79f22cad10245342c41b14744abdbd1e15f7db8f86e9c7",
+    "isaac_lab_fsop/cases.py": "df8df74af698794a594314e36c14d8dc481f9063fd16dce66d03ca595d22cdc4",
+    "src/fsop/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/baselines/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/baselines/yolo.py": "a5207b9b74c941f7445199f2bb45c47574f2629068f6966176bbef3da6867ed8",
+    "src/fsop/bench.py": "d3781cfc06127a92aaf201285ada0499159700b4cd6f189b6992d3bb113ac696",
+    "src/fsop/cli.py": "862430338c18cb6e62fe395bea854db74f65aa38a62dcdbd7c5c9d6658a0bc4d",
+    "src/fsop/config.py": "2de820cc65e9a8266b7163df51c4bbb052921cc6192e8ce76c47e2eeaf1b3a6b",
+    "src/fsop/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/data/feature_cache.py": "7ea4da7c8ece7b11766fe93e23cd3aa5a8ecf9486bad89664db22877181bc3de",
+    "src/fsop/data/fsoco.py": "7dda2a26d525da64cdf63f9058b2a58b85b20f16c3e844a9c56715a6abf95eaa",
+    "src/fsop/data/native_replay.py": "483e089b37f8782ade87cc8f16eaf8a2447efa1e25ee9a6b79f5ac5eac9cb30b",
+    "src/fsop/data/sim_dataset.py": "7753c0deae1f3aad51a747346f4ff7acab72c0f50860685196847845107affe3",
+    "src/fsop/data/targets.py": "a923bbe800bbe2d1bd25a50701edb7d077980d7d8481990ebd4baf6ca8652467",
+    "src/fsop/eval/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/eval/bev_metrics.py": "74729836f20c21d836e2a30efe586eb1b578a9ae00b97613fb1bff7a08bf4af4",
+    "src/fsop/eval/closed_loop.py": "a14ca4ee943f26921a1bf8ebfad67e12ed4c94b8c3031ddf4cbf4c360d62b98f",
+    "src/fsop/eval/controller.py": "8f07cc89adb30e4566093feb1f11e66a4db79ee7358d94f1dc9b7d3f60dce4f8",
+    "src/fsop/eval/dagger.py": "7fc0c290541eaa945db52a262fe38a2639df5bec93304ca67955336f8600cba4",
+    "src/fsop/eval/det_metrics.py": "3c99d790e0777184065c4e35195babe9ade02d82aacbd78f63a8b0544b0103d2",
+    "src/fsop/eval/geometric.py": "e0ad7c4aa9157a04f1a83c242f83113acb84a25fb9152533fccb58e76cde9c02",
+    "src/fsop/eval/img_to_bev.py": "bcf10ece06c575512c45ea773335a1024fbc7ab95d20426a91ff18bd71d2d2d1",
+    "src/fsop/eval/open_loop.py": "3e402060bb9f73a1e59cf6ad8ff94eb99d3e07f82e9adde6e8fed52c02c86f52",
+    "src/fsop/eval/real_clip.py": "d62206e397e988111b00b75c9796a773ed87740b44fcff7f726184ca7afcceef",
+    "src/fsop/geometry/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/geometry/camera.py": "98b8bc7f7b98cddc4e756d4b92103604f4462baea2b161f0410a943f30c207a3",
+    "src/fsop/geometry/op_frames.py": "f09cea8cba5b74bf81e02df04487e3b34012e91dde4c3751525bf50e3520301f",
+    "src/fsop/geometry/warp.py": "a81bc405c769e46b3e9355bf53f2fd9fce83cfcc1d3c654ac389938546f97756",
+    "src/fsop/geometry/yuv.py": "9a3651b22194b666ad3200fb799bc22e90259ac650b2dff140b5c62a8ab66ee5",
+    "src/fsop/model/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/model/build.py": "b24c64216ebe82e77ad69972686badb2534348301565b9b4ff47f28295559fd3",
+    "src/fsop/model/convert.py": "3a5531d927d8d68b557f841530c679258ccd6208d818ea3ff475f6ae4e15bc2c",
+    "src/fsop/model/export.py": "1675c5456212ba3ddfdb1406a49d84339c1935758d1e2585fed6c219fc555cba",
+    "src/fsop/model/fetch.py": "e1d15dc11ca309e5a2b655fd28afdd83fcf17811030edb7f8443106534454992",
+    "src/fsop/model/heads/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/model/heads/cone_bev.py": "9fe44a7e2152d4906389142b0f4405f8d192e19ffdeea25db5698451e2a0c9ee",
+    "src/fsop/model/heads/cone_img.py": "cdf84bb4bcc25b2a05172b45f1d7d35dcaf17abca1bfe10370c1906c2ff3f42a",
+    "src/fsop/model/onnx_prep.py": "b6b7c3607078dfaf45249451d757247cc8deea4085a7f70e69f15f531e14a5f6",
+    "src/fsop/model/op_converters.py": "59f20f80b4a646870b108cc7f165e8bd48a2630f54b44b07eddf791052629d5f",
+    "src/fsop/model/static_shapes.py": "34668feafdb9e18ea6c91f53b51fb645e96191fe608abe9631c0f0ce25661a16",
+    "src/fsop/model/supercombo.py": "1128d2dc461466d9235ec3dc3386bce82c44222e127cbd6d8cf4ee0307eb5a3d",
+    "src/fsop/model/temporal.py": "3b7ef159ae6a0f3f39dd950ae3943fb5f59f164af0d8e9ab329f6f5de876b8c7",
+    "src/fsop/model/verify.py": "aa1cb5bb89869cbec5470fead1bb46eea285c27b2146c20c3fba7d91eedf0957",
+    "src/fsop/profile.py": "2c8968ba76880a1f167480e474f68301fedd8cd652be2df2670498d4230b19d0",
+    "src/fsop/runtime.py": "09543bbcb87af99118de19593a53ed4a29f6d128b4de76fbec2655d9e1842ad2",
+    "src/fsop/sim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/sim/batch_record.py": "42d54ca374ba2a05255c06d50e2cefe825292a68137dbaa7e1a69760ed75831e",
+    "src/fsop/sim/drive.py": "e7e8072c3375e0de9d89d6fadcbfac897fa21f47a7d084eee1e2d0dffe047bc1",
+    "src/fsop/sim/env.py": "43e4bc7b07fcb5f963a9ce022952d6d7d8d16cf34ef2cf66af648959e31a2026",
+    "src/fsop/sim/expert.py": "7f1c3fb9083b4edd04e61a33719a88b4b65bea85fb6490ea2ef191e66d35986e",
+    "src/fsop/sim/randomization.py": "25b492a84b289a3febf9d726e1a43ef59f4657986282d28d551f5bd49cccff04",
+    "src/fsop/sim/recorder.py": "d90ec0db290ca21d419a04ae4ceb609b7d5f8927ede25786ab727f71e390f7bf",
+    "src/fsop/sim/referee.py": "c0dacad0659a9cd806e25b2405e0e4a4aadd58897858d14a717a42c0132391e2",
+    "src/fsop/sim/render/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/sim/render/assets.py": "c790b7c47113c6a86c792059bc7ca1b23764111f870b6ae67d5b88fe5b9f6051",
+    "src/fsop/sim/render/panda3d_backend.py": "e06a3ad9e675a27d5875f553ab7f442bf0a450380dcaca08611e530e0e1e5519",
+    "src/fsop/sim/render/venue.py": "98a7ac4b041c0c3a149a52f21cce1b461d0d992601e240241e460fe0fd5339ca",
+    "src/fsop/sim/route_commands.py": "31def8ff21c2d86824fdd7783c9131928a12fa2ac1e9d5d427063e640f40b149",
+    "src/fsop/sim/skidpad.py": "a6169eec33804ce14b01cbd383a74b7474f77cf69b1baf072a805a1fcd8dc6a2",
+    "src/fsop/sim/vehicle.py": "55643a3d4f43c1a7605b8da3641517a8c0380bc92ba7526a5e555e0f7cd3ae39",
+    "src/fsop/track/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/track/batch.py": "71ed04273b4da5bf340d8abb3269448481d694ad2499330fceb616a13cc681c3",
+    "src/fsop/track/centerline.py": "de45a95eba2e8fa0419a7407ced66718bc6f49099dff8b00c7663f2bf7ac5887",
+    "src/fsop/track/cones.py": "45c784e93b40cb032e6641362b547bce8f5a79d5eb02e23d0a37db038728da93",
+    "src/fsop/track/fixed_layouts.py": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+    "src/fsop/track/generate.py": "6a971d82e14b154ef24eb3a87f212f567a08182701783a806110755b2d661264",
+    "src/fsop/track/io.py": "86a833f72d920882c55c1dee89de841a8d4b67d8cbaa0658ddb17a614bc8af4c",
+    "src/fsop/track/rules.py": "4c2c989ef7b401ed47e57744eae6a3219759629e09e412b4ee5d68de8764006d",
+    "src/fsop/track/schema.py": "f2f760bee7826c82f34e3f704a0b5807bcd0f6b043e856a781d8fe727ac1c04c",
+    "src/fsop/track/validate.py": "5a08f94b27f75a77ee69431f58493a0ead9bbc6154b6749b7d11d223080664a8",
+    "src/fsop/train/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/train/action_target.py": "14d30ca04cb2aa08794d08e21460f43d79e51b0cc56f345d9272af4bfeae8176",
+    "src/fsop/train/device.py": "cb2ec8fba9eb6959f11753ac93625090ea131f86f4476e8accb8d0151b1df483",
+    "src/fsop/train/lab_train.py": "8861d157cddc5ba058666b6d2bcf521b5bb9d0837c3bcbd6888cf26041362836",
+    "src/fsop/train/losses.py": "b282ecfb998e1e1153e58d55cca778dee95bf619abf287f5bae6eb6718cf51a4",
+    "src/fsop/train/trainer.py": "3a016bb5c4cf6556bca3d797d6653a2943e9918b4e6f2a69bb3c97fb3ffb30e7",
+    "src/fsop/viz/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/viz/inspect.py": "5cd19a506dcc688a2f6f8d536cfaa1ae310847324cd71c0dc96bd07d566730cd",
+    "src/fsop/viz/real_video.py": "1979fcb3d70e7d739b84c406b6ab7482708ec7f8aa93541d14ab3f91a866c381",
+    "src/fsop/viz/rr_log.py": "b1b0020705be517293fc413ff224e68c55d51c14ed9b9ec291ab2b3b0a7213ae",
+    "src/fsop/viz/track_preview.py": "5ace5f5cf0b9ab48e8e011edc280164a996f9eac7ce586a3ca5767c59e2683bc",
+    "src/fsop/viz/video.py": "94013abd1f1e78a2869101f12aa3f53ab3c6accd86819069b78234ea9b696cd9"
+  },
+  "verifier_sha256": "98db4a9642eb60b82b1289560ab0cd61f236f4009418a59d108a0496d28a0ae8",
+  "realization_sha256": "b998fa36a8bfc06f49f4e9c5dca2a3f2bd4cb22cb5a5e03126065f082904c497",
+  "evidence_sha256": {
+    "metadata.json": "027d410471614d8e56bea00be98372c4dcc1924c2d6f2a94ffaed659706fcfc8",
+    "manifest.jsonl": "8a1e94a8eb5fa7eb057215d73b866e332285ead402ebfe0595c27a895e9a0b46",
+    "completion.json": "63b2a6d11758f9ed46f909532da68276c327012953f4e58687ba871011b68d3e",
+    "frame_000000.npz": "5752cabbb0599cd8e1ba522c920d7adc7a66118d94a67f4231f535cce4fe92be",
+    "frame_000001.npz": "b7f11acfbdbcff06e4251905be5e3f319051f933a38b5241d2c1c3aa25b93976",
+    "frame_000002.npz": "a71b5e2e8f9c7ff1761642afae4baa055a6d558234d50f94cc9a330467828b8c",
+    "frame_000003.npz": "c14ece29415c8ffbbb7f125ee1ef02bc9a186141ecbbdc174a1701972e8c7adc",
+    "frame_000004.npz": "1a2fefb251096a06b3c17b0952c51fab06f4d38e6c9f35d16c641999bead30d2",
+    "frame_000005.npz": "8b1b77a0bab360ae577d9a0def34430585c1177dfdf2a91fc3550f4e2a304fbf",
+    "frame_000006.npz": "7d37d0d587549f31ce1e5e590306e266940ff1167e80f9d7fe7057c086acb7d6",
+    "frame_000007.npz": "7725cfdf23175872358d97233cdc5d39773236a88b97d375e8f991a05df04fb3",
+    "frame_000008.npz": "c48269b17e71a7c4defdb229c0c56c7281fed20bb7664ac69c1b4ef5bb60bb56",
+    "frame_000009.npz": "dcc3951758bb92c358afa45ea62c0ec6c2fa9b3f3ad37b6ee5b3a06c960999e0",
+    "frame_000010.npz": "a267c13ce76cbc42806f828baf46a90dcf12e444315879fb8a3b90c92aea04e3",
+    "frame_000011.npz": "f9ac009a19d78a3eb8cbfc0f37374ead20fbf222545e41283b3547af73e2ec86",
+    "frame_000012.npz": "3c77b3ad89fe0b497ca33e2e38a84e63dad56f73bd3aefb2234db2d99dc4e38b",
+    "frame_000013.npz": "648e5cc4d22dfa7e47ad8f4545870921ac0f7cae744cf21885367bbc2c4eab78",
+    "frame_000014.npz": "f38da14871537fd84134b267dbf41f796556602247d9051719af8e1b125b4184",
+    "frame_000015.npz": "43538a6bdd81f6ed6a23025c546b25c138ff9b53b25d2c3e14e2a1f098f57b49",
+    "frame_000016.npz": "9ce1dbe77480b15b15c3619b35b5286cc8de1b7a89666c835cc41679c55db647",
+    "frame_000017.npz": "903fd1cbcdcdc93e8573647ba34de88c214a39c4843585ec21d31d1514c5bef7",
+    "frame_000018.npz": "a1ff08dbc92d78567144c40f494e5230d337c35c4c5ca1e39b6da5fe4aae73f0",
+    "frame_000019.npz": "fee50fc510235c017a88461b7fbbe0791c80f7a02a5ff0d6fa36e2b7f5a22fb3",
+    "frame_000020.npz": "440d136b2d40cc8c1d39206326d54ee24594a30d53ecc6368991200d3beba46e",
+    "frame_000021.npz": "02049aeda4004afa1a37d8a8007cc5a4cb836ac9f31146f159663a20d6a05192",
+    "frame_000022.npz": "c84362e82d4ebb0e11dade2b992e5c3deead6dad6610f04c6fd97218364313f8",
+    "frame_000023.npz": "fd9d9bb89105a1632dc9e4d79550d34944ee9f058728b0c5e53c067f971f7f00",
+    "frame_000024.npz": "1a639943405563aec910b628c43460d0237b04322cf2ca1706c58927d85cd0f0",
+    "frame_000025.npz": "b7c943e7f0a07faa275b15a1a5f11e07cf155c69c0b93ab0e6e0f3a5b0e3b5c5",
+    "frame_000026.npz": "9cfa7396d0b8de0e422906b1348150d65cc862f9c53b47ff439d9b9d78be3262",
+    "frame_000027.npz": "cf0777ffcdb5a5faa635683d6fe80359f202c812dccf26a12738d50c43bccbbf",
+    "frame_000028.npz": "8784c13c27f2dd3aaaa33f7798340369f68fab51b7e2fc9ba171cbe0a9afe3a2",
+    "frame_000029.npz": "77e4ba08593aa4dea707495f7c1fbc02d4a4d4bb2fbf209f74e50e0d22b79456",
+    "frame_000030.npz": "05300a5877bcdb691eb65f5e09c936db2306d34740b4e4fa648bd42034e26881",
+    "frame_000031.npz": "af56905306097751ea46ee93e17bf2f3fc8eb2fb560e4d1dc65da898ae711053",
+    "frame_000032.npz": "5e814ff522a70acd6094ec3e24d1522308db51938b9d071601eda8f45eaa145a",
+    "frame_000033.npz": "24d6bce496f7c62a6c9ce9f3a49997d583cc1a275d2d240d6bfb88996e5ee67e",
+    "frame_000034.npz": "9866d9ccb7188f5f7046b06d340ec8286f25e7be6fa739b465db2a35f0e873a0",
+    "frame_000035.npz": "1867582139984487cd4c40e0dd189f95fa096291713ac90e236abc259ef1d767",
+    "frame_000036.npz": "701465247a1f98c65066a31dc983c41ff089f461ba44d4ac1cf2929a9558fdcd",
+    "frame_000037.npz": "f03918305939cb0331b9ceb8b3ea776d75785012b45696768eadaa817fad21f5",
+    "frame_000038.npz": "564383dd0cc6c0ad5971b9bc2c7aa50c169a5f7faae29be41a36f3752d484da7",
+    "frame_000039.npz": "cc4fe1afa30a9c64dee50afa3f183ea9abfbee28f52a8d375e27f945e52062da",
+    "frame_000040.npz": "f03a0966bcbb565963b522fb66ac2907aa656d7a261ac4422a6cdccfddb6b97d",
+    "frame_000041.npz": "e1e7237fb7fe8659a4d4734ea5755e6b165651369fc033ecdfa99a752edd86cb",
+    "frame_000042.npz": "1eff441888860e43bd924d35efa24e56e47856589e289ee06731aa18d31d3018",
+    "frame_000043.npz": "ca51ce25dd286a1568bf61a766cc133ef6a701064196ac6b55c12cb66c95de59",
+    "frame_000044.npz": "2daaa6798d2850388a16b50e328364b2a3fc25ea36c8e751e73b6127e1358165",
+    "frame_000045.npz": "0c2e219af0f87aaeca398fa9b876f4721a69c7c328aec0985f00524254b985e8",
+    "frame_000046.npz": "5d2de42bf23a12be1a219c69e0ef9f94f3bbd8d5c5c3d12d1b8f79b240319713",
+    "frame_000047.npz": "a5daf60b779df0036d71a6630be46484286905eb4325e33ab4a11b3df3731492",
+    "frame_000048.npz": "cfabc56f415b6ff55f55ce14357de8fff76b128806f927a74422addb06d72e83",
+    "frame_000049.npz": "10e0c540c0050001117f3163a59cb17d61c608e4b81c8a1ffd561c6534c397b3",
+    "frame_000050.npz": "e6b4539c26e0886f2bb05187cb5c1b490047c70e7b2c22597a49146694a453ca",
+    "frame_000051.npz": "09ae9f008e277dd8987727960e875f9f5d8d99af038db75c846b70576ff158f4",
+    "frame_000052.npz": "a2895e0f5b372cc98b430273a7cb4ace2836955619f19cdbbcc8c78cc84b2ce4",
+    "frame_000053.npz": "6cf1f274395e5c85bc230f1b39910264f9656624cde1d2111a9d437ada6bef37",
+    "frame_000054.npz": "ba760fc7c5a736738504ebd8f7267caa0d5c1f9d5073af68eba38cb4e7e0815b",
+    "frame_000055.npz": "dd7bb2b65eeeeefdc5b8b98bbb4ba7c344a681f300d508e038e4b21a1393187a",
+    "frame_000056.npz": "cb991d06ead3d0e2108b5e3b32c7f3cccd01d6120b5ed0824905282b55413bc5",
+    "frame_000057.npz": "ff041bc427ad8054aa1bbf03182be2015a180cabe6a7aac5fb8f0c63311a6571",
+    "frame_000058.npz": "29677105c07c198ea175f60d48b04fc60dd9f42306b360eb25db7602986e9346",
+    "frame_000059.npz": "0bfabeefd4adb68a33b192376cf959f2a2806b9107dee0d07974d09e0d9fb08f",
+    "frame_000060.npz": "4fd1681a66ead1554c7f2ad2b7fa827b4379ed4a3612173361d6faebcfc84496",
+    "frame_000061.npz": "cc549e362b98c886c231f74af8942539c2ddc19319bec7022e2b834fea2dab7d",
+    "frame_000062.npz": "69f76c2fa3fc69ab34fdabc44af1bb2671c17ac0de5c03ac0edc9b6edf0269b2",
+    "frame_000063.npz": "513aedc061d01f19b3a7a4f6f509217b25db79c5d03b01c3a2965ccf1f278342",
+    "frame_000064.npz": "73c43ac8923a44362b7b5ade124de7965fb7b6ca44f13c36e3bd7e0ab8a7ec62",
+    "frame_000065.npz": "916f85c42997cd3e60f06ba1b15e6aff4a57680c637a292635b5c17cf9de2cec",
+    "frame_000066.npz": "972613160632aa82a6f9c1b0044b900e432829c1d24071b33e940ec00c113cbb",
+    "frame_000067.npz": "cd70e9732bc2015de11e0a52388ad247f8d0ec9a5e8192f6427e79ec0b0318f0",
+    "frame_000068.npz": "fa43ce365e97ec1c2528535e1f6a6a444687d0e2d5a668e92680267afeee7bf0",
+    "frame_000069.npz": "1921f29849a1a57ab13ae77809eca8c758a0b4f49102893d17e486f0fa6936b6",
+    "frame_000070.npz": "a79b1a7ed34700b3e7f1917aa08b1cca5502ba5eb0c479311761e61a5b35bd29",
+    "frame_000071.npz": "a257b03ae1e58aae376e52b868c84ddbf7952241408f91a9bf669fa1ab067efb",
+    "frame_000072.npz": "f569fbf9df928397ffc6887608b5217cbfacda89d73c8f864b926a830ff7a15c",
+    "frame_000073.npz": "ce377381ff048cead384fb136e1295aa068a1f4d77c2da6a3a8b4d33bcaf90af",
+    "frame_000074.npz": "e6286090cce092733c29d4bba9fa86f87998875cebce30224815085dab45bcf4",
+    "frame_000075.npz": "efa82bd83cc67cd3273cc4e06bd6138344906168260a3bb49c8d9ff343434517",
+    "frame_000076.npz": "703a4fbee639cec9dcaa93011700a5206e8f5bd47067fc31595af6de92932577",
+    "frame_000077.npz": "9bb78d838ed594defd8b7539e910d8b13a61e5c20af1326987246ef4130f2060",
+    "frame_000078.npz": "80235ff898cf63369cf25e29d7f3e4230d95397b2282d00024f00ee0bee4753c",
+    "frame_000079.npz": "2e9d9da00b2ad709af6763f8940cfc75fdfb3eee86b2a1d0dc8e1fad0cffda5b",
+    "frame_000080.npz": "209822230280505e24b63de89f5478e05f3967355f1a9c8be15e9b182fc8396e",
+    "frame_000081.npz": "eb73746fe3a2ece1a84326ba6914ff267f111127bd1246eab23fcceea775e6e7",
+    "frame_000082.npz": "8aa1ceb18358e47b86c9acd00e75d8ea209a52b96cff0d586db592138af79b57",
+    "frame_000083.npz": "e377e5104bbce0bb741ef81d05d3a678dc7e10e61376a99d14a186ae853bf721",
+    "frame_000084.npz": "103ac98f6a31bb87188496746375d6ca9715ceab7df63e8bd7968681ecfa7dde",
+    "frame_000085.npz": "a26844b1c12855eb4c87d52c5c5540418ae7860adbd838138624bffe4882cb7e",
+    "frame_000086.npz": "3875389d8838439a5398c379c5f827f5d70af7a221dc4543cfbdaa88fb310d3a",
+    "frame_000087.npz": "049bddd16b1f5863fd6e5d881f9821b7f2641fc6aa3d0a8790220a1e605f6b94",
+    "frame_000088.npz": "b8956ce5096b2ce2b6176ccd50b598d9c55f64ee8b66625ffa19cb35ce2cd75e",
+    "frame_000089.npz": "130ed8575abb1a1bb8ebd2afb59f38d30bb6928c0a9f305452990bbe248b676c",
+    "frame_000090.npz": "d9485a562b9fb24d03431b698650c163c2fcfe401468dc4028ae9cf252fac0e1",
+    "frame_000091.npz": "bbf8b3e043fad762347ee422ede8e6f7b1b905fd0bff97a59df955755d1dc734",
+    "frame_000092.npz": "fe4b4d285489b71ad06bfd41ce3aa35f48fa4cebc2b1b27ec4bb5e8cb0d687bb",
+    "frame_000093.npz": "3ae6f78c67d89f78cfb183ef549495dd31b00d54732363712dbf88f28ce2a1d8",
+    "frame_000094.npz": "81a58f21bc97dbc710728c62c8ff4f94b2c3f0077414aa3723102b0bd028f965",
+    "frame_000095.npz": "3bb0214664bd850a584e1e0754f0ac3d763b38993790f2137de3e025971e36da",
+    "frame_000096.npz": "0e6bf245fc7384c74ad5227706e6fdc586bdb91d82647c75e77b7182e50498e5",
+    "frame_000097.npz": "9852e4fc1f3463a1b2c95e068d89468d8b2e79dd2002fd2550abe09b80dc627e",
+    "frame_000098.npz": "4ad9783857f890bb1238dfed5b183cb323d5bec6c99cc980f9b67851990afd08",
+    "frame_000099.npz": "25954c68423916a78ef0996eb85f338e0f838eb633ff1525ae28bd6c8843e095",
+    "frame_000100.npz": "aa265820eab15ff79f759f681fc7b5dce8ae983f895c4f26ffcb2aeb48d0382b",
+    "frame_000101.npz": "8ae396d49488014b237c2dabd2db5fa48949beec6ee4a9dac7360063bb5efe81",
+    "frame_000102.npz": "0987ff290d00694d5097419d066314895d01683168282f83248e8787f4079a60",
+    "frame_000103.npz": "fef406cb87fb2a186c89ff0a3cddaaa1997db91325eaba642a1bda38997312a6",
+    "frame_000104.npz": "8779bbd1015656c0c3c6eaa5a283c873ea8cf3b6b750f3a09640d61f7f90505d",
+    "frame_000105.npz": "fe12ba9cf06141fa199e5f39c24ad6daa9e4d2af910b7f4c20909a1a3bdb0b8c",
+    "frame_000106.npz": "99ee473d12799fac3e3e7d927ecca603e2fe2e15b63c6555352a003b48ceed5e",
+    "frame_000107.npz": "3ed8d12e10d09bb888d7fd9fe82f6b81694b4ee36d8fd3eb4ff61a1a2956de47",
+    "frame_000108.npz": "b1f1ab3f8fd68a9f284404f2b56abc891348e7a86e806e853d9fa9e35f34427d",
+    "frame_000109.npz": "fe984f7560cbb843fb348d470668d65a2bd5eaa1af25d8d99a81f5456acad52f",
+    "frame_000110.npz": "155507a9963a3f13cabcb264ffcc022b55895516776d43bb65ff26af5bb8b05d",
+    "frame_000111.npz": "aa5657ad7c9201d8a05d54defd5834aa8790ccc0eb3fe433af2682e2053037e8",
+    "frame_000112.npz": "1cb0932d528961d17c55458ac324bf85e62519a58388aa87ffc095b71a7fcf9f",
+    "frame_000113.npz": "d4ff538f1b6ad9efbbe3213860f499156643df313b2f31f8fbe1cb1e0d87132f",
+    "frame_000114.npz": "c6590983de6529830a3de30ac0fcbbfe6a9bfe17793291d1830f5ac6871b0630",
+    "frame_000115.npz": "7721a0261af804e34a08a8ea250d79c4d384af2c143455da05e8462ea18d50f0",
+    "frame_000116.npz": "97ead6dcb88e72b038b039254851d3c1e9825d3380fe83738089c51e43a21552",
+    "frame_000117.npz": "ec798d90597e6528f5339796a15555376c20f7fb5c41c45eee1363cb30410896",
+    "frame_000118.npz": "c43cf947a1c95187e60cac8136220684c38e52f2b67fcb296755e251ac75d0e5",
+    "frame_000119.npz": "c13256915e9ffedc365a6f8d4caa8bf4006b3f2be8410fe6a0fad5accc4aba50"
+  },
+  "summary_sha256": "9fa51d98e4b440a45af8eb36742988fa26909362783c3a8c313e1e4732d14a15",
+  "frozen_unchanged": true,
+  "rtol": 1e-05,
+  "atol": 1e-05,
+  "saved_vs_replay": {
+    "saved.action[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.action[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.road.heat": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.road.off": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.road.wh": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.wide.heat": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.wide.off": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.wide.wh": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.policy_raw[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.policy_raw[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.cones_cls": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.cones_score": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.cones_xy": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.applied": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.integral_after": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.integral_before": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.mission_override": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.proposed": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.raw": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.speed_error": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.tangent_accel": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.target_speed": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.plan": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.plan_std": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    }
+  },
+  "hook_enabled_vs_disabled": {
+    "hook.action[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.action[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.cones_cls": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.cones_score": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.cones_xy": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.applied": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.integral_after": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.integral_before": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.mission_override": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.proposed": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.raw": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.speed_error": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.tangent_accel": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.target_speed": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.plan": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.plan_std": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    }
+  },
+  "black_image_diagnostic": {
+    "description": "Open-loop black RGB input, not a driving score",
+    "plan_changed_above_tolerance": true,
+    "differences": {
+      "black.action[0]": {
+        "max_abs": 0.24307992515777485,
+        "mismatches": 120
+      },
+      "black.action[1]": {
+        "max_abs": 4.525083858966827,
+        "mismatches": 120
+      },
+      "black.prediction.cones_cls": {
+        "max_abs": 0.0,
+        "mismatches": 120
+      },
+      "black.prediction.cones_score": {
+        "max_abs": 0.0,
+        "mismatches": 120
+      },
+      "black.prediction.cones_xy": {
+        "max_abs": 0.0,
+        "mismatches": 120
+      },
+      "black.prediction.controller.applied": {
+        "max_abs": 4.525083858966827,
+        "mismatches": 120
+      },
+      "black.prediction.controller.integral_after": {
+        "max_abs": 2.3521668826707725,
+        "mismatches": 107
+      },
+      "black.prediction.controller.integral_before": {
+        "max_abs": 2.3521668826707725,
+        "mismatches": 106
+      },
+      "black.prediction.controller.mission_override": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "black.prediction.controller.proposed": {
+        "max_abs": 4.525083858966827,
+        "mismatches": 120
+      },
+      "black.prediction.controller.raw": {
+        "max_abs": 7.578785524368286,
+        "mismatches": 120
+      },
+      "black.prediction.controller.speed_error": {
+        "max_abs": 5.9233441734313965,
+        "mismatches": 120
+      },
+      "black.prediction.controller.tangent_accel": {
+        "max_abs": 2.7497038173675534,
+        "mismatches": 120
+      },
+      "black.prediction.controller.target_speed": {
+        "max_abs": 5.9233441734313965,
+        "mismatches": 120
+      },
+      "black.prediction.plan": {
+        "max_abs": 40.25085258483887,
+        "mismatches": 120
+      },
+      "black.prediction.plan_std": {
+        "max_abs": 27.971184253692627,
+        "mismatches": 120
+      }
+    }
+  },
+  "verification_limits": [
+    "Only the 120 saved pilot inputs are replayed; no physical simulation or scoring is rerun.",
+    "Black RGB is an input-sensitivity control, not evidence of robustness."
+  ]
+}

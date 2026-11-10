@@ -1,0 +1,10 @@
+{
+  "status": "all_three_children_closed_and_independently_verified",
+  "protocol_sha256": "d74fee71ccc15fab93f631133b3e116c8d7afa4d1a602b3ba9a6d8d024418c55",
+  "comparison_sha256": "f6114e7b7dd59d208e841c358105be96a5f3e4168f5d923ec4bc6cf9e1906aaf",
+  "resources": {
+    "output_filesystem": "/scratch/fsop/native_lateral_reference1",
+    "free_bytes": 51476230144,
+    "probe_bytes": 4377346
+  }
+}

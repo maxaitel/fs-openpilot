@@ -1,0 +1,17 @@
+/isaac-sim/kit/python/lib/python3.11/site-packages/torch/backends/__init__.py:46: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+  self.setter(val)
+/isaac-sim/kit/python/lib/python3.11/site-packages/torch/cuda/__init__.py:283: UserWarning: 
+    Found GPU0 NVIDIA GB10 which is of cuda capability 12.1.
+    Minimum and Maximum cuda capability supported by this version of PyTorch is
+    (8.0) - (12.0)
+    
+  warnings.warn(
+{"passed": true, "fit_batches": 4, "monitor_anchors": 16, "atol": 1e-07, "rtol": 1e-06, "compared": "all before arrays and fit objectives against both controls; component losses against v2"}
+{"batch": 0, "rate": 3e-05, "objective_before": -2.283734083175659, "objective_after": -2.20588755607605}
+{"batch": 0, "rate": 3e-06, "objective_before": -2.283734083175659, "objective_after": -2.2893788814544678}
+{"batch": 1, "rate": 3e-05, "objective_before": -2.122798442840576, "objective_after": -2.0468223094940186}
+{"batch": 1, "rate": 3e-06, "objective_before": -2.122798442840576, "objective_after": -2.125955581665039}
+{"batch": 2, "rate": 3e-05, "objective_before": -2.1930301189422607, "objective_after": -2.0979440212249756}
+{"batch": 2, "rate": 3e-06, "objective_before": -2.1930301189422607, "objective_after": -2.1968088150024414}
+{"batch": 3, "rate": 3e-05, "objective_before": -2.2529919147491455, "objective_after": -2.1782047748565674}
+{"batch": 3, "rate": 3e-06, "objective_before": -2.2529919147491455, "objective_after": -2.2581534385681152}
