@@ -51,3 +51,5 @@ The complete implementation suite passed 443 tests, with four skips and seven su
 | Track | Final head diagnostic | Finished | 57.05 | 2 | 1 |
 
 These are one run per model per exposed case. Lower candidate skidpad contacts accompany much earlier failure and do not establish improvement. Track contact counts are unchanged. [The failure analysis](head_failure_trace/README.md) and [trajectory plot](head_failure_trace/trajectory.png) show missed timing gates, physical contacts, and terminal states from the saved records.
+
+Implementation and evidence are published in [PR #8](https://github.com/maxaitel/fs-openpilot/pull/8), stacked on the native Isaac training work. No model is promoted.

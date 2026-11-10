@@ -6,7 +6,7 @@ The goal is to reduce the 25-contact skidpad failure, explain why training regre
 - [x] Phase B: Design the workflow.
 - [x] Phase C: Run the loop. Both bounded trials failed qualification.
 - [x] Phase D: Keep the audit trail.
-- [ ] Phase E: Verify and hand back.
+- [x] Phase E: Verify and hand back. PR #8 records the failed outcome; no checkpoint is promoted.
 
 ## Verification sequence
 
@@ -20,7 +20,7 @@ The goal is to reduce the 25-contact skidpad failure, explain why training regre
 - [x] Verify candidate camera inference and controller replay in a 120-frame native pilot.
 - [x] Run unchanged and retrained models on the same exposed heavy skidpad and cone track.
 - [x] Audit and export every paired run, including failures, with the existing debug compositor.
-- [ ] Produce training and hardware graphs, update the report, and open a reviewable stacked PR.
+- [x] Produce training and hardware graphs, update the report, and open [PR #8](https://github.com/maxaitel/fs-openpilot/pull/8).
 
 ## Throughput checkpoint
 
