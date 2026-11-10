@@ -1,0 +1,12 @@
+{
+  "copied_at": "2026-11-10T06:40:12.659983+00:00",
+  "report_generator_sha256": "62d29d641b733214d36f6a790cde942381f5b16bd9932943fefe48efc3e277d8",
+  "report_summary_sha256": "59bd7d5bd30a510aeaa4b279b02763864d8a3195eee614e195bd8570b3d4dd0c",
+  "files": {
+    "first_error.png": "60c61dbb815bfed0263099ae58c855bd45102c648ce5dde691c3d0e8dc227e50",
+    "training_loss.png": "0720698287871a34a84dc5a2017ba95bea0d8a4080067131f7ebe7db0c499863",
+    "validation.png": "9471e99fb16d8a00a8d1b9a4e44c216839c5001fbf13e6a8591d43b713294449",
+    "hardware.png": "d6df62e1e8c5801fd605efd992a37c6973e46a746f9f420e6a413b45bc7a41f6"
+  },
+  "status": "Rejected trial3. No checkpoint selected. Graph input hashes retained in source_report_summary.json."
+}

@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "episode": "/scratch/fsop/head_trial_work/runs/direct_recovery_v1/trackdrive",
+  "reasons": [],
+  "hashes": {
+    "meta_sha256": "eb74ed5dd8e574af86c54764ca07ea0080e5ba15fc4325f8c3f39bf5704e7f91",
+    "checkpoint_sha256": "9112e138d4856fbbdc383d8f63dfbaeb92fb62449c4b66b5eb6f30b91ef22ba7",
+    "collector_sha256": "7e1adfcb57c779e6c2267543fa95e4cd58b3bfa65d72ae70b3a143893a62a43d",
+    "verifier_sha256": "342afeaca98c0a04e44b49740f3b441c63bdc880b08361f2537d0f7051d1b7a7",
+    "protocol_sha256": "7373ec0907ceaf613b41a25b437b6b37adbc3552fad9213d10f5ea68e4b19441",
+    "membership_sha256": "ea96d75fd618d4cdf8f78dcb5876c08a66f29b0a959592ec6ee704d6e41d1206",
+    "source_archive_sha256": "94dd49fab2222fe1dc28d6eb45248331e4154bc7589c17201b9581426604c001",
+    "proposals_sha256": "fc0fa85d96fd431002f0c6ee895a66a5eab1381d9cf7549c53b40702d3e50d8c",
+    "track_sha256": "a32ebb6256ce54962706acb8f6e27454dee9325ba095e1eaa8a7afcb251ec0fe",
+    "derived_verifier_sha256": "5babb4a61c819f829b030f8c8a5321e6b672be1bb422d9a99d5f9ae9c3e3dc73",
+    "case_sha256": "1714ad4c06a7989a9a37ef2d28b7b2d3c7b1e7dc35b6e8a01f06a1b095119c32"
+  },
+  "derived_verification": {
+    "version": 2,
+    "producer_verifier_sha256": "342afeaca98c0a04e44b49740f3b441c63bdc880b08361f2537d0f7051d1b7a7",
+    "derived_verifier_sha256": "5babb4a61c819f829b030f8c8a5321e6b672be1bb422d9a99d5f9ae9c3e3dc73",
+    "change": "Compare JSON-serialized vehicle parameters after the same JSON serialization of reconstructed dataclasses; no numerical or physical gate changes."
+  },
+  "qualified_anchors_first_2s": [
+    164,
+    168,
+    172,
+    176,
+    180,
+    184,
+    188,
+    192,
+    196,
+    200
+  ],
+  "total_qualified_anchors": 205,
+  "takeover_tick": 164,
+  "settled_start_tick": 178,
+  "terminal_start_tick": 983,
+  "arrays_sha256": {
+    "head_wide_off.npy": "df0eb71889a273a61e91e51366e034e0a359d48894defa1d35de2e69631a6ea3",
+    "head_wide_wh.npy": "98c6f7592946561af3d16e132e572a0dc6e12997c8fa289d88d780456b079e4e",
+    "head_wide_heat.npy": "ab3b12485891d23209a1b9a43eb90cf99ab44622dc8ea3be00163f2de4df274f",
+    "head_road_off.npy": "9d055df2b0f96e9d134709c56dc6e6d3e77f93148a9fea50de65dcc52510dddb",
+    "head_road_wh.npy": "d37c2a75d370be40f9c68930c3100432def5d65ade1a78009c395f7630d81b60",
+    "head_road_heat.npy": "40688a2d060d3007772296218781e70b7788448ec733362d69ec16340220457c",
+    "cones.npy": "8f49ae641c7f1db0c216389a1c9170d255f5aab4ec061e9b34d11ca1810c1a1e",
+    "contacts.npy": "974e4e17a60730928f04785a6760b02b1af5ac195f73ae7edc91b4b1b7491e4c",
+    "desires.npy": "1a3e76700de3bf1241d75c33e0a5b0eff52d6d7aa682daa133484fbef26e18b5",
+    "teacher.npy": "516b110f1ca6a70e065357d546833495a8214c2f8d13847fe2381cd9232b5713",
+    "controls.npy": "ee9e2ae29340ce9c6cd9579d9ffbbac502496ad821a04f626a59de99238778fb",
+    "states.npy": "0cd93fc7f85d03a2bc30acda660f1e20946250cac8ddedead51f0139d71c9526",
+    "ticks.npy": "049062d656d386bad2862e4ea6fb8b6ac12d7a1f464e1087c2dc7af05767d0b9",
+    "prefix_wide_rgb.npy": "a5bb1f10d6a2032d085a20249f9554f2e665067be7b9413d77d2cc2f28790543",
+    "prefix_road_rgb.npy": "edbc7c90e088b78fc8d9cd5343a098a4ddcf17775781ccf4ee9d5c671a1bea4e",
+    "wide.npy": "834402b936304cb3662c516724ad0249878e665296671569ebe7afbb3d471ad9",
+    "road.npy": "180d4711dbd549f0122427729c14e4c76e2399f56a114a9e950bb70b51a27359"
+  }
+}

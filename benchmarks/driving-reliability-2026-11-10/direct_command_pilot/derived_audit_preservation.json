@@ -1,0 +1,6 @@
+{
+  "preserved_failed_audit": "lab_artifact_audit_failed_proprio_float64.json",
+  "sha256": "7248719aebd9e382de1b7bee8612a6cb8920929d54a9ab57060d633b513ce4ce",
+  "sealed_evidence_changed": false,
+  "reason": "Derived auditor matches the existing float32 head-input conversion; all numeric tolerances and physical gates unchanged."
+}

@@ -1,0 +1,14 @@
+{
+  "frozen_at": "2026-11-10T06:40:41.623773+00:00",
+  "sources": {
+    "trial.py": "49ac0dd10ec2cd18a750098553afe2ac2d024f5fe91f81963decf24b54298807",
+    "recipe.json": "db7a79b745ba187a5373e05cd7cf5412663bd087e13cf7fe1e774b85e78a540a",
+    "test_trial.py": "2bdcba886fd0b272c424c71f79be505912ac2421a6d2a7bf176a97a7ba2af3e1",
+    "protocol.md": "8d87ac18f492851ff051ab8904af59fc40d3cdd7516ce19c8a3a337589c87092"
+  },
+  "numeric_gates": "Original trial3 unchanged",
+  "base": "fresh seed0 head; original full model frozen",
+  "data": "Requires both independently passed recovery receipts; unavailable at this freeze",
+  "review": "Independent read-only source review;3CPU tests passed; actual data and CUDA not yet verified",
+  "final_suite_opened": false
+}

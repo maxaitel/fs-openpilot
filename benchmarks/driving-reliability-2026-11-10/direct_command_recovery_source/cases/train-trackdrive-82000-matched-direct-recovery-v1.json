@@ -1,0 +1,12 @@
+{
+  "id": "train-trackdrive-82000-matched-direct-recovery-v1",
+  "split": "train",
+  "discipline": "trackdrive",
+  "seed": 82000,
+  "dr": "light",
+  "variant": "matched",
+  "track_seed": 81000,
+  "frozen_case": null,
+  "lateral_start": 0.0,
+  "yaw_start": 0.0
+}

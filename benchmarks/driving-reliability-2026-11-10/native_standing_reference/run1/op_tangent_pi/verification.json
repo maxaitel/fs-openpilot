@@ -1,0 +1,27 @@
+{
+  "arm": "op_tangent_pi",
+  "independent_prefix_errors": {
+    "position_m": 0.0,
+    "yaw_rad": 0.0,
+    "velocity_mps": 0.0,
+    "yaw_rate_radps": 0.0,
+    "actuator_steer_rad": 0.0,
+    "actuator_accel_mps2": 0.0,
+    "time_s": 0.0
+  },
+  "full_source_repeat_errors": {
+    "position_m": 0.5599700587807855,
+    "yaw_rad": 0.02121560588180875,
+    "velocity_mps": 1.2176755935042987,
+    "yaw_rate_radps": 0.11975526534741476,
+    "actuator_steer_rad": 0.14741287176052176,
+    "actuator_accel_mps2": 3.279949869445181,
+    "time_s": 0.0
+  },
+  "source_contacts_match": false,
+  "recorded_full_window": false,
+  "lateral_gate_passed": false,
+  "full_mission_gate_passed": false,
+  "mission_done_tick": 922,
+  "native_control_ticks": 922
+}

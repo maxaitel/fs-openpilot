@@ -1,0 +1,10 @@
+{
+  "status": "all_three_children_closed_and_independently_verified",
+  "protocol_sha256": "994ad7ed267a0a89866730d1b3594ff2cd6c3a7469f3e28d8a3f2263d22e7f07",
+  "comparison_sha256": "eeff4196c095bfc04a6a15a9b17be3841481e4fd000aa7b6c1a706d2ec0a1e8b",
+  "resources": {
+    "output_filesystem": "/scratch/fsop/native_transition_correction",
+    "free_bytes": 40738963456,
+    "probe_bytes": 6377873
+  }
+}

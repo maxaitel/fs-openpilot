@@ -1,0 +1,10 @@
+{
+  "status": "standing_child_closed_and_independently_verified",
+  "protocol_sha256": "7990080bad25ebd99ef4c0b6067acc2946a7fec3b75ce6c02748e8bf9bb47b5f",
+  "comparison_sha256": "24a6cc46aaef63280425919e25d5631661acb4ba0952f0934ae5f241ff4ddf67",
+  "resources": {
+    "output_filesystem": "/scratch/fsop/native_standing_reference",
+    "free_bytes": 40731242496,
+    "probe_bytes": 3041521
+  }
+}

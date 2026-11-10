@@ -1,0 +1,8 @@
+{
+  "reason": "Original recovery receipts require the canonical /work/docs recipe path, not the byte-identical isolated-workspace copy. No training ran.",
+  "new_recipe_sha256": "0b25d60d2b6a2f77c743eb997cb61a6817b53c05982970cbc29b01cc2199f893",
+  "old_recipe_sha256": "b08e9895ab3e0bd2ba2bfaa98df20050c2c2b5e3d62b5b1304f1e02fb60d57ca",
+  "unchanged_script_sha256": "b76227ec320d58a962ed82d1e41fdd23489dffb185a56cac25f6a99d0afe9c4a",
+  "new_output": "runs/direct_command_trial2",
+  "numeric_recipe_unchanged": true
+}

@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "absolute_tolerance": 1e-10,
+  "arms": {
+    "native_transition_correction/op_lateral_pi": {
+      "follower_controls": 668,
+      "max_abs_residuals": {
+        "plan": 3.8746783559417963e-14,
+        "steering": 2.9976021664879227e-15,
+        "acceleration": 1.596056620201125e-12,
+        "PI_diagnostics": 1.596056620201125e-12
+      },
+      "trace_sha256": "f99f3c3c157979a1d6d2270174602abce884b1690469032f5886028fde137c7c"
+    },
+    "native_transition_correction/op_recorded_long": {
+      "follower_controls": 672,
+      "max_abs_residuals": {
+        "plan": 3.907985046680551e-14,
+        "steering": 3.0531133177191805e-15,
+        "acceleration": 0.0,
+        "PI_diagnostics": 2.1938006966593093e-12
+      },
+      "trace_sha256": "a5640f84822d122546fe651fcd3a03d8c6a1258de419b403b5e33692989a87da"
+    },
+    "native_transition_correction/op_lateral_recorded_long": {
+      "follower_controls": 672,
+      "max_abs_residuals": {
+        "plan": 3.932965064734617e-14,
+        "steering": 2.1649348980190553e-15,
+        "acceleration": 0.0,
+        "PI_diagnostics": 1.5170087408478139e-12
+      },
+      "trace_sha256": "c8cb2e4395c79bd00b82d460b6e323d5406e884ecd6a09df1ae94f478dfe520e"
+    },
+    "native_standing_reference/op_tangent_pi": {
+      "follower_controls": 922,
+      "max_abs_residuals": {
+        "plan": 3.8996583739958623e-14,
+        "steering": 3.0808688933348094e-15,
+        "acceleration": 1.9397816686250735e-12,
+        "PI_diagnostics": 1.9397816686250735e-12
+      },
+      "trace_sha256": "f8d2d55d5cd479561de61477b72ac7332782a3bf71434936b9cf04817a6ddeb7"
+    }
+  },
+  "audit_script_sha256": "574be8d10f2312a1a8815e2e6db7d85c1cab5a0b4cd8dea8555ebce00d5fab38",
+  "scope": "Independent world-coordinate plan and sequential PI, mission and action reconstruction. This verifies execution, not vision performance."
+}

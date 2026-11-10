@@ -1,0 +1,249 @@
+{
+  "arm": "op_lateral_recorded_long",
+  "worker_exception": null,
+  "prefix_gate": {
+    "passed": true,
+    "errors": {
+      "position_m": 0.0,
+      "yaw_rad": 0.0,
+      "velocity_mps": 0.0,
+      "yaw_rate_radps": 0.0,
+      "actuator_steer_rad": 0.0,
+      "actuator_accel_mps2": 0.0,
+      "time_s": 0.0
+    },
+    "tick": 255
+  },
+  "mission_summary": {
+    "discipline": "skidpad",
+    "result": "finished",
+    "laps": [
+      9.670128149180774,
+      9.758425070959174,
+      9.720145757157738,
+      9.744317486797684
+    ],
+    "n_laps": 4,
+    "doo": 0,
+    "oc": 0,
+    "max_speed": 7.95844654999434,
+    "route": {
+      "expected_route": [
+        "right",
+        "right",
+        "left",
+        "left"
+      ],
+      "accepted_route": [
+        "right",
+        "right",
+        "left",
+        "left"
+      ],
+      "laps": [
+        {
+          "circle": "right",
+          "start_time": 3.030967790823729,
+          "finish_time": 12.701095940004503,
+          "duration": 9.670128149180774,
+          "winding_right": -6.283185307179586,
+          "winding_left": 4.889751797909625e-17
+        },
+        {
+          "circle": "right",
+          "start_time": 12.701095940004503,
+          "finish_time": 22.459521010963677,
+          "duration": 9.758425070959174,
+          "winding_right": -6.283185307179591,
+          "winding_left": -6.938893903907228e-17
+        },
+        {
+          "circle": "left",
+          "start_time": 22.459521010963677,
+          "finish_time": 32.179666768121415,
+          "duration": 9.720145757157738,
+          "winding_right": -4.5102810375396984e-17,
+          "winding_left": 6.283185307179592
+        },
+        {
+          "circle": "left",
+          "start_time": 32.179666768121415,
+          "finish_time": 41.9239842549191,
+          "duration": 9.744317486797684,
+          "winding_right": -7.632783294297951e-17,
+          "winding_left": 6.2831853071795845
+        }
+      ],
+      "crossings": [
+        3.030967790823729,
+        12.701095940004503,
+        22.459521010963677,
+        32.179666768121415,
+        41.9239842549191
+      ],
+      "complete": true,
+      "exited": true,
+      "stopped_in_zone": true,
+      "valid": true,
+      "violation": null,
+      "reverse_crossings": 0,
+      "termination": "finished"
+    },
+    "raw_time": 9.751371278878429,
+    "penalty": 0.0,
+    "time": 9.751371278878429,
+    "dq": false,
+    "complete": true,
+    "pass": true,
+    "final_state": {
+      "x": 23.197837829589844,
+      "y": -0.0005265012150630355,
+      "yaw": 0.006193778528748544,
+      "vx": 2.4686219211297732e-06,
+      "vy": -7.66628387062728e-07,
+      "r": 2.878238272718825e-11,
+      "steer": -0.025320836733789986,
+      "accel": -1.999000006245703,
+      "t": 46.35,
+      "extra": {}
+    },
+    "physical_cone_hits": 0,
+    "contact_events": [],
+    "progress": 1.002106377114893,
+    "rms_lat": 0.2005024579355929
+  },
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130",
+    "numpy": "1.26.0",
+    "physics_dt": 0.008333333333333333,
+    "device": "cpu",
+    "use_fabric": true,
+    "scene_queries": true,
+    "physx": {
+      "solver_type": 1,
+      "min_position_iteration_count": 1,
+      "max_position_iteration_count": 255,
+      "min_velocity_iteration_count": 0,
+      "max_velocity_iteration_count": 255,
+      "enable_ccd": false,
+      "enable_stabilization": false,
+      "enable_enhanced_determinism": false,
+      "bounce_threshold_velocity": 0.5,
+      "friction_offset_threshold": 0.04,
+      "friction_correlation_distance": 0.025,
+      "gpu_max_rigid_contact_count": 8388608,
+      "gpu_max_rigid_patch_count": 163840,
+      "gpu_found_lost_pairs_capacity": 2097152,
+      "gpu_found_lost_aggregate_pairs_capacity": 33554432,
+      "gpu_total_aggregate_pairs_capacity": 2097152,
+      "gpu_collision_stack_size": 67108864,
+      "gpu_heap_capacity": 67108864,
+      "gpu_temp_buffer_capacity": 16777216,
+      "gpu_max_num_partitions": 8,
+      "gpu_max_soft_body_contacts": 1048576,
+      "gpu_max_particle_contacts": 1048576,
+      "solve_articulation_contact_last": false
+    }
+  },
+  "mission_done_tick": 927,
+  "final_summary": {
+    "discipline": "skidpad",
+    "result": "finished",
+    "laps": [
+      9.670128149180774,
+      9.758425070959174,
+      9.720145757157738,
+      9.744317486797684
+    ],
+    "n_laps": 4,
+    "doo": 0,
+    "oc": 0,
+    "max_speed": 7.95844654999434,
+    "route": {
+      "expected_route": [
+        "right",
+        "right",
+        "left",
+        "left"
+      ],
+      "accepted_route": [
+        "right",
+        "right",
+        "left",
+        "left"
+      ],
+      "laps": [
+        {
+          "circle": "right",
+          "start_time": 3.030967790823729,
+          "finish_time": 12.701095940004503,
+          "duration": 9.670128149180774,
+          "winding_right": -6.283185307179586,
+          "winding_left": 4.889751797909625e-17
+        },
+        {
+          "circle": "right",
+          "start_time": 12.701095940004503,
+          "finish_time": 22.459521010963677,
+          "duration": 9.758425070959174,
+          "winding_right": -6.283185307179591,
+          "winding_left": -6.938893903907228e-17
+        },
+        {
+          "circle": "left",
+          "start_time": 22.459521010963677,
+          "finish_time": 32.179666768121415,
+          "duration": 9.720145757157738,
+          "winding_right": -4.5102810375396984e-17,
+          "winding_left": 6.283185307179592
+        },
+        {
+          "circle": "left",
+          "start_time": 32.179666768121415,
+          "finish_time": 41.9239842549191,
+          "duration": 9.744317486797684,
+          "winding_right": -7.632783294297951e-17,
+          "winding_left": 6.2831853071795845
+        }
+      ],
+      "crossings": [
+        3.030967790823729,
+        12.701095940004503,
+        22.459521010963677,
+        32.179666768121415,
+        41.9239842549191
+      ],
+      "complete": true,
+      "exited": true,
+      "stopped_in_zone": true,
+      "valid": true,
+      "violation": null,
+      "reverse_crossings": 0,
+      "termination": "finished"
+    },
+    "raw_time": 9.751371278878429,
+    "penalty": 0.0,
+    "time": 9.751371278878429,
+    "dq": false,
+    "complete": true,
+    "pass": true,
+    "final_state": {
+      "x": 23.197837829589844,
+      "y": -0.0005265012150630355,
+      "yaw": 0.006193778528748544,
+      "vx": 2.4686219211297732e-06,
+      "vy": -7.66628387062728e-07,
+      "r": 2.878238272718825e-11,
+      "steer": -0.025320836733789986,
+      "accel": -1.999000006245703,
+      "t": 46.35,
+      "extra": {}
+    },
+    "physical_cone_hits": 0,
+    "contact_events": [],
+    "progress": 1.002106377114893,
+    "rms_lat": 0.2005024579355929
+  },
+  "trace_sha256": "c8cb2e4395c79bd00b82d460b6e323d5406e884ecd6a09df1ae94f478dfe520e"
+}

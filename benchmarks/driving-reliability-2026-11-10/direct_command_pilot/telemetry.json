@@ -1,0 +1,281 @@
+[
+  {
+    "wall_s": 0.00021711899898946285,
+    "gpu_pct": 33,
+    "power_w": 19.784,
+    "temp_c": 53,
+    "host_ram_gib": 11.308475494384766,
+    "process_rss_gib": 5.031009674072266,
+    "cpu_pct": 0.0
+  },
+  {
+    "wall_s": 1.012647561961785,
+    "gpu_pct": 0,
+    "power_w": 17.527,
+    "temp_c": 52,
+    "host_ram_gib": 11.644100189208984,
+    "process_rss_gib": 5.457942962646484,
+    "cpu_pct": 17.6
+  },
+  {
+    "wall_s": 2.013433855958283,
+    "gpu_pct": 32,
+    "power_w": 25.487,
+    "temp_c": 53,
+    "host_ram_gib": 11.638431549072266,
+    "process_rss_gib": 5.459178924560547,
+    "cpu_pct": 22.5
+  },
+  {
+    "wall_s": 3.0142195859225467,
+    "gpu_pct": 36,
+    "power_w": 25.413,
+    "temp_c": 53,
+    "host_ram_gib": 11.62713623046875,
+    "process_rss_gib": 5.459598541259766,
+    "cpu_pct": 22.1
+  },
+  {
+    "wall_s": 4.01557666901499,
+    "gpu_pct": 40,
+    "power_w": 25.575,
+    "temp_c": 53,
+    "host_ram_gib": 11.628547668457031,
+    "process_rss_gib": 5.459751129150391,
+    "cpu_pct": 22.5
+  },
+  {
+    "wall_s": 5.016256504924968,
+    "gpu_pct": 32,
+    "power_w": 25.525,
+    "temp_c": 54,
+    "host_ram_gib": 11.620235443115234,
+    "process_rss_gib": 5.459888458251953,
+    "cpu_pct": 22.0
+  },
+  {
+    "wall_s": 6.017048431909643,
+    "gpu_pct": 23,
+    "power_w": 25.747,
+    "temp_c": 53,
+    "host_ram_gib": 11.612258911132812,
+    "process_rss_gib": 5.460182189941406,
+    "cpu_pct": 22.0
+  },
+  {
+    "wall_s": 7.017618243931793,
+    "gpu_pct": 27,
+    "power_w": 25.881,
+    "temp_c": 54,
+    "host_ram_gib": 11.599430084228516,
+    "process_rss_gib": 5.460231781005859,
+    "cpu_pct": 22.1
+  },
+  {
+    "wall_s": 8.018559650983661,
+    "gpu_pct": 23,
+    "power_w": 25.663,
+    "temp_c": 52,
+    "host_ram_gib": 11.58258056640625,
+    "process_rss_gib": 5.460208892822266,
+    "cpu_pct": 21.5
+  },
+  {
+    "wall_s": 9.01926403096877,
+    "gpu_pct": 21,
+    "power_w": 25.965,
+    "temp_c": 52,
+    "host_ram_gib": 11.566024780273438,
+    "process_rss_gib": 5.460304260253906,
+    "cpu_pct": 22.5
+  },
+  {
+    "wall_s": 10.020070998929441,
+    "gpu_pct": 25,
+    "power_w": 26.146,
+    "temp_c": 53,
+    "host_ram_gib": 11.549335479736328,
+    "process_rss_gib": 5.460330963134766,
+    "cpu_pct": 22.3
+  },
+  {
+    "wall_s": 11.020973130012862,
+    "gpu_pct": 41,
+    "power_w": 25.97,
+    "temp_c": 53,
+    "host_ram_gib": 11.530742645263672,
+    "process_rss_gib": 5.460338592529297,
+    "cpu_pct": 21.9
+  },
+  {
+    "wall_s": 12.021863578003831,
+    "gpu_pct": 40,
+    "power_w": 25.793,
+    "temp_c": 53,
+    "host_ram_gib": 11.509628295898438,
+    "process_rss_gib": 5.460357666015625,
+    "cpu_pct": 20.7
+  },
+  {
+    "wall_s": 13.022315191919915,
+    "gpu_pct": 76,
+    "power_w": 26.207,
+    "temp_c": 54,
+    "host_ram_gib": 11.492427825927734,
+    "process_rss_gib": 5.460399627685547,
+    "cpu_pct": 21.6
+  },
+  {
+    "wall_s": 14.02288118598517,
+    "gpu_pct": 76,
+    "power_w": 26.006,
+    "temp_c": 54,
+    "host_ram_gib": 11.46484375,
+    "process_rss_gib": 5.460544586181641,
+    "cpu_pct": 21.9
+  },
+  {
+    "wall_s": 15.023408614913933,
+    "gpu_pct": 66,
+    "power_w": 26.143,
+    "temp_c": 55,
+    "host_ram_gib": 11.45053482055664,
+    "process_rss_gib": 5.4605560302734375,
+    "cpu_pct": 22.2
+  },
+  {
+    "wall_s": 16.02404436096549,
+    "gpu_pct": 87,
+    "power_w": 26.589,
+    "temp_c": 56,
+    "host_ram_gib": 11.437789916992188,
+    "process_rss_gib": 5.460567474365234,
+    "cpu_pct": 22.0
+  },
+  {
+    "wall_s": 17.02481941296719,
+    "gpu_pct": 83,
+    "power_w": 26.21,
+    "temp_c": 56,
+    "host_ram_gib": 11.428146362304688,
+    "process_rss_gib": 5.460140228271484,
+    "cpu_pct": 20.9
+  },
+  {
+    "wall_s": 18.025961612001993,
+    "gpu_pct": 93,
+    "power_w": 26.516,
+    "temp_c": 56,
+    "host_ram_gib": 11.411518096923828,
+    "process_rss_gib": 5.4601593017578125,
+    "cpu_pct": 20.5
+  },
+  {
+    "wall_s": 19.02685407991521,
+    "gpu_pct": 92,
+    "power_w": 26.295,
+    "temp_c": 56,
+    "host_ram_gib": 11.401836395263672,
+    "process_rss_gib": 5.460369110107422,
+    "cpu_pct": 20.7
+  },
+  {
+    "wall_s": 20.028925098013133,
+    "gpu_pct": 88,
+    "power_w": 26.364,
+    "temp_c": 57,
+    "host_ram_gib": 11.388824462890625,
+    "process_rss_gib": 5.460380554199219,
+    "cpu_pct": 21.9
+  },
+  {
+    "wall_s": 21.02940827992279,
+    "gpu_pct": 89,
+    "power_w": 26.668,
+    "temp_c": 56,
+    "host_ram_gib": 11.381072998046875,
+    "process_rss_gib": 5.461128234863281,
+    "cpu_pct": 22.9
+  },
+  {
+    "wall_s": 22.029895170009695,
+    "gpu_pct": 86,
+    "power_w": 26.367,
+    "temp_c": 57,
+    "host_ram_gib": 11.37674331665039,
+    "process_rss_gib": 5.461265563964844,
+    "cpu_pct": 22.0
+  },
+  {
+    "wall_s": 23.03054283792153,
+    "gpu_pct": 87,
+    "power_w": 26.743,
+    "temp_c": 57,
+    "host_ram_gib": 11.369396209716797,
+    "process_rss_gib": 5.4612884521484375,
+    "cpu_pct": 21.0
+  },
+  {
+    "wall_s": 24.031075847917236,
+    "gpu_pct": 87,
+    "power_w": 26.513,
+    "temp_c": 56,
+    "host_ram_gib": 11.3651123046875,
+    "process_rss_gib": 5.461093902587891,
+    "cpu_pct": 19.1
+  },
+  {
+    "wall_s": 25.031654804944992,
+    "gpu_pct": 57,
+    "power_w": 26.053,
+    "temp_c": 56,
+    "host_ram_gib": 11.360542297363281,
+    "process_rss_gib": 5.461334228515625,
+    "cpu_pct": 22.1
+  },
+  {
+    "wall_s": 26.032346732914448,
+    "gpu_pct": 44,
+    "power_w": 26.653,
+    "temp_c": 57,
+    "host_ram_gib": 11.358169555664062,
+    "process_rss_gib": 5.4613494873046875,
+    "cpu_pct": 21.0
+  },
+  {
+    "wall_s": 27.033007328980602,
+    "gpu_pct": 28,
+    "power_w": 26.36,
+    "temp_c": 57,
+    "host_ram_gib": 11.361129760742188,
+    "process_rss_gib": 5.461158752441406,
+    "cpu_pct": 23.7
+  },
+  {
+    "wall_s": 28.033798911958,
+    "gpu_pct": 15,
+    "power_w": 26.47,
+    "temp_c": 55,
+    "host_ram_gib": 11.353507995605469,
+    "process_rss_gib": 5.461376190185547,
+    "cpu_pct": 21.5
+  },
+  {
+    "wall_s": 29.034576602978632,
+    "gpu_pct": 21,
+    "power_w": 26.32,
+    "temp_c": 55,
+    "host_ram_gib": 11.351749420166016,
+    "process_rss_gib": 5.461635589599609,
+    "cpu_pct": 21.6
+  },
+  {
+    "wall_s": 30.035134995006956,
+    "gpu_pct": 46,
+    "power_w": 26.633,
+    "temp_c": 55,
+    "host_ram_gib": 11.347965240478516,
+    "process_rss_gib": 5.461658477783203,
+    "cpu_pct": 21.6
+  }
+]

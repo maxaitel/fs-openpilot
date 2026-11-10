@@ -1,0 +1,33 @@
+{
+  "resolved_assets": 13,
+  "dependencies": [
+    "artifacts/panoramas/abandoned_tank_farm_03.jpg",
+    "isaac_eval/assets/asphalt_02/diffuse.jpg",
+    "isaac_eval/assets/asphalt_02/normal_gl.jpg",
+    "isaac_eval/assets/asphalt_02/roughness.jpg",
+    "isaac_eval/assets/asphalt_track/diffuse.jpg",
+    "isaac_eval/assets/asphalt_track/normal_gl.jpg",
+    "isaac_eval/assets/asphalt_track/roughness.jpg",
+    "isaac_eval/assets/concrete_floor_01/diffuse.jpg",
+    "isaac_eval/assets/concrete_floor_01/normal_gl.jpg",
+    "isaac_eval/assets/concrete_floor_01/roughness.jpg",
+    "isaac_eval/assets/gravel_floor_04/diffuse.jpg",
+    "isaac_eval/assets/gravel_floor_04/normal_gl.jpg",
+    "isaac_eval/assets/gravel_floor_04/roughness.jpg"
+  ],
+  "sha256": {
+    "artifacts/panoramas/abandoned_tank_farm_03.jpg": "09f3b43566d99d37adcd712dfb3fe9d6e8753da90e475d859445d62ac1c01f07",
+    "isaac_eval/assets/asphalt_02/diffuse.jpg": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c",
+    "isaac_eval/assets/asphalt_02/normal_gl.jpg": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21",
+    "isaac_eval/assets/asphalt_02/roughness.jpg": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c",
+    "isaac_eval/assets/asphalt_track/diffuse.jpg": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c",
+    "isaac_eval/assets/asphalt_track/normal_gl.jpg": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd",
+    "isaac_eval/assets/asphalt_track/roughness.jpg": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e",
+    "isaac_eval/assets/concrete_floor_01/diffuse.jpg": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017",
+    "isaac_eval/assets/concrete_floor_01/normal_gl.jpg": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01",
+    "isaac_eval/assets/concrete_floor_01/roughness.jpg": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774",
+    "isaac_eval/assets/gravel_floor_04/diffuse.jpg": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd",
+    "isaac_eval/assets/gravel_floor_04/normal_gl.jpg": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e",
+    "isaac_eval/assets/gravel_floor_04/roughness.jpg": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3"
+  }
+}

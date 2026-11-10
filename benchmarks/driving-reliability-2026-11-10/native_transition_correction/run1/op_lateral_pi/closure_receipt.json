@@ -1,0 +1,16 @@
+{
+  "arm": "op_lateral_pi",
+  "protocol_sha256": "994ad7ed267a0a89866730d1b3594ff2cd6c3a7469f3e28d8a3f2263d22e7f07",
+  "status": "closed_and_independently_verified",
+  "child_exited": true,
+  "child_returncode": 0,
+  "files_sha256": {
+    "result.json": "d71d51b355f64574b7f0c219b776c28222b084ba0f4a9fe2249d4192923057fd",
+    "verification.json": "852289869548556535f842458903a7bfca63e0e19a9a6b8a828d64fe5c019cd8",
+    "worker_result.json": "2aa21b0527e97d0302455e8f7af9803494088a27b0b93167d54aa6f0885a7d4e",
+    "route_events.json": "33812d6b0ecedff40c286ad50863b379ba86499a7546195207991442f1ec9a36",
+    "diagnostics.json": "9f0ea39e749596a025cfe46040b3f2b98e8a5deb325c18ea178510d17a080dca",
+    "trace.npz": "f99f3c3c157979a1d6d2270174602abce884b1690469032f5886028fde137c7c",
+    "process.log": "989519a423ca73f259e869171e2802ce987ca648b4fbb6f70f5254888e6ce1a4"
+  }
+}

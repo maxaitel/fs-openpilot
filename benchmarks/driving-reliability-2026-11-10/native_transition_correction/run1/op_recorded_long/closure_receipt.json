@@ -1,0 +1,16 @@
+{
+  "arm": "op_recorded_long",
+  "protocol_sha256": "994ad7ed267a0a89866730d1b3594ff2cd6c3a7469f3e28d8a3f2263d22e7f07",
+  "status": "closed_and_independently_verified",
+  "child_exited": true,
+  "child_returncode": 0,
+  "files_sha256": {
+    "result.json": "0c942903ae6fee8b90babf094a81dde149283d9b464bf7375b960a169d9393cf",
+    "verification.json": "ee742d8d5696c1f290a481e98f54bd9f743b5aaa991b1530964cf8d8c3802beb",
+    "worker_result.json": "a70bbee9a55c50b0c961772aa079b49f8b4e254d8d5f308daf25ff12026daf93",
+    "route_events.json": "25d3c8f171aae5d7f7b1cae24014ad03b589f9b7183b8d1240ee7b8aeaac4484",
+    "diagnostics.json": "8aac3af39c7bf43d37a0b21703408574515082fc30de0e465a7ab2c402f5302b",
+    "trace.npz": "a5640f84822d122546fe651fcd3a03d8c6a1258de419b403b5e33692989a87da",
+    "process.log": "606c04fcea2cda485b03dd3b894f1743d9cf87440cbc04675c6a7620979e723f"
+  }
+}

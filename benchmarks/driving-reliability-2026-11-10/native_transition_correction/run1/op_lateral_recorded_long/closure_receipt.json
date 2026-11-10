@@ -1,0 +1,16 @@
+{
+  "arm": "op_lateral_recorded_long",
+  "protocol_sha256": "994ad7ed267a0a89866730d1b3594ff2cd6c3a7469f3e28d8a3f2263d22e7f07",
+  "status": "closed_and_independently_verified",
+  "child_exited": true,
+  "child_returncode": 0,
+  "files_sha256": {
+    "result.json": "cf3d054a8690678c8b9e5b4218fb16249030130b42a4152346905fa538c0e9f0",
+    "verification.json": "e5d4193cda0049c2a8ce19ede67cbce5fb486880046c3d826deb7541b36d5123",
+    "worker_result.json": "2fd8179792d65440454a11bd121add8d43f1fb7002a41486bdbde6b019af6d7a",
+    "route_events.json": "25d3c8f171aae5d7f7b1cae24014ad03b589f9b7183b8d1240ee7b8aeaac4484",
+    "diagnostics.json": "e73d7e8f13dc3b955ff761779071914b89f85d12d59fab496155140c88f302c7",
+    "trace.npz": "c8cb2e4395c79bd00b82d460b6e323d5406e884ecd6a09df1ae94f478dfe520e",
+    "process.log": "e7f40a1e1a517ef50abf08abc350d0ec8ced99eda12cdc9d02ee5a3c889615ab"
+  }
+}
