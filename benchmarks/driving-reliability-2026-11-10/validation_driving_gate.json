@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-11-10T08:13:44.006295+00:00",
+  "purpose": "Additional closed-loop development gate before final acceptance; frozen before any joint conditioning or optimizer update. Final suite unchanged and unopened.",
+  "applies_to": "The single checkpoint selected by unchanged offline command validation, visual dependence, runtime and120frameCPU pilot gates; no checkpoint replacement after any driving failure.",
+  "prerequisites": "All six existing exposed heavy qualification runs still required. This gate adds evidence and cannot waive an existing predicate.",
+  "cases": [
+    {
+      "path": "docs/isaac-lab-training/cases/val-skidpad-84000-matched.json",
+      "sha256": "b66146aa76642448b19c232ab42688383de3102acc08c30ed6c7f295551ad43d",
+      "case": {
+        "id": "val-skidpad-84000-matched",
+        "split": "val",
+        "discipline": "skidpad",
+        "seed": 84000,
+        "dr": "light",
+        "variant": "matched",
+        "track_seed": null,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/val-skidpad-84001-visual_stress_v1.json",
+      "sha256": "b253e18119651d0ff0d58325c6af72712418fcb250323c6202e1a0214c48d051",
+      "case": {
+        "id": "val-skidpad-84001-visual_stress_v1",
+        "split": "val",
+        "discipline": "skidpad",
+        "seed": 84001,
+        "dr": "heavy",
+        "variant": "visual_stress_v1",
+        "track_seed": null,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/val-skidpad-84002-visual_stress_v1.json",
+      "sha256": "e3ac65ce11fbfa9d274f54b6ab3a4e31694768882928383bb0e52b9d95ba0471",
+      "case": {
+        "id": "val-skidpad-84002-visual_stress_v1",
+        "split": "val",
+        "discipline": "skidpad",
+        "seed": 84002,
+        "dr": "light",
+        "variant": "visual_stress_v1",
+        "track_seed": null,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/val-skidpad-84003-visual_stress_v1.json",
+      "sha256": "b0c69ec33b8c210272aba406e2e6520ef93286ef5a76878d4c23063fd4246320",
+      "case": {
+        "id": "val-skidpad-84003-visual_stress_v1",
+        "split": "val",
+        "discipline": "skidpad",
+        "seed": 84003,
+        "dr": "heavy",
+        "variant": "visual_stress_v1",
+        "track_seed": null,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/val-trackdrive-84000-matched.json",
+      "sha256": "f2618f11e3837aabd019121974ea54622356df15dc2b5dc80a1aa39bef052949",
+      "case": {
+        "id": "val-trackdrive-84000-matched",
+        "split": "val",
+        "discipline": "trackdrive",
+        "seed": 84000,
+        "dr": "light",
+        "variant": "matched",
+        "track_seed": 83000,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/val-trackdrive-84001-visual_stress_v1.json",
+      "sha256": "f7b836c5ceb37574e2cc3e4259636b60b2816a3e9ed4d83d84e8cbd731794cde",
+      "case": {
+        "id": "val-trackdrive-84001-visual_stress_v1",
+        "split": "val",
+        "discipline": "trackdrive",
+        "seed": 84001,
+        "dr": "heavy",
+        "variant": "visual_stress_v1",
+        "track_seed": 83001,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/val-trackdrive-84002-visual_stress_v1.json",
+      "sha256": "b918def7224767b5c5df5d401c1210d9a913d48006f7eb9b53d967fd98b2ca3a",
+      "case": {
+        "id": "val-trackdrive-84002-visual_stress_v1",
+        "split": "val",
+        "discipline": "trackdrive",
+        "seed": 84002,
+        "dr": "light",
+        "variant": "visual_stress_v1",
+        "track_seed": 83002,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/val-trackdrive-84003-visual_stress_v1.json",
+      "sha256": "6dba92b7bdde67a54733d37a91a308692aaaa49c7e6d73c6c57ce1337de43713",
+      "case": {
+        "id": "val-trackdrive-84003-visual_stress_v1",
+        "split": "val",
+        "discipline": "trackdrive",
+        "seed": 84003,
+        "dr": "heavy",
+        "variant": "visual_stress_v1",
+        "track_seed": 83003,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    }
+  ],
+  "repeats_per_case": 1,
+  "candidate_runs": 8,
+  "gate": {
+    "max_simulated_seconds": 120,
+    "result": "finished",
+    "pass": true,
+    "complete": true,
+    "physical_cone_hits": 0,
+    "off_course_events": 0,
+    "skidpad": "valid right,right,left,left; exit and stop",
+    "evidence": "complete all-frame CPU replay at original1e-5; independent physical/referee/controller audit; both producer-audited fully decoded video views"
+  },
+  "case_cache": "Bind any existing cache by hash. If missing, generate it before the first physical run of that case, then reload through the unchanged case factory so all repetitions use the same serialized canonical geometry. Never use a different local cache solely because its seed or ID matches.",
+  "failure_policy": "Any driving failure rejects this candidate. Preserve failed results and finish the predeclared first exposed pair. Missing or unaudited runs leave NOT VERIFIED. Never promote on fewer contacts or a shorter failed run.",
+  "interpretation": "These validation scenes have already supplied offline evaluation targets; they are exposed development, not held-out final tests. One run per scene and repeated heavy fixtures do not establish universal reliability.",
+  "final_suite": "acceptance_suite.json remains byte-for-byte unchanged; bind one qualifying checkpoint and source before opening any final case."
+}
