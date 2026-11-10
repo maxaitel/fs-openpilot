@@ -1,0 +1,27 @@
+# Bounded plan-head training decision
+
+The user goal is fewer inside-cone skidpad contacts and valid full finishes, with real paired numbers and the same debug videos. The next experiment changes the optimization scope and explicitly supervises the steering request. It does not establish a driving fix before evaluation.
+
+The [learning-rate experiment](pi_step_size_probe/report.md) removed the immediate fitting overshoot at smaller rates, but monitored steering still worsened. The [head-scope experiment](pi_head_scope_probe/report.md) preserved strict before-update parity and optimized only the final affine layer. At 3e-6, all four independent batch updates reduced fitting loss and worsened monitored steering. Every head-only update worsened steering less than its corresponding full-policy update. Shared-feature changes therefore contribute to the regression, but restricting the optimizer does not resolve it. These TRAIN monitors share episodes and can overlap temporal windows with fit data. They do not estimate independent generalization.
+
+The remaining premise is that native plan fitting adequately supervises the deployed steering request. [Plan NLL](../../src/fsop/train/losses.py) weights individual time-column errors by learned inverse scales. Steering instead combines yaw at 0.2 seconds and yaw rate at time zero. Its only direct mean-output dependencies are flattened rows 14, 71, and 86. The consistency loss has no direct dependence on those rows. With frozen shared features, a steering loss can directly supervise this coupled quantity. This is the reason for the bounded trial. It is not evidence that its coefficient or final checkpoint will work.
+
+There is no demonstrated unit or coordinate mismatch between the current native plan and desired-motion targets. In [batch_loss](../../src/fsop/train/lab_train.py), both steering predictions and detached targets pass through the same `tangent_motion_from_op_plan` function. An exact native plan has zero desired-motion action error. The loss conflict concerns how approximate plans are weighted, rather than incompatible perfect targets.
+
+Recorded teacher actuator commands have different semantics. The [earlier target correction](../../docs/isaac-lab-training/native_future_selection1.md) documents why forcing the physical plan to reproduce another controller's commands can create incompatible targets. This trial retains `desired_motion_v1` and `op_tangent_pi_v1`. It adds no teacher-command target.
+
+Longitudinal supervision stays zero. Its existing stateless target is `1.5 * speed_error + 0.5 * tangent_acceleration`, before integral feedback, mission overrides, and clipping. A target-speed error `d` can cancel a tangent-acceleration error `-3d` in that scalar. The [PI controller](../../src/fsop/eval/controller.py) still accumulates the target-speed error separately. Enabling this loss would introduce another objective change without directly resolving that distinction.
+
+The experiment is fixed before calibration and optimization.
+
+- Start from the unchanged latest c121 weights with PI and retain the full model.
+- Optimize only `base.policy.p_node_linear_20.weight` and its bias. These contain 254,430 parameters. Preserve the existing forward `requires_grad` flags and use backward inputs restricted to those two tensors. Verify all other 415 state tensors remain unchanged.
+- Use 500 updates at actual optimizer learning rate 3e-6, FP32, batch 128, 16 recovery draws, history context eight, and seed zero. Retain the current v7 dataset and mixed sampler. Keep vision and auxiliary heads frozen. Enable no feature cache, BF16, or channels-last path.
+- Set plan and consistency weights to 1, steering weight to 3.281158240898283, and longitudinal weight to 0. The steering coefficient is inherited from `native_future_selection1`, not fitted to the current monitors or validated as optimal for this scope.
+- Bind the new optimizer scope and recipe in schema 4. Copy every existing absolute aggregate and per-episode action, plan, and coherence ceiling unchanged. Retain the current desired-motion target and strict aggregate plan-L1 improvement over step zero. Select only scheduled steps 100 through 500, with the earliest step on a tie. Step-one validation remains diagnostic.
+
+There are no coefficient retries, checkpoint substitutions after driving results, or bound relaxations. A qualifying checkpoint earns the existing physical evaluation. If none qualifies, retain the rejection and use only the predeclared final checkpoint for exposed-case diagnosis. Fresh tests remain sealed. Compare completed missions, contacts, off-course events, and exposure under the same camera, scene, controller, and scoring contracts. Preserve the same debug and research videos.
+
+The [perfect-reference result](../../docs/isaac-lab-training/pi_correction1.md) remains a material limit. OP plus PI completed the recorded route but made one transition contact. Better imitation of its request cannot guarantee zero contacts. If this bounded trial fails, the next decision must address controller executability or target construction with direct physical evidence. Another broad learning-rate or loss-weight sweep does not resolve that limitation.
+
+Attack the Premise changed the next action from another scope sweep to direct steering supervision. Fix Root Causes kept physical plans separate from teacher actuator commands. Explain the Number kept TRAIN diagnostics separate from qualification and required the eventual paired driving evidence.

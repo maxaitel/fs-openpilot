@@ -22,7 +22,8 @@ def coherence(value=0.1):
     return {k: {stat: value for stat in s.STATS} for k in s.COHERENCE_METRICS}
 
 
-def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False, pi=False):
+def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False, pi=False, pi_head=False):
+    pi = pi or pi_head
     training, calibration = tmp_path / "training", tmp_path / "calibration"
     training.mkdir()
     calibration.mkdir()
@@ -121,12 +122,18 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False, pi=Fals
         args.update(controller_mode="op_tangent_pi_v1", action_target_mode=s.DESIRED_MOTION_TARGET,
                     w_steer=0.0, w_long=0.0, w_consistency=0.2,
                     recovery_provenance_mode="per_case_v2", collection_policy_checkpoint_sha=None)
+        if pi_head:
+            args.update(w_steer=3.281158240898283, w_consistency=1.0, lr=1e-5, optimizer_scope="final_plan")
         monkeypatch.setattr(s, "verify_per_case_sampling", lambda *args: None)
     manifest = "b" * 64
     episodes = [{"path": path} for path in paths]
     names = [f"base.policy.weight{i}" for i in range(50)]
+    if pi_head:
+        names[:2] = list(lab_train.FINAL_PLAN_SHAPES)
     monkeypatch.setattr(s, "policy_trainable_names", lambda checkpoint: names)
     model = {**{name: torch.tensor([0.0]) for name in names}, **{f"fixed{i}": torch.tensor([0.0]) for i in range(367)}}
+    if pi_head:
+        model.update({name: torch.zeros(shape) for name, shape in lab_train.FINAL_PLAN_SHAPES.items()})
     run = {
         "args": args,
         "trainable_tensors": names,
@@ -147,6 +154,10 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False, pi=Fals
         "device": "cuda",
         "tf32": {"matmul": False, "cudnn": False},
     }
+    if pi_head:
+        run.update(optimized_tensors=list(lab_train.FINAL_PLAN_SHAPES), optimized_parameters=254430,
+                   optimizer_learning_rate=args["lr"] * args["lr_policy"],
+                   non_head_state_sha256=lab_train.state_hashes(model, lab_train.FINAL_PLAN_SHAPES))
     ci = {
         "version": 1,
         "controller_contract": contract,
@@ -175,7 +186,7 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False, pi=Fals
     if pi:
         run["action_target_contract"] = s.DESIRED_MOTION_CONTRACT
         ci["action_target_contract"] = s.DESIRED_MOTION_CONTRACT
-        ci["weights"].update(longitudinal=0.0, consistency=0.2)
+        ci["weights"].update(longitudinal=0.0, consistency=args["w_consistency"])
     cal = {"version": 1, "identity": ci, "validation": metrics(0.2)}
     for root in (training, calibration):
         dump(root / "calibration.json", cal)
@@ -226,6 +237,9 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False, pi=Fals
         protocol.update(schema_version=3, kind="op_tangent_pi_v1_selection",
                         action_target_contract=s.DESIRED_MOTION_CONTRACT, ranking=copy.deepcopy(s.PI_RANKING))
         protocol["training_args"].update(action_target_mode=s.DESIRED_MOTION_TARGET, w_consistency=0.2)
+    if pi_head:
+        protocol["schema_version"] = 4
+        protocol["training_args"].update(optimizer_scope="final_plan", w_consistency=1.0)
     protocol_path = tmp_path / "protocol.json"
     dump(protocol_path, protocol)
     protocol_sha = s.sha(protocol_path)
@@ -317,7 +331,7 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False, pi=Fals
         step = int(path.stem.split("_")[-1])
         checkpoint_model = dict(model)
         if step:
-            checkpoint_model[names[0]] = torch.tensor([float(step)])
+            checkpoint_model[names[0]] = torch.full_like(model[names[0]], float(step))
         payload = {
             "model": checkpoint_model,
             "config": cal_run["args"] if path.parent == calibration else args,
@@ -326,6 +340,20 @@ def fixture(tmp_path, monkeypatch, recipe_arg=None, native_future=False, pi=Fals
             "selection_protocol_sha256": protocol_sha,
             "calibration_sha256": protocol["calibration_sha256"],
         }
+        if pi_head:
+            rate = args["lr"] * args["lr_policy"]
+            payload["optimizer_receipt"] = {"optimized_parameters": 254430,
+                                            "gradient_tensors": 0 if step == 0 else 2,
+                                            "optimizer_state_tensors": 0 if step == 0 else 2,
+                                            "learning_rate": rate}
+            payload["optimizer"] = {
+                "param_groups": [{"lr": rate, "params": [0, 1], "weight_decay": 1e-4,
+                                  "betas": (0.9, 0.999), "eps": 1e-8, "amsgrad": False}],
+                "state": {} if step == 0 else {
+                    i: {"step": torch.tensor(float(step)), "exp_avg": torch.zeros(shape),
+                        "exp_avg_sq": torch.zeros(shape)}
+                    for i, shape in enumerate(lab_train.FINAL_PLAN_SHAPES.values())},
+            }
         if native_future:
             payload["action_target_contract"] = s.NATIVE_FUTURE_CONTRACT
         if pi:
@@ -646,4 +674,68 @@ def test_pi_rejects_missing_runtime_dependency_archive(tmp_path, monkeypatch):
     del run['source']['files_sha256']['scripts/verify_lab_recovery.py']
     path.write_text(json.dumps(run))
     with pytest.raises(ValueError, match='dependency archive mismatch'):
+        s.select(training, cal, protocol)
+
+
+def test_final_plan_protocol_fixes_recipe_and_rejects_changes(tmp_path, monkeypatch):
+    _, _, _, protocol, _ = fixture(tmp_path, monkeypatch, pi=True)
+    protocol['schema_version'] = 4
+    protocol['training_args'].update(optimizer_scope='final_plan', w_steer=3.281158240898283,
+                                     w_consistency=1.0, lr=1e-5, lr_policy=0.3)
+    assert s.protocol_check(protocol) == protocol
+    for field, value in [('optimizer_scope', 'full_policy'), ('w_steer', 0.0), ('w_long', 1.0),
+                         ('w_consistency', 0.2), ('lr_policy', 0.4), ('amp', True)]:
+        altered = copy.deepcopy(protocol)
+        altered['training_args'][field] = value
+        with pytest.raises(ValueError):
+            s.protocol_check(altered)
+    altered = copy.deepcopy(protocol)
+    altered['ranking']['metric'] = 'aggregate.steer'
+    with pytest.raises(ValueError):
+        s.protocol_check(altered)
+
+
+def test_final_plan_selector_checks_head_scope_and_non_head_state(tmp_path, monkeypatch):
+    training, cal, protocol, _, _ = fixture(tmp_path, monkeypatch, pi_head=True)
+    assert s.select(training, cal, protocol)["selected"]["step"] == 100
+    original_load = torch.load
+
+    def altered(path, **kwargs):
+        payload = original_load(path, **kwargs)
+        if Path(path).parent == training and Path(path).stem == "step_000100":
+            payload["model"]["fixed0"] = torch.tensor([1.0])
+        return payload
+
+    monkeypatch.setattr(torch, "load", altered)
+    with pytest.raises(ValueError, match="non-head state changed"):
+        s.select(training, cal, protocol)
+
+
+def test_final_plan_selector_rejects_optimizer_state_tampering(tmp_path, monkeypatch):
+    training, cal, protocol, _, _ = fixture(tmp_path, monkeypatch, pi_head=True)
+    original_load = torch.load
+
+    def altered(path, **kwargs):
+        payload = original_load(path, **kwargs)
+        if Path(path).parent == training and Path(path).stem == "step_000100":
+            payload["optimizer"]["state"].pop(1)
+        return payload
+
+    monkeypatch.setattr(torch, "load", altered)
+    with pytest.raises(ValueError, match="optimizer state mismatch"):
+        s.select(training, cal, protocol)
+
+
+def test_final_plan_selector_rejects_wrong_adam_step(tmp_path, monkeypatch):
+    training, cal, protocol, _, _ = fixture(tmp_path, monkeypatch, pi_head=True)
+    original_load = torch.load
+
+    def altered(path, **kwargs):
+        payload = original_load(path, **kwargs)
+        if Path(path).parent == training and Path(path).stem == "step_000100":
+            payload["optimizer"]["state"][0]["step"] = torch.tensor(99.)
+        return payload
+
+    monkeypatch.setattr(torch, "load", altered)
+    with pytest.raises(ValueError, match="AdamW step mismatch"):
         s.select(training, cal, protocol)

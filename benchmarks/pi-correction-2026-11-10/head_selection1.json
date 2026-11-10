@@ -1,0 +1,867 @@
+{
+  "schema_version": 4,
+  "kind": "op_tangent_pi_v1_selection",
+  "calibration_sha256": "232b1c6faed274da73f27c22f11dfa513e766e5a9b0bd3753b2a23058356c47a",
+  "initializer_sha256": "48db741c8a686b2e635ae7a81b4e4c08d79fbfbd9f4dc4c163260da6f93f0cfb",
+  "manifest_sha256": "db7150b60fdf50e861c6ca003ae844b90ff398fd7b244c9201b7de9d3af5b309",
+  "controller_contract": {
+    "version": 1,
+    "mode": "op_tangent_pi_v1",
+    "steering": "openpilot_follower_body_vx",
+    "steering_action_time_s": 0.2,
+    "steering_min_speed_mps": 1.0,
+    "steering_delay_floor_s": 0.05,
+    "longitudinal": "knotwise_planar_tangent_pi",
+    "action_time_s": 0.3,
+    "speed_gain": 1.5,
+    "accel_feedforward": 0.5,
+    "speed_floor_mps": 0.001,
+    "current_velocity": "measured_body_vx_vy",
+    "mission_layer": "mission_brake_then_vehicle_limits_with_feedback",
+    "mission_brake_decel_mps2": 3.5,
+    "mission_launch_accel_mps2": 2.0,
+    "integral_gain": 0.5,
+    "integral_limit_mps2": 2.0,
+    "control_period_s": 0.05,
+    "integral_reset": "policy_reset_or_before_command_on_mission_override_or_target_speed_at_most_0.001_mps",
+    "anti_windup": "block_delta_when_raw_minus_applied_times_delta_positive",
+    "timestamp_tolerance_s": 1e-06
+  },
+  "expected_steps": 500,
+  "checkpoint_steps": [
+    0,
+    100,
+    200,
+    300,
+    400,
+    500
+  ],
+  "training_args": {
+    "steps": 500,
+    "val_every": 100,
+    "batch_size": 128,
+    "lr": 0.0001,
+    "lr_policy": 0.03,
+    "lr_trunk": 0.1,
+    "freeze_vision": true,
+    "l2sp": 0.0,
+    "w_plan": 1.0,
+    "w_steer": 3.281158240898283,
+    "w_long": 0.0,
+    "grad_clip": 1.0,
+    "val_samples": 256,
+    "history_chunk_size": 64,
+    "history_context": 8,
+    "threads": 4,
+    "amp": false,
+    "channels_last": false,
+    "device": "cuda",
+    "seed": 0,
+    "cache_frozen_features": false,
+    "recovery_draws": 16,
+    "recovery_provenance_mode": "per_case_v2",
+    "collection_policy_checkpoint_sha": null,
+    "action_target_mode": "desired_motion_v1",
+    "w_consistency": 1.0,
+    "optimizer_scope": "final_plan"
+  },
+  "action_target_contract": {
+    "version": 1,
+    "mode": "desired_motion_v1",
+    "source": "detached native future through the stateless tangent motion request before PI, mission override, and actuator clipping"
+  },
+  "ranking": {
+    "metric": "aggregate.plan_l1",
+    "improvement": "strict_step_zero",
+    "tie_break": "lowest_step"
+  },
+  "bounds": {
+    "aggregate": {
+      "plan_l1": 0.9319418359547854,
+      "steer": 0.0012763423064825474,
+      "longitudinal": 0.666768891736865
+    },
+    "episode": {
+      "val-trackdrive-84000-matched": {
+        "plan_l1": 1.6100431799888613,
+        "steer": 0.0017247462878003717,
+        "longitudinal": 0.8830641984939576
+      },
+      "val-trackdrive-84001-visual_stress_v1": {
+        "plan_l1": 1.9795127987861636,
+        "steer": 0.003829955123364926,
+        "longitudinal": 0.6816771626472473
+      },
+      "val-trackdrive-84002-visual_stress_v1": {
+        "plan_l1": 1.5750188231468203,
+        "steer": 0.0029639627085998655,
+        "longitudinal": 0.6347181856632234
+      },
+      "val-trackdrive-84003-visual_stress_v1": {
+        "plan_l1": 0.7784989953041077,
+        "steer": 0.0021014096448197963,
+        "longitudinal": 0.23105221539735796
+      },
+      "val-skidpad-84000-matched": {
+        "plan_l1": 0.4516076534986496,
+        "steer": 0.00011571889626793565,
+        "longitudinal": 0.8539494216442108
+      },
+      "val-skidpad-84001-visual_stress_v1": {
+        "plan_l1": 0.46212246119976047,
+        "steer": 0.00012003748561255635,
+        "longitudinal": 0.8581485390663147
+      },
+      "val-skidpad-84002-visual_stress_v1": {
+        "plan_l1": 0.4585752904415131,
+        "steer": 0.00011076853043050505,
+        "longitudinal": 0.8567882597446442
+      },
+      "val-skidpad-84003-visual_stress_v1": {
+        "plan_l1": 0.4951809465885163,
+        "steer": 0.00026521362015046184,
+        "longitudinal": 0.8681682646274568
+      }
+    },
+    "coherence": {
+      "velocity_secant_max_mps": {
+        "mean": 0.5778514913013139,
+        "p95": 0.9171351727287888,
+        "max": 1.0
+      },
+      "acceleration_secant_max_mps2": {
+        "mean": 1.0,
+        "p95": 2.0,
+        "max": 4.0
+      },
+      "yaw_rate_secant_max_radps": {
+        "mean": 0.06111758509067983,
+        "p95": 0.16693127175063924,
+        "max": 0.24168330443238742
+      },
+      "position_interval_m": {
+        "mean": 0.01326881145487304,
+        "p95": 0.022349754047995152,
+        "max": 0.030479707850577995
+      },
+      "position_interval_max_m": {
+        "mean": 0.04185743384927482,
+        "p95": 0.06834934227287784,
+        "max": 0.1
+      },
+      "velocity_interval_mps": {
+        "mean": 0.10373044916407352,
+        "p95": 0.20833403801427314,
+        "max": 0.2413969709934146
+      },
+      "velocity_interval_max_mps": {
+        "mean": 0.4547826414469015,
+        "p95": 0.6853832966961368,
+        "max": 0.7882528162711359
+      },
+      "yaw_interval_rad": {
+        "mean": 0.004081409063599705,
+        "p95": 0.010500275750928267,
+        "max": 0.011070355446463509
+      },
+      "yaw_interval_max_rad": {
+        "mean": 0.007951316066151431,
+        "p95": 0.01998501515117823,
+        "max": 0.022307102408376522
+      },
+      "position_cumulative_max_m": {
+        "mean": 0.08066273645483919,
+        "p95": 0.1540139736353377,
+        "max": 0.1813300539622057
+      },
+      "velocity_cumulative_max_mps": {
+        "mean": 0.5029369408725645,
+        "p95": 1.2281958014872836,
+        "max": 2.2385016801138202
+      },
+      "yaw_cumulative_max_rad": {
+        "mean": 0.04045594478974737,
+        "p95": 0.10500275750928267,
+        "max": 0.11070355446463509
+      },
+      "initial_position_m": {
+        "mean": 1e-06,
+        "p95": 1e-06,
+        "max": 1e-06
+      },
+      "initial_yaw_rad": {
+        "mean": 1e-06,
+        "p95": 1e-06,
+        "max": 1e-06
+      },
+      "initial_velocity_mps": {
+        "mean": 0.1293597073471119,
+        "p95": 0.5614467173814774,
+        "max": 1.3651138305664063
+      },
+      "initial_yaw_rate_radps": {
+        "mean": 0.0343416598298493,
+        "p95": 0.11405995301902296,
+        "max": 0.2614457413554192
+      }
+    },
+    "episode_coherence": {
+      "val-trackdrive-84000-matched": {
+        "velocity_secant_max_mps": {
+          "mean": 0.5591309961386386,
+          "p95": 0.9166653784120304,
+          "max": 0.9513438024136716
+        },
+        "acceleration_secant_max_mps2": {
+          "mean": 1.0,
+          "p95": 2.0,
+          "max": 4.0
+        },
+        "yaw_rate_secant_max_radps": {
+          "mean": 0.059794971780396874,
+          "p95": 0.1612319685445216,
+          "max": 0.18791947396177996
+        },
+        "position_interval_m": {
+          "mean": 0.013384099300421552,
+          "p95": 0.023062529475296075,
+          "max": 0.024473449940404905
+        },
+        "position_interval_max_m": {
+          "mean": 0.03825994525735082,
+          "p95": 0.06804460907693549,
+          "max": 0.06891456432046819
+        },
+        "velocity_interval_mps": {
+          "mean": 0.09168407384105484,
+          "p95": 0.14447572120994576,
+          "max": 0.2274216771349495
+        },
+        "velocity_interval_max_mps": {
+          "mean": 0.38539104951938946,
+          "p95": 0.6208706730663617,
+          "max": 0.7004537314559727
+        },
+        "yaw_interval_rad": {
+          "mean": 0.0015782679323992645,
+          "p95": 0.0032555121955601864,
+          "max": 0.0038826117587814225
+        },
+        "yaw_interval_max_rad": {
+          "mean": 0.004765002185731371,
+          "p95": 0.011801431055791909,
+          "max": 0.014409612864255907
+        },
+        "position_cumulative_max_m": {
+          "mean": 0.0922588965921505,
+          "p95": 0.1556004110818663,
+          "max": 0.16742737850251388
+        },
+        "velocity_cumulative_max_mps": {
+          "mean": 0.40009943862105224,
+          "p95": 0.7382816244407677,
+          "max": 1.2184567909618995
+        },
+        "yaw_cumulative_max_rad": {
+          "mean": 0.0145808141164525,
+          "p95": 0.031389791654974034,
+          "max": 0.03882611758781423
+        },
+        "initial_position_m": {
+          "mean": 1e-06,
+          "p95": 1e-06,
+          "max": 1e-06
+        },
+        "initial_yaw_rad": {
+          "mean": 1e-06,
+          "p95": 1e-06,
+          "max": 1e-06
+        },
+        "initial_velocity_mps": {
+          "mean": 0.2397040404372092,
+          "p95": 0.6371976400911806,
+          "max": 1.3651138305664063
+        },
+        "initial_yaw_rate_radps": {
+          "mean": 0.028748882398349454,
+          "p95": 0.08114946652203799,
+          "max": 0.09670270085334778
+        }
+      },
+      "val-trackdrive-84001-visual_stress_v1": {
+        "velocity_secant_max_mps": {
+          "mean": 0.5139901068870772,
+          "p95": 0.8937806176721756,
+          "max": 0.9658727347480759
+        },
+        "acceleration_secant_max_mps2": {
+          "mean": 1.0,
+          "p95": 2.0,
+          "max": 4.0
+        },
+        "yaw_rate_secant_max_radps": {
+          "mean": 0.12582276192464253,
+          "p95": 0.19164129373107114,
+          "max": 0.24168330443238742
+        },
+        "position_interval_m": {
+          "mean": 0.01212950300885014,
+          "p95": 0.022712475593153023,
+          "max": 0.026051007410386514
+        },
+        "position_interval_max_m": {
+          "mean": 0.03661593177162397,
+          "p95": 0.06336469874603906,
+          "max": 0.07057640838195117
+        },
+        "velocity_interval_mps": {
+          "mean": 0.09047320746024837,
+          "p95": 0.15724651776602888,
+          "max": 0.23103297999422506
+        },
+        "velocity_interval_max_mps": {
+          "mean": 0.36898755169385056,
+          "p95": 0.6078028487035201,
+          "max": 0.7257523383573776
+        },
+        "yaw_interval_rad": {
+          "mean": 0.009203359470715242,
+          "p95": 0.010930485488290741,
+          "max": 0.010956559874102823
+        },
+        "yaw_interval_max_rad": {
+          "mean": 0.01771784555314486,
+          "p95": 0.021194914867010084,
+          "max": 0.022307102408376522
+        },
+        "position_cumulative_max_m": {
+          "mean": 0.07462112587182254,
+          "p95": 0.12885076636102624,
+          "max": 0.17185741071857222
+        },
+        "velocity_cumulative_max_mps": {
+          "mean": 0.3976611779455635,
+          "p95": 0.852391856598863,
+          "max": 1.2664397634485032
+        },
+        "yaw_cumulative_max_rad": {
+          "mean": 0.09195622274198584,
+          "p95": 0.10930485488290742,
+          "max": 0.10956559874102823
+        },
+        "initial_position_m": {
+          "mean": 1e-06,
+          "p95": 1e-06,
+          "max": 1e-06
+        },
+        "initial_yaw_rad": {
+          "mean": 1e-06,
+          "p95": 1e-06,
+          "max": 1e-06
+        },
+        "initial_velocity_mps": {
+          "mean": 0.1990104846219765,
+          "p95": 0.5148653069138527,
+          "max": 0.7771095395088197
+        },
+        "initial_yaw_rate_radps": {
+          "mean": 0.08919483616825802,
+          "p95": 0.14795911997556685,
+          "max": 0.21046727895736697
+        }
+      },
+      "val-trackdrive-84002-visual_stress_v1": {
+        "velocity_secant_max_mps": {
+          "mean": 0.41181365780215845,
+          "p95": 0.8969947617176305,
+          "max": 0.9280543107093739
+        },
+        "acceleration_secant_max_mps2": {
+          "mean": 1.0,
+          "p95": 2.0,
+          "max": 4.0
+        },
+        "yaw_rate_secant_max_radps": {
+          "mean": 0.09871788169383403,
+          "p95": 0.18864907219785412,
+          "max": 0.20708529055118557
+        },
+        "position_interval_m": {
+          "mean": 0.01005242217992677,
+          "p95": 0.023265396003309832,
+          "max": 0.029992839569922485
+        },
+        "position_interval_max_m": {
+          "mean": 0.029014410193341972,
+          "p95": 0.06341822904643128,
+          "max": 0.07885858409475338
+        },
+        "velocity_interval_mps": {
+          "mean": 0.0787721291628971,
+          "p95": 0.19272455765368834,
+          "max": 0.22475797405447961
+        },
+        "velocity_interval_max_mps": {
+          "mean": 0.3076320197406247,
+          "p95": 0.6494863426931502,
+          "max": 0.6975976693514983
+        },
+        "yaw_interval_rad": {
+          "mean": 0.007146135315074964,
+          "p95": 0.010651127491860278,
+          "max": 0.011070355446463509
+        },
+        "yaw_interval_max_rad": {
+          "mean": 0.013837496599852058,
+          "p95": 0.020767139372765087,
+          "max": 0.02105923034832813
+        },
+        "position_cumulative_max_m": {
+          "mean": 0.05932409240472018,
+          "p95": 0.1229166594757573,
+          "max": 0.1578294201766262
+        },
+        "velocity_cumulative_max_mps": {
+          "mean": 0.4033309257420655,
+          "p95": 1.293260323763085,
+          "max": 1.907594797718662
+        },
+        "yaw_cumulative_max_rad": {
+          "mean": 0.07122669090009169,
+          "p95": 0.1065112749186028,
+          "max": 0.11070355446463509
+        },
+        "initial_position_m": {
+          "mean": 1e-06,
+          "p95": 1e-06,
+          "max": 1e-06
+        },
+        "initial_yaw_rad": {
+          "mean": 1e-06,
+          "p95": 1e-06,
+          "max": 1e-06
+        },
+        "initial_velocity_mps": {
+          "mean": 0.17886745091564082,
+          "p95": 0.7016485637426375,
+          "max": 1.1694038152694703
+        },
+        "initial_yaw_rate_radps": {
+          "mean": 0.07754130127099473,
+          "p95": 0.18008874118328094,
+          "max": 0.2614457413554192
+        }
+      },
+      "val-trackdrive-84003-visual_stress_v1": {
+        "velocity_secant_max_mps": {
+          "mean": 0.2398492142142264,
+          "p95": 0.5297147577830529,
+          "max": 0.9333309452454739
+        },
+        "acceleration_secant_max_mps2": {
+          "mean": 1.0,
+          "p95": 2.0,
+          "max": 4.0
+        },
+        "yaw_rate_secant_max_radps": {
+          "mean": 0.06390272511270147,
+          "p95": 0.0843920566925877,
+          "max": 0.09037737626778453
+        },
+        "position_interval_m": {
+          "mean": 0.005665557312553541,
+          "p95": 0.010303326138995043,
+          "max": 0.023133449520236604
+        },
+        "position_interval_max_m": {
+          "mean": 0.01756866964500437,
+          "p95": 0.03920312728369248,
+          "max": 0.06622464233306266
+        },
+        "velocity_interval_mps": {
+          "mean": 0.043898546932354135,
+          "p95": 0.08661828056136063,
+          "max": 0.22644627362461386
+        },
+        "velocity_interval_max_mps": {
+          "mean": 0.16876365085301648,
+          "p95": 0.39195919307406096,
+          "max": 0.6771750160616442
+        },
+        "yaw_interval_rad": {
+          "mean": 0.005196486369982973,
+          "p95": 0.006239169868786121,
+          "max": 0.0064049249776871875
+        },
+        "yaw_interval_max_rad": {
+          "mean": 0.00994043701463571,
+          "p95": 0.011708700694725849,
+          "max": 0.012321471294853836
+        },
+        "position_cumulative_max_m": {
+          "mean": 0.03846098264217659,
+          "p95": 0.07064493497271032,
+          "max": 0.17970938876439638
+        },
+        "velocity_cumulative_max_mps": {
+          "mean": 0.19597306138896872,
+          "p95": 0.6072421330745225,
+          "max": 1.2127398497793471
+        },
+        "yaw_cumulative_max_rad": {
+          "mean": 0.05165506116002938,
+          "p95": 0.06239169868786121,
+          "max": 0.06404924977687187
+        },
+        "initial_position_m": {
+          "mean": 1e-06,
+          "p95": 1e-06,
+          "max": 1e-06
+        },
+        "initial_yaw_rad": {
+          "mean": 1e-06,
+          "p95": 1e-06,
+          "max": 1e-06
+        },
+        "initial_velocity_mps": {
+          "mean": 0.10850466262636474,
+          "p95": 0.39385599568486196,
+          "max": 0.6505757629871369
+        },
+        "initial_yaw_rate_radps": {
+          "mean": 0.038638872491219445,
+          "p95": 0.059334381520748145,
+          "max": 0.06888050734996796
+        }
+      },
+      "val-skidpad-84000-matched": {
+        "velocity_secant_max_mps": {
+          "mean": 0.7260655191223692,
+          "p95": 0.8931043732502583,
+          "max": 1.0
+        },
+        "acceleration_secant_max_mps2": {
+          "mean": 1.0,
+          "p95": 2.0,
+          "max": 4.0
+        },
+        "yaw_rate_secant_max_radps": {
+          "mean": 0.03651806503046102,
+          "p95": 0.09274576935015226,
+          "max": 0.16011200870076814
+        },
+        "position_interval_m": {
+          "mean": 0.016147574104867814,
+          "p95": 0.021720030578008285,
+          "max": 0.02931577191758399
+        },
+        "position_interval_max_m": {
+          "mean": 0.05387262380576915,
+          "p95": 0.07605437980824281,
+          "max": 0.09473847701680028
+        },
+        "velocity_interval_mps": {
+          "mean": 0.1312769204597705,
+          "p95": 0.21112415994132508,
+          "max": 0.2413969709934146
+        },
+        "velocity_interval_max_mps": {
+          "mean": 0.599668895928661,
+          "p95": 0.6979004590238,
+          "max": 0.7882528162711359
+        },
+        "yaw_interval_rad": {
+          "mean": 0.0023912936746366313,
+          "p95": 0.0028785620277631094,
+          "max": 0.003876901840121718
+        },
+        "yaw_interval_max_rad": {
+          "mean": 0.004909252278387389,
+          "p95": 0.009999860255047678,
+          "max": 0.011509824183303864
+        },
+        "position_cumulative_max_m": {
+          "mean": 0.09572365205735456,
+          "p95": 0.14023113995176154,
+          "max": 0.18122410564089797
+        },
+        "velocity_cumulative_max_mps": {
+          "mean": 0.6568055052442576,
+          "p95": 1.2117736021582832,
+          "max": 2.2077925235696703
+        },
+        "yaw_cumulative_max_rad": {
+          "mean": 0.02364429976696021,
+          "p95": 0.028785620277631097,
+          "max": 0.03712656016723486
+        },
+        "initial_position_m": {
+          "mean": 1e-06,
+          "p95": 1e-06,
+          "max": 1e-06
+        },
+        "initial_yaw_rad": {
+          "mean": 1e-06,
+          "p95": 1e-06,
+          "max": 1e-06
+        },
+        "initial_velocity_mps": {
+          "mean": 0.08560200069478015,
+          "p95": 0.4017178669571874,
+          "max": 0.8404041290283204
+        },
+        "initial_yaw_rate_radps": {
+          "mean": 0.009669478465150406,
+          "p95": 0.04326582714915275,
+          "max": 0.06063585877418519
+        }
+      },
+      "val-skidpad-84001-visual_stress_v1": {
+        "velocity_secant_max_mps": {
+          "mean": 0.7228079811688344,
+          "p95": 0.8829390617222405,
+          "max": 1.0
+        },
+        "acceleration_secant_max_mps2": {
+          "mean": 1.0,
+          "p95": 2.0,
+          "max": 4.0
+        },
+        "yaw_rate_secant_max_radps": {
+          "mean": 0.035798397576120716,
+          "p95": 0.0905128406474465,
+          "max": 0.16011200870076814
+        },
+        "position_interval_m": {
+          "mean": 0.016167564340299947,
+          "p95": 0.02149826409170683,
+          "max": 0.03026511009350905
+        },
+        "position_interval_max_m": {
+          "mean": 0.052729801614214596,
+          "p95": 0.06894388488592913,
+          "max": 0.0971526028054475
+        },
+        "velocity_interval_mps": {
+          "mean": 0.13070104042348135,
+          "p95": 0.21648180642822437,
+          "max": 0.23990537993788932
+        },
+        "velocity_interval_max_mps": {
+          "mean": 0.6029919060475845,
+          "p95": 0.6966829247113323,
+          "max": 0.7838900169878004
+        },
+        "yaw_interval_rad": {
+          "mean": 0.0023912936746366313,
+          "p95": 0.0028785620277631094,
+          "max": 0.0034977715646527944
+        },
+        "yaw_interval_max_rad": {
+          "mean": 0.0048132900719497496,
+          "p95": 0.0090028270118637,
+          "max": 0.011671526567079128
+        },
+        "position_cumulative_max_m": {
+          "mean": 0.09381890487950371,
+          "p95": 0.13557326770282838,
+          "max": 0.1813300539622057
+        },
+        "velocity_cumulative_max_mps": {
+          "mean": 0.653536495860678,
+          "p95": 1.2581401132037606,
+          "max": 2.2385016801138202
+        },
+        "yaw_cumulative_max_rad": {
+          "mean": 0.02364429976696021,
+          "p95": 0.028785620277631097,
+          "max": 0.03343743628138327
+        },
+        "initial_position_m": {
+          "mean": 1e-06,
+          "p95": 1e-06,
+          "max": 1e-06
+        },
+        "initial_yaw_rad": {
+          "mean": 1e-06,
+          "p95": 1e-06,
+          "max": 1e-06
+        },
+        "initial_velocity_mps": {
+          "mean": 0.06811251285980689,
+          "p95": 0.21898109115660178,
+          "max": 0.9527507960796356
+        },
+        "initial_yaw_rate_radps": {
+          "mean": 0.01061892247294054,
+          "p95": 0.04706505805253983,
+          "max": 0.054768256843090064
+        }
+      },
+      "val-skidpad-84002-visual_stress_v1": {
+        "velocity_secant_max_mps": {
+          "mean": 0.7226362802611361,
+          "p95": 0.8951464748777859,
+          "max": 0.9911566216698562
+        },
+        "acceleration_secant_max_mps2": {
+          "mean": 1.0,
+          "p95": 2.0,
+          "max": 4.0
+        },
+        "yaw_rate_secant_max_radps": {
+          "mean": 0.03612959760039893,
+          "p95": 0.09079937742885788,
+          "max": 0.16017781645059584
+        },
+        "position_interval_m": {
+          "mean": 0.016179345132180598,
+          "p95": 0.021184488380899244,
+          "max": 0.030367366868397413
+        },
+        "position_interval_max_m": {
+          "mean": 0.05340008919311055,
+          "p95": 0.07303981262456222,
+          "max": 0.09730423862355496
+        },
+        "velocity_interval_mps": {
+          "mean": 0.13135757783847318,
+          "p95": 0.20844605833396715,
+          "max": 0.2371741276709925
+        },
+        "velocity_interval_max_mps": {
+          "mean": 0.6028511265935633,
+          "p95": 0.6879981568201647,
+          "max": 0.7797909971675858
+        },
+        "yaw_interval_rad": {
+          "mean": 0.0023531423967152933,
+          "p95": 0.00287863432240556,
+          "max": 0.004058356655878015
+        },
+        "yaw_interval_max_rad": {
+          "mean": 0.004869276100713683,
+          "p95": 0.009727082790341226,
+          "max": 0.0115238010766916
+        },
+        "position_cumulative_max_m": {
+          "mean": 0.09529779629442724,
+          "p95": 0.1401458715689762,
+          "max": 0.17808963461623453
+        },
+        "velocity_cumulative_max_mps": {
+          "mean": 0.6558573246624717,
+          "p95": 1.2464632214616274,
+          "max": 2.0689862928592984
+        },
+        "yaw_cumulative_max_rad": {
+          "mean": 0.023295870098538903,
+          "p95": 0.0287863432240556,
+          "max": 0.04025374127668329
+        },
+        "initial_position_m": {
+          "mean": 1e-06,
+          "p95": 1e-06,
+          "max": 1e-06
+        },
+        "initial_yaw_rad": {
+          "mean": 1e-06,
+          "p95": 1e-06,
+          "max": 1e-06
+        },
+        "initial_velocity_mps": {
+          "mean": 0.0676023472151428,
+          "p95": 0.2955433575063944,
+          "max": 0.7025563716888429
+        },
+        "initial_yaw_rate_radps": {
+          "mean": 0.007513229718028925,
+          "p95": 0.026484734117984774,
+          "max": 0.03966358006000519
+        }
+      },
+      "val-skidpad-84003-visual_stress_v1": {
+        "velocity_secant_max_mps": {
+          "mean": 0.7265181748160708,
+          "p95": 0.8958869493519733,
+          "max": 0.9925364579166812
+        },
+        "acceleration_secant_max_mps2": {
+          "mean": 1.0,
+          "p95": 2.0,
+          "max": 4.0
+        },
+        "yaw_rate_secant_max_radps": {
+          "mean": 0.03596289395016546,
+          "p95": 0.08543466568306873,
+          "max": 0.16011200870076814
+        },
+        "position_interval_m": {
+          "mean": 0.016424426259883957,
+          "p95": 0.021970132903129696,
+          "max": 0.030479707850577995
+        },
+        "position_interval_max_m": {
+          "mean": 0.05339799931378312,
+          "p95": 0.07071594252503516,
+          "max": 0.1
+        },
+        "velocity_interval_mps": {
+          "mean": 0.1316800971943087,
+          "p95": 0.21238243425211287,
+          "max": 0.23706988193417866
+        },
+        "velocity_interval_max_mps": {
+          "mean": 0.6019749311985215,
+          "p95": 0.6862972149197109,
+          "max": 0.776326971918458
+        },
+        "yaw_interval_rad": {
+          "mean": 0.0023912936746366313,
+          "p95": 0.002915702955928282,
+          "max": 0.003888263411572553
+        },
+        "yaw_interval_max_rad": {
+          "mean": 0.004769938592433066,
+          "p95": 0.009651063068304207,
+          "max": 0.011873559560626747
+        },
+        "position_cumulative_max_m": {
+          "mean": 0.09579644089655814,
+          "p95": 0.14169653027533163,
+          "max": 0.17793893611167957
+        },
+        "velocity_cumulative_max_mps": {
+          "mean": 0.6602315975154585,
+          "p95": 1.2647764167110611,
+          "max": 2.1814257137598645
+        },
+        "yaw_cumulative_max_rad": {
+          "mean": 0.02364429976696021,
+          "p95": 0.029157029559282815,
+          "max": 0.03688201481927536
+        },
+        "initial_position_m": {
+          "mean": 1e-06,
+          "p95": 1e-06,
+          "max": 1e-06
+        },
+        "initial_yaw_rad": {
+          "mean": 1e-06,
+          "p95": 1e-06,
+          "max": 1e-06
+        },
+        "initial_velocity_mps": {
+          "mean": 0.08747415940597421,
+          "p95": 0.42346919685602175,
+          "max": 0.8921231329441072
+        },
+        "initial_yaw_rate_radps": {
+          "mean": 0.012807755653852839,
+          "p95": 0.058545413613319386,
+          "max": 0.09310872480273248
+        }
+      }
+    }
+  }
+}

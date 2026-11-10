@@ -730,3 +730,35 @@ def test_native_replay_exposes_same_tick_measured_lateral_speed_and_yaw_rate(tmp
   assert sample['speed'] == pytest.approx(2)
   assert sample['lateral_speed'] == pytest.approx(.27)
   assert sample['yaw_rate'] == pytest.approx(-.14)
+
+
+def test_final_plan_scope_updates_only_head_and_rejects_non_head_checkpoint_changes(tmp_path):
+  from fsop.train.lab_train import FINAL_PLAN_SHAPES, optimizer_parameters, save_checkpoint, state_hashes
+
+  model = torch.nn.Module()
+  model.base = torch.nn.Module()
+  model.base.vision = torch.nn.Linear(1, 1)
+  model.base.policy = torch.nn.Module()
+  model.base.policy.shared = torch.nn.Linear(256, 256)
+  model.base.policy.p_node_linear_20 = torch.nn.Linear(256, 990)
+  model.base.policy.register_buffer('initializer_33', torch.ones(990))
+  flags = {name: p.requires_grad for name, p in model.named_parameters()}
+  inputs = torch.randn(2, 256)
+  before = model.base.policy.p_node_linear_20(model.base.policy.shared(inputs)).detach().clone()
+  params = optimizer_parameters(model, 'final_plan')
+  assert flags == {name: p.requires_grad for name, p in model.named_parameters()}
+  assert torch.equal(before, model.base.policy.p_node_linear_20(model.base.policy.shared(inputs)).detach())
+  frozen = state_hashes(model.state_dict(), FINAL_PLAN_SHAPES)
+  reference = state_hashes(model.state_dict())
+  optimizer = torch.optim.AdamW(params, lr=3e-6)
+  loss = model.base.policy.p_node_linear_20(model.base.policy.shared(inputs)).square().mean()
+  loss.backward(inputs=params)
+  assert all(p.grad is None for name, p in model.named_parameters() if name not in FINAL_PLAN_SHAPES)
+  optimizer.step()
+  assert not torch.equal(before, model.base.policy.p_node_linear_20(model.base.policy.shared(inputs)).detach())
+  state = {'model': model.state_dict()}
+  assert state_hashes(state['model'], FINAL_PLAN_SHAPES) == frozen
+  save_checkpoint(state, tmp_path / 'head.pt', reference, True, list(FINAL_PLAN_SHAPES), frozen)
+  model.base.policy.initializer_33[0] += 1
+  with pytest.raises(ValueError, match='non-head state changed'):
+    save_checkpoint(state, tmp_path / 'bad-head.pt', reference, True, list(FINAL_PLAN_SHAPES), frozen)

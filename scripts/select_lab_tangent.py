@@ -24,6 +24,7 @@ For PI and desired-motion targets, schema_version 3 uses
 kind=op_tangent_pi_v1_selection, the desired-motion contract, a positive frozen
 w_consistency, and ranking=PI_RANKING. It selects a strict aggregate plan L1
 improvement over step zero, subject to the same absolute coherence gates.
+Schema 4 additionally fixes the final_plan optimizer scope and bounded head recipe.
 """
 
 from __future__ import annotations
@@ -99,6 +100,8 @@ def protocol_check(p):
     from fsop.eval.controller import controller_contract
 
     version = p.get("schema_version")
+    if type(version) is not int or version not in (1, 2, 3, 4):
+        raise ValueError("invalid protocol version")
     fields = {
         "schema_version",
         "kind",
@@ -111,21 +114,21 @@ def protocol_check(p):
         "training_args",
         "bounds",
     }
-    if version in (2, 3):
+    if version in (2, 3, 4):
         fields.add("action_target_contract")
-    if version == 3:
+    if version in (3, 4):
         fields.add("ranking")
     if set(p) != fields:
         raise ValueError("protocol fields mismatch")
     if (
-        version not in (1, 2, 3)
-        or p["kind"] != ("op_tangent_pi_v1_selection" if version == 3 else "op_tangent_v1_selection")
-        or (version != 3 and p["initializer_sha256"] != INITIALIZER)
+        version not in (1, 2, 3, 4)
+        or p["kind"] != ("op_tangent_pi_v1_selection" if version in (3, 4) else "op_tangent_v1_selection")
+        or (version in (1, 2) and p["initializer_sha256"] != INITIALIZER)
         or p["expected_steps"] != 500
         or p["checkpoint_steps"] != STEPS
-        or p["controller_contract"] != controller_contract("op_tangent_pi_v1" if version == 3 else "op_tangent_v1")
+        or p["controller_contract"] != controller_contract("op_tangent_pi_v1" if version in (3, 4) else "op_tangent_v1")
         or (version == 2 and p.get("action_target_contract") != NATIVE_FUTURE_CONTRACT)
-        or (version == 3 and (p.get("action_target_contract") != DESIRED_MOTION_CONTRACT
+        or (version in (3, 4) and (p.get("action_target_contract") != DESIRED_MOTION_CONTRACT
                               or p.get("ranking") != PI_RANKING))
     ):
         raise ValueError("protocol identity mismatch")
@@ -133,25 +136,35 @@ def protocol_check(p):
         if not isinstance(p[key], str) or not re.fullmatch("[0-9a-f]{64}", p[key]):
             raise ValueError(f"invalid protocol {key}")
     training_fields = set(TRAINING_ARGS) | ({"action_target_mode"} if version >= 2 else set())
-    if version == 3:
+    if version in (3, 4):
         training_fields.add("w_consistency")
+    if version == 4:
+        training_fields.add("optimizer_scope")
     if not isinstance(p["training_args"], dict) or set(p["training_args"]) != training_fields:
         raise ValueError("incomplete frozen training arguments")
     if version == 2 and p["training_args"]["action_target_mode"] != NATIVE_FUTURE_ACTION_TARGET:
         raise ValueError("action target mode mismatch")
-    if version == 3 and (p["training_args"]["action_target_mode"] != DESIRED_MOTION_TARGET
+    if version in (3, 4) and (p["training_args"]["action_target_mode"] != DESIRED_MOTION_TARGET
                          or type(p["training_args"]["w_consistency"]) not in (float, int)
                          or not math.isfinite(p["training_args"]["w_consistency"])
                          or p["training_args"]["w_consistency"] <= 0):
         raise ValueError("invalid desired motion target or consistency weight")
     if any(value is None for key, value in p["training_args"].items()
-           if not (version == 3 and key == "collection_policy_checkpoint_sha")):
+           if not (version in (3, 4) and key == "collection_policy_checkpoint_sha")):
         raise ValueError("missing frozen training argument value")
-    if version == 3:
+    if version in (3, 4):
         fixed = {"steps": 500, "val_every": 100, "freeze_vision": True, "w_plan": 1.0,
                  "w_steer": 0.0, "w_long": 0.0, "history_context": 8, "l2sp": 0.0,
                  "batch_size": 128, "val_samples": 256, "recovery_draws": 16,
                  "recovery_provenance_mode": "per_case_v2", "collection_policy_checkpoint_sha": None}
+        if version == 4:
+            fixed.update(w_steer=3.281158240898283, w_consistency=1.0, optimizer_scope="final_plan", amp=False)
+            rate = p["training_args"].get("lr")
+            multiplier = p["training_args"].get("lr_policy")
+            if (type(rate) not in (int, float) or type(multiplier) not in (int, float)
+                    or rate <= 0 or multiplier <= 0
+                    or not math.isclose(rate * multiplier, 3e-6, rel_tol=1e-12, abs_tol=0.0)):
+                raise ValueError("final plan learning rate mismatch")
         if any(p["training_args"].get(key) != value for key, value in fixed.items()):
             raise ValueError("PI training configuration mismatch")
     b = p["bounds"]
@@ -237,6 +250,37 @@ def policy_trainable_names(checkpoint):
     return ["base.policy." + name for name, tensor in model.base.policy.named_parameters() if tensor.requires_grad]
 
 
+def verify_final_plan_optimizer(payload, step, learning_rate):
+    expected = {"optimized_parameters": 254430, "gradient_tensors": 0 if step == 0 else 2,
+                "optimizer_state_tensors": 0 if step == 0 else 2, "learning_rate": learning_rate}
+    optimizer = payload.get("optimizer")
+    if not isinstance(optimizer, dict) or payload.get("optimizer_receipt") != expected:
+        raise ValueError("final plan optimizer receipt mismatch")
+    groups, state = optimizer.get("param_groups"), optimizer.get("state")
+    if (not isinstance(groups, list) or len(groups) != 1 or not isinstance(groups[0], dict)
+            or groups[0].get("lr") != learning_rate or groups[0].get("weight_decay") != 1e-4
+            or tuple(groups[0].get("betas", ())) != (0.9, 0.999) or groups[0].get("eps") != 1e-8
+            or groups[0].get("amsgrad") is not False or not isinstance(groups[0].get("params"), list)
+            or len(groups[0]["params"]) != 2 or len(set(groups[0]["params"])) != 2
+            or not isinstance(state, dict)
+            or set(state) != (set() if step == 0 else set(groups[0]["params"]))):
+        raise ValueError("final plan optimizer state mismatch")
+    if step:
+        import torch
+
+        for param, shape in zip(groups[0]["params"], ((990, 256), (990,)), strict=True):
+            slot = state[param]
+            if (not isinstance(slot, dict) or set(slot) != {"step", "exp_avg", "exp_avg_sq"}
+                    or not isinstance(slot["step"], torch.Tensor) or slot["step"].numel() != 1
+                    or slot["step"].item() != step):
+                raise ValueError("final plan AdamW step mismatch")
+            for key in ("exp_avg", "exp_avg_sq"):
+                value = slot[key]
+                if (not isinstance(value, torch.Tensor) or tuple(value.shape) != shape
+                        or value.dtype != torch.float32 or not torch.isfinite(value).all()):
+                    raise ValueError("final plan AdamW moment mismatch")
+
+
 def verify_per_case_sampling(sampler, dataset, recipe_path, args, bind):
     from fsop.data.native_replay import NativeReplay, episode_paths, load_episodes
     from fsop.train.lab_train import RecoverySampler
@@ -317,10 +361,10 @@ def select(training, calibration, protocol):
     run, cal_run = read(bind(training / "run.json")), read(bind(calibration / "run.json"))
     version = p["schema_version"]
     initializer = p["initializer_sha256"]
-    target_contract = {1: None, 2: NATIVE_FUTURE_CONTRACT, 3: DESIRED_MOTION_CONTRACT}[version]
-    target_mode = {1: LEGACY_ACTION_TARGET, 2: NATIVE_FUTURE_ACTION_TARGET, 3: DESIRED_MOTION_TARGET}[version]
-    provenance_mode = "per_case_v2" if version == 3 else "off_policy_v1"
-    collection_sha = None if version == 3 else COLLECTION
+    target_contract = {1: None, 2: NATIVE_FUTURE_CONTRACT, 3: DESIRED_MOTION_CONTRACT, 4: DESIRED_MOTION_CONTRACT}[version]
+    target_mode = {1: LEGACY_ACTION_TARGET, 2: NATIVE_FUTURE_ACTION_TARGET, 3: DESIRED_MOTION_TARGET, 4: DESIRED_MOTION_TARGET}[version]
+    provenance_mode = "per_case_v2" if version >= 3 else "off_policy_v1"
+    collection_sha = None if version >= 3 else COLLECTION
     for record in (run, cal_run):
         if (record.get("action_target_contract") != target_contract or
                 record["args"].get("action_target_mode", LEGACY_ACTION_TARGET) != target_mode):
@@ -347,7 +391,7 @@ def select(training, calibration, protocol):
     identities = {}
     for root, record in ((training, run), (calibration, cal_run)):
         source_check(root, record)
-        if version == 3:
+        if version >= 3:
             repository = Path(__file__).resolve().parents[1]
             for name in ("scripts/select_lab_tangent.py", "scripts/verify_lab_recovery.py",
                          "isaac_lab_fsop/recovery_schedule.py"):
@@ -387,9 +431,9 @@ def select(training, calibration, protocol):
         for episode in sampler["recovery_episodes"]:
             if sha(bind(episode["gate_path"])) != episode["gate_sha256"]:
                 raise ValueError("recovery gate hash mismatch")
-        if version == 3:
+        if version >= 3:
             verify_per_case_sampling(sampler, dataset, recipe_path, record["args"], bind)
-        if record["args"].get("controller_mode") != ("op_tangent_pi_v1" if version == 3 else "op_tangent_v1"):
+        if record["args"].get("controller_mode") != ("op_tangent_pi_v1" if version >= 3 else "op_tangent_v1"):
             raise ValueError("training controller mode mismatch")
     if (
         cal_run["source"]["files_sha256"] != run["source"]["files_sha256"]
@@ -413,7 +457,7 @@ def select(training, calibration, protocol):
         or args.get("freeze_vision") is not True
         or args.get("w_plan") != 1.0
         or args.get("w_steer") != (0.0 if version == 3 else 3.281158240898283)
-        or args.get("w_long") != (0.0 if version == 3 else 1.0)
+        or args.get("w_long") != (0.0 if version >= 3 else 1.0)
         or args.get("history_context") != 8
         or args.get("l2sp") != 0.0
         or args.get("batch_size") != 128
@@ -453,7 +497,7 @@ def select(training, calibration, protocol):
         "tf32": run["tf32"],
         "weights": {"plan": args.get("w_plan"), "steer": args.get("w_steer"), "longitudinal": args.get("w_long")},
     }
-    if version == 3:
+    if version >= 3:
         expected_identity["weights"]["consistency"] = args["w_consistency"]
     if any(ci.get(k) != v for k, v in expected_identity.items()):
         raise ValueError("calibration numerical configuration mismatch")
@@ -500,6 +544,20 @@ def select(training, calibration, protocol):
         or len(init_model) != 417
     ):
         raise ValueError("invalid complete model or trainable tensor inventory")
+    if version == 4:
+        from fsop.train.lab_train import FINAL_PLAN_SHAPES, state_hashes
+
+        optimized_names = list(FINAL_PLAN_SHAPES)
+        if (run.get("optimized_tensors") != optimized_names or cal_run.get("optimized_tensors") != optimized_names
+                or any(name not in init_model or tuple(init_model[name].shape) != shape
+                       for name, shape in FINAL_PLAN_SHAPES.items())
+                or run.get("non_head_state_sha256") != state_hashes(init_model, FINAL_PLAN_SHAPES)
+                or cal_run.get("non_head_state_sha256") != run["non_head_state_sha256"]
+                or run.get("optimized_parameters") != 254430 or cal_run.get("optimized_parameters") != 254430
+                or run.get("optimizer_learning_rate") != args["lr"] * args["lr_policy"]
+                or cal_run.get("optimizer_learning_rate") != run["optimizer_learning_rate"]):
+            raise ValueError("final plan optimizer inventory or frozen state mismatch")
+        names = optimized_names
     cal_zero = read(bind(calibration / "baseline_validation.json"))
     cal_ckpt = bind(run_checkpoint(calibration, cal_run, cal_zero["checkpoint"], "step_000000.pt"))
     cal_info = checkpoint_info(cal_ckpt)
@@ -524,6 +582,8 @@ def select(training, calibration, protocol):
         or cal_payload.get("action_target_contract") != target_contract
     ):
         raise ValueError("calibration step-zero checkpoint or metrics mismatch")
+    if version == 4:
+        verify_final_plan_optimizer(cal_payload, 0, run["optimizer_learning_rate"])
     reference = run["baseline_state_sha256"]
     if frozen_state(args["init"], None) != reference:
         raise ValueError("initializer frozen tensor mismatch")
@@ -574,6 +634,10 @@ def select(training, calibration, protocol):
             or frozen_state(ckpt, step, args) != reference
         ):
             raise ValueError(f"checkpoint state, contract, or signature mismatch at step {step}")
+        if version == 4:
+            verify_final_plan_optimizer(payload, step, run["optimizer_learning_rate"])
+        if version == 4 and state_hashes(payload["model"], FINAL_PLAN_SHAPES) != run["non_head_state_sha256"]:
+            raise ValueError(f"non-head state changed at step {step}")
         if any(
             not torch.equal(tensor, payload["model"][name]) for name, tensor in init_model.items() if name not in names
         ):
@@ -617,7 +681,7 @@ def select(training, calibration, protocol):
             excluded_step_one = candidate
         else:
             candidates.append(candidate)
-    ranking_metric = "plan_l1" if version == 3 else "steer"
+    ranking_metric = "plan_l1" if version >= 3 else "steer"
     baseline_metric = candidates[0]["validation"]["aggregate"][ranking_metric]
     for c in candidates:
         c["improves_step_zero"] = c["step"] != 0 and c["validation"]["aggregate"][ranking_metric] < baseline_metric

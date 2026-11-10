@@ -267,20 +267,46 @@ def configure(model, freeze_vision=False):
     raise ValueError('vision must have trainable parameters')
 
 
-def state_hashes(state):
-  """Hash the exact bytes and metadata of vision and auxiliary state tensors."""
+FINAL_PLAN_SHAPES = {'base.policy.p_node_linear_20.weight': (990, 256),
+                     'base.policy.p_node_linear_20.bias': (990,)}
+
+
+def optimizer_parameters(model, scope):
+  named = dict(model.named_parameters())
+  if scope == 'full_policy':
+    return [p for p in model.base.policy.parameters() if p.requires_grad]
+  if scope != 'final_plan':
+    raise ValueError('unsupported optimizer scope')
+  if any(name not in named or tuple(named[name].shape) != shape or not named[name].requires_grad
+         for name, shape in FINAL_PLAN_SHAPES.items()):
+    raise ValueError('final plan parameter inventory or shape mismatch')
+  return [named[name] for name in FINAL_PLAN_SHAPES]
+
+
+def final_plan_optimizer_receipt(optimizer, params):
+  return {'optimized_parameters': sum(p.numel() for p in params),
+          'gradient_tensors': sum(p.grad is not None for p in params),
+          'optimizer_state_tensors': len(optimizer.state),
+          'learning_rate': optimizer.param_groups[0]['lr']}
+
+
+def state_hashes(state, exclude=None):
+  """Hash vision/auxiliary state, or all tensors except the supplied names."""
   result = {}
   for name, tensor in state.items():
-    if name.startswith(('base.vision.', 'bev.', 'img.')):
+    if (exclude is not None and name not in exclude) or (
+        exclude is None and name.startswith(('base.vision.', 'bev.', 'img.'))):
       value = tensor.detach().cpu().contiguous()
       result[name] = {'dtype': str(value.dtype), 'shape': list(value.shape),
                       'sha256': hashlib.sha256(value.reshape(-1).view(torch.uint8).numpy().tobytes()).hexdigest()}
   return result
 
 
-def save_checkpoint(state, path, reference, freeze_vision, trainable_names):
+def save_checkpoint(state, path, reference, freeze_vision, trainable_names, head_reference=None):
   def check(model_state):
     hashes = state_hashes(model_state)
+    if head_reference is not None and state_hashes(model_state, FINAL_PLAN_SHAPES) != head_reference:
+      raise ValueError('non-head state changed')
     if hashes.keys() != reference.keys():
       raise ValueError('vision or auxiliary state keys changed')
     for name, digest in hashes.items():
@@ -825,26 +851,29 @@ def selection_protocol_binding(args, mode, manifest_sha):
   doc = json.loads(raw)
   target_mode = getattr(args, 'action_target_mode', LEGACY_ACTION_TARGET)
   contract = action_target_contract(target_mode, mode)
-  version = 3 if mode == 'op_tangent_pi_v1' else (2 if contract is not None else 1)
-  kind = 'op_tangent_pi_v1_selection' if version == 3 else 'op_tangent_v1_selection'
+  scope = getattr(args, 'optimizer_scope', 'full_policy')
+  version = (4 if scope == 'final_plan' else 3) if mode == 'op_tangent_pi_v1' else (2 if contract is not None else 1)
+  kind = 'op_tangent_pi_v1_selection' if version >= 3 else 'op_tangent_v1_selection'
   if (not isinstance(doc, dict) or doc.get('schema_version') != version or
       doc.get('kind') != kind or
       (version >= 2 and doc.get('action_target_contract') != contract) or
       (version == 1 and 'action_target_contract' in doc)):
     raise ValueError('invalid selection protocol schema')
-  if version == 3:
+  if version >= 3:
     from scripts.select_lab_tangent import protocol_check
 
     protocol_check(doc)
-  if version == 3 and doc.get('ranking') != {'metric': 'aggregate.plan_l1', 'improvement': 'strict_step_zero',
+  if version >= 3 and doc.get('ranking') != {'metric': 'aggregate.plan_l1', 'improvement': 'strict_step_zero',
                                             'tie_break': 'lowest_step'}:
     raise ValueError('invalid PI selection ranking')
   actual_args = {key: getattr(args, key, False if key == 'cache_frozen_features' else None)
                  for key in SELECTION_TRAINING_FIELDS}
   if version >= 2:
     actual_args['action_target_mode'] = target_mode
-  if version == 3:
+  if version >= 3:
     actual_args['w_consistency'] = args.w_consistency
+  if version == 4:
+    actual_args['optimizer_scope'] = scope
   eligible = [0] + list(range(args.val_every, args.steps + 1, args.val_every))
   if eligible[-1] != args.steps:
     eligible.append(args.steps)
@@ -879,6 +908,10 @@ def run(args):
   if mode not in ('pp', 'op_tangent_v1', 'op_tangent_pi_v1'):
     raise ValueError('unsupported native training controller')
   target_mode = getattr(args, 'action_target_mode', LEGACY_ACTION_TARGET)
+  scope = getattr(args, 'optimizer_scope', 'full_policy')
+  if scope not in ('full_policy', 'final_plan') or (scope == 'final_plan' and
+      (mode != 'op_tangent_pi_v1' or not args.freeze_vision)):
+    raise ValueError('final plan scope requires PI mode and frozen vision')
   target_contract = action_target_contract(target_mode, mode)
   target_metadata = {'action_target_contract': target_contract} if target_contract is not None else {}
   cache_enabled = getattr(args, 'cache_frozen_features', False)
@@ -944,19 +977,24 @@ def run(args):
   context_proof = prove_policy_context(model) if args.history_context == 8 else None
   configure(model, freeze_vision=args.freeze_vision)
   reference = {n: p.detach().clone() for n, p in model.base.vision.named_parameters() if p.requires_grad}
-  groups = [{'params': [p for p in model.base.policy.parameters() if p.requires_grad],
-             'lr': args.lr * args.lr_policy}]
+  optimized = optimizer_parameters(model, scope)
+  groups = [{'params': optimized, 'lr': args.lr * args.lr_policy}]
   if not args.freeze_vision:
     groups.append({'params': [p for p in model.base.vision.parameters() if p.requires_grad],
                    'lr': args.lr * args.lr_trunk, 'weight_decay': 0.0})
   optimizer = torch.optim.AdamW(groups, weight_decay=1e-4)
   frozen_reference = state_hashes(model.state_dict())
+  head_reference = state_hashes(model.state_dict(), FINAL_PLAN_SHAPES) if scope == 'final_plan' else None
   out = Path(args.out)
   out.mkdir(parents=True, exist_ok=True)
   names = [name for name, p in model.named_parameters() if p.requires_grad]
   info = {'args': vars(args), 'calibration_only': getattr(args, 'calibration_only', False), **target_metadata,
           'controller_contract': controller_contract(mode), 'device': str(device),
           'baseline_state_sha256': frozen_reference,
+          **({'non_head_state_sha256': head_reference, 'optimized_tensors': list(FINAL_PLAN_SHAPES),
+              'optimized_parameters': sum(p.numel() for p in optimized),
+              'optimizer_learning_rate': optimizer.param_groups[0]['lr']}
+             if scope == 'final_plan' else {}),
           'numeric_precision': 'CUDA autocast bfloat16; history outputs and losses float32' if args.amp else 'float32',
           'init_sha256': sha256(args.init), 'train_anchors': len(train),
           'val_anchors': len(val), 'trainable_tensors': names,
@@ -1034,12 +1072,14 @@ def run(args):
                     **target_metadata,
                     **({'controller_contract': controller_contract(mode)} if mode != 'pp' else {}),
                     'optimizer': optimizer.state_dict(), 'config': vars(args),
+                    **({'optimizer_receipt': final_plan_optimizer_receipt(optimizer, optimized)}
+                       if scope == 'final_plan' else {}),
                     **({'recovery_provenance': sampler.protocol()} if sampler is not None else {})}
   baseline['saved_state_sha256'] = save_checkpoint(baseline_state, selected, frozen_reference,
-                                                   args.freeze_vision, names)
+                                                   args.freeze_vision, names, head_reference)
   model.load_state_dict(torch.load(selected, map_location=device, weights_only=False)['model'], strict=True)
   initial_checkpoint = out / 'step_000000.pt'
-  save_checkpoint(baseline_state, initial_checkpoint, frozen_reference, args.freeze_vision, names)
+  save_checkpoint(baseline_state, initial_checkpoint, frozen_reference, args.freeze_vision, names, head_reference)
   baseline['checkpoint'] = str(initial_checkpoint)
   baseline['checkpoint_sha256'] = sha256(initial_checkpoint)
   baseline['step'] = 0
@@ -1052,7 +1092,10 @@ def run(args):
       recheck_selection_binding(selection_binding, out / 'selection_protocol.json')
       tick = time.monotonic()
       idx = sampler.draw(rng) if sampler is not None else rng.integers(len(train), size=args.batch_size)
-      optimizer.zero_grad(set_to_none=True)
+      if scope == 'final_plan':
+        model.zero_grad(set_to_none=True)
+      else:
+        optimizer.zero_grad(set_to_none=True)
       loss, components = batch_loss(model, train, idx, device, args.w_steer, args.w_long, args.history_chunk_size,
                                     amp=args.amp, channels_last=args.channels_last,
                                     history_context=args.history_context, w_plan=args.w_plan,
@@ -1065,10 +1108,19 @@ def run(args):
       loss = loss + retention
       if not torch.isfinite(loss):
         raise ValueError('nonfinite loss')
-      loss.backward()
+      if scope == 'final_plan':
+        loss.backward(inputs=optimized)
+        if (any(p.grad is None for p in optimized) or
+            any(p.grad is not None for name, p in model.named_parameters() if name not in FINAL_PLAN_SHAPES)):
+          raise ValueError('final plan gradient inventory mismatch')
+      else:
+        loss.backward()
       norms = grad_norms(model)
-      torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.requires_grad], args.grad_clip)
+      torch.nn.utils.clip_grad_norm_(optimized if scope == 'final_plan' else
+                                     [p for p in model.parameters() if p.requires_grad], args.grad_clip)
       optimizer.step()
+      if scope == 'final_plan' and len(optimizer.state) != len(optimized):
+        raise ValueError('final plan optimizer state inventory mismatch')
       row = {'step': step, 'controller_contract': controller_contract(mode), **selection_metadata, **target_metadata,
              **({'recovery_provenance': {'provenance_mode': sampler.provenance_mode,
                                          'collection_policy_checkpoint_sha': sampler.collection_policy_checkpoint_sha,
@@ -1096,17 +1148,19 @@ def run(args):
         ckpt = out / f'step_{step:06d}.pt'
         recheck_selection_binding(selection_binding, out / 'selection_protocol.json')
         state = {'model': model.state_dict(), 'step': step, 'optimizer': optimizer.state_dict(), 'config': vars(args),
+                 **({'optimizer_receipt': final_plan_optimizer_receipt(optimizer, optimized)}
+                    if scope == 'final_plan' else {}),
                  **selection_metadata, **target_metadata,
                  **({'controller_contract': controller_contract(mode)} if mode != 'pp' else {}),
                  **({'recovery_provenance': sampler.protocol()} if sampler is not None else {})}
-        row['state_sha256'] = save_checkpoint(state, ckpt, frozen_reference, args.freeze_vision, names)
+        row['state_sha256'] = save_checkpoint(state, ckpt, frozen_reference, args.freeze_vision, names, head_reference)
         row['checkpoint'] = str(ckpt)
         row['checkpoint_sha256'] = sha256(ckpt)
         if score < best:
           best = score
           selected = out / 'selected.pt'
           # Same complete state dictionary; strict reload verifies the artifact.
-          row['selected_state_sha256'] = save_checkpoint(state, selected, frozen_reference, args.freeze_vision, names)
+          row['selected_state_sha256'] = save_checkpoint(state, selected, frozen_reference, args.freeze_vision, names, head_reference)
           model.load_state_dict(torch.load(selected, map_location=device, weights_only=False)['model'], strict=True)
           row['selected_sha256'] = sha256(selected)
       log.write(json.dumps(row, allow_nan=False) + '\n')
@@ -1150,6 +1204,7 @@ def main(argv=None):
   p.add_argument('--w-consistency', type=float, default=0.0)
   p.add_argument('--w-steer', type=float, default=3.281158240898283)
   p.add_argument('--w-long', type=float, default=1.0)
+  p.add_argument('--optimizer-scope', choices=('full_policy', 'final_plan'), default='full_policy')
   p.add_argument('--lr-policy', type=float, default=0.3)
   p.add_argument('--lr-trunk', type=float, default=0.1)
   p.add_argument('--l2sp', type=float, default=1e-3)
