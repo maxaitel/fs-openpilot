@@ -1,0 +1,424 @@
+{
+  "discipline": "trackdrive",
+  "result": "timeout",
+  "laps": [],
+  "n_laps": 0,
+  "doo": 6,
+  "oc": 10,
+  "max_speed": 9.109764755682892,
+  "avg_speed_first3": null,
+  "raw_time": 0,
+  "penalty": 112.0,
+  "time": 112.0,
+  "dq": false,
+  "complete": false,
+  "pass": false,
+  "final_state": {
+    "x": 0.9600156545639038,
+    "y": -2.4995553493499756,
+    "yaw": -2.2915817693234164,
+    "vx": 6.826951825119482,
+    "vy": 0.15932791374678296,
+    "r": 0.6562187671661377,
+    "steer": 0.1691740775322788,
+    "accel": 0.5653361313758998,
+    "t": 120.0,
+    "extra": {}
+  },
+  "physical_cone_hits": 6,
+  "contact_events": [
+    {
+      "t": 16.4,
+      "control_frame": 328,
+      "cone": "/World/Cones/c0091",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 22.25,
+      "control_frame": 445,
+      "cone": "/World/Cones/c0099",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 32.85,
+      "control_frame": 657,
+      "cone": "/World/Cones/c0109",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 59.55,
+      "control_frame": 1191,
+      "cone": "/World/Cones/c0037",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 60.25,
+      "control_frame": 1205,
+      "cone": "/World/Cones/c0113",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 110.2,
+      "control_frame": 2204,
+      "cone": "/World/Cones/c0038",
+      "time_convention": "start of the control interval containing first contact"
+    }
+  ],
+  "progress": 0.5096316715248206,
+  "rms_lat": 16.660423303234445,
+  "case": {
+    "id": "regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1",
+    "split": "regression",
+    "discipline": "trackdrive",
+    "seed": 0,
+    "dr": "heavy",
+    "variant": "visual_stress_v1",
+    "track_seed": null,
+    "frozen_case": "retention-trackdrive_020000-heavy-recorded",
+    "lateral_start": 0.0,
+    "yaw_start": 0.0
+  },
+  "pilot_only": false,
+  "events": [
+    {
+      "t": 1.9,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    },
+    {
+      "t": 16.35,
+      "kind": "doo",
+      "data": {
+        "cone": 91,
+        "dir": -1.9112951226757322
+      }
+    },
+    {
+      "t": 22.2,
+      "kind": "doo",
+      "data": {
+        "cone": 99,
+        "dir": -0.517382901066673
+      }
+    },
+    {
+      "t": 32.85,
+      "kind": "doo",
+      "data": {
+        "cone": 109,
+        "dir": 0.15065741648312592
+      }
+    },
+    {
+      "t": 33.3,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 42.35,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 43.45,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 59.6,
+      "kind": "doo",
+      "data": {
+        "cone": 37,
+        "dir": -1.8623554811467278
+      }
+    },
+    {
+      "t": 59.7,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 60.3,
+      "kind": "doo",
+      "data": {
+        "cone": 113,
+        "dir": -2.48248595607452
+      }
+    },
+    {
+      "t": 60.85,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 65.2,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 67.25,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 95.2,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 96.05,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 99.5,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 100.4,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 102.45,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 103.65,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 107.5,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 108.5,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 110.3,
+      "kind": "doo",
+      "data": {
+        "cone": 38,
+        "dir": -3.1151191195515193
+      }
+    },
+    {
+      "t": 110.3,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 111.7,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 116.0,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 117.05,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 118.65,
+      "kind": "back_on_course",
+      "data": {}
+    }
+  ],
+  "pending_events": [],
+  "recorded_frames": 2400,
+  "wall_seconds": 1070.5685737729073,
+  "startup_seconds": 18.65007792005781,
+  "evidence_seconds": 172.41621643700637,
+  "seconds_simulated": 120.0,
+  "real_time_factor": 0.11208997063784054,
+  "command_contract": {
+    "kind": "direct_native_actuator_joint_suffix_v1",
+    "version": 1,
+    "latent_module": "base.policy.p_node_linear_20",
+    "latent_shape": [
+      "B",
+      256
+    ],
+    "latent_normalization": {
+      "kind": "layer_norm",
+      "eps": 1e-05,
+      "affine": false
+    },
+    "proprio_order": [
+      "vx_mps",
+      "vy_mps",
+      "yaw_rate_radps"
+    ],
+    "proprio_scales": [
+      10.0,
+      2.0,
+      1.0
+    ],
+    "output_order": [
+      "steer_rad",
+      "accel_mps2"
+    ],
+    "output_scales": [
+      0.1,
+      2.0
+    ],
+    "target": "qualified native teacher controls at the observation tick",
+    "history": "phase-zero 5 Hz, eight past features and current feature, full desire queue",
+    "mission": "bound raw request, apply mission_brake_with_override, bound again",
+    "base_parameters": 31154802,
+    "head_parameters": 33538,
+    "training_scope": {
+      "base.policy.p_node_linear_14.weight": [
+        256,
+        512
+      ],
+      "base.policy.p_node_linear_14.bias": [
+        256
+      ],
+      "base.policy.p_node_linear_16.weight": [
+        256,
+        256
+      ],
+      "base.policy.p_node_linear_16.bias": [
+        256
+      ],
+      "base.policy.p_node_linear_17.weight": [
+        256,
+        256
+      ],
+      "base.policy.p_node_linear_17.bias": [
+        256
+      ]
+    },
+    "suffix_parameters": 262912,
+    "optimized_parameters": 296450,
+    "frozen_base_state_tensors": 411,
+    "plan_semantics": "updated plan and inherited controller are diagnostics only",
+    "deployment": {
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "threads": 4
+    }
+  },
+  "controller_contract": {
+    "mode": "direct_native_actuator_joint_suffix_v1",
+    "command_contract": {
+      "kind": "direct_native_actuator_joint_suffix_v1",
+      "version": 1,
+      "latent_module": "base.policy.p_node_linear_20",
+      "latent_shape": [
+        "B",
+        256
+      ],
+      "latent_normalization": {
+        "kind": "layer_norm",
+        "eps": 1e-05,
+        "affine": false
+      },
+      "proprio_order": [
+        "vx_mps",
+        "vy_mps",
+        "yaw_rate_radps"
+      ],
+      "proprio_scales": [
+        10.0,
+        2.0,
+        1.0
+      ],
+      "output_order": [
+        "steer_rad",
+        "accel_mps2"
+      ],
+      "output_scales": [
+        0.1,
+        2.0
+      ],
+      "target": "qualified native teacher controls at the observation tick",
+      "history": "phase-zero 5 Hz, eight past features and current feature, full desire queue",
+      "mission": "bound raw request, apply mission_brake_with_override, bound again",
+      "base_parameters": 31154802,
+      "head_parameters": 33538,
+      "training_scope": {
+        "base.policy.p_node_linear_14.weight": [
+          256,
+          512
+        ],
+        "base.policy.p_node_linear_14.bias": [
+          256
+        ],
+        "base.policy.p_node_linear_16.weight": [
+          256,
+          256
+        ],
+        "base.policy.p_node_linear_16.bias": [
+          256
+        ],
+        "base.policy.p_node_linear_17.weight": [
+          256,
+          256
+        ],
+        "base.policy.p_node_linear_17.bias": [
+          256
+        ]
+      },
+      "suffix_parameters": 262912,
+      "optimized_parameters": 296450,
+      "frozen_base_state_tensors": 411,
+      "plan_semantics": "updated plan and inherited controller are diagnostics only",
+      "deployment": {
+        "device": "cpu",
+        "dtype": "torch.float32",
+        "threads": 4
+      }
+    }
+  },
+  "controller_name": "direct_native_actuator_joint_suffix_v1",
+  "policy_device": "cpu",
+  "package_kind": "direct_native_actuator_joint_suffix_v1",
+  "torch_num_threads": 4,
+  "head_state_sha256": "eed34fbd302328712cb677587e0a37c96c546997c751e7805179ea45f9157e40",
+  "head_state_sha256_after": "eed34fbd302328712cb677587e0a37c96c546997c751e7805179ea45f9157e40",
+  "base_parameter_count": 31154802,
+  "head_parameter_count": 33538,
+  "total_parameter_count": 31188340,
+  "checkpoint_sha256": "3cb08122c7d21656c23d3786c059b5a59bb904a8bb3fd617ec38020308de7b35",
+  "checkpoint_sha256_after": "3cb08122c7d21656c23d3786c059b5a59bb904a8bb3fd617ec38020308de7b35",
+  "state_sha256": "10b4a1a84f1955aca51e7859fcd69bd5d9ef52b18b9c6803a70b36704db2f753",
+  "state_sha256_after": "10b4a1a84f1955aca51e7859fcd69bd5d9ef52b18b9c6803a70b36704db2f753",
+  "frozen_unchanged": true,
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "925dfc6fd77287955334523a1ef93f5bd53d247a5cabd856fac108546deaeccc",
+  "torch_peak_allocated_gib": 0.0,
+  "torch_peak_reserved_gib": 0.0,
+  "runtime": {
+    "python": "3.11.13",
+    "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+    "processor": "aarch64",
+    "torch": "2.9.0+cu130",
+    "numpy": "1.26.0",
+    "inference_device": "cpu",
+    "inference_dtype": "torch.float32",
+    "torch_num_threads": 4,
+    "torch_num_interop_threads": 20
+  }
+}

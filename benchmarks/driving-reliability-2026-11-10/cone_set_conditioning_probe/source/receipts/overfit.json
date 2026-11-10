@@ -1,0 +1,400 @@
+{
+  "passed": false,
+  "step": 200,
+  "mae": [
+    0.005447729025036097,
+    0.31453344225883484
+  ],
+  "per_anchor": [
+    {
+      "anchor": {
+        "case": "train-trackdrive-82009-visual_stress_v1",
+        "frame": 93,
+        "tick": 372
+      },
+      "absolute_error": [
+        0.006459958851337433,
+        0.001213952898979187
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-skidpad-82004-matched",
+        "frame": 36,
+        "tick": 144
+      },
+      "absolute_error": [
+        0.0003567636013031006,
+        0.09043191373348236
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-trackdrive-82015-visual_stress_v1",
+        "frame": 217,
+        "tick": 868
+      },
+      "absolute_error": [
+        0.00857175700366497,
+        0.0028144121170043945
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-trackdrive-82001-visual_stress_v1",
+        "frame": 102,
+        "tick": 408
+      },
+      "absolute_error": [
+        0.0031588375568389893,
+        0.27611082792282104
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-skidpad-82006-visual_stress_v1",
+        "frame": 220,
+        "tick": 880
+      },
+      "absolute_error": [
+        0.0009086309000849724,
+        0.06721043586730957
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-skidpad-82003-visual_stress_v1",
+        "frame": 65,
+        "tick": 260
+      },
+      "absolute_error": [
+        0.002122446894645691,
+        0.08410577476024628
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-skidpad-82010-visual_stress_v1",
+        "frame": 96,
+        "tick": 384
+      },
+      "absolute_error": [
+        0.009847566485404968,
+        0.161329984664917
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-skidpad-82013-visual_stress_v1",
+        "frame": 91,
+        "tick": 364
+      },
+      "absolute_error": [
+        0.0013942718505859375,
+        0.0024324357509613037
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-skidpad-82011-visual_stress_v1",
+        "frame": 115,
+        "tick": 460
+      },
+      "absolute_error": [
+        0.002486512064933777,
+        0.02615950256586075
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-trackdrive-82002-visual_stress_v1",
+        "frame": 174,
+        "tick": 696
+      },
+      "absolute_error": [
+        0.01427706703543663,
+        1.602125644683838
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-skidpad-82015-visual_stress_v1",
+        "frame": 28,
+        "tick": 112
+      },
+      "absolute_error": [
+        0.003289744257926941,
+        0.09441432356834412
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-trackdrive-82008-matched",
+        "frame": 54,
+        "tick": 216
+      },
+      "absolute_error": [
+        0.00704571045935154,
+        0.30475378036499023
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-trackdrive-82015-visual_stress_v1",
+        "frame": 170,
+        "tick": 680
+      },
+      "absolute_error": [
+        0.0002974197268486023,
+        0.04928138852119446
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-trackdrive-82000-matched",
+        "frame": 141,
+        "tick": 564
+      },
+      "absolute_error": [
+        0.01073414459824562,
+        2.65173077583313
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-trackdrive-82005-visual_stress_v1",
+        "frame": 111,
+        "tick": 444
+      },
+      "absolute_error": [
+        0.001752413809299469,
+        0.0243685245513916
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-skidpad-82004-matched",
+        "frame": 128,
+        "tick": 512
+      },
+      "absolute_error": [
+        0.0001980215311050415,
+        0.03615768253803253
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-skidpad-82000-matched-direct-recovery-v1",
+        "frame": 18,
+        "tick": 72
+      },
+      "absolute_error": [
+        0.0011152029037475586,
+        0.07063496112823486
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-skidpad-82000-matched-direct-recovery-v1",
+        "frame": 19,
+        "tick": 76
+      },
+      "absolute_error": [
+        0.0041051506996154785,
+        0.0646076649427414
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-skidpad-82000-matched-direct-recovery-v1",
+        "frame": 25,
+        "tick": 100
+      },
+      "absolute_error": [
+        0.000684201717376709,
+        0.06885167956352234
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-skidpad-82000-matched-direct-recovery-v1",
+        "frame": 22,
+        "tick": 88
+      },
+      "absolute_error": [
+        0.0009811371564865112,
+        0.06936761736869812
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-skidpad-82000-matched-direct-recovery-v1",
+        "frame": 23,
+        "tick": 92
+      },
+      "absolute_error": [
+        0.003640204668045044,
+        0.07213643193244934
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-skidpad-82000-matched-direct-recovery-v1",
+        "frame": 16,
+        "tick": 64
+      },
+      "absolute_error": [
+        0.00010047852993011475,
+        0.06701302528381348
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-skidpad-82000-matched-direct-recovery-v1",
+        "frame": 20,
+        "tick": 80
+      },
+      "absolute_error": [
+        0.00042916834354400635,
+        0.07532422989606857
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-skidpad-82000-matched-direct-recovery-v1",
+        "frame": 21,
+        "tick": 84
+      },
+      "absolute_error": [
+        0.0006999820470809937,
+        0.0782344788312912
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+        "frame": 42,
+        "tick": 168
+      },
+      "absolute_error": [
+        0.042498473078012466,
+        0.47073984146118164
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+        "frame": 48,
+        "tick": 192
+      },
+      "absolute_error": [
+        0.0034490153193473816,
+        0.39367926120758057
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+        "frame": 43,
+        "tick": 172
+      },
+      "absolute_error": [
+        0.012274177744984627,
+        0.045145511627197266
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+        "frame": 46,
+        "tick": 184
+      },
+      "absolute_error": [
+        0.008551251143217087,
+        0.18273544311523438
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+        "frame": 44,
+        "tick": 176
+      },
+      "absolute_error": [
+        0.0073828548192977905,
+        0.4915914535522461
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+        "frame": 45,
+        "tick": 180
+      },
+      "absolute_error": [
+        0.0037519969046115875,
+        1.6531193256378174
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+        "frame": 50,
+        "tick": 200
+      },
+      "absolute_error": [
+        0.00789383053779602,
+        0.6739335060119629
+      ],
+      "empty_set": false
+    },
+    {
+      "anchor": {
+        "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+        "frame": 49,
+        "tick": 196
+      },
+      "absolute_error": [
+        0.0038689374923706055,
+        0.11331453919410706
+      ],
+      "empty_set": false
+    }
+  ],
+  "audit_sha256": "0e1d493d3b4d8067b2ebb32e6ef6a07fb556756b734db63603df978042444823",
+  "condition_sha256": "79bef197860abf08d0dd10cfef607cf86e360d7b69aef225ae3935c63eafbb7d",
+  "seconds": 71.84032467706129,
+  "discarded_all_weights": true,
+  "frozen_base_state_unchanged": true,
+  "frozen_base_tensors": 417
+}

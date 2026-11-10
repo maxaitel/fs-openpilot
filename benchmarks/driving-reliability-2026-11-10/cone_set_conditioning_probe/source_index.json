@@ -1,0 +1,132 @@
+{
+  "publication": "cone_set_conditioning_probe",
+  "entries": [
+    {
+      "role": "frozen_source",
+      "original_path": ".work/lab/cone_set_conditioning_probe_v1/bindings.json",
+      "published_path": "source/bindings.json",
+      "sha256": "e39604f24a8aa28881ad5b1cfd20ba4a337859abd248d470e7f275f94bb7dae9",
+      "bytes": 12246
+    },
+    {
+      "role": "frozen_source",
+      "original_path": ".work/lab/cone_set_conditioning_probe_v1/existing_failure_summary.json",
+      "published_path": "source/existing_failure_summary.json",
+      "sha256": "0952b0af2388b5c060ae91be6db9ae3629930a12768a3cd5337eb3ac76fd9320",
+      "bytes": 3106
+    },
+    {
+      "role": "frozen_source",
+      "original_path": ".work/lab/cone_set_conditioning_probe_v1/freeze.json",
+      "published_path": "source/freeze.json",
+      "sha256": "e4161c11813a38e88dc6b3bace8725e97127a1107e8bcd597f74123940e56b3a",
+      "bytes": 1016
+    },
+    {
+      "role": "frozen_source",
+      "original_path": ".work/lab/cone_set_conditioning_probe_v1/probe.py",
+      "published_path": "source/probe.py",
+      "sha256": "1ca53d02fb61510457e08dd6d03e735e4e4c0f93b44e3b7324b52eb82230eaaa",
+      "bytes": 22078
+    },
+    {
+      "role": "frozen_source",
+      "original_path": ".work/lab/cone_set_conditioning_probe_v1/protocol.md",
+      "published_path": "source/protocol.md",
+      "sha256": "123236974c6db1c3c3eafd4b7495710c9212fbd9db43c323222eb00fc72e77ca",
+      "bytes": 8942
+    },
+    {
+      "role": "failed_run_receipt",
+      "original_path": ".work/lab/cone_set_conditioning_probe_v1/receipts/audit.json",
+      "published_path": "source/receipts/audit.json",
+      "sha256": "0e1d493d3b4d8067b2ebb32e6ef6a07fb556756b734db63603df978042444823",
+      "bytes": 602490
+    },
+    {
+      "role": "failed_run_receipt",
+      "original_path": ".work/lab/cone_set_conditioning_probe_v1/receipts/collisions.json",
+      "published_path": "source/receipts/collisions.json",
+      "sha256": "b2ab0887e77d44eac8c7340c3711f5841f39911bbdf7e798e65d569744fdc9f5",
+      "bytes": 1725970
+    },
+    {
+      "role": "failed_run_receipt",
+      "original_path": ".work/lab/cone_set_conditioning_probe_v1/receipts/condition.json",
+      "published_path": "source/receipts/condition.json",
+      "sha256": "79bef197860abf08d0dd10cfef607cf86e360d7b69aef225ae3935c63eafbb7d",
+      "bytes": 1694
+    },
+    {
+      "role": "failed_run_receipt",
+      "original_path": ".work/lab/cone_set_conditioning_probe_v1/receipts/overfit.json",
+      "published_path": "source/receipts/overfit.json",
+      "sha256": "ff69fce7322bea777b74abad485cd4e62f63eb2de12d03024d04af4ef8d6002b",
+      "bytes": 8775
+    },
+    {
+      "role": "failed_run_receipt",
+      "original_path": ".work/lab/cone_set_conditioning_probe_v1/receipts/overfit_failure.json",
+      "published_path": "source/receipts/overfit_failure.json",
+      "sha256": "d84bd21d651c5c81da9290ce01eccde77ac9aed08b60a204fda9d3a4b40d31f5",
+      "bytes": 573
+    },
+    {
+      "role": "probe_result",
+      "original_path": "runs/cone_set_conditioning_probe_v1/attempt.json",
+      "published_path": "results/attempt.json",
+      "sha256": "d86887e26bae61c19f5e10a37d08def209a787fd4cb813f9eb9559e42b5cb4a4",
+      "bytes": 634
+    },
+    {
+      "role": "probe_result",
+      "original_path": "runs/cone_set_conditioning_probe_v1/complete.json",
+      "published_path": "results/complete.json",
+      "sha256": "d2b50ae35e169e1fb83348c10d50c58909f11a105925331b9b8924263f506f86",
+      "bytes": 359
+    },
+    {
+      "role": "probe_result",
+      "original_path": "runs/cone_set_conditioning_probe_v1/input_binding.json",
+      "published_path": "results/input_binding.json",
+      "sha256": "b4e1bb66b7bf3b79abb2d64bf55b4201a947551ef671022e8970c1486c1bf797",
+      "bytes": 353463
+    },
+    {
+      "role": "probe_result",
+      "original_path": "runs/cone_set_conditioning_probe_v1/report.json",
+      "published_path": "results/report.json",
+      "sha256": "b3fe58b6314f7dd3a432f3803090030c468a9a5735a004f178a1c90ba6ab064b",
+      "bytes": 858656
+    },
+    {
+      "role": "transfer_receipt",
+      "original_path": "runs/cone_set_conditioning_probe_v1.remote_inventory.json",
+      "published_path": "transfer/remote_inventory.json",
+      "sha256": "98989196f5ec59e97ce44c92effd003ceb3031ed58ab94d55b2a851e3a384d2e",
+      "bytes": 513
+    },
+    {
+      "role": "transfer_receipt",
+      "original_path": "runs/cone_set_conditioning_probe_v1.copy_receipt.json",
+      "published_path": "transfer/copy_receipt.json",
+      "sha256": "c73549c8802e0439d2f3a9a352fc946d3ac97c06290627954acdddac8f18543e",
+      "bytes": 450
+    }
+  ],
+  "notes": [
+    "source/ is an exact archival copy of .work/lab/cone_set_conditioning_probe_v1. Its executable retains its original repository and sibling-module paths.",
+    "results/ contains exact completed execution output from runs/cone_set_conditioning_probe_v1. These are results, not pre-execution source files.",
+    "source/receipts/ preserves the failed cone-set wiring v1 evidence. Main fitting was prohibited and no model was selected.",
+    "transfer/ preserves the parent remote copy receipt and inventory. Publication performs local byte verification only.",
+    "The protocol and thresholds are unchanged. The negative decision does not recommend LayerNorm. Final cases remain sealed."
+  ],
+  "authored_publication_files": [
+    {
+      "role": "publication_report",
+      "published_path": "report.md",
+      "sha256": "49eee1dedf866dc7895a2dc1ddfa1fbb25d7557cdba8ccc6d370eb9423969f22",
+      "original_path": null
+    }
+  ]
+}

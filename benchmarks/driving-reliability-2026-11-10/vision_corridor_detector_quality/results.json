@@ -1,0 +1,4046 @@
+{
+  "protocol_sha256": "af391fe9e13653e29600e1c2e88d425cda825ebb254848fcdd9711f097b4d1f3",
+  "input_hashes_before_after": {
+    "runs/vision_corridor_probe_v1/copy_receipt.json": "4b20da5aa35dcfc2b65eb06f643f9d451271255b257c5642be77dc54bada1c8b",
+    "runs/vision_corridor_probe_v1/receipt.json": "abccd3e1668ecbb42a278d1355a6ab55949417d3e94776734caaf65a9ce02513",
+    "runs/vision_corridor_probe_v1/references.json": "f7c75de4a03c4697cb8aeca5338da8110ae28e0f9b30c5cbea7893f53966f268",
+    "runs/vision_corridor_probe_v1/frames.jsonl": "4cedbb447ba306ec849eec38cdeb701997e47b39ac23914d038580c225e489fd",
+    "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/meta.json": "77c4cb56b517329fe4dda6f996fefcc950b86f40b9b06c348a067bf1f519f9a3",
+    "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/states.npy": "3955dcee36bfbfc0f8c840b67bb108127c28aefd97f99b7a479f2a24119002e2",
+    "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/cones.npy": "e6b365d7eb9376b3d8b4888a1e1001e5560ab9ef51bb3638793ee025774242e4",
+    "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/controls.npy": "56febb4545715888ff693dc95ffb03db97ba9d67259ca7c13ae6ef364787153d",
+    "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/ticks.npy": "e4fa7d666bfdb0eb19e782f2a05f160dfc9ac86c715358f28eba96094832dec2",
+    "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/desires.npy": "453838ecdb8824af669273742ef22a67741f72e1fcb91148a28f6a4c5d90ec40",
+    "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/contacts.npy": "8bbd0af451ed40fe71c5aa04d432e8c42689af7d347939eb3f6bcf0508791f30",
+    "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/meta.json": "730d5b359c11a02215b2fd646b6edc09b78787c08a39eeb09e6070d191144b2c",
+    "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/states.npy": "1e74936e48049c68ac9f3626089a2b8fea177ba7cc89cc69248ed9486e5477c3",
+    "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/cones.npy": "8f49ae641c7f1db0c216389a1c9170d255f5aab4ec061e9b34d11ca1810c1a1e",
+    "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/controls.npy": "57f87883c6ca3b053b9a3c39b1c0b17937af55f4e273b12ae1d3f28af2dcdae3",
+    "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/ticks.npy": "4d2ab1484f3618ee3c820e8c87a2c33ebea9a1b1ee305bffc5a4ea826ce885c9",
+    "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/desires.npy": "faa1c568775577760e941eecc144ab8cef155c885796ccf8fb2bcfbe69e5e15d",
+    "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/contacts.npy": "bb6e6b3fd97a796254645da1096d6241b560032bb55286158845b9a433d1d8e2",
+    "protocol.md": "af391fe9e13653e29600e1c2e88d425cda825ebb254848fcdd9711f097b4d1f3",
+    "score.py": "821dc9d91300971b89c9d5c47d6182a6b287bb637eed9bcc3e25884d0225a22c"
+  },
+  "association": [
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "entry",
+      "group": "color",
+      "class": "blue",
+      "range_m": "0-5",
+      "pred": 2,
+      "correct": 2,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.2813173999581628,
+      "error_p95_m": 0.30350044922280156
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "blue",
+      "range_m": "0-5",
+      "pred": 64,
+      "correct": 39,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.609375,
+      "error_p50_m": 0.12105238874904457,
+      "error_p95_m": 0.6810166479007963
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "entry",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "0-5",
+      "pred": 4,
+      "correct": 3,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.75,
+      "error_p50_m": 0.43373391044366616,
+      "error_p95_m": 0.46207614163704697
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "0-5",
+      "pred": 65,
+      "correct": 39,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.6,
+      "error_p50_m": 0.12159873898764005,
+      "error_p95_m": 0.6547053756362508
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "entry",
+      "group": "color",
+      "class": "blue",
+      "range_m": "5-10",
+      "pred": 26,
+      "correct": 26,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.07975765869440658,
+      "error_p95_m": 0.21390494968984808
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "blue",
+      "range_m": "5-10",
+      "pred": 200,
+      "correct": 195,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.975,
+      "error_p50_m": 0.04729664071857771,
+      "error_p95_m": 0.1827963532753064
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "entry",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "5-10",
+      "pred": 26,
+      "correct": 25,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.9615384615384616,
+      "error_p50_m": 0.0824039106801895,
+      "error_p95_m": 0.17808667525460078
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "5-10",
+      "pred": 201,
+      "correct": 194,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.9651741293532339,
+      "error_p50_m": 0.0462575320515733,
+      "error_p95_m": 0.16564908284690155
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "entry",
+      "group": "color",
+      "class": "blue",
+      "range_m": "10-20",
+      "pred": 85,
+      "correct": 57,
+      "wrong_class": 1,
+      "precision_to_any_gt": 0.6705882352941176,
+      "error_p50_m": 0.2726862389897623,
+      "error_p95_m": 0.6671047438030047
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "blue",
+      "range_m": "10-20",
+      "pred": 330,
+      "correct": 241,
+      "wrong_class": 2,
+      "precision_to_any_gt": 0.7303030303030303,
+      "error_p50_m": 0.1957743656293602,
+      "error_p95_m": 0.6601318531885042
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "entry",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "10-20",
+      "pred": 88,
+      "correct": 60,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.6818181818181818,
+      "error_p50_m": 0.2383102543258109,
+      "error_p95_m": 0.678185068242404
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "10-20",
+      "pred": 328,
+      "correct": 241,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.7347560975609756,
+      "error_p50_m": 0.1932259125085721,
+      "error_p95_m": 0.5884504457084108
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "entry",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "0-5",
+      "pred": 14,
+      "correct": 6,
+      "wrong_class": 1,
+      "precision_to_any_gt": 0.42857142857142855,
+      "error_p50_m": 0.022104177676429155,
+      "error_p95_m": 0.2737186683444524
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "0-5",
+      "pred": 38,
+      "correct": 18,
+      "wrong_class": 1,
+      "precision_to_any_gt": 0.47368421052631576,
+      "error_p50_m": 0.22840046508078019,
+      "error_p95_m": 0.5261128199318024
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "entry",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "0-5",
+      "pred": 8,
+      "correct": 3,
+      "wrong_class": 2,
+      "precision_to_any_gt": 0.375,
+      "error_p50_m": 0.30726187634328905,
+      "error_p95_m": 0.4431140334984648
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "0-5",
+      "pred": 27,
+      "correct": 13,
+      "wrong_class": 2,
+      "precision_to_any_gt": 0.48148148148148145,
+      "error_p50_m": 0.08929461114854137,
+      "error_p95_m": 0.6805874016775958
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "entry",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "5-10",
+      "pred": 8,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.0,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "5-10",
+      "pred": 160,
+      "correct": 111,
+      "wrong_class": 1,
+      "precision_to_any_gt": 0.69375,
+      "error_p50_m": 0.12255911426977042,
+      "error_p95_m": 0.3340423814448543
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "entry",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "5-10",
+      "pred": 14,
+      "correct": 14,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.06158154834580212,
+      "error_p95_m": 0.1888576771924939
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "5-10",
+      "pred": 49,
+      "correct": 45,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.9183673469387755,
+      "error_p50_m": 0.03918806490231372,
+      "error_p95_m": 0.16851576412277489
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "entry",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "10-20",
+      "pred": 56,
+      "correct": 26,
+      "wrong_class": 2,
+      "precision_to_any_gt": 0.4642857142857143,
+      "error_p50_m": 0.21040732551420976,
+      "error_p95_m": 0.4381469159608449
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "10-20",
+      "pred": 614,
+      "correct": 390,
+      "wrong_class": 7,
+      "precision_to_any_gt": 0.6351791530944625,
+      "error_p50_m": 0.1955363832839499,
+      "error_p95_m": 0.6005899387786807
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "entry",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "10-20",
+      "pred": 36,
+      "correct": 26,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.7222222222222222,
+      "error_p50_m": 0.2204141034248665,
+      "error_p95_m": 0.562334062623712
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "10-20",
+      "pred": 49,
+      "correct": 34,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.6938775510204082,
+      "error_p50_m": 0.18295813141022382,
+      "error_p95_m": 0.548014194531197
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_1",
+      "group": "color",
+      "class": "blue",
+      "range_m": "0-5",
+      "pred": 31,
+      "correct": 18,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.5806451612903226,
+      "error_p50_m": 0.08343987895702651,
+      "error_p95_m": 0.6819834164883508
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_1",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "0-5",
+      "pred": 2,
+      "correct": 1,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.5,
+      "error_p50_m": 0.27132357823455877,
+      "error_p95_m": 0.27132357823455877
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_1",
+      "group": "color",
+      "class": "blue",
+      "range_m": "5-10",
+      "pred": 81,
+      "correct": 78,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.9629629629629629,
+      "error_p50_m": 0.048047931697621345,
+      "error_p95_m": 0.18707925262908537
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_1",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "5-10",
+      "pred": 6,
+      "correct": 4,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.6666666666666666,
+      "error_p50_m": 0.10852634735992375,
+      "error_p95_m": 0.1895821449418778
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_1",
+      "group": "color",
+      "class": "blue",
+      "range_m": "10-20",
+      "pred": 78,
+      "correct": 62,
+      "wrong_class": 1,
+      "precision_to_any_gt": 0.7948717948717948,
+      "error_p50_m": 0.2038340649068907,
+      "error_p95_m": 0.6212645482057407
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_1",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "10-20",
+      "pred": 46,
+      "correct": 32,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.6956521739130435,
+      "error_p50_m": 0.11898794291824479,
+      "error_p95_m": 0.5164562902434929
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_1",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_1",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "0-5",
+      "pred": 5,
+      "correct": 4,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.8,
+      "error_p50_m": 0.41922243439508766,
+      "error_p95_m": 0.727346824488839
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_1",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "5-10",
+      "pred": 9,
+      "correct": 8,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.8888888888888888,
+      "error_p50_m": 0.17124635867949364,
+      "error_p95_m": 0.2776749884498753
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_1",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "5-10",
+      "pred": 8,
+      "correct": 8,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.03164032391126566,
+      "error_p95_m": 0.06362094187315191
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_1",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "10-20",
+      "pred": 105,
+      "correct": 62,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.5904761904761905,
+      "error_p50_m": 0.24835826661471846,
+      "error_p95_m": 0.5307550787871699
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_1",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "10-20",
+      "pred": 2,
+      "correct": 2,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.09160450849007049,
+      "error_p95_m": 0.14461752492039937
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_2",
+      "group": "color",
+      "class": "blue",
+      "range_m": "0-5",
+      "pred": 29,
+      "correct": 19,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.6551724137931034,
+      "error_p50_m": 0.12105238874904457,
+      "error_p95_m": 0.6232219379420497
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_2",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_2",
+      "group": "color",
+      "class": "blue",
+      "range_m": "5-10",
+      "pred": 79,
+      "correct": 78,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.9873417721518988,
+      "error_p50_m": 0.03789105771010212,
+      "error_p95_m": 0.14574395128780085
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_2",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "5-10",
+      "pred": 5,
+      "correct": 4,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.8,
+      "error_p50_m": 0.14471008768336419,
+      "error_p95_m": 0.2485673931654131
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_2",
+      "group": "color",
+      "class": "blue",
+      "range_m": "10-20",
+      "pred": 80,
+      "correct": 63,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.7875,
+      "error_p50_m": 0.1446385289764569,
+      "error_p95_m": 0.5730299434423098
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_2",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "10-20",
+      "pred": 45,
+      "correct": 28,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.6222222222222222,
+      "error_p50_m": 0.21843227274736293,
+      "error_p95_m": 0.552505246888637
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_2",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_2",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "0-5",
+      "pred": 5,
+      "correct": 2,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.4,
+      "error_p50_m": 0.04576329795785865,
+      "error_p95_m": 0.051143303884434714
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_2",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "5-10",
+      "pred": 14,
+      "correct": 11,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.7857142857142857,
+      "error_p50_m": 0.15950201092993632,
+      "error_p95_m": 0.3287841326328814
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_2",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "5-10",
+      "pred": 9,
+      "correct": 8,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.8888888888888888,
+      "error_p50_m": 0.016289758850393167,
+      "error_p95_m": 0.04672394765863474
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_2",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "10-20",
+      "pred": 93,
+      "correct": 61,
+      "wrong_class": 1,
+      "precision_to_any_gt": 0.6559139784946236,
+      "error_p50_m": 0.19053509364968232,
+      "error_p95_m": 0.6232553107044125
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_2",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "10-20",
+      "pred": 3,
+      "correct": 3,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.13690484387341276,
+      "error_p95_m": 0.14984427949604381
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_1",
+      "group": "color",
+      "class": "blue",
+      "range_m": "0-5",
+      "pred": 1,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.0,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_1",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "0-5",
+      "pred": 32,
+      "correct": 15,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.46875,
+      "error_p50_m": 0.0816607295769423,
+      "error_p95_m": 0.3613447102302162
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_1",
+      "group": "color",
+      "class": "blue",
+      "range_m": "5-10",
+      "pred": 5,
+      "correct": 5,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.06740324271519216,
+      "error_p95_m": 0.11879745102394475
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_1",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "5-10",
+      "pred": 81,
+      "correct": 79,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.9753086419753086,
+      "error_p50_m": 0.03498333930210873,
+      "error_p95_m": 0.14459657511061566
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_1",
+      "group": "color",
+      "class": "blue",
+      "range_m": "10-20",
+      "pred": 41,
+      "correct": 28,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.6829268292682927,
+      "error_p50_m": 0.17050072022670518,
+      "error_p95_m": 0.6749852113801299
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_1",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "10-20",
+      "pred": 74,
+      "correct": 59,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.7972972972972973,
+      "error_p50_m": 0.14133163989616018,
+      "error_p95_m": 0.46744499823576385
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_1",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "0-5",
+      "pred": 3,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.0,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_1",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "0-5",
+      "pred": 5,
+      "correct": 2,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.4,
+      "error_p50_m": 0.05974384941912345,
+      "error_p95_m": 0.08633953497559957
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_1",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "5-10",
+      "pred": 27,
+      "correct": 11,
+      "wrong_class": 1,
+      "precision_to_any_gt": 0.4074074074074074,
+      "error_p50_m": 0.11161960778561339,
+      "error_p95_m": 0.24680603919869468
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_1",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "5-10",
+      "pred": 9,
+      "correct": 7,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.7777777777777778,
+      "error_p50_m": 0.025159332570128264,
+      "error_p95_m": 0.09856819957538207
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_1",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "10-20",
+      "pred": 120,
+      "correct": 71,
+      "wrong_class": 2,
+      "precision_to_any_gt": 0.5916666666666667,
+      "error_p50_m": 0.18591862894923622,
+      "error_p95_m": 0.6049401619008449
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_1",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "10-20",
+      "pred": 3,
+      "correct": 1,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.3333333333333333,
+      "error_p50_m": 0.11315157194151132,
+      "error_p95_m": 0.11315157194151132
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_2",
+      "group": "color",
+      "class": "blue",
+      "range_m": "0-5",
+      "pred": 1,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.0,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_2",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "0-5",
+      "pred": 27,
+      "correct": 20,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.7407407407407407,
+      "error_p50_m": 0.18375150879606453,
+      "error_p95_m": 0.7194567295737206
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_2",
+      "group": "color",
+      "class": "blue",
+      "range_m": "5-10",
+      "pred": 5,
+      "correct": 5,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.08244125355335344,
+      "error_p95_m": 0.1051855519946615
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_2",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "5-10",
+      "pred": 80,
+      "correct": 79,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.9875,
+      "error_p50_m": 0.043081956185910986,
+      "error_p95_m": 0.1411959851221902
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_2",
+      "group": "color",
+      "class": "blue",
+      "range_m": "10-20",
+      "pred": 45,
+      "correct": 30,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.6666666666666666,
+      "error_p50_m": 0.16324752366609938,
+      "error_p95_m": 0.6534108169514681
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_2",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "10-20",
+      "pred": 75,
+      "correct": 62,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.8266666666666667,
+      "error_p50_m": 0.2033636669051716,
+      "error_p95_m": 0.5219031566276955
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_2",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "0-5",
+      "pred": 3,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.0,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_2",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "0-5",
+      "pred": 4,
+      "correct": 2,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.5,
+      "error_p50_m": 0.06199888586524503,
+      "error_p95_m": 0.06356119006073817
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_2",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "5-10",
+      "pred": 30,
+      "correct": 11,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.36666666666666664,
+      "error_p50_m": 0.12759919681653903,
+      "error_p95_m": 0.29465600157364424
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_2",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "5-10",
+      "pred": 9,
+      "correct": 8,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.8888888888888888,
+      "error_p50_m": 0.06337000008639235,
+      "error_p95_m": 0.17940690755448932
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_2",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "10-20",
+      "pred": 106,
+      "correct": 62,
+      "wrong_class": 2,
+      "precision_to_any_gt": 0.5849056603773585,
+      "error_p50_m": 0.2002393915659629,
+      "error_p95_m": 0.5035769252142973
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_2",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "10-20",
+      "pred": 5,
+      "correct": 2,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.4,
+      "error_p50_m": 0.03469089992410664,
+      "error_p95_m": 0.05818406268395599
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "exit",
+      "group": "color",
+      "class": "blue",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "exit",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "exit",
+      "group": "color",
+      "class": "blue",
+      "range_m": "5-10",
+      "pred": 4,
+      "correct": 3,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.75,
+      "error_p50_m": 0.03292046924572809,
+      "error_p95_m": 0.04401824411457547
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "exit",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "5-10",
+      "pred": 3,
+      "correct": 3,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.05195764217061806,
+      "error_p95_m": 0.12345096066967756
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "exit",
+      "group": "color",
+      "class": "blue",
+      "range_m": "10-20",
+      "pred": 1,
+      "correct": 1,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.08028644330613363,
+      "error_p95_m": 0.08028644330613363
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "exit",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "10-20",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "exit",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "0-5",
+      "pred": 18,
+      "correct": 12,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.6666666666666666,
+      "error_p50_m": 0.27106469461808613,
+      "error_p95_m": 0.5300306640509231
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "exit",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "exit",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "5-10",
+      "pred": 72,
+      "correct": 70,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.9722222222222222,
+      "error_p50_m": 0.10128880664444996,
+      "error_p95_m": 0.3421588654678202
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "exit",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "5-10",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "exit",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "10-20",
+      "pred": 134,
+      "correct": 108,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.8059701492537313,
+      "error_p50_m": 0.16915055899265152,
+      "error_p95_m": 0.596327795637879
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "exit",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "10-20",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "exit",
+      "group": "color",
+      "class": "blue",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "blue",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "exit",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "exit",
+      "group": "color",
+      "class": "blue",
+      "range_m": "5-10",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "blue",
+      "range_m": "5-10",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "exit",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "5-10",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "5-10",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "exit",
+      "group": "color",
+      "class": "blue",
+      "range_m": "10-20",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "blue",
+      "range_m": "10-20",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "exit",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "10-20",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "10-20",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "exit",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "exit",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "exit",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "5-10",
+      "pred": 200,
+      "correct": 200,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.015310401382473846,
+      "error_p95_m": 0.06977676579176899
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "5-10",
+      "pred": 200,
+      "correct": 200,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.015310401382473846,
+      "error_p95_m": 0.06977676579176899
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "exit",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "5-10",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "5-10",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "exit",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "10-20",
+      "pred": 100,
+      "correct": 100,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.04250733809697877,
+      "error_p95_m": 0.09934005443751916
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "10-20",
+      "pred": 100,
+      "correct": 100,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.04250733809697877,
+      "error_p95_m": 0.09934005443751916
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "exit",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "10-20",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "10-20",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "trackdrive",
+      "group": "color",
+      "class": "blue",
+      "range_m": "0-5",
+      "pred": 67,
+      "correct": 58,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.8656716417910447,
+      "error_p50_m": 0.19632819200116797,
+      "error_p95_m": 0.6804236912348669
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "blue",
+      "range_m": "0-5",
+      "pred": 67,
+      "correct": 58,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.8656716417910447,
+      "error_p50_m": 0.19632819200116797,
+      "error_p95_m": 0.6804236912348669
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "trackdrive",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "0-5",
+      "pred": 38,
+      "correct": 27,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.7105263157894737,
+      "error_p50_m": 0.27075073213128886,
+      "error_p95_m": 0.6819140610996871
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "0-5",
+      "pred": 38,
+      "correct": 27,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.7105263157894737,
+      "error_p50_m": 0.27075073213128886,
+      "error_p95_m": 0.6819140610996871
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "trackdrive",
+      "group": "color",
+      "class": "blue",
+      "range_m": "5-10",
+      "pred": 225,
+      "correct": 225,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.04499027078143475,
+      "error_p95_m": 0.14260460181812484
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "blue",
+      "range_m": "5-10",
+      "pred": 225,
+      "correct": 225,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.04499027078143475,
+      "error_p95_m": 0.14260460181812484
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "trackdrive",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "5-10",
+      "pred": 201,
+      "correct": 200,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.9950248756218906,
+      "error_p50_m": 0.04049389871512652,
+      "error_p95_m": 0.17501458868918593
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "5-10",
+      "pred": 201,
+      "correct": 200,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.9950248756218906,
+      "error_p50_m": 0.04049389871512652,
+      "error_p95_m": 0.17501458868918593
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "trackdrive",
+      "group": "color",
+      "class": "blue",
+      "range_m": "10-20",
+      "pred": 498,
+      "correct": 441,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.8855421686746988,
+      "error_p50_m": 0.09749371410018945,
+      "error_p95_m": 0.5687092149844697
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "blue",
+      "range_m": "10-20",
+      "pred": 498,
+      "correct": 441,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.8855421686746988,
+      "error_p50_m": 0.09749371410018945,
+      "error_p95_m": 0.5687092149844697
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "trackdrive",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "10-20",
+      "pred": 450,
+      "correct": 379,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.8422222222222222,
+      "error_p50_m": 0.12181035623135092,
+      "error_p95_m": 0.559707280592406
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "10-20",
+      "pred": 450,
+      "correct": 379,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.8422222222222222,
+      "error_p50_m": 0.12181035623135092,
+      "error_p95_m": 0.559707280592406
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "trackdrive",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "0-5",
+      "pred": 2,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.0,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "0-5",
+      "pred": 2,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.0,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "trackdrive",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "0-5",
+      "pred": 9,
+      "correct": 7,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.7777777777777778,
+      "error_p50_m": 0.547769006496595,
+      "error_p95_m": 0.6473423044071941
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "0-5",
+      "pred": 9,
+      "correct": 7,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.7777777777777778,
+      "error_p50_m": 0.547769006496595,
+      "error_p95_m": 0.6473423044071941
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "trackdrive",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "5-10",
+      "pred": 5,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.0,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "5-10",
+      "pred": 5,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.0,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "trackdrive",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "5-10",
+      "pred": 33,
+      "correct": 33,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.08057302278893097,
+      "error_p95_m": 0.2917752042099301
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "5-10",
+      "pred": 33,
+      "correct": 33,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.08057302278893097,
+      "error_p95_m": 0.2917752042099301
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "trackdrive",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "10-20",
+      "pred": 35,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.0,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "10-20",
+      "pred": 35,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.0,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "trackdrive",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "10-20",
+      "pred": 66,
+      "correct": 18,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.2727272727272727,
+      "error_p50_m": 0.24400804579032626,
+      "error_p95_m": 0.5126281497936189
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "10-20",
+      "pred": 66,
+      "correct": 18,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.2727272727272727,
+      "error_p50_m": 0.24400804579032626,
+      "error_p95_m": 0.5126281497936189
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "trackdrive",
+      "group": "color",
+      "class": "blue",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "blue",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "trackdrive",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "trackdrive",
+      "group": "color",
+      "class": "blue",
+      "range_m": "5-10",
+      "pred": 50,
+      "correct": 50,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.057011358621705595,
+      "error_p95_m": 0.07222430312614184
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "blue",
+      "range_m": "5-10",
+      "pred": 50,
+      "correct": 50,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.057011358621705595,
+      "error_p95_m": 0.07222430312614184
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "trackdrive",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "5-10",
+      "pred": 50,
+      "correct": 50,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.1363556546149849,
+      "error_p95_m": 0.14114996480821482
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "5-10",
+      "pred": 50,
+      "correct": 50,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.1363556546149849,
+      "error_p95_m": 0.14114996480821482
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "trackdrive",
+      "group": "color",
+      "class": "blue",
+      "range_m": "10-20",
+      "pred": 100,
+      "correct": 100,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.06654170753181768,
+      "error_p95_m": 0.3022233430161417
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "blue",
+      "range_m": "10-20",
+      "pred": 100,
+      "correct": 100,
+      "wrong_class": 0,
+      "precision_to_any_gt": 1.0,
+      "error_p50_m": 0.06654170753181768,
+      "error_p95_m": 0.3022233430161417
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "trackdrive",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "10-20",
+      "pred": 101,
+      "correct": 100,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.9900990099009901,
+      "error_p50_m": 0.12602950283092873,
+      "error_p95_m": 0.15303628002892578
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "color",
+      "class": "yellow",
+      "range_m": "10-20",
+      "pred": 101,
+      "correct": 100,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.9900990099009901,
+      "error_p50_m": 0.12602950283092873,
+      "error_p95_m": 0.15303628002892578
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "trackdrive",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "trackdrive",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "0-5",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "trackdrive",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "5-10",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "5-10",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "trackdrive",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "5-10",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "5-10",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "trackdrive",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "10-20",
+      "pred": 87,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.0,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "orange",
+      "range_m": "10-20",
+      "pred": 87,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": 0.0,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "trackdrive",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "10-20",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "group": "orange",
+      "class": "big_orange",
+      "range_m": "10-20",
+      "pred": 0,
+      "correct": 0,
+      "wrong_class": 0,
+      "precision_to_any_gt": null,
+      "error_p50_m": null,
+      "error_p95_m": null
+    }
+  ],
+  "support": [
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "range_m": "0-5",
+      "frames": 236,
+      "missing_both_colors_frames": 233,
+      "longest_missing_streak_frames": 197,
+      "longest_streak_s_sample_span": 39.2,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 44,
+        "0.5_to_0.75": 40,
+        "gte_0.75": 110
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "range_m": "5-10",
+      "frames": 236,
+      "missing_both_colors_frames": 201,
+      "longest_missing_streak_frames": 40,
+      "longest_streak_s_sample_span": 7.800000000000001,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 1.0,
+          "max": 4
+        },
+        "yellow": {
+          "min": 0,
+          "median": 1.0,
+          "max": 4
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 4
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 4
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 1.0,
+          "max": 4
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 1.0,
+          "max": 4
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 59,
+        "0.5_to_0.75": 57,
+        "gte_0.75": 494
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "range_m": "10-20",
+      "frames": 236,
+      "missing_both_colors_frames": 163,
+      "longest_missing_streak_frames": 35,
+      "longest_streak_s_sample_span": 6.800000000000001,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 9
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 8
+        },
+        "orange": {
+          "min": 0,
+          "median": 1.5,
+          "max": 11
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 4
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 9
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 8
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 242,
+        "0.5_to_0.75": 321,
+        "gte_0.75": 758
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "entry",
+      "range_m": "0-5",
+      "frames": 17,
+      "missing_both_colors_frames": 15,
+      "longest_missing_streak_frames": 12,
+      "longest_streak_s_sample_span": 2.2,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "orange": {
+          "min": 0,
+          "median": 1.0,
+          "max": 2
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 15,
+        "0.5_to_0.75": 9,
+        "gte_0.75": 4
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "entry",
+      "range_m": "5-10",
+      "frames": 17,
+      "missing_both_colors_frames": 1,
+      "longest_missing_streak_frames": 1,
+      "longest_streak_s_sample_span": 0.0,
+      "counts_per_frame": {
+        "blue": {
+          "min": 1,
+          "median": 2.0,
+          "max": 2
+        },
+        "yellow": {
+          "min": 0,
+          "median": 2.0,
+          "max": 3
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 4
+        },
+        "forward_blue": {
+          "min": 1,
+          "median": 2.0,
+          "max": 2
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 2.0,
+          "max": 3
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 9,
+        "0.5_to_0.75": 11,
+        "gte_0.75": 54
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "entry",
+      "range_m": "10-20",
+      "frames": 17,
+      "missing_both_colors_frames": 1,
+      "longest_missing_streak_frames": 1,
+      "longest_streak_s_sample_span": 0.0,
+      "counts_per_frame": {
+        "blue": {
+          "min": 1,
+          "median": 5.0,
+          "max": 9
+        },
+        "yellow": {
+          "min": 0,
+          "median": 5.0,
+          "max": 8
+        },
+        "orange": {
+          "min": 0,
+          "median": 2.0,
+          "max": 8
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 3.0,
+          "max": 4
+        },
+        "forward_blue": {
+          "min": 1,
+          "median": 5.0,
+          "max": 9
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 5.0,
+          "max": 8
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 48,
+        "0.5_to_0.75": 70,
+        "gte_0.75": 147
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "exit",
+      "range_m": "0-5",
+      "frames": 22,
+      "missing_both_colors_frames": 22,
+      "longest_missing_streak_frames": 22,
+      "longest_streak_s_sample_span": 4.2,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 2,
+        "0.5_to_0.75": 8,
+        "gte_0.75": 8
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "exit",
+      "range_m": "5-10",
+      "frames": 22,
+      "missing_both_colors_frames": 19,
+      "longest_missing_streak_frames": 19,
+      "longest_streak_s_sample_span": 3.6,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "orange": {
+          "min": 1,
+          "median": 4.0,
+          "max": 4
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 3,
+        "0.5_to_0.75": 2,
+        "gte_0.75": 74
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "exit",
+      "range_m": "10-20",
+      "frames": 22,
+      "missing_both_colors_frames": 22,
+      "longest_missing_streak_frames": 22,
+      "longest_streak_s_sample_span": 4.2,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "orange": {
+          "min": 2,
+          "median": 7.0,
+          "max": 10
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 0,
+        "0.5_to_0.75": 23,
+        "gte_0.75": 112
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_1",
+      "range_m": "0-5",
+      "frames": 50,
+      "missing_both_colors_frames": 50,
+      "longest_missing_streak_frames": 50,
+      "longest_streak_s_sample_span": 9.8,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "yellow": {
+          "min": 0,
+          "median": 1.0,
+          "max": 2
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 1.0,
+          "max": 2
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 10,
+        "0.5_to_0.75": 9,
+        "gte_0.75": 22
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_1",
+      "range_m": "5-10",
+      "frames": 50,
+      "missing_both_colors_frames": 46,
+      "longest_missing_streak_frames": 39,
+      "longest_streak_s_sample_span": 7.6000000000000005,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "yellow": {
+          "min": 0,
+          "median": 2.0,
+          "max": 3
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 3
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 3
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 2.0,
+          "max": 3
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 19,
+        "0.5_to_0.75": 16,
+        "gte_0.75": 87
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_1",
+      "range_m": "10-20",
+      "frames": 50,
+      "missing_both_colors_frames": 36,
+      "longest_missing_streak_frames": 33,
+      "longest_streak_s_sample_span": 6.4,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 5
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.5,
+          "max": 8
+        },
+        "orange": {
+          "min": 0,
+          "median": 1.0,
+          "max": 9
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 5
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.5,
+          "max": 8
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 57,
+        "0.5_to_0.75": 62,
+        "gte_0.75": 119
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_2",
+      "range_m": "0-5",
+      "frames": 49,
+      "missing_both_colors_frames": 49,
+      "longest_missing_streak_frames": 49,
+      "longest_streak_s_sample_span": 9.600000000000001,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "yellow": {
+          "min": 0,
+          "median": 1.0,
+          "max": 1
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 1.0,
+          "max": 1
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 8,
+        "0.5_to_0.75": 7,
+        "gte_0.75": 20
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_2",
+      "range_m": "5-10",
+      "frames": 49,
+      "missing_both_colors_frames": 45,
+      "longest_missing_streak_frames": 38,
+      "longest_streak_s_sample_span": 7.4,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "yellow": {
+          "min": 0,
+          "median": 2.0,
+          "max": 4
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 3
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 2.0,
+          "max": 4
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 18,
+        "0.5_to_0.75": 23,
+        "gte_0.75": 83
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "left_2",
+      "range_m": "10-20",
+      "frames": 49,
+      "missing_both_colors_frames": 34,
+      "longest_missing_streak_frames": 33,
+      "longest_streak_s_sample_span": 6.4,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 5
+        },
+        "yellow": {
+          "min": 0,
+          "median": 1.0,
+          "max": 7
+        },
+        "orange": {
+          "min": 0,
+          "median": 1.0,
+          "max": 8
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 5
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 1.0,
+          "max": 7
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 52,
+        "0.5_to_0.75": 55,
+        "gte_0.75": 124
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_1",
+      "range_m": "0-5",
+      "frames": 49,
+      "missing_both_colors_frames": 48,
+      "longest_missing_streak_frames": 27,
+      "longest_streak_s_sample_span": 5.2,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 1.0,
+          "max": 1
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 1.0,
+          "max": 1
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 5,
+        "0.5_to_0.75": 4,
+        "gte_0.75": 29
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_1",
+      "range_m": "5-10",
+      "frames": 49,
+      "missing_both_colors_frames": 44,
+      "longest_missing_streak_frames": 34,
+      "longest_streak_s_sample_span": 6.6000000000000005,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 2.0,
+          "max": 3
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 2.0,
+          "max": 3
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 5,
+        "0.5_to_0.75": 2,
+        "gte_0.75": 97
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_1",
+      "range_m": "10-20",
+      "frames": 49,
+      "missing_both_colors_frames": 35,
+      "longest_missing_streak_frames": 32,
+      "longest_streak_s_sample_span": 6.2,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 9
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 6
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 11
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 9
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 6
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 41,
+        "0.5_to_0.75": 65,
+        "gte_0.75": 125
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_2",
+      "range_m": "0-5",
+      "frames": 49,
+      "missing_both_colors_frames": 49,
+      "longest_missing_streak_frames": 49,
+      "longest_streak_s_sample_span": 9.600000000000001,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 1.0,
+          "max": 2
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 1.0,
+          "max": 2
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 4,
+        "0.5_to_0.75": 3,
+        "gte_0.75": 27
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_2",
+      "range_m": "5-10",
+      "frames": 49,
+      "missing_both_colors_frames": 46,
+      "longest_missing_streak_frames": 40,
+      "longest_streak_s_sample_span": 7.800000000000001,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 2.0,
+          "max": 4
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 3
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 2.0,
+          "max": 4
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 5,
+        "0.5_to_0.75": 3,
+        "gte_0.75": 99
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "driving",
+      "phase": "right_2",
+      "range_m": "10-20",
+      "frames": 49,
+      "missing_both_colors_frames": 35,
+      "longest_missing_streak_frames": 33,
+      "longest_streak_s_sample_span": 6.4,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 1.0,
+          "max": 9
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 6
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 9
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 1.0,
+          "max": 9
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 6
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 44,
+        "0.5_to_0.75": 46,
+        "gte_0.75": 131
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "range_m": "0-5",
+      "frames": 50,
+      "missing_both_colors_frames": 50,
+      "longest_missing_streak_frames": 50,
+      "longest_streak_s_sample_span": 9.8,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 0,
+        "0.5_to_0.75": 0,
+        "gte_0.75": 0
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "range_m": "5-10",
+      "frames": 50,
+      "missing_both_colors_frames": 50,
+      "longest_missing_streak_frames": 50,
+      "longest_streak_s_sample_span": 9.8,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "orange": {
+          "min": 4,
+          "median": 4.0,
+          "max": 4
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 0,
+        "0.5_to_0.75": 0,
+        "gte_0.75": 200
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "range_m": "10-20",
+      "frames": 50,
+      "missing_both_colors_frames": 50,
+      "longest_missing_streak_frames": 50,
+      "longest_streak_s_sample_span": 9.8,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "orange": {
+          "min": 2,
+          "median": 2.0,
+          "max": 2
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 0,
+        "0.5_to_0.75": 0,
+        "gte_0.75": 100
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "exit",
+      "range_m": "0-5",
+      "frames": 50,
+      "missing_both_colors_frames": 50,
+      "longest_missing_streak_frames": 50,
+      "longest_streak_s_sample_span": 9.8,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 0,
+        "0.5_to_0.75": 0,
+        "gte_0.75": 0
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "exit",
+      "range_m": "5-10",
+      "frames": 50,
+      "missing_both_colors_frames": 50,
+      "longest_missing_streak_frames": 50,
+      "longest_streak_s_sample_span": 9.8,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "orange": {
+          "min": 4,
+          "median": 4.0,
+          "max": 4
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 0,
+        "0.5_to_0.75": 0,
+        "gte_0.75": 200
+      }
+    },
+    {
+      "episode": "train-skidpad-82000-matched",
+      "stage": "terminal",
+      "phase": "exit",
+      "range_m": "10-20",
+      "frames": 50,
+      "missing_both_colors_frames": 50,
+      "longest_missing_streak_frames": 50,
+      "longest_streak_s_sample_span": 9.8,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "orange": {
+          "min": 2,
+          "median": 2.0,
+          "max": 2
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 0,
+        "0.5_to_0.75": 0,
+        "gte_0.75": 100
+      }
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "range_m": "0-5",
+      "frames": 237,
+      "missing_both_colors_frames": 222,
+      "longest_missing_streak_frames": 48,
+      "longest_streak_s_sample_span": 9.4,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 15,
+        "0.5_to_0.75": 19,
+        "gte_0.75": 82
+      }
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "range_m": "5-10",
+      "frames": 237,
+      "missing_both_colors_frames": 58,
+      "longest_missing_streak_frames": 9,
+      "longest_streak_s_sample_span": 1.6,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 1.0,
+          "max": 2
+        },
+        "yellow": {
+          "min": 0,
+          "median": 1.0,
+          "max": 2
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 4
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 1.0,
+          "max": 2
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 1.0,
+          "max": 2
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 12,
+        "0.5_to_0.75": 21,
+        "gte_0.75": 431
+      }
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "all_phases",
+      "range_m": "10-20",
+      "frames": 237,
+      "missing_both_colors_frames": 35,
+      "longest_missing_streak_frames": 10,
+      "longest_streak_s_sample_span": 1.8,
+      "counts_per_frame": {
+        "blue": {
+          "min": 1,
+          "median": 2.0,
+          "max": 4
+        },
+        "yellow": {
+          "min": 0,
+          "median": 2.0,
+          "max": 4
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 3
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 5
+        },
+        "forward_blue": {
+          "min": 1,
+          "median": 2.0,
+          "max": 4
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 2.0,
+          "max": 4
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 92,
+        "0.5_to_0.75": 122,
+        "gte_0.75": 835
+      }
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "trackdrive",
+      "range_m": "0-5",
+      "frames": 237,
+      "missing_both_colors_frames": 222,
+      "longest_missing_streak_frames": 48,
+      "longest_streak_s_sample_span": 9.4,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 1
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 15,
+        "0.5_to_0.75": 19,
+        "gte_0.75": 82
+      }
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "trackdrive",
+      "range_m": "5-10",
+      "frames": 237,
+      "missing_both_colors_frames": 58,
+      "longest_missing_streak_frames": 9,
+      "longest_streak_s_sample_span": 1.6,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 1.0,
+          "max": 2
+        },
+        "yellow": {
+          "min": 0,
+          "median": 1.0,
+          "max": 2
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 2
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 4
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 1.0,
+          "max": 2
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 1.0,
+          "max": 2
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 12,
+        "0.5_to_0.75": 21,
+        "gte_0.75": 431
+      }
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "driving",
+      "phase": "trackdrive",
+      "range_m": "10-20",
+      "frames": 237,
+      "missing_both_colors_frames": 35,
+      "longest_missing_streak_frames": 10,
+      "longest_streak_s_sample_span": 1.8,
+      "counts_per_frame": {
+        "blue": {
+          "min": 1,
+          "median": 2.0,
+          "max": 4
+        },
+        "yellow": {
+          "min": 0,
+          "median": 2.0,
+          "max": 4
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 3
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 5
+        },
+        "forward_blue": {
+          "min": 1,
+          "median": 2.0,
+          "max": 4
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 2.0,
+          "max": 4
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 92,
+        "0.5_to_0.75": 122,
+        "gte_0.75": 835
+      }
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "range_m": "0-5",
+      "frames": 50,
+      "missing_both_colors_frames": 50,
+      "longest_missing_streak_frames": 50,
+      "longest_streak_s_sample_span": 9.8,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 0,
+        "0.5_to_0.75": 0,
+        "gte_0.75": 0
+      }
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "range_m": "5-10",
+      "frames": 50,
+      "missing_both_colors_frames": 0,
+      "longest_missing_streak_frames": 0,
+      "longest_streak_s_sample_span": 0.0,
+      "counts_per_frame": {
+        "blue": {
+          "min": 1,
+          "median": 1.0,
+          "max": 1
+        },
+        "yellow": {
+          "min": 1,
+          "median": 1.0,
+          "max": 1
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_blue": {
+          "min": 1,
+          "median": 1.0,
+          "max": 1
+        },
+        "forward_yellow": {
+          "min": 1,
+          "median": 1.0,
+          "max": 1
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 0,
+        "0.5_to_0.75": 0,
+        "gte_0.75": 100
+      }
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "all_phases",
+      "range_m": "10-20",
+      "frames": 50,
+      "missing_both_colors_frames": 0,
+      "longest_missing_streak_frames": 0,
+      "longest_streak_s_sample_span": 0.0,
+      "counts_per_frame": {
+        "blue": {
+          "min": 2,
+          "median": 2.0,
+          "max": 2
+        },
+        "yellow": {
+          "min": 2,
+          "median": 2.0,
+          "max": 3
+        },
+        "orange": {
+          "min": 1,
+          "median": 2.0,
+          "max": 3
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_blue": {
+          "min": 2,
+          "median": 2.0,
+          "max": 2
+        },
+        "forward_yellow": {
+          "min": 2,
+          "median": 2.0,
+          "max": 3
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 38,
+        "0.5_to_0.75": 50,
+        "gte_0.75": 200
+      }
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "trackdrive",
+      "range_m": "0-5",
+      "frames": 50,
+      "missing_both_colors_frames": 50,
+      "longest_missing_streak_frames": 50,
+      "longest_streak_s_sample_span": 9.8,
+      "counts_per_frame": {
+        "blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_blue": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_yellow": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 0,
+        "0.5_to_0.75": 0,
+        "gte_0.75": 0
+      }
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "trackdrive",
+      "range_m": "5-10",
+      "frames": 50,
+      "missing_both_colors_frames": 0,
+      "longest_missing_streak_frames": 0,
+      "longest_streak_s_sample_span": 0.0,
+      "counts_per_frame": {
+        "blue": {
+          "min": 1,
+          "median": 1.0,
+          "max": 1
+        },
+        "yellow": {
+          "min": 1,
+          "median": 1.0,
+          "max": 1
+        },
+        "orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_blue": {
+          "min": 1,
+          "median": 1.0,
+          "max": 1
+        },
+        "forward_yellow": {
+          "min": 1,
+          "median": 1.0,
+          "max": 1
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 0,
+        "0.5_to_0.75": 0,
+        "gte_0.75": 100
+      }
+    },
+    {
+      "episode": "train-trackdrive-82000-matched",
+      "stage": "terminal",
+      "phase": "trackdrive",
+      "range_m": "10-20",
+      "frames": 50,
+      "missing_both_colors_frames": 0,
+      "longest_missing_streak_frames": 0,
+      "longest_streak_s_sample_span": 0.0,
+      "counts_per_frame": {
+        "blue": {
+          "min": 2,
+          "median": 2.0,
+          "max": 2
+        },
+        "yellow": {
+          "min": 2,
+          "median": 2.0,
+          "max": 3
+        },
+        "orange": {
+          "min": 1,
+          "median": 2.0,
+          "max": 3
+        },
+        "big_orange": {
+          "min": 0,
+          "median": 0.0,
+          "max": 0
+        },
+        "forward_blue": {
+          "min": 2,
+          "median": 2.0,
+          "max": 2
+        },
+        "forward_yellow": {
+          "min": 2,
+          "median": 2.0,
+          "max": 3
+        }
+      },
+      "confidence_counts": {
+        "lt_0.5": 38,
+        "0.5_to_0.75": 50,
+        "gte_0.75": 200
+      }
+    }
+  ]
+}

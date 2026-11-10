@@ -1,0 +1,2664 @@
+{
+  "passed": true,
+  "frames": 60,
+  "expected_frames": 60,
+  "temporal_phases": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "case": {
+    "discipline": "skidpad",
+    "dr": "heavy",
+    "frozen_case": "skidpad-72000-heavy-recorded",
+    "id": "regression-skidpad-72000-heavy-recorded-visual_stress_v1",
+    "lateral_start": 0.0,
+    "seed": 72000,
+    "split": "regression",
+    "track_seed": null,
+    "variant": "visual_stress_v1",
+    "yaw_start": 0.0
+  },
+  "command_contract": {
+    "base_parameters": 31154802,
+    "head_parameters": 33538,
+    "history": "phase-zero 5 Hz, eight past features and current feature, full desire queue",
+    "kind": "direct_native_actuator_v1",
+    "latent_module": "base.policy.p_node_linear_20",
+    "latent_normalization": {
+      "affine": false,
+      "eps": 1e-05,
+      "kind": "layer_norm"
+    },
+    "latent_shape": [
+      "B",
+      256
+    ],
+    "mission": "bound raw request, apply mission_brake_with_override, bound again",
+    "output_order": [
+      "steer_rad",
+      "accel_mps2"
+    ],
+    "output_scales": [
+      0.1,
+      2.0
+    ],
+    "proprio_order": [
+      "vx_mps",
+      "vy_mps",
+      "yaw_rate_radps"
+    ],
+    "proprio_scales": [
+      10.0,
+      2.0,
+      1.0
+    ],
+    "target": "qualified native teacher controls at the observation tick",
+    "version": 1
+  },
+  "checkpoint_sha256": "972daf9b9b10f70a59b2ee4e5d8d7e8ad5575a1bc1d0a0c4a6d27b7749646a50",
+  "base_state_sha256": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+  "head_state_sha256": "2115dab3ab7719814a2ab80e6d25c1be78adad21ba04c40ef8829d1ffc2e2db5",
+  "graph_sha256": {
+    "artifacts/models/prep/policy_fp32.onnx": "a27088e94f581de472f9610183e3979987cf59a1b272816a339bb9757d00a17a",
+    "artifacts/models/prep/vision_fp32.onnx": "bac14fd2d539b10eabd966b462d0dcba4fcaab6b96bc49cfc4a8703f7450531c"
+  },
+  "source_sha256": {
+    ".work/lab/direct_command_trial/actuator_trial.py": "656b410d780498e027a3ab18ee1d864dfffbd99610710dc38bceeee8691544cd",
+    ".work/lab/direct_command_trial/derived_auditor_v2.md": "530261cbcee8be5c20a6fcc131ae1aca1bbf6f400099539ee87ab8106525e748",
+    ".work/lab/direct_command_trial/evaluate.py": "31b88785b4a98371acc37f314ebcd1881fc263e79ca6cbfc6bb1ad28aa770b78",
+    ".work/lab/direct_command_trial/evaluate_v2.py": "7e97651ba199905c38d5c9d0dcc9e5b635eaa756833a74128721685b9b8b15b2",
+    ".work/lab/direct_command_trial/export_audited_command.py": "f0c7426072b125e6fc1127db50ba891ebdeb720f0a359ee242ab96e871a75449",
+    ".work/lab/direct_command_trial/export_audited_command_v2.py": "b3185554ceded34812a7019fe7dd4b4b57205db095b93f2492f2167e6463ac5e",
+    ".work/lab/direct_command_trial/process.py": "6feb7c30976e9c5f73d1975154d672f015310624fec5363f3648bf396393eeb9",
+    ".work/lab/direct_command_trial/process_v2.py": "2a497654b94c72c099b9fb1b04179b3f26c53f6599b1f6ce12ee571bb30692f9",
+    ".work/lab/direct_command_trial/recipe.json": "0b25d60d2b6a2f77c743eb997cb61a6817b53c05982970cbc29b01cc2199f893",
+    ".work/lab/direct_command_trial/verify_command_episode.py": "06a6a501e55ff3f7c495dca0669fe02d774315cc193a5bdbc0ff3d18ff7297a5",
+    "isaac_eval/appearance_guard.py": "a39945b0e237e462ecc90baf0c909aad502bf328bdec6ccef7a5591d406a69da",
+    "isaac_eval/benchmark_model.py": "5f988b1bbc7cff8df053563374d65d01fc346cc9140be8189f977d065f8f51a9",
+    "isaac_eval/evaluate.py": "d2ba15e8b53a8d016938f05a5bbff4c71016e42758fa51aad9312d59aa948fea",
+    "isaac_eval/evaluate_parity.py": "1745e1e6d3f71eac58b8724f077643fdb84c592b57e82cac97835be1e1c650fd",
+    "isaac_eval/evidence.py": "00a38b56c9f813821674dfcf65b1d9f5b1db679c67e851d191f06a55540ac23f",
+    "isaac_eval/export_scene.py": "a8d2ff67c8336ec4a7dad044bd7d3d87a979552ca88425ddebb15ffe5e2c95df",
+    "isaac_eval/freeze_parity_protocol.py": "c33bf6537d93abbce1a9c3d4d30055b0233567b5a7780aeb108f945ebf0b4c37",
+    "isaac_eval/freeze_realism_protocol.py": "537c9fc2cc3349a65b0a99b756cae9bfee118bb2ad2a17c6e749f20380b4869d",
+    "isaac_eval/parity_cases.py": "2cf546e6853783384b79f22cad10245342c41b14744abdbd1e15f7db8f86e9c7",
+    "isaac_eval/parity_geometry.py": "63fa33114594a1ffcc3e3f729d22510f74a0ca9b3787f3f9783ba6e3ab87149d",
+    "isaac_eval/parity_protocol.py": "3fb0faef79bf7c2f8d542980cc29f8f7bd7491b5af3f8ccf43c3ad2be7a8c49f",
+    "isaac_eval/parity_scene.py": "5618592b23ac129307809f3d00d4c44e9cab6077ef6839e5d43558e6f346bf4f",
+    "isaac_eval/prepare_parity_cases.py": "9e43d7d623e8c5c2fa2a704139098ae696661b8f08b44a4ccab9d8ea18fafabf",
+    "isaac_eval/preview_realism.py": "0031e2c745f27e3bbc38d4cbdf206b2fe92aef089751bc50f6d0123853f57a02",
+    "isaac_eval/preview_stress.py": "121a5cc4f01443152352500e8009264471ec308dcf239433f119abf027d95165",
+    "isaac_eval/probe_asset.py": "01f72584ce4298d0e3dcca748a376412899f5474f71c2520b986bd639add8eb7",
+    "isaac_eval/realism_assets.py": "3da155f4e14052f9e4e545b16e3b5bc0e84460a8276da3ffc69635bb5144c9a2",
+    "isaac_eval/realistic_car.py": "35455344c7a8fb80abf050bd11dbe17b825df5363ed3e139309e1b58d5f5b4e1",
+    "isaac_eval/realistic_scene.py": "b2b23082eb5fe0aed84095fbd5ee612bc629ee1c6184fbdc28d7462bf8ebc853",
+    "isaac_eval/render_debug.py": "176fcbe153412eca84bfcff85d4c1d104809aba978b240ac8bd9ae47314a7ebb",
+    "isaac_eval/rendering.py": "7387b5952ab38f902a42786c9db8923ce649b1508feff6782c882cd9632c36c0",
+    "isaac_eval/report.py": "9fe2b14834045d08e6e58e415a82e0b4e5284d644587c3d152214bb984d72422",
+    "isaac_eval/report_realism.py": "cc67097f30773b85a71745cf4e8a3b5bcf8e4ac5e9baedcfd32c51d2eb3d9dbe",
+    "isaac_eval/run_parity_suite.py": "d7ae6f3bc9f4e2b64e907c0eae390e70eced3071022fc8fc59cb77455aff60cc",
+    "isaac_eval/scene.py": "0a1ce27ff205fb47ceb44b91c9b731050d6ad0ca4a29e89fea7ad16c59c49076",
+    "isaac_eval/stress_experiment.py": "303415cc7e3181adf320ddd90526da372633c0eba87b6559e5dee9207d697038",
+    "isaac_eval/stress_layout.py": "f7266db04ead9977b0588b835ff28ef10657df559a8151f62d35ec9436a2ed0b",
+    "isaac_eval/stress_scene.py": "ddacfa48dda146a3380367e62e46896ef174d93f4be8bb02b03ff13386bfd14e",
+    "isaac_eval/vehicle.py": "4db02d65d9d496e2eb98337d7fa1a27c61218cf372006f5d136049c6cb18a86f",
+    "isaac_eval/verify_frozen_sources.py": "01cdcc64c3f8f8ac25ca9f7b3a2d08b3dcecb69279b2690da05cd843cf80e8ef",
+    "isaac_eval/verify_inference.py": "3b72a2e7c613f635103275be6fb0ec6aff645464dc34b856de5c1fb186220667",
+    "isaac_eval/verify_integration.py": "8b9cfa2baf69ac5738e2c714d28ce42257dd3e8f69fce89b93f2f3a3aea87169",
+    "isaac_eval/verify_model.py": "e885d97b1d287957c8bc0635061c42df0fae506bb5c2a425fc724c37fbf5794f",
+    "isaac_eval/verify_parity_camera.py": "1fa445a585c1fea9b7eaa3a8708fd205bdf932d14ea4d358cf34b910d1ebd62b",
+    "isaac_eval/verify_realism_artifacts.py": "669152cc3a633dfe19874813875cc377325a9d48b803cdfe7efe8ac7ff174fe6",
+    "isaac_lab_fsop/__init__.py": "50a9ea88921ab985e2e0663e2723beb5e43e1d23219c8a06b6aadf43699c3eb7",
+    "isaac_lab_fsop/appearance_probe.py": "802887bb2749ad242df7bb287063308d0356324793aa88597141ca97e76e3140",
+    "isaac_lab_fsop/cases.py": "df8df74af698794a594314e36c14d8dc481f9063fd16dce66d03ca595d22cdc4",
+    "isaac_lab_fsop/collect.py": "84c8531b8aedb922df0f1ac824da02644e07e33dbbd676141f4ee890d38893a2",
+    "isaac_lab_fsop/env.py": "faa1557c4da72dcae56a7589b38e58edb0ab6cccf306cba1c83bfc23504df728",
+    "isaac_lab_fsop/evaluate.py": "27485532594394859224a269d28df3b87b9c4008091b5229b337addf08a8a30a",
+    "isaac_lab_fsop/evidence.py": "441d43938915166b1de4d9e5155686018fbbd0e8b68e8d69df6283da0d9dc9aa",
+    "isaac_lab_fsop/expert.py": "75c2cf48a7f854737f59715a031fd9fef8005a65612261f0120eb347a0764b60",
+    "isaac_lab_fsop/probe_teacher.py": "ac1f6af01270224286b5a23c473aa79fe8c150af167a84eb48ddaa2bf22de9e6",
+    "isaac_lab_fsop/process.py": "9768e74b281a85770ff0cb1ea0bef5ff41d12afeb4042cbd6b103224e904eb48",
+    "isaac_lab_fsop/recovery_schedule.py": "b03905951242671d25c131d84ab0a16db701c1b91825b81ab2dd6c2d964cf138",
+    "isaac_lab_fsop/runtime.py": "e2d77ca0092b81562e00dee51825c5fed05dd4807e677cbc195052217da7ff3c",
+    "isaac_lab_fsop/verify_camera.py": "8864e45734c9bfefc533ed76a6494d5fc5cde3e160800be94592d14fc01a5051",
+    "isaac_lab_fsop/verify_inference.py": "98db4a9642eb60b82b1289560ab0cd61f236f4009418a59d108a0496d28a0ae8",
+    "scripts/audit_isaac_episode.py": "5610cf1be7fd5a0f7e96516184fcc698b7298a0c87286b61a5762cf1f8eb3ec2",
+    "src/fsop/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/baselines/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/baselines/yolo.py": "a5207b9b74c941f7445199f2bb45c47574f2629068f6966176bbef3da6867ed8",
+    "src/fsop/bench.py": "d3781cfc06127a92aaf201285ada0499159700b4cd6f189b6992d3bb113ac696",
+    "src/fsop/cli.py": "862430338c18cb6e62fe395bea854db74f65aa38a62dcdbd7c5c9d6658a0bc4d",
+    "src/fsop/config.py": "2de820cc65e9a8266b7163df51c4bbb052921cc6192e8ce76c47e2eeaf1b3a6b",
+    "src/fsop/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/data/feature_cache.py": "7ea4da7c8ece7b11766fe93e23cd3aa5a8ecf9486bad89664db22877181bc3de",
+    "src/fsop/data/fsoco.py": "7dda2a26d525da64cdf63f9058b2a58b85b20f16c3e844a9c56715a6abf95eaa",
+    "src/fsop/data/native_replay.py": "483e089b37f8782ade87cc8f16eaf8a2447efa1e25ee9a6b79f5ac5eac9cb30b",
+    "src/fsop/data/sim_dataset.py": "7753c0deae1f3aad51a747346f4ff7acab72c0f50860685196847845107affe3",
+    "src/fsop/data/targets.py": "a923bbe800bbe2d1bd25a50701edb7d077980d7d8481990ebd4baf6ca8652467",
+    "src/fsop/eval/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/eval/bev_metrics.py": "74729836f20c21d836e2a30efe586eb1b578a9ae00b97613fb1bff7a08bf4af4",
+    "src/fsop/eval/closed_loop.py": "a14ca4ee943f26921a1bf8ebfad67e12ed4c94b8c3031ddf4cbf4c360d62b98f",
+    "src/fsop/eval/controller.py": "8f07cc89adb30e4566093feb1f11e66a4db79ee7358d94f1dc9b7d3f60dce4f8",
+    "src/fsop/eval/dagger.py": "7fc0c290541eaa945db52a262fe38a2639df5bec93304ca67955336f8600cba4",
+    "src/fsop/eval/det_metrics.py": "3c99d790e0777184065c4e35195babe9ade02d82aacbd78f63a8b0544b0103d2",
+    "src/fsop/eval/geometric.py": "e0ad7c4aa9157a04f1a83c242f83113acb84a25fb9152533fccb58e76cde9c02",
+    "src/fsop/eval/img_to_bev.py": "bcf10ece06c575512c45ea773335a1024fbc7ab95d20426a91ff18bd71d2d2d1",
+    "src/fsop/eval/open_loop.py": "3e402060bb9f73a1e59cf6ad8ff94eb99d3e07f82e9adde6e8fed52c02c86f52",
+    "src/fsop/eval/real_clip.py": "d62206e397e988111b00b75c9796a773ed87740b44fcff7f726184ca7afcceef",
+    "src/fsop/geometry/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/geometry/camera.py": "98b8bc7f7b98cddc4e756d4b92103604f4462baea2b161f0410a943f30c207a3",
+    "src/fsop/geometry/op_frames.py": "f09cea8cba5b74bf81e02df04487e3b34012e91dde4c3751525bf50e3520301f",
+    "src/fsop/geometry/warp.py": "a81bc405c769e46b3e9355bf53f2fd9fce83cfcc1d3c654ac389938546f97756",
+    "src/fsop/geometry/yuv.py": "9a3651b22194b666ad3200fb799bc22e90259ac650b2dff140b5c62a8ab66ee5",
+    "src/fsop/model/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/model/build.py": "b24c64216ebe82e77ad69972686badb2534348301565b9b4ff47f28295559fd3",
+    "src/fsop/model/convert.py": "3a5531d927d8d68b557f841530c679258ccd6208d818ea3ff475f6ae4e15bc2c",
+    "src/fsop/model/export.py": "1675c5456212ba3ddfdb1406a49d84339c1935758d1e2585fed6c219fc555cba",
+    "src/fsop/model/fetch.py": "e1d15dc11ca309e5a2b655fd28afdd83fcf17811030edb7f8443106534454992",
+    "src/fsop/model/heads/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/model/heads/cone_bev.py": "9fe44a7e2152d4906389142b0f4405f8d192e19ffdeea25db5698451e2a0c9ee",
+    "src/fsop/model/heads/cone_img.py": "cdf84bb4bcc25b2a05172b45f1d7d35dcaf17abca1bfe10370c1906c2ff3f42a",
+    "src/fsop/model/onnx_prep.py": "b6b7c3607078dfaf45249451d757247cc8deea4085a7f70e69f15f531e14a5f6",
+    "src/fsop/model/op_converters.py": "59f20f80b4a646870b108cc7f165e8bd48a2630f54b44b07eddf791052629d5f",
+    "src/fsop/model/static_shapes.py": "34668feafdb9e18ea6c91f53b51fb645e96191fe608abe9631c0f0ce25661a16",
+    "src/fsop/model/supercombo.py": "1128d2dc461466d9235ec3dc3386bce82c44222e127cbd6d8cf4ee0307eb5a3d",
+    "src/fsop/model/temporal.py": "3b7ef159ae6a0f3f39dd950ae3943fb5f59f164af0d8e9ab329f6f5de876b8c7",
+    "src/fsop/model/verify.py": "aa1cb5bb89869cbec5470fead1bb46eea285c27b2146c20c3fba7d91eedf0957",
+    "src/fsop/profile.py": "2c8968ba76880a1f167480e474f68301fedd8cd652be2df2670498d4230b19d0",
+    "src/fsop/runtime.py": "09543bbcb87af99118de19593a53ed4a29f6d128b4de76fbec2655d9e1842ad2",
+    "src/fsop/sim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/sim/batch_record.py": "42d54ca374ba2a05255c06d50e2cefe825292a68137dbaa7e1a69760ed75831e",
+    "src/fsop/sim/drive.py": "e7e8072c3375e0de9d89d6fadcbfac897fa21f47a7d084eee1e2d0dffe047bc1",
+    "src/fsop/sim/env.py": "43e4bc7b07fcb5f963a9ce022952d6d7d8d16cf34ef2cf66af648959e31a2026",
+    "src/fsop/sim/expert.py": "7f1c3fb9083b4edd04e61a33719a88b4b65bea85fb6490ea2ef191e66d35986e",
+    "src/fsop/sim/randomization.py": "25b492a84b289a3febf9d726e1a43ef59f4657986282d28d551f5bd49cccff04",
+    "src/fsop/sim/recorder.py": "d90ec0db290ca21d419a04ae4ceb609b7d5f8927ede25786ab727f71e390f7bf",
+    "src/fsop/sim/referee.py": "c0dacad0659a9cd806e25b2405e0e4a4aadd58897858d14a717a42c0132391e2",
+    "src/fsop/sim/render/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/sim/render/assets.py": "c790b7c47113c6a86c792059bc7ca1b23764111f870b6ae67d5b88fe5b9f6051",
+    "src/fsop/sim/render/panda3d_backend.py": "e06a3ad9e675a27d5875f553ab7f442bf0a450380dcaca08611e530e0e1e5519",
+    "src/fsop/sim/render/venue.py": "98a7ac4b041c0c3a149a52f21cce1b461d0d992601e240241e460fe0fd5339ca",
+    "src/fsop/sim/route_commands.py": "31def8ff21c2d86824fdd7783c9131928a12fa2ac1e9d5d427063e640f40b149",
+    "src/fsop/sim/skidpad.py": "a6169eec33804ce14b01cbd383a74b7474f77cf69b1baf072a805a1fcd8dc6a2",
+    "src/fsop/sim/vehicle.py": "55643a3d4f43c1a7605b8da3641517a8c0380bc92ba7526a5e555e0f7cd3ae39",
+    "src/fsop/track/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/track/batch.py": "71ed04273b4da5bf340d8abb3269448481d694ad2499330fceb616a13cc681c3",
+    "src/fsop/track/centerline.py": "de45a95eba2e8fa0419a7407ced66718bc6f49099dff8b00c7663f2bf7ac5887",
+    "src/fsop/track/cones.py": "45c784e93b40cb032e6641362b547bce8f5a79d5eb02e23d0a37db038728da93",
+    "src/fsop/track/fixed_layouts.py": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+    "src/fsop/track/generate.py": "6a971d82e14b154ef24eb3a87f212f567a08182701783a806110755b2d661264",
+    "src/fsop/track/io.py": "86a833f72d920882c55c1dee89de841a8d4b67d8cbaa0658ddb17a614bc8af4c",
+    "src/fsop/track/rules.py": "4c2c989ef7b401ed47e57744eae6a3219759629e09e412b4ee5d68de8764006d",
+    "src/fsop/track/schema.py": "f2f760bee7826c82f34e3f704a0b5807bcd0f6b043e856a781d8fe727ac1c04c",
+    "src/fsop/track/validate.py": "5a08f94b27f75a77ee69431f58493a0ead9bbc6154b6749b7d11d223080664a8",
+    "src/fsop/train/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/train/action_target.py": "14d30ca04cb2aa08794d08e21460f43d79e51b0cc56f345d9272af4bfeae8176",
+    "src/fsop/train/device.py": "cb2ec8fba9eb6959f11753ac93625090ea131f86f4476e8accb8d0151b1df483",
+    "src/fsop/train/lab_train.py": "17fd0de670bf22f8369e3e4abc693523e5783ed4f222d0aa97a20ba9b268b94f",
+    "src/fsop/train/losses.py": "b282ecfb998e1e1153e58d55cca778dee95bf619abf287f5bae6eb6718cf51a4",
+    "src/fsop/train/trainer.py": "3a016bb5c4cf6556bca3d797d6653a2943e9918b4e6f2a69bb3c97fb3ffb30e7",
+    "src/fsop/viz/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/viz/inspect.py": "5cd19a506dcc688a2f6f8d536cfaa1ae310847324cd71c0dc96bd07d566730cd",
+    "src/fsop/viz/real_video.py": "1979fcb3d70e7d739b84c406b6ab7482708ec7f8aa93541d14ab3f91a866c381",
+    "src/fsop/viz/rr_log.py": "b1b0020705be517293fc413ff224e68c55d51c14ed9b9ec291ab2b3b0a7213ae",
+    "src/fsop/viz/track_preview.py": "5ace5f5cf0b9ab48e8e011edc280164a996f9eac7ce586a3ca5767c59e2683bc",
+    "src/fsop/viz/video.py": "94013abd1f1e78a2869101f12aa3f53ab3c6accd86819069b78234ea9b696cd9"
+  },
+  "evidence_and_artifacts_sha256": {
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/metadata.json": "715b818c7668a2249e6598b17b9c1191591d0384c73debbc8cb2cd3d54553c65",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/manifest.jsonl": "438deb999fea436f64b8e4e3946dbda28e9c16e2a633ffa2c70f6b69c40a6dec",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/completion.json": "adc5d14ebcc1a29f97ebb38638f9e75abd968e02415e2d1ce6f131e9f1911b70",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000000.npz": "a3876e112ff57724163e08d1af4e54866a67fb1a934243b1ac8f7269543348de",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000001.npz": "53a1d441959b6fc2123d17e59fb4f777bfbe3fbf0ff1fba604d1a9bd5bab1bb0",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000002.npz": "ede8262b34d5b0035625c841bc2a21ed5a10727a2cf3fc1ff10021d941d574ab",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000003.npz": "b6064fca53e7f980a46bc8e6cd0779302c5d0978b9fc2e30661a48d494a4a292",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000004.npz": "311b3944bc5f2030da8ac5fec73e80d160e2557b51ac39968d700d8c681c4566",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000005.npz": "036eeb37b23c82e886224e92180dca93a8abb812e31e37f65e55fa6c0fd8defb",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000006.npz": "c613ca76078b1aef2f83600155520bba6d1029e2b86b7a3e7c1885bcf0e47a20",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000007.npz": "061e6f6fe16b39e05cf4384732bb389f60830a83d47ddaa54bba150904b27f20",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000008.npz": "56fa9f7a93291499af93ebe5c440902445d745810e8bb7a23f2ac8d8dd21d126",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000009.npz": "8c9eb00088de99bab491718d5f85b87cc2250c9ace768b4f2286f90943e336bd",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000010.npz": "eb55ee5af425cf00abfff27dc3e78486d6e939a5976f2ac108a0fe73cb4d0051",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000011.npz": "49ce8a282fed97ae92025c1c91a7a374953754e54e3de5d52e9ff92b39694f4d",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000012.npz": "ff65ba968dbd1e3c9a0cfd647355f58b65bb6f568cd1c78c498e1351719387ec",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000013.npz": "659b56bb9526873f733cb5f14e8c5bbd28410813f330d106eaff1a639fa28b5e",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000014.npz": "f437165e4bc31e8f1f2cbf410285f927a982aac87ca42ee32169a09992289c02",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000015.npz": "d7eba292aab06817ed9c5b268643256d685b7d3a300ffa4e3a29b89a49601472",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000016.npz": "26408b451e835c12b3f3f5508380d4a74e104a29fce8b78b7d7731d25f9af095",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000017.npz": "26f2c584bfb762caa422d5bd90084241bde3239c335fd3c2c8e2dd0610686cd7",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000018.npz": "9bcdfc955428ade348c3493da21a0bc1f28c6ed989e062ea23f79791006a9ef9",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000019.npz": "c165f4f126a767b7a9e5d0e5010f9efee0a7e1423144a991f1b4cba6043b1a94",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000020.npz": "d2efec0061a0bdfeaa7f72bb4f08544024ba3955c1dabe5377dfe6a62c452319",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000021.npz": "02a8732ac49a3d4e93654580530806e447ca047b9df724ebc7f5af5a90f069fd",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000022.npz": "44c371c8672434cf9b2b3aba12097a6325bfe9dbeaed33f23d8a4143674faf23",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000023.npz": "00cea521f0b89d03b8bd049b380594a4ab4eb4030b2c59e01269f2402d6c18ff",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000024.npz": "13021978c4fae188207a301fda12f2b6a08b182aad1a37203c8b4ac3277d340a",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000025.npz": "3660d8bef8f05ea942f896b70b29ee53570ca4b7405f32adc1dfd90d42a23b66",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000026.npz": "9a91b63b2231490677dba057bec3a26fe56709e360bc9a2d4a5844f7a655a3b9",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000027.npz": "1c002be192c5ebcfc1e8ffc430914ba4efe3f698ac65210d36a34bb028c2e072",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000028.npz": "46d4f6067d75baaed99804a0c406155c849e71186979fc1b52ed6051e8bb1686",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000029.npz": "66045ff82e54e7bf05fd740b360557c45726c58c6de6e37f0a6742b961181d6a",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000030.npz": "cef7f69eacc11d9782abd0e901e5c416ecf5f8efafb63fc25b973ca551d00f00",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000031.npz": "3ea7cea76bba604b1a6bf2eed0881b4fa3510315126819302eed0fb8ddc09575",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000032.npz": "52cec6fc2e271b8baca4f201f484ee12a7b5b419cc40b5f886bd137ec74185e4",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000033.npz": "1e5ead980c87e044fc453a432dd434ee9f9f479a6234fb964f4fa7b817eb86cf",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000034.npz": "cbdfe98e5506a3184ae36e49f204e9a5c685a2a16d5f96403394d26ac2ae53d3",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000035.npz": "f43e02bd78290a04f629d3e9be7396e0ab260e5f0ff7823c4b2cff20cbdca989",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000036.npz": "a72f06f6b01439d8d30a674d86ca3979398fbeb7e3330743699f01fd12f77c8f",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000037.npz": "037e97ed9bd17b8808dda88b197f1c4aa3e488c18aa7f723325c816a04e324af",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000038.npz": "e61a15adcf946bc0bf4345e89424f623782d07aca45b77b31de59062398a0385",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000039.npz": "b1e296e602aa5aa86575f170368658f047ab4d331f5834f500c062f165f2412d",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000040.npz": "1eb3172cd56555c1a578ef15669c9b2c4b82a0e5f16b1a35e6843557bce2d95e",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000041.npz": "283243152c99120559297ec7c6a22c79b7464949788d6032682afc41dab210c2",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000042.npz": "82b9a366de517bfb23ff890ac84c8a205b3630381cbdcae53d24ba2e2d648f7a",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000043.npz": "2706873e483467eb7ead4ac6f74165dd9d5edb7f01f30db185e5d5d9a6892c9f",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000044.npz": "65e91bbffc57b94276048ca9ad03401fd7369661a147a2a1abb44844951c32f8",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000045.npz": "7a4898bb636d3fc4d8fadbbd85a22d9b07a81f6b490afeb4bbc56a43b907664b",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000046.npz": "036d0523d379e2ce41f2ce959feec3535d37d4b0e9c0bc9d7a51ba575b97628b",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000047.npz": "2e65e0f1b28f73e79dae25bbdc62b93650001af1cfdd7560740f5980c0043beb",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000048.npz": "2dfae182ef32ee04d926d71463be78e16f0e2337be541448078823ace1284ca2",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000049.npz": "0910fe3cd193ebecef5d060504f61d733060af2b463a55dd1722f3ceddd2242b",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000050.npz": "e557129be4cb1aedaf43a28025a8a564ce1172e92373bb0ffc9c2191ae6599a4",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000051.npz": "1eae1e7c45767f3b1bee6d44be0bf940a11f0073d12e5d71f96964b1be411eef",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000052.npz": "c2c22ca2f9494bfe0046ffcb7ba170a14ff6a52f5b166ec4b5aba2e278081532",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000053.npz": "3fb05a5e6c424cad5b327c67c4b6b94eaaa0d68c54923cb65e6c7aa6bbba83f5",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000054.npz": "1ca25b8f82e930864564f49926a13c8e036b981fb341c811f7152a3bd7ae546a",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000055.npz": "cd693bfcdbe20b12b578d9b484be50708d9c0a9bd062646c6486b482fa9b878b",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000056.npz": "ec2e2abc5d3b353c6177bc17cea9bf24a9c8a4ee3acdd4b7ca34e966cd0f9c62",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000057.npz": "dc052841c7fa857e7086b031d69fb9fe89be71b7932358f047805d2b1a8d688c",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000058.npz": "4cd9a8500af371219598f5d7a91c14990042fd5f939932914b967a170f2b9ecb",
+    "runs/direct_command_recovery_development2/heavy_skid/evidence/frame_000059.npz": "d055d67baa9e46040cb3fb6a3867d9a7e3f08efe846d2c56a9c334be3dc79bf4",
+    "runs/direct_command_recovery_development2/heavy_skid/summary.json": "e0fd15633127f96cbf832891b6224fb2705a27fbf25b3cb6d447f012eedf30a0",
+    "runs/direct_command_recovery_development2/heavy_skid/source.zip": "c5141dfb521823f074042487980d3b5d475a41f14ba7593b367e3a4462e06e58",
+    "runs/direct_command_recovery_development2/heavy_skid/case.json": "866d121748c13396a5b8e559bdb2c75471a82e24bff7362fcf66ab244624ed15",
+    "runs/direct_command_recovery_development2/heavy_skid/track.json": "7eca9ac8e49abd03e83e5a48ea14a7ed1bda349f833ba4be5d16b17a62ab5a4c",
+    "runs/direct_command_recovery_development2/heavy_skid/realization.json": "1040d71d007960346c29a9dc8d5419fb261d0990a8b846d48c61018ee3a4db45",
+    "runs/direct_command_recovery_development2/heavy_skid/scene.usda": "3dabebf7f2ca3092c9dde332552ea84c6b50d84a642c750cf696f82697c5976a",
+    "runs/direct_command_recovery_development2/heavy_skid/appearance.json": "0fc59d33197cbff0a8ba7a3792d3880f812acb99d917a33fdcbe3f7a6c3708e1",
+    "runs/direct_command_recovery_development2/heavy_skid/export.json": "8180ead7bc8f71f022847c8fddb17d76ffc654b8b6de44dd1b948010acd382e6",
+    "runs/direct_command_recovery_development2/heavy_skid/frames.json": "b8f466add9f9e4e0986a3f7c37c1f3ef0889dd83b0ceeeae19d01a8197360b8e",
+    "runs/direct_command_recovery_development2/heavy_skid/telemetry.json": "070538d2852ce9c5bb0bd310745b65c3ece39b133bd468cd2f663f1249d09f2a",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/artifacts/panoramas/derelict_highway_midday.jpg": "208a496189445d64cdefa42490ddef5e3e7b667a248b6636d679642946888597",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/asphalt_02/diffuse.jpg": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/asphalt_02/normal_gl.jpg": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/asphalt_02/roughness.jpg": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/asphalt_track/diffuse.jpg": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/asphalt_track/normal_gl.jpg": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/asphalt_track/roughness.jpg": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/concrete_floor_01/diffuse.jpg": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/concrete_floor_01/normal_gl.jpg": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/concrete_floor_01/roughness.jpg": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/gravel_floor_04/diffuse.jpg": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/gravel_floor_04/normal_gl.jpg": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/gravel_floor_04/roughness.jpg": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/stress_people/F_Business_02/textures/female_adult_business_02_BaseColor.png": "630dda3dbae04d00ff6a78cbf77d9098e78d08642c9035bcfbb7a073ef961695",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/stress_people/F_Business_02/textures/female_adult_business_02_Normal.png": "c5b8667dfedf6f29f6323755fd8a9378d7ec9e677568731f01c6c7951262eda0",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/stress_people/F_Business_02/textures/female_adult_business_02_ORM.png": "e66c02515206e50e7248c7b058fe03d30d8544cdfc50a6e9c8d2166962c85b98",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/stress_people/female_adult_police_02/textures/female_adult_police_02_BaseColor.png": "438ecc21b9a980ce0eaa00c330fd3eafe99eaea0671e8bdfd3dfcf5bf5fe8635",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/stress_people/female_adult_police_02/textures/female_adult_police_02_Normal.png": "f92deb073fa211aa4b701c23786283dafdf779e0405481e32951f1733a3f16ee",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/stress_people/female_adult_police_02/textures/female_adult_police_02_ORM.png": "86c278bd7ef9488cd2504e9d5108e334624468057d63a13fcac448207fff2266",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/stress_people/male_adult_construction_03/textures/male_adult_construction_03_BaseColor.png": "1d4fb88081020c553490731afd987a0c3a975f18f277e1fb49896905c5ce913b",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/stress_people/male_adult_construction_03/textures/male_adult_construction_03_Normal.png": "3f3c2115bdffc5e7645b488f210a045ecaa8a1657ed0eb06af4762493af005ac",
+    "runs/direct_command_recovery_development2/heavy_skid/assets/isaac_eval/assets/stress_people/male_adult_construction_03/textures/male_adult_construction_03_ORM.png": "68e02450beb4d75b7c930627df88335e8e286a2517bb3f1aa1eb44bf04b475b7"
+  },
+  "frozen_unchanged": true,
+  "device": "cuda",
+  "rtol": 1e-05,
+  "atol": 1e-05,
+  "saved_vs_replay": {
+    "saved.action[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.action[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.road.heat": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.road.off": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.road.wh": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.wide.heat": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.wide.off": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.image_head.wide.wh": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.policy_raw[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.policy_raw[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.base_controller_diagnostic.applied": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.base_controller_diagnostic.integral_after": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.base_controller_diagnostic.integral_before": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.base_controller_diagnostic.mission_override": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.base_controller_diagnostic.proposed": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.base_controller_diagnostic.raw": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.base_controller_diagnostic.speed_error": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.base_controller_diagnostic.tangent_accel": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.base_controller_diagnostic.target_speed": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.cones_cls": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.cones_score": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.cones_xy": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.applied[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.applied[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.bounded[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.bounded[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.kind": {
+      "max_abs": null,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[2]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[3]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[4]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[5]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[6]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[7]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[8]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[9]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[10]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[11]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[12]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[13]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[14]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[15]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[16]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[17]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[18]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[19]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[20]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[21]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[22]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[23]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[24]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[25]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[26]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[27]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[28]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[29]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[30]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[31]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[32]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[33]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[34]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[35]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[36]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[37]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[38]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[39]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[40]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[41]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[42]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[43]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[44]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[45]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[46]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[47]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[48]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[49]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[50]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[51]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[52]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[53]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[54]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[55]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[56]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[57]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[58]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[59]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[60]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[61]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[62]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[63]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[64]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[65]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[66]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[67]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[68]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[69]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[70]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[71]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[72]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[73]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[74]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[75]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[76]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[77]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[78]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[79]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[80]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[81]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[82]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[83]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[84]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[85]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[86]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[87]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[88]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[89]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[90]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[91]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[92]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[93]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[94]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[95]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[96]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[97]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[98]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[99]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[100]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[101]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[102]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[103]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[104]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[105]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[106]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[107]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[108]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[109]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[110]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[111]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[112]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[113]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[114]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[115]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[116]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[117]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[118]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[119]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[120]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[121]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[122]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[123]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[124]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[125]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[126]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[127]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[128]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[129]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[130]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[131]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[132]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[133]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[134]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[135]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[136]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[137]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[138]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[139]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[140]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[141]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[142]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[143]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[144]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[145]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[146]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[147]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[148]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[149]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[150]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[151]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[152]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[153]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[154]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[155]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[156]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[157]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[158]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[159]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[160]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[161]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[162]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[163]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[164]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[165]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[166]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[167]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[168]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[169]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[170]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[171]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[172]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[173]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[174]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[175]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[176]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[177]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[178]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[179]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[180]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[181]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[182]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[183]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[184]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[185]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[186]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[187]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[188]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[189]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[190]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[191]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[192]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[193]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[194]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[195]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[196]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[197]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[198]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[199]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[200]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[201]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[202]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[203]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[204]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[205]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[206]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[207]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[208]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[209]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[210]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[211]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[212]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[213]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[214]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[215]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[216]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[217]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[218]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[219]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[220]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[221]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[222]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[223]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[224]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[225]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[226]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[227]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[228]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[229]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[230]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[231]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[232]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[233]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[234]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[235]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[236]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[237]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[238]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[239]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[240]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[241]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[242]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[243]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[244]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[245]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[246]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[247]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[248]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[249]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[250]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[251]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[252]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[253]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[254]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.latent[255]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.mission_override": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.proprio[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.proprio[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.proprio[2]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.raw[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.controller.raw[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.plan": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "saved.prediction.plan_std": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    }
+  },
+  "capture_vs_plain": {
+    "hook.action[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.action[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.base_controller_diagnostic.applied": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.base_controller_diagnostic.integral_after": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.base_controller_diagnostic.integral_before": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.base_controller_diagnostic.mission_override": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.base_controller_diagnostic.proposed": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.base_controller_diagnostic.raw": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.base_controller_diagnostic.speed_error": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.base_controller_diagnostic.tangent_accel": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.base_controller_diagnostic.target_speed": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.cones_cls": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.cones_score": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.cones_xy": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.applied[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.applied[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.bounded[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.bounded[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.kind": {
+      "max_abs": null,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[2]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[3]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[4]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[5]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[6]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[7]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[8]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[9]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[10]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[11]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[12]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[13]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[14]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[15]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[16]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[17]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[18]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[19]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[20]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[21]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[22]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[23]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[24]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[25]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[26]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[27]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[28]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[29]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[30]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[31]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[32]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[33]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[34]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[35]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[36]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[37]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[38]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[39]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[40]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[41]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[42]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[43]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[44]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[45]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[46]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[47]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[48]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[49]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[50]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[51]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[52]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[53]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[54]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[55]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[56]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[57]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[58]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[59]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[60]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[61]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[62]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[63]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[64]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[65]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[66]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[67]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[68]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[69]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[70]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[71]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[72]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[73]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[74]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[75]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[76]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[77]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[78]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[79]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[80]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[81]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[82]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[83]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[84]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[85]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[86]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[87]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[88]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[89]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[90]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[91]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[92]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[93]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[94]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[95]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[96]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[97]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[98]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[99]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[100]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[101]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[102]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[103]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[104]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[105]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[106]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[107]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[108]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[109]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[110]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[111]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[112]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[113]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[114]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[115]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[116]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[117]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[118]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[119]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[120]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[121]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[122]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[123]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[124]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[125]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[126]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[127]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[128]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[129]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[130]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[131]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[132]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[133]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[134]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[135]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[136]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[137]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[138]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[139]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[140]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[141]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[142]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[143]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[144]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[145]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[146]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[147]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[148]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[149]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[150]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[151]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[152]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[153]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[154]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[155]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[156]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[157]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[158]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[159]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[160]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[161]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[162]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[163]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[164]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[165]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[166]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[167]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[168]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[169]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[170]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[171]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[172]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[173]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[174]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[175]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[176]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[177]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[178]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[179]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[180]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[181]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[182]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[183]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[184]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[185]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[186]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[187]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[188]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[189]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[190]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[191]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[192]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[193]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[194]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[195]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[196]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[197]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[198]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[199]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[200]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[201]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[202]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[203]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[204]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[205]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[206]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[207]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[208]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[209]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[210]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[211]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[212]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[213]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[214]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[215]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[216]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[217]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[218]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[219]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[220]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[221]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[222]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[223]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[224]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[225]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[226]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[227]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[228]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[229]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[230]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[231]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[232]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[233]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[234]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[235]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[236]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[237]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[238]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[239]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[240]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[241]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[242]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[243]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[244]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[245]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[246]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[247]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[248]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[249]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[250]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[251]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[252]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[253]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[254]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.latent[255]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.mission_override": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.proprio[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.proprio[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.proprio[2]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.raw[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.controller.raw[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.plan": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "hook.prediction.plan_std": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    }
+  },
+  "independent_command_checks": {
+    "command.kind": {
+      "max_abs": null,
+      "mismatches": 0
+    },
+    "command.proprio[0]": {
+      "max_abs": 4.743835120279982e-07,
+      "mismatches": 0
+    },
+    "command.proprio[1]": {
+      "max_abs": 7.239483235110811e-09,
+      "mismatches": 0
+    },
+    "command.proprio[2]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "command.head_from_saved_latent": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "command.bounded[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "command.bounded[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "command.applied[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "command.applied[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "command.mission_override": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "command.recorded_action[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "command.recorded_action[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    }
+  },
+  "verification_limits": [
+    "Saved inputs only; physical simulation and scoring are not rerun.",
+    "Cross-device numerical differences are not exempted from the original 1e-5 tolerance."
+  ]
+}

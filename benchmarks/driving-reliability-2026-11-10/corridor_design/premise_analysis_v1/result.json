@@ -1,0 +1,3667 @@
+{
+  "scope": "Read-only teacher requery on saved rejected TRAIN pilot states. No new rollout or fit.",
+  "interpretation": "Pair gaps establish target sensitivity at fixed observations, not the empirical Bayes error of the original dataset. Half the absolute pair gap is the minimum possible pair-mean absolute error if both labels are attached to the same input with equal weight.",
+  "limits": {
+    "scope": "Read-only teacher requery on saved rejected TRAIN pilot states. No new rollout or fit.",
+    "teacher_reconstruction_max_abs": 1e-10,
+    "repeated_teacher_max_abs": 0.0,
+    "parameter_values": [
+      0.25,
+      0.15
+    ],
+    "numerical_dependency_threshold": 1e-10,
+    "material_steering_pair_gap_rad": 0.02,
+    "material_acceleration_pair_gap_mps2": 0.5,
+    "ordinary_error_limits": [
+      0.01,
+      0.25
+    ],
+    "tail_error_limits": [
+      0.03,
+      0.75
+    ],
+    "selection": "Every saved frame strictly before the first physical-contact interval, from the two already rejected TRAIN skidpad pilots.",
+    "interpretation": "Pair gaps establish target sensitivity at fixed observations, not the empirical Bayes error of the original dataset. Half the absolute pair gap is the minimum possible pair-mean absolute error if both labels are attached to the same input with equal weight."
+  },
+  "source_sha256": {
+    ".work/lab/next_strategy/premise_analysis_v1/analyze.py": "8af755b4c1073748814401429b58f07d7c50ab2245749db2fc46b69404a3a701",
+    ".work/lab/next_strategy/premise_diagnostic_thresholds_v1.json": "293075c92c2af890367442a41fc61e976a847bbbfbd35191bec102c88d9747a3",
+    "runs/direct_command_pilot3/evidence/metadata.json": "cefc9c5e41493fc75534183fead05fcd1225bd04c23354bcd3e12d7fef81dcc4",
+    "runs/direct_command_pilot3/evidence/manifest.jsonl": "a15313776d7b264ea46b2f77e25164030fddc0f8bd72c11ebf130234abcb332e",
+    "runs/direct_command_pilot3/evidence/completion.json": "6a1c303aaf28b99a128e66b3a9785669338cb909b6f665376555c62ac3fd8efb",
+    "runs/direct_command_pilot3/summary.json": "5b9bff5b2c70606428c72d0dcbd0f8915c2ee538d59f2d4055b1d0ad6b9779bd",
+    "benchmarks/driving-reliability-2026-11-10/direct_command_diagnosis/result.json": "6f367f2acbfe81665b967b3c61780a83fcd538fc2b844af34b3d1dde598dec3d",
+    "runs/direct_command_recovery_pilot2/evidence/metadata.json": "a5f2426d810f061985cd38273e519dcb42bbff78899e3fa1f4a168dad31a0aab",
+    "runs/direct_command_recovery_pilot2/evidence/manifest.jsonl": "cc78d7170172dde653cc82399f26752d0211530c9fce8f251d72d2e4e4c2cb71",
+    "runs/direct_command_recovery_pilot2/evidence/completion.json": "5d7d336d6635cb95e6bf12b220dc18f8dbe840f2dc7913196adc59dac0c7a680",
+    "runs/direct_command_recovery_pilot2/summary.json": "4ac66bae61a92bde37c46f553f9a2053ba6c0127c017685a71b198d3ba58a6c1",
+    "benchmarks/driving-reliability-2026-11-10/direct_command_diagnosis/result_recovery2.json": "b662fe22c28addc86bcc6120a2c7192921fd033b67ec41d82ab3a747eff2c4ed",
+    "src/fsop/sim/expert.py": "7f1c3fb9083b4edd04e61a33719a88b4b65bea85fb6490ea2ef191e66d35986e",
+    "src/fsop/sim/vehicle.py": "55643a3d4f43c1a7605b8da3641517a8c0380bc92ba7526a5e555e0f7cd3ae39",
+    "src/fsop/track/fixed_layouts.py": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+    "src/fsop/track/centerline.py": "de45a95eba2e8fa0419a7407ced66718bc6f49099dff8b00c7663f2bf7ac5887",
+    "src/fsop/track/rules.py": "4c2c989ef7b401ed47e57744eae6a3219759629e09e412b4ee5d68de8764006d",
+    "src/fsop/track/schema.py": "f2f760bee7826c82f34e3f704a0b5807bcd0f6b043e856a781d8fe727ac1c04c"
+  },
+  "numpy_version": "2.5.4",
+  "cases": {
+    "initial_head": {
+      "case": {
+        "discipline": "skidpad",
+        "dr": "light",
+        "frozen_case": null,
+        "id": "train-skidpad-82000-matched",
+        "lateral_start": 0.0,
+        "seed": 82000,
+        "split": "train",
+        "track_seed": null,
+        "variant": "matched",
+        "yaw_start": 0.0
+      },
+      "first_contact_interval": 80,
+      "precontact_count": 80,
+      "reconstruction_max_abs": 3.597122599785507e-13,
+      "repeat_max_abs": 0.0,
+      "teacher_invariant_to_vy_plus_0p1_r_plus_0p1": true,
+      "parameter_gap_mean": [
+        0.011104187151208667,
+        0.0
+      ],
+      "parameter_gap_p95": [
+        0.05721843557522385,
+        0.0
+      ],
+      "parameter_gap_max": [
+        0.06333943671937742,
+        0.0
+      ],
+      "material_pair_count": [
+        15,
+        0
+      ],
+      "equal_weight_paired_mae_lower_bound": [
+        0.005552093575604333,
+        0.0
+      ],
+      "head_precontact_mae": [
+        0.05339909295937243,
+        0.634312022357983
+      ],
+      "head_precontact_p95": [
+        0.2013998541896889,
+        1.386791962227292
+      ],
+      "head_zero_r_delta_max_abs": [
+        0.02194376289844513,
+        0.08868354558944702
+      ],
+      "head_zero_r_material_count": [
+        4,
+        0
+      ],
+      "half_second_bins": [
+        {
+          "start_s": 0.0,
+          "count": 10,
+          "signed_mean_error": [
+            0.002427102345073289,
+            0.21048989295959472
+          ],
+          "mae": [
+            0.002427102345073289,
+            0.21048989295959472
+          ]
+        },
+        {
+          "start_s": 0.5,
+          "count": 10,
+          "signed_mean_error": [
+            0.0021593036660832537,
+            0.2667549610137939
+          ],
+          "mae": [
+            0.0021593036660832537,
+            0.2667549610137939
+          ]
+        },
+        {
+          "start_s": 1.0,
+          "count": 10,
+          "signed_mean_error": [
+            0.007058277566274555,
+            0.17769253244304234
+          ],
+          "mae": [
+            0.007058277566274555,
+            0.21429149146631205
+          ]
+        },
+        {
+          "start_s": 1.5,
+          "count": 10,
+          "signed_mean_error": [
+            0.008674156600675184,
+            0.8913263221395631
+          ],
+          "mae": [
+            0.008674156600675184,
+            0.8913263221395631
+          ]
+        },
+        {
+          "start_s": 2.0,
+          "count": 10,
+          "signed_mean_error": [
+            0.0077504382927191685,
+            0.6224845072156169
+          ],
+          "mae": [
+            0.0077504382927191685,
+            0.6224845072156169
+          ]
+        },
+        {
+          "start_s": 2.5,
+          "count": 10,
+          "signed_mean_error": [
+            0.05228292040373197,
+            0.9047521133451074
+          ],
+          "mae": [
+            0.05228292040373197,
+            0.9047521133451074
+          ]
+        },
+        {
+          "start_s": 3.0,
+          "count": 10,
+          "signed_mean_error": [
+            0.14424946300397903,
+            1.150763665626551
+          ],
+          "mae": [
+            0.14424946300397903,
+            1.150763665626551
+          ]
+        },
+        {
+          "start_s": 3.5,
+          "count": 10,
+          "signed_mean_error": [
+            0.202591081796443,
+            0.8136332250973247
+          ],
+          "mae": [
+            0.202591081796443,
+            0.8136332250973247
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "frame": 0,
+          "time_s": 0.0,
+          "baseline_teacher": [
+            9.291038213704887e-13,
+            5.0
+          ],
+          "alternate_teacher": [
+            9.291038213704887e-13,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.0,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.0004730992068093106,
+            0.1967301368713379
+          ],
+          "head_zero_r_delta": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "frame": 1,
+          "time_s": 0.05,
+          "baseline_teacher": [
+            -8.515143789215544e-07,
+            5.0
+          ],
+          "alternate_teacher": [
+            -8.559253961312925e-07,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            4.411017209738124e-09,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.0010083230972312254,
+            0.19332647323608398
+          ],
+          "head_zero_r_delta": [
+            -7.520429790019989e-07,
+            2.384185791015625e-06
+          ]
+        },
+        {
+          "frame": 2,
+          "time_s": 0.1,
+          "baseline_teacher": [
+            2.4441185641991897e-05,
+            5.0
+          ],
+          "alternate_teacher": [
+            2.4540319656859605e-05,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            9.913401486770856e-08,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.0018896452167518857,
+            0.14809322357177734
+          ],
+          "head_zero_r_delta": [
+            9.248487185686827e-05,
+            -0.00032329559326171875
+          ]
+        },
+        {
+          "frame": 3,
+          "time_s": 0.15,
+          "baseline_teacher": [
+            -7.720134622414203e-05,
+            5.0
+          ],
+          "alternate_teacher": [
+            -7.855970172504021e-05,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            1.3583555008981788e-06,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.002184405051460458,
+            0.1364750862121582
+          ],
+          "head_zero_r_delta": [
+            0.0003492643591016531,
+            -0.0012030601501464844
+          ]
+        },
+        {
+          "frame": 4,
+          "time_s": 0.2,
+          "baseline_teacher": [
+            5.725416161125279e-05,
+            5.0
+          ],
+          "alternate_teacher": [
+            5.503022068960601e-05,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            2.2239409216467856e-06,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.003647829463779873,
+            0.21056890487670898
+          ],
+          "head_zero_r_delta": [
+            0.00043386989273130894,
+            -0.0014190673828125
+          ]
+        },
+        {
+          "frame": 5,
+          "time_s": 0.25,
+          "baseline_teacher": [
+            5.642640138374407e-05,
+            5.0
+          ],
+          "alternate_teacher": [
+            5.1038419509269873e-05,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            5.387981874474197e-06,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.003639668098517193,
+            0.2163858413696289
+          ],
+          "head_zero_r_delta": [
+            0.00014086859300732613,
+            -0.000457763671875
+          ]
+        },
+        {
+          "frame": 6,
+          "time_s": 0.3,
+          "baseline_teacher": [
+            0.00015656434179220997,
+            5.0
+          ],
+          "alternate_teacher": [
+            0.00014969763646622243,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            6.866705325987542e-06,
+            0.0
+          ],
+          "reconstruction_max_abs": 2.710505431213761e-20,
+          "head_error": [
+            0.003691223513400809,
+            0.2117466926574707
+          ],
+          "head_zero_r_delta": [
+            4.999339580535889e-05,
+            -0.00015878677368164062
+          ]
+        },
+        {
+          "frame": 7,
+          "time_s": 0.35,
+          "baseline_teacher": [
+            0.00025667772374529657,
+            5.0
+          ],
+          "alternate_teacher": [
+            0.00024902011343404083,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            7.657610311255741e-06,
+            0.0
+          ],
+          "reconstruction_max_abs": 5.421010862427522e-20,
+          "head_error": [
+            0.002839413837274124,
+            0.22321176528930664
+          ],
+          "head_zero_r_delta": [
+            4.9845315515995026e-05,
+            -0.00015878677368164062
+          ]
+        },
+        {
+          "frame": 8,
+          "time_s": 0.4,
+          "baseline_teacher": [
+            0.0003849934972994291,
+            5.0
+          ],
+          "alternate_teacher": [
+            0.00037838291788287276,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            6.6105794165563394e-06,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.002492748321948174,
+            0.28728485107421875
+          ],
+          "head_zero_r_delta": [
+            8.112168870866299e-05,
+            -0.0002608299255371094
+          ]
+        },
+        {
+          "frame": 9,
+          "time_s": 0.45,
+          "baseline_teacher": [
+            0.0005492517056784401,
+            5.0
+          ],
+          "alternate_teacher": [
+            0.0005464859742391806,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            2.76573143925948e-06,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.0024046676435598366,
+            0.28107595443725586
+          ],
+          "head_zero_r_delta": [
+            9.834486991167068e-05,
+            -0.0003104209899902344
+          ]
+        },
+        {
+          "frame": 10,
+          "time_s": 0.5,
+          "baseline_teacher": [
+            0.0008468408290916438,
+            5.0
+          ],
+          "alternate_teacher": [
+            0.0008563106950301393,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            9.46986593849551e-06,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.0014205042585110907,
+            0.28104591369628906
+          ],
+          "head_zero_r_delta": [
+            0.00022780755534768105,
+            -0.0007181167602539062
+          ]
+        },
+        {
+          "frame": 11,
+          "time_s": 0.55,
+          "baseline_teacher": [
+            0.0006456519710058495,
+            5.0
+          ],
+          "alternate_teacher": [
+            0.0006469247560989138,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            1.2727850930643143e-06,
+            0.0
+          ],
+          "reconstruction_max_abs": 1.0842021724855044e-19,
+          "head_error": [
+            0.002043781080267377,
+            0.2765183448791504
+          ],
+          "head_zero_r_delta": [
+            -6.490014493465424e-05,
+            0.00019884109497070312
+          ]
+        },
+        {
+          "frame": 12,
+          "time_s": 0.6,
+          "baseline_teacher": [
+            0.0005429060494424379,
+            5.0
+          ],
+          "alternate_teacher": [
+            0.0005402438684346134,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            2.662181007824461e-06,
+            0.0
+          ],
+          "reconstruction_max_abs": 1.0842021724855044e-19,
+          "head_error": [
+            0.002164102921458932,
+            0.25040674209594727
+          ],
+          "head_zero_r_delta": [
+            0.00010115699842572212,
+            -0.0003046989440917969
+          ]
+        },
+        {
+          "frame": 13,
+          "time_s": 0.65,
+          "baseline_teacher": [
+            0.0004508087148928204,
+            5.0
+          ],
+          "alternate_teacher": [
+            0.00044458343478365864,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            6.225280109161779e-06,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.002452834116477414,
+            0.2446765899658203
+          ],
+          "head_zero_r_delta": [
+            9.407754987478256e-05,
+            -0.0002789497375488281
+          ]
+        },
+        {
+          "frame": 14,
+          "time_s": 0.7,
+          "baseline_teacher": [
+            0.00032554192938024414,
+            5.0
+          ],
+          "alternate_teacher": [
+            0.00031156313379755664,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            1.3978795582687505e-05,
+            0.0
+          ],
+          "reconstruction_max_abs": 5.421010862427522e-20,
+          "head_error": [
+            0.0018166322400409518,
+            0.2992210388183594
+          ],
+          "head_zero_r_delta": [
+            0.00014680600725114346,
+            -0.00043392181396484375
+          ]
+        },
+        {
+          "frame": 15,
+          "time_s": 0.75,
+          "baseline_teacher": [
+            0.00019115701324825946,
+            5.0
+          ],
+          "alternate_teacher": [
+            0.00016700519478981288,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            2.4151818458446585e-05,
+            0.0
+          ],
+          "reconstruction_max_abs": 2.710505431213761e-20,
+          "head_error": [
+            0.0018297708313208276,
+            0.30785608291625977
+          ],
+          "head_zero_r_delta": [
+            0.00011549890041351318,
+            -0.00034046173095703125
+          ]
+        },
+        {
+          "frame": 16,
+          "time_s": 0.8,
+          "baseline_teacher": [
+            6.04579504727856e-05,
+            5.0
+          ],
+          "alternate_teacher": [
+            2.4202478146664006e-05,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            3.62554723261216e-05,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.002117590531691955,
+            0.27555131912231445
+          ],
+          "head_zero_r_delta": [
+            0.00010093767195940018,
+            -0.00029087066650390625
+          ]
+        },
+        {
+          "frame": 17,
+          "time_s": 0.85,
+          "baseline_teacher": [
+            -0.00010276158709809888,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.00015742873581618488,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            5.466714871808599e-05,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.002155383270203925,
+            0.28350257873535156
+          ],
+          "head_zero_r_delta": [
+            7.171067409217358e-05,
+            -0.00020933151245117188
+          ]
+        },
+        {
+          "frame": 18,
+          "time_s": 0.9,
+          "baseline_teacher": [
+            -0.0002944456138364338,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.00037448098820599463,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            8.003537436956085e-05,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.002639638092806127,
+            0.23331832885742188
+          ],
+          "head_zero_r_delta": [
+            4.7987792640924454e-05,
+            -0.00013637542724609375
+          ]
+        },
+        {
+          "frame": 19,
+          "time_s": 0.95,
+          "baseline_teacher": [
+            -0.000546361436763022,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.0006637539310027879,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.00011739249423976588,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.0029527993180539346,
+            0.2154526710510254
+          ],
+          "head_zero_r_delta": [
+            -4.346482455730438e-06,
+            1.3828277587890625e-05
+          ]
+        },
+        {
+          "frame": 20,
+          "time_s": 1.0,
+          "baseline_teacher": [
+            -0.0008505266486682637,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.0010180932742862622,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.00016756662561799845,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.0036494862615146385,
+            0.22967100143432617
+          ],
+          "head_zero_r_delta": [
+            -8.208956569433212e-05,
+            0.00023126602172851562
+          ]
+        },
+        {
+          "frame": 21,
+          "time_s": 1.05,
+          "baseline_teacher": [
+            -0.0012074179121093409,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.0014400916260865905,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.00023267371397724958,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.0039189582329975025,
+            0.23810911178588867
+          ],
+          "head_zero_r_delta": [
+            -0.00013733655214309692,
+            0.0003838539123535156
+          ]
+        },
+        {
+          "frame": 22,
+          "time_s": 1.1,
+          "baseline_teacher": [
+            -0.0015895058452661394,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.0019000849141509665,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.00031057906888482716,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.004307759604933417,
+            0.1795058250427246
+          ],
+          "head_zero_r_delta": [
+            -0.00011525279842317104,
+            0.00031757354736328125
+          ]
+        },
+        {
+          "frame": 23,
+          "time_s": 1.15,
+          "baseline_teacher": [
+            -0.0023994751327588706,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.0028460666089748826,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.000446591476216012,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.007435416621799722,
+            0.12050724029541016
+          ],
+          "head_zero_r_delta": [
+            -0.0015384794678539038,
+            0.00412750244140625
+          ]
+        },
+        {
+          "frame": 24,
+          "time_s": 1.2,
+          "baseline_teacher": [
+            -0.0029333661625332535,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.0034941485274644158,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.0005607823649311622,
+            0.0
+          ],
+          "reconstruction_max_abs": 4.336808689942018e-19,
+          "head_error": [
+            0.007315946215594501,
+            0.07874202728271484
+          ],
+          "head_zero_r_delta": [
+            -0.0015337613876909018,
+            0.0041484832763671875
+          ]
+        },
+        {
+          "frame": 25,
+          "time_s": 1.25,
+          "baseline_teacher": [
+            -0.0034792511157697367,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.004170396063983448,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.000691144948213711,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.007886004577577703,
+            -0.052648067474365234
+          ],
+          "head_zero_r_delta": [
+            -0.001388148870319128,
+            0.003704547882080078
+          ]
+        },
+        {
+          "frame": 26,
+          "time_s": 1.3,
+          "baseline_teacher": [
+            -0.00394733863510886,
+            4.647854368056814
+          ],
+          "alternate_teacher": [
+            -0.004780375668733373,
+            4.647854368056814
+          ],
+          "absolute_parameter_gap": [
+            0.0008330370336245129,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.007974099913618953,
+            0.14732786003156484
+          ],
+          "head_zero_r_delta": [
+            -0.0011295564472675323,
+            0.0030279159545898438
+          ]
+        },
+        {
+          "frame": 27,
+          "time_s": 1.35,
+          "baseline_teacher": [
+            -0.004489281338735719,
+            4.07083029774086
+          ],
+          "alternate_teacher": [
+            -0.005492890799785171,
+            4.07083029774086
+          ],
+          "absolute_parameter_gap": [
+            0.001003609461049452,
+            0.0
+          ],
+          "reconstruction_max_abs": 8.673617379884035e-19,
+          "head_error": [
+            0.009284683627172607,
+            -0.1303467276419834
+          ],
+          "head_zero_r_delta": [
+            -0.0011649413499981165,
+            0.002555370330810547
+          ]
+        },
+        {
+          "frame": 28,
+          "time_s": 1.4,
+          "baseline_teacher": [
+            -0.004922683339684175,
+            3.512737343232809
+          ],
+          "alternate_teacher": [
+            -0.0060981103872818606,
+            3.512737343232809
+          ],
+          "absolute_parameter_gap": [
+            0.001175427047597686,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.008376557601733968,
+            0.3469521308730261
+          ],
+          "head_zero_r_delta": [
+            -0.00011312891729176044,
+            0.00024700164794921875
+          ]
+        },
+        {
+          "frame": 29,
+          "time_s": 1.45,
+          "baseline_teacher": [
+            -0.005950278225556511,
+            3.0242120613755192
+          ],
+          "alternate_teacher": [
+            -0.0073918073727354955,
+            3.0242120613755192
+          ],
+          "absolute_parameter_gap": [
+            0.0014415291471789847,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.01043386300580253,
+            0.6191049228011165
+          ],
+          "head_zero_r_delta": [
+            -0.0008920368272811174,
+            0.00188446044921875
+          ]
+        },
+        {
+          "frame": 30,
+          "time_s": 1.5,
+          "baseline_teacher": [
+            -0.006732544776831896,
+            2.5322827611828016
+          ],
+          "alternate_teacher": [
+            -0.008426788653285716,
+            2.5322827611828016
+          ],
+          "absolute_parameter_gap": [
+            0.0016942438764538208,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.010712508492951424,
+            0.8286772455310656
+          ],
+          "head_zero_r_delta": [
+            -0.0004409186076372862,
+            0.0009140968322753906
+          ]
+        },
+        {
+          "frame": 31,
+          "time_s": 1.55,
+          "baseline_teacher": [
+            -0.007690764514360859,
+            2.1285167457879504
+          ],
+          "alternate_teacher": [
+            -0.009684104934796826,
+            2.1285167457879504
+          ],
+          "absolute_parameter_gap": [
+            0.001993340420435967,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.00926533389613433,
+            0.6950110671698133
+          ],
+          "head_zero_r_delta": [
+            -0.0006160957855172455,
+            0.0012021064758300781
+          ]
+        },
+        {
+          "frame": 32,
+          "time_s": 1.6,
+          "baseline_teacher": [
+            -0.008307484144197434,
+            1.7593864343838725
+          ],
+          "alternate_teacher": [
+            -0.010560938359474244,
+            1.7593864343838725
+          ],
+          "absolute_parameter_gap": [
+            0.0022534542152768105,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.008331027882477275,
+            0.6285017587466206
+          ],
+          "head_zero_r_delta": [
+            0.00015712089407315943,
+            -0.00028252601623535156
+          ]
+        },
+        {
+          "frame": 33,
+          "time_s": 1.65,
+          "baseline_teacher": [
+            -0.00895139396718652,
+            1.3935830493239791
+          ],
+          "alternate_teacher": [
+            -0.011474845862527498,
+            1.3935830493239791
+          ],
+          "absolute_parameter_gap": [
+            0.002523451895340978,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.008853940431186418,
+            0.8677895168991654
+          ],
+          "head_zero_r_delta": [
+            -0.00024066708283498883,
+            0.0004277229309082031
+          ]
+        },
+        {
+          "frame": 34,
+          "time_s": 1.7,
+          "baseline_teacher": [
+            -0.009460288421042976,
+            1.1192729049795047
+          ],
+          "alternate_teacher": [
+            -0.012230987426865136,
+            1.1192729049795047
+          ],
+          "absolute_parameter_gap": [
+            0.00277069900582216,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.009316787692161058,
+            1.0988974994546994
+          ],
+          "head_zero_r_delta": [
+            8.554042142350227e-05,
+            -0.00014781951904296875
+          ]
+        },
+        {
+          "frame": 35,
+          "time_s": 1.75,
+          "baseline_teacher": [
+            -0.009922219870487595,
+            0.8265997541543804
+          ],
+          "alternate_teacher": [
+            -0.012937014778989899,
+            0.8265997541543804
+          ],
+          "absolute_parameter_gap": [
+            0.003014794908502304,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.008529015781233454,
+            0.9254784213903584
+          ],
+          "head_zero_r_delta": [
+            -6.508477963507175e-05,
+            9.644031524658203e-05
+          ]
+        },
+        {
+          "frame": 36,
+          "time_s": 1.8,
+          "baseline_teacher": [
+            -0.010280415111250586,
+            0.5919913362183997
+          ],
+          "alternate_teacher": [
+            -0.013518479374633997,
+            0.5919913362183997
+          ],
+          "absolute_parameter_gap": [
+            0.003238064263383411,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.007951824854157276,
+            0.9835462261519006
+          ],
+          "head_zero_r_delta": [
+            8.137291297316551e-05,
+            -0.0001125335693359375
+          ]
+        },
+        {
+          "frame": 37,
+          "time_s": 1.85,
+          "baseline_teacher": [
+            -0.010493465176462154,
+            0.37563460488608746
+          ],
+          "alternate_teacher": [
+            -0.013924777893131136,
+            0.37563460488608746
+          ],
+          "absolute_parameter_gap": [
+            0.0034313127166689817,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.007952492626993875,
+            1.078469222590414
+          ],
+          "head_zero_r_delta": [
+            0.0001352385152131319,
+            -0.00017845630645751953
+          ]
+        },
+        {
+          "frame": 38,
+          "time_s": 1.9,
+          "baseline_teacher": [
+            -0.010585610739289136,
+            0.1856400525342507
+          ],
+          "alternate_teacher": [
+            -0.014180973501174969,
+            0.1856400525342507
+          ],
+          "absolute_parameter_gap": [
+            0.0035953627618858335,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.00811546503878972,
+            1.0142820322740989
+          ],
+          "head_zero_r_delta": [
+            0.0001829136162996292,
+            -0.0002046823501586914
+          ]
+        },
+        {
+          "frame": 39,
+          "time_s": 1.95,
+          "baseline_teacher": [
+            -0.01060858088029213,
+            0.01961999819025188
+          ],
+          "alternate_teacher": [
+            -0.014346342303983831,
+            0.01961999819025188
+          ],
+          "absolute_parameter_gap": [
+            0.0037377614236917007,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.007713169310666991,
+            0.7926102311874947
+          ],
+          "head_zero_r_delta": [
+            0.00021020160056650639,
+            -0.00015151500701904297
+          ]
+        },
+        {
+          "frame": 40,
+          "time_s": 2.0,
+          "baseline_teacher": [
+            -0.010566231255118477,
+            -0.1154437514976519
+          ],
+          "alternate_teacher": [
+            -0.01442307347481115,
+            -0.1154437514976519
+          ],
+          "absolute_parameter_gap": [
+            0.003856842219692673,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.006981608151157129,
+            0.7176877710060137
+          ],
+          "head_zero_r_delta": [
+            0.00024186191149055958,
+            -0.00013452768325805664
+          ]
+        },
+        {
+          "frame": 41,
+          "time_s": 2.05,
+          "baseline_teacher": [
+            -0.010425037515910703,
+            -0.22172929043624418
+          ],
+          "alternate_teacher": [
+            -0.014369176808169465,
+            -0.22172929043624418
+          ],
+          "absolute_parameter_gap": [
+            0.003944139292258762,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.006363328357788163,
+            0.7068980454907181
+          ],
+          "head_zero_r_delta": [
+            0.0002904313150793314,
+            -0.00014060735702514648
+          ]
+        },
+        {
+          "frame": 42,
+          "time_s": 2.1,
+          "baseline_teacher": [
+            -0.010165831689309747,
+            -0.30484853573937915
+          ],
+          "alternate_teacher": [
+            -0.014159875326301957,
+            -0.30484853573937915
+          ],
+          "absolute_parameter_gap": [
+            0.00399404363699221,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.006222711559903294,
+            0.6709141571154167
+          ],
+          "head_zero_r_delta": [
+            0.0003432224038988352,
+            -0.0001253187656402588
+          ]
+        },
+        {
+          "frame": 43,
+          "time_s": 2.15,
+          "baseline_teacher": [
+            -0.0098151959225931,
+            -0.36886761957353786
+          ],
+          "alternate_teacher": [
+            -0.013825443514823866,
+            -0.36886761957353786
+          ],
+          "absolute_parameter_gap": [
+            0.004010247592230766,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.006703821590954883,
+            0.27834524834102825
+          ],
+          "head_zero_r_delta": [
+            0.0003745933063328266,
+            2.676248550415039e-05
+          ]
+        },
+        {
+          "frame": 44,
+          "time_s": 2.2,
+          "baseline_teacher": [
+            -0.009448530686755012,
+            -0.4711386396751918
+          ],
+          "alternate_teacher": [
+            -0.01345513873482134,
+            -0.4711386396751918
+          ],
+          "absolute_parameter_gap": [
+            0.004006608048066327,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.00601308613430364,
+            0.34513151489358324
+          ],
+          "head_zero_r_delta": [
+            0.0003437420818954706,
+            2.823770046234131e-05
+          ]
+        },
+        {
+          "frame": 45,
+          "time_s": 2.25,
+          "baseline_teacher": [
+            -0.009061570095283442,
+            -0.8033841165455682
+          ],
+          "alternate_teacher": [
+            -0.013044151278193196,
+            -0.8033841165455682
+          ],
+          "absolute_parameter_gap": [
+            0.003982581182909754,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.005783712074545675,
+            0.5633371236475808
+          ],
+          "head_zero_r_delta": [
+            0.0003418142441660166,
+            5.358457565307617e-05
+          ]
+        },
+        {
+          "frame": 46,
+          "time_s": 2.3,
+          "baseline_teacher": [
+            -0.0086399084974406,
+            -1.1325275436369924
+          ],
+          "alternate_teacher": [
+            -0.012575656221783865,
+            -1.1325275436369924
+          ],
+          "absolute_parameter_gap": [
+            0.003935747724343264,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.005631429943474913,
+            0.8166474536387471
+          ],
+          "head_zero_r_delta": [
+            0.00033228821121156216,
+            8.445978164672852e-05
+          ]
+        },
+        {
+          "frame": 47,
+          "time_s": 2.35,
+          "baseline_teacher": [
+            -0.008195419013152886,
+            -1.443778845812576
+          ],
+          "alternate_teacher": [
+            -0.012064521814059526,
+            -1.443778845812576
+          ],
+          "absolute_parameter_gap": [
+            0.0038691028009066406,
+            0.0
+          ],
+          "reconstruction_max_abs": 1.734723475976807e-18,
+          "head_error": [
+            0.009671086244869101,
+            0.641924950625198
+          ],
+          "head_zero_r_delta": [
+            0.00033486983738839626,
+            0.00018030405044555664
+          ]
+        },
+        {
+          "frame": 48,
+          "time_s": 2.4,
+          "baseline_teacher": [
+            -0.0079754856143219,
+            -1.7256561347317119
+          ],
+          "alternate_teacher": [
+            -0.011810141107329775,
+            -1.7256561347317119
+          ],
+          "absolute_parameter_gap": [
+            0.003834655493007875,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.011338069774962736,
+            0.7868648597072978
+          ],
+          "head_zero_r_delta": [
+            9.161606431007385e-05,
+            6.204843521118164e-05
+          ]
+        },
+        {
+          "frame": 49,
+          "time_s": 2.45,
+          "baseline_teacher": [
+            -0.008119867415874865,
+            -1.690417035382846
+          ],
+          "alternate_teacher": [
+            -0.011986086028023606,
+            -1.690417035382846
+          ],
+          "absolute_parameter_gap": [
+            0.003866218612148741,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.012795529095232155,
+            0.6970939476905853
+          ],
+          "head_zero_r_delta": [
+            -0.00014879554510116577,
+            -0.00011169910430908203
+          ]
+        },
+        {
+          "frame": 50,
+          "time_s": 2.5,
+          "baseline_teacher": [
+            -0.009016294326348843,
+            -1.6072219158817036
+          ],
+          "alternate_teacher": [
+            -0.01256539342220225,
+            -1.6072219158817036
+          ],
+          "absolute_parameter_gap": [
+            0.003549099095853407,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.014488452873839678,
+            0.6047940994907124
+          ],
+          "head_zero_r_delta": [
+            -0.0003381236456334591,
+            -0.0002644062042236328
+          ]
+        },
+        {
+          "frame": 51,
+          "time_s": 2.55,
+          "baseline_teacher": [
+            -0.01238239716068189,
+            -1.5129774441406747
+          ],
+          "alternate_teacher": [
+            -0.01348280288574368,
+            -1.5129774441406747
+          ],
+          "absolute_parameter_gap": [
+            0.0011004057250617906,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.017601435736569568,
+            0.226615272967579
+          ],
+          "head_zero_r_delta": [
+            -0.0004903599619865417,
+            -0.000453948974609375
+          ]
+        },
+        {
+          "frame": 52,
+          "time_s": 2.6,
+          "baseline_teacher": [
+            -0.018283874425867028,
+            -1.4028054043116114
+          ],
+          "alternate_teacher": [
+            -0.01519320999868904,
+            -1.4028054043116114
+          ],
+          "absolute_parameter_gap": [
+            0.0030906644271779873,
+            0.0
+          ],
+          "reconstruction_max_abs": 3.469446951953614e-18,
+          "head_error": [
+            0.02341664040071649,
+            0.13327033961434576
+          ],
+          "head_zero_r_delta": [
+            -0.0005468325689435005,
+            -0.0004864931106567383
+          ]
+        },
+        {
+          "frame": 53,
+          "time_s": 2.65,
+          "baseline_teacher": [
+            -0.02693680306747126,
+            -1.313674966586014
+          ],
+          "alternate_teacher": [
+            -0.020098130872407464,
+            -1.313674966586014
+          ],
+          "absolute_parameter_gap": [
+            0.0068386721950637955,
+            0.0
+          ],
+          "reconstruction_max_abs": 3.469446951953614e-18,
+          "head_error": [
+            0.03178621461465525,
+            0.024133722079177966
+          ],
+          "head_zero_r_delta": [
+            -0.0005590231157839298,
+            -0.0005050897598266602
+          ]
+        },
+        {
+          "frame": 54,
+          "time_s": 2.7,
+          "baseline_teacher": [
+            -0.03788885608499098,
+            -1.7343385163490037
+          ],
+          "alternate_teacher": [
+            -0.028688002027565444,
+            -1.7343385163490037
+          ],
+          "absolute_parameter_gap": [
+            0.009200854057425534,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.04236963898127127,
+            0.4073170367423753
+          ],
+          "head_zero_r_delta": [
+            -0.0005513858050107956,
+            -0.0004913806915283203
+          ]
+        },
+        {
+          "frame": 55,
+          "time_s": 2.75,
+          "baseline_teacher": [
+            -0.05154539012541422,
+            -2.219458549061441
+          ],
+          "alternate_teacher": [
+            -0.04107559055764663,
+            -2.219458549061441
+          ],
+          "absolute_parameter_gap": [
+            0.010469799567767585,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.048892093088528,
+            0.751481859722757
+          ],
+          "head_zero_r_delta": [
+            -0.0005362969823181629,
+            -0.0003739595413208008
+          ]
+        },
+        {
+          "frame": 56,
+          "time_s": 2.8,
+          "baseline_teacher": [
+            -0.06701368213138452,
+            -2.728236348046574
+          ],
+          "alternate_teacher": [
+            -0.05644720776244668,
+            -2.728236348046574
+          ],
+          "absolute_parameter_gap": [
+            0.010566474368937838,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.06276929637855759,
+            1.26048520268372
+          ],
+          "head_zero_r_delta": [
+            -0.00010517006739974022,
+            -6.42538070678711e-05
+          ]
+        },
+        {
+          "frame": 57,
+          "time_s": 2.85,
+          "baseline_teacher": [
+            -0.08456640360447211,
+            -3.2662357555956274
+          ],
+          "alternate_teacher": [
+            -0.07490581838355205,
+            -3.2662357555956274
+          ],
+          "absolute_parameter_gap": [
+            0.00966058522092006,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.08075465234498126,
+            1.8166683184236914
+          ],
+          "head_zero_r_delta": [
+            0.00022216024808585644,
+            0.00013840198516845703
+          ]
+        },
+        {
+          "frame": 58,
+          "time_s": 2.9,
+          "baseline_teacher": [
+            -0.10391766208982037,
+            -3.5086050700226448
+          ],
+          "alternate_teacher": [
+            -0.09621773326593695,
+            -3.5086050700226448
+          ],
+          "absolute_parameter_gap": [
+            0.007699928823883415,
+            0.0
+          ],
+          "reconstruction_max_abs": 2.042810365310288e-14,
+          "head_error": [
+            0.09596206717019842,
+            2.047698326019349
+          ],
+          "head_zero_r_delta": [
+            0.0003495332784950733,
+            0.0001703500747680664
+          ]
+        },
+        {
+          "frame": 59,
+          "time_s": 2.95,
+          "baseline_teacher": [
+            -0.1252372052879346,
+            -3.3532266591909483
+          ],
+          "alternate_teacher": [
+            -0.1204942880824498,
+            -3.3532266591909483
+          ],
+          "absolute_parameter_gap": [
+            0.004742917205484809,
+            0.0
+          ],
+          "reconstruction_max_abs": 3.907985046680551e-14,
+          "head_error": [
+            0.10478871244800217,
+            1.7750569557073668
+          ],
+          "head_zero_r_delta": [
+            0.0006546787917613983,
+            8.654594421386719e-05
+          ]
+        },
+        {
+          "frame": 60,
+          "time_s": 3.0,
+          "baseline_teacher": [
+            -0.14750173478607911,
+            -3.191073189984258
+          ],
+          "alternate_teacher": [
+            -0.14649090331428435,
+            -3.191073189984258
+          ],
+          "absolute_parameter_gap": [
+            0.0010108314717947597,
+            0.0
+          ],
+          "reconstruction_max_abs": 1.3322676295501878e-15,
+          "head_error": [
+            0.11577649577741403,
+            1.563799749623235
+          ],
+          "head_zero_r_delta": [
+            0.001570986583828926,
+            -0.0003361701965332031
+          ]
+        },
+        {
+          "frame": 61,
+          "time_s": 3.05,
+          "baseline_teacher": [
+            -0.17005763338994295,
+            -3.021456623600808
+          ],
+          "alternate_teacher": [
+            -0.173401709414029,
+            -3.021456623600808
+          ],
+          "absolute_parameter_gap": [
+            0.00334407602408604,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.11935950206708223,
+            1.377475762890664
+          ],
+          "head_zero_r_delta": [
+            0.00274856761097908,
+            -0.0020978450775146484
+          ]
+        },
+        {
+          "frame": 62,
+          "time_s": 3.1,
+          "baseline_teacher": [
+            -0.1922424996294285,
+            -2.843452907175929
+          ],
+          "alternate_teacher": [
+            -0.20028813330664924,
+            -2.843452907175929
+          ],
+          "absolute_parameter_gap": [
+            0.008045633677220748,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.12479219977038156,
+            1.246262407870204
+          ],
+          "head_zero_r_delta": [
+            0.004504241049289703,
+            -0.005617856979370117
+          ]
+        },
+        {
+          "frame": 63,
+          "time_s": 3.15,
+          "baseline_teacher": [
+            -0.2131401836044757,
+            -2.6611079053945503
+          ],
+          "alternate_teacher": [
+            -0.22591899646644065,
+            -2.6611079053945503
+          ],
+          "absolute_parameter_gap": [
+            0.012778812861964944,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.12713734201264068,
+            1.1322308855123482
+          ],
+          "head_zero_r_delta": [
+            0.006548434495925903,
+            -0.011720061302185059
+          ]
+        },
+        {
+          "frame": 64,
+          "time_s": 3.2,
+          "baseline_teacher": [
+            -0.2325161155981375,
+            -2.4763214309695987
+          ],
+          "alternate_teacher": [
+            -0.2501993610803926,
+            -2.4763214309695987
+          ],
+          "absolute_parameter_gap": [
+            0.017683245482255083,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.1360481512469603,
+            1.1160769184116153
+          ],
+          "head_zero_r_delta": [
+            0.00873645395040512,
+            -0.018912434577941895
+          ]
+        },
+        {
+          "frame": 65,
+          "time_s": 3.25,
+          "baseline_teacher": [
+            -0.2505782662910242,
+            -2.2989809747315544
+          ],
+          "alternate_teacher": [
+            -0.2729528243963262,
+            -2.2989809747315544
+          ],
+          "absolute_parameter_gap": [
+            0.022374558105301978,
+            0.0
+          ],
+          "reconstruction_max_abs": 2.6645352591003757e-15,
+          "head_error": [
+            0.1405072032493372,
+            1.176454567489733
+          ],
+          "head_zero_r_delta": [
+            0.010553412139415741,
+            -0.02783370018005371
+          ]
+        },
+        {
+          "frame": 66,
+          "time_s": 3.3,
+          "baseline_teacher": [
+            -0.26692283088724705,
+            -2.1324694251642025
+          ],
+          "alternate_teacher": [
+            -0.29367264104838886,
+            -2.1324694251642025
+          ],
+          "absolute_parameter_gap": [
+            0.026749810161141807,
+            0.0
+          ],
+          "reconstruction_max_abs": 2.6201263381153694e-14,
+          "head_error": [
+            0.15095076645176503,
+            1.1515205597505367
+          ],
+          "head_zero_r_delta": [
+            0.012259155511856079,
+            -0.03480345010757446
+          ]
+        },
+        {
+          "frame": 67,
+          "time_s": 3.35,
+          "baseline_teacher": [
+            -0.2818338017194293,
+            -1.9819689685001776
+          ],
+          "alternate_teacher": [
+            -0.3129775586189536,
+            -1.9819689685001776
+          ],
+          "absolute_parameter_gap": [
+            0.03114375689952431,
+            0.0
+          ],
+          "reconstruction_max_abs": 8.948397578478762e-14,
+          "head_error": [
+            0.165766436907532,
+            0.9431678944721624
+          ],
+          "head_zero_r_delta": [
+            0.01339353621006012,
+            -0.037061095237731934
+          ]
+        },
+        {
+          "frame": 68,
+          "time_s": 3.4,
+          "baseline_teacher": [
+            -0.29648254679120195,
+            -1.8416955030981
+          ],
+          "alternate_teacher": [
+            -0.3319464912567607,
+            -1.8416955030981
+          ],
+          "absolute_parameter_gap": [
+            0.03546394446555873,
+            0.0
+          ],
+          "reconstruction_max_abs": 4.529709940470639e-14,
+          "head_error": [
+            0.17679386453307283,
+            0.8970292962613995
+          ],
+          "head_zero_r_delta": [
+            0.01400022953748703,
+            -0.04035294055938721
+          ]
+        },
+        {
+          "frame": 69,
+          "time_s": 3.45,
+          "baseline_teacher": [
+            -0.3100914594392958,
+            -1.707794229294279
+          ],
+          "alternate_teacher": [
+            -0.34939586719844423,
+            -1.707794229294279
+          ],
+          "absolute_parameter_gap": [
+            0.03930440775914845,
+            0.0
+          ],
+          "reconstruction_max_abs": 6.039613253960852e-14,
+          "head_error": [
+            0.1853626680236044,
+            0.90361861398361
+          ],
+          "head_zero_r_delta": [
+            0.014437586069107056,
+            -0.04409998655319214
+          ]
+        },
+        {
+          "frame": 70,
+          "time_s": 3.5,
+          "baseline_teacher": [
+            -0.3228703322220522,
+            -1.5822165127096781
+          ],
+          "alternate_teacher": [
+            -0.36574376013963816,
+            -1.5822165127096781
+          ],
+          "absolute_parameter_gap": [
+            0.04287342791758597,
+            0.0
+          ],
+          "reconstruction_max_abs": 4.085620730620576e-14,
+          "head_error": [
+            0.19097228668219624,
+            0.9517180438337931
+          ],
+          "head_zero_r_delta": [
+            0.014964647591114044,
+            -0.049111366271972656
+          ]
+        },
+        {
+          "frame": 71,
+          "time_s": 3.55,
+          "baseline_teacher": [
+            -0.3346206908967142,
+            -1.4669992099723594
+          ],
+          "alternate_teacher": [
+            -0.3809022240739968,
+            -1.4669992099723594
+          ],
+          "absolute_parameter_gap": [
+            0.04628153317728262,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.19829025025626468,
+            0.9333967338523643
+          ],
+          "head_zero_r_delta": [
+            0.015721194446086884,
+            -0.05313795804977417
+          ]
+        },
+        {
+          "frame": 72,
+          "time_s": 3.6,
+          "baseline_teacher": [
+            -0.34647864109895304,
+            -1.3637442555721497
+          ],
+          "alternate_teacher": [
+            -0.39646597396104727,
+            -1.3637442555721497
+          ],
+          "absolute_parameter_gap": [
+            0.049987332862094225,
+            0.0
+          ],
+          "reconstruction_max_abs": 8.881784197001252e-16,
+          "head_error": [
+            0.19804930693528727,
+            0.9308346178825593
+          ],
+          "head_zero_r_delta": [
+            0.016577571630477905,
+            -0.05977123975753784
+          ]
+        },
+        {
+          "frame": 73,
+          "time_s": 3.65,
+          "baseline_teacher": [
+            -0.35609864479532544,
+            -1.2662657441942524
+          ],
+          "alternate_teacher": [
+            -0.40890127193912823,
+            -1.2662657441942524
+          ],
+          "absolute_parameter_gap": [
+            0.052802627143802794,
+            0.0
+          ],
+          "reconstruction_max_abs": 1.3322676295501878e-15,
+          "head_error": [
+            0.2041717845820457,
+            0.8808862211553883
+          ],
+          "head_zero_r_delta": [
+            0.017575621604919434,
+            -0.06433546543121338
+          ]
+        },
+        {
+          "frame": 74,
+          "time_s": 3.7,
+          "baseline_teacher": [
+            -0.3644806271827217,
+            -1.179578423361769
+          ],
+          "alternate_teacher": [
+            -0.4196337012779224,
+            -1.179578423361769
+          ],
+          "absolute_parameter_gap": [
+            0.055153074095200705,
+            0.0
+          ],
+          "reconstruction_max_abs": 8.881784197001252e-16,
+          "head_error": [
+            0.20125396311640698,
+            0.8598815499353316
+          ],
+          "head_zero_r_delta": [
+            0.0185137540102005,
+            -0.07080349326133728
+          ]
+        },
+        {
+          "frame": 75,
+          "time_s": 3.75,
+          "baseline_teacher": [
+            -0.3715134151812398,
+            -1.0955809354288757
+          ],
+          "alternate_teacher": [
+            -0.42865039229294105,
+            -1.0955809354288757
+          ],
+          "absolute_parameter_gap": [
+            0.05713697711170124,
+            0.0
+          ],
+          "reconstruction_max_abs": 5.551115123125783e-17,
+          "head_error": [
+            0.2005692162152135,
+            0.8410347699625671
+          ],
+          "head_zero_r_delta": [
+            0.019621998071670532,
+            -0.0780685544013977
+          ]
+        },
+        {
+          "frame": 76,
+          "time_s": 3.8,
+          "baseline_teacher": [
+            -0.3771189784164751,
+            -1.0173941935173914
+          ],
+          "alternate_teacher": [
+            -0.4358851247986288,
+            -1.0173941935173914
+          ],
+          "absolute_parameter_gap": [
+            0.05876614638215366,
+            0.0
+          ],
+          "reconstruction_max_abs": 5.46229728115577e-14,
+          "head_error": [
+            0.1996755783911074,
+            0.7723336453310892
+          ],
+          "head_zero_r_delta": [
+            0.020781710743904114,
+            -0.0839274674654007
+          ]
+        },
+        {
+          "frame": 77,
+          "time_s": 3.85,
+          "baseline_teacher": [
+            -0.3813952681813382,
+            -0.9436535615955716
+          ],
+          "alternate_teacher": [
+            -0.44149645887673794,
+            -0.9436535615955716
+          ],
+          "absolute_parameter_gap": [
+            0.060101190695399764,
+            0.0
+          ],
+          "reconstruction_max_abs": 6.661338147750939e-15,
+          "head_error": [
+            0.20773893866874205,
+            0.6819858927761441
+          ],
+          "head_zero_r_delta": [
+            0.021549135446548462,
+            -0.08527597784996033
+          ]
+        },
+        {
+          "frame": 78,
+          "time_s": 3.9,
+          "baseline_teacher": [
+            -0.38709516403562827,
+            -0.8788464697962499
+          ],
+          "alternate_teacher": [
+            -0.4493752137891744,
+            -0.8788464697962499
+          ],
+          "absolute_parameter_gap": [
+            0.06228004975354612,
+            0.0
+          ],
+          "reconstruction_max_abs": 3.597122599785507e-13,
+          "head_error": [
+            0.21436859247572226,
+            0.6133625539904333
+          ],
+          "head_zero_r_delta": [
+            0.02181847393512726,
+            -0.08533680438995361
+          ]
+        },
+        {
+          "frame": 79,
+          "time_s": 3.95,
+          "baseline_teacher": [
+            -0.39013853891945144,
+            -0.8162657105186149
+          ],
+          "alternate_teacher": [
+            -0.45347797563882886,
+            -0.8162657105186149
+          ],
+          "absolute_parameter_gap": [
+            0.06333943671937742,
+            0.0
+          ],
+          "reconstruction_max_abs": 2.4424906541753444e-14,
+          "head_error": [
+            0.21082090064144393,
+            0.6708982222535773
+          ],
+          "head_zero_r_delta": [
+            0.02194376289844513,
+            -0.08868354558944702
+          ]
+        }
+      ]
+    },
+    "recovery_head": {
+      "case": {
+        "discipline": "skidpad",
+        "dr": "light",
+        "frozen_case": null,
+        "id": "train-skidpad-82000-matched",
+        "lateral_start": 0.0,
+        "seed": 82000,
+        "split": "train",
+        "track_seed": null,
+        "variant": "matched",
+        "yaw_start": 0.0
+      },
+      "first_contact_interval": 53,
+      "precontact_count": 53,
+      "reconstruction_max_abs": 6.938893903907228e-18,
+      "repeat_max_abs": 0.0,
+      "teacher_invariant_to_vy_plus_0p1_r_plus_0p1": true,
+      "parameter_gap_mean": [
+        0.006760024376870677,
+        0.0
+      ],
+      "parameter_gap_p95": [
+        0.021345165575434876,
+        0.0
+      ],
+      "parameter_gap_max": [
+        0.049475235116478944,
+        0.0
+      ],
+      "material_pair_count": [
+        3,
+        0
+      ],
+      "equal_weight_paired_mae_lower_bound": [
+        0.0033800121884353385,
+        0.0
+      ],
+      "head_precontact_mae": [
+        0.05851359655488856,
+        0.28312263333261506
+      ],
+      "head_precontact_p95": [
+        0.3221999757192423,
+        1.0390216174430988
+      ],
+      "head_zero_r_delta_max_abs": [
+        0.05944696068763733,
+        0.24339166283607483
+      ],
+      "head_zero_r_material_count": [
+        7,
+        0
+      ],
+      "half_second_bins": [
+        {
+          "start_s": 0.0,
+          "count": 10,
+          "signed_mean_error": [
+            0.0064825722344339105,
+            -0.027314376831054688
+          ],
+          "mae": [
+            0.0064825722344339105,
+            0.05236883163452148
+          ]
+        },
+        {
+          "start_s": 0.5,
+          "count": 10,
+          "signed_mean_error": [
+            0.012920216304992016,
+            0.022737550735473632
+          ],
+          "mae": [
+            0.012920216304992016,
+            0.04569993019104004
+          ]
+        },
+        {
+          "start_s": 1.0,
+          "count": 10,
+          "signed_mean_error": [
+            0.02534358182647617,
+            -0.0381296502882706
+          ],
+          "mae": [
+            0.02534358182647617,
+            0.10264745649561755
+          ]
+        },
+        {
+          "start_s": 1.5,
+          "count": 10,
+          "signed_mean_error": [
+            0.026458837943231665,
+            0.8467083868442543
+          ],
+          "mae": [
+            0.026458837943231665,
+            0.8467083868442543
+          ]
+        },
+        {
+          "start_s": 2.0,
+          "count": 10,
+          "signed_mean_error": [
+            -0.11938010152691152,
+            -0.1946284871673693
+          ],
+          "mae": [
+            0.11974435206187987,
+            0.36924618756263744
+          ]
+        },
+        {
+          "start_s": 2.5,
+          "count": 3,
+          "signed_mean_error": [
+            -0.39724167123298565,
+            0.2795972131159637
+          ],
+          "mae": [
+            0.39724167123298565,
+            0.2795972131159637
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "frame": 0,
+          "time_s": 0.0,
+          "baseline_teacher": [
+            9.291038213704887e-13,
+            5.0
+          ],
+          "alternate_teacher": [
+            9.291038213704887e-13,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.0,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.006433925124818815,
+            0.0725555419921875
+          ],
+          "head_zero_r_delta": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "frame": 1,
+          "time_s": 0.05,
+          "baseline_teacher": [
+            -1.2720401382813825e-05,
+            5.0
+          ],
+          "alternate_teacher": [
+            -1.2782165612080616e-05,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            6.176422926679053e-08,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.006272244664824377,
+            0.052716732025146484
+          ],
+          "head_zero_r_delta": [
+            -2.245558425784111e-05,
+            -7.390975952148438e-05
+          ]
+        },
+        {
+          "frame": 2,
+          "time_s": 0.1,
+          "baseline_teacher": [
+            -6.414568189231304e-05,
+            5.0
+          ],
+          "alternate_teacher": [
+            -6.463911058708757e-05,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            4.934286947745273e-07,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.006626168639843144,
+            -0.0481257438659668
+          ],
+          "head_zero_r_delta": [
+            -4.125991836190224e-05,
+            -0.00013685226440429688
+          ]
+        },
+        {
+          "frame": 3,
+          "time_s": 0.15,
+          "baseline_teacher": [
+            -0.00017700719339292626,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.00018055980516943303,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            3.552611776506769e-06,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.005593850302225763,
+            -0.08963203430175781
+          ],
+          "head_zero_r_delta": [
+            -5.921907722949982e-05,
+            -0.000194549560546875
+          ]
+        },
+        {
+          "frame": 4,
+          "time_s": 0.2,
+          "baseline_teacher": [
+            -0.00012145421200021322,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.00012801944781775336,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            6.565235817540139e-06,
+            0.0
+          ],
+          "reconstruction_max_abs": 2.710505431213761e-20,
+          "head_error": [
+            0.006146981815924488,
+            -0.023730754852294922
+          ],
+          "head_zero_r_delta": [
+            0.00023240596055984497,
+            0.0007333755493164062
+          ]
+        },
+        {
+          "frame": 5,
+          "time_s": 0.25,
+          "baseline_teacher": [
+            -0.0002720698778156284,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.0002865131738344295,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            1.4443296018801103e-05,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.005719053844792032,
+            -0.025445938110351562
+          ],
+          "head_zero_r_delta": [
+            -0.00017314450815320015,
+            -0.0005369186401367188
+          ]
+        },
+        {
+          "frame": 6,
+          "time_s": 0.3,
+          "baseline_teacher": [
+            -0.0006677540191527823,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.0007002436439544485,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            3.2489624801666154e-05,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.0064094033264633634,
+            -0.08408403396606445
+          ],
+          "head_zero_r_delta": [
+            -0.00016139307990670204,
+            -0.0004887580871582031
+          ]
+        },
+        {
+          "frame": 7,
+          "time_s": 0.35,
+          "baseline_teacher": [
+            -0.0011050551423721921,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.0011646634305342099,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            5.960828816201774e-05,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.006720972642480672,
+            -0.10105037689208984
+          ],
+          "head_zero_r_delta": [
+            -0.00023550726473331451,
+            -0.0006999969482421875
+          ]
+        },
+        {
+          "frame": 8,
+          "time_s": 0.4,
+          "baseline_teacher": [
+            -0.001572075670268719,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.0016682358463257765,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            9.616017605705747e-05,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.006830352728870098,
+            -0.004305839538574219
+          ],
+          "head_zero_r_delta": [
+            -0.00027556437999010086,
+            -0.0008139610290527344
+          ]
+        },
+        {
+          "frame": 9,
+          "time_s": 0.45,
+          "baseline_teacher": [
+            -0.0020635234970827945,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.0022061561493097273,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.0001426326522269328,
+            0.0
+          ],
+          "reconstruction_max_abs": 4.336808689942018e-19,
+          "head_error": [
+            0.008072769254096354,
+            -0.02204132080078125
+          ],
+          "head_zero_r_delta": [
+            -0.00030035432428121567,
+            -0.00089263916015625
+          ]
+        },
+        {
+          "frame": 10,
+          "time_s": 0.5,
+          "baseline_teacher": [
+            -0.002575238602295853,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.002775265134323471,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.000200026532027618,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.008861313009694553,
+            -0.02335357666015625
+          ],
+          "head_zero_r_delta": [
+            -0.00031727785244584084,
+            -0.0009469985961914062
+          ]
+        },
+        {
+          "frame": 11,
+          "time_s": 0.55,
+          "baseline_teacher": [
+            -0.003229781855962994,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.0035046156197685407,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.0002748337638055465,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.00902500223474932,
+            -0.06894063949584961
+          ],
+          "head_zero_r_delta": [
+            -5.821697413921356e-06,
+            -1.71661376953125e-05
+          ]
+        },
+        {
+          "frame": 12,
+          "time_s": 0.6,
+          "baseline_teacher": [
+            -0.003610051136357022,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.003955769228818318,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.00034571809246129606,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.010343951538098289,
+            -0.022517681121826172
+          ],
+          "head_zero_r_delta": [
+            -0.0002691000699996948,
+            -0.0008244514465332031
+          ]
+        },
+        {
+          "frame": 13,
+          "time_s": 0.65,
+          "baseline_teacher": [
+            -0.004204120883769143,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.004642740809677751,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.00043861992590860793,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.011503849109685767,
+            0.0025229454040527344
+          ],
+          "head_zero_r_delta": [
+            -0.00058337626978755,
+            -0.0017786026000976562
+          ]
+        },
+        {
+          "frame": 14,
+          "time_s": 0.7,
+          "baseline_teacher": [
+            -0.004960082702721373,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.005517402187451813,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.0005573194847304404,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.011710302669937625,
+            0.03647184371948242
+          ],
+          "head_zero_r_delta": [
+            -0.0007947641424834728,
+            -0.0023984909057617188
+          ]
+        },
+        {
+          "frame": 15,
+          "time_s": 0.75,
+          "baseline_teacher": [
+            -0.005730230939013862,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.00642639714310609,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.0006961662040922282,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.012655030116809511,
+            0.034295082092285156
+          ],
+          "head_zero_r_delta": [
+            -0.0007017035968601704,
+            -0.0021123886108398438
+          ]
+        },
+        {
+          "frame": 16,
+          "time_s": 0.8,
+          "baseline_teacher": [
+            -0.006574160253149207,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.007433149888389722,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.0008589896352405148,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.014070309532326396,
+            0.07305431365966797
+          ],
+          "head_zero_r_delta": [
+            -0.0007385462522506714,
+            -0.002212047576904297
+          ]
+        },
+        {
+          "frame": 17,
+          "time_s": 0.85,
+          "baseline_teacher": [
+            -0.007509436617837967,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.008561707381556654,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.0010522707637186874,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.015340260389493526,
+            0.06575822830200195
+          ],
+          "head_zero_r_delta": [
+            -0.0007671560160815716,
+            -0.0022907257080078125
+          ]
+        },
+        {
+          "frame": 18,
+          "time_s": 0.9,
+          "baseline_teacher": [
+            -0.008550712571767495,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.009831145187772457,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.001280432616004962,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.016934635781971144,
+            0.07164525985717773
+          ],
+          "head_zero_r_delta": [
+            -0.0007802671752870083,
+            -0.0023279190063476562
+          ]
+        },
+        {
+          "frame": 19,
+          "time_s": 0.95,
+          "baseline_teacher": [
+            -0.009711525002462557,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.011260109089839997,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.0015485840873774408,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.018757508667154005,
+            0.05843973159790039
+          ],
+          "head_zero_r_delta": [
+            -0.0007354738190770149,
+            -0.0022373199462890625
+          ]
+        },
+        {
+          "frame": 20,
+          "time_s": 1.0,
+          "baseline_teacher": [
+            -0.01101735028356593,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.012881824319012513,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.0018644740354465828,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.020301867080035618,
+            0.03673410415649414
+          ],
+          "head_zero_r_delta": [
+            -0.0007735248655080795,
+            -0.0023360252380371094
+          ]
+        },
+        {
+          "frame": 21,
+          "time_s": 1.05,
+          "baseline_teacher": [
+            -0.012458647108431137,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.014689092137209913,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.0022304450287787755,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.021633048980291163,
+            0.05435657501220703
+          ],
+          "head_zero_r_delta": [
+            -0.0008472166955471039,
+            -0.0025086402893066406
+          ]
+        },
+        {
+          "frame": 22,
+          "time_s": 1.1,
+          "baseline_teacher": [
+            -0.014000202846941267,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.016644632675622478,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.0026444298286812107,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.02380832782131127,
+            -0.004779815673828125
+          ],
+          "head_zero_r_delta": [
+            -0.0008803484961390495,
+            -0.002628803253173828
+          ]
+        },
+        {
+          "frame": 23,
+          "time_s": 1.15,
+          "baseline_teacher": [
+            -0.015700173281646426,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.0188149665766946,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.0031147932950481745,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.02377086104503935,
+            -0.07373523712158203
+          ],
+          "head_zero_r_delta": [
+            -0.0010008332319557667,
+            -0.0028662681579589844
+          ]
+        },
+        {
+          "frame": 24,
+          "time_s": 1.2,
+          "baseline_teacher": [
+            -0.017483004084817032,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.021113375107495443,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.0036303710226784115,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.0251929752482389,
+            -0.06209564208984375
+          ],
+          "head_zero_r_delta": [
+            -0.0018390798941254616,
+            -0.004861354827880859
+          ]
+        },
+        {
+          "frame": 25,
+          "time_s": 1.25,
+          "baseline_teacher": [
+            -0.01916366981418382,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.023334274493208712,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.004170604679024893,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.02637766094954263,
+            -0.1749591827392578
+          ],
+          "head_zero_r_delta": [
+            -0.0016003684140741825,
+            -0.004244327545166016
+          ]
+        },
+        {
+          "frame": 26,
+          "time_s": 1.3,
+          "baseline_teacher": [
+            -0.020844600827588173,
+            5.0
+          ],
+          "alternate_teacher": [
+            -0.025586636001322046,
+            5.0
+          ],
+          "absolute_parameter_gap": [
+            0.004742035173733873,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.025756728568269344,
+            -0.17279720306396484
+          ],
+          "head_zero_r_delta": [
+            -0.0015303161926567554,
+            -0.003994464874267578
+          ]
+        },
+        {
+          "frame": 27,
+          "time_s": 1.35,
+          "baseline_teacher": [
+            -0.022443639432490788,
+            4.7328031962961665
+          ],
+          "alternate_teacher": [
+            -0.027779625737149597,
+            4.7328031962961665
+          ],
+          "absolute_parameter_gap": [
+            0.0053359863046588095,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.02707472102850767,
+            -0.06051334796852981
+          ],
+          "head_zero_r_delta": [
+            -0.0013954523019492626,
+            -0.0035886764526367188
+          ]
+        },
+        {
+          "frame": 28,
+          "time_s": 1.4,
+          "baseline_teacher": [
+            -0.023900548136876323,
+            4.1940208752209305
+          ],
+          "alternate_teacher": [
+            -0.029833812013405,
+            4.1940208752209305
+          ],
+          "absolute_parameter_gap": [
+            0.005933263876528677,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.02790650320340822,
+            -0.15500510526243438
+          ],
+          "head_zero_r_delta": [
+            5.917251110076904e-05,
+            0.00018072128295898438
+          ]
+        },
+        {
+          "frame": 29,
+          "time_s": 1.45,
+          "baseline_teacher": [
+            -0.025497423290551283,
+            3.67379797381556
+          ],
+          "alternate_teacher": [
+            -0.032080241595034975,
+            3.67379797381556
+          ],
+          "absolute_parameter_gap": [
+            0.006582818304483692,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.03161312434011755,
+            0.23149835186803358
+          ],
+          "head_zero_r_delta": [
+            -0.0013004639185965061,
+            -0.004143476486206055
+          ]
+        },
+        {
+          "frame": 30,
+          "time_s": 1.5,
+          "baseline_teacher": [
+            -0.027009190642877344,
+            3.03419599945558
+          ],
+          "alternate_teacher": [
+            -0.03429903319224379,
+            3.03419599945558
+          ],
+          "absolute_parameter_gap": [
+            0.007289842549366446,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.03214326372896028,
+            0.43237223212706155
+          ],
+          "head_zero_r_delta": [
+            -0.0012245033867657185,
+            -0.004137277603149414
+          ]
+        },
+        {
+          "frame": 31,
+          "time_s": 1.55,
+          "baseline_teacher": [
+            -0.028505947935875478,
+            2.5880169179213683
+          ],
+          "alternate_teacher": [
+            -0.036500868224899945,
+            2.5880169179213683
+          ],
+          "absolute_parameter_gap": [
+            0.007994920289024467,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.031264951714795056,
+            0.8003025744187195
+          ],
+          "head_zero_r_delta": [
+            -0.00017507746815681458,
+            -0.0005929470062255859
+          ]
+        },
+        {
+          "frame": 32,
+          "time_s": 1.6,
+          "baseline_teacher": [
+            -0.030224452077204724,
+            2.147967427464228
+          ],
+          "alternate_teacher": [
+            -0.03898182595685631,
+            2.147967427464228
+          ],
+          "absolute_parameter_gap": [
+            0.008757373879651583,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.02990917607352919,
+            0.39064279249121636
+          ],
+          "head_zero_r_delta": [
+            -0.00014762283535674214,
+            -0.0005943775177001953
+          ]
+        },
+        {
+          "frame": 33,
+          "time_s": 1.65,
+          "baseline_teacher": [
+            -0.03172960263694633,
+            1.7387463032098471
+          ],
+          "alternate_teacher": [
+            -0.041226551393247775,
+            1.7387463032098471
+          ],
+          "absolute_parameter_gap": [
+            0.009496948756301443,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.0310722491449583,
+            0.7386036933569253
+          ],
+          "head_zero_r_delta": [
+            -0.0007484868983738124,
+            -0.002994060516357422
+          ]
+        },
+        {
+          "frame": 34,
+          "time_s": 1.7,
+          "baseline_teacher": [
+            -0.03284799883993666,
+            1.43147924429743
+          ],
+          "alternate_teacher": [
+            -0.043015578855169746,
+            1.43147924429743
+          ],
+          "absolute_parameter_gap": [
+            0.010167580015233088,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.029903415999508902,
+            0.8857855510059147
+          ],
+          "head_zero_r_delta": [
+            0.0004519992507994175,
+            0.001855611801147461
+          ]
+        },
+        {
+          "frame": 35,
+          "time_s": 1.75,
+          "baseline_teacher": [
+            -0.03397970790380656,
+            1.111971372459346
+          ],
+          "alternate_teacher": [
+            -0.044823228002061156,
+            1.111971372459346
+          ],
+          "absolute_parameter_gap": [
+            0.010843520098254594,
+            0.0
+          ],
+          "reconstruction_max_abs": 6.938893903907228e-18,
+          "head_error": [
+            0.03193578896449923,
+            1.1919272004624069
+          ],
+          "head_zero_r_delta": [
+            -9.280862286686897e-05,
+            -0.0003809928894042969
+          ]
+        },
+        {
+          "frame": 36,
+          "time_s": 1.8,
+          "baseline_teacher": [
+            -0.0347709054679953,
+            0.8402784548116544
+          ],
+          "alternate_teacher": [
+            -0.046228528066602284,
+            0.8402784548116544
+          ],
+          "absolute_parameter_gap": [
+            0.011457622598606984,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.023689728658028736,
+            0.8423458852457186
+          ],
+          "head_zero_r_delta": [
+            0.0007301867008209229,
+            0.0032826662063598633
+          ]
+        },
+        {
+          "frame": 37,
+          "time_s": 1.85,
+          "baseline_teacher": [
+            -0.03517131592613362,
+            0.5906300685079351
+          ],
+          "alternate_teacher": [
+            -0.047152050350142465,
+            0.5906300685079351
+          ],
+          "absolute_parameter_gap": [
+            0.011980734424008842,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.022475456739782324,
+            1.068546161922668
+          ],
+          "head_zero_r_delta": [
+            0.0011748895049095154,
+            0.005192279815673828
+          ]
+        },
+        {
+          "frame": 38,
+          "time_s": 1.9,
+          "baseline_teacher": [
+            -0.034826382891933405,
+            0.3763391170721718
+          ],
+          "alternate_teacher": [
+            -0.04716322172220854,
+            0.3763391170721718
+          ],
+          "absolute_parameter_gap": [
+            0.012336838830275136,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.019653375157813513,
+            1.097219189621859
+          ],
+          "head_zero_r_delta": [
+            0.002183271571993828,
+            0.009904146194458008
+          ]
+        },
+        {
+          "frame": 39,
+          "time_s": 1.95,
+          "baseline_teacher": [
+            -0.033953429658584236,
+            0.18009986493058913
+          ],
+          "alternate_teacher": [
+            -0.04650504941263349,
+            0.18009986493058913
+          ],
+          "absolute_parameter_gap": [
+            0.012551619754049254,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.012540973250441192,
+            1.019338587790053
+          ],
+          "head_zero_r_delta": [
+            0.00273769348859787,
+            0.012837529182434082
+          ]
+        },
+        {
+          "frame": 40,
+          "time_s": 2.0,
+          "baseline_teacher": [
+            -0.03230782520868772,
+            0.011738318648044772
+          ],
+          "alternate_teacher": [
+            -0.04486960933668257,
+            0.011738318648044772
+          ],
+          "absolute_parameter_gap": [
+            0.01256178412799485,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            0.0018212526748418167,
+            0.36234084919482024
+          ],
+          "head_zero_r_delta": [
+            0.0039105769246816635,
+            0.020862102508544922
+          ]
+        },
+        {
+          "frame": 41,
+          "time_s": 2.05,
+          "baseline_teacher": [
+            -0.029539237497898975,
+            -0.11149467342786759
+          ],
+          "alternate_teacher": [
+            -0.041813744673501796,
+            -0.11149467342786759
+          ],
+          "absolute_parameter_gap": [
+            0.012274507175602821,
+            0.0
+          ],
+          "reconstruction_max_abs": 6.938893903907228e-18,
+          "head_error": [
+            -0.0100423630787402,
+            0.08047409729354352
+          ],
+          "head_zero_r_delta": [
+            0.00564221665263176,
+            0.03110821730660973
+          ]
+        },
+        {
+          "frame": 42,
+          "time_s": 2.1,
+          "baseline_teacher": [
+            -0.025333896635530904,
+            -0.18420792338785064
+          ],
+          "alternate_teacher": [
+            -0.036937517996189925,
+            -0.18420792338785064
+          ],
+          "absolute_parameter_gap": [
+            0.011603621360659021,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            -0.02746947074079661,
+            0.08078809050258529
+          ],
+          "head_zero_r_delta": [
+            0.007747400552034378,
+            0.042097851634025574
+          ]
+        },
+        {
+          "frame": 43,
+          "time_s": 2.15,
+          "baseline_teacher": [
+            -0.019219054021462137,
+            -0.21573393629759177
+          ],
+          "alternate_teacher": [
+            -0.02964766511149702,
+            -0.21573393629759177
+          ],
+          "absolute_parameter_gap": [
+            0.010428611090034883,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            -0.04830242868460781,
+            -0.2486274035099186
+          ],
+          "head_zero_r_delta": [
+            0.010537862777709961,
+            0.05847632884979248
+          ]
+        },
+        {
+          "frame": 44,
+          "time_s": 2.2,
+          "baseline_teacher": [
+            -0.01061619509238467,
+            -0.20762124372240073
+          ],
+          "alternate_teacher": [
+            -0.019215565092428662,
+            -0.20762124372240073
+          ],
+          "absolute_parameter_gap": [
+            0.008599370000043993,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            -0.07867413323145643,
+            -0.7854137747216605
+          ],
+          "head_zero_r_delta": [
+            0.014511004090309143,
+            0.08177638053894043
+          ]
+        },
+        {
+          "frame": 45,
+          "time_s": 2.25,
+          "baseline_teacher": [
+            0.0013165563504977157,
+            -0.2207295422795249
+          ],
+          "alternate_teacher": [
+            -0.004589502817921862,
+            -0.2207295422795249
+          ],
+          "absolute_parameter_gap": [
+            0.005906059168419578,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            -0.11550474317481946,
+            -0.6995509738680886
+          ],
+          "head_zero_r_delta": [
+            0.019737690687179565,
+            0.1047137975692749
+          ]
+        },
+        {
+          "frame": 46,
+          "time_s": 2.3,
+          "baseline_teacher": [
+            0.017535153953233348,
+            -0.41293999006954063
+          ],
+          "alternate_teacher": [
+            0.015424742909928844,
+            -0.41293999006954063
+          ],
+          "absolute_parameter_gap": [
+            0.0021104110433045036,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            -0.16378067824045717,
+            -0.5146859640816129
+          ],
+          "head_zero_r_delta": [
+            0.026158317923545837,
+            0.130318284034729
+          ]
+        },
+        {
+          "frame": 47,
+          "time_s": 2.35,
+          "baseline_teacher": [
+            0.039070748067455176,
+            -0.5813666289371918
+          ],
+          "alternate_teacher": [
+            0.04211657789462593,
+            -0.5813666289371918
+          ],
+          "absolute_parameter_gap": [
+            0.0030458298271707554,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            -0.20654318509157168,
+            -0.571095257468753
+          ],
+          "head_zero_r_delta": [
+            0.03431941568851471,
+            0.16584181785583496
+          ]
+        },
+        {
+          "frame": 48,
+          "time_s": 2.4,
+          "baseline_teacher": [
+            0.06627752391088242,
+            -0.7178258865424326
+          ],
+          "alternate_teacher": [
+            0.0759519412003775,
+            -0.7178258865424326
+          ],
+          "absolute_parameter_gap": [
+            0.009674417289495085,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            -0.2421106448529982,
+            0.02419358187400611
+          ],
+          "head_zero_r_delta": [
+            0.04213704168796539,
+            0.191728413105011
+          ]
+        },
+        {
+          "frame": 49,
+          "time_s": 2.45,
+          "baseline_teacher": [
+            0.09838686251721065,
+            -0.8634740821126976
+          ],
+          "alternate_teacher": [
+            0.11603194145993219,
+            -0.8634740821126976
+          ],
+          "absolute_parameter_gap": [
+            0.017645078942721534,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            -0.30319462084850946,
+            0.32529188311138535
+          ],
+          "head_zero_r_delta": [
+            0.04722309112548828,
+            0.19939261674880981
+          ]
+        },
+        {
+          "frame": 50,
+          "time_s": 2.5,
+          "baseline_teacher": [
+            0.13543637118166038,
+            -0.9009577378386453
+          ],
+          "alternate_teacher": [
+            0.1623316667061653,
+            -0.9009577378386453
+          ],
+          "absolute_parameter_gap": [
+            0.026895295524504925,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            -0.35070800802534174,
+            0.41230360118093046
+          ],
+          "head_zero_r_delta": [
+            0.0529487282037735,
+            0.2208850383758545
+          ]
+        },
+        {
+          "frame": 51,
+          "time_s": 2.55,
+          "baseline_teacher": [
+            0.1769333766898649,
+            -0.7559320818813009
+          ],
+          "alternate_teacher": [
+            0.21425925707059304,
+            -0.7559320818813009
+          ],
+          "absolute_parameter_gap": [
+            0.03732588038072815,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            -0.3932919638356702,
+            0.2703027617366476
+          ],
+          "head_zero_r_delta": [
+            0.05720342695713043,
+            0.23877963423728943
+          ]
+        },
+        {
+          "frame": 52,
+          "time_s": 2.6,
+          "baseline_teacher": [
+            0.22043973121191512,
+            -0.6228718828374786
+          ],
+          "alternate_teacher": [
+            0.26991496632839407,
+            -0.6228718828374786
+          ],
+          "absolute_parameter_gap": [
+            0.049475235116478944,
+            0.0
+          ],
+          "reconstruction_max_abs": 0.0,
+          "head_error": [
+            -0.4477250418379451,
+            0.1561852764303131
+          ],
+          "head_zero_r_delta": [
+            0.05944696068763733,
+            0.24339166283607483
+          ]
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Correlated ticks from two rejected pilots on one TRAIN case are not independent scenes.",
+    "Teacher-parameter interventions change the requested label only, with no new trajectory or image.",
+    "These are retained pilot states, not the three TRAIN episode populations with k_lookahead 0.15.",
+    "A counterfactual pair is not an observed duplicate-input collision in the original data.",
+    "Existing head interventions come from the saved diagnostic receipts. No policy inference was run."
+  ]
+}

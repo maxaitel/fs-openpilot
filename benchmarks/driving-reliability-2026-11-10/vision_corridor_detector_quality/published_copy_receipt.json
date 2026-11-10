@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "source": ".work/lab/vision_corridor_quality_v1/report.md",
+      "destination": "report.md",
+      "sha256": "2a8a4341c6cc660d497b1ef474eb69b134369802aadb099b1e9f68e3805c1bc7"
+    },
+    {
+      "source": ".work/lab/vision_corridor_quality_v1/results.json",
+      "destination": "results.json",
+      "sha256": "8b3ca3c888ada60e6f142a44de963effde29b51928db40cf559ba3f8ae979fdf"
+    },
+    {
+      "source": ".work/lab/vision_corridor_quality_v1/per_frame.jsonl",
+      "destination": "per_frame.jsonl",
+      "sha256": "2194e08c707a62fb14627d742b1403f0200120777dee875e3bc7c72fae7f4b1c"
+    },
+    {
+      "source": ".work/lab/vision_corridor_quality_v1/score.py",
+      "destination": "score.py",
+      "sha256": "821dc9d91300971b89c9d5c47d6182a6b287bb637eed9bcc3e25884d0225a22c"
+    },
+    {
+      "source": ".work/lab/vision_corridor_quality_v1/protocol.md",
+      "destination": "protocol.md",
+      "sha256": "af391fe9e13653e29600e1c2e88d425cda825ebb254848fcdd9711f097b4d1f3"
+    }
+  ],
+  "source_deleted": false,
+  "purpose": "TRAIN-only diagnostic/failed prototype evidence, never physical or final qualification."
+}

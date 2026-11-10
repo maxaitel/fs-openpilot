@@ -1,0 +1,21 @@
+{
+  "files": [
+    {
+      "source": ".work/lab/vision_corridor_probe_v1/record_detector.py",
+      "destination": "record_detector.py",
+      "sha256": "d3c2895d1a090e494fc7ed1fcdf29f9932e547c6f4039a304773c3433248860a"
+    },
+    {
+      "source": ".work/lab/vision_corridor_probe_v1/protocol.md",
+      "destination": "protocol.md",
+      "sha256": "596ade0d31a2f9a57fda78c993d1ea127d6b194a84d25d8c6682de63e9b99f68"
+    },
+    {
+      "source": ".work/lab/vision_corridor_probe_v1/prelaunch1.json",
+      "destination": "prelaunch1.json",
+      "sha256": "d8b8b6ffc0f2cb8cb34bd2beb8a4691483c05e03f82e80f59fabd6ea9332b7c9"
+    }
+  ],
+  "source_deleted": false,
+  "purpose": "TRAIN-only diagnostic/failed prototype evidence, never physical or final qualification."
+}

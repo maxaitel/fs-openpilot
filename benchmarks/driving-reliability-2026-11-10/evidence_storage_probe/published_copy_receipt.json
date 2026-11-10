@@ -1,0 +1,43 @@
+{
+  "sources": {
+    ".work/lab/evidence_compression_probe_v1/probe.py": {
+      "published": "benchmarks/driving-reliability-2026-11-10/evidence_storage_probe/v1/probe.py",
+      "sha256": "37499e67123fa6983d3f2891ecd50ef1d578cd30ec352c3aa120bdfa7a2ddbe4"
+    },
+    ".work/lab/evidence_compression_probe_v1/protocol.md": {
+      "published": "benchmarks/driving-reliability-2026-11-10/evidence_storage_probe/v1/protocol.md",
+      "sha256": "e9d263884af9b0b747286bcca1d0b0bfe7a09850929d410ba0e86ca24efcda61"
+    },
+    "runs/evidence_compression_probe_v1/freeze.json": {
+      "published": "benchmarks/driving-reliability-2026-11-10/evidence_storage_probe/v1/freeze.json",
+      "sha256": "4146b1ce82fc392de6017134c0cbf76f4a15d461c5bc5ac017baaa90331377d2"
+    },
+    "runs/evidence_compression_probe_v1/failure.json": {
+      "published": "benchmarks/driving-reliability-2026-11-10/evidence_storage_probe/v1/failure.json",
+      "sha256": "1a623acfff080b5cba76c377a66b8b59db966afe74138531304c9a3161987d6f"
+    },
+    ".work/lab/evidence_compression_probe_v2/probe.py": {
+      "published": "benchmarks/driving-reliability-2026-11-10/evidence_storage_probe/v2/probe.py",
+      "sha256": "93ffcd4299e736230b737bfd0bc84e31794ec324cbaea56d10868512aab14828"
+    },
+    ".work/lab/evidence_compression_probe_v2/protocol.md": {
+      "published": "benchmarks/driving-reliability-2026-11-10/evidence_storage_probe/v2/protocol.md",
+      "sha256": "c60357c02d5155ede2bf434bb1e644e43fe336cc6ef5668c88af69f708268c4a"
+    },
+    "runs/evidence_compression_probe_v2/freeze.json": {
+      "published": "benchmarks/driving-reliability-2026-11-10/evidence_storage_probe/v2/freeze.json",
+      "sha256": "e0d769ff99c95586c4989a29dfcd5bbeb846b27cec558290d01c2809709de38c"
+    },
+    "runs/evidence_compression_probe_v2/receipt.json": {
+      "published": "benchmarks/driving-reliability-2026-11-10/evidence_storage_probe/v2/receipt.json",
+      "sha256": "64b56cb32b63a5fcd975aadf894f0496e9db4f34231d21e056f4bd41317d6f2d"
+    },
+    ".work/lab/next_strategy/storage_budget_after_compression_v1.json": {
+      "published": "benchmarks/driving-reliability-2026-11-10/evidence_storage_probe/storage_budget.json",
+      "sha256": "2730545475cf1c22cc83ca8307538786fc096583618884d8a2a202d8a64c5357"
+    }
+  },
+  "all_exact": true,
+  "source_deleted": false,
+  "large_archives_retained_in_runs": true
+}

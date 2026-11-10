@@ -1,0 +1,54 @@
+{
+  "before_first_replay": true,
+  "created_utc": "2026-11-10T10:56:04.449172+00:00",
+  "input_sha256": {
+    "benchmarks/driving-reliability-2026-11-10/direct_command_diagnosis/result.json": "6f367f2acbfe81665b967b3c61780a83fcd538fc2b844af34b3d1dde598dec3d",
+    "benchmarks/driving-reliability-2026-11-10/direct_command_diagnosis/result_recovery2.json": "b662fe22c28addc86bcc6120a2c7192921fd033b67ec41d82ab3a747eff2c4ed",
+    "runs/direct_command_pilot3/evidence/completion.json": "6a1c303aaf28b99a128e66b3a9785669338cb909b6f665376555c62ac3fd8efb",
+    "runs/direct_command_pilot3/evidence/manifest.jsonl": "a15313776d7b264ea46b2f77e25164030fddc0f8bd72c11ebf130234abcb332e",
+    "runs/direct_command_pilot3/evidence/metadata.json": "cefc9c5e41493fc75534183fead05fcd1225bd04c23354bcd3e12d7fef81dcc4",
+    "runs/direct_command_recovery_pilot2/evidence/completion.json": "5d7d336d6635cb95e6bf12b220dc18f8dbe840f2dc7913196adc59dac0c7a680",
+    "runs/direct_command_recovery_pilot2/evidence/manifest.jsonl": "cc78d7170172dde653cc82399f26752d0211530c9fce8f251d72d2e4e4c2cb71",
+    "runs/direct_command_recovery_pilot2/evidence/metadata.json": "a5f2426d810f061985cd38273e519dcb42bbff78899e3fa1f4a168dad31a0aab"
+  },
+  "selection": {
+    "all_phases_modulo_4": true,
+    "case_id": "train-skidpad-82000-matched",
+    "cases": [
+      {
+        "diagnostic": "result.json",
+        "first_contact_frame": 80,
+        "path": "runs/direct_command_pilot3"
+      },
+      {
+        "diagnostic": "result_recovery2.json",
+        "first_contact_frame": 53,
+        "path": "runs/direct_command_recovery_pilot2"
+      }
+    ],
+    "original_state_sha256": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+    "split": "train"
+  },
+  "source_sha256": {
+    ".work/lab/vision_corrected_plan_proto_v1/config.json": "1bb5e3df9aaec0c2fae4251c9ac8a53bbf5fc4151df02138ffd1ce2b40c78d82",
+    ".work/lab/vision_corrected_plan_proto_v1/controller.py": "d1c1cc2d111f436ebb2deb6b8eda8ba7f8c9f898e03b53de1c7cf43dcdfc39e6",
+    ".work/lab/vision_corrected_plan_proto_v1/protocol.md": "377abd83d2a4e8cf81c7eac1d655533cd084d194a07c85d31f2171f06f2edb0b",
+    ".work/lab/vision_corrected_plan_proto_v1/replay.py": "25572566fbf181f772fb7f435cf4181897c696b72d6ddca6d651dbf7d1f75c44",
+    ".work/lab/vision_corrected_plan_proto_v1/test_controller.py": "55ebdb133f9fec89da3bd9820e61aa2c82504daeb108ced1a35eef4848772499",
+    ".work/lab/vision_corridor_proto_v1/inputs.py": "9a65d53647aa50868cee94999f8d064c863b645a20fc1adae446ab76b06ecb6b",
+    ".work/lab/vision_corridor_proto_v1/planner.py": "79899cb521d4537b636fc8662b5e48c5c5ca00b3b09781a8ee3b3e1805510b0b",
+    ".work/lab/vision_corridor_proto_v1/replay.py": "574c34c9141120493a2b7905a375ac123133a03b9acdce5900a68d504b7d7bb5",
+    ".work/lab/vision_corridor_proto_v1/scorer.py": "483c08ed855cb9227b3f3fa09dfc0279d997e3fa4da8102ea51566c5955c4037",
+    ".work/lab/vision_corridor_proto_v1/test_planner.py": "ebd337616379c52e5750a72793d1ccbea7937bd7446601f066f7ea874ae43d2c",
+    "isaac_eval/evidence.py": "00a38b56c9f813821674dfcf65b1d9f5b1db679c67e851d191f06a55540ac23f",
+    "src/fsop/eval/geometric.py": "e0ad7c4aa9157a04f1a83c242f83113acb84a25fb9152533fccb58e76cde9c02",
+    "src/fsop/sim/expert.py": "7f1c3fb9083b4edd04e61a33719a88b4b65bea85fb6490ea2ef191e66d35986e",
+    "src/fsop/sim/vehicle.py": "55643a3d4f43c1a7605b8da3641517a8c0380bc92ba7526a5e555e0f7cd3ae39",
+    "src/fsop/track/centerline.py": "de45a95eba2e8fa0419a7407ced66718bc6f49099dff8b00c7663f2bf7ac5887",
+    "src/fsop/track/fixed_layouts.py": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+    "src/fsop/track/io.py": "86a833f72d920882c55c1dee89de841a8d4b67d8cbaa0658ddb17a614bc8af4c",
+    "src/fsop/track/rules.py": "4c2c989ef7b401ed47e57744eae6a3219759629e09e412b4ee5d68de8764006d",
+    "src/fsop/track/schema.py": "f2f760bee7826c82f34e3f704a0b5807bcd0f6b043e856a781d8fe727ac1c04c"
+  },
+  "synthetic_checks_passed": 5
+}

@@ -1,0 +1,97 @@
+{
+  "version": 2,
+  "package_kind": "direct_native_actuator_joint_suffix_v1",
+  "schema_version": 5,
+  "numpy_version": "1.26.0",
+  "inputs": {
+    "completion_sha256": "9fbdc11b5dc4aed0d8f6c184d6c87b9632537fba05729e199832e85d52e260be",
+    "artifact_audit_sha256": "91ec35fe2b3354f4b4405352e6806ee44e1c9749dbc4d23d526e4d621b5f14ee",
+    "frames_sha256": "9e8f6019b7213ab7ae072c8584c13db711c9c99530082148ba11c57c4ea12026",
+    "telemetry_sha256": "31af9b53a4d222906f64bd559ae18406ff06280f30f44eb5ee495ad9e6a242f0",
+    "render_code_sha256": "176fcbe153412eca84bfcff85d4c1d104809aba978b240ac8bd9ae47314a7ebb",
+    "process_code_sha256": "09ba5aa3a89cf10b42eeda29496224bb251a3c15fb3603e4266fea3215fc8ce9",
+    "replay_receipt_sha256": "0aa865fd974a550d6d512432c1d00466d9e0e8a15f749934633132dad2fca934",
+    "wrapper_code_sha256": "95816dfd6cd03b94a47522c4b31114322ce220d9380c4ed8b8822d4957421502"
+  },
+  "inference_frames": 120,
+  "terminal_frames": 40,
+  "command_contract": {
+    "base_parameters": 31154802,
+    "deployment": {
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "threads": 4
+    },
+    "frozen_base_state_tensors": 411,
+    "head_parameters": 33538,
+    "history": "phase-zero 5 Hz, eight past features and current feature, full desire queue",
+    "kind": "direct_native_actuator_joint_suffix_v1",
+    "latent_module": "base.policy.p_node_linear_20",
+    "latent_normalization": {
+      "affine": false,
+      "eps": 1e-05,
+      "kind": "layer_norm"
+    },
+    "latent_shape": [
+      "B",
+      256
+    ],
+    "mission": "bound raw request, apply mission_brake_with_override, bound again",
+    "optimized_parameters": 296450,
+    "output_order": [
+      "steer_rad",
+      "accel_mps2"
+    ],
+    "output_scales": [
+      0.1,
+      2.0
+    ],
+    "plan_semantics": "updated plan and inherited controller are diagnostics only",
+    "proprio_order": [
+      "vx_mps",
+      "vy_mps",
+      "yaw_rate_radps"
+    ],
+    "proprio_scales": [
+      10.0,
+      2.0,
+      1.0
+    ],
+    "suffix_parameters": 262912,
+    "target": "qualified native teacher controls at the observation tick",
+    "training_scope": {
+      "base.policy.p_node_linear_14.bias": [
+        256
+      ],
+      "base.policy.p_node_linear_14.weight": [
+        256,
+        512
+      ],
+      "base.policy.p_node_linear_16.bias": [
+        256
+      ],
+      "base.policy.p_node_linear_16.weight": [
+        256,
+        256
+      ],
+      "base.policy.p_node_linear_17.bias": [
+        256
+      ],
+      "base.policy.p_node_linear_17.weight": [
+        256,
+        256
+      ]
+    },
+    "version": 1
+  },
+  "raw_videos": {
+    "debug": {
+      "path": "debug-raw.mp4",
+      "sha256": "782d818ba1aa319e81103c7fde10cf12ceb585a702e0ce779a3774484c3ec7f1"
+    },
+    "research": {
+      "path": "research-raw.mp4",
+      "sha256": "5dd2ddb0c0cf99c249ca197ea1e46f5f99393b9b688d20e6d8863c4c7dc16c51"
+    }
+  }
+}

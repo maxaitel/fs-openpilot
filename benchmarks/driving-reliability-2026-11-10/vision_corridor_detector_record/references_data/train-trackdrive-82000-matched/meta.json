@@ -1,0 +1,781 @@
+{
+  "source_sha256": {
+    "isaac_eval/appearance_guard.py": "a39945b0e237e462ecc90baf0c909aad502bf328bdec6ccef7a5591d406a69da",
+    "isaac_eval/benchmark_model.py": "5f988b1bbc7cff8df053563374d65d01fc346cc9140be8189f977d065f8f51a9",
+    "isaac_eval/evaluate.py": "d2ba15e8b53a8d016938f05a5bbff4c71016e42758fa51aad9312d59aa948fea",
+    "isaac_eval/evaluate_parity.py": "1745e1e6d3f71eac58b8724f077643fdb84c592b57e82cac97835be1e1c650fd",
+    "isaac_eval/evidence.py": "00a38b56c9f813821674dfcf65b1d9f5b1db679c67e851d191f06a55540ac23f",
+    "isaac_eval/export_scene.py": "a8d2ff67c8336ec4a7dad044bd7d3d87a979552ca88425ddebb15ffe5e2c95df",
+    "isaac_eval/freeze_parity_protocol.py": "c33bf6537d93abbce1a9c3d4d30055b0233567b5a7780aeb108f945ebf0b4c37",
+    "isaac_eval/freeze_realism_protocol.py": "537c9fc2cc3349a65b0a99b756cae9bfee118bb2ad2a17c6e749f20380b4869d",
+    "isaac_eval/parity_cases.py": "2cf546e6853783384b79f22cad10245342c41b14744abdbd1e15f7db8f86e9c7",
+    "isaac_eval/parity_geometry.py": "63fa33114594a1ffcc3e3f729d22510f74a0ca9b3787f3f9783ba6e3ab87149d",
+    "isaac_eval/parity_protocol.py": "3fb0faef79bf7c2f8d542980cc29f8f7bd7491b5af3f8ccf43c3ad2be7a8c49f",
+    "isaac_eval/parity_scene.py": "5618592b23ac129307809f3d00d4c44e9cab6077ef6839e5d43558e6f346bf4f",
+    "isaac_eval/prepare_parity_cases.py": "9e43d7d623e8c5c2fa2a704139098ae696661b8f08b44a4ccab9d8ea18fafabf",
+    "isaac_eval/preview_realism.py": "0031e2c745f27e3bbc38d4cbdf206b2fe92aef089751bc50f6d0123853f57a02",
+    "isaac_eval/preview_stress.py": "121a5cc4f01443152352500e8009264471ec308dcf239433f119abf027d95165",
+    "isaac_eval/probe_asset.py": "01f72584ce4298d0e3dcca748a376412899f5474f71c2520b986bd639add8eb7",
+    "isaac_eval/realism_assets.py": "3da155f4e14052f9e4e545b16e3b5bc0e84460a8276da3ffc69635bb5144c9a2",
+    "isaac_eval/realistic_car.py": "35455344c7a8fb80abf050bd11dbe17b825df5363ed3e139309e1b58d5f5b4e1",
+    "isaac_eval/realistic_scene.py": "b2b23082eb5fe0aed84095fbd5ee612bc629ee1c6184fbdc28d7462bf8ebc853",
+    "isaac_eval/render_debug.py": "e1d3a8ab64f591928f76e829c76a10ef527b4236b1932cf64b621b40e99def49",
+    "isaac_eval/rendering.py": "7387b5952ab38f902a42786c9db8923ce649b1508feff6782c882cd9632c36c0",
+    "isaac_eval/report.py": "9fe2b14834045d08e6e58e415a82e0b4e5284d644587c3d152214bb984d72422",
+    "isaac_eval/report_realism.py": "cc67097f30773b85a71745cf4e8a3b5bcf8e4ac5e9baedcfd32c51d2eb3d9dbe",
+    "isaac_eval/run_parity_suite.py": "d7ae6f3bc9f4e2b64e907c0eae390e70eced3071022fc8fc59cb77455aff60cc",
+    "isaac_eval/scene.py": "0a1ce27ff205fb47ceb44b91c9b731050d6ad0ca4a29e89fea7ad16c59c49076",
+    "isaac_eval/stress_experiment.py": "303415cc7e3181adf320ddd90526da372633c0eba87b6559e5dee9207d697038",
+    "isaac_eval/stress_layout.py": "f7266db04ead9977b0588b835ff28ef10657df559a8151f62d35ec9436a2ed0b",
+    "isaac_eval/stress_scene.py": "ddacfa48dda146a3380367e62e46896ef174d93f4be8bb02b03ff13386bfd14e",
+    "isaac_eval/vehicle.py": "4db02d65d9d496e2eb98337d7fa1a27c61218cf372006f5d136049c6cb18a86f",
+    "isaac_eval/verify_frozen_sources.py": "01cdcc64c3f8f8ac25ca9f7b3a2d08b3dcecb69279b2690da05cd843cf80e8ef",
+    "isaac_eval/verify_inference.py": "3b72a2e7c613f635103275be6fb0ec6aff645464dc34b856de5c1fb186220667",
+    "isaac_eval/verify_integration.py": "8b9cfa2baf69ac5738e2c714d28ce42257dd3e8f69fce89b93f2f3a3aea87169",
+    "isaac_eval/verify_model.py": "e885d97b1d287957c8bc0635061c42df0fae506bb5c2a425fc724c37fbf5794f",
+    "isaac_eval/verify_parity_camera.py": "1fa445a585c1fea9b7eaa3a8708fd205bdf932d14ea4d358cf34b910d1ebd62b",
+    "isaac_eval/verify_realism_artifacts.py": "669152cc3a633dfe19874813875cc377325a9d48b803cdfe7efe8ac7ff174fe6",
+    "isaac_lab_fsop/__init__.py": "50a9ea88921ab985e2e0663e2723beb5e43e1d23219c8a06b6aadf43699c3eb7",
+    "isaac_lab_fsop/appearance_probe.py": "802887bb2749ad242df7bb287063308d0356324793aa88597141ca97e76e3140",
+    "isaac_lab_fsop/cases.py": "df8df74af698794a594314e36c14d8dc481f9063fd16dce66d03ca595d22cdc4",
+    "isaac_lab_fsop/collect.py": "d9b7bab9d47cb0b71c0f74298bb6487daf668658787a33f580e53508a435a846",
+    "isaac_lab_fsop/env.py": "faa1557c4da72dcae56a7589b38e58edb0ab6cccf306cba1c83bfc23504df728",
+    "isaac_lab_fsop/evaluate.py": "9bfa87423996c44ddf279842c3c84006ac1bd0d34b2f77ed86ac0266892a5392",
+    "isaac_lab_fsop/evidence.py": "441d43938915166b1de4d9e5155686018fbbd0e8b68e8d69df6283da0d9dc9aa",
+    "isaac_lab_fsop/expert.py": "75c2cf48a7f854737f59715a031fd9fef8005a65612261f0120eb347a0764b60",
+    "isaac_lab_fsop/probe_teacher.py": "ac1f6af01270224286b5a23c473aa79fe8c150af167a84eb48ddaa2bf22de9e6",
+    "isaac_lab_fsop/process.py": "083c81eda7df5c9e0ab917d586bb95d8738611dcc6c6250a31978fc698cfe68b",
+    "isaac_lab_fsop/runtime.py": "e2d77ca0092b81562e00dee51825c5fed05dd4807e677cbc195052217da7ff3c",
+    "isaac_lab_fsop/verify_camera.py": "8864e45734c9bfefc533ed76a6494d5fc5cde3e160800be94592d14fc01a5051",
+    "isaac_lab_fsop/verify_inference.py": "4b8b03d23d6ad796bd9673b2cff2b4e07c87089ebc3849c5d986009a91b12861",
+    "src/fsop/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/baselines/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/baselines/yolo.py": "a5207b9b74c941f7445199f2bb45c47574f2629068f6966176bbef3da6867ed8",
+    "src/fsop/bench.py": "d3781cfc06127a92aaf201285ada0499159700b4cd6f189b6992d3bb113ac696",
+    "src/fsop/cli.py": "862430338c18cb6e62fe395bea854db74f65aa38a62dcdbd7c5c9d6658a0bc4d",
+    "src/fsop/config.py": "2de820cc65e9a8266b7163df51c4bbb052921cc6192e8ce76c47e2eeaf1b3a6b",
+    "src/fsop/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/data/feature_cache.py": "7ea4da7c8ece7b11766fe93e23cd3aa5a8ecf9486bad89664db22877181bc3de",
+    "src/fsop/data/fsoco.py": "7dda2a26d525da64cdf63f9058b2a58b85b20f16c3e844a9c56715a6abf95eaa",
+    "src/fsop/data/native_replay.py": "c91eb74ca17e22c9de368d110dc3b820ca81a5b48c8db72570db4e41c709dc97",
+    "src/fsop/data/sim_dataset.py": "7753c0deae1f3aad51a747346f4ff7acab72c0f50860685196847845107affe3",
+    "src/fsop/data/targets.py": "a923bbe800bbe2d1bd25a50701edb7d077980d7d8481990ebd4baf6ca8652467",
+    "src/fsop/eval/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/eval/bev_metrics.py": "74729836f20c21d836e2a30efe586eb1b578a9ae00b97613fb1bff7a08bf4af4",
+    "src/fsop/eval/closed_loop.py": "f41bfae441f9c7a43e9d3ed9c7fb692dcd63d4e967dbd269f6bb9e7bb173deb7",
+    "src/fsop/eval/controller.py": "18294c2854b82fd7605505f018021b8c8eddea11608fc420ffba726b0f45c03c",
+    "src/fsop/eval/dagger.py": "7fc0c290541eaa945db52a262fe38a2639df5bec93304ca67955336f8600cba4",
+    "src/fsop/eval/det_metrics.py": "3c99d790e0777184065c4e35195babe9ade02d82aacbd78f63a8b0544b0103d2",
+    "src/fsop/eval/geometric.py": "e0ad7c4aa9157a04f1a83c242f83113acb84a25fb9152533fccb58e76cde9c02",
+    "src/fsop/eval/img_to_bev.py": "bcf10ece06c575512c45ea773335a1024fbc7ab95d20426a91ff18bd71d2d2d1",
+    "src/fsop/eval/open_loop.py": "3e402060bb9f73a1e59cf6ad8ff94eb99d3e07f82e9adde6e8fed52c02c86f52",
+    "src/fsop/eval/real_clip.py": "d62206e397e988111b00b75c9796a773ed87740b44fcff7f726184ca7afcceef",
+    "src/fsop/geometry/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/geometry/camera.py": "98b8bc7f7b98cddc4e756d4b92103604f4462baea2b161f0410a943f30c207a3",
+    "src/fsop/geometry/op_frames.py": "f09cea8cba5b74bf81e02df04487e3b34012e91dde4c3751525bf50e3520301f",
+    "src/fsop/geometry/warp.py": "a81bc405c769e46b3e9355bf53f2fd9fce83cfcc1d3c654ac389938546f97756",
+    "src/fsop/geometry/yuv.py": "9a3651b22194b666ad3200fb799bc22e90259ac650b2dff140b5c62a8ab66ee5",
+    "src/fsop/model/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/model/build.py": "e63d37106749a3664d7cbd1b619906b6212914d20d378923405fb02eaafac285",
+    "src/fsop/model/convert.py": "3a5531d927d8d68b557f841530c679258ccd6208d818ea3ff475f6ae4e15bc2c",
+    "src/fsop/model/export.py": "1d98e4266f133019775ab515c87d31d43b9a5e50159643e6cb0af21e1368f624",
+    "src/fsop/model/fetch.py": "e1d15dc11ca309e5a2b655fd28afdd83fcf17811030edb7f8443106534454992",
+    "src/fsop/model/heads/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/model/heads/cone_bev.py": "9fe44a7e2152d4906389142b0f4405f8d192e19ffdeea25db5698451e2a0c9ee",
+    "src/fsop/model/heads/cone_img.py": "cdf84bb4bcc25b2a05172b45f1d7d35dcaf17abca1bfe10370c1906c2ff3f42a",
+    "src/fsop/model/onnx_prep.py": "b6b7c3607078dfaf45249451d757247cc8deea4085a7f70e69f15f531e14a5f6",
+    "src/fsop/model/op_converters.py": "59f20f80b4a646870b108cc7f165e8bd48a2630f54b44b07eddf791052629d5f",
+    "src/fsop/model/static_shapes.py": "34668feafdb9e18ea6c91f53b51fb645e96191fe608abe9631c0f0ce25661a16",
+    "src/fsop/model/supercombo.py": "1128d2dc461466d9235ec3dc3386bce82c44222e127cbd6d8cf4ee0307eb5a3d",
+    "src/fsop/model/temporal.py": "3b7ef159ae6a0f3f39dd950ae3943fb5f59f164af0d8e9ab329f6f5de876b8c7",
+    "src/fsop/model/verify.py": "aa1cb5bb89869cbec5470fead1bb46eea285c27b2146c20c3fba7d91eedf0957",
+    "src/fsop/profile.py": "2c8968ba76880a1f167480e474f68301fedd8cd652be2df2670498d4230b19d0",
+    "src/fsop/runtime.py": "2a934220541dd562a558a480226be3821ab5a1702dffe6136bc51915187c7014",
+    "src/fsop/sim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/sim/batch_record.py": "42d54ca374ba2a05255c06d50e2cefe825292a68137dbaa7e1a69760ed75831e",
+    "src/fsop/sim/drive.py": "e7e8072c3375e0de9d89d6fadcbfac897fa21f47a7d084eee1e2d0dffe047bc1",
+    "src/fsop/sim/env.py": "43e4bc7b07fcb5f963a9ce022952d6d7d8d16cf34ef2cf66af648959e31a2026",
+    "src/fsop/sim/expert.py": "7f1c3fb9083b4edd04e61a33719a88b4b65bea85fb6490ea2ef191e66d35986e",
+    "src/fsop/sim/randomization.py": "25b492a84b289a3febf9d726e1a43ef59f4657986282d28d551f5bd49cccff04",
+    "src/fsop/sim/recorder.py": "d90ec0db290ca21d419a04ae4ceb609b7d5f8927ede25786ab727f71e390f7bf",
+    "src/fsop/sim/referee.py": "c0dacad0659a9cd806e25b2405e0e4a4aadd58897858d14a717a42c0132391e2",
+    "src/fsop/sim/render/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/sim/render/assets.py": "c790b7c47113c6a86c792059bc7ca1b23764111f870b6ae67d5b88fe5b9f6051",
+    "src/fsop/sim/render/panda3d_backend.py": "e06a3ad9e675a27d5875f553ab7f442bf0a450380dcaca08611e530e0e1e5519",
+    "src/fsop/sim/render/venue.py": "98a7ac4b041c0c3a149a52f21cce1b461d0d992601e240241e460fe0fd5339ca",
+    "src/fsop/sim/route_commands.py": "31def8ff21c2d86824fdd7783c9131928a12fa2ac1e9d5d427063e640f40b149",
+    "src/fsop/sim/skidpad.py": "a6169eec33804ce14b01cbd383a74b7474f77cf69b1baf072a805a1fcd8dc6a2",
+    "src/fsop/sim/vehicle.py": "55643a3d4f43c1a7605b8da3641517a8c0380bc92ba7526a5e555e0f7cd3ae39",
+    "src/fsop/track/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/track/batch.py": "71ed04273b4da5bf340d8abb3269448481d694ad2499330fceb616a13cc681c3",
+    "src/fsop/track/centerline.py": "de45a95eba2e8fa0419a7407ced66718bc6f49099dff8b00c7663f2bf7ac5887",
+    "src/fsop/track/cones.py": "45c784e93b40cb032e6641362b547bce8f5a79d5eb02e23d0a37db038728da93",
+    "src/fsop/track/fixed_layouts.py": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+    "src/fsop/track/generate.py": "6a971d82e14b154ef24eb3a87f212f567a08182701783a806110755b2d661264",
+    "src/fsop/track/io.py": "86a833f72d920882c55c1dee89de841a8d4b67d8cbaa0658ddb17a614bc8af4c",
+    "src/fsop/track/rules.py": "4c2c989ef7b401ed47e57744eae6a3219759629e09e412b4ee5d68de8764006d",
+    "src/fsop/track/schema.py": "f2f760bee7826c82f34e3f704a0b5807bcd0f6b043e856a781d8fe727ac1c04c",
+    "src/fsop/track/validate.py": "5a08f94b27f75a77ee69431f58493a0ead9bbc6154b6749b7d11d223080664a8",
+    "src/fsop/train/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/train/device.py": "cb2ec8fba9eb6959f11753ac93625090ea131f86f4476e8accb8d0151b1df483",
+    "src/fsop/train/lab_train.py": "535525dd9299fab2f189b14eb66d2f13785c1fa37d7443bfe40348fed669c609",
+    "src/fsop/train/losses.py": "81ed567255cf8a5024d31775a7819f88668f90ce158101ae70ea7752a148bdc5",
+    "src/fsop/train/trainer.py": "3a016bb5c4cf6556bca3d797d6653a2943e9918b4e6f2a69bb3c97fb3ffb30e7",
+    "src/fsop/viz/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/fsop/viz/inspect.py": "5cd19a506dcc688a2f6f8d536cfaa1ae310847324cd71c0dc96bd07d566730cd",
+    "src/fsop/viz/real_video.py": "1979fcb3d70e7d739b84c406b6ab7482708ec7f8aa93541d14ab3f91a866c381",
+    "src/fsop/viz/rr_log.py": "b1b0020705be517293fc413ff224e68c55d51c14ed9b9ec291ab2b3b0a7213ae",
+    "src/fsop/viz/track_preview.py": "5ace5f5cf0b9ab48e8e011edc280164a996f9eac7ce586a3ca5767c59e2683bc",
+    "src/fsop/viz/video.py": "94013abd1f1e78a2869101f12aa3f53ab3c6accd86819069b78234ea9b696cd9"
+  },
+  "source_archive_sha256": "92670c27b0984fef001cb551cf4c3f863d5b873102494591c2e72101060df4bd",
+  "membership_sha256": "d041e56c7e0245e438e0db990190b3d3b0859f9c61c2536fb56b17427ea15c8c",
+  "calibration": {
+    "mount": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 1.0177302415089489,
+      "roll": -0.005256154857737793,
+      "pitch": 0.007822082494958112,
+      "yaw": -0.00027191375737935415
+    },
+    "T_ego_cam": [
+      [
+        0.9999693707012897,
+        0.0002307965311187723,
+        0.007823323604976324,
+        0.0
+      ],
+      [
+        -0.000271905435552955,
+        0.999986160661141,
+        0.005254003580605072,
+        0.0
+      ],
+      [
+        -0.00782200272954906,
+        -0.005255969858372259,
+        0.9999555945411511,
+        1.0177302415089489
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "scene": {
+    "sun_azimuth": 2.917988211849125,
+    "sun_elevation": 0.8365859598012712,
+    "sun_intensity": 0.8364893895663011,
+    "sun_color": [
+      1.0,
+      0.9489800151557979,
+      0.8724500378894948
+    ],
+    "ambient": 0.27778283044238516,
+    "fog_density": 0.0,
+    "sky_color": [
+      0.7279513580635114,
+      0.90850425142746,
+      0.9001150541025007
+    ],
+    "ground_kind": "venue",
+    "ground_base": 0.3626733936592707,
+    "ground_contrast": 0.08401452331059102,
+    "ground_tint": [
+      1.0512796614175652,
+      1.0703566687658943,
+      0.999009770484354
+    ],
+    "grass_ring": false,
+    "cone_brightness_sigma": 0.05,
+    "boundary_lines": true,
+    "line_color": [
+      0.2878693313828022,
+      0.6579870431606908,
+      0.2878693313828022
+    ],
+    "line_width": 0.07087319441323801,
+    "line_gap_prob": 0.05458658088244461,
+    "cam_dz": -0.08226975849105114,
+    "cam_pitch": 0.007822082494958112,
+    "cam_roll": -0.005256154857737793,
+    "cam_yaw": -0.00027191375737935415,
+    "exposure": 0.906766230464149,
+    "noise_sigma": 1.2469158322123344,
+    "blur": true,
+    "jpeg_quality": 61,
+    "seed": 425112565,
+    "venue": true,
+    "sky_pano": "artifacts/panoramas/abandoned_tank_farm_03.jpg",
+    "sky_yaw": 2.1225371870831826,
+    "shadow_alpha": 0.7493685348387029,
+    "cone_fade": 0.4995665522578242,
+    "cone_lettering": true,
+    "haze": 0.19800341894623313,
+    "saturation": 0.7094271207467527,
+    "white_balance": [
+      1.025502683707507,
+      0.9943436622197235,
+      1.0000523086896724
+    ],
+    "resample": 1.0,
+    "vignette": 0.09331122159998201,
+    "extra": {}
+  },
+  "render_settings": {
+    "preset_path": "/workspace/isaaclab/apps/rendering_modes/balanced.kit",
+    "base": {
+      "/rtx-transient/dldenoiser/enabled": true,
+      "/rtx-transient/dlssg/enabled": false,
+      "/rtx/ambientOcclusion/denoiserMode": 1,
+      "/rtx/ambientOcclusion/enabled": true,
+      "/rtx/directLighting/sampledLighting/enabled": true,
+      "/rtx/indirectDiffuse/denoiser/enabled": true,
+      "/rtx/indirectDiffuse/enabled": true,
+      "/rtx/pathtracing/maxSamplesPerLaunch": 2073600,
+      "/rtx/post/dlss/execMode": 0,
+      "/rtx/raytracing/cached/enabled": true,
+      "/rtx/raytracing/subpixel/mode": 0,
+      "/rtx/reflections/denoiser/enabled": true,
+      "/rtx/reflections/enabled": true,
+      "/rtx/rendermode": "RaytracedLighting",
+      "/rtx/sceneDb/ambientLightIntensity": 0.0,
+      "/rtx/shadows/enabled": true,
+      "/rtx/translucency/enabled": true,
+      "/rtx/viewTile/limit": 0
+    },
+    "lab_preset": {
+      "/rtx-transient/dldenoiser/enabled": true,
+      "/rtx-transient/dlssg/enabled": false,
+      "/rtx/ambientOcclusion/denoiserMode": 1,
+      "/rtx/ambientOcclusion/enabled": false,
+      "/rtx/directLighting/sampledLighting/enabled": true,
+      "/rtx/indirectDiffuse/denoiser/enabled": true,
+      "/rtx/indirectDiffuse/enabled": false,
+      "/rtx/pathtracing/maxSamplesPerLaunch": 1000000,
+      "/rtx/post/dlss/execMode": 1,
+      "/rtx/raytracing/cached/enabled": true,
+      "/rtx/raytracing/subpixel/mode": 0,
+      "/rtx/reflections/denoiser/enabled": true,
+      "/rtx/reflections/enabled": false,
+      "/rtx/rendermode": "RaytracedLighting",
+      "/rtx/sceneDb/ambientLightIntensity": 1.0,
+      "/rtx/shadows/enabled": true,
+      "/rtx/translucency/enabled": false,
+      "/rtx/viewTile/limit": 1000000
+    },
+    "restored": {
+      "/rtx-transient/dldenoiser/enabled": true,
+      "/rtx-transient/dlssg/enabled": false,
+      "/rtx/ambientOcclusion/denoiserMode": 1,
+      "/rtx/ambientOcclusion/enabled": true,
+      "/rtx/directLighting/sampledLighting/enabled": true,
+      "/rtx/indirectDiffuse/denoiser/enabled": true,
+      "/rtx/indirectDiffuse/enabled": true,
+      "/rtx/pathtracing/maxSamplesPerLaunch": 2073600,
+      "/rtx/post/dlss/execMode": 0,
+      "/rtx/raytracing/cached/enabled": true,
+      "/rtx/raytracing/subpixel/mode": 0,
+      "/rtx/reflections/denoiser/enabled": true,
+      "/rtx/reflections/enabled": true,
+      "/rtx/rendermode": "RaytracedLighting",
+      "/rtx/sceneDb/ambientLightIntensity": 0.0,
+      "/rtx/shadows/enabled": true,
+      "/rtx/translucency/enabled": true,
+      "/rtx/viewTile/limit": 0
+    }
+  },
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130",
+    "numpy": "1.26.0",
+    "physics_dt": 0.008333333333333333,
+    "device": "cpu",
+    "use_fabric": true,
+    "scene_queries": true,
+    "physx": {
+      "solver_type": 1,
+      "min_position_iteration_count": 1,
+      "max_position_iteration_count": 255,
+      "min_velocity_iteration_count": 0,
+      "max_velocity_iteration_count": 255,
+      "enable_ccd": false,
+      "enable_stabilization": false,
+      "enable_enhanced_determinism": false,
+      "bounce_threshold_velocity": 0.5,
+      "friction_offset_threshold": 0.04,
+      "friction_correlation_distance": 0.025,
+      "gpu_max_rigid_contact_count": 8388608,
+      "gpu_max_rigid_patch_count": 163840,
+      "gpu_found_lost_pairs_capacity": 2097152,
+      "gpu_found_lost_aggregate_pairs_capacity": 33554432,
+      "gpu_total_aggregate_pairs_capacity": 2097152,
+      "gpu_collision_stack_size": 67108864,
+      "gpu_heap_capacity": 67108864,
+      "gpu_temp_buffer_capacity": 16777216,
+      "gpu_max_num_partitions": 8,
+      "gpu_max_soft_body_contacts": 1048576,
+      "gpu_max_particle_contacts": 1048576,
+      "solve_articulation_contact_last": false
+    }
+  },
+  "schema_version": 1,
+  "backend": "IsaacLab",
+  "id": "train-trackdrive-82000-matched",
+  "split": "train",
+  "track_id": "trackdrive_081000",
+  "discipline": "trackdrive",
+  "seed": 82000,
+  "case": {
+    "id": "train-trackdrive-82000-matched",
+    "split": "train",
+    "discipline": "trackdrive",
+    "seed": 82000,
+    "dr": "light",
+    "variant": "matched",
+    "track_seed": 81000,
+    "frozen_case": null,
+    "lateral_start": 0.0,
+    "yaw_start": 0.0
+  },
+  "vehicle": {
+    "mass": 230.0,
+    "iz": 110.0,
+    "lf": 0.8,
+    "lr": 0.75,
+    "track": 1.2,
+    "length": 2.9,
+    "width": 1.4,
+    "front_overhang": 0.8,
+    "rear_overhang": 0.55,
+    "cf": 32000.0,
+    "cr": 36000.0,
+    "mu": 1.4,
+    "max_steer": 0.4188790204786391,
+    "max_steer_rate": 2.6179938779914944,
+    "max_accel": 7.0,
+    "max_brake": 13.0,
+    "tau_steer": 0.06,
+    "tau_accel": 0.12,
+    "drag": 0.6,
+    "v_blend": [
+      2.0,
+      5.0
+    ]
+  },
+  "teacher": {
+    "a_lat_max": 4.0,
+    "a_acc": 5.0,
+    "a_brk": 8.0,
+    "v_cap": 8.0,
+    "k_lookahead": 0.25,
+    "lookahead_min": 1.8,
+    "lookahead_max": 9.0,
+    "kp_speed": 1.5,
+    "stop_decel": 4.0,
+    "controller": "pure_pursuit",
+    "k_lat": 2.0,
+    "k_head": 0.6,
+    "t_preview": 0.12,
+    "stop_after_line": 12.0
+  },
+  "summary": {
+    "discipline": "trackdrive",
+    "result": "finished",
+    "laps": [
+      42.300000000000004
+    ],
+    "n_laps": 1,
+    "doo": 0,
+    "oc": 0,
+    "max_speed": 7.971692038459806,
+    "avg_speed_first3": null,
+    "raw_time": 42.300000000000004,
+    "penalty": 0.0,
+    "time": 42.300000000000004,
+    "dq": false,
+    "complete": true,
+    "pass": true,
+    "final_state": {
+      "x": 19.22974395751953,
+      "y": 35.326011657714844,
+      "yaw": -0.458669198495253,
+      "vx": 2.460295575228774e-06,
+      "vy": -1.3969551877791327e-07,
+      "r": 1.1329654575620296e-10,
+      "steer": -0.0016843013134226269,
+      "accel": -1.9989307429487801,
+      "t": 47.25,
+      "extra": {}
+    },
+    "physical_cone_hits": 0,
+    "contact_events": [],
+    "progress": 1.0015764946223098,
+    "rms_lat": 0.10887573834224604
+  },
+  "terminal_continuation": {
+    "start_tick": 945,
+    "end_tick": 1145,
+    "controller": "hold steering and native braking at -2 m/s2",
+    "final_state": {
+      "x": 19.22974395751953,
+      "y": 35.326011657714844,
+      "yaw": -0.45866919849528004,
+      "vx": -6.04188665202897e-09,
+      "vy": -1.3317751404319136e-09,
+      "r": -3.2401065337694934e-12,
+      "steer": -0.0016843013134226269,
+      "accel": -1.9999999999999998,
+      "t": 57.25,
+      "extra": {}
+    },
+    "contacts": 0
+  },
+  "appearance": {
+    "appearance": "realistic_v1",
+    "seed": 82000,
+    "manifest_sha256": "805219022e7de93a0c1acde5b9de6b33c7cea5cb8ad48ad434e84c6f0be65d00",
+    "asset_sha256": {
+      "asphalt_track/diffuse.jpg": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c",
+      "asphalt_track/roughness.jpg": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e",
+      "asphalt_track/normal_gl.jpg": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd",
+      "asphalt_02/diffuse.jpg": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c",
+      "asphalt_02/roughness.jpg": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c",
+      "asphalt_02/normal_gl.jpg": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21",
+      "concrete_floor_01/diffuse.jpg": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017",
+      "concrete_floor_01/roughness.jpg": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774",
+      "concrete_floor_01/normal_gl.jpg": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01",
+      "gravel_floor_04/diffuse.jpg": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd",
+      "gravel_floor_04/roughness.jpg": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3",
+      "gravel_floor_04/normal_gl.jpg": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e",
+      "derelict_airfield_01/hdri.hdr": "57eb0fd4bd5d9fe2fc7d23da31933ffccb2ab3bb371e7ac17734488bb901bfe0"
+    },
+    "assets": {
+      "asphalt_track": {
+        "name": "Asphalt Track",
+        "authors": {
+          "Dimitrios Savva": "All"
+        },
+        "asset_url": "https://polyhaven.com/a/asphalt_track",
+        "license": "CC0-1.0",
+        "license_url": "https://polyhaven.com/license",
+        "resolution": "2k",
+        "dimensions_mm": [
+          2000,
+          2000
+        ],
+        "files": {
+          "diffuse": {
+            "path": "asphalt_track/diffuse.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_track/asphalt_track_diff_2k.jpg",
+            "size": 3779263,
+            "md5": "faec159f1f29d231581c32bd256b5ede",
+            "sha256": "742d1d79560bd661d5871afc857e981e25dcd563bfd24385cbd063ebcaeef06c"
+          },
+          "roughness": {
+            "path": "asphalt_track/roughness.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_track/asphalt_track_rough_2k.jpg",
+            "size": 2182047,
+            "md5": "213b9f13c03772e24a9cd55c4e43f391",
+            "sha256": "b934fb6fbe05770df95fa94fee3a12d45eb121621ce96e9b262f403d49ee493e"
+          },
+          "normal_gl": {
+            "path": "asphalt_track/normal_gl.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_track/asphalt_track_nor_gl_2k.jpg",
+            "size": 3694762,
+            "md5": "5381e78d5deda41e9ff5dd9c317bfa62",
+            "sha256": "d9c635867ed0e022580baac711e0dcff679f8301cd906dff162be1bfbad8cfcd"
+          }
+        }
+      },
+      "asphalt_02": {
+        "name": "Asphalt 02",
+        "authors": {
+          "Rob Tuytel": "All"
+        },
+        "asset_url": "https://polyhaven.com/a/asphalt_02",
+        "license": "CC0-1.0",
+        "license_url": "https://polyhaven.com/license",
+        "resolution": "2k",
+        "dimensions_mm": [
+          3000.000238418579,
+          3000
+        ],
+        "files": {
+          "diffuse": {
+            "path": "asphalt_02/diffuse.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_02/asphalt_02_diff_2k.jpg",
+            "size": 3075676,
+            "md5": "336af399fd98a39ab986d8b3bf73b4ff",
+            "sha256": "28f5ba8690553f192c0e5e1a5ff40f34765b4b93f4cc7059b1a3e9c795b6c28c"
+          },
+          "roughness": {
+            "path": "asphalt_02/roughness.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_02/asphalt_02_rough_2k.jpg",
+            "size": 2230457,
+            "md5": "6fe669ab38640ef2009d6a28d1ad5ee9",
+            "sha256": "b9a516b61b7040a9245ac206642d5f767ad9589a0169c4a1668221429e8a998c"
+          },
+          "normal_gl": {
+            "path": "asphalt_02/normal_gl.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_02/asphalt_02_nor_gl_2k.jpg",
+            "size": 4943950,
+            "md5": "77ebd1cc0b020ccaa1c6b58f103d1f75",
+            "sha256": "ffe49db71a0fd34c1e259625df66a302a237597d6ef655307987ec4e45bc6f21"
+          }
+        }
+      },
+      "concrete_floor_01": {
+        "name": "Concrete Floor 01",
+        "authors": {
+          "Rob Tuytel": "All"
+        },
+        "asset_url": "https://polyhaven.com/a/concrete_floor_01",
+        "license": "CC0-1.0",
+        "license_url": "https://polyhaven.com/license",
+        "resolution": "2k",
+        "dimensions_mm": [
+          2000,
+          2000
+        ],
+        "files": {
+          "diffuse": {
+            "path": "concrete_floor_01/diffuse.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_floor_01/concrete_floor_01_diff_2k.jpg",
+            "size": 2967720,
+            "md5": "bde1be20188bbec1d3970f37ee210ca1",
+            "sha256": "ca24c52dabae67ef49093f91d8f9b9e5328a3b9fcb1327742ff6181ee542e017"
+          },
+          "roughness": {
+            "path": "concrete_floor_01/roughness.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_floor_01/concrete_floor_01_rough_2k.jpg",
+            "size": 1488360,
+            "md5": "3e7d67a2c5444140a30570e93eb23bd3",
+            "sha256": "e66fa941d6daa33ba334c853bf126c85f1d77e7b72778073237e4ef8c7c97774"
+          },
+          "normal_gl": {
+            "path": "concrete_floor_01/normal_gl.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_floor_01/concrete_floor_01_nor_gl_2k.jpg",
+            "size": 3261423,
+            "md5": "ee04738b0919c3bd75ea77fc55e1e7d8",
+            "sha256": "796b010208e346bbeec4c468f286c3892852a454f77cb516d6f4a6e7c240de01"
+          }
+        }
+      },
+      "gravel_floor_04": {
+        "name": "Gravel Floor 04",
+        "authors": {
+          "Charlotte Baglioni": "All"
+        },
+        "asset_url": "https://polyhaven.com/a/gravel_floor_04",
+        "license": "CC0-1.0",
+        "license_url": "https://polyhaven.com/license",
+        "resolution": "2k",
+        "dimensions_mm": [
+          2460.0000381469727,
+          2460.0000381469727
+        ],
+        "files": {
+          "diffuse": {
+            "path": "gravel_floor_04/diffuse.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravel_floor_04/gravel_floor_04_diff_2k.jpg",
+            "size": 3971898,
+            "md5": "f6bf2949038a5d8f445c67ad59c77007",
+            "sha256": "f067bfbe24fd17cf29712c7a0ef579b1152eb404a37096d75872d2f1b278a7dd"
+          },
+          "roughness": {
+            "path": "gravel_floor_04/roughness.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravel_floor_04/gravel_floor_04_rough_2k.jpg",
+            "size": 1214552,
+            "md5": "25afd9258b98b21f5c100caf17dd4c72",
+            "sha256": "8d2451ebd7b2823f0aa171cb22450795f27f4419c4a3413f90cb8b850e2d55c3"
+          },
+          "normal_gl": {
+            "path": "gravel_floor_04/normal_gl.jpg",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/gravel_floor_04/gravel_floor_04_nor_gl_2k.jpg",
+            "size": 5737956,
+            "md5": "bae4fc4a9d6ef4afbf33451a34ee3329",
+            "sha256": "597c4805f743e2ebe8e75f394f30777017d5945c7c5d7716bc6ba4bddec6153e"
+          }
+        }
+      },
+      "derelict_airfield_01": {
+        "name": "Derelict Airfield 01",
+        "authors": {
+          "Alexander Scholten": "All"
+        },
+        "asset_url": "https://polyhaven.com/a/derelict_airfield_01",
+        "license": "CC0-1.0",
+        "license_url": "https://polyhaven.com/license",
+        "resolution": "4k",
+        "dimensions_mm": null,
+        "files": {
+          "hdri": {
+            "path": "derelict_airfield_01/hdri.hdr",
+            "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/4k/derelict_airfield_01_4k.hdr",
+            "size": 23302754,
+            "md5": "40665cda9a09dea8dbc2fe6b9b967308",
+            "sha256": "57eb0fd4bd5d9fe2fc7d23da31933ffccb2ab3bb371e7ac17734488bb901bfe0"
+          }
+        }
+      }
+    },
+    "settings": {
+      "asphalt": "asphalt_track",
+      "asphalt_tile_m": 2.0,
+      "asphalt_albedo_gain": 4.0,
+      "hdri": "derelict_airfield_01",
+      "dome_intensity": 500.0,
+      "distant_sun_intensity": 0.0,
+      "repairs": 14,
+      "branching_seams": 20,
+      "parking_bays": 6
+    },
+    "preview_selection": {
+      "v0": "rejected: asphalt too dark",
+      "v1": "rejected: repeated texture cracks formed a grid",
+      "v2": "retained: asphalt_track with 4x linear albedo gain"
+    },
+    "counts": {
+      "cones": 132,
+      "fence_sections": 43,
+      "workshops": 1,
+      "tents": 2
+    },
+    "car": {
+      "asset": "original_procedural_fs_car_v1",
+      "description": "Generic FS visual bodywork; original PhysX vehicle retained",
+      "hidden_prims": [
+        "/World/Car/Chassis/Body",
+        "/World/Car/Chassis/Cockpit",
+        "/World/Car/Chassis/Wheel_fl/Tire",
+        "/World/Car/Chassis/Wheel_fr/Tire",
+        "/World/Car/Chassis/Wheel_rl/Tire",
+        "/World/Car/Chassis/Wheel_rr/Tire"
+      ],
+      "visual_roots": [
+        "/World/Car/Chassis/Visual",
+        "/World/Car/Chassis/Wheel_fl/Visual",
+        "/World/Car/Chassis/Wheel_fr/Visual",
+        "/World/Car/Chassis/Wheel_rl/Visual",
+        "/World/Car/Chassis/Wheel_rr/Visual"
+      ],
+      "external_assets": []
+    },
+    "matching": {
+      "sampled_scene": {
+        "sun_azimuth": 2.917988211849125,
+        "sun_elevation": 0.8365859598012712,
+        "sun_intensity": 0.8364893895663011,
+        "sun_color": [
+          1.0,
+          0.9489800151557979,
+          0.8724500378894948
+        ],
+        "ambient": 0.27778283044238516,
+        "fog_density": 0.0,
+        "sky_color": [
+          0.7279513580635114,
+          0.90850425142746,
+          0.9001150541025007
+        ],
+        "ground_kind": "venue",
+        "ground_base": 0.3626733936592707,
+        "ground_contrast": 0.08401452331059102,
+        "ground_tint": [
+          1.0512796614175652,
+          1.0703566687658943,
+          0.999009770484354
+        ],
+        "grass_ring": false,
+        "cone_brightness_sigma": 0.05,
+        "boundary_lines": true,
+        "line_color": [
+          0.2878693313828022,
+          0.6579870431606908,
+          0.2878693313828022
+        ],
+        "line_width": 0.07087319441323801,
+        "line_gap_prob": 0.05458658088244461,
+        "cam_dz": -0.08226975849105114,
+        "cam_pitch": 0.007822082494958112,
+        "cam_roll": -0.005256154857737793,
+        "cam_yaw": -0.00027191375737935415,
+        "exposure": 0.906766230464149,
+        "noise_sigma": 1.2469158322123344,
+        "blur": true,
+        "jpeg_quality": 61,
+        "seed": 425112565,
+        "venue": true,
+        "sky_pano": "artifacts/panoramas/abandoned_tank_farm_03.jpg",
+        "sky_yaw": 2.1225371870831826,
+        "shadow_alpha": 0.7493685348387029,
+        "cone_fade": 0.4995665522578242,
+        "cone_lettering": true,
+        "haze": 0.19800341894623313,
+        "saturation": 0.7094271207467527,
+        "white_balance": [
+          1.025502683707507,
+          0.9943436622197235,
+          1.0000523086896724
+        ],
+        "resample": 1.0,
+        "vignette": 0.09331122159998201,
+        "extra": {}
+      },
+      "panorama_sha256": "09f3b43566d99d37adcd712dfb3fe9d6e8753da90e475d859445d62ac1c01f07",
+      "sun_direction": [
+        0.6533211688805947,
+        -0.1485699214590195,
+        -0.7423600398257939
+      ],
+      "sun_intensity": 1672.9787791326023,
+      "ambient_intensity": 308.6475893804279,
+      "exact_shared": [
+        "panorama asset",
+        "sky yaw",
+        "sun direction and color",
+        "camera mount",
+        "sampled cone layout",
+        "image postprocess function and parameters"
+      ],
+      "backend_differences": [
+        "Panda light units mapped to fixed USD intensity scales; radiometry is not identical",
+        "Scanned asphalt, detailed cones and paddock props replace Panda procedural geometry/materials",
+        "Panda fog, grass-ring, paint gaps, cone fade/lettering/brightness and ground texture parameters are not reproduced",
+        "PhysX moves contacted cones; Panda uses its geometric knockdown animation"
+      ]
+    },
+    "physics_sha256": "4423131b5a5975ec454ad9f67cb3a6f1a9684e4e51826d2dd223fa84e8ab5f37"
+  },
+  "frames": 287,
+  "wall_seconds": 246.69955149502493,
+  "image_hz": 5,
+  "capture_hz": 20,
+  "physics_hz": 120,
+  "control_hz": 20,
+  "labels": "future actually executed native expert controls; contact and horizon masks applied by dataset",
+  "checkpoint_sha256": "1ac2e3ba949db39ab445c636f841360973e2add8c86edab689a3a872f040ce55",
+  "collection_policy": {
+    "mode": "learner_prefix",
+    "requested_takeover_s": 120.0,
+    "lateral_takeover_threshold_m": 0.4,
+    "actual_takeover_tick": 66,
+    "takeover_reason": "lateral_threshold"
+  },
+  "arrays_sha256": {
+    "controls.npy": "57f87883c6ca3b053b9a3c39b1c0b17937af55f4e273b12ae1d3f28af2dcdae3",
+    "ticks.npy": "4d2ab1484f3618ee3c820e8c87a2c33ebea9a1b1ee305bffc5a4ea826ce885c9",
+    "cones.npy": "8f49ae641c7f1db0c216389a1c9170d255f5aab4ec061e9b34d11ca1810c1a1e",
+    "states.npy": "1e74936e48049c68ac9f3626089a2b8fea177ba7cc89cc69248ed9486e5477c3",
+    "desires.npy": "faa1c568775577760e941eecc144ab8cef155c885796ccf8fb2bcfbe69e5e15d",
+    "wide.npy": "cec453a2191b34984992e7b661626cbc54160677eec0e09371e31084f0d66005",
+    "road.npy": "ac27d97efd9f44b61ef2d7e2e118e221c3794bb1e3d7f010fabd106915b96f63",
+    "contacts.npy": "bb6e6b3fd97a796254645da1096d6241b560032bb55286158845b9a433d1d8e2",
+    "teacher.npy": "b1d396cf0a8ae82491b2b5a8b2466cc3b817a8a39a873814d6f17cd841df0dde"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "inputs": {
+    "benchmarks/driving-reliability-2026-11-10/cone_set_preflight/overfit.json": "ff69fce7322bea777b74abad485cd4e62f63eb2de12d03024d04af4ef8d6002b"
+  },
+  "output_sha256": "bdb5ae7f5e08f340aadcb084837023935eddf6ba1b596cededaf32e61e690757",
+  "mae": [
+    0.005447729025036097,
+    0.31453344225883484
+  ],
+  "capacity_mae_ceilings": [
+    0.002,
+    0.05
+  ],
+  "anchors": 32,
+  "actual_updates": 200,
+  "whole_stage_seconds": 71.84032467706129,
+  "limits": [
+    "The gate applies to mean errors, not individual dots.",
+    "Colors are original TRAIN, new skidpad recovery, new track recovery.",
+    "Only final wiring metrics were retained, not a per-update training curve.",
+    "Whole-stage duration includes data verification; no isolated throughput or hardware-utilization claim.",
+    "This is a failed capacity screen, not validation or physical driving."
+  ]
+}

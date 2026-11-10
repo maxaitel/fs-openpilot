@@ -1,0 +1,57 @@
+{
+  "method": "ffmpeg -v error -xerror -i INPUT -map 0:v:0 -f null - -progress pipe:1 -nostats",
+  "scope": "Full local decoding of the six joint encoded videos; no inference, rendering, physics or scoring rerun.",
+  "video_count": 6,
+  "passed": true,
+  "videos": [
+    {
+      "path": "runs/joint_command_pilot1/debug.mp4",
+      "sha256": "7827b4600ed29bb228d9cb16a101894709b0f406b606098a71ec4d8404dd3c60",
+      "bytes": 2003821,
+      "decoded_frames": 160,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/joint_command_pilot1/research.mp4",
+      "sha256": "8b1583eec36fccef19128c7c1f81ddc9b78b00a7de4bb52d310bc7bb957b2905",
+      "bytes": 1967444,
+      "decoded_frames": 160,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/joint_command_development1_archive/heavy_skid/debug.mp4",
+      "sha256": "06fa5624a27ac2d63108307d4f7f8bb12f78092bb574f664376901d1866de5b8",
+      "bytes": 20447595,
+      "decoded_frames": 1046,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/joint_command_development1_archive/heavy_skid/research.mp4",
+      "sha256": "2260d649ff6b592ee7a5df6e3669bfad708785af189ff98fe5d6636dbe14f29c",
+      "bytes": 18204161,
+      "decoded_frames": 1046,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/joint_command_development1_archive/heavy_track/debug.mp4",
+      "sha256": "666464988e122b1a2dd52421a63469163c5ea71572f8ea374015bfbda0655c4f",
+      "bytes": 48062944,
+      "decoded_frames": 2440,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/joint_command_development1_archive/heavy_track/research.mp4",
+      "sha256": "229633df0a3a88b59b7756440ead17478ecff6dbea92e074579434af77397c37",
+      "bytes": 42169132,
+      "decoded_frames": 2440,
+      "exit_code": 0,
+      "stderr": ""
+    }
+  ],
+  "producer_video_audits_match": true
+}

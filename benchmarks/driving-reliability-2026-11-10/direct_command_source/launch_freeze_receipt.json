@@ -1,0 +1,8 @@
+{
+  "script_sha256": "b76227ec320d58a962ed82d1e41fdd23489dffb185a56cac25f6a99d0afe9c4a",
+  "recipe_sha256": "b08e9895ab3e0bd2ba2bfaa98df20050c2c2b5e3d62b5b1304f1e02fb60d57ca",
+  "remote_workdir": "/scratch/fsop/head_trial_work",
+  "remote_output": "runs/direct_command_trial1",
+  "stage": "audit",
+  "main_training_not_started": true
+}

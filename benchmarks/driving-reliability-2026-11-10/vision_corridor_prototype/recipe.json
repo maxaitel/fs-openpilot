@@ -1,0 +1,111 @@
+{
+  "version": "vision_corridor_proto_v1",
+  "scope": "Frozen first CPU prototype. TRAIN replay only. No physical or raw-command qualification.",
+  "planner": {
+    "support_range_min_m": 5.0,
+    "support_range_max_m": 10.0,
+    "obstacle_score_min": 0.25,
+    "support_score_min": 0.55,
+    "association_distance_m": 0.6,
+    "max_track_age_s": 1.5,
+    "max_observation_gap_s": 0.3,
+    "max_motion_gap_s": 0.3,
+    "max_tracks": 80,
+    "max_detections": 128,
+    "max_gates": 80,
+    "beam_width": 24,
+    "max_path_gates": 8,
+    "gate_width_min_m": 2.4,
+    "gate_width_max_m": 4.5,
+    "gate_width_change_max_m": 0.8,
+    "gate_heading_max_rad": 1.3,
+    "edge_heading_max_rad": 0.55,
+    "heading_change_max_rad": 0.6,
+    "edge_length_min_m": 0.8,
+    "edge_length_max_m": 5.0,
+    "path_curvature_max_inv_m": 0.3,
+    "max_origin_extension_m": 1.25,
+    "max_origin_offset_m": 1.0,
+    "max_behind_m": 2.0,
+    "path_spacing_m": 0.25,
+    "minimum_path_gates": 2,
+    "ambiguity_target_distance_m": 0.65,
+    "ambiguity_heading_rad": 0.3,
+    "route_turn_min_rad": 0.08,
+    "candidate_length_slack_m": 2.0,
+    "length_cost_per_m": -1.0,
+    "heading_cost": 1.5,
+    "width_cost": 0.3,
+    "prior_cost": 0.8,
+    "score_cost": 0.5,
+    "age_cost": 0.3,
+    "vehicle_width_m": 1.4,
+    "wheelbase_m": 1.55,
+    "rear_axle_offset_m": 0.75,
+    "front_extent_m": 1.6,
+    "rear_extent_m": 1.3,
+    "cone_radius_m": 0.15,
+    "heuristic_clearance_pad_m": 0.2,
+    "lookahead_base_m": 1.8,
+    "lookahead_speed_s": 0.25,
+    "speed_cap_mps": 5.0,
+    "lateral_accel_mps2": 2.5,
+    "brake_mps2": 3.0,
+    "assumed_response_s": 0.3,
+    "acceleration_max_mps2": 1.5,
+    "speed_gain_per_s": 1.0,
+    "steer_limit_rad": 0.4188790204786391,
+    "stop_hold_mps2": 1.0,
+    "stationary_speed_mps": 0.1,
+    "numeric_epsilon": 1e-09
+  },
+  "replay": {
+    "cases": [
+      {
+        "path": "runs/direct_command_pilot3",
+        "first_contact_frame": 80
+      },
+      {
+        "path": "runs/direct_command_recovery_pilot2",
+        "first_contact_frame": 53
+      }
+    ],
+    "case_id": "train-skidpad-82000-matched",
+    "all_precontact_frames": true,
+    "timestamp_source": "saved state.t",
+    "motion_source": "saved state vx, vy, r",
+    "route_source": "saved commands.applied. Channels 1=left, 2=right, 7=exit. External progress-derived simulator pulses are disclosed inputs.",
+    "baseline": "existing fsop.eval.geometric.midline with its unchanged 25 m range, origin anchor, and one-side behavior; identical decoded detections and shared diagnostic local controller",
+    "teacher_lookahead_speed_s": 0.25,
+    "teacher_correction_min_rad": 0.03,
+    "branch_heading_error_rad": 0.6,
+    "geometry_lateral_mae_limit_m": 0.1,
+    "geometry_lateral_p95_limit_m": 0.25,
+    "raw_command_mae_limits": [
+      0.01,
+      0.25
+    ],
+    "raw_command_p95_limits": [
+      0.03,
+      0.75
+    ],
+    "clean_records": "runs/vision_corridor_probe_v1/frames.jsonl",
+    "clean_episodes": {
+      "train-skidpad-82000-matched": 286,
+      "train-trackdrive-82000-matched": 287
+    },
+    "all_stored_frames_including_terminal": true,
+    "desire_history_bin_s": 0.2,
+    "route_activation_threshold": 0.5,
+    "route_bin_time_semantics": "Each pooled history row supplies an interval-end event timestamp. This is not reconstruction of the original 20 Hz raw pulse time.",
+    "full_reference": "Canonical teacher geometry only after source/array binding and <=1e-10 reproduction on saved teacher controls. Otherwise measured future driven trajectory, with teacher metrics explicitly unverified.",
+    "teacher_reconstruction_max_abs": 1e-10
+  },
+  "limitations": [
+    "The pad, braking and response constants are engineering assumptions, not calibrated uncertainty or stopping guarantees.",
+    "Orange classes share a lane color. Blue-blue and yellow-yellow gates are forbidden.",
+    "Near detections alone cannot establish a boundary. A track needs a 5-10 m support observation within the age limit.",
+    "No one-sided boundary extrapolation, inferred circle centers, learned association, or inferred lap counter.",
+    "No physical launch, final case, model inference, training, or dependency modification is part of this prototype."
+  ]
+}

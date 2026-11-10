@@ -1,0 +1,110 @@
+[
+  {
+    "tick": 0,
+    "route": {
+      "accepted_route": [],
+      "valid": true,
+      "violation": null,
+      "complete": false,
+      "exited": false,
+      "stopped_in_zone": false,
+      "termination": "running"
+    }
+  },
+  {
+    "tick": 255,
+    "route": {
+      "accepted_route": [
+        "right"
+      ],
+      "valid": true,
+      "violation": null,
+      "complete": false,
+      "exited": false,
+      "stopped_in_zone": false,
+      "termination": "running"
+    }
+  },
+  {
+    "tick": 450,
+    "route": {
+      "accepted_route": [
+        "right",
+        "right"
+      ],
+      "valid": true,
+      "violation": null,
+      "complete": false,
+      "exited": false,
+      "stopped_in_zone": false,
+      "termination": "running"
+    }
+  },
+  {
+    "tick": 644,
+    "route": {
+      "accepted_route": [
+        "right",
+        "right",
+        "left"
+      ],
+      "valid": true,
+      "violation": null,
+      "complete": false,
+      "exited": false,
+      "stopped_in_zone": false,
+      "termination": "running"
+    }
+  },
+  {
+    "tick": 839,
+    "route": {
+      "accepted_route": [
+        "right",
+        "right",
+        "left",
+        "left"
+      ],
+      "valid": true,
+      "violation": null,
+      "complete": true,
+      "exited": false,
+      "stopped_in_zone": false,
+      "termination": "running"
+    }
+  },
+  {
+    "tick": 866,
+    "route": {
+      "accepted_route": [
+        "right",
+        "right",
+        "left",
+        "left"
+      ],
+      "valid": true,
+      "violation": null,
+      "complete": true,
+      "exited": true,
+      "stopped_in_zone": false,
+      "termination": "running"
+    }
+  },
+  {
+    "tick": 923,
+    "route": {
+      "accepted_route": [
+        "right",
+        "right",
+        "left",
+        "left"
+      ],
+      "valid": true,
+      "violation": null,
+      "complete": true,
+      "exited": true,
+      "stopped_in_zone": true,
+      "termination": "finished"
+    }
+  }
+]

@@ -1,0 +1,126 @@
+{
+  "files": [
+    {
+      "source": "runs/vision_corridor_probe_v1/references.json",
+      "destination": "references.json",
+      "sha256": "f7c75de4a03c4697cb8aeca5338da8110ae28e0f9b30c5cbea7893f53966f268"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/canonical_geometry_copy_receipt.json",
+      "destination": "canonical_geometry_copy_receipt.json",
+      "sha256": "ca37780d56cafc9f768f43758f04a2639809841d204403276a68a40560ff1132"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/frames.jsonl",
+      "destination": "frames.jsonl",
+      "sha256": "4cedbb447ba306ec849eec38cdeb701997e47b39ac23914d038580c225e489fd"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/copy_receipt.json",
+      "destination": "copy_receipt.json",
+      "sha256": "4b20da5aa35dcfc2b65eb06f643f9d451271255b257c5642be77dc54bada1c8b"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/receipt.json",
+      "destination": "receipt.json",
+      "sha256": "abccd3e1668ecbb42a278d1355a6ab55949417d3e94776734caaf65a9ce02513"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/canonical_tracks/trackdrive_081000.json",
+      "destination": "canonical_tracks/trackdrive_081000.json",
+      "sha256": "2b5310156af116570ca2bcc34e8bf86f67cb92ae3a656ec99a5b5e9ddfbb99fb"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/ticks.npy",
+      "destination": "references_data/train-trackdrive-82000-matched/ticks.npy",
+      "sha256": "4d2ab1484f3618ee3c820e8c87a2c33ebea9a1b1ee305bffc5a4ea826ce885c9"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/controls.npy",
+      "destination": "references_data/train-trackdrive-82000-matched/controls.npy",
+      "sha256": "57f87883c6ca3b053b9a3c39b1c0b17937af55f4e273b12ae1d3f28af2dcdae3"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/contacts.npy",
+      "destination": "references_data/train-trackdrive-82000-matched/contacts.npy",
+      "sha256": "bb6e6b3fd97a796254645da1096d6241b560032bb55286158845b9a433d1d8e2"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/cones.npy",
+      "destination": "references_data/train-trackdrive-82000-matched/cones.npy",
+      "sha256": "8f49ae641c7f1db0c216389a1c9170d255f5aab4ec061e9b34d11ca1810c1a1e"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/teacher.npy",
+      "destination": "references_data/train-trackdrive-82000-matched/teacher.npy",
+      "sha256": "b1d396cf0a8ae82491b2b5a8b2466cc3b817a8a39a873814d6f17cd841df0dde"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/states.npy",
+      "destination": "references_data/train-trackdrive-82000-matched/states.npy",
+      "sha256": "1e74936e48049c68ac9f3626089a2b8fea177ba7cc89cc69248ed9486e5477c3"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/track.json",
+      "destination": "references_data/train-trackdrive-82000-matched/track.json",
+      "sha256": "cb5379fa719dddc1be0fcc41a515b8ccd724c03f94d60f9d890936fb061a7158"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/desires.npy",
+      "destination": "references_data/train-trackdrive-82000-matched/desires.npy",
+      "sha256": "faa1c568775577760e941eecc144ab8cef155c885796ccf8fb2bcfbe69e5e15d"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-trackdrive-82000-matched/meta.json",
+      "destination": "references_data/train-trackdrive-82000-matched/meta.json",
+      "sha256": "730d5b359c11a02215b2fd646b6edc09b78787c08a39eeb09e6070d191144b2c"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/ticks.npy",
+      "destination": "references_data/train-skidpad-82000-matched/ticks.npy",
+      "sha256": "e4fa7d666bfdb0eb19e782f2a05f160dfc9ac86c715358f28eba96094832dec2"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/controls.npy",
+      "destination": "references_data/train-skidpad-82000-matched/controls.npy",
+      "sha256": "56febb4545715888ff693dc95ffb03db97ba9d67259ca7c13ae6ef364787153d"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/contacts.npy",
+      "destination": "references_data/train-skidpad-82000-matched/contacts.npy",
+      "sha256": "8bbd0af451ed40fe71c5aa04d432e8c42689af7d347939eb3f6bcf0508791f30"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/cones.npy",
+      "destination": "references_data/train-skidpad-82000-matched/cones.npy",
+      "sha256": "e6b365d7eb9376b3d8b4888a1e1001e5560ab9ef51bb3638793ee025774242e4"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/teacher.npy",
+      "destination": "references_data/train-skidpad-82000-matched/teacher.npy",
+      "sha256": "c3e987359ac6da24ac6a415fac663b6474a1ffda063b50a78a569e74a7752f87"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/states.npy",
+      "destination": "references_data/train-skidpad-82000-matched/states.npy",
+      "sha256": "3955dcee36bfbfc0f8c840b67bb108127c28aefd97f99b7a479f2a24119002e2"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/track.json",
+      "destination": "references_data/train-skidpad-82000-matched/track.json",
+      "sha256": "4f95e3c40f6d2a93cdcf26bb94facab2e38a4fb3f7a89487bb5cf114f2940d22"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/desires.npy",
+      "destination": "references_data/train-skidpad-82000-matched/desires.npy",
+      "sha256": "453838ecdb8824af669273742ef22a67741f72e1fcb91148a28f6a4c5d90ec40"
+    },
+    {
+      "source": "runs/vision_corridor_probe_v1/references_data/train-skidpad-82000-matched/meta.json",
+      "destination": "references_data/train-skidpad-82000-matched/meta.json",
+      "sha256": "77c4cb56b517329fe4dda6f996fefcc950b86f40b9b06c348a067bf1f519f9a3"
+    }
+  ],
+  "source_deleted": false,
+  "purpose": "TRAIN-only diagnostic/failed prototype evidence, never physical or final qualification."
+}

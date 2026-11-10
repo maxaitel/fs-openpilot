@@ -1,0 +1,13 @@
+{
+  "scope": "Read-only teacher requery on saved rejected TRAIN pilot states. No new rollout or fit.",
+  "teacher_reconstruction_max_abs": 1e-10,
+  "repeated_teacher_max_abs": 0.0,
+  "parameter_values": [0.25, 0.15],
+  "numerical_dependency_threshold": 1e-10,
+  "material_steering_pair_gap_rad": 0.02,
+  "material_acceleration_pair_gap_mps2": 0.5,
+  "ordinary_error_limits": [0.01, 0.25],
+  "tail_error_limits": [0.03, 0.75],
+  "selection": "Every saved frame strictly before the first physical-contact interval, from the two already rejected TRAIN skidpad pilots.",
+  "interpretation": "Pair gaps establish target sensitivity at fixed observations, not the empirical Bayes error of the original dataset. Half the absolute pair gap is the minimum possible pair-mean absolute error if both labels are attached to the same input with equal weight."
+}

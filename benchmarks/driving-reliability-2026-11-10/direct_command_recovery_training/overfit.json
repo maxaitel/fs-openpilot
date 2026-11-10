@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "step": 196,
+  "mae": [
+    0.00188507663551718,
+    0.047300372272729874
+  ],
+  "seconds": 31.469843300059438,
+  "audit_sha256": "a11cc7171eb59bc87342bcf25363ae2a80c34a1c897f415dad175e393e4239b8",
+  "discarded_head": true,
+  "base_model_digest_after": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652"
+}

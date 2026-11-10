@@ -1,0 +1,182 @@
+{
+  "total": {
+    "supported_median_rows": 97,
+    "matched_gt_within_075m": 97,
+    "matched_class_compatible": 91,
+    "matched_nearest_distance_m": {
+      "n": 97,
+      "mae": 0.11674418139917328,
+      "p95": 0.2990872760354147,
+      "max_abs": 0.3995377435826782
+    },
+    "prediction_transport_residual_error_m": {
+      "n": 97,
+      "mae": 0.037051161524595144,
+      "p95": 0.09561189209509928,
+      "max_abs": 0.11439697365500667
+    },
+    "class_compatible_gt_boundary_residual_m": {
+      "n": 91,
+      "mae": 0.5021100042248882,
+      "p95": 1.6290318965911867,
+      "max_abs": 2.4232623510144693
+    },
+    "class_compatible_prior_reference_normal_angle_rad": {
+      "n": 91,
+      "mae": 0.06797459853429696,
+      "p95": 0.3657814092208023,
+      "max_abs": 0.5902736383823851
+    },
+    "class_compatible_boundary_residual_over_05m": 20,
+    "improved_rows": 35,
+    "wrong_direction_rows": 42,
+    "correct_direction_overshoot_rows": 20,
+    "offset_clipped_rows": 37,
+    "baseline_error_over_025m_rows": 32,
+    "maximum_error_frame": {
+      "episode": "direct_command_pilot3",
+      "frame": 79,
+      "route_phase": "right_1",
+      "median_track_id": 21,
+      "median_track_class": 2,
+      "nearest_gt_cone": 65,
+      "nearest_gt_class": 2,
+      "class_match": true,
+      "nearest_gt_distance_m": 0.021914705210890804,
+      "nearest_within_075m_diagnostic_only": true,
+      "median_residual_m": 0.7827815204067772,
+      "offset_m": 0.75,
+      "offset_clipped": true,
+      "gt_projected_prior_residual_m": 0.7657779693173286,
+      "predicted_minus_gt_prior_residual_m": 0.01700355108944862,
+      "gt_reference_boundary_residual_m": 2.4232623510144693,
+      "prior_vs_reference_normal_angle_rad": 0.05804666141810632,
+      "uncorrected_lateral_error_m": 1.6736620111858032,
+      "corrected_lateral_error_m": 2.359767404446264,
+      "correction_reduces_absolute_error": false,
+      "correction_change_m": 0.686105393260461,
+      "correction_opposes_required_direction": true,
+      "correct_direction_but_overshoots": false
+    }
+  },
+  "direct_command_pilot3": {
+    "supported_median_rows": 62,
+    "matched_gt_within_075m": 62,
+    "matched_class_compatible": 59,
+    "matched_nearest_distance_m": {
+      "n": 62,
+      "mae": 0.10389562941956161,
+      "p95": 0.28406917930986575,
+      "max_abs": 0.39402221069325466
+    },
+    "prediction_transport_residual_error_m": {
+      "n": 62,
+      "mae": 0.03405918510571518,
+      "p95": 0.08906321593138178,
+      "max_abs": 0.10737622269883129
+    },
+    "class_compatible_gt_boundary_residual_m": {
+      "n": 59,
+      "mae": 0.4645544143627648,
+      "p95": 2.4228121356822876,
+      "max_abs": 2.4232623510144693
+    },
+    "class_compatible_prior_reference_normal_angle_rad": {
+      "n": 59,
+      "mae": 0.034111528050246795,
+      "p95": 0.10847977943832761,
+      "max_abs": 0.17725593248830046
+    },
+    "class_compatible_boundary_residual_over_05m": 13,
+    "improved_rows": 21,
+    "wrong_direction_rows": 29,
+    "correct_direction_overshoot_rows": 12,
+    "offset_clipped_rows": 20,
+    "baseline_error_over_025m_rows": 24,
+    "maximum_error_frame": {
+      "episode": "direct_command_pilot3",
+      "frame": 79,
+      "route_phase": "right_1",
+      "median_track_id": 21,
+      "median_track_class": 2,
+      "nearest_gt_cone": 65,
+      "nearest_gt_class": 2,
+      "class_match": true,
+      "nearest_gt_distance_m": 0.021914705210890804,
+      "nearest_within_075m_diagnostic_only": true,
+      "median_residual_m": 0.7827815204067772,
+      "offset_m": 0.75,
+      "offset_clipped": true,
+      "gt_projected_prior_residual_m": 0.7657779693173286,
+      "predicted_minus_gt_prior_residual_m": 0.01700355108944862,
+      "gt_reference_boundary_residual_m": 2.4232623510144693,
+      "prior_vs_reference_normal_angle_rad": 0.05804666141810632,
+      "uncorrected_lateral_error_m": 1.6736620111858032,
+      "corrected_lateral_error_m": 2.359767404446264,
+      "correction_reduces_absolute_error": false,
+      "correction_change_m": 0.686105393260461,
+      "correction_opposes_required_direction": true,
+      "correct_direction_but_overshoots": false
+    }
+  },
+  "direct_command_recovery_pilot2": {
+    "supported_median_rows": 35,
+    "matched_gt_within_075m": 35,
+    "matched_class_compatible": 32,
+    "matched_nearest_distance_m": {
+      "n": 35,
+      "mae": 0.13950447347734246,
+      "p95": 0.3367528799087846,
+      "max_abs": 0.3995377435826782
+    },
+    "prediction_transport_residual_error_m": {
+      "n": 35,
+      "mae": 0.04235123403803968,
+      "p95": 0.0973396079509253,
+      "max_abs": 0.11439697365500667
+    },
+    "class_compatible_gt_boundary_residual_m": {
+      "n": 32,
+      "mae": 0.5713531230331781,
+      "p95": 1.6290318965911865,
+      "max_abs": 1.629031896591187
+    },
+    "class_compatible_prior_reference_normal_angle_rad": {
+      "n": 32,
+      "mae": 0.13040963473926445,
+      "p95": 0.4992266677086228,
+      "max_abs": 0.5902736383823851
+    },
+    "class_compatible_boundary_residual_over_05m": 7,
+    "improved_rows": 14,
+    "wrong_direction_rows": 13,
+    "correct_direction_overshoot_rows": 8,
+    "offset_clipped_rows": 17,
+    "baseline_error_over_025m_rows": 8,
+    "maximum_error_frame": {
+      "episode": "direct_command_recovery_pilot2",
+      "frame": 52,
+      "route_phase": "entry",
+      "median_track_id": 5,
+      "median_track_class": 1,
+      "nearest_gt_cone": 5,
+      "nearest_gt_class": 1,
+      "class_match": true,
+      "nearest_gt_distance_m": 0.1344603909791956,
+      "nearest_within_075m_diagnostic_only": true,
+      "median_residual_m": 0.6587911285742992,
+      "offset_m": 0.6587911285742992,
+      "offset_clipped": false,
+      "gt_projected_prior_residual_m": 0.7731881022293059,
+      "predicted_minus_gt_prior_residual_m": -0.11439697365500667,
+      "gt_reference_boundary_residual_m": -0.20973265171051048,
+      "prior_vs_reference_normal_angle_rad": 0.5463104505711059,
+      "uncorrected_lateral_error_m": -2.278264593313707,
+      "corrected_lateral_error_m": -1.6093225443215904,
+      "correction_reduces_absolute_error": true,
+      "correction_change_m": 0.6689420489921167,
+      "correction_opposes_required_direction": false,
+      "correct_direction_but_overshoots": false
+    }
+  }
+}

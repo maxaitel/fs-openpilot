@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-11-10T05:38:15.548381+00:00",
+  "purpose": "Direct actuator-head exposed development qualification and predeclared rejected-final diagnostic; no final test access.",
+  "cases": [
+    {
+      "path": "docs/isaac-lab-training/cases/train-skidpad-82000-matched.json",
+      "sha256": "007528ba939a474cb3b36cefb1262b9c5037b868d0a392d825617289b6866048",
+      "case": {
+        "id": "train-skidpad-82000-matched",
+        "split": "train",
+        "discipline": "skidpad",
+        "seed": 82000,
+        "dr": "light",
+        "variant": "matched",
+        "track_seed": null,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/regression-skidpad-72000-heavy-recorded-visual_stress_v1.json",
+      "sha256": "866d121748c13396a5b8e559bdb2c75471a82e24bff7362fcf66ab244624ed15",
+      "case": {
+        "id": "regression-skidpad-72000-heavy-recorded-visual_stress_v1",
+        "split": "regression",
+        "discipline": "skidpad",
+        "seed": 72000,
+        "dr": "heavy",
+        "variant": "visual_stress_v1",
+        "track_seed": null,
+        "frozen_case": "skidpad-72000-heavy-recorded",
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1.json",
+      "sha256": "999014159528048874f5da1f9d24ebeff213b08c20037ff4f1fc5988cb46c55c",
+      "case": {
+        "id": "regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1",
+        "split": "regression",
+        "discipline": "trackdrive",
+        "seed": 0,
+        "dr": "heavy",
+        "variant": "visual_stress_v1",
+        "track_seed": null,
+        "frozen_case": "retention-trackdrive_020000-heavy-recorded",
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    }
+  ],
+  "pilot": {
+    "case": "train-skidpad-82000-matched",
+    "frames": 120,
+    "run_from_standing": true,
+    "gate": "Full 120 frames, zero physical contacts and off-course, finite commands; full saved-input CPU replay at inherited1e-5 tolerances, independent physical/controller/referee audit, both producer-audited and fully decoded existing video views. This is integration only."
+  },
+  "qualified_checkpoint": "Only the single checkpoint selected by frozen command validation and passing full-history visual gate may enter development qualification.",
+  "rejected_checkpoint": "If no checkpoint qualifies offline, use only the fixed step500 package for a labeled pilot and one exposed full episode per regression case. No final tests and no promotion.",
+  "development_order": [
+    "regression-skidpad-72000-heavy-recorded-visual_stress_v1",
+    "regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1"
+  ],
+  "candidate_repeats_per_case": 3,
+  "qualification_gate": "All six prescribed candidate episodes finish under unchanged120-second limits, zero physical contacts and zero off-course, full validR,R,L,L and stop for skidpad. Missing or unaudited episodes leave NOT VERIFIED.",
+  "failure_policy": "A driving failure rejects this candidate for promotion. Complete the first diagnostic pair to measure track retention, then do not spend remaining qualification repetitions on a rejected candidate. Retain all failures and inspect the first divergence before the next targeted experiment.",
+  "baseline": "Run the unchanged c121 OP+PI baseline once per regression condition as a fresh descriptive reference when paired data are needed. Its failures cannot relax the candidate gate. Earlier complete baseline runs remain reported separately.",
+  "comparability": "Same case bytes, native physics and camera,20Hz control,120-second timeout and unchanged contact/route referee. The candidate has an explicit new execution contract and extra measured yaw-rate input; do not label this a same-controller weight-only comparison.",
+  "source_gate": "Freeze the complete evaluator, verifier, artifact auditor and render wrapper before the pilot. Source changes invalidate affected evidence and require a new preserved attempt.",
+  "evidence": "Record every actual camera input, original plan/cone diagnostics, direct-head latent/proprio/raw/bounded/applied requests, body dynamics, contact/referee events and terminal failure. Plan is diagnostic; the direct head chooses actions.",
+  "storage_gate": "Preserve every original and newly attempted artifact. Keep the existing25GiB tmpfs free reserve. Resolve durable final-suite capacity before opening final tests. No existing evidence deletion or container restart."
+}

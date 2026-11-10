@@ -1,0 +1,8 @@
+{
+  "reason": "Audit2 passed data and exact hooked/plain arithmetic checks but failed archiving the legitimate external canonical recovery recipe. Archive such dependencies under explicit external/ path, preserving content hashes and all gates. No optimization ran.",
+  "script_sha256": "656b410d780498e027a3ab18ee1d864dfffbd99610710dc38bceeee8691544cd",
+  "recipe_sha256": "0b25d60d2b6a2f77c743eb997cb61a6817b53c05982970cbc29b01cc2199f893",
+  "prior_script_sha256": "b76227ec320d58a962ed82d1e41fdd23489dffb185a56cac25f6a99d0afe9c4a",
+  "new_output": "runs/direct_command_trial3",
+  "numeric_recipe_unchanged": true
+}

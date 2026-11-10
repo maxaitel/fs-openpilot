@@ -1,0 +1,8 @@
+# Lossless evidence storage feasibility
+
+The driving mission requires all raw evidence and failed runs to remain intact. The full final suite is unopened. Mac free capacity is about127GiB and Spark persistent disk is near full. This probe asks whether lossless compression of already-written NPZ evidence can reduce a future durable archive budget. It does not delete or alter any source artifact, prove a network mount, or authorize final launch.
+
+Select exactly the first200frame NPZ files of the completed rejected joint heavy skid episode before any compression. Freeze their source SHA256 values and this protocol and executable. Archive that selection through tar and zstd level10, one thread, long window27. No parameter sweep. Save the actual archive in a new output directory and hash it. Stream-decompress the entire archive and require exact file names, sizes and SHA256 values against the selection. Rehash source files after compression. Record byte ratio and wall durations without claiming isolated compute efficiency. Verify zstd tool identity/version. Input images and model outputs are already NPZ-compressed; improvement is uncertain. Correlated first200skid frames cannot bound worst-case compression on final scenes.
+
+
+Version2 addresses only Mac tar metadata handling. Version1 preserved all200NPZpayloads exactly but also emitted200AppleDouble `._` members, so its strict archive inventory correctly failed. Its archive and failure receipt remain retained. Version2 sets `COPYFILE_DISABLE=1` for the tar child before the same compression recipe and strict equality checks. No source NPZ file or data content changes. A failure now always writes a failure receipt.

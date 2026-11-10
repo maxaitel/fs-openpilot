@@ -1,0 +1,169 @@
+{
+  "method": "ffmpeg -v error -xerror -i INPUT -map 0:v:0 -f null - -progress pipe:1 -nostats",
+  "ffmpeg_version": "ffmpeg version 9.0.2 Copyright (c) 2000-2026 the FFmpeg developers",
+  "scope": "Full local decoding of each listed encoded video stream; no inference, rendering, physics or scoring rerun.",
+  "video_count": 20,
+  "passed": true,
+  "videos": [
+    {
+      "path": "runs/direct_command_pilot3/debug.mp4",
+      "sha256": "98a7338fa6744191815f16e5f4080524646aa2c7531185a4d38377ee27223040",
+      "bytes": 1925228,
+      "decoded_frames": 160,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/direct_command_pilot3/research.mp4",
+      "sha256": "e024851f50acac24eed13d306d51a0bc1d911614a05c67221a2a6a02ad9023cf",
+      "bytes": 1937948,
+      "decoded_frames": 160,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/direct_command_development3_archive/heavy_skid/debug.mp4",
+      "sha256": "01aa1967f371f94532bd0f8c31f0537f0f65355a4cf6fd59ad0b83893be41c22",
+      "bytes": 40939689,
+      "decoded_frames": 2440,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/direct_command_development3_archive/heavy_skid/research.mp4",
+      "sha256": "45ce7eaea5abe4c49bec4e57ae257b1591cc63432811b12f9e2155f9dcd8ce8b",
+      "bytes": 34713454,
+      "decoded_frames": 2440,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/direct_command_development3_archive/heavy_track/debug.mp4",
+      "sha256": "6be3a398f37c40123a2ee019ae9ae9c901ea4d35a4eaf512930384e311d51d7a",
+      "bytes": 48644256,
+      "decoded_frames": 2440,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/direct_command_development3_archive/heavy_track/research.mp4",
+      "sha256": "85474bfaf8f0a97c7a56f411d9f6d91e4715b2413246eca8f15409e1f6dbebc8",
+      "bytes": 41302697,
+      "decoded_frames": 2440,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/pi_correction_media/development_head_trial1/baseline/heavy_skid/debug.mp4",
+      "sha256": "51abb43f073c380bab004e2f90a624d6a29948179f96d7106c0993e3dde3449c",
+      "bytes": 23379931,
+      "decoded_frames": 1578,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/pi_correction_media/development_head_trial1/baseline/heavy_skid/research.mp4",
+      "sha256": "26ef0e220f3972a825330a00197a7e25e071c417724e255f80967bb3d1c40a99",
+      "bytes": 23785063,
+      "decoded_frames": 1578,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/pi_correction_media/development_head_trial1/baseline/heavy_track/debug.mp4",
+      "sha256": "88cf8478dfb3f0cfb3db084413f678ecae59052dbe4175d54b31c2c8fee08151",
+      "bytes": 25427313,
+      "decoded_frames": 1165,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/pi_correction_media/development_head_trial1/baseline/heavy_track/research.mp4",
+      "sha256": "287516d8ceaf06366c14e0eb47325bb3065ddc7515fee6176d9b33294c3bf98b",
+      "bytes": 23673473,
+      "decoded_frames": 1165,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/pi_correction_media/development_head_trial1/candidate/heavy_skid/debug.mp4",
+      "sha256": "8228e006ca350dd7abd2e4bb730cfb81f9c27e9e03d37a2c784109cce087171b",
+      "bytes": 13569402,
+      "decoded_frames": 699,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/pi_correction_media/development_head_trial1/candidate/heavy_skid/research.mp4",
+      "sha256": "e64964bc163996a8885a1db2bdc007cced0a0873663851a7a85d9d9236cea64f",
+      "bytes": 12426380,
+      "decoded_frames": 699,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/pi_correction_media/development_head_trial1/candidate/heavy_track/debug.mp4",
+      "sha256": "ccfe818ceffc1fcfc93191b43041361da0692e00644e2393305ea6a1fa3a3d1a",
+      "bytes": 25782210,
+      "decoded_frames": 1181,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/pi_correction_media/development_head_trial1/candidate/heavy_track/research.mp4",
+      "sha256": "6b205dae264ce3e2ff3ba906582c86c79ad52b9b4b012637cf9002a04dd1c632",
+      "bytes": 23900164,
+      "decoded_frames": 1181,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/direct_command_recovery_pilot2/debug.mp4",
+      "sha256": "9b74d176dc8bba8d8bdedadaf8e1a151938acceedbe0a976a09a5081b257b2b6",
+      "bytes": 1303171,
+      "decoded_frames": 100,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/direct_command_recovery_pilot2/research.mp4",
+      "sha256": "e0e0f321706b5d336baecc437067f310a75329ee9ac00934632bce27eea8dca3",
+      "bytes": 1253557,
+      "decoded_frames": 100,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/direct_command_recovery_development2_archive/heavy_skid/debug.mp4",
+      "sha256": "6de93eac86f9f7c1aa9c9c1dfe4b32a3224f92a82066f6a5f293270cf2283185",
+      "bytes": 1732990,
+      "decoded_frames": 100,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/direct_command_recovery_development2_archive/heavy_skid/research.mp4",
+      "sha256": "16cbe93887c0ff274e8b82c6ced192def4e42a50c86bd8a4da3b20ea6220781f",
+      "bytes": 1534122,
+      "decoded_frames": 100,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/direct_command_recovery_development2_archive/heavy_track/debug.mp4",
+      "sha256": "82dadbad6a8486cc4d075e527a5cfbe361ba77136238f7118780dea16997958e",
+      "bytes": 52425878,
+      "decoded_frames": 2440,
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "runs/direct_command_recovery_development2_archive/heavy_track/research.mp4",
+      "sha256": "bfe33ded30cf61ae5e86ec81886dcdef51940670e4ea80a6dfc58e29ddbc3121",
+      "bytes": 43199008,
+      "decoded_frames": 2440,
+      "exit_code": 0,
+      "stderr": ""
+    }
+  ]
+}

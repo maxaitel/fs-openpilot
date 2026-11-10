@@ -1,0 +1,36 @@
+{
+  "frozen_at": "2026-11-10T08:35:02.289094+00:00",
+  "status": "REJECTED_OFFLINE_DIAGNOSTIC_ONLY",
+  "checkpoint": "runs/joint_command_trial1/step_500.pt",
+  "checkpoint_sha256": "3cb08122c7d21656c23d3786c059b5a59bb904a8bb3fd617ec38020308de7b35",
+  "training_complete": true,
+  "independent_postflight_passed": true,
+  "all_validation_checkpoints_failed": true,
+  "runtime_preflight_passed": true,
+  "runtime_backend": "CPU FP32 four threads",
+  "runtime_frames": 184,
+  "runtime_repeat_and_head_tolerance": 1e-05,
+  "visual_qualification": "not eligible; not run",
+  "protocol": "direct_development_protocol.json rejected_checkpoint branch",
+  "order": [
+    "120-frame TRAIN skidpad pilot with natural terminal failure",
+    "one full exposed heavy skidpad",
+    "one full exposed heavy track"
+  ],
+  "remaining_repeats": "forbidden for this rejected checkpoint",
+  "physical_and_replay_gates": "unchanged",
+  "final_suite_opened": false,
+  "source_sha256": {
+    ".work/lab/joint_command_trial/prelaunch_freeze1.json": "afb612a625a683bde7ba03993fa337074d2fc624066cb82f9af0d5c5e2e32b4c",
+    ".work/lab/joint_command_trial/joint_core.py": "76c6c03687c6cae02db7d89635aebe879ac377927c940039e2f67e3ee3bd452b",
+    ".work/lab/joint_command_trial/evaluate.py": "e5158eb985d895f024035abb77eea96530370c13bdb8c4a48d1204fadc7497e7",
+    ".work/lab/joint_command_trial/verify_command_episode.py": "96a3afa8c236a884dbbd613a604fed769015f809328a940733a3158077e9a91e",
+    ".work/lab/joint_command_trial/process.py": "09ba5aa3a89cf10b42eeda29496224bb251a3c15fb3603e4266fea3215fc8ce9",
+    ".work/lab/joint_command_trial/export_audited_command.py": "95816dfd6cd03b94a47522c4b31114322ce220d9380c4ed8b8822d4957421502",
+    ".work/lab/joint_command_trial/encode_portable.py": "573fb2a3f8dab69ab9fa1fe51726f11b1bc98e8f399f4c558f3ff983adaa5f42",
+    ".work/lab/joint_command_trial/protocol.md": "2b8885fdc6106dcd405c329f4ea0367c0d294eaf4e2bde1e7745fa73fd3f8d88",
+    ".work/lab/joint_command_trial/pipeline_notes.md": "7a2e1fb65254feb06fef05b8e58cecb1832d4ad8a7cb8b2a5ed31fcd8d59f00e",
+    "benchmarks/driving-reliability-2026-11-10/direct_development_protocol.json": "3bfc009b972b418424473be0a30b05d8fb23e8e08bf0e2c5a3992602d817ba84"
+  },
+  "limitation": "CPU forward mean0.13018s, p950.13652s on saved inputs. No real-time20Hz claim."
+}

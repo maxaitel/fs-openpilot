@@ -1,0 +1,16 @@
+{
+  "arm": "recorded",
+  "protocol_sha256": "d74fee71ccc15fab93f631133b3e116c8d7afa4d1a602b3ba9a6d8d024418c55",
+  "status": "closed_and_independently_verified",
+  "child_exited": true,
+  "child_returncode": 0,
+  "files_sha256": {
+    "result.json": "44014dd88bf0743e427ae87272d54c70c9a9f0831bd1f2cc30f0fd66bd40aa19",
+    "verification.json": "e59024febd2a1b2bdc928e3e673909915f444553093dff358df082e2a3ce67a7",
+    "worker_result.json": "6fca7256ec9629ce1847756eddab52593e58ad95ae664252a1cf0828e13a1a09",
+    "route_events.json": "25d3c8f171aae5d7f7b1cae24014ad03b589f9b7183b8d1240ee7b8aeaac4484",
+    "diagnostics.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "trace.npz": "ed87cfae9d42d19bc83821f2ec16d7188e4155067d66ca7d3d0668813f883c0e",
+    "process.log": "f718f87a75a872649590566c2e5acbe629d08ba4bdccd393d65b295f1213ca0a"
+  }
+}

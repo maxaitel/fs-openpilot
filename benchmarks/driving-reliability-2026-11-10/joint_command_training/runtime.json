@@ -1,0 +1,6868 @@
+{
+  "passed": true,
+  "checkpoint_sha256": "3cb08122c7d21656c23d3786c059b5a59bb904a8bb3fd617ec38020308de7b35",
+  "policy_device": "cpu",
+  "torch_num_threads": 4,
+  "dtype": "torch.float32",
+  "rtol": 1e-05,
+  "atol": 1e-05,
+  "load_seconds": 0.7005632480140775,
+  "datasets": [
+    {
+      "case": "train-skidpad-82000-matched-direct-recovery-v1",
+      "available_prefix_frames": 64,
+      "frames": 64,
+      "phases": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "proposals_sha256": "7335c1eef3b9caecbafccd5ea348e42ac4c2e7e8fab2d1e0c372d41567788508",
+      "warmup_frames": 8,
+      "warmup_seconds": 1.0268145960289985,
+      "rgb_sha256": {
+        "road": "0f57a109e4108555f216224128a5d7f716f40993b5ed75b0164f968a279db519",
+        "wide": "01df01e5585ac819a3df424d883918a288bdc38e84604fbe79eea6ef7144e023"
+      }
+    },
+    {
+      "case": "train-trackdrive-82000-matched-direct-recovery-v1",
+      "available_prefix_frames": 165,
+      "frames": 120,
+      "phases": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "proposals_sha256": "fc0fa85d96fd431002f0c6ee895a66a5eab1381d9cf7549c53b40702d3e50d8c",
+      "warmup_frames": 8,
+      "warmup_seconds": 1.0153171611018479,
+      "rgb_sha256": {
+        "road": "edbc7c90e088b78fc8d9cd5343a098a4ddcf17775781ccf4ee9d5c671a1bea4e",
+        "wide": "a5bb1f10d6a2032d085a20249f9554f2e665067be7b9413d77d2cc2f28790543"
+      }
+    }
+  ],
+  "repeat_and_head_checks": {
+    "skidpad.repeat.action[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.action[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.base_controller_diagnostic.applied": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.base_controller_diagnostic.integral_after": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.base_controller_diagnostic.integral_before": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.base_controller_diagnostic.mission_override": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.base_controller_diagnostic.proposed": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.base_controller_diagnostic.raw": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.base_controller_diagnostic.speed_error": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.base_controller_diagnostic.tangent_accel": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.base_controller_diagnostic.target_speed": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.cones_cls": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.cones_score": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.cones_xy": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.applied[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.applied[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.bounded[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.bounded[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.kind": {
+      "max_abs": null,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[2]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[3]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[4]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[5]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[6]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[7]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[8]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[9]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[10]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[11]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[12]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[13]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[14]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[15]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[16]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[17]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[18]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[19]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[20]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[21]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[22]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[23]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[24]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[25]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[26]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[27]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[28]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[29]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[30]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[31]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[32]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[33]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[34]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[35]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[36]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[37]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[38]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[39]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[40]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[41]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[42]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[43]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[44]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[45]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[46]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[47]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[48]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[49]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[50]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[51]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[52]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[53]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[54]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[55]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[56]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[57]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[58]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[59]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[60]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[61]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[62]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[63]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[64]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[65]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[66]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[67]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[68]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[69]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[70]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[71]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[72]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[73]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[74]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[75]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[76]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[77]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[78]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[79]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[80]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[81]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[82]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[83]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[84]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[85]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[86]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[87]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[88]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[89]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[90]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[91]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[92]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[93]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[94]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[95]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[96]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[97]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[98]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[99]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[100]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[101]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[102]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[103]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[104]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[105]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[106]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[107]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[108]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[109]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[110]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[111]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[112]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[113]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[114]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[115]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[116]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[117]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[118]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[119]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[120]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[121]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[122]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[123]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[124]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[125]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[126]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[127]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[128]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[129]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[130]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[131]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[132]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[133]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[134]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[135]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[136]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[137]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[138]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[139]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[140]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[141]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[142]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[143]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[144]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[145]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[146]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[147]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[148]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[149]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[150]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[151]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[152]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[153]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[154]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[155]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[156]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[157]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[158]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[159]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[160]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[161]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[162]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[163]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[164]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[165]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[166]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[167]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[168]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[169]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[170]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[171]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[172]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[173]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[174]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[175]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[176]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[177]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[178]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[179]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[180]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[181]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[182]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[183]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[184]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[185]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[186]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[187]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[188]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[189]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[190]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[191]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[192]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[193]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[194]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[195]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[196]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[197]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[198]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[199]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[200]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[201]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[202]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[203]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[204]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[205]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[206]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[207]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[208]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[209]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[210]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[211]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[212]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[213]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[214]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[215]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[216]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[217]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[218]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[219]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[220]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[221]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[222]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[223]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[224]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[225]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[226]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[227]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[228]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[229]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[230]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[231]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[232]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[233]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[234]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[235]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[236]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[237]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[238]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[239]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[240]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[241]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[242]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[243]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[244]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[245]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[246]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[247]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[248]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[249]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[250]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[251]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[252]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[253]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[254]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.latent[255]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.mission_override": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.proprio[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.proprio[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.proprio[2]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.raw[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.controller.raw[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.plan": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.repeat.prediction.plan_std": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "skidpad.saved_latent_head": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.action[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.action[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.base_controller_diagnostic.applied": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.base_controller_diagnostic.integral_after": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.base_controller_diagnostic.integral_before": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.base_controller_diagnostic.mission_override": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.base_controller_diagnostic.proposed": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.base_controller_diagnostic.raw": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.base_controller_diagnostic.speed_error": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.base_controller_diagnostic.tangent_accel": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.base_controller_diagnostic.target_speed": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.cones_cls": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.cones_score": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.cones_xy": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.applied[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.applied[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.bounded[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.bounded[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.kind": {
+      "max_abs": null,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[2]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[3]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[4]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[5]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[6]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[7]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[8]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[9]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[10]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[11]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[12]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[13]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[14]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[15]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[16]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[17]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[18]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[19]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[20]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[21]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[22]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[23]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[24]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[25]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[26]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[27]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[28]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[29]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[30]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[31]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[32]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[33]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[34]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[35]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[36]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[37]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[38]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[39]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[40]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[41]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[42]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[43]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[44]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[45]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[46]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[47]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[48]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[49]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[50]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[51]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[52]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[53]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[54]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[55]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[56]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[57]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[58]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[59]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[60]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[61]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[62]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[63]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[64]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[65]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[66]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[67]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[68]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[69]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[70]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[71]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[72]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[73]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[74]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[75]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[76]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[77]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[78]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[79]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[80]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[81]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[82]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[83]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[84]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[85]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[86]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[87]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[88]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[89]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[90]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[91]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[92]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[93]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[94]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[95]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[96]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[97]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[98]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[99]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[100]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[101]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[102]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[103]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[104]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[105]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[106]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[107]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[108]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[109]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[110]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[111]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[112]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[113]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[114]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[115]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[116]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[117]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[118]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[119]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[120]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[121]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[122]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[123]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[124]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[125]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[126]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[127]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[128]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[129]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[130]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[131]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[132]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[133]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[134]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[135]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[136]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[137]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[138]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[139]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[140]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[141]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[142]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[143]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[144]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[145]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[146]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[147]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[148]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[149]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[150]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[151]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[152]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[153]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[154]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[155]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[156]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[157]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[158]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[159]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[160]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[161]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[162]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[163]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[164]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[165]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[166]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[167]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[168]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[169]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[170]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[171]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[172]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[173]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[174]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[175]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[176]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[177]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[178]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[179]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[180]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[181]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[182]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[183]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[184]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[185]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[186]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[187]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[188]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[189]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[190]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[191]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[192]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[193]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[194]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[195]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[196]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[197]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[198]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[199]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[200]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[201]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[202]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[203]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[204]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[205]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[206]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[207]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[208]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[209]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[210]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[211]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[212]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[213]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[214]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[215]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[216]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[217]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[218]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[219]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[220]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[221]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[222]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[223]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[224]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[225]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[226]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[227]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[228]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[229]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[230]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[231]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[232]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[233]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[234]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[235]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[236]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[237]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[238]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[239]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[240]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[241]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[242]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[243]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[244]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[245]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[246]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[247]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[248]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[249]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[250]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[251]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[252]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[253]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[254]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.latent[255]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.mission_override": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.proprio[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.proprio[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.proprio[2]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.raw[0]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.controller.raw[1]": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.plan": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.repeat.prediction.plan_std": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    },
+    "trackdrive.saved_latent_head": {
+      "max_abs": 0.0,
+      "mismatches": 0
+    }
+  },
+  "all_saved_state_unchanged": true,
+  "inference": {
+    "frames": 184,
+    "mean_seconds": 0.13018074888943532,
+    "p95_seconds": 0.13651670372346417,
+    "max_seconds": 0.151688891928643,
+    "phases": {
+      "0": {
+        "frames": 46,
+        "mean_seconds": 0.12997556795902632
+      },
+      "1": {
+        "frames": 46,
+        "mean_seconds": 0.1308941825637189
+      },
+      "2": {
+        "frames": 46,
+        "mean_seconds": 0.13056765873815215
+      },
+      "3": {
+        "frames": 46,
+        "mean_seconds": 0.12928558629684392
+      }
+    }
+  },
+  "inference_with_plan_cone_capture": {
+    "frames": 184,
+    "mean_seconds": 0.12842769152168487,
+    "p95_seconds": 0.1337790720979683,
+    "max_seconds": 0.13610027194954455,
+    "phases": {
+      "0": {
+        "frames": 46,
+        "mean_seconds": 0.12863319330727277
+      },
+      "1": {
+        "frames": 46,
+        "mean_seconds": 0.12825895867148496
+      },
+      "2": {
+        "frames": 46,
+        "mean_seconds": 0.1284254146233687
+      },
+      "3": {
+        "frames": 46,
+        "mean_seconds": 0.1283931994846131
+      }
+    }
+  },
+  "inference_per_frame": [
+    {
+      "case": "skidpad",
+      "frame": 0,
+      "phase": 0,
+      "seconds": 0.12806440005078912
+    },
+    {
+      "case": "skidpad",
+      "frame": 1,
+      "phase": 1,
+      "seconds": 0.13156360003631562
+    },
+    {
+      "case": "skidpad",
+      "frame": 2,
+      "phase": 2,
+      "seconds": 0.133705597021617
+    },
+    {
+      "case": "skidpad",
+      "frame": 3,
+      "phase": 3,
+      "seconds": 0.13098514103330672
+    },
+    {
+      "case": "skidpad",
+      "frame": 4,
+      "phase": 0,
+      "seconds": 0.13415114500094205
+    },
+    {
+      "case": "skidpad",
+      "frame": 5,
+      "phase": 1,
+      "seconds": 0.12696218502242118
+    },
+    {
+      "case": "skidpad",
+      "frame": 6,
+      "phase": 2,
+      "seconds": 0.1295273150317371
+    },
+    {
+      "case": "skidpad",
+      "frame": 7,
+      "phase": 3,
+      "seconds": 0.13289531599730253
+    },
+    {
+      "case": "skidpad",
+      "frame": 8,
+      "phase": 0,
+      "seconds": 0.13510142406448722
+    },
+    {
+      "case": "skidpad",
+      "frame": 9,
+      "phase": 1,
+      "seconds": 0.13347142306156456
+    },
+    {
+      "case": "skidpad",
+      "frame": 10,
+      "phase": 2,
+      "seconds": 0.1377079130616039
+    },
+    {
+      "case": "skidpad",
+      "frame": 11,
+      "phase": 3,
+      "seconds": 0.1286570499651134
+    },
+    {
+      "case": "skidpad",
+      "frame": 12,
+      "phase": 0,
+      "seconds": 0.12775893101934344
+    },
+    {
+      "case": "skidpad",
+      "frame": 13,
+      "phase": 1,
+      "seconds": 0.1282807650277391
+    },
+    {
+      "case": "skidpad",
+      "frame": 14,
+      "phase": 2,
+      "seconds": 0.13354266993701458
+    },
+    {
+      "case": "skidpad",
+      "frame": 15,
+      "phase": 3,
+      "seconds": 0.12538010405842215
+    },
+    {
+      "case": "skidpad",
+      "frame": 16,
+      "phase": 0,
+      "seconds": 0.1303710030624643
+    },
+    {
+      "case": "skidpad",
+      "frame": 17,
+      "phase": 1,
+      "seconds": 0.13246074400376529
+    },
+    {
+      "case": "skidpad",
+      "frame": 18,
+      "phase": 2,
+      "seconds": 0.12751202005892992
+    },
+    {
+      "case": "skidpad",
+      "frame": 19,
+      "phase": 3,
+      "seconds": 0.13261360698379576
+    },
+    {
+      "case": "skidpad",
+      "frame": 20,
+      "phase": 0,
+      "seconds": 0.13018718094099313
+    },
+    {
+      "case": "skidpad",
+      "frame": 21,
+      "phase": 1,
+      "seconds": 0.12671319604851305
+    },
+    {
+      "case": "skidpad",
+      "frame": 22,
+      "phase": 2,
+      "seconds": 0.1246154069667682
+    },
+    {
+      "case": "skidpad",
+      "frame": 23,
+      "phase": 3,
+      "seconds": 0.12707546493038535
+    },
+    {
+      "case": "skidpad",
+      "frame": 24,
+      "phase": 0,
+      "seconds": 0.13275118998717517
+    },
+    {
+      "case": "skidpad",
+      "frame": 25,
+      "phase": 1,
+      "seconds": 0.13303317106328905
+    },
+    {
+      "case": "skidpad",
+      "frame": 26,
+      "phase": 2,
+      "seconds": 0.1373803960159421
+    },
+    {
+      "case": "skidpad",
+      "frame": 27,
+      "phase": 3,
+      "seconds": 0.12560861406382173
+    },
+    {
+      "case": "skidpad",
+      "frame": 28,
+      "phase": 0,
+      "seconds": 0.1326738459756598
+    },
+    {
+      "case": "skidpad",
+      "frame": 29,
+      "phase": 1,
+      "seconds": 0.13316592201590538
+    },
+    {
+      "case": "skidpad",
+      "frame": 30,
+      "phase": 2,
+      "seconds": 0.12901755899656564
+    },
+    {
+      "case": "skidpad",
+      "frame": 31,
+      "phase": 3,
+      "seconds": 0.1318542850203812
+    },
+    {
+      "case": "skidpad",
+      "frame": 32,
+      "phase": 0,
+      "seconds": 0.12588646705262363
+    },
+    {
+      "case": "skidpad",
+      "frame": 33,
+      "phase": 1,
+      "seconds": 0.12698973796796054
+    },
+    {
+      "case": "skidpad",
+      "frame": 34,
+      "phase": 2,
+      "seconds": 0.12513388297520578
+    },
+    {
+      "case": "skidpad",
+      "frame": 35,
+      "phase": 3,
+      "seconds": 0.13372607703786343
+    },
+    {
+      "case": "skidpad",
+      "frame": 36,
+      "phase": 0,
+      "seconds": 0.130999414017424
+    },
+    {
+      "case": "skidpad",
+      "frame": 37,
+      "phase": 1,
+      "seconds": 0.1311963879270479
+    },
+    {
+      "case": "skidpad",
+      "frame": 38,
+      "phase": 2,
+      "seconds": 0.13274983107112348
+    },
+    {
+      "case": "skidpad",
+      "frame": 39,
+      "phase": 3,
+      "seconds": 0.12825970991980284
+    },
+    {
+      "case": "skidpad",
+      "frame": 40,
+      "phase": 0,
+      "seconds": 0.13141321809962392
+    },
+    {
+      "case": "skidpad",
+      "frame": 41,
+      "phase": 1,
+      "seconds": 0.1308323279954493
+    },
+    {
+      "case": "skidpad",
+      "frame": 42,
+      "phase": 2,
+      "seconds": 0.13169059192296118
+    },
+    {
+      "case": "skidpad",
+      "frame": 43,
+      "phase": 3,
+      "seconds": 0.12814337597228587
+    },
+    {
+      "case": "skidpad",
+      "frame": 44,
+      "phase": 0,
+      "seconds": 0.13315451506059617
+    },
+    {
+      "case": "skidpad",
+      "frame": 45,
+      "phase": 1,
+      "seconds": 0.12937018100637943
+    },
+    {
+      "case": "skidpad",
+      "frame": 46,
+      "phase": 2,
+      "seconds": 0.12789313797838986
+    },
+    {
+      "case": "skidpad",
+      "frame": 47,
+      "phase": 3,
+      "seconds": 0.1305804899893701
+    },
+    {
+      "case": "skidpad",
+      "frame": 48,
+      "phase": 0,
+      "seconds": 0.13283141399733722
+    },
+    {
+      "case": "skidpad",
+      "frame": 49,
+      "phase": 1,
+      "seconds": 0.13398690696340054
+    },
+    {
+      "case": "skidpad",
+      "frame": 50,
+      "phase": 2,
+      "seconds": 0.12802110495977104
+    },
+    {
+      "case": "skidpad",
+      "frame": 51,
+      "phase": 3,
+      "seconds": 0.13680526602547616
+    },
+    {
+      "case": "skidpad",
+      "frame": 52,
+      "phase": 0,
+      "seconds": 0.1351650559809059
+    },
+    {
+      "case": "skidpad",
+      "frame": 53,
+      "phase": 1,
+      "seconds": 0.1263656800147146
+    },
+    {
+      "case": "skidpad",
+      "frame": 54,
+      "phase": 2,
+      "seconds": 0.13386153301689774
+    },
+    {
+      "case": "skidpad",
+      "frame": 55,
+      "phase": 3,
+      "seconds": 0.1284810530487448
+    },
+    {
+      "case": "skidpad",
+      "frame": 56,
+      "phase": 0,
+      "seconds": 0.13793864799663424
+    },
+    {
+      "case": "skidpad",
+      "frame": 57,
+      "phase": 1,
+      "seconds": 0.151688891928643
+    },
+    {
+      "case": "skidpad",
+      "frame": 58,
+      "phase": 2,
+      "seconds": 0.15099723497405648
+    },
+    {
+      "case": "skidpad",
+      "frame": 59,
+      "phase": 3,
+      "seconds": 0.13320518599357456
+    },
+    {
+      "case": "skidpad",
+      "frame": 60,
+      "phase": 0,
+      "seconds": 0.14046822593081743
+    },
+    {
+      "case": "skidpad",
+      "frame": 61,
+      "phase": 1,
+      "seconds": 0.1327964219963178
+    },
+    {
+      "case": "skidpad",
+      "frame": 62,
+      "phase": 2,
+      "seconds": 0.13313569908495992
+    },
+    {
+      "case": "skidpad",
+      "frame": 63,
+      "phase": 3,
+      "seconds": 0.13494899403303862
+    },
+    {
+      "case": "trackdrive",
+      "frame": 0,
+      "phase": 0,
+      "seconds": 0.12824041803833097
+    },
+    {
+      "case": "trackdrive",
+      "frame": 1,
+      "phase": 1,
+      "seconds": 0.13127522205468267
+    },
+    {
+      "case": "trackdrive",
+      "frame": 2,
+      "phase": 2,
+      "seconds": 0.13054646097589284
+    },
+    {
+      "case": "trackdrive",
+      "frame": 3,
+      "phase": 3,
+      "seconds": 0.13401932502165437
+    },
+    {
+      "case": "trackdrive",
+      "frame": 4,
+      "phase": 0,
+      "seconds": 0.13070209103170782
+    },
+    {
+      "case": "trackdrive",
+      "frame": 5,
+      "phase": 1,
+      "seconds": 0.14927075698506087
+    },
+    {
+      "case": "trackdrive",
+      "frame": 6,
+      "phase": 2,
+      "seconds": 0.1328066480346024
+    },
+    {
+      "case": "trackdrive",
+      "frame": 7,
+      "phase": 3,
+      "seconds": 0.13247297191992402
+    },
+    {
+      "case": "trackdrive",
+      "frame": 8,
+      "phase": 0,
+      "seconds": 0.13345537893474102
+    },
+    {
+      "case": "trackdrive",
+      "frame": 9,
+      "phase": 1,
+      "seconds": 0.1495787379099056
+    },
+    {
+      "case": "trackdrive",
+      "frame": 10,
+      "phase": 2,
+      "seconds": 0.13027833600062877
+    },
+    {
+      "case": "trackdrive",
+      "frame": 11,
+      "phase": 3,
+      "seconds": 0.12652206502389163
+    },
+    {
+      "case": "trackdrive",
+      "frame": 12,
+      "phase": 0,
+      "seconds": 0.12856026994995773
+    },
+    {
+      "case": "trackdrive",
+      "frame": 13,
+      "phase": 1,
+      "seconds": 0.12977933196816593
+    },
+    {
+      "case": "trackdrive",
+      "frame": 14,
+      "phase": 2,
+      "seconds": 0.12802864401601255
+    },
+    {
+      "case": "trackdrive",
+      "frame": 15,
+      "phase": 3,
+      "seconds": 0.12861279805656523
+    },
+    {
+      "case": "trackdrive",
+      "frame": 16,
+      "phase": 0,
+      "seconds": 0.13194488000590354
+    },
+    {
+      "case": "trackdrive",
+      "frame": 17,
+      "phase": 1,
+      "seconds": 0.12940639106091112
+    },
+    {
+      "case": "trackdrive",
+      "frame": 18,
+      "phase": 2,
+      "seconds": 0.1344911459600553
+    },
+    {
+      "case": "trackdrive",
+      "frame": 19,
+      "phase": 3,
+      "seconds": 0.13363291299901903
+    },
+    {
+      "case": "trackdrive",
+      "frame": 20,
+      "phase": 0,
+      "seconds": 0.12506074993871152
+    },
+    {
+      "case": "trackdrive",
+      "frame": 21,
+      "phase": 1,
+      "seconds": 0.12853086297400296
+    },
+    {
+      "case": "trackdrive",
+      "frame": 22,
+      "phase": 2,
+      "seconds": 0.1292295289458707
+    },
+    {
+      "case": "trackdrive",
+      "frame": 23,
+      "phase": 3,
+      "seconds": 0.12391640897840261
+    },
+    {
+      "case": "trackdrive",
+      "frame": 24,
+      "phase": 0,
+      "seconds": 0.1280983389588073
+    },
+    {
+      "case": "trackdrive",
+      "frame": 25,
+      "phase": 1,
+      "seconds": 0.12627067498397082
+    },
+    {
+      "case": "trackdrive",
+      "frame": 26,
+      "phase": 2,
+      "seconds": 0.13026491203345358
+    },
+    {
+      "case": "trackdrive",
+      "frame": 27,
+      "phase": 3,
+      "seconds": 0.1330166949192062
+    },
+    {
+      "case": "trackdrive",
+      "frame": 28,
+      "phase": 0,
+      "seconds": 0.12789166904985905
+    },
+    {
+      "case": "trackdrive",
+      "frame": 29,
+      "phase": 1,
+      "seconds": 0.12704810907598585
+    },
+    {
+      "case": "trackdrive",
+      "frame": 30,
+      "phase": 2,
+      "seconds": 0.1280732990708202
+    },
+    {
+      "case": "trackdrive",
+      "frame": 31,
+      "phase": 3,
+      "seconds": 0.12557489005848765
+    },
+    {
+      "case": "trackdrive",
+      "frame": 32,
+      "phase": 0,
+      "seconds": 0.12947682302910835
+    },
+    {
+      "case": "trackdrive",
+      "frame": 33,
+      "phase": 1,
+      "seconds": 0.12692150205839425
+    },
+    {
+      "case": "trackdrive",
+      "frame": 34,
+      "phase": 2,
+      "seconds": 0.1333564210217446
+    },
+    {
+      "case": "trackdrive",
+      "frame": 35,
+      "phase": 3,
+      "seconds": 0.12980294798035175
+    },
+    {
+      "case": "trackdrive",
+      "frame": 36,
+      "phase": 0,
+      "seconds": 0.12887186906300485
+    },
+    {
+      "case": "trackdrive",
+      "frame": 37,
+      "phase": 1,
+      "seconds": 0.13263708294834942
+    },
+    {
+      "case": "trackdrive",
+      "frame": 38,
+      "phase": 2,
+      "seconds": 0.12783499795477837
+    },
+    {
+      "case": "trackdrive",
+      "frame": 39,
+      "phase": 3,
+      "seconds": 0.1365422800881788
+    },
+    {
+      "case": "trackdrive",
+      "frame": 40,
+      "phase": 0,
+      "seconds": 0.12693812604993582
+    },
+    {
+      "case": "trackdrive",
+      "frame": 41,
+      "phase": 1,
+      "seconds": 0.12470476992893964
+    },
+    {
+      "case": "trackdrive",
+      "frame": 42,
+      "phase": 2,
+      "seconds": 0.12668046401813626
+    },
+    {
+      "case": "trackdrive",
+      "frame": 43,
+      "phase": 3,
+      "seconds": 0.12705530901439488
+    },
+    {
+      "case": "trackdrive",
+      "frame": 44,
+      "phase": 0,
+      "seconds": 0.12995166692417115
+    },
+    {
+      "case": "trackdrive",
+      "frame": 45,
+      "phase": 1,
+      "seconds": 0.12640318705234677
+    },
+    {
+      "case": "trackdrive",
+      "frame": 46,
+      "phase": 2,
+      "seconds": 0.13137115899007767
+    },
+    {
+      "case": "trackdrive",
+      "frame": 47,
+      "phase": 3,
+      "seconds": 0.12889356503728777
+    },
+    {
+      "case": "trackdrive",
+      "frame": 48,
+      "phase": 0,
+      "seconds": 0.12678918289020658
+    },
+    {
+      "case": "trackdrive",
+      "frame": 49,
+      "phase": 1,
+      "seconds": 0.13349200307857245
+    },
+    {
+      "case": "trackdrive",
+      "frame": 50,
+      "phase": 2,
+      "seconds": 0.12446883600205183
+    },
+    {
+      "case": "trackdrive",
+      "frame": 51,
+      "phase": 3,
+      "seconds": 0.12353098904713988
+    },
+    {
+      "case": "trackdrive",
+      "frame": 52,
+      "phase": 0,
+      "seconds": 0.1263328839559108
+    },
+    {
+      "case": "trackdrive",
+      "frame": 53,
+      "phase": 1,
+      "seconds": 0.1282230750657618
+    },
+    {
+      "case": "trackdrive",
+      "frame": 54,
+      "phase": 2,
+      "seconds": 0.12849526409991086
+    },
+    {
+      "case": "trackdrive",
+      "frame": 55,
+      "phase": 3,
+      "seconds": 0.12503099092282355
+    },
+    {
+      "case": "trackdrive",
+      "frame": 56,
+      "phase": 0,
+      "seconds": 0.12797776504885405
+    },
+    {
+      "case": "trackdrive",
+      "frame": 57,
+      "phase": 1,
+      "seconds": 0.13022467191331089
+    },
+    {
+      "case": "trackdrive",
+      "frame": 58,
+      "phase": 2,
+      "seconds": 0.12991017999593168
+    },
+    {
+      "case": "trackdrive",
+      "frame": 59,
+      "phase": 3,
+      "seconds": 0.1264855390181765
+    },
+    {
+      "case": "trackdrive",
+      "frame": 60,
+      "phase": 0,
+      "seconds": 0.13090911495964974
+    },
+    {
+      "case": "trackdrive",
+      "frame": 61,
+      "phase": 1,
+      "seconds": 0.13018228998407722
+    },
+    {
+      "case": "trackdrive",
+      "frame": 62,
+      "phase": 2,
+      "seconds": 0.13015411398373544
+    },
+    {
+      "case": "trackdrive",
+      "frame": 63,
+      "phase": 3,
+      "seconds": 0.12711828493047506
+    },
+    {
+      "case": "trackdrive",
+      "frame": 64,
+      "phase": 0,
+      "seconds": 0.12154007889330387
+    },
+    {
+      "case": "trackdrive",
+      "frame": 65,
+      "phase": 1,
+      "seconds": 0.13026768097188324
+    },
+    {
+      "case": "trackdrive",
+      "frame": 66,
+      "phase": 2,
+      "seconds": 0.12795245391316712
+    },
+    {
+      "case": "trackdrive",
+      "frame": 67,
+      "phase": 3,
+      "seconds": 0.12899503600783646
+    },
+    {
+      "case": "trackdrive",
+      "frame": 68,
+      "phase": 0,
+      "seconds": 0.13039184000808746
+    },
+    {
+      "case": "trackdrive",
+      "frame": 69,
+      "phase": 1,
+      "seconds": 0.13133539899718016
+    },
+    {
+      "case": "trackdrive",
+      "frame": 70,
+      "phase": 2,
+      "seconds": 0.13119514496065676
+    },
+    {
+      "case": "trackdrive",
+      "frame": 71,
+      "phase": 3,
+      "seconds": 0.1253400129498914
+    },
+    {
+      "case": "trackdrive",
+      "frame": 72,
+      "phase": 0,
+      "seconds": 0.12711825303267688
+    },
+    {
+      "case": "trackdrive",
+      "frame": 73,
+      "phase": 1,
+      "seconds": 0.12859244795981795
+    },
+    {
+      "case": "trackdrive",
+      "frame": 74,
+      "phase": 2,
+      "seconds": 0.13060820591636002
+    },
+    {
+      "case": "trackdrive",
+      "frame": 75,
+      "phase": 3,
+      "seconds": 0.13047572795767337
+    },
+    {
+      "case": "trackdrive",
+      "frame": 76,
+      "phase": 0,
+      "seconds": 0.12471611495129764
+    },
+    {
+      "case": "trackdrive",
+      "frame": 77,
+      "phase": 1,
+      "seconds": 0.1277044239686802
+    },
+    {
+      "case": "trackdrive",
+      "frame": 78,
+      "phase": 2,
+      "seconds": 0.12790739792399108
+    },
+    {
+      "case": "trackdrive",
+      "frame": 79,
+      "phase": 3,
+      "seconds": 0.12804750888608396
+    },
+    {
+      "case": "trackdrive",
+      "frame": 80,
+      "phase": 0,
+      "seconds": 0.12753746600355953
+    },
+    {
+      "case": "trackdrive",
+      "frame": 81,
+      "phase": 1,
+      "seconds": 0.132234912016429
+    },
+    {
+      "case": "trackdrive",
+      "frame": 82,
+      "phase": 2,
+      "seconds": 0.13283293810673058
+    },
+    {
+      "case": "trackdrive",
+      "frame": 83,
+      "phase": 3,
+      "seconds": 0.13184435502626002
+    },
+    {
+      "case": "trackdrive",
+      "frame": 84,
+      "phase": 0,
+      "seconds": 0.12937634496483952
+    },
+    {
+      "case": "trackdrive",
+      "frame": 85,
+      "phase": 1,
+      "seconds": 0.13078562798909843
+    },
+    {
+      "case": "trackdrive",
+      "frame": 86,
+      "phase": 2,
+      "seconds": 0.12800011690706015
+    },
+    {
+      "case": "trackdrive",
+      "frame": 87,
+      "phase": 3,
+      "seconds": 0.13015227392315865
+    },
+    {
+      "case": "trackdrive",
+      "frame": 88,
+      "phase": 0,
+      "seconds": 0.13233319902792573
+    },
+    {
+      "case": "trackdrive",
+      "frame": 89,
+      "phase": 1,
+      "seconds": 0.12771115999203175
+    },
+    {
+      "case": "trackdrive",
+      "frame": 90,
+      "phase": 2,
+      "seconds": 0.13296253699809313
+    },
+    {
+      "case": "trackdrive",
+      "frame": 91,
+      "phase": 3,
+      "seconds": 0.12339039891958237
+    },
+    {
+      "case": "trackdrive",
+      "frame": 92,
+      "phase": 0,
+      "seconds": 0.13333618105389178
+    },
+    {
+      "case": "trackdrive",
+      "frame": 93,
+      "phase": 1,
+      "seconds": 0.1258421529782936
+    },
+    {
+      "case": "trackdrive",
+      "frame": 94,
+      "phase": 2,
+      "seconds": 0.12739775504451245
+    },
+    {
+      "case": "trackdrive",
+      "frame": 95,
+      "phase": 3,
+      "seconds": 0.12745740299578756
+    },
+    {
+      "case": "trackdrive",
+      "frame": 96,
+      "phase": 0,
+      "seconds": 0.12949514493811876
+    },
+    {
+      "case": "trackdrive",
+      "frame": 97,
+      "phase": 1,
+      "seconds": 0.12880951899569482
+    },
+    {
+      "case": "trackdrive",
+      "frame": 98,
+      "phase": 2,
+      "seconds": 0.13393196905963123
+    },
+    {
+      "case": "trackdrive",
+      "frame": 99,
+      "phase": 3,
+      "seconds": 0.13637177099008113
+    },
+    {
+      "case": "trackdrive",
+      "frame": 100,
+      "phase": 0,
+      "seconds": 0.13186512410175055
+    },
+    {
+      "case": "trackdrive",
+      "frame": 101,
+      "phase": 1,
+      "seconds": 0.12907834793440998
+    },
+    {
+      "case": "trackdrive",
+      "frame": 102,
+      "phase": 2,
+      "seconds": 0.1281958600739017
+    },
+    {
+      "case": "trackdrive",
+      "frame": 103,
+      "phase": 3,
+      "seconds": 0.12481062696315348
+    },
+    {
+      "case": "trackdrive",
+      "frame": 104,
+      "phase": 0,
+      "seconds": 0.12899900507181883
+    },
+    {
+      "case": "trackdrive",
+      "frame": 105,
+      "phase": 1,
+      "seconds": 0.12913113099057227
+    },
+    {
+      "case": "trackdrive",
+      "frame": 106,
+      "phase": 2,
+      "seconds": 0.12657584296539426
+    },
+    {
+      "case": "trackdrive",
+      "frame": 107,
+      "phase": 3,
+      "seconds": 0.12555722694378346
+    },
+    {
+      "case": "trackdrive",
+      "frame": 108,
+      "phase": 0,
+      "seconds": 0.131378807942383
+    },
+    {
+      "case": "trackdrive",
+      "frame": 109,
+      "phase": 1,
+      "seconds": 0.13307075994089246
+    },
+    {
+      "case": "trackdrive",
+      "frame": 110,
+      "phase": 2,
+      "seconds": 0.1336694590281695
+    },
+    {
+      "case": "trackdrive",
+      "frame": 111,
+      "phase": 3,
+      "seconds": 0.12750570592470467
+    },
+    {
+      "case": "trackdrive",
+      "frame": 112,
+      "phase": 0,
+      "seconds": 0.1271140940953046
+    },
+    {
+      "case": "trackdrive",
+      "frame": 113,
+      "phase": 1,
+      "seconds": 0.12806507700588554
+    },
+    {
+      "case": "trackdrive",
+      "frame": 114,
+      "phase": 2,
+      "seconds": 0.12478201894555241
+    },
+    {
+      "case": "trackdrive",
+      "frame": 115,
+      "phase": 3,
+      "seconds": 0.1273384439991787
+    },
+    {
+      "case": "trackdrive",
+      "frame": 116,
+      "phase": 0,
+      "seconds": 0.12355716596357524
+    },
+    {
+      "case": "trackdrive",
+      "frame": 117,
+      "phase": 1,
+      "seconds": 0.12567754706833512
+    },
+    {
+      "case": "trackdrive",
+      "frame": 118,
+      "phase": 2,
+      "seconds": 0.12761829793453217
+    },
+    {
+      "case": "trackdrive",
+      "frame": 119,
+      "phase": 3,
+      "seconds": 0.12840277107898146
+    }
+  ],
+  "capture_per_frame": [
+    {
+      "case": "skidpad",
+      "frame": 0,
+      "phase": 0,
+      "seconds": 0.13238754600752145
+    },
+    {
+      "case": "skidpad",
+      "frame": 1,
+      "phase": 1,
+      "seconds": 0.1293614450842142
+    },
+    {
+      "case": "skidpad",
+      "frame": 2,
+      "phase": 2,
+      "seconds": 0.1334776640869677
+    },
+    {
+      "case": "skidpad",
+      "frame": 3,
+      "phase": 3,
+      "seconds": 0.12779790710192174
+    },
+    {
+      "case": "skidpad",
+      "frame": 4,
+      "phase": 0,
+      "seconds": 0.1252956730313599
+    },
+    {
+      "case": "skidpad",
+      "frame": 5,
+      "phase": 1,
+      "seconds": 0.12495193292852491
+    },
+    {
+      "case": "skidpad",
+      "frame": 6,
+      "phase": 2,
+      "seconds": 0.13046247500460595
+    },
+    {
+      "case": "skidpad",
+      "frame": 7,
+      "phase": 3,
+      "seconds": 0.13052538700867444
+    },
+    {
+      "case": "skidpad",
+      "frame": 8,
+      "phase": 0,
+      "seconds": 0.13340785703621805
+    },
+    {
+      "case": "skidpad",
+      "frame": 9,
+      "phase": 1,
+      "seconds": 0.12622160196769983
+    },
+    {
+      "case": "skidpad",
+      "frame": 10,
+      "phase": 2,
+      "seconds": 0.12760302994865924
+    },
+    {
+      "case": "skidpad",
+      "frame": 11,
+      "phase": 3,
+      "seconds": 0.1357389559270814
+    },
+    {
+      "case": "skidpad",
+      "frame": 12,
+      "phase": 0,
+      "seconds": 0.13212914892937988
+    },
+    {
+      "case": "skidpad",
+      "frame": 13,
+      "phase": 1,
+      "seconds": 0.12514474790077657
+    },
+    {
+      "case": "skidpad",
+      "frame": 14,
+      "phase": 2,
+      "seconds": 0.12880897091235965
+    },
+    {
+      "case": "skidpad",
+      "frame": 15,
+      "phase": 3,
+      "seconds": 0.1303797080181539
+    },
+    {
+      "case": "skidpad",
+      "frame": 16,
+      "phase": 0,
+      "seconds": 0.12847627000883222
+    },
+    {
+      "case": "skidpad",
+      "frame": 17,
+      "phase": 1,
+      "seconds": 0.13190415897406638
+    },
+    {
+      "case": "skidpad",
+      "frame": 18,
+      "phase": 2,
+      "seconds": 0.1331949149025604
+    },
+    {
+      "case": "skidpad",
+      "frame": 19,
+      "phase": 3,
+      "seconds": 0.12991747306659818
+    },
+    {
+      "case": "skidpad",
+      "frame": 20,
+      "phase": 0,
+      "seconds": 0.1331828199326992
+    },
+    {
+      "case": "skidpad",
+      "frame": 21,
+      "phase": 1,
+      "seconds": 0.12979710602667183
+    },
+    {
+      "case": "skidpad",
+      "frame": 22,
+      "phase": 2,
+      "seconds": 0.1309185199206695
+    },
+    {
+      "case": "skidpad",
+      "frame": 23,
+      "phase": 3,
+      "seconds": 0.12723570503294468
+    },
+    {
+      "case": "skidpad",
+      "frame": 24,
+      "phase": 0,
+      "seconds": 0.12490222207270563
+    },
+    {
+      "case": "skidpad",
+      "frame": 25,
+      "phase": 1,
+      "seconds": 0.130744586000219
+    },
+    {
+      "case": "skidpad",
+      "frame": 26,
+      "phase": 2,
+      "seconds": 0.12970616295933723
+    },
+    {
+      "case": "skidpad",
+      "frame": 27,
+      "phase": 3,
+      "seconds": 0.13141718704719096
+    },
+    {
+      "case": "skidpad",
+      "frame": 28,
+      "phase": 0,
+      "seconds": 0.1321387809002772
+    },
+    {
+      "case": "skidpad",
+      "frame": 29,
+      "phase": 1,
+      "seconds": 0.12763267697300762
+    },
+    {
+      "case": "skidpad",
+      "frame": 30,
+      "phase": 2,
+      "seconds": 0.1273448079591617
+    },
+    {
+      "case": "skidpad",
+      "frame": 31,
+      "phase": 3,
+      "seconds": 0.1316007060231641
+    },
+    {
+      "case": "skidpad",
+      "frame": 32,
+      "phase": 0,
+      "seconds": 0.12880415504332632
+    },
+    {
+      "case": "skidpad",
+      "frame": 33,
+      "phase": 1,
+      "seconds": 0.12600329995620996
+    },
+    {
+      "case": "skidpad",
+      "frame": 34,
+      "phase": 2,
+      "seconds": 0.12548967299517244
+    },
+    {
+      "case": "skidpad",
+      "frame": 35,
+      "phase": 3,
+      "seconds": 0.1261988179758191
+    },
+    {
+      "case": "skidpad",
+      "frame": 36,
+      "phase": 0,
+      "seconds": 0.12467177608050406
+    },
+    {
+      "case": "skidpad",
+      "frame": 37,
+      "phase": 1,
+      "seconds": 0.13149317097850144
+    },
+    {
+      "case": "skidpad",
+      "frame": 38,
+      "phase": 2,
+      "seconds": 0.12772336404304951
+    },
+    {
+      "case": "skidpad",
+      "frame": 39,
+      "phase": 3,
+      "seconds": 0.12675218901131302
+    },
+    {
+      "case": "skidpad",
+      "frame": 40,
+      "phase": 0,
+      "seconds": 0.1231915979878977
+    },
+    {
+      "case": "skidpad",
+      "frame": 41,
+      "phase": 1,
+      "seconds": 0.1313990280032158
+    },
+    {
+      "case": "skidpad",
+      "frame": 42,
+      "phase": 2,
+      "seconds": 0.13470983097795397
+    },
+    {
+      "case": "skidpad",
+      "frame": 43,
+      "phase": 3,
+      "seconds": 0.13039271696470678
+    },
+    {
+      "case": "skidpad",
+      "frame": 44,
+      "phase": 0,
+      "seconds": 0.12870442809071392
+    },
+    {
+      "case": "skidpad",
+      "frame": 45,
+      "phase": 1,
+      "seconds": 0.12763922195881605
+    },
+    {
+      "case": "skidpad",
+      "frame": 46,
+      "phase": 2,
+      "seconds": 0.1310690148966387
+    },
+    {
+      "case": "skidpad",
+      "frame": 47,
+      "phase": 3,
+      "seconds": 0.13102464703842998
+    },
+    {
+      "case": "skidpad",
+      "frame": 48,
+      "phase": 0,
+      "seconds": 0.12663579103536904
+    },
+    {
+      "case": "skidpad",
+      "frame": 49,
+      "phase": 1,
+      "seconds": 0.12959307699929923
+    },
+    {
+      "case": "skidpad",
+      "frame": 50,
+      "phase": 2,
+      "seconds": 0.12979717110283673
+    },
+    {
+      "case": "skidpad",
+      "frame": 51,
+      "phase": 3,
+      "seconds": 0.12971840403042734
+    },
+    {
+      "case": "skidpad",
+      "frame": 52,
+      "phase": 0,
+      "seconds": 0.13054654002189636
+    },
+    {
+      "case": "skidpad",
+      "frame": 53,
+      "phase": 1,
+      "seconds": 0.12740021606441587
+    },
+    {
+      "case": "skidpad",
+      "frame": 54,
+      "phase": 2,
+      "seconds": 0.12503466894850135
+    },
+    {
+      "case": "skidpad",
+      "frame": 55,
+      "phase": 3,
+      "seconds": 0.12486495892517269
+    },
+    {
+      "case": "skidpad",
+      "frame": 56,
+      "phase": 0,
+      "seconds": 0.1290301060071215
+    },
+    {
+      "case": "skidpad",
+      "frame": 57,
+      "phase": 1,
+      "seconds": 0.12261045095510781
+    },
+    {
+      "case": "skidpad",
+      "frame": 58,
+      "phase": 2,
+      "seconds": 0.130329436971806
+    },
+    {
+      "case": "skidpad",
+      "frame": 59,
+      "phase": 3,
+      "seconds": 0.13051930803339928
+    },
+    {
+      "case": "skidpad",
+      "frame": 60,
+      "phase": 0,
+      "seconds": 0.1338409910677001
+    },
+    {
+      "case": "skidpad",
+      "frame": 61,
+      "phase": 1,
+      "seconds": 0.12867266801185906
+    },
+    {
+      "case": "skidpad",
+      "frame": 62,
+      "phase": 2,
+      "seconds": 0.13602733903098851
+    },
+    {
+      "case": "skidpad",
+      "frame": 63,
+      "phase": 3,
+      "seconds": 0.12696817296091467
+    },
+    {
+      "case": "trackdrive",
+      "frame": 0,
+      "phase": 0,
+      "seconds": 0.1318796359701082
+    },
+    {
+      "case": "trackdrive",
+      "frame": 1,
+      "phase": 1,
+      "seconds": 0.12733006000053138
+    },
+    {
+      "case": "trackdrive",
+      "frame": 2,
+      "phase": 2,
+      "seconds": 0.13244246295653284
+    },
+    {
+      "case": "trackdrive",
+      "frame": 3,
+      "phase": 3,
+      "seconds": 0.12830058007966727
+    },
+    {
+      "case": "trackdrive",
+      "frame": 4,
+      "phase": 0,
+      "seconds": 0.1278306799940765
+    },
+    {
+      "case": "trackdrive",
+      "frame": 5,
+      "phase": 1,
+      "seconds": 0.1297573030460626
+    },
+    {
+      "case": "trackdrive",
+      "frame": 6,
+      "phase": 2,
+      "seconds": 0.1229602750390768
+    },
+    {
+      "case": "trackdrive",
+      "frame": 7,
+      "phase": 3,
+      "seconds": 0.1212222749600187
+    },
+    {
+      "case": "trackdrive",
+      "frame": 8,
+      "phase": 0,
+      "seconds": 0.12515889597125351
+    },
+    {
+      "case": "trackdrive",
+      "frame": 9,
+      "phase": 1,
+      "seconds": 0.12677893007639796
+    },
+    {
+      "case": "trackdrive",
+      "frame": 10,
+      "phase": 2,
+      "seconds": 0.12403388204984367
+    },
+    {
+      "case": "trackdrive",
+      "frame": 11,
+      "phase": 3,
+      "seconds": 0.12675217795185745
+    },
+    {
+      "case": "trackdrive",
+      "frame": 12,
+      "phase": 0,
+      "seconds": 0.13081791799049824
+    },
+    {
+      "case": "trackdrive",
+      "frame": 13,
+      "phase": 1,
+      "seconds": 0.12555575591977686
+    },
+    {
+      "case": "trackdrive",
+      "frame": 14,
+      "phase": 2,
+      "seconds": 0.12525950302369893
+    },
+    {
+      "case": "trackdrive",
+      "frame": 15,
+      "phase": 3,
+      "seconds": 0.13356136495713145
+    },
+    {
+      "case": "trackdrive",
+      "frame": 16,
+      "phase": 0,
+      "seconds": 0.12648603599518538
+    },
+    {
+      "case": "trackdrive",
+      "frame": 17,
+      "phase": 1,
+      "seconds": 0.13398385792970657
+    },
+    {
+      "case": "trackdrive",
+      "frame": 18,
+      "phase": 2,
+      "seconds": 0.12897782202344388
+    },
+    {
+      "case": "trackdrive",
+      "frame": 19,
+      "phase": 3,
+      "seconds": 0.12811299809254706
+    },
+    {
+      "case": "trackdrive",
+      "frame": 20,
+      "phase": 0,
+      "seconds": 0.12923061999026686
+    },
+    {
+      "case": "trackdrive",
+      "frame": 21,
+      "phase": 1,
+      "seconds": 0.13065446307882667
+    },
+    {
+      "case": "trackdrive",
+      "frame": 22,
+      "phase": 2,
+      "seconds": 0.12930613907519728
+    },
+    {
+      "case": "trackdrive",
+      "frame": 23,
+      "phase": 3,
+      "seconds": 0.1314911920344457
+    },
+    {
+      "case": "trackdrive",
+      "frame": 24,
+      "phase": 0,
+      "seconds": 0.12589722592383623
+    },
+    {
+      "case": "trackdrive",
+      "frame": 25,
+      "phase": 1,
+      "seconds": 0.13068217399995774
+    },
+    {
+      "case": "trackdrive",
+      "frame": 26,
+      "phase": 2,
+      "seconds": 0.13002029294148088
+    },
+    {
+      "case": "trackdrive",
+      "frame": 27,
+      "phase": 3,
+      "seconds": 0.1341368961147964
+    },
+    {
+      "case": "trackdrive",
+      "frame": 28,
+      "phase": 0,
+      "seconds": 0.12615095195360482
+    },
+    {
+      "case": "trackdrive",
+      "frame": 29,
+      "phase": 1,
+      "seconds": 0.1260405209613964
+    },
+    {
+      "case": "trackdrive",
+      "frame": 30,
+      "phase": 2,
+      "seconds": 0.12694528105203062
+    },
+    {
+      "case": "trackdrive",
+      "frame": 31,
+      "phase": 3,
+      "seconds": 0.13001539697870612
+    },
+    {
+      "case": "trackdrive",
+      "frame": 32,
+      "phase": 0,
+      "seconds": 0.12656054797116667
+    },
+    {
+      "case": "trackdrive",
+      "frame": 33,
+      "phase": 1,
+      "seconds": 0.12556606100406498
+    },
+    {
+      "case": "trackdrive",
+      "frame": 34,
+      "phase": 2,
+      "seconds": 0.1346657550893724
+    },
+    {
+      "case": "trackdrive",
+      "frame": 35,
+      "phase": 3,
+      "seconds": 0.1285821939818561
+    },
+    {
+      "case": "trackdrive",
+      "frame": 36,
+      "phase": 0,
+      "seconds": 0.12915918102953583
+    },
+    {
+      "case": "trackdrive",
+      "frame": 37,
+      "phase": 1,
+      "seconds": 0.1320805629948154
+    },
+    {
+      "case": "trackdrive",
+      "frame": 38,
+      "phase": 2,
+      "seconds": 0.13356018206104636
+    },
+    {
+      "case": "trackdrive",
+      "frame": 39,
+      "phase": 3,
+      "seconds": 0.12659622798673809
+    },
+    {
+      "case": "trackdrive",
+      "frame": 40,
+      "phase": 0,
+      "seconds": 0.13255542307160795
+    },
+    {
+      "case": "trackdrive",
+      "frame": 41,
+      "phase": 1,
+      "seconds": 0.12769716198090464
+    },
+    {
+      "case": "trackdrive",
+      "frame": 42,
+      "phase": 2,
+      "seconds": 0.12840514001436532
+    },
+    {
+      "case": "trackdrive",
+      "frame": 43,
+      "phase": 3,
+      "seconds": 0.12763650703709573
+    },
+    {
+      "case": "trackdrive",
+      "frame": 44,
+      "phase": 0,
+      "seconds": 0.1254851979902014
+    },
+    {
+      "case": "trackdrive",
+      "frame": 45,
+      "phase": 1,
+      "seconds": 0.12943303398787975
+    },
+    {
+      "case": "trackdrive",
+      "frame": 46,
+      "phase": 2,
+      "seconds": 0.130367474979721
+    },
+    {
+      "case": "trackdrive",
+      "frame": 47,
+      "phase": 3,
+      "seconds": 0.12399770703632385
+    },
+    {
+      "case": "trackdrive",
+      "frame": 48,
+      "phase": 0,
+      "seconds": 0.13381749100517482
+    },
+    {
+      "case": "trackdrive",
+      "frame": 49,
+      "phase": 1,
+      "seconds": 0.129628777038306
+    },
+    {
+      "case": "trackdrive",
+      "frame": 50,
+      "phase": 2,
+      "seconds": 0.12272230989765376
+    },
+    {
+      "case": "trackdrive",
+      "frame": 51,
+      "phase": 3,
+      "seconds": 0.12616356008220464
+    },
+    {
+      "case": "trackdrive",
+      "frame": 52,
+      "phase": 0,
+      "seconds": 0.13262980594299734
+    },
+    {
+      "case": "trackdrive",
+      "frame": 53,
+      "phase": 1,
+      "seconds": 0.13288569205906242
+    },
+    {
+      "case": "trackdrive",
+      "frame": 54,
+      "phase": 2,
+      "seconds": 0.12755442806519568
+    },
+    {
+      "case": "trackdrive",
+      "frame": 55,
+      "phase": 3,
+      "seconds": 0.1258905220311135
+    },
+    {
+      "case": "trackdrive",
+      "frame": 56,
+      "phase": 0,
+      "seconds": 0.12862605007831007
+    },
+    {
+      "case": "trackdrive",
+      "frame": 57,
+      "phase": 1,
+      "seconds": 0.1282323090126738
+    },
+    {
+      "case": "trackdrive",
+      "frame": 58,
+      "phase": 2,
+      "seconds": 0.12661006802227348
+    },
+    {
+      "case": "trackdrive",
+      "frame": 59,
+      "phase": 3,
+      "seconds": 0.1269587209681049
+    },
+    {
+      "case": "trackdrive",
+      "frame": 60,
+      "phase": 0,
+      "seconds": 0.12994498293846846
+    },
+    {
+      "case": "trackdrive",
+      "frame": 61,
+      "phase": 1,
+      "seconds": 0.12841774802654982
+    },
+    {
+      "case": "trackdrive",
+      "frame": 62,
+      "phase": 2,
+      "seconds": 0.12341273704078048
+    },
+    {
+      "case": "trackdrive",
+      "frame": 63,
+      "phase": 3,
+      "seconds": 0.12203025305643678
+    },
+    {
+      "case": "trackdrive",
+      "frame": 64,
+      "phase": 0,
+      "seconds": 0.12284192605875432
+    },
+    {
+      "case": "trackdrive",
+      "frame": 65,
+      "phase": 1,
+      "seconds": 0.12221734004560858
+    },
+    {
+      "case": "trackdrive",
+      "frame": 66,
+      "phase": 2,
+      "seconds": 0.12449778406880796
+    },
+    {
+      "case": "trackdrive",
+      "frame": 67,
+      "phase": 3,
+      "seconds": 0.12801298289559782
+    },
+    {
+      "case": "trackdrive",
+      "frame": 68,
+      "phase": 0,
+      "seconds": 0.12644558993633837
+    },
+    {
+      "case": "trackdrive",
+      "frame": 69,
+      "phase": 1,
+      "seconds": 0.12621266394853592
+    },
+    {
+      "case": "trackdrive",
+      "frame": 70,
+      "phase": 2,
+      "seconds": 0.12466046994086355
+    },
+    {
+      "case": "trackdrive",
+      "frame": 71,
+      "phase": 3,
+      "seconds": 0.12713686400093138
+    },
+    {
+      "case": "trackdrive",
+      "frame": 72,
+      "phase": 0,
+      "seconds": 0.1267954430077225
+    },
+    {
+      "case": "trackdrive",
+      "frame": 73,
+      "phase": 1,
+      "seconds": 0.13119121198542416
+    },
+    {
+      "case": "trackdrive",
+      "frame": 74,
+      "phase": 2,
+      "seconds": 0.1219475829275325
+    },
+    {
+      "case": "trackdrive",
+      "frame": 75,
+      "phase": 3,
+      "seconds": 0.1255611500237137
+    },
+    {
+      "case": "trackdrive",
+      "frame": 76,
+      "phase": 0,
+      "seconds": 0.13086623803246766
+    },
+    {
+      "case": "trackdrive",
+      "frame": 77,
+      "phase": 1,
+      "seconds": 0.12635819904971868
+    },
+    {
+      "case": "trackdrive",
+      "frame": 78,
+      "phase": 2,
+      "seconds": 0.1269184979610145
+    },
+    {
+      "case": "trackdrive",
+      "frame": 79,
+      "phase": 3,
+      "seconds": 0.13008949300274253
+    },
+    {
+      "case": "trackdrive",
+      "frame": 80,
+      "phase": 0,
+      "seconds": 0.13230520207434893
+    },
+    {
+      "case": "trackdrive",
+      "frame": 81,
+      "phase": 1,
+      "seconds": 0.12712444795761257
+    },
+    {
+      "case": "trackdrive",
+      "frame": 82,
+      "phase": 2,
+      "seconds": 0.1231928028864786
+    },
+    {
+      "case": "trackdrive",
+      "frame": 83,
+      "phase": 3,
+      "seconds": 0.12634808709844947
+    },
+    {
+      "case": "trackdrive",
+      "frame": 84,
+      "phase": 0,
+      "seconds": 0.12460616696625948
+    },
+    {
+      "case": "trackdrive",
+      "frame": 85,
+      "phase": 1,
+      "seconds": 0.12326448305975646
+    },
+    {
+      "case": "trackdrive",
+      "frame": 86,
+      "phase": 2,
+      "seconds": 0.12906459101941437
+    },
+    {
+      "case": "trackdrive",
+      "frame": 87,
+      "phase": 3,
+      "seconds": 0.12685835489537567
+    },
+    {
+      "case": "trackdrive",
+      "frame": 88,
+      "phase": 0,
+      "seconds": 0.12829840602353215
+    },
+    {
+      "case": "trackdrive",
+      "frame": 89,
+      "phase": 1,
+      "seconds": 0.12260520900599658
+    },
+    {
+      "case": "trackdrive",
+      "frame": 90,
+      "phase": 2,
+      "seconds": 0.12613517697900534
+    },
+    {
+      "case": "trackdrive",
+      "frame": 91,
+      "phase": 3,
+      "seconds": 0.12510736205149442
+    },
+    {
+      "case": "trackdrive",
+      "frame": 92,
+      "phase": 0,
+      "seconds": 0.13134957908187062
+    },
+    {
+      "case": "trackdrive",
+      "frame": 93,
+      "phase": 1,
+      "seconds": 0.12697379291057587
+    },
+    {
+      "case": "trackdrive",
+      "frame": 94,
+      "phase": 2,
+      "seconds": 0.13004445494152606
+    },
+    {
+      "case": "trackdrive",
+      "frame": 95,
+      "phase": 3,
+      "seconds": 0.12632386293262243
+    },
+    {
+      "case": "trackdrive",
+      "frame": 96,
+      "phase": 0,
+      "seconds": 0.12701765005476773
+    },
+    {
+      "case": "trackdrive",
+      "frame": 97,
+      "phase": 1,
+      "seconds": 0.12785634596366435
+    },
+    {
+      "case": "trackdrive",
+      "frame": 98,
+      "phase": 2,
+      "seconds": 0.1309465110534802
+    },
+    {
+      "case": "trackdrive",
+      "frame": 99,
+      "phase": 3,
+      "seconds": 0.1290349109331146
+    },
+    {
+      "case": "trackdrive",
+      "frame": 100,
+      "phase": 0,
+      "seconds": 0.1301807890413329
+    },
+    {
+      "case": "trackdrive",
+      "frame": 101,
+      "phase": 1,
+      "seconds": 0.13398963504005224
+    },
+    {
+      "case": "trackdrive",
+      "frame": 102,
+      "phase": 2,
+      "seconds": 0.13067371200304478
+    },
+    {
+      "case": "trackdrive",
+      "frame": 103,
+      "phase": 3,
+      "seconds": 0.12432141799945384
+    },
+    {
+      "case": "trackdrive",
+      "frame": 104,
+      "phase": 0,
+      "seconds": 0.12663710897322744
+    },
+    {
+      "case": "trackdrive",
+      "frame": 105,
+      "phase": 1,
+      "seconds": 0.12752980494406074
+    },
+    {
+      "case": "trackdrive",
+      "frame": 106,
+      "phase": 2,
+      "seconds": 0.12706510594580323
+    },
+    {
+      "case": "trackdrive",
+      "frame": 107,
+      "phase": 3,
+      "seconds": 0.13610027194954455
+    },
+    {
+      "case": "trackdrive",
+      "frame": 108,
+      "phase": 0,
+      "seconds": 0.127405694918707
+    },
+    {
+      "case": "trackdrive",
+      "frame": 109,
+      "phase": 1,
+      "seconds": 0.12945284403394908
+    },
+    {
+      "case": "trackdrive",
+      "frame": 110,
+      "phase": 2,
+      "seconds": 0.12367679993622005
+    },
+    {
+      "case": "trackdrive",
+      "frame": 111,
+      "phase": 3,
+      "seconds": 0.131600760971196
+    },
+    {
+      "case": "trackdrive",
+      "frame": 112,
+      "phase": 0,
+      "seconds": 0.12735156691633165
+    },
+    {
+      "case": "trackdrive",
+      "frame": 113,
+      "phase": 1,
+      "seconds": 0.13208187697455287
+    },
+    {
+      "case": "trackdrive",
+      "frame": 114,
+      "phase": 2,
+      "seconds": 0.128907953039743
+    },
+    {
+      "case": "trackdrive",
+      "frame": 115,
+      "phase": 3,
+      "seconds": 0.12891492899507284
+    },
+    {
+      "case": "trackdrive",
+      "frame": 116,
+      "phase": 0,
+      "seconds": 0.12544918397907168
+    },
+    {
+      "case": "trackdrive",
+      "frame": 117,
+      "phase": 1,
+      "seconds": 0.12776044406928122
+    },
+    {
+      "case": "trackdrive",
+      "frame": 118,
+      "phase": 2,
+      "seconds": 0.13089683197904378
+    },
+    {
+      "case": "trackdrive",
+      "frame": 119,
+      "phase": 3,
+      "seconds": 0.12817591102793813
+    }
+  ],
+  "timing_excludes": [
+    "Isaac physics",
+    "rendering",
+    "RGB file reads",
+    "observation reconstruction",
+    "evidence writes"
+  ],
+  "whole_isaac_render_capture_seconds": null,
+  "wall_clock_20hz_claim": false,
+  "training_device_output_comparison": {
+    "device": "cuda",
+    "measured": true,
+    "stats": {
+      "skidpad.cpu_vs_training_device.action[0]": {
+        "max_abs": 1.7881393432617188e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.action[1]": {
+        "max_abs": 3.337860107421875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.base_controller_diagnostic.applied": {
+        "max_abs": 6.699085234984636e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.base_controller_diagnostic.integral_after": {
+        "max_abs": 2.5320053098631945e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.base_controller_diagnostic.integral_before": {
+        "max_abs": 2.5320053098631945e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.base_controller_diagnostic.mission_override": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.base_controller_diagnostic.proposed": {
+        "max_abs": 6.699085234984636e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.base_controller_diagnostic.raw": {
+        "max_abs": 8.69750976661976e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.base_controller_diagnostic.speed_error": {
+        "max_abs": 5.702972411647522e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.base_controller_diagnostic.tangent_accel": {
+        "max_abs": 4.4631958008301e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.base_controller_diagnostic.target_speed": {
+        "max_abs": 5.702972411647522e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.cones_cls": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.cones_score": {
+        "max_abs": 9.5367431640625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.cones_xy": {
+        "max_abs": 3.082572365542546e-05,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.applied[0]": {
+        "max_abs": 1.7881393432617188e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.applied[1]": {
+        "max_abs": 3.337860107421875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.bounded[0]": {
+        "max_abs": 1.7881393432617188e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.bounded[1]": {
+        "max_abs": 3.337860107421875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.kind": {
+        "max_abs": null,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[0]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[1]": {
+        "max_abs": 1.1771917343139648e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[2]": {
+        "max_abs": 1.2069940567016602e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[3]": {
+        "max_abs": 6.556510925292969e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[4]": {
+        "max_abs": 3.5762786865234375e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[5]": {
+        "max_abs": 1.1920928955078125e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[6]": {
+        "max_abs": 5.066394805908203e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[7]": {
+        "max_abs": 6.9141387939453125e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[8]": {
+        "max_abs": 7.748603820800781e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[9]": {
+        "max_abs": 2.9280781745910645e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[10]": {
+        "max_abs": 1.1324882507324219e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[11]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[12]": {
+        "max_abs": 1.4901161193847656e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[13]": {
+        "max_abs": 1.1324882507324219e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[14]": {
+        "max_abs": 2.3245811462402344e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[15]": {
+        "max_abs": 2.6226043701171875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[16]": {
+        "max_abs": 2.130866050720215e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[17]": {
+        "max_abs": 2.7418136596679688e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[18]": {
+        "max_abs": 6.342306733131409e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[19]": {
+        "max_abs": 1.9073486328125e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[20]": {
+        "max_abs": 4.2887404561042786e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[21]": {
+        "max_abs": 2.384185791015625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[22]": {
+        "max_abs": 2.86102294921875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[23]": {
+        "max_abs": 2.2649765014648438e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[24]": {
+        "max_abs": 2.1457672119140625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[25]": {
+        "max_abs": 7.748603820800781e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[26]": {
+        "max_abs": 5.960464477539062e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[27]": {
+        "max_abs": 2.1457672119140625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[28]": {
+        "max_abs": 1.043081283569336e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[29]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[30]": {
+        "max_abs": 3.337860107421875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[31]": {
+        "max_abs": 4.470348358154297e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[32]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[33]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[34]": {
+        "max_abs": 2.384185791015625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[35]": {
+        "max_abs": 9.5367431640625e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[36]": {
+        "max_abs": 2.592802047729492e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[37]": {
+        "max_abs": 3.0994415283203125e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[38]": {
+        "max_abs": 3.337860107421875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[39]": {
+        "max_abs": 5.066394805908203e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[40]": {
+        "max_abs": 1.4603137969970703e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[41]": {
+        "max_abs": 7.301568984985352e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[42]": {
+        "max_abs": 5.7220458984375e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[43]": {
+        "max_abs": 1.0728836059570312e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[44]": {
+        "max_abs": 2.86102294921875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[45]": {
+        "max_abs": 3.3974647521972656e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[46]": {
+        "max_abs": 2.086162567138672e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[47]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[48]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[49]": {
+        "max_abs": 5.4836273193359375e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[50]": {
+        "max_abs": 7.152557373046875e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[51]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[52]": {
+        "max_abs": 2.7418136596679688e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[53]": {
+        "max_abs": 9.834766387939453e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[54]": {
+        "max_abs": 1.1920928955078125e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[55]": {
+        "max_abs": 8.67992639541626e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[56]": {
+        "max_abs": 2.86102294921875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[57]": {
+        "max_abs": 1.2814998626708984e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[58]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[59]": {
+        "max_abs": 2.7418136596679688e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[60]": {
+        "max_abs": 5.245208740234375e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[61]": {
+        "max_abs": 2.6226043701171875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[62]": {
+        "max_abs": 1.8775463104248047e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[63]": {
+        "max_abs": 4.410743713378906e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[64]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[65]": {
+        "max_abs": 2.2649765014648438e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[66]": {
+        "max_abs": 1.3709068298339844e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[67]": {
+        "max_abs": 1.1920928955078125e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[68]": {
+        "max_abs": 9.723007678985596e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[69]": {
+        "max_abs": 1.6689300537109375e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[70]": {
+        "max_abs": 1.1213123798370361e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[71]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[72]": {
+        "max_abs": 1.0728836059570312e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[73]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[74]": {
+        "max_abs": 2.1457672119140625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[75]": {
+        "max_abs": 6.444752216339111e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[76]": {
+        "max_abs": 2.18953937292099e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[77]": {
+        "max_abs": 1.0728836059570312e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[78]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[79]": {
+        "max_abs": 8.046627044677734e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[80]": {
+        "max_abs": 5.960464477539062e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[81]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[82]": {
+        "max_abs": 3.3080577850341797e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[83]": {
+        "max_abs": 1.9073486328125e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[84]": {
+        "max_abs": 1.6689300537109375e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[85]": {
+        "max_abs": 1.1920928955078125e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[86]": {
+        "max_abs": 1.8775463104248047e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[87]": {
+        "max_abs": 2.86102294921875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[88]": {
+        "max_abs": 5.245208740234375e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[89]": {
+        "max_abs": 1.3113021850585938e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[90]": {
+        "max_abs": 8.344650268554688e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[91]": {
+        "max_abs": 3.5762786865234375e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[92]": {
+        "max_abs": 1.2777745723724365e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[93]": {
+        "max_abs": 2.2649765014648438e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[94]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[95]": {
+        "max_abs": 2.3245811462402344e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[96]": {
+        "max_abs": 2.205371856689453e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[97]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[98]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[99]": {
+        "max_abs": 2.86102294921875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[100]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[101]": {
+        "max_abs": 2.86102294921875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[102]": {
+        "max_abs": 1.2814998626708984e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[103]": {
+        "max_abs": 2.2649765014648438e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[104]": {
+        "max_abs": 2.1457672119140625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[105]": {
+        "max_abs": 5.245208740234375e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[106]": {
+        "max_abs": 2.86102294921875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[107]": {
+        "max_abs": 1.0132789611816406e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[108]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[109]": {
+        "max_abs": 1.5497207641601562e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[110]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[111]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[112]": {
+        "max_abs": 8.940696716308594e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[113]": {
+        "max_abs": 3.0994415283203125e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[114]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[115]": {
+        "max_abs": 5.379319190979004e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[116]": {
+        "max_abs": 1.4901161193847656e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[117]": {
+        "max_abs": 1.6093254089355469e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[118]": {
+        "max_abs": 7.152557373046875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[119]": {
+        "max_abs": 5.7220458984375e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[120]": {
+        "max_abs": 4.461035132408142e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[121]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[122]": {
+        "max_abs": 3.2186508178710938e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[123]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[124]": {
+        "max_abs": 5.364418029785156e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[125]": {
+        "max_abs": 1.7881393432617188e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[126]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[127]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[128]": {
+        "max_abs": 9.298324584960938e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[129]": {
+        "max_abs": 2.384185791015625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[130]": {
+        "max_abs": 7.748603820800781e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[131]": {
+        "max_abs": 6.556510925292969e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[132]": {
+        "max_abs": 2.682209014892578e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[133]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[134]": {
+        "max_abs": 2.1457672119140625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[135]": {
+        "max_abs": 2.86102294921875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[136]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[137]": {
+        "max_abs": 1.7881393432617188e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[138]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[139]": {
+        "max_abs": 4.76837158203125e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[140]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[141]": {
+        "max_abs": 9.834766387939453e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[142]": {
+        "max_abs": 1.519918441772461e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[143]": {
+        "max_abs": 2.384185791015625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[144]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[145]": {
+        "max_abs": 2.86102294921875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[146]": {
+        "max_abs": 2.86102294921875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[147]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[148]": {
+        "max_abs": 2.3245811462402344e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[149]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[150]": {
+        "max_abs": 1.9073486328125e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[151]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[152]": {
+        "max_abs": 2.562999725341797e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[153]": {
+        "max_abs": 8.344650268554688e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[154]": {
+        "max_abs": 1.7881393432617188e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[155]": {
+        "max_abs": 2.0265579223632812e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[156]": {
+        "max_abs": 1.3709068298339844e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[157]": {
+        "max_abs": 3.337860107421875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[158]": {
+        "max_abs": 3.5762786865234375e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[159]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[160]": {
+        "max_abs": 7.525086402893066e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[161]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[162]": {
+        "max_abs": 7.450580596923828e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[163]": {
+        "max_abs": 1.5497207641601562e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[164]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[165]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[166]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[167]": {
+        "max_abs": 1.9073486328125e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[168]": {
+        "max_abs": 1.6689300537109375e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[169]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[170]": {
+        "max_abs": 1.8477439880371094e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[171]": {
+        "max_abs": 3.337860107421875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[172]": {
+        "max_abs": 2.935994416475296e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[173]": {
+        "max_abs": 3.2186508178710938e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[174]": {
+        "max_abs": 2.2351741790771484e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[175]": {
+        "max_abs": 4.917383193969727e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[176]": {
+        "max_abs": 1.5795230865478516e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[177]": {
+        "max_abs": 2.86102294921875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[178]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[179]": {
+        "max_abs": 9.834766387939453e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[180]": {
+        "max_abs": 5.960464477539062e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[181]": {
+        "max_abs": 1.4901161193847656e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[182]": {
+        "max_abs": 5.7220458984375e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[183]": {
+        "max_abs": 1.4901161193847656e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[184]": {
+        "max_abs": 1.4901161193847656e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[185]": {
+        "max_abs": 4.76837158203125e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[186]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[187]": {
+        "max_abs": 2.384185791015625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[188]": {
+        "max_abs": 1.0251998901367188e-05,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[189]": {
+        "max_abs": 9.5367431640625e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[190]": {
+        "max_abs": 2.0265579223632812e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[191]": {
+        "max_abs": 3.337860107421875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[192]": {
+        "max_abs": 2.5033950805664062e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[193]": {
+        "max_abs": 5.960464477539063e-08,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[194]": {
+        "max_abs": 1.730397343635559e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[195]": {
+        "max_abs": 8.940696716308594e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[196]": {
+        "max_abs": 2.384185791015625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[197]": {
+        "max_abs": 2.384185791015625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[198]": {
+        "max_abs": 2.86102294921875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[199]": {
+        "max_abs": 1.1324882507324219e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[200]": {
+        "max_abs": 7.450580596923828e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[201]": {
+        "max_abs": 2.682209014892578e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[202]": {
+        "max_abs": 1.8477439880371094e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[203]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[204]": {
+        "max_abs": 8.642673492431641e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[205]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[206]": {
+        "max_abs": 1.3709068298339844e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[207]": {
+        "max_abs": 2.1457672119140625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[208]": {
+        "max_abs": 2.1457672119140625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[209]": {
+        "max_abs": 7.62939453125e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[210]": {
+        "max_abs": 7.748603820800781e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[211]": {
+        "max_abs": 1.5497207641601562e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[212]": {
+        "max_abs": 3.814697265625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[213]": {
+        "max_abs": 2.7418136596679688e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[214]": {
+        "max_abs": 2.86102294921875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[215]": {
+        "max_abs": 2.9802322387695312e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[216]": {
+        "max_abs": 3.4570693969726562e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[217]": {
+        "max_abs": 2.1457672119140625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[218]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[219]": {
+        "max_abs": 1.8477439880371094e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[220]": {
+        "max_abs": 3.814697265625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[221]": {
+        "max_abs": 2.3245811462402344e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[222]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[223]": {
+        "max_abs": 2.5033950805664062e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[224]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[225]": {
+        "max_abs": 2.384185791015625e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[226]": {
+        "max_abs": 9.059906005859375e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[227]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[228]": {
+        "max_abs": 1.0132789611816406e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[229]": {
+        "max_abs": 1.1920928955078125e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[230]": {
+        "max_abs": 1.4901161193847656e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[231]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[232]": {
+        "max_abs": 9.5367431640625e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[233]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[234]": {
+        "max_abs": 3.337860107421875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[235]": {
+        "max_abs": 7.897615432739258e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[236]": {
+        "max_abs": 3.337860107421875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[237]": {
+        "max_abs": 3.337860107421875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[238]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[239]": {
+        "max_abs": 2.1979212760925293e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[240]": {
+        "max_abs": 2.86102294921875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[241]": {
+        "max_abs": 6.165355443954468e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[242]": {
+        "max_abs": 2.5033950805664062e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[243]": {
+        "max_abs": 6.67572021484375e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[244]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[245]": {
+        "max_abs": 9.5367431640625e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[246]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[247]": {
+        "max_abs": 1.430511474609375e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[248]": {
+        "max_abs": 1.30385160446167e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[249]": {
+        "max_abs": 4.3213367462158203e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[250]": {
+        "max_abs": 1.4901161193847656e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[251]": {
+        "max_abs": 9.775161743164062e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[252]": {
+        "max_abs": 2.86102294921875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[253]": {
+        "max_abs": 1.6689300537109375e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[254]": {
+        "max_abs": 2.2649765014648438e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.latent[255]": {
+        "max_abs": 8.940696716308594e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.mission_override": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.proprio[0]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.proprio[1]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.proprio[2]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.raw[0]": {
+        "max_abs": 1.7881393432617188e-07,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.controller.raw[1]": {
+        "max_abs": 3.337860107421875e-06,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.plan": {
+        "max_abs": 9.1552734375e-05,
+        "mismatches": 0
+      },
+      "skidpad.cpu_vs_training_device.prediction.plan_std": {
+        "max_abs": 8.0108642578125e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.action[0]": {
+        "max_abs": 1.541338860988617e-07,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.action[1]": {
+        "max_abs": 4.3392181396484375e-05,
+        "mismatches": 3
+      },
+      "trackdrive.cpu_vs_training_device.prediction.base_controller_diagnostic.applied": {
+        "max_abs": 4.853820800820863e-05,
+        "mismatches": 5
+      },
+      "trackdrive.cpu_vs_training_device.prediction.base_controller_diagnostic.integral_after": {
+        "max_abs": 5.12599944713088e-07,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.base_controller_diagnostic.integral_before": {
+        "max_abs": 5.12599944713088e-07,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.base_controller_diagnostic.mission_override": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.base_controller_diagnostic.proposed": {
+        "max_abs": 4.853820800820863e-05,
+        "mismatches": 5
+      },
+      "trackdrive.cpu_vs_training_device.prediction.base_controller_diagnostic.raw": {
+        "max_abs": 4.853820800820863e-05,
+        "mismatches": 5
+      },
+      "trackdrive.cpu_vs_training_device.prediction.base_controller_diagnostic.speed_error": {
+        "max_abs": 1.3694763183913494e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.base_controller_diagnostic.tangent_accel": {
+        "max_abs": 5.5932998657137745e-05,
+        "mismatches": 2
+      },
+      "trackdrive.cpu_vs_training_device.prediction.base_controller_diagnostic.target_speed": {
+        "max_abs": 1.3694763183913494e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.cones_cls": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.cones_score": {
+        "max_abs": 1.4215707778930664e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.cones_xy": {
+        "max_abs": 3.579028172140397e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.applied[0]": {
+        "max_abs": 1.541338860988617e-07,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.applied[1]": {
+        "max_abs": 4.3392181396484375e-05,
+        "mismatches": 3
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.bounded[0]": {
+        "max_abs": 1.541338860988617e-07,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.bounded[1]": {
+        "max_abs": 4.3392181396484375e-05,
+        "mismatches": 3
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.kind": {
+        "max_abs": null,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[0]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[1]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[2]": {
+        "max_abs": 1.4260411262512207e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[3]": {
+        "max_abs": 8.940696716308594e-07,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[4]": {
+        "max_abs": 6.973743438720703e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[5]": {
+        "max_abs": 2.473592758178711e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[6]": {
+        "max_abs": 5.02169132232666e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[7]": {
+        "max_abs": 4.1425228118896484e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[8]": {
+        "max_abs": 2.205371856689453e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[9]": {
+        "max_abs": 5.941838026046753e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[10]": {
+        "max_abs": 8.52346420288086e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[11]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[12]": {
+        "max_abs": 7.3909759521484375e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[13]": {
+        "max_abs": 2.3655593395233154e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[14]": {
+        "max_abs": 1.6897916793823242e-05,
+        "mismatches": 3
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[15]": {
+        "max_abs": 1.800060272216797e-05,
+        "mismatches": 3
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[16]": {
+        "max_abs": 7.778406143188477e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[17]": {
+        "max_abs": 3.0994415283203125e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[18]": {
+        "max_abs": 4.380941390991211e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[19]": {
+        "max_abs": 1.71661376953125e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[20]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[21]": {
+        "max_abs": 3.814697265625e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[22]": {
+        "max_abs": 9.015202522277832e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[23]": {
+        "max_abs": 2.562999725341797e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[24]": {
+        "max_abs": 2.2023916244506836e-05,
+        "mismatches": 2
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[25]": {
+        "max_abs": 4.0531158447265625e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[26]": {
+        "max_abs": 8.434057235717773e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[27]": {
+        "max_abs": 1.0728836059570312e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[28]": {
+        "max_abs": 4.380941390991211e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[29]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[30]": {
+        "max_abs": 1.5735626220703125e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[31]": {
+        "max_abs": 1.862645149230957e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[32]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[33]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[34]": {
+        "max_abs": 6.67572021484375e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[35]": {
+        "max_abs": 6.4373016357421875e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[36]": {
+        "max_abs": 3.6954879760742188e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[37]": {
+        "max_abs": 1.3947486877441406e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[38]": {
+        "max_abs": 5.7220458984375e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[39]": {
+        "max_abs": 3.475695848464966e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[40]": {
+        "max_abs": 3.730878233909607e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[41]": {
+        "max_abs": 1.9799917936325073e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[42]": {
+        "max_abs": 2.440810203552246e-05,
+        "mismatches": 4
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[43]": {
+        "max_abs": 8.717179298400879e-07,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[44]": {
+        "max_abs": 1.7464160919189453e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[45]": {
+        "max_abs": 3.2186508178710938e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[46]": {
+        "max_abs": 5.7220458984375e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[47]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[48]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[49]": {
+        "max_abs": 9.28342342376709e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[50]": {
+        "max_abs": 1.6689300537109375e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[51]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[52]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[53]": {
+        "max_abs": 2.995133399963379e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[54]": {
+        "max_abs": 9.59634780883789e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[55]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[56]": {
+        "max_abs": 2.574920654296875e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[57]": {
+        "max_abs": 2.086162567138672e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[58]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[59]": {
+        "max_abs": 1.1920928955078125e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[60]": {
+        "max_abs": 2.0265579223632812e-05,
+        "mismatches": 2
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[61]": {
+        "max_abs": 2.205371856689453e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[62]": {
+        "max_abs": 2.5033950805664062e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[63]": {
+        "max_abs": 9.894371032714844e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[64]": {
+        "max_abs": 1.016072928905487e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[65]": {
+        "max_abs": 1.7702579498291016e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[66]": {
+        "max_abs": 1.633167266845703e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[67]": {
+        "max_abs": 1.430511474609375e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[68]": {
+        "max_abs": 2.130866050720215e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[69]": {
+        "max_abs": 1.7940998077392578e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[70]": {
+        "max_abs": 2.950429916381836e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[71]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[72]": {
+        "max_abs": 4.291534423828125e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[73]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[74]": {
+        "max_abs": 1.633167266845703e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[75]": {
+        "max_abs": 2.682209014892578e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[76]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[77]": {
+        "max_abs": 2.6226043701171875e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[78]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[79]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[80]": {
+        "max_abs": 7.3909759521484375e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[81]": {
+        "max_abs": 1.1529773473739624e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[82]": {
+        "max_abs": 3.0659139156341553e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[83]": {
+        "max_abs": 2.9802322387695312e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[84]": {
+        "max_abs": 3.0875205993652344e-05,
+        "mismatches": 3
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[85]": {
+        "max_abs": 1.2628734111785889e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[86]": {
+        "max_abs": 4.5299530029296875e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[87]": {
+        "max_abs": 4.76837158203125e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[88]": {
+        "max_abs": 8.034706115722656e-05,
+        "mismatches": 4
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[89]": {
+        "max_abs": 4.027038812637329e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[90]": {
+        "max_abs": 1.3075768947601318e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[91]": {
+        "max_abs": 1.519918441772461e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[92]": {
+        "max_abs": 6.616115570068359e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[93]": {
+        "max_abs": 2.2709369659423828e-05,
+        "mismatches": 4
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[94]": {
+        "max_abs": 2.193450927734375e-05,
+        "mismatches": 2
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[95]": {
+        "max_abs": 2.1830201148986816e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[96]": {
+        "max_abs": 6.377696990966797e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[97]": {
+        "max_abs": 5.0067901611328125e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[98]": {
+        "max_abs": 1.2516975402832031e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[99]": {
+        "max_abs": 4.285573959350586e-05,
+        "mismatches": 5
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[100]": {
+        "max_abs": 4.889443516731262e-07,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[101]": {
+        "max_abs": 5.9604644775390625e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[102]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[103]": {
+        "max_abs": 9.059906005859375e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[104]": {
+        "max_abs": 9.417533874511719e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[105]": {
+        "max_abs": 2.2530555725097656e-05,
+        "mismatches": 2
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[106]": {
+        "max_abs": 5.364418029785156e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[107]": {
+        "max_abs": 6.556510925292969e-07,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[108]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[109]": {
+        "max_abs": 1.633167266845703e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[110]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[111]": {
+        "max_abs": 3.337860107421875e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[112]": {
+        "max_abs": 1.0907649993896484e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[113]": {
+        "max_abs": 1.430511474609375e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[114]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[115]": {
+        "max_abs": 2.592802047729492e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[116]": {
+        "max_abs": 8.702278137207031e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[117]": {
+        "max_abs": 4.887580871582031e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[118]": {
+        "max_abs": 4.482269287109375e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[119]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[120]": {
+        "max_abs": 4.2282044887542725e-07,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[121]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[122]": {
+        "max_abs": 1.7523765563964844e-05,
+        "mismatches": 2
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[123]": {
+        "max_abs": 1.2814998626708984e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[124]": {
+        "max_abs": 2.0936131477355957e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[125]": {
+        "max_abs": 9.708106517791748e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[126]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[127]": {
+        "max_abs": 7.212162017822266e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[128]": {
+        "max_abs": 6.4373016357421875e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[129]": {
+        "max_abs": 1.9371509552001953e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[130]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[131]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[132]": {
+        "max_abs": 1.983344554901123e-05,
+        "mismatches": 3
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[133]": {
+        "max_abs": 9.797513484954834e-07,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[134]": {
+        "max_abs": 2.86102294921875e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[135]": {
+        "max_abs": 3.5762786865234375e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[136]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[137]": {
+        "max_abs": 3.0994415283203125e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[138]": {
+        "max_abs": 1.5497207641601562e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[139]": {
+        "max_abs": 4.231929779052734e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[140]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[141]": {
+        "max_abs": 1.3932585716247559e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[142]": {
+        "max_abs": 4.351139068603516e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[143]": {
+        "max_abs": 1.0073184967041016e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[144]": {
+        "max_abs": 8.881092071533203e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[145]": {
+        "max_abs": 1.8715858459472656e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[146]": {
+        "max_abs": 3.814697265625e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[147]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[148]": {
+        "max_abs": 3.0994415283203125e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[149]": {
+        "max_abs": 9.313225746154785e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[150]": {
+        "max_abs": 4.798173904418945e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[151]": {
+        "max_abs": 6.9141387939453125e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[152]": {
+        "max_abs": 7.68899917602539e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[153]": {
+        "max_abs": 1.379847526550293e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[154]": {
+        "max_abs": 2.773478627204895e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[155]": {
+        "max_abs": 5.125999450683594e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[156]": {
+        "max_abs": 1.189112663269043e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[157]": {
+        "max_abs": 3.528594970703125e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[158]": {
+        "max_abs": 1.4118850231170654e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[159]": {
+        "max_abs": 1.728534698486328e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[160]": {
+        "max_abs": 2.372264862060547e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[161]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[162]": {
+        "max_abs": 2.3543834686279297e-05,
+        "mismatches": 4
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[163]": {
+        "max_abs": 5.21540641784668e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[164]": {
+        "max_abs": 1.9669532775878906e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[165]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[166]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[167]": {
+        "max_abs": 5.882233381271362e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[168]": {
+        "max_abs": 1.7404556274414062e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[169]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[170]": {
+        "max_abs": 7.033348083496094e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[171]": {
+        "max_abs": 9.298324584960938e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[172]": {
+        "max_abs": 7.957220077514648e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[173]": {
+        "max_abs": 2.014636993408203e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[174]": {
+        "max_abs": 4.708766937255859e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[175]": {
+        "max_abs": 1.8030405044555664e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[176]": {
+        "max_abs": 5.900859832763672e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[177]": {
+        "max_abs": 1.7821788787841797e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[178]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[179]": {
+        "max_abs": 4.902482032775879e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[180]": {
+        "max_abs": 7.3015689849853516e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[181]": {
+        "max_abs": 4.947185516357422e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[182]": {
+        "max_abs": 2.002716064453125e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[183]": {
+        "max_abs": 4.913657903671265e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[184]": {
+        "max_abs": 2.5033950805664062e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[185]": {
+        "max_abs": 8.26120376586914e-05,
+        "mismatches": 4
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[186]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[187]": {
+        "max_abs": 5.0067901611328125e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[188]": {
+        "max_abs": 7.271766662597656e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[189]": {
+        "max_abs": 5.304813385009766e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[190]": {
+        "max_abs": 7.897615432739258e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[191]": {
+        "max_abs": 6.884336471557617e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[192]": {
+        "max_abs": 6.198883056640625e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[193]": {
+        "max_abs": 5.885958671569824e-07,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[194]": {
+        "max_abs": 2.384185791015625e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[195]": {
+        "max_abs": 1.5944242477416992e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[196]": {
+        "max_abs": 1.7642974853515625e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[197]": {
+        "max_abs": 1.3485550880432129e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[198]": {
+        "max_abs": 1.2278556823730469e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[199]": {
+        "max_abs": 1.1846423149108887e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[200]": {
+        "max_abs": 1.8090009689331055e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[201]": {
+        "max_abs": 4.2319297790527344e-05,
+        "mismatches": 3
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[202]": {
+        "max_abs": 2.3990869522094727e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[203]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[204]": {
+        "max_abs": 5.185604095458984e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[205]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[206]": {
+        "max_abs": 1.3008713722229004e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[207]": {
+        "max_abs": 3.0994415283203125e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[208]": {
+        "max_abs": 1.2159347534179688e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[209]": {
+        "max_abs": 1.430511474609375e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[210]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[211]": {
+        "max_abs": 5.245208740234375e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[212]": {
+        "max_abs": 3.4570693969726562e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[213]": {
+        "max_abs": 4.5299530029296875e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[214]": {
+        "max_abs": 1.7642974853515625e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[215]": {
+        "max_abs": 9.894371032714844e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[216]": {
+        "max_abs": 9.5367431640625e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[217]": {
+        "max_abs": 4.9173831939697266e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[218]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[219]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[220]": {
+        "max_abs": 3.293156623840332e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[221]": {
+        "max_abs": 1.4901161193847656e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[222]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[223]": {
+        "max_abs": 9.804964065551758e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[224]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[225]": {
+        "max_abs": 1.963973045349121e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[226]": {
+        "max_abs": 1.52587890625e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[227]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[228]": {
+        "max_abs": 7.763504981994629e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[229]": {
+        "max_abs": 1.7881393432617188e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[230]": {
+        "max_abs": 2.9832124710083008e-05,
+        "mismatches": 4
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[231]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[232]": {
+        "max_abs": 1.5027821063995361e-05,
+        "mismatches": 1
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[233]": {
+        "max_abs": 7.241964340209961e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[234]": {
+        "max_abs": 2.956390380859375e-05,
+        "mismatches": 2
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[235]": {
+        "max_abs": 9.432435035705566e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[236]": {
+        "max_abs": 9.335577487945557e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[237]": {
+        "max_abs": 9.119510650634766e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[238]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[239]": {
+        "max_abs": 7.62939453125e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[240]": {
+        "max_abs": 1.2755393981933594e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[241]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[242]": {
+        "max_abs": 9.252689778804779e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[243]": {
+        "max_abs": 1.049041748046875e-05,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[244]": {
+        "max_abs": 1.7911195755004883e-05,
+        "mismatches": 3
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[245]": {
+        "max_abs": 7.867813110351562e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[246]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[247]": {
+        "max_abs": 5.602836608886719e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[248]": {
+        "max_abs": 7.271766662597656e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[249]": {
+        "max_abs": 2.2724270820617676e-07,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[250]": {
+        "max_abs": 2.2411346435546875e-05,
+        "mismatches": 3
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[251]": {
+        "max_abs": 5.379319190979004e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[252]": {
+        "max_abs": 2.7948059141635895e-05,
+        "mismatches": 2
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[253]": {
+        "max_abs": 7.3909759521484375e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[254]": {
+        "max_abs": 7.62939453125e-06,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.latent[255]": {
+        "max_abs": 2.187490463256836e-05,
+        "mismatches": 3
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.mission_override": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.proprio[0]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.proprio[1]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.proprio[2]": {
+        "max_abs": 0.0,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.raw[0]": {
+        "max_abs": 1.541338860988617e-07,
+        "mismatches": 0
+      },
+      "trackdrive.cpu_vs_training_device.prediction.controller.raw[1]": {
+        "max_abs": 4.3392181396484375e-05,
+        "mismatches": 3
+      },
+      "trackdrive.cpu_vs_training_device.prediction.plan": {
+        "max_abs": 0.00055694580078125,
+        "mismatches": 10
+      },
+      "trackdrive.cpu_vs_training_device.prediction.plan_std": {
+        "max_abs": 0.00015544891357421875,
+        "mismatches": 6
+      }
+    },
+    "qualification_gate": false,
+    "reason": "cross-device diagnostics never relax CPU saved-input replay tolerances"
+  },
+  "limits": [
+    "Actual saved TRAIN inputs with full sequential history, not a physical replay.",
+    "This gate does not establish mission success or a 20 Hz wall-clock rate."
+  ]
+}

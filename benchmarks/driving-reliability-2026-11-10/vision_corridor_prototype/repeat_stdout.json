@@ -1,0 +1,160 @@
+{
+  "direct_command_pilot3": {
+    "streaming": {
+      "frames": 80,
+      "supported_frames": 0,
+      "reason_counts": {
+        "no_supported_gates": 57,
+        "no_supported_nearfield_path": 23
+      },
+      "conditional_lateral_error_m": null,
+      "supported_gt_footprint_conflict_count": 0,
+      "raw_command_screen_pass": false
+    },
+    "stateless_gates": {
+      "frames": 80,
+      "supported_frames": 0,
+      "reason_counts": {
+        "no_supported_gates": 53,
+        "no_supported_nearfield_path": 27
+      },
+      "conditional_lateral_error_m": null,
+      "supported_gt_footprint_conflict_count": 0,
+      "raw_command_screen_pass": false
+    },
+    "existing_midline": {
+      "frames": 80,
+      "supported_frames": 77,
+      "reason_counts": {
+        "baseline_path_available": 77,
+        "baseline_no_path": 3
+      },
+      "conditional_lateral_error_m": {
+        "count": 77,
+        "mae": 0.5838163997206224,
+        "p95": 1.6159774344310498,
+        "max_abs": 2.199003173516532
+      },
+      "supported_gt_footprint_conflict_count": 61,
+      "raw_command_screen_pass": false
+    }
+  },
+  "direct_command_recovery_pilot2": {
+    "streaming": {
+      "frames": 53,
+      "supported_frames": 0,
+      "reason_counts": {
+        "no_supported_gates": 49,
+        "no_supported_nearfield_path": 4
+      },
+      "conditional_lateral_error_m": null,
+      "supported_gt_footprint_conflict_count": 0,
+      "raw_command_screen_pass": false
+    },
+    "stateless_gates": {
+      "frames": 53,
+      "supported_frames": 0,
+      "reason_counts": {
+        "no_supported_gates": 40,
+        "no_supported_nearfield_path": 13
+      },
+      "conditional_lateral_error_m": null,
+      "supported_gt_footprint_conflict_count": 0,
+      "raw_command_screen_pass": false
+    },
+    "existing_midline": {
+      "frames": 53,
+      "supported_frames": 53,
+      "reason_counts": {
+        "baseline_path_available": 53
+      },
+      "conditional_lateral_error_m": {
+        "count": 53,
+        "mae": 0.6081399374824474,
+        "p95": 1.195763220993059,
+        "max_abs": 1.280796800491909
+      },
+      "supported_gt_footprint_conflict_count": 53,
+      "raw_command_screen_pass": false
+    }
+  },
+  "train-skidpad-82000-matched": {
+    "streaming": {
+      "frames": 286,
+      "supported_frames": 0,
+      "reason_counts": {
+        "no_supported_gates": 194,
+        "no_supported_nearfield_path": 92
+      },
+      "conditional_lateral_error_m": null,
+      "supported_gt_footprint_conflict_count": 0,
+      "raw_command_screen_pass": false
+    },
+    "stateless_gates": {
+      "frames": 286,
+      "supported_frames": 0,
+      "reason_counts": {
+        "no_supported_gates": 197,
+        "no_supported_nearfield_path": 89
+      },
+      "conditional_lateral_error_m": null,
+      "supported_gt_footprint_conflict_count": 0,
+      "raw_command_screen_pass": false
+    },
+    "existing_midline": {
+      "frames": 286,
+      "supported_frames": 214,
+      "reason_counts": {
+        "baseline_path_available": 214,
+        "baseline_no_path": 72
+      },
+      "conditional_lateral_error_m": {
+        "count": 214,
+        "mae": 0.45356507650492744,
+        "p95": 1.2855562709216304,
+        "max_abs": 1.9920859075212067
+      },
+      "supported_gt_footprint_conflict_count": 129,
+      "raw_command_screen_pass": false
+    }
+  },
+  "train-trackdrive-82000-matched": {
+    "streaming": {
+      "frames": 287,
+      "supported_frames": 0,
+      "reason_counts": {
+        "no_supported_nearfield_path": 221,
+        "no_supported_gates": 66
+      },
+      "conditional_lateral_error_m": null,
+      "supported_gt_footprint_conflict_count": 0,
+      "raw_command_screen_pass": false
+    },
+    "stateless_gates": {
+      "frames": 287,
+      "supported_frames": 0,
+      "reason_counts": {
+        "no_supported_nearfield_path": 188,
+        "no_supported_gates": 99
+      },
+      "conditional_lateral_error_m": null,
+      "supported_gt_footprint_conflict_count": 0,
+      "raw_command_screen_pass": false
+    },
+    "existing_midline": {
+      "frames": 287,
+      "supported_frames": 287,
+      "reason_counts": {
+        "baseline_path_available": 287
+      },
+      "conditional_lateral_error_m": {
+        "count": 287,
+        "mae": 0.11783138363040582,
+        "p95": 0.37553575147291224,
+        "max_abs": 0.9889602705513042
+      },
+      "supported_gt_footprint_conflict_count": 12,
+      "raw_command_screen_pass": false
+    }
+  }
+}

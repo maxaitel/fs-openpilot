@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "scope": "syntax and synthetic TemporalState command transformations only; no model or controller inference",
+  "anchors": {
+    "120": "early_right",
+    "170": "steady_right",
+    "430": "approaching_right_to_left",
+    "600": "left_area_unverified"
+  },
+  "checks": [
+    "recorded equals repeated",
+    "swap exchanges all left and right pooled pulses",
+    "zero has no pulses",
+    "1 Hz single-frame pulses survive 100-step queue",
+    "25x8 pooled and 100-step pulse queue shapes"
+  ],
+  "sha256": {
+    "probe.py": "27846b3830d463521baae124037fd48cab23e1e2ad4f6e47201d6a6623effead",
+    "PROTOCOL.md": "7bda989ccfc42f3857ec03c084a8d6e3365c5b7cb86bb065554e7ac79fb01d88"
+  }
+}

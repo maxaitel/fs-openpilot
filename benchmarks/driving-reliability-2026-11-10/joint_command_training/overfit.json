@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "step": 56,
+  "mae": [
+    0.0016346632037311792,
+    0.04967920482158661
+  ],
+  "audit_sha256": "de5c27dd4af484705d27ff55e20e0f9dc56986b3d6cddc47553eef2cdb6f95e6",
+  "condition_sha256": "40c60802e74f9c132a7f14cbd61dbfb85fb984c9571f98d4cde970a57922fce7",
+  "seconds": 43.819766588974744,
+  "discarded_all_weights": true,
+  "frozen_base_state_unchanged": true,
+  "frozen_base_tensors": 411
+}

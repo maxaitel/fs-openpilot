@@ -1,0 +1,13 @@
+{
+  "cases": [
+    "heavy_skid/publication_index.json",
+    "heavy_track/publication_index.json"
+  ],
+  "pilot": "../joint_command_pilot/publication_index.json",
+  "local_copy_receipt": "local_copy_receipt.json",
+  "full_video_decode_audit": "full_video_decode_audit.json",
+  "joint_video_count": 6,
+  "report_encoded_view_count": 26,
+  "scope": "Eight inherited views and six views each for direct, recovery, and joint trials. These views are not independent episodes or scenes.",
+  "limits": "Saved-input replay does not rerun physics or scoring. Video decoding does not qualify the model. The exposed diagnostics do not establish a population reliability estimate."
+}

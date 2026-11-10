@@ -1,0 +1,52 @@
+{
+  "copied_at": "2026-11-10T08:47:44.419632+00:00",
+  "files": [
+    {
+      "source": ".work/lab/next_strategy/premise_diagnostic_v1.md",
+      "destination": "premise_diagnostic_v1.md",
+      "sha256": "54d62a043d43fa03824d28d1a1db0e482cf947946baa7ee93801edc4d8229516"
+    },
+    {
+      "source": ".work/lab/next_strategy/learned_corridor_candidate_v1.md",
+      "destination": "learned_corridor_candidate_v1.md",
+      "sha256": "14a0ebdc26c67cd1980127dcf93499de553c55b4eb779474745c16673a9e9dfe"
+    },
+    {
+      "source": ".work/lab/next_strategy/premise_diagnostic_thresholds_v1.json",
+      "destination": "premise_diagnostic_thresholds_v1.json",
+      "sha256": "293075c92c2af890367442a41fc61e976a847bbbfbd35191bec102c88d9747a3"
+    },
+    {
+      "source": ".work/lab/next_strategy/teacher_parameter_identity.json",
+      "destination": "teacher_parameter_identity.json",
+      "sha256": "862a66d7f04941043f65d69dfcee452ecb21da1e966d61a22762f8f1ed6e2d60"
+    },
+    {
+      "source": ".work/lab/next_strategy/premise_analysis_v1/analyze.py",
+      "destination": "premise_analysis_v1/analyze.py",
+      "sha256": "8af755b4c1073748814401429b58f07d7c50ab2245749db2fc46b69404a3a701"
+    },
+    {
+      "source": ".work/lab/next_strategy/premise_analysis_v1/result.json",
+      "destination": "premise_analysis_v1/result.json",
+      "sha256": "9c48eb3cccce4dc7ebee1caf6c673b4e4ea5e3ea3c4f0ed41cddff03ca8f511a"
+    },
+    {
+      "source": ".work/lab/next_strategy/geometric_option_v1.md",
+      "destination": "geometric_option_v1.md",
+      "sha256": "73d488facb47a2d0dc574a239b7a8f34e5878a0f6a5655d7e678e361f34fa816"
+    },
+    {
+      "source": ".work/lab/next_strategy/geometric_option_probe/route_ambiguity.py",
+      "destination": "geometric_option_probe/route_ambiguity.py",
+      "sha256": "e142ea0fd01cbb3070e44ab62ce85fc22904a3669ae1d1f7ca6773b97afcec85"
+    },
+    {
+      "source": ".work/lab/next_strategy/geometric_option_probe/cone_quality.py",
+      "destination": "geometric_option_probe/cone_quality.py",
+      "sha256": "8bdd690e852eb1f79cba60b55ce363f94458ce831e1cad62948566c8e3737497"
+    }
+  ],
+  "purpose": "Design alternatives and TRAIN-only diagnostic evidence, not a driving candidate or final qualification.",
+  "different_model_family_judge_available": false
+}

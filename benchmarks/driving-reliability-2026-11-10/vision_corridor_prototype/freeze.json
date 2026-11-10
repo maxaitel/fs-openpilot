@@ -1,0 +1,24 @@
+{
+  "before_first_saved_data_planner_replay": true,
+  "frozen_at_utc": "2026-11-10T09:01:27.044616+00:00",
+  "selection": "All 80+53 strictly precontact pilot frames and all 286+287 full stored TRAIN frames including terminal braking. No output-selected anchors.",
+  "source_sha256": {
+    ".work/lab/vision_corridor_proto_v1/inputs.py": "9a65d53647aa50868cee94999f8d064c863b645a20fc1adae446ab76b06ecb6b",
+    ".work/lab/vision_corridor_proto_v1/planner.py": "79899cb521d4537b636fc8662b5e48c5c5ca00b3b09781a8ee3b3e1805510b0b",
+    ".work/lab/vision_corridor_proto_v1/recipe.json": "e900be8f7b3f76996dd2a4d43b9291607f99d66eabc52067e4c8613aa65d5479",
+    ".work/lab/vision_corridor_proto_v1/replay.py": "574c34c9141120493a2b7905a375ac123133a03b9acdce5900a68d504b7d7bb5",
+    ".work/lab/vision_corridor_proto_v1/scorer.py": "483c08ed855cb9227b3f3fa09dfc0279d997e3fa4da8102ea51566c5955c4037",
+    ".work/lab/vision_corridor_proto_v1/test_planner.py": "ebd337616379c52e5750a72793d1ccbea7937bd7446601f066f7ea874ae43d2c",
+    "isaac_eval/evidence.py": "00a38b56c9f813821674dfcf65b1d9f5b1db679c67e851d191f06a55540ac23f",
+    "src/fsop/eval/geometric.py": "e0ad7c4aa9157a04f1a83c242f83113acb84a25fb9152533fccb58e76cde9c02",
+    "src/fsop/sim/expert.py": "7f1c3fb9083b4edd04e61a33719a88b4b65bea85fb6490ea2ef191e66d35986e",
+    "src/fsop/sim/vehicle.py": "55643a3d4f43c1a7605b8da3641517a8c0380bc92ba7526a5e555e0f7cd3ae39",
+    "src/fsop/track/centerline.py": "de45a95eba2e8fa0419a7407ced66718bc6f49099dff8b00c7663f2bf7ac5887",
+    "src/fsop/track/fixed_layouts.py": "8a8fb71d395d3fa0987db50bb2392c36e22a13b5259c02db9b5dd0d0a71662b7",
+    "src/fsop/track/io.py": "86a833f72d920882c55c1dee89de841a8d4b67d8cbaa0658ddb17a614bc8af4c",
+    "src/fsop/track/rules.py": "4c2c989ef7b401ed47e57744eae6a3219759629e09e412b4ee5d68de8764006d",
+    "src/fsop/track/schema.py": "f2f760bee7826c82f34e3f704a0b5807bcd0f6b043e856a781d8fe727ac1c04c"
+  },
+  "status": "First recipe only. No threshold tuning permitted after saved-data outcomes. Synthetic behavior tests passed before freeze.",
+  "total_selected_frames": 706
+}

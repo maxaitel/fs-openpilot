@@ -1,0 +1,301 @@
+{
+  "discipline": "skidpad",
+  "result": "running",
+  "laps": [],
+  "n_laps": 0,
+  "doo": 3,
+  "oc": 0,
+  "max_speed": 8.230422516024268,
+  "route": {
+    "expected_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "accepted_route": [],
+    "laps": [],
+    "crossings": [
+      2.992475895941897
+    ],
+    "complete": false,
+    "exited": false,
+    "stopped_in_zone": false,
+    "valid": true,
+    "violation": null,
+    "reverse_crossings": 0,
+    "termination": "running"
+  },
+  "raw_time": null,
+  "penalty": 0.6000000000000001,
+  "time": null,
+  "dq": false,
+  "complete": false,
+  "pass": false,
+  "final_state": {
+    "x": 9.085603713989258,
+    "y": -12.479830741882324,
+    "yaw": -1.9404805865684567,
+    "vx": 5.666514410121597,
+    "vy": -0.16184394724658002,
+    "r": -0.7050428986549377,
+    "steer": -0.17083264194457518,
+    "accel": 0.22868364344141096,
+    "t": 6.0,
+    "extra": {}
+  },
+  "physical_cone_hits": 3,
+  "contact_events": [
+    {
+      "t": 4.1,
+      "control_frame": 82,
+      "cone": "/World/Cones/c0046",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 4.6,
+      "control_frame": 92,
+      "cone": "/World/Cones/c0045",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 5.35,
+      "control_frame": 107,
+      "cone": "/World/Cones/c0044",
+      "time_convention": "start of the control interval containing first contact"
+    }
+  ],
+  "progress": 0.13809364357281614,
+  "rms_lat": 0.42138183956513797,
+  "case": {
+    "id": "train-skidpad-82000-matched",
+    "split": "train",
+    "discipline": "skidpad",
+    "seed": 82000,
+    "dr": "light",
+    "variant": "matched",
+    "track_seed": null,
+    "frozen_case": null,
+    "lateral_start": 0.0,
+    "yaw_start": 0.0
+  },
+  "pilot_only": true,
+  "events": [
+    {
+      "t": 2.992475895941897,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    },
+    {
+      "t": 4.05,
+      "kind": "doo",
+      "data": {
+        "cone": 46,
+        "dir": -0.6266702039975577
+      }
+    },
+    {
+      "t": 4.65,
+      "kind": "doo",
+      "data": {
+        "cone": 45,
+        "dir": -1.0837363358962708
+      }
+    },
+    {
+      "t": 5.25,
+      "kind": "doo",
+      "data": {
+        "cone": 44,
+        "dir": -1.4902766277221455
+      }
+    }
+  ],
+  "pending_events": [],
+  "recorded_frames": 120,
+  "wall_seconds": 43.27459438692313,
+  "startup_seconds": 12.33820299198851,
+  "evidence_seconds": 6.457865213858895,
+  "seconds_simulated": 6.0,
+  "real_time_factor": 0.1386494797930007,
+  "command_contract": {
+    "kind": "direct_native_actuator_joint_suffix_v1",
+    "version": 1,
+    "latent_module": "base.policy.p_node_linear_20",
+    "latent_shape": [
+      "B",
+      256
+    ],
+    "latent_normalization": {
+      "kind": "layer_norm",
+      "eps": 1e-05,
+      "affine": false
+    },
+    "proprio_order": [
+      "vx_mps",
+      "vy_mps",
+      "yaw_rate_radps"
+    ],
+    "proprio_scales": [
+      10.0,
+      2.0,
+      1.0
+    ],
+    "output_order": [
+      "steer_rad",
+      "accel_mps2"
+    ],
+    "output_scales": [
+      0.1,
+      2.0
+    ],
+    "target": "qualified native teacher controls at the observation tick",
+    "history": "phase-zero 5 Hz, eight past features and current feature, full desire queue",
+    "mission": "bound raw request, apply mission_brake_with_override, bound again",
+    "base_parameters": 31154802,
+    "head_parameters": 33538,
+    "training_scope": {
+      "base.policy.p_node_linear_14.weight": [
+        256,
+        512
+      ],
+      "base.policy.p_node_linear_14.bias": [
+        256
+      ],
+      "base.policy.p_node_linear_16.weight": [
+        256,
+        256
+      ],
+      "base.policy.p_node_linear_16.bias": [
+        256
+      ],
+      "base.policy.p_node_linear_17.weight": [
+        256,
+        256
+      ],
+      "base.policy.p_node_linear_17.bias": [
+        256
+      ]
+    },
+    "suffix_parameters": 262912,
+    "optimized_parameters": 296450,
+    "frozen_base_state_tensors": 411,
+    "plan_semantics": "updated plan and inherited controller are diagnostics only",
+    "deployment": {
+      "device": "cpu",
+      "dtype": "torch.float32",
+      "threads": 4
+    }
+  },
+  "controller_contract": {
+    "mode": "direct_native_actuator_joint_suffix_v1",
+    "command_contract": {
+      "kind": "direct_native_actuator_joint_suffix_v1",
+      "version": 1,
+      "latent_module": "base.policy.p_node_linear_20",
+      "latent_shape": [
+        "B",
+        256
+      ],
+      "latent_normalization": {
+        "kind": "layer_norm",
+        "eps": 1e-05,
+        "affine": false
+      },
+      "proprio_order": [
+        "vx_mps",
+        "vy_mps",
+        "yaw_rate_radps"
+      ],
+      "proprio_scales": [
+        10.0,
+        2.0,
+        1.0
+      ],
+      "output_order": [
+        "steer_rad",
+        "accel_mps2"
+      ],
+      "output_scales": [
+        0.1,
+        2.0
+      ],
+      "target": "qualified native teacher controls at the observation tick",
+      "history": "phase-zero 5 Hz, eight past features and current feature, full desire queue",
+      "mission": "bound raw request, apply mission_brake_with_override, bound again",
+      "base_parameters": 31154802,
+      "head_parameters": 33538,
+      "training_scope": {
+        "base.policy.p_node_linear_14.weight": [
+          256,
+          512
+        ],
+        "base.policy.p_node_linear_14.bias": [
+          256
+        ],
+        "base.policy.p_node_linear_16.weight": [
+          256,
+          256
+        ],
+        "base.policy.p_node_linear_16.bias": [
+          256
+        ],
+        "base.policy.p_node_linear_17.weight": [
+          256,
+          256
+        ],
+        "base.policy.p_node_linear_17.bias": [
+          256
+        ]
+      },
+      "suffix_parameters": 262912,
+      "optimized_parameters": 296450,
+      "frozen_base_state_tensors": 411,
+      "plan_semantics": "updated plan and inherited controller are diagnostics only",
+      "deployment": {
+        "device": "cpu",
+        "dtype": "torch.float32",
+        "threads": 4
+      }
+    }
+  },
+  "controller_name": "direct_native_actuator_joint_suffix_v1",
+  "policy_device": "cpu",
+  "package_kind": "direct_native_actuator_joint_suffix_v1",
+  "torch_num_threads": 4,
+  "head_state_sha256": "eed34fbd302328712cb677587e0a37c96c546997c751e7805179ea45f9157e40",
+  "head_state_sha256_after": "eed34fbd302328712cb677587e0a37c96c546997c751e7805179ea45f9157e40",
+  "base_parameter_count": 31154802,
+  "head_parameter_count": 33538,
+  "total_parameter_count": 31188340,
+  "checkpoint_sha256": "3cb08122c7d21656c23d3786c059b5a59bb904a8bb3fd617ec38020308de7b35",
+  "checkpoint_sha256_after": "3cb08122c7d21656c23d3786c059b5a59bb904a8bb3fd617ec38020308de7b35",
+  "state_sha256": "10b4a1a84f1955aca51e7859fcd69bd5d9ef52b18b9c6803a70b36704db2f753",
+  "state_sha256_after": "10b4a1a84f1955aca51e7859fcd69bd5d9ef52b18b9c6803a70b36704db2f753",
+  "frozen_unchanged": true,
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "07495d8a8ce087a0b962c6d072653c730f27fda32a626ea0f7fec424829f8980",
+  "torch_peak_allocated_gib": 0.0,
+  "torch_peak_reserved_gib": 0.0,
+  "runtime": {
+    "python": "3.11.13",
+    "platform": "Linux-7.0.0-1019-nvidia-aarch64-with-glibc2.39",
+    "processor": "aarch64",
+    "torch": "2.9.0+cu130",
+    "numpy": "1.26.0",
+    "inference_device": "cpu",
+    "inference_dtype": "torch.float32",
+    "torch_num_threads": 4,
+    "torch_num_interop_threads": 20
+  }
+}

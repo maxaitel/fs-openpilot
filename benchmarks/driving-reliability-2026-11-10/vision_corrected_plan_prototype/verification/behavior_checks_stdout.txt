@@ -1,0 +1,10 @@
+test_conflicting_color_becomes_unknown_obstacle (__main__.Behavior.test_conflicting_color_becomes_unknown_obstacle) ... ok
+test_dropout_carries_then_expires_and_gap_resets (__main__.Behavior.test_dropout_carries_then_expires_and_gap_resets) ... ok
+test_offset_is_not_origin_anchored_and_color_has_correct_sign (__main__.Behavior.test_offset_is_not_origin_anchored_and_color_has_correct_sign) ... ok
+test_unknown_brakes_at_zero_and_moving_speed (__main__.Behavior.test_unknown_brakes_at_zero_and_moving_speed) ... ok
+test_warp_integrates_measured_body_motion (__main__.Behavior.test_warp_integrates_measured_body_motion) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.043s
+
+OK

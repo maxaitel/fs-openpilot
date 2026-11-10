@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "numpy_version": "1.26.0",
+  "inputs": {
+    "completion_sha256": "b759fcdb4df093209152af30383b6eba948e18970327c4b144c7ae8d269f8d5e",
+    "artifact_audit_sha256": "24075826df27b9e499d51f7918ea87ba2c523626074a288e8e2e618d46182ebb",
+    "frames_sha256": "fa8fe4980b96ae6fa8f6365d4b62cba6e53b29b120d9909cfcb9c7d1740ba871",
+    "telemetry_sha256": "ffaafe949b5783de8ae08c22bedc39b21c4976d0bc77b422bf3af1b1d8336a5d",
+    "render_code_sha256": "176fcbe153412eca84bfcff85d4c1d104809aba978b240ac8bd9ae47314a7ebb",
+    "process_code_sha256": "2a497654b94c72c099b9fb1b04179b3f26c53f6599b1f6ce12ee571bb30692f9",
+    "producer_process_code_sha256": "6feb7c30976e9c5f73d1975154d672f015310624fec5363f3648bf396393eeb9",
+    "replay_receipt_sha256": "f346621c5bc08ec63473942ffa49460e760d47eb8859d7b93d9a6fcb696262da",
+    "wrapper_code_sha256": "b3185554ceded34812a7019fe7dd4b4b57205db095b93f2492f2167e6463ac5e"
+  },
+  "inference_frames": 2400,
+  "terminal_frames": 40,
+  "command_contract": {
+    "base_parameters": 31154802,
+    "head_parameters": 33538,
+    "history": "phase-zero 5 Hz, eight past features and current feature, full desire queue",
+    "kind": "direct_native_actuator_v1",
+    "latent_module": "base.policy.p_node_linear_20",
+    "latent_normalization": {
+      "affine": false,
+      "eps": 1e-05,
+      "kind": "layer_norm"
+    },
+    "latent_shape": [
+      "B",
+      256
+    ],
+    "mission": "bound raw request, apply mission_brake_with_override, bound again",
+    "output_order": [
+      "steer_rad",
+      "accel_mps2"
+    ],
+    "output_scales": [
+      0.1,
+      2.0
+    ],
+    "proprio_order": [
+      "vx_mps",
+      "vy_mps",
+      "yaw_rate_radps"
+    ],
+    "proprio_scales": [
+      10.0,
+      2.0,
+      1.0
+    ],
+    "target": "qualified native teacher controls at the observation tick",
+    "version": 1
+  },
+  "raw_videos": {
+    "debug": {
+      "path": "debug-raw.mp4",
+      "sha256": "1cfc8258813544264856d1fbbdd1df79db4a5bc68de8baed266d36add992c701"
+    },
+    "research": {
+      "path": "research-raw.mp4",
+      "sha256": "921bd6b16917d598dacf099e34cd323e5cb67191e40605bf4912c15c246a62a8"
+    }
+  }
+}

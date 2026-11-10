@@ -1,0 +1,5 @@
+{
+  "stage": "freeze_before_GPU",
+  "error": "Full-runtime equality failed because src/fsop/train/lab_train.py changed during completed head training. Native physics, simulator, geometry, controller, and all other runtime sources match.",
+  "resolution": "Preserve failed preparation separately. Bind exact old and current training source hashes, require only this observed unrelated difference, and bind entire current runtime. No acceptance thresholds change."
+}

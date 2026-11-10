@@ -1,0 +1,323 @@
+{
+  "raw_sha256": "72bda1b285bf368e6f17c09abd86fac328e74028edd408fddb9dc179d3a70a5b",
+  "gzip_sha256": "2240c87b92c2c0ff997e3507cbf91e507770790438934fb9c5a0d159d4e144f6",
+  "raw_local_archive": "runs/driving_reliability_archive/command_probe/result.json",
+  "saved_frames": 601,
+  "saved_fields": 24,
+  "saved_mismatches": 0,
+  "interpretation": "Frozen-input command sensitivity. Postcontact anchors are explicitly labeled. No driving result.",
+  "anchors": {
+    "120": {
+      "phase": "early_right",
+      "earlier_contacts": 0,
+      "variants": {
+        "recorded": {
+          "action": [
+            -0.1732917009726976,
+            0.22279242379528172
+          ],
+          "action_delta": [
+            0.0,
+            0.0
+          ],
+          "near_2s_xy_max_delta_m": 0.0,
+          "pooled_nonzero": 2
+        },
+        "recorded_repeat": {
+          "action": [
+            -0.1732917009726976,
+            0.22279242379528172
+          ],
+          "action_delta": [
+            0.0,
+            0.0
+          ],
+          "near_2s_xy_max_delta_m": 0.0,
+          "pooled_nonzero": 2
+        },
+        "swapped": {
+          "action": [
+            0.05109567634214561,
+            0.2772176842571482
+          ],
+          "action_delta": [
+            0.2243873773148432,
+            0.05442526046186649
+          ],
+          "near_2s_xy_max_delta_m": 10.99658481205922,
+          "pooled_nonzero": 2
+        },
+        "zero": {
+          "action": [
+            -0.17030490678556615,
+            0.146839981395124
+          ],
+          "action_delta": [
+            0.002986794187131464,
+            -0.07595244240015772
+          ],
+          "near_2s_xy_max_delta_m": 0.17695078221431187,
+          "pooled_nonzero": 0
+        },
+        "pulse_right": {
+          "action": [
+            -0.19790173255504806,
+            0.8941677069843998
+          ],
+          "action_delta": [
+            -0.02461003158235045,
+            0.6713752831891181
+          ],
+          "near_2s_xy_max_delta_m": 1.2658544725023353,
+          "pooled_nonzero": 5
+        },
+        "pulse_left": {
+          "action": [
+            0.15188446288581828,
+            1.5189275156141502
+          ],
+          "action_delta": [
+            0.3251761638585159,
+            1.2961350918188685
+          ],
+          "near_2s_xy_max_delta_m": 14.18584998027152,
+          "pooled_nonzero": 5
+        }
+      }
+    },
+    "170": {
+      "phase": "steady_right",
+      "earlier_contacts": 0,
+      "variants": {
+        "recorded": {
+          "action": [
+            -0.17352152220877032,
+            0.23827953424313192
+          ],
+          "action_delta": [
+            0.0,
+            0.0
+          ],
+          "near_2s_xy_max_delta_m": 0.0,
+          "pooled_nonzero": 0
+        },
+        "recorded_repeat": {
+          "action": [
+            -0.17352152220877032,
+            0.23827953424313192
+          ],
+          "action_delta": [
+            0.0,
+            0.0
+          ],
+          "near_2s_xy_max_delta_m": 0.0,
+          "pooled_nonzero": 0
+        },
+        "swapped": {
+          "action": [
+            -0.17352152220877032,
+            0.23827953424313192
+          ],
+          "action_delta": [
+            0.0,
+            0.0
+          ],
+          "near_2s_xy_max_delta_m": 0.0,
+          "pooled_nonzero": 0
+        },
+        "zero": {
+          "action": [
+            -0.17352152220877032,
+            0.23827953424313192
+          ],
+          "action_delta": [
+            0.0,
+            0.0
+          ],
+          "near_2s_xy_max_delta_m": 0.0,
+          "pooled_nonzero": 0
+        },
+        "pulse_right": {
+          "action": [
+            -0.19982990456188734,
+            0.9359804321826353
+          ],
+          "action_delta": [
+            -0.026308382353117027,
+            0.6977008979395034
+          ],
+          "near_2s_xy_max_delta_m": 1.1015106058112545,
+          "pooled_nonzero": 5
+        },
+        "pulse_left": {
+          "action": [
+            0.15434587245553696,
+            1.462738777399149
+          ],
+          "action_delta": [
+            0.32786739466430725,
+            1.224459243156017
+          ],
+          "near_2s_xy_max_delta_m": 13.90296639413859,
+          "pooled_nonzero": 5
+        }
+      }
+    },
+    "430": {
+      "phase": "approaching_right_to_left",
+      "earlier_contacts": 2,
+      "variants": {
+        "recorded": {
+          "action": [
+            -0.1494580104122749,
+            0.3778397904895426
+          ],
+          "action_delta": [
+            0.0,
+            0.0
+          ],
+          "near_2s_xy_max_delta_m": 0.0,
+          "pooled_nonzero": 2
+        },
+        "recorded_repeat": {
+          "action": [
+            -0.1494580104122749,
+            0.3778397904895426
+          ],
+          "action_delta": [
+            0.0,
+            0.0
+          ],
+          "near_2s_xy_max_delta_m": 0.0,
+          "pooled_nonzero": 2
+        },
+        "swapped": {
+          "action": [
+            -0.17242529780480564,
+            0.22886464187411543
+          ],
+          "action_delta": [
+            -0.022967287392530733,
+            -0.14897514861542716
+          ],
+          "near_2s_xy_max_delta_m": 6.62774888330857,
+          "pooled_nonzero": 2
+        },
+        "zero": {
+          "action": [
+            -0.17109470231137436,
+            0.16231213739143677
+          ],
+          "action_delta": [
+            -0.021636691899099447,
+            -0.21552765309810581
+          ],
+          "near_2s_xy_max_delta_m": 6.565092522658029,
+          "pooled_nonzero": 0
+        },
+        "pulse_right": {
+          "action": [
+            -0.21694031077347894,
+            1.4094086683355456
+          ],
+          "action_delta": [
+            -0.06748230036120403,
+            1.031568877846003
+          ],
+          "near_2s_xy_max_delta_m": 8.08578641915518,
+          "pooled_nonzero": 5
+        },
+        "pulse_left": {
+          "action": [
+            0.16495387394547123,
+            1.6521519174240715
+          ],
+          "action_delta": [
+            0.31441188435774614,
+            1.274312126934529
+          ],
+          "near_2s_xy_max_delta_m": 8.396714865305023,
+          "pooled_nonzero": 5
+        }
+      }
+    },
+    "600": {
+      "phase": "left_area_unverified",
+      "earlier_contacts": 9,
+      "variants": {
+        "recorded": {
+          "action": [
+            0.16648774490014234,
+            0.17242376747288196
+          ],
+          "action_delta": [
+            0.0,
+            0.0
+          ],
+          "near_2s_xy_max_delta_m": 0.0,
+          "pooled_nonzero": 0
+        },
+        "recorded_repeat": {
+          "action": [
+            0.16648774490014234,
+            0.17242376747288196
+          ],
+          "action_delta": [
+            0.0,
+            0.0
+          ],
+          "near_2s_xy_max_delta_m": 0.0,
+          "pooled_nonzero": 0
+        },
+        "swapped": {
+          "action": [
+            0.16648774490014234,
+            0.17242376747288196
+          ],
+          "action_delta": [
+            0.0,
+            0.0
+          ],
+          "near_2s_xy_max_delta_m": 0.0,
+          "pooled_nonzero": 0
+        },
+        "zero": {
+          "action": [
+            0.16648774490014234,
+            0.17242376747288196
+          ],
+          "action_delta": [
+            0.0,
+            0.0
+          ],
+          "near_2s_xy_max_delta_m": 0.0,
+          "pooled_nonzero": 0
+        },
+        "pulse_right": {
+          "action": [
+            -0.1908596842085707,
+            0.8037416106716585
+          ],
+          "action_delta": [
+            -0.35734742910871303,
+            0.6313178431987765
+          ],
+          "near_2s_xy_max_delta_m": 13.806038055721823,
+          "pooled_nonzero": 5
+        },
+        "pulse_left": {
+          "action": [
+            0.17374581851926846,
+            0.9086087835089159
+          ],
+          "action_delta": [
+            0.007258073619126115,
+            0.7361850160360339
+          ],
+          "near_2s_xy_max_delta_m": 0.8216908067782159,
+          "pooled_nonzero": 5
+        }
+      }
+    }
+  }
+}

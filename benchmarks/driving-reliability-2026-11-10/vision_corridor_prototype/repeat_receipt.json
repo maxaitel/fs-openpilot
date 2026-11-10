@@ -1,0 +1,9 @@
+{
+  "replays_completed": 2,
+  "same_source_same_inputs": true,
+  "comparison": "Second replay required byte-identical existing result.json and rows.json; replay would raise before completion on any difference.",
+  "max_observed_repeat_difference": 0,
+  "result_sha256": "2cfeef1be8ba385e75d1c29f071e3ddcefee35f204f1a34935e20629a3b5535c",
+  "rows_sha256": "57b3e30091b333c85e0c7dbdaf72b0af6ed94b04dd9a4fee4ec5f1a9e806645d",
+  "freeze_sha256": "f5754c60583f2112c60113aec3703b53c7b74a38d66a872f518d7edac8f4907a"
+}

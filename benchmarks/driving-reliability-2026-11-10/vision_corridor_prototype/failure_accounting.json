@@ -1,0 +1,39 @@
+{
+  "counts": {
+    "direct_command_pilot3": {
+      "frames_with_any_near_retained_track": 53,
+      "frames_with_color_conflicted_tracks": 79,
+      "frames_with_range_supported_retained_tracks": 80,
+      "frames_with_retained_track_excluded_by_freshness": 48,
+      "gates_but_no_nearfield_seed": 23,
+      "no_gates": 57
+    },
+    "direct_command_recovery_pilot2": {
+      "frames_with_any_near_retained_track": 25,
+      "frames_with_color_conflicted_tracks": 51,
+      "frames_with_range_supported_retained_tracks": 53,
+      "frames_with_retained_track_excluded_by_freshness": 19,
+      "gates_but_no_nearfield_seed": 4,
+      "no_gates": 49
+    },
+    "train-skidpad-82000-matched": {
+      "frames_with_any_near_retained_track": 178,
+      "frames_with_color_conflicted_tracks": 171,
+      "frames_with_range_supported_retained_tracks": 275,
+      "frames_with_retained_track_excluded_by_freshness": 176,
+      "gates_but_no_nearfield_seed": 92,
+      "no_gates": 194
+    },
+    "train-trackdrive-82000-matched": {
+      "frames_with_any_near_retained_track": 232,
+      "frames_with_color_conflicted_tracks": 29,
+      "frames_with_range_supported_retained_tracks": 287,
+      "frames_with_retained_track_excluded_by_freshness": 210,
+      "gates_but_no_nearfield_seed": 221,
+      "no_gates": 66
+    }
+  },
+  "rows_sha256": "57b3e30091b333c85e0c7dbdaf72b0af6ed94b04dd9a4fee4ec5f1a9e806645d",
+  "scope": "Post-replay descriptive counts. Reuses frozen gate eligibility exactly. No alternative recipe was evaluated.",
+  "source_sha256": "51ce5a7f9b28aa8d1ae26e95cadd3c6aade23cc1f1ff3f4adc6e2cf91a18db3b"
+}

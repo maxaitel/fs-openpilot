@@ -1,0 +1,306 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-11-10T05:01:11.516567+00:00",
+  "state": "frozen_before_new_training_and_final_selection",
+  "purpose": "Final vision-driving acceptance. No final cases have been launched by this continuation.",
+  "selection": "Bind exactly one qualifying checkpoint and executable source before opening any final case. No candidate replacement after final outcomes. A failure rejects that candidate; preserve the suite and failures.",
+  "cases": [
+    {
+      "path": "docs/isaac-lab-training/cases/test-skidpad-86000-matched.json",
+      "sha256": "4b751e91ed06c57ad4aabd13d50ad39a5bf822be1ed339c0f3445eac5ea49611",
+      "case": {
+        "id": "test-skidpad-86000-matched",
+        "split": "test",
+        "discipline": "skidpad",
+        "seed": 86000,
+        "dr": "light",
+        "variant": "matched",
+        "track_seed": null,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/test-skidpad-86000-visual_stress_v1.json",
+      "sha256": "a35512adcc26491921ea657b8cad4f4e942a1383012b2a1d566089133ebeea76",
+      "case": {
+        "id": "test-skidpad-86000-visual_stress_v1",
+        "split": "test",
+        "discipline": "skidpad",
+        "seed": 86000,
+        "dr": "light",
+        "variant": "visual_stress_v1",
+        "track_seed": null,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/test-skidpad-86001-matched.json",
+      "sha256": "677ab9c6d4b5541ce9611ca38385661a18dbfc686fd300e421885ea7e55a2819",
+      "case": {
+        "id": "test-skidpad-86001-matched",
+        "split": "test",
+        "discipline": "skidpad",
+        "seed": 86001,
+        "dr": "heavy",
+        "variant": "matched",
+        "track_seed": null,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/test-skidpad-86001-visual_stress_v1.json",
+      "sha256": "19c6cf5f941ea12df3d6ffc4445f44c5ab8aff79da6039924bd7f6f865c4896e",
+      "case": {
+        "id": "test-skidpad-86001-visual_stress_v1",
+        "split": "test",
+        "discipline": "skidpad",
+        "seed": 86001,
+        "dr": "heavy",
+        "variant": "visual_stress_v1",
+        "track_seed": null,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/test-skidpad-86002-matched.json",
+      "sha256": "74acf1284dad5c0cc6b2cdaa3714e15d29dc98d38176bce8fb821670ecc84a21",
+      "case": {
+        "id": "test-skidpad-86002-matched",
+        "split": "test",
+        "discipline": "skidpad",
+        "seed": 86002,
+        "dr": "light",
+        "variant": "matched",
+        "track_seed": null,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/test-skidpad-86002-visual_stress_v1.json",
+      "sha256": "6ae17c64659c0a455a0c83e5259873dd6106868c84f472a5d5d3a0018c07edaa",
+      "case": {
+        "id": "test-skidpad-86002-visual_stress_v1",
+        "split": "test",
+        "discipline": "skidpad",
+        "seed": 86002,
+        "dr": "light",
+        "variant": "visual_stress_v1",
+        "track_seed": null,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/test-skidpad-86003-matched.json",
+      "sha256": "b43b47a8702538eee44d940833c80cbfaba14090c05444f7cdc57a6e124302e2",
+      "case": {
+        "id": "test-skidpad-86003-matched",
+        "split": "test",
+        "discipline": "skidpad",
+        "seed": 86003,
+        "dr": "heavy",
+        "variant": "matched",
+        "track_seed": null,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/test-skidpad-86003-visual_stress_v1.json",
+      "sha256": "fb2b88e5bc430ac7f1fbc77c92fd6aa522a4a5ab0fcde77752e022af9b6ec0ad",
+      "case": {
+        "id": "test-skidpad-86003-visual_stress_v1",
+        "split": "test",
+        "discipline": "skidpad",
+        "seed": 86003,
+        "dr": "heavy",
+        "variant": "visual_stress_v1",
+        "track_seed": null,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/test-trackdrive-86000-matched.json",
+      "sha256": "abcb810bcc8a2322350c6706b4c86c7c7b978b26e7eda8fac1da764f5a9f7680",
+      "case": {
+        "id": "test-trackdrive-86000-matched",
+        "split": "test",
+        "discipline": "trackdrive",
+        "seed": 86000,
+        "dr": "light",
+        "variant": "matched",
+        "track_seed": 85000,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/test-trackdrive-86000-visual_stress_v1.json",
+      "sha256": "17c7c91ecb15f4d21cf708a69a025528d533dc8d09f8c14481aa413a0b8033d2",
+      "case": {
+        "id": "test-trackdrive-86000-visual_stress_v1",
+        "split": "test",
+        "discipline": "trackdrive",
+        "seed": 86000,
+        "dr": "light",
+        "variant": "visual_stress_v1",
+        "track_seed": 85000,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/test-trackdrive-86001-matched.json",
+      "sha256": "4d3a2c20dca64e04c24443d90dc078ba297c4c1a2166eed77a74856fa77485e0",
+      "case": {
+        "id": "test-trackdrive-86001-matched",
+        "split": "test",
+        "discipline": "trackdrive",
+        "seed": 86001,
+        "dr": "heavy",
+        "variant": "matched",
+        "track_seed": 85001,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/test-trackdrive-86001-visual_stress_v1.json",
+      "sha256": "f072740c0469d53bc75ac202193b4b38ef7bed1d3242843360c1a59cede23c5b",
+      "case": {
+        "id": "test-trackdrive-86001-visual_stress_v1",
+        "split": "test",
+        "discipline": "trackdrive",
+        "seed": 86001,
+        "dr": "heavy",
+        "variant": "visual_stress_v1",
+        "track_seed": 85001,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/test-trackdrive-86002-matched.json",
+      "sha256": "4f7c85a3e259c684a2fe6176293e5933000a34bb55ef3fce8e17d2b8197b4c56",
+      "case": {
+        "id": "test-trackdrive-86002-matched",
+        "split": "test",
+        "discipline": "trackdrive",
+        "seed": 86002,
+        "dr": "light",
+        "variant": "matched",
+        "track_seed": 85002,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/test-trackdrive-86002-visual_stress_v1.json",
+      "sha256": "98cfb02d328e820d584a577ed3e00f203a124872b8247597eaa338e83e600ee8",
+      "case": {
+        "id": "test-trackdrive-86002-visual_stress_v1",
+        "split": "test",
+        "discipline": "trackdrive",
+        "seed": 86002,
+        "dr": "light",
+        "variant": "visual_stress_v1",
+        "track_seed": 85002,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/test-trackdrive-86003-matched.json",
+      "sha256": "afe052c4abfcbc5260520d81d108d867d650023fa75cc72c4b801a5dd571e9c0",
+      "case": {
+        "id": "test-trackdrive-86003-matched",
+        "split": "test",
+        "discipline": "trackdrive",
+        "seed": 86003,
+        "dr": "heavy",
+        "variant": "matched",
+        "track_seed": 85003,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    },
+    {
+      "path": "docs/isaac-lab-training/cases/test-trackdrive-86003-visual_stress_v1.json",
+      "sha256": "b08bac472352494432b705be88d75a8e816cfbfc1993e14c0a41470ca0e2b907",
+      "case": {
+        "id": "test-trackdrive-86003-visual_stress_v1",
+        "split": "test",
+        "discipline": "trackdrive",
+        "seed": 86003,
+        "dr": "heavy",
+        "variant": "visual_stress_v1",
+        "track_seed": 85003,
+        "frozen_case": null,
+        "lateral_start": 0.0,
+        "yaw_start": 0.0
+      }
+    }
+  ],
+  "repeats_per_condition": 4,
+  "candidate_runs": 64,
+  "baseline_runs": 16,
+  "baseline_policy": "One unchanged frozen baseline run per condition, interleaved with candidate. Baseline failure never relaxes candidate gates. Bind baseline hash before execution.",
+  "execution_order": "Round-robin over sorted condition paths, four complete candidate passes. Baseline precedes candidate in pass 1 and follows candidate in pass 2, alternating condition parity; execute each baseline once. Record all launch attempts and failures.",
+  "per_run_gate": {
+    "result": "finished",
+    "complete": true,
+    "pass": true,
+    "dq": false,
+    "physical_cone_hits": 0,
+    "oc": 0,
+    "max_simulated_seconds": 120,
+    "skidpad_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "skidpad_route_valid": true,
+    "skidpad_stopped_in_zone": true
+  },
+  "aggregate_gate": "All 64 prescribed candidate runs must satisfy every per-run gate. Missing, technically invalid or unaudited runs leave acceptance NOT VERIFIED. Infrastructure retries retain original attempt and are allowed only before policy inference or when complete source-bound evidence proves an infrastructure-only failure. Driving failures cannot be retried away.",
+  "uncertainty": "Report completions and exact binomial intervals descriptively, both by discipline and overall. Four repeats share a physical realization and are not independent novel scenes. Also report each of the eight unique seed-discipline realizations and both appearance conditions. Do not claim 64 independent scenes or universal reliability.",
+  "scene_scope": "Four held-out seeds per discipline, four held-out track layouts, matched and visual_stress_v1 surfaces and objects, both light and heavy randomization as frozen in case files. Preserve exact realized people, barriers and lighting inventories.",
+  "comparability": {
+    "camera": "unchanged model camera and 16-subframe production capture",
+    "physics": "unchanged native Isaac Lab PhysX and vehicle realization for paired arms",
+    "control_hz": 20,
+    "timeout_seconds": 120,
+    "scoring": "unchanged physical contact and native route referee",
+    "precision": "FP32, no feature cache, no channels-last, no BF16"
+  },
+  "evidence_gate": [
+    "Actual recorded camera inputs, model outputs, controller state and native dynamics for every inference tick.",
+    "Producer artifact audit, hash-verified raw archive, fully decoded existing debug and research videos including terminal failures.",
+    "Report lap durations, whole mission time and exposure, physical contacts, off-course, completion, hardware samples and contention.",
+    "Preserve failed checkpoints and every failed or partial run."
+  ],
+  "storage_gate": "Before full rendered suite launch, establish writable capacity for raw evidence and media without deleting existing archives or stopping the tmpfs container.",
+  "privilege": "Ground truth is allowed for scoring and labeled diagnostics. Final policy must use only the declared production observation and mission interfaces; no reference trajectory or ground-truth cones supplied to inference."
+}

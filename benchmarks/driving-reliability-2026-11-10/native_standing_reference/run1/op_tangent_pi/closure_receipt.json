@@ -1,0 +1,16 @@
+{
+  "arm": "op_tangent_pi",
+  "protocol_sha256": "7990080bad25ebd99ef4c0b6067acc2946a7fec3b75ce6c02748e8bf9bb47b5f",
+  "status": "closed_and_independently_verified",
+  "child_exited": true,
+  "child_returncode": 0,
+  "files_sha256": {
+    "result.json": "a16edff5ea84798b21637c9a1058a44ea83911c362ca142c178d2f8c0a716522",
+    "verification.json": "ffee3ce127655bc3195ea6d2d346f2682d5b6909e8dc07377c853e8ed8146240",
+    "worker_result.json": "e95a0b1a68baea1e5bb827d68a9073a65ec78840270f59e1a109befd70705ad1",
+    "route_events.json": "a2f3fd0fff8f5cbcf795a00b52bd32f55f10633aaca6512abba3eeab5b10d95c",
+    "diagnostics.json": "4c9ec9295d8dea85d2e8c314a3614fc47a31be95ab7304589820d770fa6112ac",
+    "trace.npz": "f8d2d55d5cd479561de61477b72ac7332782a3bf71434936b9cf04817a6ddeb7",
+    "process.log": "7190940ca50a23bf165a56aa1aebd8a7299075e483fc676db6263d92928597ad"
+  }
+}

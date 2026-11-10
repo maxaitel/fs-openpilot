@@ -1,0 +1,81 @@
+{
+  "files": [
+    {
+      "source": ".work/lab/vision_corridor_proto_v1/planner.py",
+      "destination": "planner.py",
+      "sha256": "79899cb521d4537b636fc8662b5e48c5c5ca00b3b09781a8ee3b3e1805510b0b"
+    },
+    {
+      "source": ".work/lab/vision_corridor_proto_v1/WORK.md",
+      "destination": "WORK.md",
+      "sha256": "6f494fc72933c01b890a028cfedc46304152c25a944139d14e27c9394e55189d"
+    },
+    {
+      "source": ".work/lab/vision_corridor_proto_v1/result.json",
+      "destination": "result.json",
+      "sha256": "2cfeef1be8ba385e75d1c29f071e3ddcefee35f204f1a34935e20629a3b5535c"
+    },
+    {
+      "source": ".work/lab/vision_corridor_proto_v1/test_planner.py",
+      "destination": "test_planner.py",
+      "sha256": "ebd337616379c52e5750a72793d1ccbea7937bd7446601f066f7ea874ae43d2c"
+    },
+    {
+      "source": ".work/lab/vision_corridor_proto_v1/repeat_receipt.json",
+      "destination": "repeat_receipt.json",
+      "sha256": "541e554f2a6faa793533d9f7ee4aeae4ea813b23d84b90a419c480fbb6d96a28"
+    },
+    {
+      "source": ".work/lab/vision_corridor_proto_v1/failure_accounting.json",
+      "destination": "failure_accounting.json",
+      "sha256": "20ed578a7487d0592cbf7630b007f5774699f90055581012e3c917b7cabbee90"
+    },
+    {
+      "source": ".work/lab/vision_corridor_proto_v1/recipe.json",
+      "destination": "recipe.json",
+      "sha256": "e900be8f7b3f76996dd2a4d43b9291607f99d66eabc52067e4c8613aa65d5479"
+    },
+    {
+      "source": ".work/lab/vision_corridor_proto_v1/explain_failure.py",
+      "destination": "explain_failure.py",
+      "sha256": "51ce5a7f9b28aa8d1ae26e95cadd3c6aade23cc1f1ff3f4adc6e2cf91a18db3b"
+    },
+    {
+      "source": ".work/lab/vision_corridor_proto_v1/repeat_stdout.json",
+      "destination": "repeat_stdout.json",
+      "sha256": "b514be29ea66daebeb1ffa79efbb7f795de5050da1b807efb990dae18cff8556"
+    },
+    {
+      "source": ".work/lab/vision_corridor_proto_v1/README.md",
+      "destination": "README.md",
+      "sha256": "9264c939fb13869fe3e9b5e9bbeaa2bc246c58e310293eb6906fe62d17a1e6e6"
+    },
+    {
+      "source": ".work/lab/vision_corridor_proto_v1/replay.py",
+      "destination": "replay.py",
+      "sha256": "574c34c9141120493a2b7905a375ac123133a03b9acdce5900a68d504b7d7bb5"
+    },
+    {
+      "source": ".work/lab/vision_corridor_proto_v1/inputs.py",
+      "destination": "inputs.py",
+      "sha256": "9a65d53647aa50868cee94999f8d064c863b645a20fc1adae446ab76b06ecb6b"
+    },
+    {
+      "source": ".work/lab/vision_corridor_proto_v1/rows.json",
+      "destination": "rows.json",
+      "sha256": "57b3e30091b333c85e0c7dbdaf72b0af6ed94b04dd9a4fee4ec5f1a9e806645d"
+    },
+    {
+      "source": ".work/lab/vision_corridor_proto_v1/freeze.json",
+      "destination": "freeze.json",
+      "sha256": "f5754c60583f2112c60113aec3703b53c7b74a38d66a872f518d7edac8f4907a"
+    },
+    {
+      "source": ".work/lab/vision_corridor_proto_v1/scorer.py",
+      "destination": "scorer.py",
+      "sha256": "483c08ed855cb9227b3f3fa09dfc0279d997e3fa4da8102ea51566c5955c4037"
+    }
+  ],
+  "source_deleted": false,
+  "purpose": "TRAIN-only diagnostic/failed prototype evidence, never physical or final qualification."
+}

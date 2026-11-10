@@ -1,0 +1,62 @@
+{
+  "published_at": "2026-11-10T10:56:21.108573+00:00",
+  "source_index_sha256": "44b53e219670fe082d21ded346262826b2a3a2d491010907d22db60292c78e49",
+  "copied_files": 4,
+  "copied_bytes": 26044,
+  "source_before_after_and_published_identical": true,
+  "originals_preserved": true,
+  "verification": {
+    "script_and_protocol_hashes_match_result": true,
+    "result_sha256": "5e3c091d89e74eda15779c847c86a39c6be98aa86837d4ccdc9e4066ab741372",
+    "evidence_header_files_verified": [
+      {
+        "original_path": "runs/direct_command_pilot3/evidence/metadata.json",
+        "sha256": "cefc9c5e41493fc75534183fead05fcd1225bd04c23354bcd3e12d7fef81dcc4",
+        "published": false
+      },
+      {
+        "original_path": "runs/direct_command_pilot3/evidence/manifest.jsonl",
+        "sha256": "a15313776d7b264ea46b2f77e25164030fddc0f8bd72c11ebf130234abcb332e",
+        "published": false
+      },
+      {
+        "original_path": "runs/direct_command_pilot3/evidence/completion.json",
+        "sha256": "6a1c303aaf28b99a128e66b3a9785669338cb909b6f665376555c62ac3fd8efb",
+        "published": false
+      },
+      {
+        "original_path": "runs/direct_command_recovery_pilot2/evidence/metadata.json",
+        "sha256": "a5f2426d810f061985cd38273e519dcb42bbff78899e3fa1f4a168dad31a0aab",
+        "published": false
+      },
+      {
+        "original_path": "runs/direct_command_recovery_pilot2/evidence/manifest.jsonl",
+        "sha256": "cc78d7170172dde653cc82399f26752d0211530c9fce8f251d72d2e4e4c2cb71",
+        "published": false
+      },
+      {
+        "original_path": "runs/direct_command_recovery_pilot2/evidence/completion.json",
+        "sha256": "5d7d336d6635cb95e6bf12b220dc18f8dbe840f2dc7913196adc59dac0c7a680",
+        "published": false
+      },
+      {
+        "original_path": "runs/joint_command_pilot1/evidence/metadata.json",
+        "sha256": "627df0556dd1eb93261e600203a16a81a7d69e50f26f839f5c66a568a5077ee7",
+        "published": false
+      },
+      {
+        "original_path": "runs/joint_command_pilot1/evidence/manifest.jsonl",
+        "sha256": "e410b71b52881e78b65477cecd3e66573a05807f488e3164bddf7f6ee323897a",
+        "published": false
+      },
+      {
+        "original_path": "runs/joint_command_pilot1/evidence/completion.json",
+        "sha256": "9fbdc11b5dc4aed0d8f6c184d6c87b9632537fba05729e199832e85d52e260be",
+        "published": false
+      }
+    ],
+    "numeric_result_not_rerun": true
+  },
+  "no_probe_rerun": true,
+  "no_commit": true
+}
