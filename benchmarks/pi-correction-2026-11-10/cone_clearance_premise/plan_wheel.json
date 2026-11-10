@@ -1,0 +1,112 @@
+[
+  {
+    "frame": 160,
+    "cone": 37,
+    "constant_steer": -0.17070399534136985,
+    "min_wheel_projected_disk_clearance_m": [
+      0.06495170139646378,
+      1.27,
+      "fl"
+    ]
+  },
+  {
+    "frame": 170,
+    "cone": 37,
+    "constant_steer": -0.17132259862020413,
+    "min_wheel_projected_disk_clearance_m": [
+      0.0403024704611539,
+      0.78,
+      "fl"
+    ]
+  },
+  {
+    "frame": 176,
+    "cone": 37,
+    "constant_steer": -0.1724951418669986,
+    "min_wheel_projected_disk_clearance_m": [
+      0.05035328120894966,
+      0.48,
+      "fl"
+    ]
+  },
+  {
+    "frame": 180,
+    "cone": 37,
+    "constant_steer": -0.17158275449675733,
+    "min_wheel_projected_disk_clearance_m": [
+      0.05371494779109917,
+      0.28,
+      "fl"
+    ]
+  },
+  {
+    "frame": 420,
+    "cone": 30,
+    "constant_steer": -0.16906043726835382,
+    "min_wheel_projected_disk_clearance_m": [
+      -0.0277318850929755,
+      1.23,
+      "fl"
+    ]
+  },
+  {
+    "frame": 430,
+    "cone": 30,
+    "constant_steer": -0.16124939176619468,
+    "min_wheel_projected_disk_clearance_m": [
+      -0.07501345329086967,
+      0.73,
+      "fl"
+    ]
+  },
+  {
+    "frame": 438,
+    "cone": 30,
+    "constant_steer": -0.06424772765890974,
+    "min_wheel_projected_disk_clearance_m": [
+      -0.10111276791696641,
+      0.31,
+      "fl"
+    ]
+  },
+  {
+    "frame": 440,
+    "cone": 30,
+    "constant_steer": -0.032901579986550106,
+    "min_wheel_projected_disk_clearance_m": [
+      -0.12570111485857796,
+      0.16,
+      "fl"
+    ]
+  },
+  {
+    "frame": 450,
+    "cone": 31,
+    "constant_steer": 0.250832867739637,
+    "min_wheel_projected_disk_clearance_m": [
+      0.14412509813280178,
+      0.5,
+      "rr"
+    ]
+  },
+  {
+    "frame": 480,
+    "cone": 21,
+    "constant_steer": 0.164568123590179,
+    "min_wheel_projected_disk_clearance_m": [
+      0.3035786522965429,
+      1.43,
+      "fl"
+    ]
+  },
+  {
+    "frame": 500,
+    "cone": 21,
+    "constant_steer": 0.158982219752366,
+    "min_wheel_projected_disk_clearance_m": [
+      0.10104366534439435,
+      0.48,
+      "fl"
+    ]
+  }
+]

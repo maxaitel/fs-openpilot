@@ -1,0 +1,409 @@
+{
+  "method": "Cij / sqrt(Cii*Cjj). Cancels the CPU norm denominator and yields dot(x,y)/sqrt(dot(x,x)*dot(y,y)) from recorded ratios. This is posthoc normalization of FP32 dot products, not a new optimizer run. Original cosine fields are invalid.",
+  "models": {
+    "latest": {
+      "0": {
+        "plan_consistency": {
+          "plan_consistency": 1.0,
+          "plan": 0.9862684180882707,
+          "consistency": -0.033377251183774166,
+          "action": 0.0873849359050562,
+          "steer": 0.17831915064815443,
+          "longitudinal": 0.08536312068967727
+        },
+        "plan": {
+          "plan_consistency": 0.9862684180882707,
+          "plan": 1.0,
+          "consistency": -0.05255844855677321,
+          "action": 0.08701565358177853,
+          "steer": 0.1772425824730097,
+          "longitudinal": 0.08501392967251113
+        },
+        "consistency": {
+          "plan_consistency": -0.033377251183774166,
+          "plan": -0.05255844855677321,
+          "consistency": 1.0,
+          "action": -0.009541402274005194,
+          "steer": 0.02513193070481443,
+          "longitudinal": -0.010039843022151475
+        },
+        "action": {
+          "plan_consistency": 0.0873849359050562,
+          "plan": 0.08701565358177853,
+          "consistency": -0.009541402274005194,
+          "action": 1.0,
+          "steer": 0.03184903163572884,
+          "longitudinal": 0.9954007454675687
+        },
+        "steer": {
+          "plan_consistency": 0.17831915064815443,
+          "plan": 0.1772425824730097,
+          "consistency": 0.02513193070481443,
+          "action": 0.03184903163572884,
+          "steer": 1.0,
+          "longitudinal": 0.025103448492580352
+        },
+        "longitudinal": {
+          "plan_consistency": 0.08536312068967727,
+          "plan": 0.08501392967251113,
+          "consistency": -0.010039843022151475,
+          "action": 0.9954007454675687,
+          "steer": 0.025103448492580352,
+          "longitudinal": 1.0
+        }
+      },
+      "1": {
+        "plan_consistency": {
+          "plan_consistency": 1.0,
+          "plan": 0.9732041762509553,
+          "consistency": -0.0291537393014459,
+          "action": 0.13457415812757603,
+          "steer": 0.16902194701091353,
+          "longitudinal": 0.13316736665288312
+        },
+        "plan": {
+          "plan_consistency": 0.9732041762509553,
+          "plan": 1.0,
+          "consistency": -0.06283113711803008,
+          "action": 0.1404044547134858,
+          "steer": 0.1677710672706341,
+          "longitudinal": 0.1390388307266279
+        },
+        "consistency": {
+          "plan_consistency": -0.0291537393014459,
+          "plan": -0.06283113711803008,
+          "consistency": 1.0,
+          "action": -0.11851785867985885,
+          "steer": -0.0019247603908802012,
+          "longitudinal": -0.11838796895892899
+        },
+        "action": {
+          "plan_consistency": 0.13457415812757603,
+          "plan": 0.1404044547134858,
+          "consistency": -0.11851785867985885,
+          "action": 1.0,
+          "steer": 0.04876839812034646,
+          "longitudinal": 0.9964571441273355
+        },
+        "steer": {
+          "plan_consistency": 0.16902194701091353,
+          "plan": 0.1677710672706341,
+          "consistency": -0.0019247603908802012,
+          "action": 0.04876839812034646,
+          "steer": 1.0,
+          "longitudinal": 0.04354017836142263
+        },
+        "longitudinal": {
+          "plan_consistency": 0.13316736665288312,
+          "plan": 0.1390388307266279,
+          "consistency": -0.11838796895892899,
+          "action": 0.9964571441273355,
+          "steer": 0.04354017836142263,
+          "longitudinal": 1.0
+        }
+      },
+      "2": {
+        "plan_consistency": {
+          "plan_consistency": 1.0,
+          "plan": 0.9772482900562727,
+          "consistency": -0.022305307207058856,
+          "action": 0.08373188633002539,
+          "steer": 0.19203167137990645,
+          "longitudinal": 0.08037871413868103
+        },
+        "plan": {
+          "plan_consistency": 0.9772482900562727,
+          "plan": 1.0,
+          "consistency": -0.05292109513301174,
+          "action": 0.08019891093467159,
+          "steer": 0.19303356613010111,
+          "longitudinal": 0.07683042893024557
+        },
+        "consistency": {
+          "plan_consistency": -0.022305307207058856,
+          "plan": -0.05292109513301174,
+          "consistency": 1.0,
+          "action": 0.06011023980897362,
+          "steer": -0.04778846313207469,
+          "longitudinal": 0.06094347602733101
+        },
+        "action": {
+          "plan_consistency": 0.08373188633002539,
+          "plan": 0.08019891093467159,
+          "consistency": 0.06011023980897362,
+          "action": 1.0,
+          "steer": 0.03431154416209725,
+          "longitudinal": 0.9932045011174123
+        },
+        "steer": {
+          "plan_consistency": 0.19203167137990645,
+          "plan": 0.19303356613010111,
+          "consistency": -0.04778846313207469,
+          "action": 0.03431154416209725,
+          "steer": 1.0,
+          "longitudinal": 0.02525309594766009
+        },
+        "longitudinal": {
+          "plan_consistency": 0.08037871413868103,
+          "plan": 0.07683042893024557,
+          "consistency": 0.06094347602733101,
+          "action": 0.9932045011174123,
+          "steer": 0.02525309594766009,
+          "longitudinal": 1.0
+        }
+      },
+      "3": {
+        "plan_consistency": {
+          "plan_consistency": 1.0,
+          "plan": 0.978083855997414,
+          "consistency": -0.0311441554193676,
+          "action": 0.11913420636727859,
+          "steer": 0.17959807927341104,
+          "longitudinal": 0.11732159220055086
+        },
+        "plan": {
+          "plan_consistency": 0.978083855997414,
+          "plan": 1.0,
+          "consistency": -0.05983784320696475,
+          "action": 0.11230622229213229,
+          "steer": 0.177591154620089,
+          "longitudinal": 0.1104901267166899
+        },
+        "consistency": {
+          "plan_consistency": -0.0311441554193676,
+          "plan": -0.05983784320696475,
+          "consistency": 1.0,
+          "action": 0.12913261820572167,
+          "steer": -0.006499369497782932,
+          "longitudinal": 0.12963822847427925
+        },
+        "action": {
+          "plan_consistency": 0.11913420636727859,
+          "plan": 0.11230622229213229,
+          "consistency": 0.12913261820572167,
+          "action": 1.0,
+          "steer": 0.10046189785628915,
+          "longitudinal": 0.9956632191297508
+        },
+        "steer": {
+          "plan_consistency": 0.17959807927341104,
+          "plan": 0.177591154620089,
+          "consistency": -0.006499369497782932,
+          "action": 0.10046189785628915,
+          "steer": 1.0,
+          "longitudinal": 0.09420754769779408
+        },
+        "longitudinal": {
+          "plan_consistency": 0.11732159220055086,
+          "plan": 0.1104901267166899,
+          "consistency": 0.12963822847427925,
+          "action": 0.9956632191297508,
+          "steer": 0.09420754769779408,
+          "longitudinal": 1.0
+        }
+      }
+    },
+    "vision": {
+      "0": {
+        "plan_consistency": {
+          "plan_consistency": 1.0,
+          "plan": 0.9652565468962483,
+          "consistency": 0.04332667547759797,
+          "action": 0.0362828576427066,
+          "steer": 0.050394970621939136,
+          "longitudinal": 0.03615375142584686
+        },
+        "plan": {
+          "plan_consistency": 0.9652565468962483,
+          "plan": 1.0,
+          "consistency": 0.002006946641928017,
+          "action": 0.02278268325206326,
+          "steer": 0.0500714836839819,
+          "longitudinal": 0.022653594983464264
+        },
+        "consistency": {
+          "plan_consistency": 0.04332667547759797,
+          "plan": 0.002006946641928017,
+          "consistency": 1.0,
+          "action": 0.26070727424146567,
+          "steer": -0.027162045476454285,
+          "longitudinal": 0.2608423272339386
+        },
+        "action": {
+          "plan_consistency": 0.0362828576427066,
+          "plan": 0.02278268325206326,
+          "consistency": 0.26070727424146567,
+          "action": 1.0,
+          "steer": -0.04285113759695798,
+          "longitudinal": 0.9990960202431304
+        },
+        "steer": {
+          "plan_consistency": 0.050394970621939136,
+          "plan": 0.0500714836839819,
+          "consistency": -0.027162045476454285,
+          "action": -0.04285113759695798,
+          "steer": 1.0,
+          "longitudinal": -0.045370724650592956
+        },
+        "longitudinal": {
+          "plan_consistency": 0.03615375142584686,
+          "plan": 0.022653594983464264,
+          "consistency": 0.2608423272339386,
+          "action": 0.9990960202431304,
+          "steer": -0.045370724650592956,
+          "longitudinal": 1.0
+        }
+      },
+      "1": {
+        "plan_consistency": {
+          "plan_consistency": 1.0,
+          "plan": 0.9629629995281185,
+          "consistency": 0.14912856800944216,
+          "action": 0.22577133110008482,
+          "steer": 0.08101014269619071,
+          "longitudinal": 0.2253935218892527
+        },
+        "plan": {
+          "plan_consistency": 0.9629629995281185,
+          "plan": 1.0,
+          "consistency": 0.10525143853563872,
+          "action": 0.21192879772446602,
+          "steer": 0.08131901779181286,
+          "longitudinal": 0.21157463213524977
+        },
+        "consistency": {
+          "plan_consistency": 0.14912856800944216,
+          "plan": 0.10525143853563872,
+          "consistency": 1.0,
+          "action": 0.2379431574501575,
+          "steer": -0.014042632108605761,
+          "longitudinal": 0.23786333323934222
+        },
+        "action": {
+          "plan_consistency": 0.22577133110008482,
+          "plan": 0.21192879772446602,
+          "consistency": 0.2379431574501575,
+          "action": 1.0,
+          "steer": -0.0839145081247813,
+          "longitudinal": 0.9993322826776966
+        },
+        "steer": {
+          "plan_consistency": 0.08101014269619071,
+          "plan": 0.08131901779181286,
+          "consistency": -0.014042632108605761,
+          "action": -0.0839145081247813,
+          "steer": 1.0,
+          "longitudinal": -0.08600562634978998
+        },
+        "longitudinal": {
+          "plan_consistency": 0.2253935218892527,
+          "plan": 0.21157463213524977,
+          "consistency": 0.23786333323934222,
+          "action": 0.9993322826776966,
+          "steer": -0.08600562634978998,
+          "longitudinal": 1.0
+        }
+      },
+      "2": {
+        "plan_consistency": {
+          "plan_consistency": 1.0,
+          "plan": 0.9672477250135236,
+          "consistency": 0.21633765657818832,
+          "action": 0.2557900502608468,
+          "steer": -0.02211915525171047,
+          "longitudinal": 0.25566879601612935
+        },
+        "plan": {
+          "plan_consistency": 0.9672477250135236,
+          "plan": 1.0,
+          "consistency": 0.17594199284122522,
+          "action": 0.25175026976327597,
+          "steer": -0.016309972536368646,
+          "longitudinal": 0.2516005896165437
+        },
+        "consistency": {
+          "plan_consistency": 0.21633765657818832,
+          "plan": 0.17594199284122522,
+          "consistency": 1.0,
+          "action": 0.16373720264693986,
+          "steer": -0.16332887032644824,
+          "longitudinal": 0.1642369192131449
+        },
+        "action": {
+          "plan_consistency": 0.2557900502608468,
+          "plan": 0.25175026976327597,
+          "consistency": 0.16373720264693986,
+          "action": 1.0,
+          "steer": -0.07236557497111216,
+          "longitudinal": 0.9992086424650324
+        },
+        "steer": {
+          "plan_consistency": -0.02211915525171047,
+          "plan": -0.016309972536368646,
+          "consistency": -0.16332887032644824,
+          "action": -0.07236557497111216,
+          "steer": 1.0,
+          "longitudinal": -0.07465797591589583
+        },
+        "longitudinal": {
+          "plan_consistency": 0.25566879601612935,
+          "plan": 0.2516005896165437,
+          "consistency": 0.1642369192131449,
+          "action": 0.9992086424650324,
+          "steer": -0.07465797591589583,
+          "longitudinal": 1.0
+        }
+      },
+      "3": {
+        "plan_consistency": {
+          "plan_consistency": 1.0,
+          "plan": 0.951362555618398,
+          "consistency": -0.008388066997697228,
+          "action": 0.0791743037551331,
+          "steer": 0.08701537804397168,
+          "longitudinal": 0.07870227608149276
+        },
+        "plan": {
+          "plan_consistency": 0.951362555618398,
+          "plan": 1.0,
+          "consistency": -0.06570462553225752,
+          "action": 0.06185397410337961,
+          "steer": 0.08687698777636872,
+          "longitudinal": 0.061407768706677156
+        },
+        "consistency": {
+          "plan_consistency": -0.008388066997697228,
+          "plan": -0.06570462553225752,
+          "consistency": 1.0,
+          "action": 0.20502647872597174,
+          "steer": -0.03232727009002452,
+          "longitudinal": 0.2051388572949299
+        },
+        "action": {
+          "plan_consistency": 0.0791743037551331,
+          "plan": 0.06185397410337961,
+          "consistency": 0.20502647872597174,
+          "action": 1.0,
+          "steer": -0.03368939228214277,
+          "longitudinal": 0.9989900278984
+        },
+        "steer": {
+          "plan_consistency": 0.08701537804397168,
+          "plan": 0.08687698777636872,
+          "consistency": -0.03232727009002452,
+          "action": -0.03368939228214277,
+          "steer": 1.0,
+          "longitudinal": -0.036376149758101176
+        },
+        "longitudinal": {
+          "plan_consistency": 0.07870227608149276,
+          "plan": 0.061407768706677156,
+          "consistency": 0.2051388572949299,
+          "action": 0.9989900278984,
+          "steer": -0.036376149758101176,
+          "longitudinal": 1.0
+        }
+      }
+    }
+  }
+}

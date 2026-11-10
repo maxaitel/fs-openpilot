@@ -1,0 +1,14 @@
+    PID COMMAND         %CPU %MEM
+1180651 python3          106  4.5
+1175301 simpleFoam      99.9  0.5
+1174362 simpleFoam      99.8  0.9
+1175304 simpleFoam      99.8  0.5
+1174359 simpleFoam      99.8  0.9
+1175300 simpleFoam      99.8  0.5
+1174360 simpleFoam      99.8  0.9
+1174356 simpleFoam      99.8  0.9
+1175298 simpleFoam      99.8  0.5
+1174355 simpleFoam      99.8  0.8
+1174357 simpleFoam      99.8  0.9
+utilization.gpu [%], power.draw [W], temperature.gpu, clocks.current.graphics [MHz], clocks.current.sm [MHz], clocks.current.memory [MHz], clocks_event_reasons.active
+41 %, 39.10 W, 76, 2392 MHz, 2392 MHz, [N/A], 0x0000000000000000

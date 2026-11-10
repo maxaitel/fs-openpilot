@@ -1,0 +1,18 @@
+{
+  "parameter_space_diagnostics_qualified": false,
+  "reason": "Saved CPU FP32 cosine entries exceed the mathematical [-1, 1] range, including self-cosines. Finiteness checks did not detect this range error. CPU parameter delta norms and cosine values are not qualified for interpretation.",
+  "invalid_cosine_entries": 72,
+  "maximum_recorded_cosine": 1.0337151820515258,
+  "preserved_verified_evidence": [
+    "48 independent optimizer cells completed",
+    "all saved output arrays finite",
+    "unchanged model and source files",
+    "NumPy-recomputed desired-motion values and phased action errors match saved outputs"
+  ],
+  "independent_receipt_scope": "The original passed receipt covers its explicit finite/hash/motion checks, not valid parameter-space norms or cosines.",
+  "no_further_optimizer_runs": true,
+  "future_requirement": "Use float64 dot products and norms and check self-cosines and [-1, 1] range.",
+  "rejected_derived_file": "/scratch/fsop/pi_update_dot_normalized_cosines2.json",
+  "rejected_derived_reason": "Created by an already-dispatched posthoc command. It cannot recover float64 dot products and is not used as evidence.",
+  "protocol_sha256": "fe1da7e49165a3a26d6ea94c49b08fce1606e6050e06a961255f885aa3f74cd0"
+}

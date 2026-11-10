@@ -1,0 +1,55 @@
+{
+  "complete": false,
+  "episodes": {
+    "baseline/heavy_skid": {
+      "command": [
+        "/isaac-sim/kit/python/bin/python3",
+        "-m",
+        "isaac_lab_fsop.evaluate",
+        "--case",
+        "/work/runs/development_pi_trial1/cases/heavy_skid.json",
+        "--checkpoint",
+        "/work/probes/pi_models/latest_pi_train.pt",
+        "--expected-sha",
+        "48db741c8a686b2e635ae7a81b4e4c08d79fbfbd9f4dc4c163260da6f93f0cfb",
+        "--out",
+        "/work/runs/development_pi_trial1/baseline/heavy_skid",
+        "--async-evidence",
+        "--controller",
+        "op_tangent_pi_v1"
+      ],
+      "log": "logs/baseline/heavy_skid.log",
+      "receipt": {
+        "completion_sha256": "83bc8ea9a56079e7b81b11dc4655f9f966d0ede2c8547ac70693677d2ada2d03",
+        "frame_count": 926,
+        "frames_sha256": "bd711db2d6e1ab8d4b365185ba46b4826421591829417d3f7d8249cd40581a84",
+        "result": "invalid_route",
+        "summary_sha256": "cc943c25bee0d6a61da4fde4c0f7380660da76289ab640a4d9d807e04f7de8d7"
+      },
+      "status": "complete"
+    },
+    "candidate/heavy_skid": {
+      "command": [
+        "/isaac-sim/kit/python/bin/python3",
+        "-m",
+        "isaac_lab_fsop.evaluate",
+        "--case",
+        "/work/runs/development_pi_trial1/cases/heavy_skid.json",
+        "--checkpoint",
+        "/work/runs/lab_v7/pi_trial1/step_000500.pt",
+        "--expected-sha",
+        "dd1f7ffb078f5c00066a304d6f032f1d57f3204b9f02d7b81b4060080aa81fae",
+        "--out",
+        "/work/runs/development_pi_trial1/candidate/heavy_skid",
+        "--async-evidence",
+        "--controller",
+        "op_tangent_pi_v1"
+      ],
+      "error": "RuntimeError: Free space fell below the 25 GiB reserve",
+      "log": "logs/candidate/heavy_skid.log",
+      "status": "failed"
+    }
+  },
+  "lock_sha256": "43efbb9316dd6063d0d9e0a0649f4406488d89cf354d139077eca816dd111157",
+  "version": 1
+}

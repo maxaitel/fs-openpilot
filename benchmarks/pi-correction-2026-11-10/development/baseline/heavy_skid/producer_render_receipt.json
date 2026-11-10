@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "numpy_version": "1.26.0",
+  "inputs": {
+    "completion_sha256": "83bc8ea9a56079e7b81b11dc4655f9f966d0ede2c8547ac70693677d2ada2d03",
+    "artifact_audit_sha256": "ae8df57e419fba9961a3e6f53b924cc22a7863b48283197accfbc80bb8059271",
+    "frames_sha256": "bd711db2d6e1ab8d4b365185ba46b4826421591829417d3f7d8249cd40581a84",
+    "telemetry_sha256": "a90eabadb76e71e6eca1b481c05f8151fc1b3f6192a21f13f8a256308916e9e9",
+    "render_code_sha256": "176fcbe153412eca84bfcff85d4c1d104809aba978b240ac8bd9ae47314a7ebb",
+    "process_code_sha256": "9768e74b281a85770ff0cb1ea0bef5ff41d12afeb4042cbd6b103224e904eb48",
+    "wrapper_code_sha256": "c3b147573db00bebc233ac7b5c071efd8cf70df5d8f4643db6c216931f47b745"
+  },
+  "inference_frames": 926,
+  "terminal_frames": 40,
+  "controller_contract": {
+    "accel_feedforward": 0.5,
+    "action_time_s": 0.3,
+    "anti_windup": "block_delta_when_raw_minus_applied_times_delta_positive",
+    "control_period_s": 0.05,
+    "current_velocity": "measured_body_vx_vy",
+    "integral_gain": 0.5,
+    "integral_limit_mps2": 2.0,
+    "integral_reset": "policy_reset_or_before_command_on_mission_override_or_target_speed_at_most_0.001_mps",
+    "longitudinal": "knotwise_planar_tangent_pi",
+    "mission_brake_decel_mps2": 3.5,
+    "mission_launch_accel_mps2": 2.0,
+    "mission_layer": "mission_brake_then_vehicle_limits_with_feedback",
+    "mode": "op_tangent_pi_v1",
+    "speed_floor_mps": 0.001,
+    "speed_gain": 1.5,
+    "steering": "openpilot_follower_body_vx",
+    "steering_action_time_s": 0.2,
+    "steering_delay_floor_s": 0.05,
+    "steering_min_speed_mps": 1.0,
+    "timestamp_tolerance_s": 1e-06,
+    "version": 1
+  },
+  "raw_videos": {
+    "debug": {
+      "path": "debug-raw.mp4",
+      "sha256": "e2abd3af0aaefc4bef74869dce9f45d268d9fd999179ede86a318b5925c4f9f1"
+    },
+    "research": {
+      "path": "research-raw.mp4",
+      "sha256": "2dbfc80edb4e1c747b9477601eb616eec63c04e317855794553725b82816124d"
+    }
+  }
+}

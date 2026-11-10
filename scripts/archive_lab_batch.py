@@ -79,7 +79,7 @@ def validate_batch(root, entries):
         return json.loads((root / relative).read_text())
 
     lock, manifest = read("plan.lock.json"), read("manifest.json")
-    if lock.get("version") != 1 or manifest.get("version") != 1 or manifest.get("complete") is not True:
+    if lock.get("version") not in (1, 2) or manifest.get("version") != 1 or manifest.get("complete") is not True:
         raise ValueError("Batch plan or manifest is incomplete")
     if manifest.get("lock_sha256") != file_hash("plan.lock.json"):
         raise ValueError("Manifest does not bind plan lock")
@@ -156,6 +156,18 @@ def validate_batch(root, entries):
             or summary.get("recorded_frames") != count
         ):
             raise ValueError(f"Episode identity mismatch: {key}")
+        if lock["version"] == 2:
+            from fsop.eval.controller import controller_contract
+
+            contract = models_by_name[model_name].get("controller_contract")
+            if (not isinstance(contract, dict) or not isinstance(contract.get("mode"), str)
+                    or contract != controller_contract(contract["mode"])
+                    or any(artifact.get("controller_contract") != contract
+                           for artifact in (metadata, summary, audit, video))):
+                raise ValueError(f"Controller contract mismatch: {key}")
+            schema = {"op_tangent_v1": 2, "op_tangent_pi_v1": 3}.get(contract["mode"])
+            if schema is not None and metadata.get("schema_version") != schema:
+                raise ValueError(f"Controller evidence schema mismatch: {key}")
         for field, filename in (
             ("source_archive_sha256", "source.zip"),
             ("realization_sha256", "realization.json"),
@@ -202,6 +214,28 @@ def validate_batch(root, entries):
             or video.get("terminal_frames") != 40
         ):
             raise ValueError(f"Video audit mismatch: {key}")
+        producer_path = f"{key}/producer_render_receipt.json"
+        if lock["version"] == 2 and (producer_path in entries or "producer_render_receipt_sha256" in video):
+            producer = j("producer_render_receipt.json")
+            inputs = producer.get("inputs", {})
+            if (video.get("producer_render_receipt_sha256") != h("producer_render_receipt.json")
+                    or producer.get("version") != 1
+                    or producer.get("controller_contract") != contract
+                    or producer.get("numpy_version") != video.get("producer_numpy_version")
+                    or producer.get("inference_frames") != count
+                    or producer.get("terminal_frames") != 40
+                    or any(inputs.get(field) != h(filename) for field, filename in (
+                        ("completion_sha256", "evidence/completion.json"),
+                        ("artifact_audit_sha256", "lab_artifact_audit.json"),
+                        ("frames_sha256", "frames.json"),
+                        ("telemetry_sha256", "telemetry.json")))
+                    or any(inputs.get(field) != video.get(field) or not inputs.get(field)
+                           for field in ("render_code_sha256", "process_code_sha256", "wrapper_code_sha256"))):
+                raise ValueError(f"Producer receipt mismatch: {key}")
+            for name in ("debug", "research"):
+                raw = producer["raw_videos"][name]
+                if raw.get("path") != f"{name}-raw.mp4" or raw.get("sha256") != h(raw["path"]):
+                    raise ValueError(f"Producer video mismatch: {key}/{name}")
         for name in ("debug", "research"):
             item = video["videos"][name]
             if (

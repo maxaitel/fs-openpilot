@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "files": {
+    "arrays.npz": "a652a871914f07fe28afc41d2b45bab170a4720431a5e3dbf14d7028a1a56f6f",
+    "exit_code.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "independent_receipt.json": "b6cb1bdc0815060919ebb37101f243f6aa6f5a29a1a3e1808905d68ec5900b3b",
+    "protocol.json": "fe1da7e49165a3a26d6ea94c49b08fce1606e6050e06a961255f885aa3f74cd0",
+    "report.json": "994fd20ef943a1f61a36e37f065b8497cab5e52ee351cc6fc3f1aba45883267f",
+    "rows.jsonl": "cad7d79f91555c62e83cdf273924cc3b0ca9d65e88b8a2ba5fa59eeccdc85441",
+    "run.log": "2ad24ee62bbdee405da0fd288b9d5a4f1324bc8c33222c390489a3c1384b017d"
+  },
+  "artifact_bytes": 40508975
+}

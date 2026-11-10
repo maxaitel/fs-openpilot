@@ -1,0 +1,75 @@
+[
+  {
+    "tick": 0,
+    "route": {
+      "accepted_route": [],
+      "valid": true,
+      "violation": null,
+      "complete": false,
+      "exited": false,
+      "stopped_in_zone": false,
+      "termination": "running"
+    }
+  },
+  {
+    "tick": 255,
+    "route": {
+      "accepted_route": [
+        "right"
+      ],
+      "valid": true,
+      "violation": null,
+      "complete": false,
+      "exited": false,
+      "stopped_in_zone": false,
+      "termination": "running"
+    }
+  },
+  {
+    "tick": 456,
+    "route": {
+      "accepted_route": [
+        "right",
+        "right"
+      ],
+      "valid": true,
+      "violation": null,
+      "complete": false,
+      "exited": false,
+      "stopped_in_zone": false,
+      "termination": "running"
+    }
+  },
+  {
+    "tick": 656,
+    "route": {
+      "accepted_route": [
+        "right",
+        "right",
+        "left"
+      ],
+      "valid": true,
+      "violation": null,
+      "complete": false,
+      "exited": false,
+      "stopped_in_zone": false,
+      "termination": "running"
+    }
+  },
+  {
+    "tick": 886,
+    "route": {
+      "accepted_route": [
+        "right",
+        "right",
+        "left"
+      ],
+      "valid": true,
+      "violation": null,
+      "complete": false,
+      "exited": false,
+      "stopped_in_zone": false,
+      "termination": "isaac_rollover"
+    }
+  }
+]

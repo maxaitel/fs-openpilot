@@ -1,0 +1,31 @@
+{
+  "observed_at_utc": "2026-11-10T00:58:55.756883+00:00",
+  "training_receipt_mtime_utc": "2026-11-10T00:53:17.632848+00:00",
+  "process_snapshot": [
+    "    PID COMMAND         %CPU   RSS                  STARTED",
+    " 973235 python3          360 5959472 Mon Nov  9 19:56:29 2026",
+    " 953468 snappyHexMesh   99.9 3975480 Mon Nov  9 19:51:50 2026",
+    " 972771 snappyHexMesh   99.9 1497640 Mon Nov  9 19:56:14 2026",
+    " 976676 simpleFoam      99.5 537108 Mon Nov  9 19:58:11 2026",
+    " 976680 simpleFoam      99.5 573716 Mon Nov  9 19:58:11 2026",
+    " 976677 simpleFoam      99.5 532308 Mon Nov  9 19:58:11 2026",
+    " 976679 simpleFoam      99.5 561140 Mon Nov  9 19:58:11 2026",
+    " 976674 simpleFoam      99.4 556864 Mon Nov  9 19:58:11 2026",
+    " 976681 simpleFoam      99.4 583784 Mon Nov  9 19:58:11 2026",
+    " 976678 simpleFoam      98.6 606536 Mon Nov  9 19:58:11 2026",
+    " 976675 simpleFoam      98.3 555192 Mon Nov  9 19:58:11 2026",
+    " 978133 cc1plus         90.7 304484 Mon Nov  9 19:58:53 2026",
+    " 978398 python3         50.0 11548 Mon Nov  9 19:58:55 2026",
+    " 978351 60-nvidia-healt 11.1  3348 Mon Nov  9 19:58:55 2026",
+    " 366825 python3          6.5     0 Mon Nov  9 03:12:32 2026",
+    " 973024 python3          2.3 709112 Mon Nov  9 19:56:28 2026",
+    " 978157 sshd             1.6  9052 Mon Nov  9 19:58:54 2026",
+    " 977756 bash             1.0  3364 Mon Nov  9 19:58:52 2026",
+    "   2457 tailscaled       0.8 85648 Mon Nov  2 10:48:30 2026",
+    " 977997 make             0.8  3272 Mon Nov  9 19:58:52 2026",
+    " 978134 sshd             0.6  9096 Mon Nov  9 19:58:53 2026",
+    " 929751 rsync            0.5  6800 Mon Nov  9 19:24:12 2026",
+    " 929750 sshd             0.5 10280 Mon Nov  9 19:24:11 2026"
+  ],
+  "interpretation": "Non-task CFD processes overlap the latter part of training based on their start times. Host CPU and RAM are whole-host metrics. Do not attribute their increase to training or claim an isolated speed comparison. No other GPU compute process was recorded during training."
+}

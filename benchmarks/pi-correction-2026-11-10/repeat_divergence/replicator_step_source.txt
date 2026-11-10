@@ -1,0 +1,87 @@
+def step(
+    rt_subframes: int = -1, pause_timeline: bool = True, delta_time: float = None, wait_for_render: bool = True
+) -> None:
+    """Step one frame (standalone workflow)
+
+    Synchronous step function: only use from standalone workflow (controlling Kit app from python).
+    If Replicator is not yet started, an initialization step is first taken to ensure the necessary settings are set
+    for data capture. The renderer will then render as many subframes as required by current settings and schedule a
+    frame to be captured by any active annotators and writers.
+
+    Args:
+        rt_subframes: Specify the number of subframes to render. During subframe generation, the simulation is paused.
+            This is often beneficial when large scene changes occur to reduce rendering artifacts or to allow materials
+            to fully load. This setting is enabled for both RTX Real-Time and Path Tracing render modes. Values must be
+            greater than ``0``.
+        pause_timeline: If ``True``, pause timeline after step. Defaults to ``True``.
+        delta_time: The amount of time that timeline advances for each step call. When delta_time == None, default
+            timeline rate will be used. When delta_time == 0.0, timeline will not advance. When delta_time > 0.0,
+            timeline will advance by the custom delta_time.
+        wait_for_render: If ``True``, wait for a render to complete. Set to ``True`` whenever it is necessary for the
+            annotation/writer data match the current simulation state. Defaults to ``True``.
+    """
+    carb.log_info("Replicator Step")
+
+    _verify_is_standalone_workflow("step")
+
+    # If replicator is stopping, abort step
+    if _orchestrator.status == Status.STOPPING:
+        carb.log_warn("Replicator is in the process of stopping, step skipped.")
+        omni.kit.app.get_app().update()
+        return
+
+    if _orchestrator.status == Status.STOPPED:
+        _orchestrator._initialize()
+
+    if not _orchestrator._is_tick_graph():
+        _orchestrator._set_tick_graph()
+
+    is_timeline_auto_updating = _orchestrator._timeline.is_auto_updating()
+
+    # Disable automatic time update when delta_time is not None in timeline so that orchestrator can control step
+    # Disable automatic time update for first frame (Status.STARTING) to capture time 0.0
+    if delta_time is not None or _orchestrator.status == Status.STARTING:
+        _orchestrator._timeline.set_auto_update(False)
+        if _orchestrator._step_delta_time and delta_time > _orchestrator._step_delta_time:
+            carb.log_warn(
+                "Physx tstep is smaller than the user specified delta time, so physx will lag behind. Suggest updating "
+                "the physx tstep with rep.settings.set_physx_timestep(...) to equal or be greater than the delta time."
+            )
+
+    else:
+        _orchestrator._timeline.set_auto_update(is_timeline_auto_updating)
+    _orchestrator._timeline.commit_silently()
+    _orchestrator._step_delta_time = delta_time
+
+    # If not first frame (STARTING) and capture on play, step forward one frame
+    do_motion_blur = carb.settings.get_settings().get_as_bool("/omni/replicator/captureMotionBlur")
+    if (
+        _orchestrator.status != Status.STARTING
+        and carb.settings.get_settings().get("/omni/replicator/captureOnPlay")
+        and (
+            _orchestrator._timeline.is_auto_updating() or do_motion_blur
+        )  # Unless motion blur is enabled, we don't need to update the timeline
+    ):
+        _orchestrator.status = Status.STEPPING
+        _orchestrator._timeline.play()
+
+    # Support for pause timeline feature
+    if _orchestrator._resume_play:
+        _orchestrator._resume_play = False
+        _orchestrator._timeline.play()
+        _orchestrator._timeline.commit_silently()
+
+    if rt_subframes > 0:
+        _orchestrator.next_rt_subframes = rt_subframes
+
+    # Step one frame (may render multiple subframes)
+    _orchestrator.status = Status.STEPPING
+    attempts = 0
+    cur_sim_time = _get_time(*_orchestrator._sim_times_to_write[-1]) if _orchestrator._sim_times_to_write else 0
+    while not _orchestrator._sim_times_to_write or (
+        _orchestrator.status == Status.STEPPING
+        and cur_sim_time == _get_time(*_orchestrator._sim_times_to_write[-1])
+        and attempts < MAX_STEP_ATTEMPTS
+    ):
+        attempts += 1
+        omni.kit.app.get_app().update()

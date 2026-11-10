@@ -1,0 +1,23 @@
+{
+  "raw_evidence_whitespace_exceptions": {
+    "pi_head_scope_probe/failed_initial_parity/float64_math.py": "f8e42a94aa488e39090c3a6fdbee7623ca35bfa57e22e3ebe0222f457fdd9f1e",
+    "pi_head_scope_probe/failed_initial_parity/run.log": "aa37f39c3fa6cf3783e3c62ae046f5252240a522613101d0b65d9f47c5826547",
+    "pi_head_scope_probe/float64_math.py": "f8e42a94aa488e39090c3a6fdbee7623ca35bfa57e22e3ebe0222f457fdd9f1e",
+    "pi_head_scope_probe/run.log": "cd406b0a709f769a6e420c0b12a367edd4b28e34ae85d7c63dfabaf18122cb7b",
+    "repeat_divergence/scene_source_check.txt": "3dd2fe853214b511cde47e1a57951c730a157ff297eaedc669aa4699ba9769c3"
+  },
+  "reason": "Preserve exact captured script and log bytes bound by historical experiment receipts. Whitespace checks apply to all remaining staged files.",
+  "implementation_suite": {
+    "passed": 443,
+    "skipped": 4,
+    "subtests_passed": 7
+  },
+  "post_portability_fix_archive_tests_passed": 22,
+  "independent_head_scope_checks_passed": 79,
+  "report_inputs_verified": 77,
+  "report_outputs_verified": 3,
+  "local_links_verified": 36,
+  "videos_fully_decoded": 8,
+  "fresh_tests_opened": false,
+  "checkpoint_promoted": false
+}

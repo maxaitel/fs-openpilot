@@ -215,3 +215,129 @@ def test_remote_inventory_executes_safely_with_quoted_paths(batch, tmp_path, mon
     (awkward / "link").symlink_to(awkward / "batch")
     with pytest.raises(subprocess.CalledProcessError):
         archive.remote_inventory("spark", str(awkward), "link")
+
+
+def version2(batch):
+    from fsop.eval.controller import controller_contract
+
+    contract = controller_contract("pp")
+    lock = json.loads((batch / "plan.lock.json").read_text())
+    lock["version"] = 2
+    lock["models"][0]["controller_contract"] = contract
+    write(batch / "plan.lock.json", lock)
+    episode = batch / "candidate/one"
+    for name in ("evidence/metadata.json", "summary.json", "lab_artifact_audit.json", "lab_video_audit.json"):
+        path = episode / name
+        value = json.loads(path.read_text())
+        value["controller_contract"] = contract
+        write(path, value)
+    reseal(batch)
+
+
+def reseal(batch):
+    episode = batch / "candidate/one"
+    evidence = episode / "evidence"
+    frame = json.loads((evidence / "manifest.jsonl").read_text())
+    frame["metadata_sha256"] = sha(evidence / "metadata.json")
+    write(evidence / "manifest.jsonl", frame)
+    completion = json.loads((evidence / "completion.json").read_text())
+    for field, path in (("metadata_sha256", evidence / "metadata.json"),
+                        ("manifest_sha256", evidence / "manifest.jsonl"),
+                        ("summary_sha256", episode / "summary.json")):
+        completion[field] = sha(path)
+    write(evidence / "completion.json", completion)
+    audit = json.loads((episode / "lab_artifact_audit.json").read_text())
+    audit["completion_sha256"] = sha(evidence / "completion.json")
+    write(episode / "lab_artifact_audit.json", audit)
+    video = json.loads((episode / "lab_video_audit.json").read_text())
+    video["completion_sha256"] = sha(evidence / "completion.json")
+    video["artifact_audit_sha256"] = sha(episode / "lab_artifact_audit.json")
+    write(episode / "lab_video_audit.json", video)
+    manifest = json.loads((batch / "manifest.json").read_text())
+    manifest["lock_sha256"] = sha(batch / "plan.lock.json")
+    receipt = manifest["episodes"]["candidate/one"]["receipt"]
+    receipt["completion_sha256"] = sha(evidence / "completion.json")
+    receipt["summary_sha256"] = sha(episode / "summary.json")
+    write(batch / "manifest.json", manifest)
+
+
+def test_version2_contract_is_accepted(batch):
+    version2(batch)
+    assert "candidate/one" in archive.validate_batch(batch, archive.inventory(batch))
+
+
+@pytest.mark.parametrize("name", ["plan.lock.json", "candidate/one/evidence/metadata.json",
+                                 "candidate/one/summary.json", "candidate/one/lab_artifact_audit.json",
+                                 "candidate/one/lab_video_audit.json"])
+def test_version2_rejects_resealed_controller_tampering(batch, name):
+    version2(batch)
+    path = batch / name
+    data = json.loads(path.read_text())
+    contract = data["models"][0]["controller_contract"] if name == "plan.lock.json" else data["controller_contract"]
+    contract["mode"] = "op"
+    write(path, data)
+    reseal(batch)
+    with pytest.raises(ValueError, match="Controller contract mismatch"):
+        archive.validate_batch(batch, archive.inventory(batch))
+
+
+def test_version2_producer_receipt_is_bound(batch):
+    version2(batch)
+    episode = batch / "candidate/one"
+    video_path = episode / "lab_video_audit.json"
+    video = json.loads(video_path.read_text())
+    code = {key: "abc" for key in ("render_code_sha256", "process_code_sha256", "wrapper_code_sha256")}
+    video.update(code)
+    raw = {}
+    for name in ("debug", "research"):
+        path = episode / f"{name}-raw.mp4"
+        path.write_bytes(name.encode())
+        raw[name] = {"path": path.name, "sha256": sha(path)}
+    inputs = {field: sha(episode / name) for field, name in (
+        ("completion_sha256", "evidence/completion.json"), ("artifact_audit_sha256", "lab_artifact_audit.json"),
+        ("frames_sha256", "frames.json"), ("telemetry_sha256", "telemetry.json"))}
+    producer = {"version": 1, "numpy_version": "1.26.0", "inputs": {**inputs, **code},
+                "controller_contract": dict(video["controller_contract"]), "inference_frames": 1,
+                "terminal_frames": 40, "raw_videos": raw}
+    receipt_path = episode / "producer_render_receipt.json"
+    write(receipt_path, producer)
+    video.update(producer_render_receipt_sha256=sha(receipt_path), producer_numpy_version="1.26.0")
+    write(video_path, video)
+    archive.validate_batch(batch, archive.inventory(batch))
+    producer["controller_contract"]["mode"] = "op"
+    write(receipt_path, producer)
+    video["producer_render_receipt_sha256"] = sha(receipt_path)
+    write(video_path, video)
+    with pytest.raises(ValueError, match="Producer receipt mismatch"):
+        archive.validate_batch(batch, archive.inventory(batch))
+
+
+def test_verify_existing_requires_matching_stable_inventories(batch, tmp_path, monkeypatch):
+    import importlib.util
+
+    helper_path = Path(__file__).resolve().parents[1] / "scripts/verify_lab_archive.py"
+    spec = importlib.util.spec_from_file_location("verify_existing", helper_path)
+    helper = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(helper)
+    destination = tmp_path / "archived"
+    shutil.copytree(batch, destination)
+    calls = []
+
+    def remote(host, root, name):
+        calls.append(1)
+        return {"hostname": "spark", "root": root, "batch": root + "/" + name,
+                "entries": archive.inventory(batch)}
+
+    monkeypatch.setattr(helper.archive, "remote_inventory", remote)
+    receipt = helper.verify("spark", "/work/task", "batch", destination)
+    assert len(calls) == 2
+    assert json.loads(receipt.read_text())["inventory"] == archive.inventory(destination)
+    with pytest.raises(ValueError, match="Receipt already exists"):
+        helper.verify("spark", "/work/task", "batch", destination)
+
+    other = tmp_path / "different"
+    shutil.copytree(batch, other)
+    (other / "candidate/one/summary.json").write_text("{}")
+    with pytest.raises(ValueError, match="Local inventory differs"):
+        helper.verify("spark", "/work/task", "batch", other)
+    assert not (tmp_path / "different.receipt.json").exists()

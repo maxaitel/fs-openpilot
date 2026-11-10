@@ -1,0 +1,35 @@
+/isaac-sim/kit/python/lib/python3.11/site-packages/torch/backends/__init__.py:46: UserWarning: Please use the new API settings to control TF32 behavior, such as torch.backends.cudnn.conv.fp32_precision = 'tf32' or torch.backends.cuda.matmul.fp32_precision = 'ieee'. Old settings, e.g, torch.backends.cuda.matmul.allow_tf32 = True, torch.backends.cudnn.allow_tf32 = True, allowTF32CuDNN() and allowTF32CuBLAS() will be deprecated after Pytorch 2.9. Please see https://pytorch.org/docs/main/notes/cuda.html#tensorfloat-32-tf32-on-ampere-and-later-devices (Triggered internally at /pytorch/aten/src/ATen/Context.cpp:80.)
+  self.setter(val)
+/isaac-sim/kit/python/lib/python3.11/site-packages/torch/cuda/__init__.py:283: UserWarning: 
+    Found GPU0 NVIDIA GB10 which is of cuda capability 12.1.
+    Minimum and Maximum cuda capability supported by this version of PyTorch is
+    (8.0) - (12.0)
+    
+  warnings.warn(
+Traceback (most recent call last):
+  File "/scratch/fsop/pi_head_scope_probe1/probe.py", line 262, in <module>
+    run(args.out, args.control, args.rate_control, args.check_only)
+  File "/scratch/fsop/pi_head_scope_probe1/probe.py", line 182, in run
+    baseline_check(data, 'latest_monitor_before')
+  File "/scratch/fsop/pi_head_scope_probe1/probe.py", line 176, in baseline_check
+    np.testing.assert_allclose(value, old_arrays[prefix + '_' + k], atol=1e-7, rtol=1e-6, err_msg=prefix + '_' + k)
+  File "/isaac-sim/extscache/omni.kit.pip_archive-0.0.0+69cbf6ad.la64.cp311/pip_prebundle/numpy/testing/_private/utils.py", line 1504, in assert_allclose
+    assert_array_compare(compare, actual, desired, err_msg=str(err_msg),
+  File "/isaac-sim/kit/python/lib/python3.11/contextlib.py", line 81, in inner
+    return func(*args, **kwds)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/isaac-sim/extscache/omni.kit.pip_archive-0.0.0+69cbf6ad.la64.cp311/pip_prebundle/numpy/testing/_private/utils.py", line 797, in assert_array_compare
+    raise AssertionError(msg)
+AssertionError: 
+Not equal to tolerance rtol=1e-06, atol=1e-07
+latest_monitor_before_mu
+Mismatched elements: 174 / 7920 (2.2%)
+Max absolute difference: 1.2874603e-05
+Max relative difference: 0.0325186
+ x: array([[[ 0.000000e+00,  1.519134e-08,  0.000000e+00, ...,
+          4.544979e-02,  5.894704e-02,  6.113414e-01],
+        [ 5.796044e-02,  2.885075e-03, -6.953972e-09, ...,...
+ y: array([[[ 0.000000e+00,  1.519134e-08,  0.000000e+00, ...,
+          4.544979e-02,  5.894705e-02,  6.113414e-01],
+        [ 5.796044e-02,  2.885075e-03, -6.954020e-09, ...,...
+There was an error running python

@@ -1,0 +1,42 @@
+{
+  "scope": "rejected training experiment, not a deployment selection",
+  "status": "retain_step_zero",
+  "qualified_trained_checkpoints": [],
+  "diagnostic_checkpoint": {
+    "step": 500,
+    "checkpoint": "/work/runs/lab_v7/pi_trial1/step_000500.pt",
+    "checkpoint_sha256": "dd1f7ffb078f5c00066a304d6f032f1d57f3204b9f02d7b81b4060080aa81fae"
+  },
+  "fresh_tests_opened": false,
+  "failed_gates_at_final": [
+    "aggregate.steer",
+    "episode.val-trackdrive-84002-visual_stress_v1.steer",
+    "episode.val-trackdrive-84003-visual_stress_v1.steer",
+    "episode.val-skidpad-84000-matched.steer",
+    "episode.val-skidpad-84002-visual_stress_v1.steer",
+    "episode.val-skidpad-84003-visual_stress_v1.steer",
+    "episode_coherence.val-trackdrive-84000-matched.yaw_interval_max_rad.mean",
+    "episode_coherence.val-trackdrive-84000-matched.yaw_interval_max_rad.p95",
+    "episode_coherence.val-skidpad-84001-visual_stress_v1.yaw_interval_max_rad.p95",
+    "episode_coherence.val-skidpad-84000-matched.yaw_interval_max_rad.max",
+    "episode_coherence.val-skidpad-84002-visual_stress_v1.yaw_interval_max_rad.max",
+    "episode_coherence.val-skidpad-84003-visual_stress_v1.yaw_interval_max_rad.max",
+    "episode_coherence.val-trackdrive-84002-visual_stress_v1.initial_velocity_mps.mean",
+    "episode_coherence.val-trackdrive-84001-visual_stress_v1.initial_velocity_mps.p95",
+    "episode_coherence.val-trackdrive-84003-visual_stress_v1.initial_velocity_mps.max",
+    "episode_coherence.val-trackdrive-84003-visual_stress_v1.initial_yaw_rate_radps.mean",
+    "episode_coherence.val-trackdrive-84003-visual_stress_v1.initial_yaw_rate_radps.p95",
+    "episode_coherence.val-trackdrive-84003-visual_stress_v1.initial_yaw_rate_radps.max",
+    "coherence.acceleration_secant_max_mps2.p95",
+    "episode_coherence.val-skidpad-84000-matched.acceleration_secant_max_mps2.p95",
+    "episode_coherence.val-skidpad-84001-visual_stress_v1.acceleration_secant_max_mps2.p95",
+    "episode_coherence.val-skidpad-84002-visual_stress_v1.acceleration_secant_max_mps2.p95",
+    "episode_coherence.val-skidpad-84003-visual_stress_v1.acceleration_secant_max_mps2.p95",
+    "coherence.acceleration_secant_max_mps2.max",
+    "episode_coherence.val-trackdrive-84002-visual_stress_v1.acceleration_secant_max_mps2.max",
+    "episode_coherence.val-skidpad-84000-matched.acceleration_secant_max_mps2.max",
+    "episode_coherence.val-skidpad-84001-visual_stress_v1.acceleration_secant_max_mps2.max",
+    "episode_coherence.val-skidpad-84002-visual_stress_v1.acceleration_secant_max_mps2.max",
+    "episode_coherence.val-skidpad-84003-visual_stress_v1.acceleration_secant_max_mps2.max"
+  ]
+}

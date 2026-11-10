@@ -14,6 +14,8 @@ p.add_argument("--case", type=Path, required=True)
 p.add_argument("--out", type=Path, required=True)
 p.add_argument("--membership", type=Path, default=Path("docs/isaac-lab-training/membership.json"))
 p.add_argument("--checkpoint", type=Path)
+p.add_argument("--learner-controller", default="pp")
+p.add_argument("--phase-schedule", type=Path)
 p.add_argument("--takeover", type=float, default=0.0)
 p.add_argument("--lateral-takeover", type=float, default=0.6)
 p.add_argument("--speed", type=float, default=8.0)
@@ -21,6 +23,8 @@ p.add_argument("--alat", type=float, default=4.0)
 p.add_argument("--controller", default="pure_pursuit")
 p.add_argument("--lookahead", type=float, default=0.25)
 a = p.parse_args()
+if a.checkpoint and not a.phase_schedule and a.learner_controller != "pp":
+    p.error("Checkpoint collection without a phase schedule requires the pp learner controller")
 from isaac_lab_fsop.runtime import launch, shutdown
 
 launcher = launch(render=True)
@@ -30,6 +34,8 @@ try:
     import numpy as np
     import torch
     from fsop.eval.closed_loop import ModelPolicy
+    from fsop.eval.controller import controller_contract
+    from isaac_lab_fsop.recovery_schedule import PhaseRecovery, PhaseSchedule, first_left_decision, phase_control, phase_proposal
     from fsop.geometry.yuv import rgb_to_model
     from fsop.model.temporal import TemporalState
     from fsop.sim.expert import ExpertParams
@@ -51,6 +57,9 @@ try:
         raise ValueError("Lateral takeover threshold must be finite and positive")
     if a.takeover and a.checkpoint is None:
         raise ValueError("Learner-prefix recovery requires a checkpoint")
+    schedule = PhaseSchedule.from_dict(json.loads(a.phase_schedule.read_text())) if a.phase_schedule else None
+    if schedule and (a.checkpoint is None or a.takeover != 0 or case.discipline != "skidpad"):
+        raise ValueError("Phase recovery requires a skidpad checkpoint and no legacy takeover")
     checkpoint_sha = hashlib.sha256(a.checkpoint.read_bytes()).hexdigest() if a.checkpoint else None
     a.out.mkdir(parents=True, exist_ok=False)
     source_hashes = source_inventory()
@@ -64,7 +73,11 @@ try:
     obs = drive.reset(start_pose=start_pose)
     expert = NativeExpert(drive, ExpertParams(v_cap=a.speed, a_lat_max=a.alat,
                                             controller=a.controller, k_lookahead=a.lookahead))
-    policy = ModelPolicy.from_checkpoint(a.checkpoint) if a.checkpoint else None
+    policy = ModelPolicy.from_checkpoint(a.checkpoint, a.learner_controller) if a.checkpoint else None
+    phase = PhaseRecovery(schedule, first_left_decision(drive.env.track, expert.mission)) if schedule else None
+    observation_ticks = []
+    activation_snapshot = None
+    takeover_snapshot = None
     if policy:
         policy.model.requires_grad_(False)
         policy.reset()
@@ -80,7 +93,22 @@ try:
         contacts.append(len(drive.hits))
         desire = ts.push_desire(obs.desire)
         latitudes.append(obs.lat)
-        if not taken and (obs.t >= a.takeover or abs(obs.lat) >= a.lateral_takeover):
+        if phase:
+            route = drive.env.referee.skidpad_route.report()
+            prefix_clean = (route["valid"] and route["accepted_route"] == ["right"]
+                            and not drive.hits and drive.env.referee.n_oc == 0)
+            state = phase.advance(frame, obs.s, obs.lat, prefix_clean=prefix_clean)
+            if phase.activation_tick == frame or phase.takeover_tick == frame:
+                snapshot = {"progress_m": float(obs.s), "lateral_m": float(obs.lat),
+                            "state": obs.state.as_array().tolist(),
+                            "route": drive.env.referee.skidpad_route.report(),
+                            "contacts": len(drive.hits), "off_course": drive.env.referee.n_oc}
+                if phase.activation_tick == frame:
+                    activation_snapshot = snapshot
+                if phase.takeover_tick == frame:
+                    takeover_snapshot = snapshot
+            taken = state != "learner"
+        if not phase and not taken and (obs.t >= a.takeover or abs(obs.lat) >= a.lateral_takeover):
             taken = True
             takeover_tick = frame
             takeover_reason = "lateral_threshold" if abs(obs.lat) >= a.lateral_takeover else "time_limit"
@@ -90,7 +118,11 @@ try:
             desires.append(desire)
             for name in frames:
                 frames[name].append(rgb_to_model(obs.images[name]))
-        if taken:
+        if phase:
+            with torch.inference_mode():
+                action = phase_control(policy, expert, obs, drive.env, state)
+            observation_ticks.append(frame)
+        elif taken:
             action = expert.act()
         else:
             with torch.inference_mode():
@@ -116,6 +148,10 @@ try:
                 desires.append(desire)
                 for name in frames:
                     frames[name].append(rgb_to_model(obs.images[name]))
+            if phase:
+                with torch.inference_mode():
+                    phase_proposal(policy, obs, drive.env, teacher=True)
+                observation_ticks.append(frame)
             controls.append((float(drive.act.angle), -2.0))
             teacher.append(True)
             obs = drive.step_terminal_brake(render=False)
@@ -134,6 +170,8 @@ try:
         np.save(a.out / f"{name}.npy", np.asarray(values))
     classes = np.array([CONE_CLASS_INDEX.get(c, -1) for c in drive.env.cone_colors])
     np.save(a.out / "cones.npy", np.c_[drive.env.cones_xy, classes])
+    if phase:
+        takeover_tick, takeover_reason = phase.takeover_tick, phase.takeover_reason
     metadata = {
         "source_sha256": source_hashes,
         "source_archive_sha256": hashlib.sha256((a.out / "source.zip").read_bytes()).hexdigest(),
@@ -187,6 +225,17 @@ try:
         },
         "arrays_sha256": {f.name: hashlib.sha256(f.read_bytes()).hexdigest() for f in a.out.glob("*.npy")},
     }
+    if a.checkpoint:
+        metadata["controller_contract"] = controller_contract(a.learner_controller)
+    if phase:
+        metadata["collection_policy"] = {
+            "mode": "phase_recovery_v1", "schedule": asdict(schedule),
+            "controller_state_during_teacher": "reset_after_each_discarded_proposal",
+            "actual_activation_tick": phase.activation_tick, "activation_reason": phase.activation_reason,
+            "activation": activation_snapshot, "activation_progress_m": phase.activation_progress_m,
+            "actual_takeover_tick": takeover_tick, "takeover_reason": takeover_reason,
+            "takeover": takeover_snapshot, "policy_observation_ticks": observation_ticks,
+        }
     (a.out / "track.json").write_text(json.dumps(drive.env.track.to_dict()))
     if a.checkpoint and hashlib.sha256(a.checkpoint.read_bytes()).hexdigest() != checkpoint_sha:
         raise RuntimeError("Learner checkpoint changed during collection")

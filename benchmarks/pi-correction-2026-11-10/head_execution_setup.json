@@ -1,0 +1,49 @@
+{
+  "implementation_tests": {
+    "passed": 443,
+    "skipped": 4,
+    "subtests": 7
+  },
+  "independent_targeted_tests": 79,
+  "independent_review": "PASS",
+  "source_root": "/scratch/fsop/head_trial_work",
+  "container": "fsop-pi-scratch",
+  "output_filesystem": "48GiB tmpfs",
+  "initial_source_files_verified": 718,
+  "setup_failures": [
+    {
+      "label": "head_calibration1.measure",
+      "updates": 0,
+      "cause": "Optional Typer package absent; use the same lab_train.main argument parser directly."
+    },
+    {
+      "label": "head_calibration_direct1",
+      "updates": 0,
+      "cause": "Copied recovery recipe path differed from immutable receipt path. Use original /work/docs/isaac-lab-training/phase_recovery_recipe4.json."
+    },
+    {
+      "label": "head_trial1_pilot",
+      "updates": 0,
+      "driving_frames": 0,
+      "cause": "Scene exporter rejected an asset symlink resolving outside the isolated workspace. Copied identical 28 asset files into the workspace; original source and symlink retained, export guard unchanged."
+    },
+    {
+      "label": "head_trial1_pilot2",
+      "updates": 0,
+      "driving_frames": 0,
+      "cause": "Exporter next found panorama asset symlink outside workspace. Copied all 20 panorama files,41557386bytes, verified exact inventory. Original source and symlink retained."
+    }
+  ],
+  "successful_calibration": "head_calibration_direct2",
+  "full_trial_label": "head_trial1",
+  "bounds_unchanged": true,
+  "hyperparameter_retries": 0,
+  "source_archive_sha256": "fd799eeb1bda47fa531fadd5d002081ec84efc371ef7574e62ca551dce0ec495",
+  "protocol_sha256": "2263aeb1465aed16b5072a7977094eefdb44552f9aae76a28c73c30c36a6d04a",
+  "implementation_commit": "8001282",
+  "source_identity": "Exact source.zip digest is authoritative; the snapshot also includes previously reviewed working-tree reporting/archive changes.",
+  "initial_prediction_parity": "Calibration2 plan_l1, steer and longitudinal aggregate metrics exactly equal prior unchanged calibration; original 48db initializer state and strict head-probe before arrays also match.",
+  "successful_pilot_attempt": "head_trial1_pilot3",
+  "pilot_verified_frames": 120,
+  "pilot_contacts": 0
+}

@@ -1,0 +1,111 @@
+{
+  "source": "/work/artifacts/panoramas",
+  "target": "/scratch/fsop/head_trial_work/artifacts/panoramas",
+  "all_inventory_entries_equal": true,
+  "source_preserved": true,
+  "previous_symlink_preserved": "artifacts_original_link",
+  "files": 20,
+  "bytes": 41557386,
+  "inventory": {
+    "abandoned_hopper_terminal_04.jpg": {
+      "type": "file",
+      "size": 2626603,
+      "sha256": "111f70622638c0bd90ba33e1c9c512493870fdb833e71c825320f798a734afe2"
+    },
+    "abandoned_parking.jpg": {
+      "type": "file",
+      "size": 2115951,
+      "sha256": "e61e11e0c077f408f3969d0a259e1a5c9cb2eaec0282f476a8aa97d5f5013fd7"
+    },
+    "abandoned_tank_farm_01.jpg": {
+      "type": "file",
+      "size": 2191453,
+      "sha256": "62da3d87437af90cb84fd6aa853d7e22634bcc1341f97b4c5394576a3b22e799"
+    },
+    "abandoned_tank_farm_03.jpg": {
+      "type": "file",
+      "size": 1915862,
+      "sha256": "09f3b43566d99d37adcd712dfb3fe9d6e8753da90e475d859445d62ac1c01f07"
+    },
+    "autumn_field_puresky.jpg": {
+      "type": "file",
+      "size": 408388,
+      "sha256": "f3a38a7a20bfbfc60165f3eef2c60e853f8468359d69d6a8747655fb81d13246"
+    },
+    "autumn_road.jpg": {
+      "type": "file",
+      "size": 2418340,
+      "sha256": "7e7e1ebf74066101e016449485308185ed09519400122fe3911f5df48af3e1fe"
+    },
+    "bloem_olive_house.jpg": {
+      "type": "file",
+      "size": 2001953,
+      "sha256": "eacf9e8817e4b1ea99bda4a79eb942979bd9670870e26e10ba5a6c650d181941"
+    },
+    "countrytrax_midday.jpg": {
+      "type": "file",
+      "size": 2574375,
+      "sha256": "8bc65ba95e878df19a2386a18b5697f51f38b942c3e6929836972a07b98288b5"
+    },
+    "crosswalk.jpg": {
+      "type": "file",
+      "size": 2362436,
+      "sha256": "1a221dd5fc3f5099e4a2b4b2b01cb8248f48e350813d9813c9649ac7add6c18d"
+    },
+    "derelict_airfield_01.jpg": {
+      "type": "file",
+      "size": 2412231,
+      "sha256": "37fa33d9c2d86080ccd83a6a28bbb4c8e5e26582b96b1cd5600a7df1db58e6d6"
+    },
+    "derelict_airfield_02.jpg": {
+      "type": "file",
+      "size": 2840566,
+      "sha256": "9effaf8261adc71151ee24e7952b3c2f23affc567827c183396b276ebe6be0d2"
+    },
+    "derelict_highway_midday.jpg": {
+      "type": "file",
+      "size": 2451073,
+      "sha256": "208a496189445d64cdefa42490ddef5e3e7b667a248b6636d679642946888597"
+    },
+    "derelict_highway_noon.jpg": {
+      "type": "file",
+      "size": 2007836,
+      "sha256": "74d99bc64a02eb3d2ddf390773cc5b654acf1a5c52540c59c10ec3b101a32896"
+    },
+    "dirt_bike_track_01.jpg": {
+      "type": "file",
+      "size": 1996672,
+      "sha256": "7ffaf50858ee77d64fa4af37a3dc5f4304fd0c5bba6ea731d062d203411fe193"
+    },
+    "driving_school.jpg": {
+      "type": "file",
+      "size": 2301919,
+      "sha256": "9eafac8422001d0c0b800bdf2d5a2fafc42ca0c8dce8d99375b25348d1d614ff"
+    },
+    "farm_field_puresky.jpg": {
+      "type": "file",
+      "size": 554153,
+      "sha256": "fc21170b0cff16b715bf71c6972bd5e7927c1c93b19370e5a58b6f74285be808"
+    },
+    "future_parking.jpg": {
+      "type": "file",
+      "size": 2493095,
+      "sha256": "36f9459ad12f7cd256636f1f796a33ced892debc1caa040e2aed2d9a4c44bf93"
+    },
+    "german_town_street.jpg": {
+      "type": "file",
+      "size": 2216298,
+      "sha256": "3f3d85ab15e22d9a0dfe55946ec26f62dc08cbfa3feaded601152fcbe4969b29"
+    },
+    "glencairn_expressway.jpg": {
+      "type": "file",
+      "size": 1996103,
+      "sha256": "c04a600327b18d58609aad87bdf13632ff1698fc19287e85f9c6cf74e580ce97"
+    },
+    "hanger_exterior_cloudy.jpg": {
+      "type": "file",
+      "size": 1672079,
+      "sha256": "c7d8a020680d5615fafd3b9e4c7a89f95d3106f94f932e6f1b4978929d2563e1"
+    }
+  }
+}

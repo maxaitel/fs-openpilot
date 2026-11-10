@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "episodes": {
+    "baseline/heavy_skid": {
+      "completion_sha256": "cb825d4bc60df1bed9650dd85765e05662a9e8c0ed47fb0d77e3ea9b3f51e0fb",
+      "artifact_audit_sha256": "54fc836bbedfddbe8cc4a05e34a795e87714a9565ca6eba55788f3ebdd223bcc",
+      "video_audit_sha256": "ded5f0af2687ebd5b7de298ffab880f9f636a3ae332021aeb63e799d1cf59371"
+    },
+    "baseline/heavy_track": {
+      "completion_sha256": "60417b944fa1e456ccb6155a290ae4eb9bd5f897c32c54b19370c92516d8e674",
+      "artifact_audit_sha256": "db32e2cf79a24692f3ad14996ab98e598c2838877757736b200955ca08112b2d",
+      "video_audit_sha256": "ef383e35ca5e298aa324bc1b0a2aa774564d8388726a9077951b4dd91e50fdd3"
+    },
+    "candidate/heavy_skid": {
+      "completion_sha256": "65d3603a8c66c57be8da3f1e3e9e332ff4b95acca5f4b18d0011e693815900a1",
+      "artifact_audit_sha256": "fdda39806359f356e94cb2c49ef4c4498bcb2d47b03e30307b3821736042cc29",
+      "video_audit_sha256": "e208ad1110a93694d97e5b1c3b431e93cf718061166707c70f5b4ecccd7dac4c"
+    },
+    "candidate/heavy_track": {
+      "completion_sha256": "c9b17a7fdd62d695e6edfa97fd9722e2f3042bb86d9190001b9572f810cea74e",
+      "artifact_audit_sha256": "aac2dec5c2121ec5fb26f6a8c78f4a3725241c44f86963e860ade35d315ea64a",
+      "video_audit_sha256": "4100de0c483f77023c7327eb0bf809ecb381661a9d58e9416971a19cb6aebf6b"
+    }
+  },
+  "file_count": 4640,
+  "bytes": 6132982663,
+  "full_inventory_file": "runs/development_head_trial1.final_inventory.json"
+}

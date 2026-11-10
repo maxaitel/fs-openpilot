@@ -1,0 +1,124 @@
+{
+  "discipline": "skidpad",
+  "result": "running",
+  "laps": [],
+  "n_laps": 0,
+  "doo": 0,
+  "oc": 0,
+  "max_speed": 8.06019407057283,
+  "route": {
+    "expected_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "accepted_route": [],
+    "laps": [],
+    "crossings": [
+      3.1677665205125254
+    ],
+    "complete": false,
+    "exited": false,
+    "stopped_in_zone": false,
+    "valid": true,
+    "violation": null,
+    "reverse_crossings": 0,
+    "termination": "running"
+  },
+  "raw_time": null,
+  "penalty": 0.0,
+  "time": null,
+  "dq": false,
+  "complete": false,
+  "pass": false,
+  "final_state": {
+    "x": 8.704745292663574,
+    "y": -12.65243911743164,
+    "yaw": -1.9269815611742303,
+    "vx": 5.941794597260347,
+    "vy": -0.18116881408954186,
+    "r": -0.6259528398513794,
+    "steer": -0.1728723013670191,
+    "accel": 0.24081266741915214,
+    "t": 6.0,
+    "extra": {}
+  },
+  "physical_cone_hits": 0,
+  "contact_events": [],
+  "progress": 0.13915790664316113,
+  "rms_lat": 0.13394831156250012,
+  "case": {
+    "id": "train-skidpad-82000-matched",
+    "split": "train",
+    "discipline": "skidpad",
+    "seed": 82000,
+    "dr": "light",
+    "variant": "matched",
+    "track_seed": null,
+    "frozen_case": null,
+    "lateral_start": 0.0,
+    "yaw_start": 0.0
+  },
+  "pilot_only": true,
+  "events": [
+    {
+      "t": 3.1677665205125254,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    }
+  ],
+  "pending_events": [],
+  "recorded_frames": 120,
+  "wall_seconds": 54.37104994896799,
+  "startup_seconds": 24.53893425699789,
+  "evidence_seconds": 8.139660589164123,
+  "seconds_simulated": 6.0,
+  "real_time_factor": 0.11035284412626806,
+  "controller_contract": {
+    "version": 1,
+    "mode": "op_tangent_pi_v1",
+    "steering": "openpilot_follower_body_vx",
+    "steering_action_time_s": 0.2,
+    "steering_min_speed_mps": 1.0,
+    "steering_delay_floor_s": 0.05,
+    "longitudinal": "knotwise_planar_tangent_pi",
+    "action_time_s": 0.3,
+    "speed_gain": 1.5,
+    "accel_feedforward": 0.5,
+    "speed_floor_mps": 0.001,
+    "current_velocity": "measured_body_vx_vy",
+    "mission_layer": "mission_brake_then_vehicle_limits_with_feedback",
+    "mission_brake_decel_mps2": 3.5,
+    "mission_launch_accel_mps2": 2.0,
+    "integral_gain": 0.5,
+    "integral_limit_mps2": 2.0,
+    "control_period_s": 0.05,
+    "integral_reset": "policy_reset_or_before_command_on_mission_override_or_target_speed_at_most_0.001_mps",
+    "anti_windup": "block_delta_when_raw_minus_applied_times_delta_positive",
+    "timestamp_tolerance_s": 1e-06
+  },
+  "checkpoint_sha256": "dd50806f3ae781e19118a74a2d47d6fd4b09e4e3aa7ba370a72559c86671c5c7",
+  "checkpoint_sha256_after": "dd50806f3ae781e19118a74a2d47d6fd4b09e4e3aa7ba370a72559c86671c5c7",
+  "state_sha256": "5fbaeb51d33b50088834966d81397d0093992aa5bec8983a6f1a246692b78efe",
+  "state_sha256_after": "5fbaeb51d33b50088834966d81397d0093992aa5bec8983a6f1a246692b78efe",
+  "frozen_unchanged": true,
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "07495d8a8ce087a0b962c6d072653c730f27fda32a626ea0f7fec424829f8980",
+  "torch_peak_allocated_gib": 0.13738584518432617,
+  "torch_peak_reserved_gib": 0.150390625,
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130"
+  }
+}

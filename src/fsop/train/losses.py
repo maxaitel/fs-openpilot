@@ -89,10 +89,9 @@ def img_loss(out: dict, b: dict, cams=("road", "wide")) -> dict[str, torch.Tenso
   return res
 
 
-def op_tangent_actions_from_op_plan(mu, vx, vy, wheelbase, max_brake, max_accel):
-  """FP32 differentiable equivalent of OpenpilotTangentFollower before mission braking."""
-  mu, vx, vy, wheelbase, max_brake, max_accel = (
-    x.float() for x in (mu, vx, vy, wheelbase, max_brake, max_accel))
+def tangent_motion_from_op_plan(mu, vx, vy, wheelbase):
+  """Stateless desired steering and motion acceleration, before integral feedback or actuator limits."""
+  mu, vx, vy, wheelbase = (x.float() for x in (mu, vx, vy, wheelbase))
   times = torch.as_tensor(T_IDXS, dtype=mu.dtype, device=mu.device)
 
   def interpolate(values, t):
@@ -113,4 +112,24 @@ def op_tangent_actions_from_op_plan(mu, vx, vy, wheelbase, max_brake, max_accel)
   target_accel = interpolate(tangent, 0.3)
   current_speed = torch.linalg.vector_norm(torch.stack((vx, vy), dim=-1), dim=-1)
   raw = 1.5 * (target_speed - current_speed) + 0.5 * target_accel
-  return steer, torch.maximum(torch.minimum(raw, max_accel), -max_brake)
+  return steer, raw
+
+
+def op_tangent_actions_from_op_plan(mu, vx, vy, wheelbase, max_brake, max_accel):
+  """FP32 differentiable equivalent of OpenpilotTangentFollower before mission braking."""
+  steer, raw = tangent_motion_from_op_plan(mu, vx, vy, wheelbase)
+  return steer, torch.maximum(torch.minimum(raw, max_accel.float()), -max_brake.float())
+
+
+def native_relative_acceleration_loss(mu, target):
+  """Match native endpoint acceleration residuals without assuming constant acceleration."""
+  n = int(np.searchsorted(T_IDXS, 1.0, side='right'))
+  times = torch.as_tensor(T_IDXS[:n], dtype=mu.dtype, device=mu.device)
+  dt = times[1:] - times[:-1]
+
+  def residual(plan):
+    secant = (plan[:, 1:n, 3:5] - plan[:, :n-1, 3:5]) / dt[None, :, None]
+    return torch.stack((plan[:, :n-1, 6:8] - secant, plan[:, 1:n, 6:8] - secant), dim=2)
+
+  error = residual(mu) - residual(target).detach()
+  return F.smooth_l1_loss(error, torch.zeros_like(error), beta=1.0)

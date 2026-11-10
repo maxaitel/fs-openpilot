@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "ticks": 8,
+  "action": [0.0, 2.0],
+  "idle_seconds": 0.15,
+  "clock_tolerance_seconds": 1e-9,
+  "step_tolerance": 0,
+  "stationary_pose_tolerance": 1e-7,
+  "cross_process_pose_tolerance": 1e-5,
+  "reserve_bytes": 26843545600,
+  "artifact_limit_bytes": 100000000,
+  "case_path": "/work/runs/development_pi_trial1/baseline/heavy_skid/case.json",
+  "decision": "Any excess physics steps/time or stationary pose change implicates scheduling and blocks learned comparison. Matching fixed-action traces support clock isolation for this short probe only. Raw-image differences are observations, never failures. Two runs do not establish learned-driving repeatability.",
+  "expected": {"capture_steps": 0, "writer_steps": 0, "idle_steps": 0, "advance_steps": 6, "advance_seconds": 0.05},
+  "payload": "Raw road/wide uint8 RGB, zero 2x2 plan serialization fixture, fixed action. No model loaded or called."
+}

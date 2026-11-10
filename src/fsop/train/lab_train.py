@@ -20,9 +20,9 @@ from fsop.data.native_replay import NativeReplay, episode_paths, history_indices
 from fsop.eval.controller import controller_contract, validate_checkpoint_controller
 from fsop.model.build import PREP, load_fs
 from fsop.sim.expert import T_IDXS
-from fsop.train.action_target import LEGACY_ACTION_TARGET, NATIVE_FUTURE_ACTION_TARGET, action_target_contract
+from fsop.train.action_target import DESIRED_MOTION_TARGET, LEGACY_ACTION_TARGET, NATIVE_FUTURE_ACTION_TARGET, action_target_contract
 from fsop.train.device import autocast_ctx, pick_device
-from fsop.train.losses import op_tangent_actions_from_op_plan, plan_l1, plan_nll, pp_steer_from_op_plan
+from fsop.train.losses import native_relative_acceleration_loss, op_tangent_actions_from_op_plan, plan_l1, plan_nll, pp_steer_from_op_plan, tangent_motion_from_op_plan
 
 
 def pp_accel_from_op_plan(mu, speed, max_brake, max_accel):
@@ -218,16 +218,21 @@ def prove_policy_context(model, policy_path=PREP / 'policy_fp32.onnx'):
           'fx_gather_buffer': index_node.target}
 
 
-def archive_source(path):
+def archive_source(path, include_native=False):
   """Archive package sources and bind each archive entry to its SHA-256."""
   source_root = Path(__file__).resolve().parents[2]
-  files = sorted((source_root / 'fsop').rglob('*.py'))
+  files = {file.relative_to(source_root).as_posix(): file
+           for file in sorted((source_root / 'fsop').rglob('*.py'))}
+  if include_native:
+    repository = source_root.parent
+    for root in ('scripts', 'isaac_lab_fsop', 'isaac_eval'):
+      files.update({file.relative_to(repository).as_posix(): file
+                    for file in sorted((repository / root).rglob('*.py'))})
   if not files:
     raise ValueError('fsop package sources are unavailable')
   inventory = {}
   with zipfile.ZipFile(path, 'x', compression=zipfile.ZIP_DEFLATED) as archive:
-    for file in files:
-      name = file.relative_to(source_root).as_posix()
+    for name, file in sorted(files.items()):
       contents = file.read_bytes()
       inventory[name] = hashlib.sha256(contents).hexdigest()
       archive.writestr(name, contents)
@@ -262,20 +267,46 @@ def configure(model, freeze_vision=False):
     raise ValueError('vision must have trainable parameters')
 
 
-def state_hashes(state):
-  """Hash the exact bytes and metadata of vision and auxiliary state tensors."""
+FINAL_PLAN_SHAPES = {'base.policy.p_node_linear_20.weight': (990, 256),
+                     'base.policy.p_node_linear_20.bias': (990,)}
+
+
+def optimizer_parameters(model, scope):
+  named = dict(model.named_parameters())
+  if scope == 'full_policy':
+    return [p for p in model.base.policy.parameters() if p.requires_grad]
+  if scope != 'final_plan':
+    raise ValueError('unsupported optimizer scope')
+  if any(name not in named or tuple(named[name].shape) != shape or not named[name].requires_grad
+         for name, shape in FINAL_PLAN_SHAPES.items()):
+    raise ValueError('final plan parameter inventory or shape mismatch')
+  return [named[name] for name in FINAL_PLAN_SHAPES]
+
+
+def final_plan_optimizer_receipt(optimizer, params):
+  return {'optimized_parameters': sum(p.numel() for p in params),
+          'gradient_tensors': sum(p.grad is not None for p in params),
+          'optimizer_state_tensors': len(optimizer.state),
+          'learning_rate': optimizer.param_groups[0]['lr']}
+
+
+def state_hashes(state, exclude=None):
+  """Hash vision/auxiliary state, or all tensors except the supplied names."""
   result = {}
   for name, tensor in state.items():
-    if name.startswith(('base.vision.', 'bev.', 'img.')):
+    if (exclude is not None and name not in exclude) or (
+        exclude is None and name.startswith(('base.vision.', 'bev.', 'img.'))):
       value = tensor.detach().cpu().contiguous()
       result[name] = {'dtype': str(value.dtype), 'shape': list(value.shape),
                       'sha256': hashlib.sha256(value.reshape(-1).view(torch.uint8).numpy().tobytes()).hexdigest()}
   return result
 
 
-def save_checkpoint(state, path, reference, freeze_vision, trainable_names):
+def save_checkpoint(state, path, reference, freeze_vision, trainable_names, head_reference=None):
   def check(model_state):
     hashes = state_hashes(model_state)
+    if head_reference is not None and state_hashes(model_state, FINAL_PLAN_SHAPES) != head_reference:
+      raise ValueError('non-head state changed')
     if hashes.keys() != reference.keys():
       raise ValueError('vision or auxiliary state keys changed')
     for name, digest in hashes.items():
@@ -303,7 +334,7 @@ def vision_l2sp(model, reference, weight):
 
 def batch_loss(model, dataset, indices, device, w_steer, w_long, chunk_size, amp=False, channels_last=False,
                history_context=24, w_plan=1.0, cache=None, return_outputs=False, controller_mode="pp",
-               action_target_mode=LEGACY_ACTION_TARGET):
+               action_target_mode=LEGACY_ACTION_TARGET, w_consistency=0.0):
   action_target_contract(action_target_mode, controller_mode)
   if cache is not None and amp:
     raise ValueError('feature cache requires FP32')
@@ -331,7 +362,9 @@ def batch_loss(model, dataset, indices, device, w_steer, w_long, chunk_size, amp
   if not torch.isfinite(mu).all() or not torch.isfinite(logstd).all():
     raise ValueError('nonfinite model plan')
   plan = plan_nll(mu, logstd, b['plan'])
-  if controller_mode == 'op_tangent_v1':
+  if controller_mode == 'op_tangent_pi_v1':
+    steer, long = tangent_motion_from_op_plan(mu, b['speed'], b['lateral_speed'], b['vehicle_wheelbase'])
+  elif controller_mode == 'op_tangent_v1':
     steer, long = op_tangent_actions_from_op_plan(mu, b['speed'], b['lateral_speed'], b['vehicle_wheelbase'],
                                                   b['vehicle_max_brake'], b['vehicle_max_accel'])
   elif controller_mode == 'pp':
@@ -340,7 +373,11 @@ def batch_loss(model, dataset, indices, device, w_steer, w_long, chunk_size, amp
   else:
     raise ValueError('unsupported native training controller')
   steer_target, long_target = b['steer_target'], b['accel_target']
-  if action_target_mode == NATIVE_FUTURE_ACTION_TARGET:
+  if action_target_mode == DESIRED_MOTION_TARGET:
+    with torch.no_grad():
+      steer_target, long_target = tangent_motion_from_op_plan(
+        b['plan'], b['speed'], b['lateral_speed'], b['vehicle_wheelbase'])
+  elif action_target_mode == NATIVE_FUTURE_ACTION_TARGET:
     with torch.no_grad():
       steer_target, long_target = op_tangent_actions_from_op_plan(
         b['plan'], b['speed'], b['lateral_speed'], b['vehicle_wheelbase'],
@@ -353,7 +390,13 @@ def batch_loss(model, dataset, indices, device, w_steer, w_long, chunk_size, amp
   if action_target_mode == NATIVE_FUTURE_ACTION_TARGET:
     components.update(teacher_steer=F.smooth_l1_loss(steer, b['steer_target'], beta=0.05),
                       teacher_longitudinal=F.smooth_l1_loss(long, b['accel_target'], beta=0.05))
-  if return_outputs and controller_mode == 'op_tangent_v1':
+  if controller_mode == 'op_tangent_pi_v1':
+    consistency = native_relative_acceleration_loss(mu, b['plan'])
+    total = total + w_consistency * consistency
+    components['native_relative_acceleration'] = consistency
+  elif w_consistency:
+    raise ValueError('native relative consistency is only defined by the PI training recipe')
+  if return_outputs and controller_mode in ('op_tangent_v1', 'op_tangent_pi_v1'):
     out['coherence_targets'] = b['plan']
     out['coherence_observed'] = torch.stack((b['speed'], b['lateral_speed'], b['yaw_rate']), dim=-1)
   return (total, components, out) if return_outputs else (total, components)
@@ -371,6 +414,7 @@ def frozen_cache_gate(model, dataset, indices, device, args, cache):
                                      args.history_chunk_size, amp=False, channels_last=args.channels_last,
                                      history_context=args.history_context, w_plan=args.w_plan,
                                      cache=candidate, return_outputs=True,
+                                     w_consistency=getattr(args, 'w_consistency', 0.),
                                      **({'action_target_mode': args.action_target_mode}
                                         if (getattr(args, 'action_target_mode', LEGACY_ACTION_TARGET)
                                             != LEGACY_ACTION_TARGET)
@@ -463,9 +507,13 @@ class RecoverySampler:
           not re.fullmatch(r'[0-9a-f]{64}', collection_policy_checkpoint_sha)):
         raise ValueError('off_policy_v1 requires an explicit collection policy checkpoint SHA-256')
       collection_sha = collection_policy_checkpoint_sha
+    elif provenance_mode == 'per_case_v2':
+      if collection_policy_checkpoint_sha is not None or not isinstance(recipe, dict) or recipe.get('schema_version') != 2:
+        raise ValueError('per_case_v2 requires a schema-2 recipe and per-case checkpoint identities')
+      collection_sha = None
     else:
       raise ValueError('unknown recovery provenance mode')
-    if not isinstance(recipe, dict) or recipe.get('checkpoint_sha256') != collection_sha:
+    if not isinstance(recipe, dict) or (provenance_mode != 'per_case_v2' and recipe.get('checkpoint_sha256') != collection_sha):
       raise ValueError('recovery recipe checkpoint does not match collection policy')
     self.provenance_mode = provenance_mode
     self.collection_policy_checkpoint_sha = collection_sha
@@ -475,6 +523,10 @@ class RecoverySampler:
         any(not isinstance(x, str) or not x or Path(x).name != x or x in ('.', '..') for x in ids) or
         len(set(ids)) != len(ids)):
       raise ValueError('recovery recipe must contain unique recovery_case_ids')
+    case_contracts = recipe.get('collection_by_case', {}) if provenance_mode == 'per_case_v2' else {}
+    if provenance_mode == 'per_case_v2' and (not isinstance(case_contracts, dict) or set(case_contracts) != set(ids)):
+      raise ValueError('per-case recovery identity inventory differs from recipe')
+    self.collection_by_case = case_contracts
     recipe_sha = hashlib.sha256(recipe_bytes).hexdigest()
     if not gates_dir:
       raise ValueError('recovery gates directory is required')
@@ -490,7 +542,7 @@ class RecoverySampler:
       if case_id in by_id:
         raise ValueError('duplicate training case identity')
       by_id[case_id] = ei
-      if ep.meta.get('collection_policy', {}).get('mode') == 'learner_prefix':
+      if ep.meta.get('collection_policy', {}).get('mode') in ('learner_prefix', 'phase_recovery_v1'):
         marked.add(case_id)
     if set(ids) != marked or not set(ids).issubset(by_id):
       raise ValueError('recovery recipe case IDs must match learner-prefix training episodes')
@@ -504,9 +556,16 @@ class RecoverySampler:
       ep = dataset.episodes[ei]
       policy = ep.meta['collection_policy']
       tick = policy.get('actual_takeover_tick')
-      if (type(tick) is not int or tick <= 0 or tick >= len(ep.teacher) or
-          np.any(ep.teacher[:tick]) or not np.all(ep.teacher[tick:]) or
-          ep.meta.get('control_hz') != 20 or ep.meta.get('checkpoint_sha256') != collection_sha):
+      record = case_contracts.get(case_id) if provenance_mode == 'per_case_v2' else None
+      case_sha = record.get('checkpoint_sha256') if isinstance(record, dict) else collection_sha
+      if not isinstance(case_sha, str) or not re.fullmatch(r'[0-9a-f]{64}', case_sha):
+        raise ValueError(f'{case_id}: invalid collection checkpoint identity')
+      activation = policy.get('actual_activation_tick', 0) if policy.get('mode') == 'phase_recovery_v1' else 0
+      if (type(tick) is not int or type(activation) is not int or not 0 <= activation < tick < len(ep.teacher) or
+          not np.all(ep.teacher[:activation]) or np.any(ep.teacher[activation:tick]) or
+          not np.all(ep.teacher[tick:]) or ep.meta.get('control_hz') != 20 or
+          ep.meta.get('checkpoint_sha256') != case_sha or
+          (policy.get('mode') == 'phase_recovery_v1' and provenance_mode != 'per_case_v2')):
         raise ValueError(f'{case_id}: invalid teacher handoff, control frequency, or learner checkpoint')
       terminal = ep.meta.get('terminal_continuation', {})
       terminal_tick = terminal.get('start_tick')
@@ -527,7 +586,8 @@ class RecoverySampler:
         verify_arrays(ep.path, ep.meta.get('arrays_sha256'))
         source_sha = sha256(ep.path / 'source.zip')
         hashes = receipt.get('hashes', {})
-        if (type(receipt.get('schema_version')) is not int or receipt['schema_version'] != 1 or
+        expected_version = 2 if provenance_mode == 'per_case_v2' else 1
+        if (type(receipt.get('schema_version')) is not int or receipt['schema_version'] != expected_version or
             receipt.get('passed') is not True or
             receipt.get('reasons') != [] or receipt.get('case_id') != case_id or
             Path(receipt.get('episode', '')).resolve() != ep.path.resolve() or
@@ -541,6 +601,11 @@ class RecoverySampler:
             receipt.get('recovery_frame_indices') != [frame for _, frame in anchors] or
             receipt.get('recovery_ticks') != [int(ep.ticks[frame]) for _, frame in anchors]):
           raise ValueError('receipt does not match episode, recipe, or selected anchors')
+        if provenance_mode == 'per_case_v2':
+          from scripts.verify_lab_recovery import verify
+
+          if verify(ep.path, recipe_path) != receipt:
+            raise ValueError('per-case recovery gate differs from independent replay')
       except (OSError, ValueError, TypeError, AttributeError) as exc:
         raise ValueError(f'{case_id}: invalid recovery gate: {exc}') from exc
       self.recovery_indices.update(index for index, _ in anchors)
@@ -548,7 +613,9 @@ class RecoverySampler:
                           'gate_path': str(receipt_path), 'gate_sha256': hashlib.sha256(receipt_bytes).hexdigest(),
                           'terminal_start_tick': terminal_tick, 'indices': [index for index, _ in anchors],
                           'frames': [frame for _, frame in anchors],
-                          'ticks': [int(ep.ticks[frame]) for _, frame in anchors]})
+                          'ticks': [int(ep.ticks[frame]) for _, frame in anchors],
+                          **({'collection_checkpoint_sha256': case_sha, 'collection_contract': record}
+                             if provenance_mode == 'per_case_v2' else {})})
     self.other = np.array([i for i in range(len(dataset)) if i not in self.recovery_indices], dtype=np.int64)
     if not len(self.other):
       raise ValueError('non-recovery training pool is empty')
@@ -654,16 +721,19 @@ def validate(model, dataset, selected, device, args, cache=None):
     for ei, indices in selected.items():
       episode_coherence, episode_target = [], []
       totals = {'loss': 0., 'plan_nll': 0., 'plan_l1': 0., 'steer': 0., 'longitudinal': 0.}
+      if mode == 'op_tangent_pi_v1':
+        totals['native_relative_acceleration'] = 0.
       if target_mode == NATIVE_FUTURE_ACTION_TARGET:
         totals.update(teacher_steer=0., teacher_longitudinal=0.)
       for start in range(0, len(indices), args.batch_size):
         block = indices[start:start + args.batch_size]
         kwargs = {'cache': cache} if cache is not None else {}
-        if mode == 'op_tangent_v1':
+        if mode in ('op_tangent_v1', 'op_tangent_pi_v1'):
           loss, components, output = batch_loss(model, dataset, block, device, args.w_steer, args.w_long,
                                               args.history_chunk_size, amp=False, channels_last=args.channels_last,
                                               history_context=args.history_context, w_plan=args.w_plan,
                                               return_outputs=True, controller_mode=mode,
+                                              **({'w_consistency': getattr(args, 'w_consistency', 0.)} if mode == 'op_tangent_pi_v1' else {}),
                                               **({'action_target_mode': target_mode}
                                                  if target_mode != LEGACY_ACTION_TARGET else {}), **kwargs)
           observed = output['coherence_observed'].detach().cpu().numpy()
@@ -690,7 +760,7 @@ def validate(model, dataset, selected, device, args, cache=None):
   aggregate = {name: float(np.mean([ep[name] for ep in episodes])) for name in totals}
   result = {'precision': 'float32', 'aggregation': 'equal_episode', 'count': sum(e['count'] for e in episodes),
             'aggregate': aggregate, 'episodes': episodes}
-  if target_mode == NATIVE_FUTURE_ACTION_TARGET:
+  if target_mode in (NATIVE_FUTURE_ACTION_TARGET, DESIRED_MOTION_TARGET):
     result['action_target_contract'] = action_target_contract(target_mode, mode)
   if coherence_rows:
     result['coherence'] = summarize_coherence(coherence_rows)
@@ -763,13 +833,13 @@ def selection_protocol_binding(args, mode, manifest_sha):
   calibration_path = getattr(args, 'expected_calibration', None)
   if bool(path) != bool(expected_sha):
     raise ValueError('selection protocol path and SHA-256 must be supplied together')
-  if (mode == 'op_tangent_v1' and not getattr(args, 'calibration_only', False) and
+  if (mode in ('op_tangent_v1', 'op_tangent_pi_v1') and not getattr(args, 'calibration_only', False) and
       not getattr(args, 'cache_parity_only', False)):
     if not path or not calibration_path:
       raise ValueError('tangent training requires a frozen selection protocol and expected calibration')
   if not path:
     return None
-  if mode != 'op_tangent_v1' or getattr(args, 'calibration_only', False):
+  if mode not in ('op_tangent_v1', 'op_tangent_pi_v1') or getattr(args, 'calibration_only', False):
     raise ValueError('selection protocol is only for tangent training after calibration')
   if not isinstance(expected_sha, str) or not re.fullmatch(r'[0-9a-f]{64}', expected_sha):
     raise ValueError('invalid selection protocol SHA-256')
@@ -781,16 +851,29 @@ def selection_protocol_binding(args, mode, manifest_sha):
   doc = json.loads(raw)
   target_mode = getattr(args, 'action_target_mode', LEGACY_ACTION_TARGET)
   contract = action_target_contract(target_mode, mode)
-  version = 2 if contract is not None else 1
+  scope = getattr(args, 'optimizer_scope', 'full_policy')
+  version = (4 if scope == 'final_plan' else 3) if mode == 'op_tangent_pi_v1' else (2 if contract is not None else 1)
+  kind = 'op_tangent_pi_v1_selection' if version >= 3 else 'op_tangent_v1_selection'
   if (not isinstance(doc, dict) or doc.get('schema_version') != version or
-      doc.get('kind') != 'op_tangent_v1_selection' or
-      (version == 2 and doc.get('action_target_contract') != contract) or
+      doc.get('kind') != kind or
+      (version >= 2 and doc.get('action_target_contract') != contract) or
       (version == 1 and 'action_target_contract' in doc)):
     raise ValueError('invalid selection protocol schema')
+  if version >= 3:
+    from scripts.select_lab_tangent import protocol_check
+
+    protocol_check(doc)
+  if version >= 3 and doc.get('ranking') != {'metric': 'aggregate.plan_l1', 'improvement': 'strict_step_zero',
+                                            'tie_break': 'lowest_step'}:
+    raise ValueError('invalid PI selection ranking')
   actual_args = {key: getattr(args, key, False if key == 'cache_frozen_features' else None)
                  for key in SELECTION_TRAINING_FIELDS}
-  if version == 2:
+  if version >= 2:
     actual_args['action_target_mode'] = target_mode
+  if version >= 3:
+    actual_args['w_consistency'] = args.w_consistency
+  if version == 4:
+    actual_args['optimizer_scope'] = scope
   eligible = [0] + list(range(args.val_every, args.steps + 1, args.val_every))
   if eligible[-1] != args.steps:
     eligible.append(args.steps)
@@ -822,9 +905,13 @@ def recheck_selection_binding(binding, output_path):
 
 def run(args):
   mode = getattr(args, 'controller_mode', 'pp')
-  if mode not in ('pp', 'op_tangent_v1'):
+  if mode not in ('pp', 'op_tangent_v1', 'op_tangent_pi_v1'):
     raise ValueError('unsupported native training controller')
   target_mode = getattr(args, 'action_target_mode', LEGACY_ACTION_TARGET)
+  scope = getattr(args, 'optimizer_scope', 'full_policy')
+  if scope not in ('full_policy', 'final_plan') or (scope == 'final_plan' and
+      (mode != 'op_tangent_pi_v1' or not args.freeze_vision)):
+    raise ValueError('final plan scope requires PI mode and frozen vision')
   target_contract = action_target_contract(target_mode, mode)
   target_metadata = {'action_target_contract': target_contract} if target_contract is not None else {}
   cache_enabled = getattr(args, 'cache_frozen_features', False)
@@ -835,7 +922,10 @@ def run(args):
     raise ValueError('feature cache requires --freeze-vision and FP32 without --amp')
   if args.steps < 1 or args.batch_size < 1 or args.lr <= 0 or args.val_every < 1 or args.history_chunk_size < 1:
     raise ValueError('steps, batch size, learning rate, val interval and history chunk must be positive')
-  values = (args.lr, args.w_steer, args.w_long, args.w_plan, args.lr_policy, args.lr_trunk, args.l2sp, args.grad_clip)
+  consistency_weight = getattr(args, 'w_consistency', 0.)
+  if consistency_weight and mode != 'op_tangent_pi_v1':
+    raise ValueError('consistency loss requires the PI training recipe')
+  values = (args.lr, args.w_steer, args.w_long, args.w_plan, args.lr_policy, args.lr_trunk, args.l2sp, args.grad_clip, consistency_weight)
   if not all(math.isfinite(v) for v in values) or min(values[1:]) < 0:
     raise ValueError('learning rates, loss weights and gradient clip must be finite and nonnegative')
   if args.lr_policy == 0 or (not args.freeze_vision and args.lr_trunk == 0) or args.grad_clip == 0:
@@ -887,19 +977,24 @@ def run(args):
   context_proof = prove_policy_context(model) if args.history_context == 8 else None
   configure(model, freeze_vision=args.freeze_vision)
   reference = {n: p.detach().clone() for n, p in model.base.vision.named_parameters() if p.requires_grad}
-  groups = [{'params': [p for p in model.base.policy.parameters() if p.requires_grad],
-             'lr': args.lr * args.lr_policy}]
+  optimized = optimizer_parameters(model, scope)
+  groups = [{'params': optimized, 'lr': args.lr * args.lr_policy}]
   if not args.freeze_vision:
     groups.append({'params': [p for p in model.base.vision.parameters() if p.requires_grad],
                    'lr': args.lr * args.lr_trunk, 'weight_decay': 0.0})
   optimizer = torch.optim.AdamW(groups, weight_decay=1e-4)
   frozen_reference = state_hashes(model.state_dict())
+  head_reference = state_hashes(model.state_dict(), FINAL_PLAN_SHAPES) if scope == 'final_plan' else None
   out = Path(args.out)
   out.mkdir(parents=True, exist_ok=True)
   names = [name for name, p in model.named_parameters() if p.requires_grad]
   info = {'args': vars(args), 'calibration_only': getattr(args, 'calibration_only', False), **target_metadata,
           'controller_contract': controller_contract(mode), 'device': str(device),
           'baseline_state_sha256': frozen_reference,
+          **({'non_head_state_sha256': head_reference, 'optimized_tensors': list(FINAL_PLAN_SHAPES),
+              'optimized_parameters': sum(p.numel() for p in optimized),
+              'optimizer_learning_rate': optimizer.param_groups[0]['lr']}
+             if scope == 'final_plan' else {}),
           'numeric_precision': 'CUDA autocast bfloat16; history outputs and losses float32' if args.amp else 'float32',
           'init_sha256': sha256(args.init), 'train_anchors': len(train),
           'val_anchors': len(val), 'trainable_tensors': names,
@@ -934,7 +1029,7 @@ def run(args):
     info['frozen_feature_cache'] = cache.receipt()
   info['manifest_sha256'] = manifest_sha
   info['dataset_verification'] = verification
-  info['source'] = archive_source(out / 'source.zip')
+  info['source'] = archive_source(out / 'source.zip', **({'include_native': True} if mode == 'op_tangent_pi_v1' else {}))
   (out / 'run.json').write_text(json.dumps(info, indent=2) + '\n')
   if parity_only:
     indices = np.linspace(0, len(train) - 1, min(args.batch_size, len(train)), dtype=int)
@@ -957,7 +1052,8 @@ def run(args):
     'validation_precision': info['validation_precision'], 'device': str(device),
     'validation_batch_size': args.batch_size, 'history_chunk_size': args.history_chunk_size,
     'channels_last': args.channels_last, 'cache_enabled': cache_enabled, 'tf32': info['tf32'],
-    'weights': {'plan': args.w_plan, 'steer': args.w_steer, 'longitudinal': args.w_long},
+    'weights': {'plan': args.w_plan, 'steer': args.w_steer, 'longitudinal': args.w_long,
+                **({'consistency': consistency_weight} if mode == 'op_tangent_pi_v1' else {})},
     'recovery_sampling': sampler.protocol() if sampler is not None else None,
   }
   calibration = {'version': 1, 'identity': calibration_identity, 'validation': baseline}
@@ -976,12 +1072,14 @@ def run(args):
                     **target_metadata,
                     **({'controller_contract': controller_contract(mode)} if mode != 'pp' else {}),
                     'optimizer': optimizer.state_dict(), 'config': vars(args),
+                    **({'optimizer_receipt': final_plan_optimizer_receipt(optimizer, optimized)}
+                       if scope == 'final_plan' else {}),
                     **({'recovery_provenance': sampler.protocol()} if sampler is not None else {})}
   baseline['saved_state_sha256'] = save_checkpoint(baseline_state, selected, frozen_reference,
-                                                   args.freeze_vision, names)
+                                                   args.freeze_vision, names, head_reference)
   model.load_state_dict(torch.load(selected, map_location=device, weights_only=False)['model'], strict=True)
   initial_checkpoint = out / 'step_000000.pt'
-  save_checkpoint(baseline_state, initial_checkpoint, frozen_reference, args.freeze_vision, names)
+  save_checkpoint(baseline_state, initial_checkpoint, frozen_reference, args.freeze_vision, names, head_reference)
   baseline['checkpoint'] = str(initial_checkpoint)
   baseline['checkpoint_sha256'] = sha256(initial_checkpoint)
   baseline['step'] = 0
@@ -994,22 +1092,35 @@ def run(args):
       recheck_selection_binding(selection_binding, out / 'selection_protocol.json')
       tick = time.monotonic()
       idx = sampler.draw(rng) if sampler is not None else rng.integers(len(train), size=args.batch_size)
-      optimizer.zero_grad(set_to_none=True)
+      if scope == 'final_plan':
+        model.zero_grad(set_to_none=True)
+      else:
+        optimizer.zero_grad(set_to_none=True)
       loss, components = batch_loss(model, train, idx, device, args.w_steer, args.w_long, args.history_chunk_size,
                                     amp=args.amp, channels_last=args.channels_last,
                                     history_context=args.history_context, w_plan=args.w_plan,
                                     **({'action_target_mode': target_mode}
                                        if target_mode != LEGACY_ACTION_TARGET else {}),
                                     **({'cache': cache} if cache else {}),
-                                    **({'controller_mode': mode} if mode != 'pp' else {}))
+                                    **({'controller_mode': mode} if mode != 'pp' else {}),
+                                    **({'w_consistency': consistency_weight} if mode == 'op_tangent_pi_v1' else {}))
       retention = vision_l2sp(model, reference, args.l2sp)
       loss = loss + retention
       if not torch.isfinite(loss):
         raise ValueError('nonfinite loss')
-      loss.backward()
+      if scope == 'final_plan':
+        loss.backward(inputs=optimized)
+        if (any(p.grad is None for p in optimized) or
+            any(p.grad is not None for name, p in model.named_parameters() if name not in FINAL_PLAN_SHAPES)):
+          raise ValueError('final plan gradient inventory mismatch')
+      else:
+        loss.backward()
       norms = grad_norms(model)
-      torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.requires_grad], args.grad_clip)
+      torch.nn.utils.clip_grad_norm_(optimized if scope == 'final_plan' else
+                                     [p for p in model.parameters() if p.requires_grad], args.grad_clip)
       optimizer.step()
+      if scope == 'final_plan' and len(optimizer.state) != len(optimized):
+        raise ValueError('final plan optimizer state inventory mismatch')
       row = {'step': step, 'controller_contract': controller_contract(mode), **selection_metadata, **target_metadata,
              **({'recovery_provenance': {'provenance_mode': sampler.provenance_mode,
                                          'collection_policy_checkpoint_sha': sampler.collection_policy_checkpoint_sha,
@@ -1037,17 +1148,19 @@ def run(args):
         ckpt = out / f'step_{step:06d}.pt'
         recheck_selection_binding(selection_binding, out / 'selection_protocol.json')
         state = {'model': model.state_dict(), 'step': step, 'optimizer': optimizer.state_dict(), 'config': vars(args),
+                 **({'optimizer_receipt': final_plan_optimizer_receipt(optimizer, optimized)}
+                    if scope == 'final_plan' else {}),
                  **selection_metadata, **target_metadata,
                  **({'controller_contract': controller_contract(mode)} if mode != 'pp' else {}),
                  **({'recovery_provenance': sampler.protocol()} if sampler is not None else {})}
-        row['state_sha256'] = save_checkpoint(state, ckpt, frozen_reference, args.freeze_vision, names)
+        row['state_sha256'] = save_checkpoint(state, ckpt, frozen_reference, args.freeze_vision, names, head_reference)
         row['checkpoint'] = str(ckpt)
         row['checkpoint_sha256'] = sha256(ckpt)
         if score < best:
           best = score
           selected = out / 'selected.pt'
           # Same complete state dictionary; strict reload verifies the artifact.
-          row['selected_state_sha256'] = save_checkpoint(state, selected, frozen_reference, args.freeze_vision, names)
+          row['selected_state_sha256'] = save_checkpoint(state, selected, frozen_reference, args.freeze_vision, names, head_reference)
           model.load_state_dict(torch.load(selected, map_location=device, weights_only=False)['model'], strict=True)
           row['selected_sha256'] = sha256(selected)
       log.write(json.dumps(row, allow_nan=False) + '\n')
@@ -1068,7 +1181,7 @@ def main(argv=None):
   p.add_argument('--recovery-cases', help='frozen JSON recipe with ordered recovery_case_ids')
   p.add_argument('--recovery-gates', help='directory of passed per-case recovery gate receipts')
   p.add_argument('--recovery-draws', type=int, default=0)
-  p.add_argument('--recovery-provenance-mode', choices=('strict', 'off_policy_v1'), default='strict')
+  p.add_argument('--recovery-provenance-mode', choices=('strict', 'off_policy_v1', 'per_case_v2'), default='strict')
   p.add_argument('--collection-policy-checkpoint-sha')
   p.add_argument('--lr', type=float, default=1e-4)
   p.add_argument('--val-every', type=int, default=100)
@@ -1084,12 +1197,14 @@ def main(argv=None):
   p.add_argument('--selection-protocol-sha', help='expected SHA-256 of frozen selection protocol')
   p.add_argument('--cache-parity-only', action='store_true',
                  help='write a fixed-batch numerical parity receipt and exit')
-  p.add_argument('--controller-mode', choices=('pp', 'op_tangent_v1'), default='pp')
-  p.add_argument('--action-target-mode', choices=(LEGACY_ACTION_TARGET, NATIVE_FUTURE_ACTION_TARGET),
+  p.add_argument('--controller-mode', choices=('pp', 'op_tangent_v1', 'op_tangent_pi_v1'), default='pp')
+  p.add_argument('--action-target-mode', choices=(LEGACY_ACTION_TARGET, NATIVE_FUTURE_ACTION_TARGET, DESIRED_MOTION_TARGET),
                  default=LEGACY_ACTION_TARGET)
   p.add_argument('--w-plan', type=float, default=1.0)
+  p.add_argument('--w-consistency', type=float, default=0.0)
   p.add_argument('--w-steer', type=float, default=3.281158240898283)
   p.add_argument('--w-long', type=float, default=1.0)
+  p.add_argument('--optimizer-scope', choices=('full_policy', 'final_plan'), default='full_policy')
   p.add_argument('--lr-policy', type=float, default=0.3)
   p.add_argument('--lr-trunk', type=float, default=0.1)
   p.add_argument('--l2sp', type=float, default=1e-3)

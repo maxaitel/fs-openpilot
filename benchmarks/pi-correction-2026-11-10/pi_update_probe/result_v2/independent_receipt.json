@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "updates": 48,
+  "all_arrays_finite": true,
+  "model_files_unchanged": true,
+  "source_files_unchanged": true,
+  "independent_numpy_motion_and_phase_metrics_match": true,
+  "protocol_sha256": "fe1da7e49165a3a26d6ea94c49b08fce1606e6050e06a961255f885aa3f74cd0",
+  "report_sha256": "994fd20ef943a1f61a36e37f065b8497cab5e52ee351cc6fc3f1aba45883267f",
+  "verifier_sha256": "76acddea8b8fb9f12a59712b319d3ca6b52eefb4778746b765db2ed1193e1473",
+  "limitations": "Frozen tensor equality and exact optimizer calls are asserted by the run process. Only hashes and deltas remain; no updated checkpoints are saved."
+}

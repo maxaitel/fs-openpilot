@@ -1,0 +1,115 @@
+{
+  "complete": true,
+  "episodes": {
+    "baseline/heavy_skid": {
+      "command": [
+        "/isaac-sim/kit/python/bin/python3",
+        "-m",
+        "isaac_lab_fsop.evaluate",
+        "--case",
+        "/scratch/fsop/head_trial_work/runs/development_head_trial1/cases/heavy_skid.json",
+        "--checkpoint",
+        "/work/probes/pi_models/latest_pi_train.pt",
+        "--expected-sha",
+        "48db741c8a686b2e635ae7a81b4e4c08d79fbfbd9f4dc4c163260da6f93f0cfb",
+        "--out",
+        "/scratch/fsop/head_trial_work/runs/development_head_trial1/baseline/heavy_skid",
+        "--async-evidence",
+        "--controller",
+        "op_tangent_pi_v1"
+      ],
+      "log": "logs/baseline/heavy_skid.log",
+      "receipt": {
+        "completion_sha256": "cb825d4bc60df1bed9650dd85765e05662a9e8c0ed47fb0d77e3ea9b3f51e0fb",
+        "frame_count": 1538,
+        "frames_sha256": "54e51ec6b570101461c071dbd12478d98f3e63fec93a49056fd4deae73c36454",
+        "result": "dnf",
+        "summary_sha256": "39a507c16c238009d160d4950f0a2f07216b176ca73f091e999452da605efe10"
+      },
+      "status": "complete"
+    },
+    "baseline/heavy_track": {
+      "command": [
+        "/isaac-sim/kit/python/bin/python3",
+        "-m",
+        "isaac_lab_fsop.evaluate",
+        "--case",
+        "/scratch/fsop/head_trial_work/runs/development_head_trial1/cases/heavy_track.json",
+        "--checkpoint",
+        "/work/probes/pi_models/latest_pi_train.pt",
+        "--expected-sha",
+        "48db741c8a686b2e635ae7a81b4e4c08d79fbfbd9f4dc4c163260da6f93f0cfb",
+        "--out",
+        "/scratch/fsop/head_trial_work/runs/development_head_trial1/baseline/heavy_track",
+        "--async-evidence",
+        "--controller",
+        "op_tangent_pi_v1"
+      ],
+      "log": "logs/baseline/heavy_track.log",
+      "receipt": {
+        "completion_sha256": "60417b944fa1e456ccb6155a290ae4eb9bd5f897c32c54b19370c92516d8e674",
+        "frame_count": 1125,
+        "frames_sha256": "63f958b4d24c4c9fbebda029ab85c862f39814a8aaf7c16726c8e10ee12785dd",
+        "result": "finished",
+        "summary_sha256": "1bcecdd30619d0ebe537ce5381013c3f20de1caf9cc7616f2b8a112c75bf6223"
+      },
+      "status": "complete"
+    },
+    "candidate/heavy_skid": {
+      "command": [
+        "/isaac-sim/kit/python/bin/python3",
+        "-m",
+        "isaac_lab_fsop.evaluate",
+        "--case",
+        "/scratch/fsop/head_trial_work/runs/development_head_trial1/cases/heavy_skid.json",
+        "--checkpoint",
+        "/scratch/fsop/head_trial_work/runs/lab_v7/head_trial1/step_000500.pt",
+        "--expected-sha",
+        "dd50806f3ae781e19118a74a2d47d6fd4b09e4e3aa7ba370a72559c86671c5c7",
+        "--out",
+        "/scratch/fsop/head_trial_work/runs/development_head_trial1/candidate/heavy_skid",
+        "--async-evidence",
+        "--controller",
+        "op_tangent_pi_v1"
+      ],
+      "log": "logs/candidate/heavy_skid.log",
+      "receipt": {
+        "completion_sha256": "65d3603a8c66c57be8da3f1e3e9e332ff4b95acca5f4b18d0011e693815900a1",
+        "frame_count": 659,
+        "frames_sha256": "daaecf03e7f314281973a2ca7d8c635931ee50aee1b59a7dccdbb58baa9981b2",
+        "result": "isaac_rollover",
+        "summary_sha256": "1ad8871bc1545fae57d71efc2d7f03ecdcf9141645a085f1080424652a960dc6"
+      },
+      "status": "complete"
+    },
+    "candidate/heavy_track": {
+      "command": [
+        "/isaac-sim/kit/python/bin/python3",
+        "-m",
+        "isaac_lab_fsop.evaluate",
+        "--case",
+        "/scratch/fsop/head_trial_work/runs/development_head_trial1/cases/heavy_track.json",
+        "--checkpoint",
+        "/scratch/fsop/head_trial_work/runs/lab_v7/head_trial1/step_000500.pt",
+        "--expected-sha",
+        "dd50806f3ae781e19118a74a2d47d6fd4b09e4e3aa7ba370a72559c86671c5c7",
+        "--out",
+        "/scratch/fsop/head_trial_work/runs/development_head_trial1/candidate/heavy_track",
+        "--async-evidence",
+        "--controller",
+        "op_tangent_pi_v1"
+      ],
+      "log": "logs/candidate/heavy_track.log",
+      "receipt": {
+        "completion_sha256": "c9b17a7fdd62d695e6edfa97fd9722e2f3042bb86d9190001b9572f810cea74e",
+        "frame_count": 1141,
+        "frames_sha256": "0d29c0cb205e9a632847424c638ae62ac9a89c29ef2e0c9cea81b101b25cf133",
+        "result": "finished",
+        "summary_sha256": "fd36372488f30c3118497ca242d2c1d12c5b2767b3297c23a00704ddcb9e6376"
+      },
+      "status": "complete"
+    }
+  },
+  "lock_sha256": "380fb0c7fa2bd85b7d8a4c49abf0f163061561cf2eb752860d5037afa43f9dca",
+  "version": 1
+}

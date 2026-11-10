@@ -1,0 +1,67 @@
+{
+  "scope": "rejected_step500_diagnosis_only_no_promotion_no_fresh_tests",
+  "selection_sha256": "4a7b40db713853cd443ca1c8c30f415301d59ea7f496abf2a8bb76c9498a44a6",
+  "protocol_sha256": "243ea0d037ebcbb986ba8ca80efad06ff1a2b17e01d5b628a74753bcd0bde2d1",
+  "evaluated_step": 500,
+  "models": [
+    {
+      "name": "baseline",
+      "checkpoint": "/work/probes/pi_models/latest_pi_train.pt",
+      "sha256": "48db741c8a686b2e635ae7a81b4e4c08d79fbfbd9f4dc4c163260da6f93f0cfb",
+      "controller_contract": {
+        "version": 1,
+        "mode": "op_tangent_pi_v1",
+        "steering": "openpilot_follower_body_vx",
+        "steering_action_time_s": 0.2,
+        "steering_min_speed_mps": 1.0,
+        "steering_delay_floor_s": 0.05,
+        "longitudinal": "knotwise_planar_tangent_pi",
+        "action_time_s": 0.3,
+        "speed_gain": 1.5,
+        "accel_feedforward": 0.5,
+        "speed_floor_mps": 0.001,
+        "current_velocity": "measured_body_vx_vy",
+        "mission_layer": "mission_brake_then_vehicle_limits_with_feedback",
+        "mission_brake_decel_mps2": 3.5,
+        "mission_launch_accel_mps2": 2.0,
+        "integral_gain": 0.5,
+        "integral_limit_mps2": 2.0,
+        "control_period_s": 0.05,
+        "integral_reset": "policy_reset_or_before_command_on_mission_override_or_target_speed_at_most_0.001_mps",
+        "anti_windup": "block_delta_when_raw_minus_applied_times_delta_positive",
+        "timestamp_tolerance_s": 1e-06
+      }
+    },
+    {
+      "name": "candidate",
+      "checkpoint": "/work/runs/lab_v7/pi_trial1/step_000500.pt",
+      "sha256": "dd1f7ffb078f5c00066a304d6f032f1d57f3204b9f02d7b81b4060080aa81fae",
+      "controller_contract": {
+        "version": 1,
+        "mode": "op_tangent_pi_v1",
+        "steering": "openpilot_follower_body_vx",
+        "steering_action_time_s": 0.2,
+        "steering_min_speed_mps": 1.0,
+        "steering_delay_floor_s": 0.05,
+        "longitudinal": "knotwise_planar_tangent_pi",
+        "action_time_s": 0.3,
+        "speed_gain": 1.5,
+        "accel_feedforward": 0.5,
+        "speed_floor_mps": 0.001,
+        "current_velocity": "measured_body_vx_vy",
+        "mission_layer": "mission_brake_then_vehicle_limits_with_feedback",
+        "mission_brake_decel_mps2": 3.5,
+        "mission_launch_accel_mps2": 2.0,
+        "integral_gain": 0.5,
+        "integral_limit_mps2": 2.0,
+        "control_period_s": 0.05,
+        "integral_reset": "policy_reset_or_before_command_on_mission_override_or_target_speed_at_most_0.001_mps",
+        "anti_windup": "block_delta_when_raw_minus_applied_times_delta_positive",
+        "timestamp_tolerance_s": 1e-06
+      }
+    }
+  ],
+  "case_count_per_model": 2,
+  "comparison": "unchanged latest weights versus retrained weights under the same PI controller",
+  "fresh_tests_opened": false
+}

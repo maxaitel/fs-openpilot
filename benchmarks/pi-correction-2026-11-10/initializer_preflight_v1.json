@@ -1,0 +1,12 @@
+{
+  "purpose": "Zero-update six-second TRAIN integration probes before initialization decision; not full skidpad scores",
+  "case": "train-skidpad-82000-matched",
+  "controller": "op_tangent_pi_v1",
+  "frames": 120,
+  "candidates": ["original_cf3", "vision_e59", "latest_c121"],
+  "decision": "Require finite complete source-bound evidence and stateful action audit. Exclude any initialization with an integration failure. Compare early contacts descriptively only. Select vision_e59 if eligible to preserve its existing Isaac appearance adaptation; apply the explicit physical-consistency objective rather than selecting the already regressed latest policy. Original remains the unadapted reference. No validation caps will be loosened.",
+  "training_objective": "plan NLL plus native-relative endpoint-acceleration consistency; no teacher actuator command objective",
+  "coefficient_recipe": "Use w_consistency=1.0. Frozen TRAIN-only gradient diagnostic on e59 measured consistency gradient norms 36.77 to 51.84 versus plan 50.09 to 51.26 and cosine 0.0135 to 0.0330. This gives comparable raw gradient norms without a validation-tuned coefficient.",
+  "optimization": "500 policy updates with frozen vision, batch128,16 qualified recovery draws,history8,FP32; same optimizer schedule as prior run",
+  "qualification": "Existing absolute action and plan-coherence caps remain. Rank eligible checkpoints by strict plan-L1 improvement over step zero. If no checkpoint qualifies, report rejection and evaluate the final diagnostic checkpoint without promotion."
+}

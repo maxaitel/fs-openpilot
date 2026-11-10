@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "purpose": "Privileged TRAIN native steering executability calibration. No neural inference or learned driving result.",
+  "premise": "A perfect recorded native future expressed in actual ego coordinates is executable by the current OP steering map with tangent PI longitudinal control.",
+  "source": "/work/data/native/lab_v2/train-skidpad-82000-matched",
+  "source_files_sha256": {
+    "/work/data/native/lab_v2/train-skidpad-82000-matched/meta.json": "4c48f7642162245cc4ea5dd3ce09cf23ef7faccfa144c95a812e3ea0becb4077",
+    "/work/data/native/lab_v2/train-skidpad-82000-matched/track.json": "4f95e3c40f6d2a93cdcf26bb94facab2e38a4fb3f7a89487bb5cf114f2940d22",
+    "/work/data/native/lab_v2/train-skidpad-82000-matched/source.zip": "2f4a06dd9a63e96474d024d765b5639f184650612746529e88e214cb715d506d",
+    "/work/data/native/lab_v2/train-skidpad-82000-matched/states.npy": "62b3cfb263e136ad38a0802182ad94c5bf1ab0429b2a1fa75c63e75100672950",
+    "/work/data/native/lab_v2/train-skidpad-82000-matched/controls.npy": "1e463f1b914e869b45eb86472d2dfa994893dd09bf48072ecbb34cee82973243",
+    "/work/data/native/lab_v2/train-skidpad-82000-matched/teacher.npy": "45e93fce5774079fc8437047b2a5ee177c156cace3c51c7a7b1e781a5cd11a0d",
+    "/work/data/native/lab_v2/train-skidpad-82000-matched/contacts.npy": "40f178e740d4e2f016719f49529c56b4076be6fb0b38446e14259003b6f4766c",
+    "/work/data/native/lab_v2/train-skidpad-82000-matched/cones.npy": "e6b365d7eb9376b3d8b4888a1e1001e5560ab9ef51bb3638793ee025774242e4",
+    "/work/data/native/lab_v2/train-skidpad-82000-matched/ticks.npy": "4023efe3ab3f51c4beb9526d9986b62186eab88e7dfa5b89e9387c83f2d7933d",
+    "/work/data/native/lab_v2/manifest.json": "df238ccad932d5704f7091cbff1872f580c7d8dce4951468c532e66fb8b85e37",
+    "docs/isaac-lab-training/membership.json": "d041e56c7e0245e438e0db990190b3d3b0859f9c61c2536fb56b17427ea15c8c"
+  },
+  "source_selection": "Original clean teacher-only lab_v2 82000 matched. Every control teacher-owned. No learner prefix.",
+  "branch_tick": 255,
+  "follower_end_tick": 927,
+  "recorded_end_tick": 1127,
+  "future_state_count": 201,
+  "branch_reason": "First control tick strictly after first right-lap crossing. Exact recorded controls for [0,255), then second right, both left laps, exit and stop through source tick 927.",
+  "arms": [
+    "recorded",
+    "op_tangent_pi",
+    "pp_tangent_pi"
+  ],
+  "arm_order": "Recorded first. Stop entire probe if recorded parity fails. OP and PP each replay and verify identical prefix before branching.",
+  "reference": "Fixed source tick equals native control tick. No nearest-point rematching, time warping, future padding, oracle refresh, or source-pose anchoring after branch.",
+  "rebase": "World positions minus actual position rotated by negative actual yaw. Source-frame velocity and acceleration rotated by source yaw minus actual yaw. Relative source yaw plus wrapped source yaw minus actual yaw. Yaw rate unchanged.",
+  "future_availability": {
+    "last_follower_control_tick": 926,
+    "last_required_state_tick": 1126,
+    "source_last_state_tick": 1127,
+    "terminal_continuation_start_tick": 927,
+    "policy": "All 201 future states are real recorded native states. Terminal braking may enter the lookahead and is explicitly included."
+  },
+  "steering": {
+    "recorded": "recorded control",
+    "op_tangent_pi": "OpenpilotFollower defaults with actual body vx",
+    "pp_tangent_pi": "PlanPurePursuit defaults with actual body vx; its longitudinal output discarded"
+  },
+  "longitudinal": "Both followers use the same frozen OpenpilotTangentPIFollower step, zero integral at branch, actual body vx/vy, actual time, and mission_brake_with_override.",
+  "pi_contract": {
+    "version": 1,
+    "mode": "op_tangent_pi_v1",
+    "steering": "openpilot_follower_body_vx",
+    "steering_action_time_s": 0.2,
+    "steering_min_speed_mps": 1.0,
+    "steering_delay_floor_s": 0.05,
+    "longitudinal": "knotwise_planar_tangent_pi",
+    "action_time_s": 0.3,
+    "speed_gain": 1.5,
+    "accel_feedforward": 0.5,
+    "speed_floor_mps": 0.001,
+    "current_velocity": "measured_body_vx_vy",
+    "mission_layer": "mission_brake_then_vehicle_limits_with_feedback",
+    "mission_brake_decel_mps2": 3.5,
+    "mission_launch_accel_mps2": 2.0,
+    "integral_gain": 0.5,
+    "integral_limit_mps2": 2.0,
+    "control_period_s": 0.05,
+    "integral_reset": "policy_reset_or_before_command_on_mission_override_or_target_speed_at_most_0.001_mps",
+    "anti_windup": "block_delta_when_raw_minus_applied_times_delta_positive",
+    "timestamp_tolerance_s": 1e-06
+  },
+  "repeat_gate": {
+    "max_position_m": 0.0001,
+    "max_yaw_rad": 0.0001,
+    "max_velocity_mps": 0.0001,
+    "max_yaw_rate_radps": 0.0001,
+    "max_actuator_steer_rad": 0.0001,
+    "max_actuator_accel_mps2": 0.0001,
+    "max_time_s": 1e-08
+  },
+  "recorded_acceptance": "All 1128 native states within repeat gates, every contact count exactly source zero, controls identical, mission finish at 927 and valid R,R,L,L route with complete/pass/zero OC. Failed baseline retained and no follower starts.",
+  "follower_acceptance": "Primary lateral gate is accepted R,R,L,L, valid route, zero cone hits, zero OC within frozen source-time horizon. Full mission finished/pass/stopped-in-zone is a separate stricter gate. Report every arm even if it fails. No post hoc controller tuning.",
+  "termination": "Followers stop on native referee done or source tick 927. Early native failure remains a failed driving result with full available trace. No padding or extrapolation beyond horizon.",
+  "render": "Cameras and initial reset match producer. Subsequent observations and native steps use render=False only provisionally; no conclusion or follower execution unless full recorded baseline proves physical parity.",
+  "limitations": "One deterministic TRAIN source, one trial per arm. Privileged reference calibration, not neural performance, RGB equivalence, robustness or speed benchmark. Fixed clock includes position phase lag. Recorded repeat gate is the only observed native noise floor.",
+  "worker_timeout_seconds": 1800,
+  "disk_reserve_bytes": 26843545600,
+  "artifact_cap_bytes": 100000000,
+  "producer_runtime_differences": {
+    "added": [
+      "isaac_lab_fsop/appearance_probe.py",
+      "isaac_lab_fsop/recovery_schedule.py",
+      "src/fsop/train/action_target.py"
+    ],
+    "removed": [],
+    "changed": [
+      "isaac_eval/render_debug.py",
+      "isaac_lab_fsop/collect.py",
+      "isaac_lab_fsop/evaluate.py",
+      "isaac_lab_fsop/probe_teacher.py",
+      "isaac_lab_fsop/process.py",
+      "isaac_lab_fsop/verify_inference.py",
+      "src/fsop/data/native_replay.py",
+      "src/fsop/eval/closed_loop.py",
+      "src/fsop/eval/controller.py",
+      "src/fsop/model/build.py",
+      "src/fsop/model/export.py",
+      "src/fsop/runtime.py",
+      "src/fsop/train/lab_train.py",
+      "src/fsop/train/losses.py"
+    ]
+  },
+  "rebase_validation": {
+    "max_absolute_residual": 2.1538326677728037e-14,
+    "tested_ticks": [
+      255,
+      440,
+      650,
+      926
+    ],
+    "pose_offset": [
+      1.7,
+      -2.3,
+      0.43
+    ]
+  },
+  "files_sha256": {
+    "probe.py": "b2cc87949e8cc57c0ad7578c4ce759a9ed07f7df9712595f828c886692c865de",
+    "controller_snapshot.py": "8f07cc89adb30e4566093feb1f11e66a4db79ee7358d94f1dc9b7d3f60dce4f8",
+    "closed_loop_snapshot.py": "a14ca4ee943f26921a1bf8ebfad67e12ed4c94b8c3031ddf4cbf4c360d62b98f",
+    "bridge_snapshot.py": "5cb354f56a70dd2623a902fb2b1b9d34087494816015a9144e7f28ca0505aaaf",
+    "runtime_inventory.json": "373e217bd278cd853b20d085f13846326a7e318b7bfaa15fb159e10e3d68566a"
+  }
+}

@@ -74,9 +74,16 @@ class ModelPolicy:
     mu = op_to_ego_plan(p[0, 0].cpu().numpy())
     std = np.exp(p[0, 1].clamp(-7, 7).cpu().numpy())
     self.ts.push_hidden(v.hidden[0].cpu().numpy())
-    steer, accel = (self.ctrl(mu, obs.state.vx, obs.state.vy) if self.controller_name == "op_tangent_v1"
-                    else self.ctrl(mu, obs.state.vx))
+    if self.controller_name == "op_tangent_pi_v1":
+      steer, accel, diagnostics = self.ctrl.step(mu, obs.state.vx, obs.state.vy, obs.t,
+                                                lambda command: mission_brake_with_override(command, obs, env))
+    else:
+      steer, accel = (self.ctrl(mu, obs.state.vx, obs.state.vy) if self.controller_name == "op_tangent_v1"
+                      else self.ctrl(mu, obs.state.vx))
+      accel = mission_brake(accel, obs, env)
     info = {"plan": mu, "plan_std": std}
+    if self.controller_name == "op_tangent_pi_v1":
+      info["controller"] = diagnostics
     if self.bev:
       if self.cones == "img" and getattr(m, "img", None) is not None:
         from fsop.eval.img_to_bev import bev_from_image_head
@@ -88,7 +95,7 @@ class ModelPolicy:
         o = m.bev(v.s16, v.final)
         xy, cls, sc = decode_bev(o["heat"], o["off"])[0]
       info.update(cones_xy=xy, cones_cls=cls, cones_score=sc)
-    return steer, mission_brake(accel, obs, env), info
+    return steer, accel, info
 
 
 def mission_brake(accel: float, obs: Obs, env: FSEnv, decel: float = 3.5, launch_accel: float = 2.0) -> float:
@@ -110,6 +117,14 @@ def mission_brake(accel: float, obs: Obs, env: FSEnv, decel: float = 3.5, launch
   if rem <= 0.5:
     accel = min(accel, -3.0 if v > 0.3 else -1.0)
   return accel
+
+
+def mission_brake_with_override(accel: float, obs: Obs, env: FSEnv) -> tuple[float, bool]:
+  rem = env.mission.s_end - obs.s
+  v = obs.state.vx
+  launch = v < 2.0 and rem > 15.0
+  finish = rem <= 60.0 and (v > np.sqrt(2 * 3.5 * max(rem, 0.0)) or rem <= 0.5)
+  return mission_brake(accel, obs, env), bool(launch or finish)
 
 
 class GeometricPolicy:
@@ -141,10 +156,17 @@ class GeometricPolicy:
       _, _, info = self.mp(obs, env)
       xy, cls = info["cones_xy"], info["cones_cls"]
     plan = plan_from_cones(xy, cls, obs.state.vx)
-    steer, accel = (self.ctrl(plan, obs.state.vx, obs.state.vy) if self.controller_name == "op_tangent_v1"
-                    else self.ctrl(plan, obs.state.vx))
+    if self.controller_name == "op_tangent_pi_v1":
+      steer, accel, diagnostics = self.ctrl.step(plan, obs.state.vx, obs.state.vy, obs.t,
+                                                lambda command: mission_brake_with_override(command, obs, env))
+    else:
+      steer, accel = (self.ctrl(plan, obs.state.vx, obs.state.vy) if self.controller_name == "op_tangent_v1"
+                      else self.ctrl(plan, obs.state.vx))
+      accel = mission_brake(accel, obs, env)
     info = {**info, "plan": plan, "cones_xy": xy, "cones_cls": cls}
-    return steer, mission_brake(accel, obs, env), info
+    if self.controller_name == "op_tangent_pi_v1":
+      info["controller"] = diagnostics
+    return steer, accel, info
 
 
 @dataclass

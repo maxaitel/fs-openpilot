@@ -1,0 +1,118 @@
+{
+  "protocol_sha256": "0ddbf1d0ad795292347e427131b998e7695f3205174eb7e5d640cc101ce98e05",
+  "script_sha256": "75084ad1c4890133fecdb0fa2aff43f1c860034f3581301bf9229ac413e1b987",
+  "rows_sha256": "432efa6425904149965e6105941a0826f955c4a9a0f6a89885b044cb21550e42",
+  "arrays_sha256": "8dba280b33e8dfce8b605526e3ed4569fadff3a0bb85132f61038d65498e1fd3",
+  "baseline_receipt_sha256": "ca715ed6ce4c3afc92262b8d14127181f786123b067e211635089be8de8a8f69",
+  "updates": 8,
+  "frozen_state_sha256": "cacd12880626257ad3f824d45239184a9ea590eabe105f24d2768a5ddff0b622",
+  "head_scope": {
+    "trainable": {
+      "base.policy.p_node_linear_20.weight": [
+        990,
+        256
+      ],
+      "base.policy.p_node_linear_20.bias": [
+        990
+      ]
+    },
+    "parameters": 254430,
+    "scale_key": "base.policy.initializers.onnx_initializer_33",
+    "scale_sha256": "7f3651be42ffa139a56a6bcab7b37832f0bc8aa115ab9aa792e3bc1afe3ca7e5",
+    "steering_scale_values": {
+      "14": 0.03193480148911476,
+      "71": 0.010097937658429146,
+      "86": 0.011961156502366066
+    },
+    "chain": [
+      "p_node_linear_20",
+      "p_node_mul_1",
+      "output"
+    ],
+    "first_495_outputs": "means",
+    "last_495_outputs": "log_scales",
+    "all_output_rows_trainable": true
+  },
+  "frozen_tensor_count": 415,
+  "initial_digest": "14feb933b4399f4e25131acaf60aa4abae1dad7f1421303fc66a4735fc72f652",
+  "context": {
+    "policy_sha256": "a27088e94f581de472f9610183e3979987cf59a1b272816a339bb9757d00a17a",
+    "feature_slots": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "transpose": [
+      1,
+      0,
+      2
+    ],
+    "gather_indices": [
+      -9,
+      -8,
+      -7,
+      -6,
+      -5,
+      -4,
+      -3,
+      -2,
+      -1
+    ],
+    "fx_gather_buffer": "initializers.onnx_initializer_0"
+  },
+  "runtime": {
+    "python": "3.11",
+    "numpy": "1.26.0",
+    "scipy": "1.15.3",
+    "torch": "2.9.0+cu130"
+  },
+  "monitor_before": {
+    "losses": {
+      "plan_nll": -1.9942269325256348,
+      "plan_l1": 0.3837691843509674,
+      "steer": 0.011312450282275677,
+      "longitudinal": 0.05950915440917015,
+      "native_relative_acceleration": 0.02391439490020275
+    },
+    "action_mae": {
+      "steer_rad": 0.02015075273811817,
+      "raw_accel_mps2": 0.08074341714382172,
+      "target_speed_mps": 0.048087358474731445,
+      "tangent_accel_mps2": 0.0807151272892952
+    },
+    "phases": {
+      "steady_right": {
+        "steer_rad": 0.003801599144935608,
+        "raw_accel_mps2": 0.03740774840116501,
+        "target_speed_mps": 0.02827167510986328,
+        "tangent_accel_mps2": 0.016245143488049507
+      },
+      "right_to_left": {
+        "steer_rad": 0.0053071528673172,
+        "raw_accel_mps2": 0.13750088214874268,
+        "target_speed_mps": 0.061803460121154785,
+        "tangent_accel_mps2": 0.0895913764834404
+      },
+      "steady_left": {
+        "steer_rad": 0.0022690966725349426,
+        "raw_accel_mps2": 0.030970273539423943,
+        "target_speed_mps": 0.01829969882965088,
+        "tangent_accel_mps2": 0.007041809149086475
+      },
+      "recovery": {
+        "steer_rad": 0.06922516971826553,
+        "raw_accel_mps2": 0.11709477007389069,
+        "target_speed_mps": 0.08397459983825684,
+        "tangent_accel_mps2": 0.20998218655586243
+      }
+    }
+  },
+  "elapsed_seconds": 35.31604767998215,
+  "all_source_files_unchanged": true
+}

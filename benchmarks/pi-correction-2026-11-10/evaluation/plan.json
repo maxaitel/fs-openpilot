@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "timeout_seconds": 1800,
+  "cases": [
+    {
+      "name": "heavy_skid",
+      "path": "/work/docs/isaac-lab-training/cases/regression-skidpad-72000-heavy-recorded-visual_stress_v1.json"
+    },
+    {
+      "name": "heavy_track",
+      "path": "/work/docs/isaac-lab-training/cases/regression-retention-trackdrive_020000-heavy-recorded-visual_stress_v1.json"
+    }
+  ],
+  "models": [
+    {
+      "name": "baseline",
+      "checkpoint": "/work/probes/pi_models/latest_pi_train.pt",
+      "sha256": "48db741c8a686b2e635ae7a81b4e4c08d79fbfbd9f4dc4c163260da6f93f0cfb",
+      "controller_contract": {
+        "version": 1,
+        "mode": "op_tangent_pi_v1",
+        "steering": "openpilot_follower_body_vx",
+        "steering_action_time_s": 0.2,
+        "steering_min_speed_mps": 1.0,
+        "steering_delay_floor_s": 0.05,
+        "longitudinal": "knotwise_planar_tangent_pi",
+        "action_time_s": 0.3,
+        "speed_gain": 1.5,
+        "accel_feedforward": 0.5,
+        "speed_floor_mps": 0.001,
+        "current_velocity": "measured_body_vx_vy",
+        "mission_layer": "mission_brake_then_vehicle_limits_with_feedback",
+        "mission_brake_decel_mps2": 3.5,
+        "mission_launch_accel_mps2": 2.0,
+        "integral_gain": 0.5,
+        "integral_limit_mps2": 2.0,
+        "control_period_s": 0.05,
+        "integral_reset": "policy_reset_or_before_command_on_mission_override_or_target_speed_at_most_0.001_mps",
+        "anti_windup": "block_delta_when_raw_minus_applied_times_delta_positive",
+        "timestamp_tolerance_s": 1e-06
+      }
+    },
+    {
+      "name": "candidate",
+      "checkpoint": "/work/runs/lab_v7/pi_trial1/step_000500.pt",
+      "sha256": "dd1f7ffb078f5c00066a304d6f032f1d57f3204b9f02d7b81b4060080aa81fae",
+      "controller_contract": {
+        "version": 1,
+        "mode": "op_tangent_pi_v1",
+        "steering": "openpilot_follower_body_vx",
+        "steering_action_time_s": 0.2,
+        "steering_min_speed_mps": 1.0,
+        "steering_delay_floor_s": 0.05,
+        "longitudinal": "knotwise_planar_tangent_pi",
+        "action_time_s": 0.3,
+        "speed_gain": 1.5,
+        "accel_feedforward": 0.5,
+        "speed_floor_mps": 0.001,
+        "current_velocity": "measured_body_vx_vy",
+        "mission_layer": "mission_brake_then_vehicle_limits_with_feedback",
+        "mission_brake_decel_mps2": 3.5,
+        "mission_launch_accel_mps2": 2.0,
+        "integral_gain": 0.5,
+        "integral_limit_mps2": 2.0,
+        "control_period_s": 0.05,
+        "integral_reset": "policy_reset_or_before_command_on_mission_override_or_target_speed_at_most_0.001_mps",
+        "anti_windup": "block_delta_when_raw_minus_applied_times_delta_positive",
+        "timestamp_tolerance_s": 1e-06
+      }
+    }
+  ]
+}

@@ -223,7 +223,7 @@ def load_episode(folder, model):
         from fsop.eval.controller import controller_contract
         contract = locked_model.get("controller_contract")
         if lock_version == 2:
-            if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1")
+            if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1", "op_tangent_pi_v1")
                 or contract != controller_contract(contract["mode"])
                 or metadata.get("controller_contract") != contract or summary.get("controller_contract") != contract):
                 raise ValueError("Original lock controller contract differs from episode")
@@ -252,6 +252,10 @@ def load_episode(folder, model):
         row["audited_controller_contract"] = audit.get("controller_contract")
         if row["audited_controller_contract"] != row.get("locked_controller_contract"):
             row["audit"] = "controller contract mismatch"
+        elif row["audited_controller_contract"]["mode"] == "op_tangent_pi_v1":
+            expected_auditor = metadata.get("source_sha256", {}).get("isaac_lab_fsop/process.py")
+            if not expected_auditor or audit.get("auditor_sha256") != expected_auditor:
+                row["audit"] = "controller auditor source mismatch"
     row["latency"] = latency(folder, audit, row["audit"])
     for name in ("debug", "research"):
         row["videos"][name] = video_status(folder, name, receipt)
@@ -300,7 +304,7 @@ def plan_matrix(plan_path):
         from fsop.eval.controller import controller_contract
         for model in models:
             contract = model.get("controller_contract")
-            if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1")
+            if (not isinstance(contract, dict) or contract.get("mode") not in ("pp", "op_tangent_v1", "op_tangent_pi_v1")
                 or contract != controller_contract(contract["mode"])):
                 raise ValueError("Version 2 plan requires an exact controller contract for each model")
     keys = [(model["name"], name) for model in models for name, _ in cases]
@@ -423,7 +427,7 @@ def paired_comparisons(episodes, coverage, has_plan, scope="same_controller"):
                         or conditions.get("controller_contract") != contract
                         or r.get("audited_controller_contract") != contract):
                         raise ValueError("Audited controller differs from frozen model contract")
-                    expected_schema = {"pp": 1, "op_tangent_v1": 2}.get(contract.get("mode"))
+                    expected_schema = {"pp": 1, "op_tangent_v1": 2, "op_tangent_pi_v1": 3}.get(contract.get("mode"))
                     if conditions.get("schema_version") != expected_schema:
                         raise ValueError("Evidence schema does not match frozen controller mode")
                 # Schema is part of the versioned controller representation; every other
@@ -739,6 +743,7 @@ def training_graphs(history, out):
                 ("loss", "train total"),
                 ("val_loss", "validation"),
                 ("plan_nll", "train plan NLL"),
+                ("native_relative_acceleration", "train consistency (unweighted)"),
                 ("steer", "train steer"),
                 ("longitudinal", "train longitudinal"),
                 ("l2sp", "train L2-SP"),

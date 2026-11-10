@@ -1,0 +1,933 @@
+{
+  "schema_version": 1,
+  "method": "Linear interpolation of consecutive saved 20 Hz car positions at x=0; finite gate test matches SkidpadRoute.advance.",
+  "geometry": {
+    "track_canonical_sha256": "3c8a87145c11af35c8a772df1dedb6b0791fc6a450ff8664b5a2240d160c318d",
+    "gate": [
+      [
+        0.0,
+        1.5
+      ],
+      [
+        0.0,
+        -1.5
+      ]
+    ],
+    "circle_centers": [
+      [
+        0,
+        -9.125
+      ],
+      [
+        0,
+        9.125
+      ]
+    ],
+    "stop_zone": [
+      [
+        10.625,
+        1.5
+      ],
+      [
+        35.625,
+        1.5
+      ],
+      [
+        35.625,
+        -1.5
+      ],
+      [
+        10.625,
+        -1.5
+      ]
+    ]
+  },
+  "source_matches_training_archive": true,
+  "episodes": {
+    "baseline": {
+      "result": "dnf",
+      "seconds_simulated": 76.9,
+      "physical_contacts": 21,
+      "legacy_doo": 19,
+      "off_course_events": 5,
+      "accepted_route": [
+        "right",
+        "right"
+      ],
+      "route_complete": false,
+      "route_violation": null,
+      "all_x_zero_crossings": [
+        {
+          "t": 3.09141717878419,
+          "x": 0.0,
+          "y": -0.052723859897486236,
+          "forward": true,
+          "inside_gate": true,
+          "gate_miss_m": 0.0,
+          "before_frame": 61,
+          "after_frame": 62
+        },
+        {
+          "t": 7.491435021448532,
+          "x": 0.0,
+          "y": -18.312276643576954,
+          "forward": false,
+          "inside_gate": false,
+          "gate_miss_m": 16.812276643576954,
+          "before_frame": 149,
+          "after_frame": 150
+        },
+        {
+          "t": 12.485184605281127,
+          "x": 0.0,
+          "y": 0.004781194671434166,
+          "forward": true,
+          "inside_gate": true,
+          "gate_miss_m": 0.0,
+          "before_frame": 249,
+          "after_frame": 250
+        },
+        {
+          "t": 17.114288263668605,
+          "x": 0.0,
+          "y": -18.252422273207454,
+          "forward": false,
+          "inside_gate": false,
+          "gate_miss_m": 16.752422273207454,
+          "before_frame": 342,
+          "after_frame": 343
+        },
+        {
+          "t": 22.12497714664331,
+          "x": 0.0,
+          "y": 0.5715712728583507,
+          "forward": true,
+          "inside_gate": true,
+          "gate_miss_m": 0.0,
+          "before_frame": 442,
+          "after_frame": 443
+        },
+        {
+          "t": 27.43783249300354,
+          "x": 0.0,
+          "y": 23.186793502688143,
+          "forward": false,
+          "inside_gate": false,
+          "gate_miss_m": 21.686793502688143,
+          "before_frame": 548,
+          "after_frame": 549
+        },
+        {
+          "t": 33.123900793327245,
+          "x": 0.0,
+          "y": 2.595670221535266,
+          "forward": true,
+          "inside_gate": false,
+          "gate_miss_m": 1.0956702215352658,
+          "before_frame": 662,
+          "after_frame": 663
+        },
+        {
+          "t": 38.33938675901091,
+          "x": 0.0,
+          "y": 21.129847047929704,
+          "forward": false,
+          "inside_gate": false,
+          "gate_miss_m": 19.629847047929704,
+          "before_frame": 766,
+          "after_frame": 767
+        },
+        {
+          "t": 43.0899697280657,
+          "x": 0.0,
+          "y": 2.677645637214694,
+          "forward": true,
+          "inside_gate": false,
+          "gate_miss_m": 1.177645637214694,
+          "before_frame": 861,
+          "after_frame": 862
+        }
+      ],
+      "physical_contact_timeline": [
+        {
+          "t": 9.05,
+          "control_frame": 181,
+          "cone": "/World/Cones/c0037",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -8.01259708404541,
+            -14.407437324523926
+          ],
+          "car_before_contact_left_radius_m": 24.85914959253232,
+          "initial_cone_xy": [
+            -9.329317254814642,
+            -13.899678651391906
+          ],
+          "initial_cone_left_radius_m": 24.842946432354687,
+          "after_second_right_lap": false
+        },
+        {
+          "t": 19.95,
+          "control_frame": 399,
+          "cone": "/World/Cones/c0035",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -9.499678611755371,
+            -7.111601829528809
+          ],
+          "car_before_contact_left_radius_m": 18.81146280057191,
+          "initial_cone_xy": [
+            -10.102099812612384,
+            -5.882722414105778
+          ],
+          "initial_cone_left_radius_m": 18.090996453563196,
+          "after_second_right_lap": false
+        },
+        {
+          "t": 22.05,
+          "control_frame": 441,
+          "cone": "/World/Cones/c0030",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -0.4469700753688812,
+            0.4866565763950348
+          ],
+          "car_before_contact_left_radius_m": 8.649899383947446,
+          "initial_cone_xy": [
+            0.6140175811468258,
+            1.3849322599752274
+          ],
+          "initial_cone_left_radius_m": 7.764384470782574,
+          "after_second_right_lap": false
+        },
+        {
+          "t": 22.6,
+          "control_frame": 452,
+          "cone": "/World/Cones/c0031",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            2.693375587463379,
+            1.4288312196731567
+          ],
+          "car_before_contact_left_radius_m": 8.153850988975778,
+          "initial_cone_xy": [
+            3.3809226954188167,
+            2.5683796364523106
+          ],
+          "initial_cone_left_radius_m": 7.376985079562401,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 22.95,
+          "control_frame": 459,
+          "cone": "/World/Cones/c0032",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            4.409196376800537,
+            2.568538188934326
+          ],
+          "car_before_contact_left_radius_m": 7.90115207859927,
+          "initial_cone_xy": [
+            5.572501067751977,
+            4.077560617461218
+          ],
+          "initial_cone_left_radius_m": 7.51860442306286,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 23.5,
+          "control_frame": 470,
+          "cone": "/World/Cones/c0033",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            6.316486358642578,
+            5.025038719177246
+          ],
+          "car_before_contact_left_radius_m": 7.530450346636882,
+          "initial_cone_xy": [
+            7.214529052532411,
+            6.400126570232926
+          ],
+          "initial_cone_left_radius_m": 7.711962438840375,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 23.95,
+          "control_frame": 479,
+          "cone": "/World/Cones/c0017",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            7.101454257965088,
+            7.48989200592041
+          ],
+          "car_before_contact_left_radius_m": 7.287264969127543,
+          "initial_cone_xy": [
+            7.794974545715898,
+            9.249903908783567
+          ],
+          "initial_cone_left_radius_m": 7.795975189467202,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 25.05,
+          "control_frame": 501,
+          "cone": "/World/Cones/c0018",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            8.01326847076416,
+            12.126700401306152
+          ],
+          "car_before_contact_left_radius_m": 8.557025001935223,
+          "initial_cone_xy": [
+            7.068147373626856,
+            11.850182684952106
+          ],
+          "initial_cone_left_radius_m": 7.575310420152497,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 25.6,
+          "control_frame": 512,
+          "cone": "/World/Cones/c0051",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            7.817014694213867,
+            15.271832466125488
+          ],
+          "car_before_contact_left_radius_m": 9.944308326684661,
+          "initial_cone_xy": [
+            7.225312481578487,
+            17.04612243284778
+          ],
+          "initial_cone_left_radius_m": 10.7214421162742,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 30.55,
+          "control_frame": 611,
+          "cone": "/World/Cones/c0057",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -11.014761924743652,
+            11.659652709960938
+          ],
+          "car_before_contact_left_radius_m": 11.302629986816997,
+          "initial_cone_xy": [
+            -10.366790731258543,
+            10.128103638520477
+          ],
+          "initial_cone_left_radius_m": 10.415208446081195,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 31.55,
+          "control_frame": 631,
+          "cone": "/World/Cones/c0026",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -7.931319236755371,
+            6.606195449829102
+          ],
+          "car_before_contact_left_radius_m": 8.321670577311231,
+          "initial_cone_xy": [
+            -7.715982982055121,
+            7.612443430518427
+          ],
+          "initial_cone_left_radius_m": 7.862837958094145,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 31.65,
+          "control_frame": 633,
+          "cone": "/World/Cones/c0027",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -7.46715784072876,
+            6.228704452514648
+          ],
+          "car_before_contact_left_radius_m": 8.009180614566041,
+          "initial_cone_xy": [
+            -6.324078852780637,
+            4.979774668618898
+          ],
+          "initial_cone_left_radius_m": 7.5615386254459365,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 32.65,
+          "control_frame": 653,
+          "cone": "/World/Cones/c0029",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -2.659827709197998,
+            3.2271275520324707
+          ],
+          "car_before_contact_left_radius_m": 6.469898210568074,
+          "initial_cone_xy": [
+            -2.081513901914871,
+            2.0566109503389143
+          ],
+          "initial_cone_left_radius_m": 7.368502146381829,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 32.8,
+          "control_frame": 656,
+          "cone": "/World/Cones/c0082",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -1.8439302444458008,
+            2.940354347229004
+          ],
+          "car_before_contact_left_radius_m": 6.453674968320076,
+          "initial_cone_xy": [
+            -0.884138504389238,
+            1.7538212650190792
+          ],
+          "initial_cone_left_radius_m": 7.4240135262523985,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 33.05,
+          "control_frame": 661,
+          "cone": "/World/Cones/c0083",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -0.42433762550354004,
+            2.6399106979370117
+          ],
+          "car_before_contact_left_radius_m": 6.498957276067431,
+          "initial_cone_xy": [
+            0.6136126087112572,
+            1.668393202433907
+          ],
+          "initial_cone_left_radius_m": 7.481811636701254,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 35.15,
+          "control_frame": 703,
+          "cone": "/World/Cones/c0049",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            9.46175479888916,
+            8.352762222290039
+          ],
+          "car_before_contact_left_radius_m": 9.493216265293047,
+          "initial_cone_xy": [
+            10.459522567489925,
+            10.002769253953687
+          ],
+          "initial_cone_left_radius_m": 10.496289401641775,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 35.85,
+          "control_frame": 717,
+          "cone": "/World/Cones/c0050",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            10.167731285095215,
+            12.404601097106934
+          ],
+          "car_before_contact_left_radius_m": 10.683564145080469,
+          "initial_cone_xy": [
+            9.438401535424896,
+            13.553769695768999
+          ],
+          "initial_cone_left_radius_m": 10.425805703257321,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 38.9,
+          "control_frame": 778,
+          "cone": "/World/Cones/c0054",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -3.3687245845794678,
+            20.262300491333008
+          ],
+          "car_before_contact_left_radius_m": 11.635624932121031,
+          "initial_cone_xy": [
+            -3.936749212772854,
+            19.05918615069458
+          ],
+          "initial_cone_left_radius_m": 10.685787235431915,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 39.45,
+          "control_frame": 789,
+          "cone": "/World/Cones/c0055",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -6.206766128540039,
+            18.383432388305664
+          ],
+          "car_before_contact_left_radius_m": 11.146412699304616,
+          "initial_cone_xy": [
+            -7.2738556258929545,
+            16.92619995254271
+          ],
+          "initial_cone_left_radius_m": 10.666194090015752,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 40.25,
+          "control_frame": 805,
+          "cone": "/World/Cones/c0056",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -8.512977600097656,
+            14.548722267150879
+          ],
+          "car_before_contact_left_radius_m": 10.093936340742037,
+          "initial_cone_xy": [
+            -9.605015426819122,
+            13.811814548801987
+          ],
+          "initial_cone_left_radius_m": 10.687495121135509,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 42.2,
+          "control_frame": 844,
+          "cone": "/World/Cones/c0028",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -5.037519454956055,
+            4.419092655181885
+          ],
+          "car_before_contact_left_radius_m": 6.893632293433835,
+          "initial_cone_xy": [
+            -4.403735628061776,
+            3.0380173361856406
+          ],
+          "initial_cone_left_radius_m": 7.512938535049864,
+          "after_second_right_lap": true
+        }
+      ],
+      "contacts_before_second_right_finish": 3,
+      "contacts_after_second_right_finish": 18,
+      "progress": {
+        "s_end_m": 271.9540701138616,
+        "last_saved_s_m": 272.4297323453069,
+        "last_saved_s_fraction": 1.0017490535488076,
+        "summary_fraction": 1.0017490535488076,
+        "first_s_at_least_end": {
+          "frame": 930,
+          "t": 46.5,
+          "x": 22.642086029052734,
+          "y": 3.170346260070801,
+          "yaw": -0.04686971052715063,
+          "speed": 2.248188754046606,
+          "s": 271.9711561429143,
+          "lat": 3.170346260070801,
+          "render_s": 0.4178092930233106,
+          "policy_with_capture_s": 0.010405031032860279,
+          "evidence_s": 0.0003048329381272197,
+          "legacy_doo": 19,
+          "physical_contacts": 21,
+          "physics_s": 0.017474652035161853,
+          "step_wall_s": 0.4464175400789827
+        },
+        "largest_positive_increment": {
+          "t": 43.05,
+          "delta_s_m": 0.457512213690876,
+          "travel_m": 0.3095558708758914
+        },
+        "minimum_increment": {
+          "t": 46.95,
+          "delta_s_m": -0.00018310546875,
+          "travel_m": 0.0001831056239703633
+        }
+      },
+      "continuous_stationary_tail_first_frame": {
+        "frame": 937,
+        "t": 46.85,
+        "x": 23.101144790649414,
+        "y": 3.1486237049102783,
+        "yaw": -0.04430242346673482,
+        "speed": 0.014020374857922386,
+        "s": 272.430214904511,
+        "lat": 3.1486237049102783,
+        "render_s": 0.4621488399570808,
+        "policy_with_capture_s": 0.035560378921218216,
+        "evidence_s": 0.0005597630515694618,
+        "legacy_doo": 19,
+        "physical_contacts": 21,
+        "physics_s": 0.02861835900694132,
+        "step_wall_s": 0.5279485310893506
+      },
+      "post_rr_max_y": 23.39027214050293,
+      "post_rr_min_y": 0.5997189283370972,
+      "final_state": {
+        "x": 23.100662231445312,
+        "y": 3.148573160171509,
+        "yaw": -0.04430365856482755,
+        "vx": 1.340653085145423e-08,
+        "vy": 6.141451265363477e-09,
+        "r": -2.3363174242452267e-11,
+        "steer": -0.0012604874319999525,
+        "accel": -1.0000000000000002,
+        "t": 76.9,
+        "extra": {}
+      }
+    },
+    "candidate": {
+      "result": "isaac_rollover",
+      "seconds_simulated": 32.95,
+      "physical_contacts": 13,
+      "legacy_doo": 13,
+      "off_course_events": 1,
+      "accepted_route": [
+        "right",
+        "right"
+      ],
+      "route_complete": false,
+      "route_violation": null,
+      "all_x_zero_crossings": [
+        {
+          "t": 3.1355804345911773,
+          "x": 0.0,
+          "y": -0.14678766675926794,
+          "forward": true,
+          "inside_gate": true,
+          "gate_miss_m": 0.0,
+          "before_frame": 62,
+          "after_frame": 63
+        },
+        {
+          "t": 7.587835251154598,
+          "x": 0.0,
+          "y": -18.21859610847034,
+          "forward": false,
+          "inside_gate": false,
+          "gate_miss_m": 16.71859610847034,
+          "before_frame": 151,
+          "after_frame": 152
+        },
+        {
+          "t": 12.678769020005213,
+          "x": 0.0,
+          "y": 0.15509633261800584,
+          "forward": true,
+          "inside_gate": true,
+          "gate_miss_m": 0.0,
+          "before_frame": 253,
+          "after_frame": 254
+        },
+        {
+          "t": 17.374380734330977,
+          "x": 0.0,
+          "y": -18.201108463674114,
+          "forward": false,
+          "inside_gate": false,
+          "gate_miss_m": 16.701108463674114,
+          "before_frame": 347,
+          "after_frame": 348
+        },
+        {
+          "t": 22.51129575910577,
+          "x": 0.0,
+          "y": 0.5766816314236854,
+          "forward": true,
+          "inside_gate": true,
+          "gate_miss_m": 0.0,
+          "before_frame": 450,
+          "after_frame": 451
+        },
+        {
+          "t": 28.048698578647777,
+          "x": 0.0,
+          "y": 18.718967726524163,
+          "forward": false,
+          "inside_gate": false,
+          "gate_miss_m": 17.218967726524163,
+          "before_frame": 560,
+          "after_frame": 561
+        }
+      ],
+      "physical_contact_timeline": [
+        {
+          "t": 9.15,
+          "control_frame": 183,
+          "cone": "/World/Cones/c0037",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -7.9604034423828125,
+            -14.436734199523926
+          ],
+          "car_before_contact_left_radius_m": 24.870129502166158,
+          "initial_cone_xy": [
+            -9.329317254814642,
+            -13.899678651391906
+          ],
+          "initial_cone_left_radius_m": 24.842946432354687,
+          "after_second_right_lap": false
+        },
+        {
+          "t": 10.45,
+          "control_frame": 209,
+          "cone": "/World/Cones/c0035",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -9.527420043945312,
+            -7.185306072235107
+          ],
+          "car_before_contact_left_radius_m": 18.889092536799122,
+          "initial_cone_xy": [
+            -10.102099812612384,
+            -5.882722414105778
+          ],
+          "initial_cone_left_radius_m": 18.090996453563196,
+          "after_second_right_lap": false
+        },
+        {
+          "t": 15.7,
+          "control_frame": 314,
+          "cone": "/World/Cones/c0016",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            7.722865104675293,
+            -12.870026588439941
+          ],
+          "car_before_contact_left_radius_m": 23.311452980266832,
+          "initial_cone_xy": [
+            7.142941087886857,
+            -11.982008293792662
+          ],
+          "initial_cone_left_radius_m": 22.282894930848965,
+          "after_second_right_lap": false
+        },
+        {
+          "t": 22.45,
+          "control_frame": 449,
+          "cone": "/World/Cones/c0030",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -0.32929643988609314,
+            0.5495225191116333
+          ],
+          "car_before_contact_left_radius_m": 8.581797607176782,
+          "initial_cone_xy": [
+            0.6140175811468258,
+            1.3849322599752274
+          ],
+          "initial_cone_left_radius_m": 7.764384470782574,
+          "after_second_right_lap": false
+        },
+        {
+          "t": 24.4,
+          "control_frame": 488,
+          "cone": "/World/Cones/c0048",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            9.269588470458984,
+            5.031497478485107
+          ],
+          "car_before_contact_left_radius_m": 10.133214361954202,
+          "initial_cone_xy": [
+            10.234184853847625,
+            6.391122264842336
+          ],
+          "initial_cone_left_radius_m": 10.593046166873574,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 24.95,
+          "control_frame": 499,
+          "cone": "/World/Cones/c0049",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            10.488138198852539,
+            8.12063217163086
+          ],
+          "car_before_contact_left_radius_m": 10.53611871672357,
+          "initial_cone_xy": [
+            10.459522567489925,
+            10.002769253953687
+          ],
+          "initial_cone_left_radius_m": 10.496289401641775,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 25.7,
+          "control_frame": 514,
+          "cone": "/World/Cones/c0050",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            10.341080665588379,
+            12.543791770935059
+          ],
+          "car_before_contact_left_radius_m": 10.891560333818983,
+          "initial_cone_xy": [
+            9.438401535424896,
+            13.553769695768999
+          ],
+          "initial_cone_left_radius_m": 10.425805703257321,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 26.35,
+          "control_frame": 527,
+          "cone": "/World/Cones/c0051",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            8.603389739990234,
+            15.913214683532715
+          ],
+          "car_before_contact_left_radius_m": 10.958931225621338,
+          "initial_cone_xy": [
+            7.225312481578487,
+            17.04612243284778
+          ],
+          "initial_cone_left_radius_m": 10.7214421162742,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 27.05,
+          "control_frame": 541,
+          "cone": "/World/Cones/c0052",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            5.534619331359863,
+            18.23192596435547
+          ],
+          "car_before_contact_left_radius_m": 10.65683403564652,
+          "initial_cone_xy": [
+            3.936750073850037,
+            19.088123771814374
+          ],
+          "initial_cone_left_radius_m": 10.712695106108963,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 29.25,
+          "control_frame": 585,
+          "cone": "/World/Cones/c0024",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -6.33776330947876,
+            14.682438850402832
+          ],
+          "car_before_contact_left_radius_m": 8.429256808458378,
+          "initial_cone_xy": [
+            -6.534982457426402,
+            13.25495083023495
+          ],
+          "initial_cone_left_radius_m": 7.730620258364083,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 30.0,
+          "control_frame": 600,
+          "cone": "/World/Cones/c0025",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -8.667730331420898,
+            10.34934139251709
+          ],
+          "car_before_contact_left_radius_m": 8.753774097134592,
+          "initial_cone_xy": [
+            -7.690771909670769,
+            10.545606487992682
+          ],
+          "initial_cone_left_radius_m": 7.820875613402112,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 30.95,
+          "control_frame": 619,
+          "cone": "/World/Cones/c0059",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -8.71506118774414,
+            4.131402969360352
+          ],
+          "car_before_contact_left_radius_m": 10.04431694096405,
+          "initial_cone_xy": [
+            -8.160695667781452,
+            2.534617748567063
+          ],
+          "initial_cone_left_radius_m": 10.48952296351694,
+          "after_second_right_lap": true
+        },
+        {
+          "t": 32.25,
+          "control_frame": 645,
+          "cone": "/World/Cones/c0005",
+          "time_convention": "start of the control interval containing first contact",
+          "car_before_contact_xy": [
+            -3.554360866546631,
+            -1.7314531803131104
+          ],
+          "car_before_contact_left_radius_m": 11.423487069453389,
+          "initial_cone_xy": [
+            -2.188829207428722,
+            -1.6770708684077107
+          ],
+          "initial_cone_left_radius_m": 11.021601895613703,
+          "after_second_right_lap": true
+        }
+      ],
+      "contacts_before_second_right_finish": 4,
+      "contacts_after_second_right_finish": 9,
+      "progress": {
+        "s_end_m": 271.9540701138616,
+        "last_saved_s_m": 190.99536559799822,
+        "last_saved_s_fraction": 0.7023074356564415,
+        "summary_fraction": 0.7027152101128706,
+        "first_s_at_least_end": null,
+        "largest_positive_increment": {
+          "t": 2.65,
+          "delta_s_m": 0.40445971488952637,
+          "travel_m": 0.4044598728283893
+        },
+        "minimum_increment": {
+          "t": 0.05,
+          "delta_s_m": 0.0017757415771484375,
+          "travel_m": 0.0017757417121347112
+        }
+      },
+      "continuous_stationary_tail_first_frame": null,
+      "post_rr_max_y": 18.948589324951172,
+      "post_rr_min_y": -2.636568307876587,
+      "final_state": {
+        "x": -1.1478294134140015,
+        "y": -2.6419355869293213,
+        "yaw": 0.13963602190674254,
+        "vx": 3.6145990544863946,
+        "vy": -0.5537023422346208,
+        "r": 1.4827560186386108,
+        "steer": 0.291492759266503,
+        "accel": 4.460774325542871,
+        "t": 32.95,
+        "extra": {}
+      }
+    }
+  },
+  "limitations": [
+    "One exposed episode per model. Different durations prevent treating fewer total contacts as improved avoidance.",
+    "Contact timestamps identify the start of the control interval containing first physical contact. Listed car positions precede that interval.",
+    "Cone coordinates are initial positions. They do not reconstruct cone motion after collision.",
+    "This trace identifies missed gates, contacts, and end-state mismatch. It does not isolate a perception, plan, controller, or contact-dynamics root cause.",
+    "The terminal brake rule is source-derived. Per-frame controller diagnostics are not included in these compact inputs."
+  ],
+  "input_sha256": {
+    "benchmarks/pi-correction-2026-11-10/development/baseline/heavy_skid/track.json": "7eca9ac8e49abd03e83e5a48ea14a7ed1bda349f833ba4be5d16b17a62ab5a4c",
+    "benchmarks/pi-correction-2026-11-10/head_training/source.zip": "5cccaa81e0a37e11bc432b851ff7f78638e1268e8e25889350ab0886a7ff2bfd",
+    "src/fsop/sim/skidpad.py": "a6169eec33804ce14b01cbd383a74b7474f77cf69b1baf072a805a1fcd8dc6a2",
+    "src/fsop/sim/expert.py": "7f1c3fb9083b4edd04e61a33719a88b4b65bea85fb6490ea2ef191e66d35986e",
+    "src/fsop/sim/referee.py": "c0dacad0659a9cd806e25b2405e0e4a4aadd58897858d14a717a42c0132391e2",
+    "src/fsop/eval/closed_loop.py": "a14ca4ee943f26921a1bf8ebfad67e12ed4c94b8c3031ddf4cbf4c360d62b98f",
+    "isaac_eval/scene.py": "0a1ce27ff205fb47ceb44b91c9b731050d6ad0ca4a29e89fea7ad16c59c49076",
+    "benchmarks/pi-correction-2026-11-10/head_development/baseline/heavy_skid/summary.json": "39a507c16c238009d160d4950f0a2f07216b176ca73f091e999452da605efe10",
+    "benchmarks/pi-correction-2026-11-10/head_development/baseline/heavy_skid/frames.json": "54e51ec6b570101461c071dbd12478d98f3e63fec93a49056fd4deae73c36454",
+    "benchmarks/pi-correction-2026-11-10/head_development/baseline/heavy_skid/realization.json": "1040d71d007960346c29a9dc8d5419fb261d0990a8b846d48c61018ee3a4db45",
+    "benchmarks/pi-correction-2026-11-10/head_development/candidate/heavy_skid/summary.json": "1ad8871bc1545fae57d71efc2d7f03ecdcf9141645a085f1080424652a960dc6",
+    "benchmarks/pi-correction-2026-11-10/head_development/candidate/heavy_skid/frames.json": "daaecf03e7f314281973a2ca7d8c635931ee50aee1b59a7dccdbb58baa9981b2",
+    "benchmarks/pi-correction-2026-11-10/head_development/candidate/heavy_skid/realization.json": "1040d71d007960346c29a9dc8d5419fb261d0990a8b846d48c61018ee3a4db45"
+  },
+  "script_sha256": "804bc6c8b2e95454a6133948445cfe3708027fe25f7890fa22032baa178112ab"
+}

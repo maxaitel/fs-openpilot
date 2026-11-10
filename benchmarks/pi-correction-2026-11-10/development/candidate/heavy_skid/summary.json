@@ -1,0 +1,336 @@
+{
+  "discipline": "skidpad",
+  "result": "invalid_route",
+  "laps": [
+    9.369916278366048,
+    9.615455061034263
+  ],
+  "n_laps": 2,
+  "doo": 7,
+  "oc": 2,
+  "max_speed": 7.931547387576241,
+  "route": {
+    "expected_route": [
+      "right",
+      "right",
+      "left",
+      "left"
+    ],
+    "accepted_route": [
+      "right",
+      "right"
+    ],
+    "laps": [
+      {
+        "circle": "right",
+        "start_time": 3.225451555704697,
+        "finish_time": 12.595367834070744,
+        "duration": 9.369916278366048,
+        "winding_right": -6.283185307179586,
+        "winding_left": -1.0408340855860843e-17
+      },
+      {
+        "circle": "right",
+        "start_time": 12.595367834070744,
+        "finish_time": 22.210822895105007,
+        "duration": 9.615455061034263,
+        "winding_right": -6.283185307179588,
+        "winding_left": -4.119968255444917e-16
+      }
+    ],
+    "crossings": [
+      3.225451555704697,
+      12.595367834070744,
+      22.210822895105007,
+      32.0418809656988
+    ],
+    "complete": false,
+    "exited": false,
+    "stopped_in_zone": false,
+    "valid": false,
+    "violation": "incomplete_or_outside_circle",
+    "reverse_crossings": 0,
+    "termination": "invalid_route"
+  },
+  "raw_time": null,
+  "penalty": 1.4000000000000001,
+  "time": null,
+  "dq": true,
+  "complete": false,
+  "pass": false,
+  "final_state": {
+    "x": 0.04314490780234337,
+    "y": 1.0817606449127197,
+    "yaw": 0.4555198633254282,
+    "vx": 5.899295987947547,
+    "vy": 0.18801605174623223,
+    "r": 0.6255840063095093,
+    "steer": 0.17956435526922668,
+    "accel": 0.26415533107712197,
+    "t": 32.05,
+    "extra": {}
+  },
+  "physical_cone_hits": 7,
+  "contact_events": [
+    {
+      "t": 9.2,
+      "control_frame": 184,
+      "cone": "/World/Cones/c0037",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 20.0,
+      "control_frame": 400,
+      "cone": "/World/Cones/c0035",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 22.15,
+      "control_frame": 443,
+      "cone": "/World/Cones/c0030",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 22.15,
+      "control_frame": 443,
+      "cone": "/World/Cones/c0083",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 22.65,
+      "control_frame": 453,
+      "cone": "/World/Cones/c0031",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 25.25,
+      "control_frame": 505,
+      "cone": "/World/Cones/c0021",
+      "time_convention": "start of the control interval containing first contact"
+    },
+    {
+      "t": 26.15,
+      "control_frame": 523,
+      "cone": "/World/Cones/c0054",
+      "time_convention": "start of the control interval containing first contact"
+    }
+  ],
+  "progress": 0.706203011729146,
+  "rms_lat": 1.7033936756598933,
+  "case": {
+    "id": "regression-skidpad-72000-heavy-recorded-visual_stress_v1",
+    "split": "regression",
+    "discipline": "skidpad",
+    "seed": 72000,
+    "dr": "heavy",
+    "variant": "visual_stress_v1",
+    "track_seed": null,
+    "frozen_case": "skidpad-72000-heavy-recorded",
+    "lateral_start": 0.0,
+    "yaw_start": 0.0
+  },
+  "pilot_only": false,
+  "events": [
+    {
+      "t": 3.225451555704697,
+      "kind": "line_cross",
+      "data": {
+        "n": 1
+      }
+    },
+    {
+      "t": 9.15,
+      "kind": "doo",
+      "data": {
+        "cone": 37,
+        "dir": 2.235372375060122
+      }
+    },
+    {
+      "t": 12.595367834070744,
+      "kind": "line_cross",
+      "data": {
+        "n": 2
+      }
+    },
+    {
+      "t": 12.595367834070744,
+      "kind": "lap",
+      "data": {
+        "circle": "right",
+        "start_time": 3.225451555704697,
+        "finish_time": 12.595367834070744,
+        "duration": 9.369916278366048,
+        "winding_right": -6.283185307179586,
+        "winding_left": -1.0408340855860843e-17
+      }
+    },
+    {
+      "t": 19.95,
+      "kind": "doo",
+      "data": {
+        "cone": 35,
+        "dir": 1.4265794656241106
+      }
+    },
+    {
+      "t": 22.05,
+      "kind": "doo",
+      "data": {
+        "cone": 30,
+        "dir": 0.1790372613019825
+      }
+    },
+    {
+      "t": 22.2,
+      "kind": "doo",
+      "data": {
+        "cone": 83,
+        "dir": 0.23500517428355558
+      }
+    },
+    {
+      "t": 22.210822895105007,
+      "kind": "line_cross",
+      "data": {
+        "n": 3
+      }
+    },
+    {
+      "t": 22.210822895105007,
+      "kind": "lap",
+      "data": {
+        "circle": "right",
+        "start_time": 12.595367834070744,
+        "finish_time": 22.210822895105007,
+        "duration": 9.615455061034263,
+        "winding_right": -6.283185307179588,
+        "winding_left": -4.119968255444917e-16
+      }
+    },
+    {
+      "t": 22.7,
+      "kind": "doo",
+      "data": {
+        "cone": 31,
+        "dir": 0.6798083730141312
+      }
+    },
+    {
+      "t": 23.05,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 25.2,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 25.3,
+      "kind": "doo",
+      "data": {
+        "cone": 21,
+        "dir": 2.3022272132577437
+      }
+    },
+    {
+      "t": 26.2,
+      "kind": "doo",
+      "data": {
+        "cone": 54,
+        "dir": 2.904468851694953
+      }
+    },
+    {
+      "t": 27.0,
+      "kind": "off_course",
+      "data": {}
+    },
+    {
+      "t": 30.15,
+      "kind": "back_on_course",
+      "data": {}
+    },
+    {
+      "t": 32.0418809656988,
+      "kind": "line_cross",
+      "data": {
+        "n": 4
+      }
+    },
+    {
+      "t": 32.0418809656988,
+      "kind": "invalid_route",
+      "data": {
+        "reason": "incomplete_or_outside_circle"
+      }
+    }
+  ],
+  "pending_events": [
+    {
+      "t": 32.0418809656988,
+      "kind": "line_cross",
+      "data": {
+        "n": 4
+      }
+    },
+    {
+      "t": 32.0418809656988,
+      "kind": "invalid_route",
+      "data": {
+        "reason": "incomplete_or_outside_circle"
+      }
+    }
+  ],
+  "recorded_frames": 641,
+  "wall_seconds": 268.2830858200323,
+  "startup_seconds": 29.663260787026957,
+  "evidence_seconds": 63.829830309492536,
+  "seconds_simulated": 32.05,
+  "real_time_factor": 0.11946336423720556,
+  "controller_contract": {
+    "version": 1,
+    "mode": "op_tangent_pi_v1",
+    "steering": "openpilot_follower_body_vx",
+    "steering_action_time_s": 0.2,
+    "steering_min_speed_mps": 1.0,
+    "steering_delay_floor_s": 0.05,
+    "longitudinal": "knotwise_planar_tangent_pi",
+    "action_time_s": 0.3,
+    "speed_gain": 1.5,
+    "accel_feedforward": 0.5,
+    "speed_floor_mps": 0.001,
+    "current_velocity": "measured_body_vx_vy",
+    "mission_layer": "mission_brake_then_vehicle_limits_with_feedback",
+    "mission_brake_decel_mps2": 3.5,
+    "mission_launch_accel_mps2": 2.0,
+    "integral_gain": 0.5,
+    "integral_limit_mps2": 2.0,
+    "control_period_s": 0.05,
+    "integral_reset": "policy_reset_or_before_command_on_mission_override_or_target_speed_at_most_0.001_mps",
+    "anti_windup": "block_delta_when_raw_minus_applied_times_delta_positive",
+    "timestamp_tolerance_s": 1e-06
+  },
+  "checkpoint_sha256": "dd1f7ffb078f5c00066a304d6f032f1d57f3204b9f02d7b81b4060080aa81fae",
+  "checkpoint_sha256_after": "dd1f7ffb078f5c00066a304d6f032f1d57f3204b9f02d7b81b4060080aa81fae",
+  "state_sha256": "a7dc325732d9f0247d04db5eb91fe86feb83921ac9a584f3c0249b20539b5061",
+  "state_sha256_after": "a7dc325732d9f0247d04db5eb91fe86feb83921ac9a584f3c0249b20539b5061",
+  "frozen_unchanged": true,
+  "render_profile": {
+    "renderer": "RayTracedLighting",
+    "anti_aliasing": 0,
+    "dlss_exec_mode": 0,
+    "dl_denoiser": true,
+    "motion_blur": false,
+    "subframes": 16,
+    "reason": "4 and 8 subframes retained stale marker ghosts in HDR lighting; 16 passed moving-camera projection."
+  },
+  "physics_sha256": "b3963886d3ef1bc35601a743d9190f3cc621b920c10bb8d5d44c6e21cc4127b2",
+  "torch_peak_allocated_gib": 0.13738584518432617,
+  "torch_peak_reserved_gib": 0.150390625,
+  "runtime": {
+    "python": "3.11.13",
+    "torch": "2.9.0+cu130"
+  }
+}

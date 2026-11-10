@@ -1,0 +1,399 @@
+{
+  "schema_version": 2,
+  "frozen_at": "2026-11-10T00:00:09.451044+00:00",
+  "recovery_case_ids": [
+    "train-trackdrive-82000-matched",
+    "train-skidpad-82000-matched",
+    "train-trackdrive-82001-visual_stress_v1",
+    "train-skidpad-82001-visual_stress_v1",
+    "train-trackdrive-82002-visual_stress_v1",
+    "train-skidpad-82002-visual_stress_v1",
+    "train-trackdrive-82003-visual_stress_v1",
+    "train-skidpad-82003-visual_stress_v1"
+  ],
+  "pilot_case_ids": [
+    "train-skidpad-82000-matched",
+    "train-skidpad-82002-visual_stress_v1"
+  ],
+  "checkpoint": "/work/runs/lab_v4/native_future_trial1/step_000500.pt",
+  "checkpoint_sha256": "c121faa268d8c98bdac537974a9c21d3523a7b57cdab7f480351cbb2f98f89ac",
+  "membership": "membership.json",
+  "membership_sha256": "d041e56c7e0245e438e0db990190b3d3b0859f9c61c2536fb56b17427ea15c8c",
+  "case_sha256": {
+    "train-trackdrive-82000-matched": "cedbf4775d78832d3f6435b5f62c6e307c90b474f49c73d93d709ddab8ad8aea",
+    "train-skidpad-82000-matched": "007528ba939a474cb3b36cefb1262b9c5037b868d0a392d825617289b6866048",
+    "train-trackdrive-82001-visual_stress_v1": "76710e4d8096e91c759d98e169730bb81ba4101429582a89762df9a765002f8f",
+    "train-skidpad-82001-visual_stress_v1": "223500179f787fd1f6491a09fc849e02cb9b025a3c0590719ce9a260e43f2349",
+    "train-trackdrive-82002-visual_stress_v1": "23fe53402d031edb3ac5cab5ee4e02e3b2f7464712a27bdad872515e8d76c97f",
+    "train-skidpad-82002-visual_stress_v1": "ff749d722797cebe164bb52efadc1694b642679aac89c022c9cf6ea236b29d6e",
+    "train-trackdrive-82003-visual_stress_v1": "1de391ca31652231f627a534ade31317c4302a2aee461105354f2c5b005146e6",
+    "train-skidpad-82003-visual_stress_v1": "a0849dd028d1301c8518d71ad2dd5231f448f86a439f45b7b3899dbb613794c4"
+  },
+  "teachers": {
+    "train-trackdrive-82000-matched": {
+      "a_lat_max": 4.0,
+      "a_acc": 5.0,
+      "a_brk": 8.0,
+      "v_cap": 8.0,
+      "k_lookahead": 0.25,
+      "lookahead_min": 1.8,
+      "lookahead_max": 9.0,
+      "kp_speed": 1.5,
+      "stop_decel": 4.0,
+      "controller": "pure_pursuit",
+      "k_lat": 2.0,
+      "k_head": 0.6,
+      "t_preview": 0.12,
+      "stop_after_line": 12.0
+    },
+    "train-skidpad-82000-matched": {
+      "a_lat_max": 4.0,
+      "a_acc": 5.0,
+      "a_brk": 8.0,
+      "v_cap": 8.0,
+      "k_lookahead": 0.25,
+      "lookahead_min": 1.8,
+      "lookahead_max": 9.0,
+      "kp_speed": 1.5,
+      "stop_decel": 4.0,
+      "controller": "pure_pursuit",
+      "k_lat": 2.0,
+      "k_head": 0.6,
+      "t_preview": 0.12,
+      "stop_after_line": 12.0
+    },
+    "train-trackdrive-82001-visual_stress_v1": {
+      "a_lat_max": 4.0,
+      "a_acc": 5.0,
+      "a_brk": 8.0,
+      "v_cap": 8.0,
+      "k_lookahead": 0.25,
+      "lookahead_min": 1.8,
+      "lookahead_max": 9.0,
+      "kp_speed": 1.5,
+      "stop_decel": 4.0,
+      "controller": "pure_pursuit",
+      "k_lat": 2.0,
+      "k_head": 0.6,
+      "t_preview": 0.12,
+      "stop_after_line": 12.0
+    },
+    "train-skidpad-82001-visual_stress_v1": {
+      "a_lat_max": 4.0,
+      "a_acc": 5.0,
+      "a_brk": 8.0,
+      "v_cap": 8.0,
+      "k_lookahead": 0.25,
+      "lookahead_min": 1.8,
+      "lookahead_max": 9.0,
+      "kp_speed": 1.5,
+      "stop_decel": 4.0,
+      "controller": "pure_pursuit",
+      "k_lat": 2.0,
+      "k_head": 0.6,
+      "t_preview": 0.12,
+      "stop_after_line": 12.0
+    },
+    "train-trackdrive-82002-visual_stress_v1": {
+      "a_lat_max": 4.0,
+      "a_acc": 5.0,
+      "a_brk": 8.0,
+      "v_cap": 8.0,
+      "k_lookahead": 0.25,
+      "lookahead_min": 1.8,
+      "lookahead_max": 9.0,
+      "kp_speed": 1.5,
+      "stop_decel": 4.0,
+      "controller": "pure_pursuit",
+      "k_lat": 2.0,
+      "k_head": 0.6,
+      "t_preview": 0.12,
+      "stop_after_line": 12.0
+    },
+    "train-skidpad-82002-visual_stress_v1": {
+      "a_lat_max": 4.0,
+      "a_acc": 5.0,
+      "a_brk": 8.0,
+      "v_cap": 8.0,
+      "k_lookahead": 0.25,
+      "lookahead_min": 1.8,
+      "lookahead_max": 9.0,
+      "kp_speed": 1.5,
+      "stop_decel": 4.0,
+      "controller": "pure_pursuit",
+      "k_lat": 2.0,
+      "k_head": 0.6,
+      "t_preview": 0.12,
+      "stop_after_line": 12.0
+    },
+    "train-trackdrive-82003-visual_stress_v1": {
+      "a_lat_max": 4.0,
+      "a_acc": 5.0,
+      "a_brk": 8.0,
+      "v_cap": 8.0,
+      "k_lookahead": 0.25,
+      "lookahead_min": 1.8,
+      "lookahead_max": 9.0,
+      "kp_speed": 1.5,
+      "stop_decel": 4.0,
+      "controller": "pure_pursuit",
+      "k_lat": 2.0,
+      "k_head": 0.6,
+      "t_preview": 0.12,
+      "stop_after_line": 12.0
+    },
+    "train-skidpad-82003-visual_stress_v1": {
+      "a_lat_max": 4.0,
+      "a_acc": 5.0,
+      "a_brk": 8.0,
+      "v_cap": 8.0,
+      "k_lookahead": 0.15,
+      "lookahead_min": 1.8,
+      "lookahead_max": 9.0,
+      "kp_speed": 1.5,
+      "stop_decel": 4.0,
+      "controller": "pure_pursuit",
+      "k_lat": 2.0,
+      "k_head": 0.6,
+      "t_preview": 0.12,
+      "stop_after_line": 12.0
+    }
+  },
+  "gate": {
+    "min_lateral_m": 0.3,
+    "min_yaw_rad": 0.1,
+    "min_anchors": 8,
+    "window_seconds": 2,
+    "return_within_seconds": 4,
+    "settled_lateral_m": 0.2,
+    "settled_yaw_rad": 0.1,
+    "settled_seconds": 0.5
+  },
+  "training": {
+    "steps": 500,
+    "batch_size": 128,
+    "recovery_per_batch": 16,
+    "other_per_batch": 112,
+    "recovery_window_seconds": 2,
+    "seed": 0
+  },
+  "limits": [
+    "Eight event-triggered learner-prefix recoveries. Actual handoff phases and state coverage must be reported; post-contact recovery excluded.",
+    "New episodes capture20Hz; 32 retained episodes preserve their old capture cadence.",
+    "Fail pilot gate before remaining collection or training; preserve all attempts."
+  ],
+  "supersedes": {
+    "recipe_sha256": "fb7e4f22a733b6ca2068887753c3356d6f396b55f1155a9e41dce2cdc7561609",
+    "failed_gate": "data/native/lab_v3/recovery_gates/train-trackdrive-82000-matched.json",
+    "reason": "Fixed8s handoff occurred at0.25156m lateral and0.03263rad yaw before declared corrective state. Use actual drift trigger; success criteria unchanged."
+  },
+  "replacement_case_ids": [
+    "train-skidpad-82000-matched",
+    "train-skidpad-82001-visual_stress_v1",
+    "train-skidpad-82002-visual_stress_v1",
+    "train-skidpad-82003-visual_stress_v1"
+  ],
+  "source_manifest_sha256": "a8b32953dcbeb66c26e9a77a343786aba81590c22062e03d08932f7a0eeaaa38",
+  "collection_by_case": {
+    "train-trackdrive-82000-matched": {
+      "checkpoint_sha256": "1ac2e3ba949db39ab445c636f841360973e2add8c86edab689a3a872f040ce55",
+      "controller_contract": {
+        "version": 1,
+        "mode": "pp",
+        "mission_layer": "mission_brake_after_follower"
+      },
+      "collection": {
+        "mode": "legacy_learner_prefix_v1",
+        "takeover_seconds": 120,
+        "lateral_threshold_m": 0.4,
+        "capture_hz": 20,
+        "image_hz": 5
+      },
+      "legacy_receipt": {
+        "path": "/work/data/native/lab_v4/recovery_gates/train-trackdrive-82000-matched.json",
+        "sha256": "2924200cdc909c9a43ef2b45bd81f19abbf786b5673220e37a05f6a7e8434214",
+        "recipe": "/work/docs/isaac-lab-training/recovery_recipe_event.json",
+        "recipe_sha256": "05ca009f60d525b6f6c32c8dbc043b7e7e1e59eef74f2a20ce544ded6298236f"
+      }
+    },
+    "train-skidpad-82000-matched": {
+      "checkpoint_sha256": "c121faa268d8c98bdac537974a9c21d3523a7b57cdab7f480351cbb2f98f89ac",
+      "controller_contract": {
+        "version": 1,
+        "mode": "op_tangent_v1",
+        "steering": "openpilot_follower_body_vx",
+        "steering_action_time_s": 0.2,
+        "steering_min_speed_mps": 1.0,
+        "steering_delay_floor_s": 0.05,
+        "longitudinal": "knotwise_planar_tangent",
+        "action_time_s": 0.3,
+        "speed_gain": 1.5,
+        "accel_feedforward": 0.5,
+        "speed_floor_mps": 0.001,
+        "current_velocity": "measured_body_vx_vy",
+        "mission_layer": "mission_brake_after_follower",
+        "mission_brake_decel_mps2": 3.5,
+        "mission_launch_accel_mps2": 2.0
+      },
+      "collection": {
+        "mode": "phase_recovery_v1",
+        "phase": "entry",
+        "lateral_threshold_m": 0.35,
+        "learner_window_seconds": 6,
+        "transition_lead_m": 12
+      },
+      "source_inventory_sha256": "a49741c49fa390861fee8bfe526ab01beb2c55356d96ba6769013ac46d4b5232",
+      "controller_state_during_teacher": "reset_after_each_discarded_proposal"
+    },
+    "train-trackdrive-82001-visual_stress_v1": {
+      "checkpoint_sha256": "1ac2e3ba949db39ab445c636f841360973e2add8c86edab689a3a872f040ce55",
+      "controller_contract": {
+        "version": 1,
+        "mode": "pp",
+        "mission_layer": "mission_brake_after_follower"
+      },
+      "collection": {
+        "mode": "legacy_learner_prefix_v1",
+        "takeover_seconds": 120,
+        "lateral_threshold_m": 0.4,
+        "capture_hz": 20,
+        "image_hz": 5
+      },
+      "legacy_receipt": {
+        "path": "/work/data/native/lab_v4/recovery_gates/train-trackdrive-82001-visual_stress_v1.json",
+        "sha256": "17949c7b885b90ff09dff0ffd38ca03846881e46c99a3c48d608dc76842230a8",
+        "recipe": "/work/docs/isaac-lab-training/recovery_recipe_event.json",
+        "recipe_sha256": "05ca009f60d525b6f6c32c8dbc043b7e7e1e59eef74f2a20ce544ded6298236f"
+      }
+    },
+    "train-skidpad-82001-visual_stress_v1": {
+      "checkpoint_sha256": "c121faa268d8c98bdac537974a9c21d3523a7b57cdab7f480351cbb2f98f89ac",
+      "controller_contract": {
+        "version": 1,
+        "mode": "op_tangent_v1",
+        "steering": "openpilot_follower_body_vx",
+        "steering_action_time_s": 0.2,
+        "steering_min_speed_mps": 1.0,
+        "steering_delay_floor_s": 0.05,
+        "longitudinal": "knotwise_planar_tangent",
+        "action_time_s": 0.3,
+        "speed_gain": 1.5,
+        "accel_feedforward": 0.5,
+        "speed_floor_mps": 0.001,
+        "current_velocity": "measured_body_vx_vy",
+        "mission_layer": "mission_brake_after_follower",
+        "mission_brake_decel_mps2": 3.5,
+        "mission_launch_accel_mps2": 2.0
+      },
+      "collection": {
+        "mode": "phase_recovery_v1",
+        "phase": "entry",
+        "lateral_threshold_m": 0.35,
+        "learner_window_seconds": 6,
+        "transition_lead_m": 12
+      },
+      "source_inventory_sha256": "a49741c49fa390861fee8bfe526ab01beb2c55356d96ba6769013ac46d4b5232",
+      "controller_state_during_teacher": "reset_after_each_discarded_proposal"
+    },
+    "train-trackdrive-82002-visual_stress_v1": {
+      "checkpoint_sha256": "1ac2e3ba949db39ab445c636f841360973e2add8c86edab689a3a872f040ce55",
+      "controller_contract": {
+        "version": 1,
+        "mode": "pp",
+        "mission_layer": "mission_brake_after_follower"
+      },
+      "collection": {
+        "mode": "legacy_learner_prefix_v1",
+        "takeover_seconds": 120,
+        "lateral_threshold_m": 0.4,
+        "capture_hz": 20,
+        "image_hz": 5
+      },
+      "legacy_receipt": {
+        "path": "/work/data/native/lab_v4/recovery_gates/train-trackdrive-82002-visual_stress_v1.json",
+        "sha256": "70ff6fbfc7b9224818876b3541bd79d1efc6232176ce4ce0ff1fae788902c7ff",
+        "recipe": "/work/docs/isaac-lab-training/recovery_recipe_event.json",
+        "recipe_sha256": "05ca009f60d525b6f6c32c8dbc043b7e7e1e59eef74f2a20ce544ded6298236f"
+      }
+    },
+    "train-skidpad-82002-visual_stress_v1": {
+      "checkpoint_sha256": "c121faa268d8c98bdac537974a9c21d3523a7b57cdab7f480351cbb2f98f89ac",
+      "controller_contract": {
+        "version": 1,
+        "mode": "op_tangent_v1",
+        "steering": "openpilot_follower_body_vx",
+        "steering_action_time_s": 0.2,
+        "steering_min_speed_mps": 1.0,
+        "steering_delay_floor_s": 0.05,
+        "longitudinal": "knotwise_planar_tangent",
+        "action_time_s": 0.3,
+        "speed_gain": 1.5,
+        "accel_feedforward": 0.5,
+        "speed_floor_mps": 0.001,
+        "current_velocity": "measured_body_vx_vy",
+        "mission_layer": "mission_brake_after_follower",
+        "mission_brake_decel_mps2": 3.5,
+        "mission_launch_accel_mps2": 2.0
+      },
+      "collection": {
+        "mode": "phase_recovery_v1",
+        "phase": "left_transition",
+        "lateral_threshold_m": 0.35,
+        "learner_window_seconds": 6,
+        "transition_lead_m": 12
+      },
+      "source_inventory_sha256": "a49741c49fa390861fee8bfe526ab01beb2c55356d96ba6769013ac46d4b5232",
+      "controller_state_during_teacher": "reset_after_each_discarded_proposal"
+    },
+    "train-trackdrive-82003-visual_stress_v1": {
+      "checkpoint_sha256": "1ac2e3ba949db39ab445c636f841360973e2add8c86edab689a3a872f040ce55",
+      "controller_contract": {
+        "version": 1,
+        "mode": "pp",
+        "mission_layer": "mission_brake_after_follower"
+      },
+      "collection": {
+        "mode": "legacy_learner_prefix_v1",
+        "takeover_seconds": 120,
+        "lateral_threshold_m": 0.4,
+        "capture_hz": 20,
+        "image_hz": 5
+      },
+      "legacy_receipt": {
+        "path": "/work/data/native/lab_v4/recovery_gates/train-trackdrive-82003-visual_stress_v1.json",
+        "sha256": "98ad45b6681d48c78da75f29552e7340ad8ac09b4d96a683aa6fd6bb140d9d38",
+        "recipe": "/work/docs/isaac-lab-training/recovery_recipe_event.json",
+        "recipe_sha256": "05ca009f60d525b6f6c32c8dbc043b7e7e1e59eef74f2a20ce544ded6298236f"
+      }
+    },
+    "train-skidpad-82003-visual_stress_v1": {
+      "checkpoint_sha256": "c121faa268d8c98bdac537974a9c21d3523a7b57cdab7f480351cbb2f98f89ac",
+      "controller_contract": {
+        "version": 1,
+        "mode": "op_tangent_v1",
+        "steering": "openpilot_follower_body_vx",
+        "steering_action_time_s": 0.2,
+        "steering_min_speed_mps": 1.0,
+        "steering_delay_floor_s": 0.05,
+        "longitudinal": "knotwise_planar_tangent",
+        "action_time_s": 0.3,
+        "speed_gain": 1.5,
+        "accel_feedforward": 0.5,
+        "speed_floor_mps": 0.001,
+        "current_velocity": "measured_body_vx_vy",
+        "mission_layer": "mission_brake_after_follower",
+        "mission_brake_decel_mps2": 3.5,
+        "mission_launch_accel_mps2": 2.0
+      },
+      "collection": {
+        "mode": "phase_recovery_v1",
+        "phase": "left_transition",
+        "lateral_threshold_m": 0.35,
+        "learner_window_seconds": 6,
+        "transition_lead_m": 12
+      },
+      "source_inventory_sha256": "a49741c49fa390861fee8bfe526ab01beb2c55356d96ba6769013ac46d4b5232",
+      "controller_state_during_teacher": "reset_after_each_discarded_proposal"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "snapshot_sha256": "a3ea419f9c26db9c34b4069a991ac8150664755c608d70ea496b1e69fa9ab9ef",
+  "local_file_mtime_utc": "2026-11-10T03:24:08.430806+00:00",
+  "ps_cpu_percent": "Lifetime averaged process CPU utilization as reported by ps, not an instantaneous per-core trace",
+  "observed_other_work": "Multiple simpleFoam processes each near 100 percent CPU",
+  "whole_gpu_sample": {
+    "gpu_percent": 41,
+    "power_w": 39.1,
+    "temperature_c": 76,
+    "sm_clock_mhz": 2392,
+    "active_clock_event_mask": "0x0000000000000000"
+  },
+  "interpretation": "This is shared hardware. Training telemetry measures the whole GPU and host. Host memory includes unrelated jobs and the RAM-backed filesystem. Duration comparisons do not isolate optimizer-scope performance."
+}

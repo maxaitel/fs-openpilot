@@ -1,0 +1,128 @@
+{
+  "post_observation_interpretation": true,
+  "original_protocol_pass": false,
+  "original_failure_count": 48,
+  "original_criteria_unchanged": true,
+  "physics_zero_advance_exact": true,
+  "zero_advance_operation_count": 48,
+  "writer_close_physics_unchanged": true,
+  "six_float32_timesteps_seconds": 0.05000000260770321,
+  "advance_count": 16,
+  "all_advances_exactly_six_steps": true,
+  "advance_duration_max_abs_error_vs_float32": 0.0,
+  "advance_duration_error_vs_rational": 2.6077032061477823e-09,
+  "cross_process_max_abs": {
+    "sim_seconds": 0.0,
+    "timeline_seconds": 0.0,
+    "steps": 0,
+    "pose_max_abs": 0.0,
+    "velocity_max_abs": 0.0
+  },
+  "minimum_idle_wall_seconds": 0.15009913500398397,
+  "capture_timeline_deltas": [
+    0.05000000074505806
+  ],
+  "advance_timeline_deltas": [
+    0.0
+  ],
+  "sensor_settings_equal_except_picking_id": true,
+  "render_prim_differences": [
+    {
+      "path": "/Render/OmniverseKit/HydraTextures/Replicator",
+      "category": "attributes",
+      "key": "viewPickingId",
+      "sync": "17642455553778506908",
+      "async": "6787733186174401535"
+    },
+    {
+      "path": "/Render/OmniverseKit/HydraTextures/Replicator_01",
+      "category": "attributes",
+      "key": "viewPickingId",
+      "sync": "10159494836102766478",
+      "async": "16122610501178641781"
+    },
+    {
+      "path": "/Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0",
+      "category": "attributes",
+      "key": "omni:rtx:material:db:nonVisualMaterialCSV:enabled",
+      "sync": "False",
+      "async": "True"
+    },
+    {
+      "path": "/Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0",
+      "category": "attributes",
+      "key": "omni:rtx:material:db:syncLoads",
+      "sync": "True",
+      "async": "False"
+    },
+    {
+      "path": "/Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0",
+      "category": "attributes",
+      "key": "omni:rtx:post:dlss:execMode",
+      "sync": "performance",
+      "async": "auto"
+    },
+    {
+      "path": "/Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0",
+      "category": "attributes",
+      "key": "omni:rtx:pt:clampSpp",
+      "sync": "64",
+      "async": "32"
+    },
+    {
+      "path": "/Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0",
+      "category": "attributes",
+      "key": "omni:rtx:pt:maxVolumeBounces",
+      "sync": "4",
+      "async": "15"
+    },
+    {
+      "path": "/Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0",
+      "category": "attributes",
+      "key": "omni:rtx:pt:samplesPerIteration",
+      "sync": "64",
+      "async": "1"
+    },
+    {
+      "path": "/Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0",
+      "category": "attributes",
+      "key": "omni:rtx:pt:samplesPerPixel",
+      "sync": "64",
+      "async": "512"
+    },
+    {
+      "path": "/Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0",
+      "category": "attributes",
+      "key": "omni:rtx:scene:hydra:materialSyncLoads",
+      "sync": "True",
+      "async": "False"
+    },
+    {
+      "path": "/Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0",
+      "category": "attributes",
+      "key": "omni:rtx:scene:hydra:mdlMaterialWarmup",
+      "sync": "True",
+      "async": "False"
+    },
+    {
+      "path": "/Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0",
+      "category": "attributes",
+      "key": "viewPickingId",
+      "sync": "11169510405240765278",
+      "async": "18218070274952280124"
+    }
+  ],
+  "initial_pixel_differences": {
+    "road": {
+      "mae": 0.7262420654296875,
+      "max_abs": 18.0,
+      "different_fraction": 0.5466028849283854
+    },
+    "wide": {
+      "mae": 0.4871978759765625,
+      "max_abs": 21.0,
+      "different_fraction": 0.3712717692057292
+    }
+  },
+  "limitations": "Two 8-tick fixed-action runs, one per writer, do not establish learned-policy repeatability, full-episode timing isolation, or the exact cause of RTX pixel variation. Timeline advancement is separately observed and is not evidence of physics advancement."
+}
